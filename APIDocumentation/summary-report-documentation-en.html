@@ -204,7 +204,7 @@
                         <h2 id="a1">Introduction</h2>
                         <p>The Drug and Health Product Register web site brings together Information on product licences, drug and health product inspections, buying and using products safely, and side effects, recalls and complaints.</p>
                         <p>This Application Programming Interface (API) allows developers to access that information in JSON format for reuse in their own applications.</p>
-                        <p>The base URI for the Regulatory Content &nbsp;<a href="https://imsd.hres.ca/regcontent-v1/api/">https://imsd.hres.ca/regcontent-v1/api/</a>. Any requests are made relative to this URI.</p>
+                        <p>The base URI for the Regulatory Content &nbsp;<a href="https://imsd.hres.ca/regcontent/api/">https://imsd.hres.ca/regcontent/api/</a>. Any requests are made relative to this URI.</p>
                     </section>
                     <!--h2-section-end-->
                     <section>
@@ -226,7 +226,7 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">regcontent-v1/api/basisdecision?id=SBD00001</span></td>
+                                    <td><span class="nowrap">regcontent/api/basisdecision?id=SBD00001</span></td>
                                     <td>Returns summary basis decision by ID of the SBD.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -237,7 +237,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">regcontent-v1/api/basisdecision/?lang=en</span></td>
+                                    <td><span class="nowrap">regcontent/api/basisdecision/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -249,7 +249,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">regcontent-v1/api/basisdecision/?type=json</span></td>
+                                    <td><span class="nowrap">regcontent/api/basisdecision/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -263,8 +263,8 @@
                             </table>
                             <p>Summary Basis of Decision can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://imsd.hres.ca/regcontent-v1/api/basisdecision/?lang=en&type=json">https://imsd.hres.ca/regcontent-v1/api/basisdecision/?lang=en&type=json</a></li>
-                                <li><a href="https://imsd.hres.ca/regcontent-v1/api/basisdecision/?lang=fr&type=json">https://imsd.hres.ca/regcontent-v1/api/basisdecision/?lang=fr&type=json</a></li>
+                                <li><a href="https://imsd.hres.ca/regcontent/api/basisdecision/?lang=en&type=json">https://imsd.hres.ca/regcontent/api/basisdecision/?lang=en&type=json</a></li>
+                                <li><a href="https://imsd.hres.ca/regcontent/api/basisdecision/?lang=fr&type=json">https://imsd.hres.ca/regcontent/api/basisdecision/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <!--h3-section-end-->
@@ -287,7 +287,7 @@
                                     <td>There are two different formats for the SBDs.  This variable defines which template is used.  Possible values are1 or 2.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>control_num</strong></td>
+                                    <td><strong>control_number</strong></td>
                                     <td>The control number (for the new drug submission).</td>
                                 </tr>
                                 <tr>
@@ -471,7 +471,7 @@
                                 <p>Example for a function summary basis of decision to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getSummaryBasisOfDecision(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/regcontent-v1/api/basisdecision/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/regcontent/api/basisdecision/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
@@ -523,7 +523,7 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">regcontent-v1/api/regulatorydecision?id=RDS00007</span></td>
+                                    <td><span class="nowrap">regcontent/api/regulatorydecision?id=RDS00007</span></td>
                                     <td>Returns regulatory decision by ID of the RDS.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -534,7 +534,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">regcontent-v1/api/regulatorydecision/?lang=en</span></td>
+                                    <td><span class="nowrap">regcontent/api/regulatorydecision/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -546,7 +546,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">regcontent-v1/api/regulatorydecision/?type=json</span></td>
+                                    <td><span class="nowrap">regcontent/api/regulatorydecision/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -560,8 +560,8 @@
                             </table>
                             <p>Regulatory Decision can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://imsd.hres.ca/regcontent-v1/api/regulatorydecision/?lang=en&type=json">https://imsd.hres.ca/regcontent-v1/api/regulatorydecision/?lang=en&type=json</a></li>
-                                <li><a href="https://imsd.hres.ca/regcontent-v1/api/regulatorydecision/?lang=fr&type=json">https://imsd.hres.ca/regcontent-v1/api/regulatorydecision/?lang=fr&type=json</a></li>
+                                <li><a href="https://imsd.hres.ca/regcontent/api/regulatorydecision/?lang=en&type=json">https://imsd.hres.ca/regcontent/api/regulatorydecision/?lang=en&type=json</a></li>
+                                <li><a href="https://imsd.hres.ca/regcontent/api/regulatorydecision/?lang=fr&type=json">https://imsd.hres.ca/regcontent/api/regulatorydecision/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <!--h3-section-end-->
@@ -662,6 +662,10 @@
                                     <td>The ?????</td>
                                 </tr>
                                 <tr>
+                                    <td><strong>is_md</strong></td>
+                                    <td>The ??????.</td>
+                                </tr>
+                                <tr>
                                     <td><strong>din_list</strong></td>
                                     <td>The ?????</td>
                                 </tr>
@@ -682,7 +686,7 @@
                                 <p>Example for a function of regulatory decision to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getRegulatoryDecision(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/regcontent-v1/api/regulatorydecision/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/regcontent/api/regulatorydecision/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
@@ -734,7 +738,7 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">regcontent-v1/api/safetyreview?id=SSR00001</span></td>
+                                    <td><span class="nowrap">regcontent/api/safetyreview?id=SSR00001</span></td>
                                     <td>Returns summary safety reviews by ID of the SSR.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -745,7 +749,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">regcontent-v1/api/safetyreview/?lang=en</span></td>
+                                    <td><span class="nowrap">regcontent/api/safetyreview/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -757,7 +761,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">regcontent-v1/api/safetyreview/?type=json</span></td>
+                                    <td><span class="nowrap">regcontent/api/safetyreview/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -771,8 +775,8 @@
                             </table>
                             <p>Summary Safety Reviews can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://imsd.hres.ca/regcontent-v1/api/safetyreview/?lang=en&type=json">https://imsd.hres.ca/regcontent-v1/api/safetyreview/?lang=en&type=json</a></li>
-                                <li><a href="https://imsd.hres.ca/regcontent-v1/api/safetyreview/?lang=fr&type=json">https://imsd.hres.ca/regcontent-v1/api/safetyreview/?lang=fr&type=json</a></li>
+                                <li><a href="https://imsd.hres.ca/regcontent/api/safetyreview/?lang=en&type=json">https://imsd.hres.ca/regcontent/api/safetyreview/?lang=en&type=json</a></li>
+                                <li><a href="https://imsd.hres.ca/regcontent/api/safetyreview/?lang=fr&type=json">https://imsd.hres.ca/regcontent/api/safetyreview/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <!--h3-section-end-->
@@ -908,7 +912,7 @@
                                 <p>Example for a function summary safety review to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getSummarySafetyReview(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/regcontent-v1/api/safetyreview/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/regcontent/api/safetyreview/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
