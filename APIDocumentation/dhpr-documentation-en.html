@@ -2919,7 +2919,7 @@ return;
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a21.1">Parameters</h3>
-                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <p>There are two parameters in the request: id and format type.</p>
                             <table>
                                 <caption>Request parameters</caption>
                                 <tr>
@@ -2938,18 +2938,7 @@ return;
                                     <td><strong>Yes</strong></td>
                                     <td></td>
                                 </tr>
-                                <tr>
-                                    <td><span class="nowrap">dhpr1/api/xref/?lang=en</span></td>
-                                    <td>Changes language</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>en</code>&nbsp;- English</li>
-                                            <li><code>fr</code>&nbsp;- French</li>
-                                        </ul>
-                                    </td>
-                                    <td><strong>No</strong>, but defaults to English if not specified</td>
-                                    <td>Determines whether the response is in English or French.</td>
-                                </tr>
+                                
                                 <tr>
                                     <td><span class="nowrap">dhpr1/api/xref/?type=json</span></td>
                                     <td>Changes the format of result.</td>
@@ -2965,8 +2954,8 @@ return;
                             </table>
                             <p>Xref can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/dhpr1/api/xref/?lang=en&type=json">https://api.hres.ca/dhpr1/api/xref/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/dhpr1/api/xref/?lang=fr&type=json">https://api.hres.ca/dhpr1/api/xref/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dhpr1/api/xref/?type=json">https://api.hres.ca/dhpr1/api/xref/?type=json</a></li>
+                                
                             </ul>
                         </section>
                         <section>
@@ -2998,7 +2987,7 @@ return;
                             </table>
                             <section>
                                 <h3 id="a21.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"id":700,"cvp_name":"SECOBARBITAL","dhpr_name":"ORAL","submit_date":null}</pre>
+                                <pre class="prettify prettyprint linenums">{"id":477,"cvp_name":"BETADERM","dhpr_name":"BETADERM","submit_date":"2016-04-29"}</pre>
                             </section>
                             <section>
                                 <h3 id="a21.4">jQuery example</h3>
