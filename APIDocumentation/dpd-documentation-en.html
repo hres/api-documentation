@@ -215,8 +215,8 @@
                                     <li><a href="#a6.4">jQuery example </a></li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="#a7">Schedule</a>
+							<li>
+                                <a href="#a7">Pharmaceutical Std</a>
                                 <ul>
                                     <li><a href="#a7.1">Parameters</a></li>
                                     <li><a href="#a7.2">Response format</a></li>
@@ -225,7 +225,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a8">Route</a>
+                                <a href="#a8">Schedule</a>
                                 <ul>
                                     <li><a href="#a8.1">Parameters</a></li>
                                     <li><a href="#a8.2">Response format</a></li>
@@ -234,7 +234,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a9">Status</a>
+                                <a href="#a9">Route</a>
                                 <ul>
                                     <li><a href="#a9.1">Parameters</a></li>
                                     <li><a href="#a9.2">Response format</a></li>
@@ -243,7 +243,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a10">Status External</a>
+                                <a href="#a10">Status</a>
                                 <ul>
                                     <li><a href="#a10.1">Parameters</a></li>
                                     <li><a href="#a10.2">Response format</a></li>
@@ -252,7 +252,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a11">Therapeutic Class</a>
+                                <a href="#a11">Status External</a>
                                 <ul>
                                     <li><a href="#a11.1">Parameters</a></li>
                                     <li><a href="#a11.2">Response format</a></li>
@@ -261,12 +261,21 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a12">Veterinary Species</a>
+                                <a href="#a12">Therapeutic Class</a>
                                 <ul>
                                     <li><a href="#a12.1">Parameters</a></li>
                                     <li><a href="#a12.2">Response format</a></li>
                                     <li><a href="#a12.3">Sample response</a></li>
                                     <li><a href="#a12.4">jQuery example </a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#a13">Veterinary Species</a>
+                                <ul>
+                                    <li><a href="#a13.1">Parameters</a></li>
+                                    <li><a href="#a13.2">Response format</a></li>
+                                    <li><a href="#a13.3">Sample response</a></li>
+                                    <li><a href="#a13.4">jQuery example </a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -278,7 +287,7 @@
                         <p>Human, veterinary, disinfectants and Schedule C drugs (e.g. radiopharmaceutical products) approved products will be available in the DPD online at the time of authorization, with the exception of three monographed product groups under Division 1, Part C of the Food and Drug Regulations: sunscreen (sunscreens, lipstick making a SPF claim, cosmetic-like products with sunscreen claims, etc.), anti-dandruff shampoo, and hard surface disinfectants.  For these products, applications filed after June 15, 2015, there may be a six month delay after approval for the inclusion in the DPD online.</p>
                         <p>Health Canada is the federal regulator of therapeutic products and does not provide medical advice on the use of the products identified in this database. For information related to treatment options, choices of medications and their uses, illnesses, side effects or drug interactions, please contact your health care professional. For information on where these products are sold, please contact the individual company directly.</p>
                         <p>This Application Programming Interface (API) allows developers to access that information in JSON format for reuse in their own applications.</p>
-                        <p>The base URI for the Drug Product Database &nbsp;<a href="https://api.hres.ca/dpd/api-v1/">https://api.hres.ca/dpd/api-v1/</a>. Any requests are made relative to this URI.</p>
+                        <p>The base URI for the Drug Product Database &nbsp;<a href="https://api.hres.ca/dpd/api/">https://api.hres.ca/dpd/api/</a>. Any requests are made relative to this URI.</p>
                     </section>
 
                     <section>
@@ -300,7 +309,7 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/activeingredient/?id=</span></td>
+                                    <td><span class="nowrap">dpd/api/activeingredient/?id=</span></td>
                                     <td>Returns active ingredient by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -311,7 +320,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/activeingredient/?lang=en</span></td>
+                                    <td><span class="nowrap">dpd/api/activeingredient/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -323,7 +332,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/activeingredient/?type=json</span></td>
+                                    <td><span class="nowrap">dpd/api/activeingredient/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -337,8 +346,8 @@
                             </table>
                             <p>Active ingredient can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/activeingredient/?lang=en&type=json">https://api.hres.ca/dpd/api-v1/activeingredient/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/activeingredient/?lang=fr&type=json">https://api.hres.ca/dpd/api-v1/activeingredient/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/activeingredient/?lang=en&type=json">https://api.hres.ca/dpd/api/activeingredient/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/activeingredient/?lang=fr&type=json">https://api.hres.ca/dpd/api/activeingredient/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
 
@@ -399,7 +408,7 @@
                                 <p>Example for a function of active ingredient to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getActiveIngredient(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api-v1/activeingredient/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/activeingredient/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
@@ -447,7 +456,7 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/company/?id=</span></td>
+                                    <td><span class="nowrap">dpd/api/company/?id=</span></td>
                                     <td>Returns company by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -458,7 +467,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/company/?lang=en</span></td>
+                                    <td><span class="nowrap">dpd/api/company/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -470,7 +479,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/company/?type=json</span></td>
+                                    <td><span class="nowrap">dpd/api/company/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -484,8 +493,8 @@
                             </table>
                             <p>Company can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/company/?lang=en&type=json">https://api.hres.ca/dpd/api-v1/company/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/company/?lang=fr&type=json">https://api.hres.ca/dpd/api-v1/company/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/company/?lang=en&type=json">https://api.hres.ca/dpd/api/company/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/company/?lang=fr&type=json">https://api.hres.ca/dpd/api/company/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
 
@@ -557,7 +566,7 @@
                                 <p>Example for a function of company to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getCompany(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api-v1/company/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/company/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
@@ -605,7 +614,7 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/drugproduct/?id=</span></td>
+                                    <td><span class="nowrap">dpd/api/drugproduct/?id=</span></td>
                                     <td>Returns drug product by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -616,7 +625,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/drugproduct/?lang=en</span></td>
+                                    <td><span class="nowrap">dpd/api/drugproduct/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -628,7 +637,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/drugproduct/?type=json</span></td>
+                                    <td><span class="nowrap">dpd/api/drugproduct/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -642,8 +651,8 @@
                             </table>
                             <p>Drug Product can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/drugproduct/?lang=en&type=json">https://api.hres.ca/dpd/api-v1/drugproduct/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/drugproduct/?lang=fr&type=json">https://api.hres.ca/dpd/api-v1/drugproduct/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/drugproduct/?lang=en&type=json">https://api.hres.ca/dpd/api/drugproduct/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/drugproduct/?lang=fr&type=json">https://api.hres.ca/dpd/api/drugproduct/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -795,7 +804,7 @@
                                 <p>Example for a function of drug product to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getDrugProduct(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api-v1/drugproduct/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/drugproduct/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
@@ -841,7 +850,7 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/form/?id=</span></td>
+                                    <td><span class="nowrap">dpd/api/form/?id=</span></td>
                                     <td>Returns form by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -852,7 +861,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/form/?lang=en</span></td>
+                                    <td><span class="nowrap">dpd/api/form/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -864,7 +873,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/form/?type=json</span></td>
+                                    <td><span class="nowrap">dpd/api/form/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -878,8 +887,8 @@
                             </table>
                             <p>Form can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/form/?lang=en&type=json">https://api.hres.ca/dpd/api-v1/form/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/form/?lang=fr&type=json">https://api.hres.ca/dpd/api-v1/form/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/form/?lang=en&type=json">https://api.hres.ca/dpd/api/form/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/form/?lang=fr&type=json">https://api.hres.ca/dpd/api/form/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -923,7 +932,7 @@
                                 <p>Example for a function of form to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getForm(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api-v1/form/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/form/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
@@ -969,7 +978,7 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/packaging/?id=</span></td>
+                                    <td><span class="nowrap">dpd/api/packaging/?id=</span></td>
                                     <td>Returns packaging by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -980,7 +989,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/packaging/?lang=en</span></td>
+                                    <td><span class="nowrap">dpd/api/packaging/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -992,7 +1001,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/packaging/?type=json</span></td>
+                                    <td><span class="nowrap">dpd/api/packaging/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1006,8 +1015,8 @@
                             </table>
                             <p>Packaging can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/packaging/?lang=en&type=json">https://api.hres.ca/dpd/api-v1/packaging/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/packaging/?lang=fr&type=json">https://api.hres.ca/dpd/api-v1/packaging/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/packaging/?lang=en&type=json">https://api.hres.ca/dpd/api/packaging/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/packaging/?lang=fr&type=json">https://api.hres.ca/dpd/api/packaging/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1062,7 +1071,7 @@
                                 <p>Example for a function of packaging to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getPackaging(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api-v1/packaging/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/packaging/?id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
@@ -1089,9 +1098,9 @@
                             </section>
                         </section>
                     </section>
-                    <section>
-                        <h2 id="a7">Schedule</h2>
-                        <p>TODO put description of schedule.....</p>
+					<section>
+                        <h2 id="a7">Pharmaceutical Std</h2>
+                        <p>TODO put description of pharmaceutical std.....</p>
 
                         <section>
                             <h3 id="a7.1">Parameters</h3>
@@ -1108,7 +1117,115 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/schedule/?id=</span></td>
+                                    <td><span class="nowrap">dpd/api/pharmaceuticalstd/?id=</span></td>
+                                    <td>Returns pharmaceutical std by id.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            #####&nbsp;- ID of the pharmaceutical std
+                                        </ul>
+                                    </td>
+                                    <td><strong>Yes</strong></td>
+                                    <td></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><span class="nowrap">dpd/api/pharmaceuticalstd/?type=json</span></td>
+                                    <td>Changes the format of result.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- Json</li>
+                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
+                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                </tr>
+                            </table>
+                            <p>Pharmaceutical Std can be accessed via these URIs:</p>
+                            <ul>
+                                <li><a href="https://api.hres.ca/dpd/api/pharmaceuticalstd/?type=json">https://api.hres.ca/dpd/api/pharmaceuticalstd/?type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/pharmaceuticalstd/?type=json">https://api.hres.ca/dpd/api/pharmaceuticalstd/?type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a7.2">Response format</h3>
+                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+
+                            <p>Each&nbsp;<strong>pharmaceutical std</strong>&nbsp;object consists of the following values:</p>
+                            <table>
+                                <caption>
+                                    Pharmaceutical Std object values
+                                </caption>
+                                <tr>
+                                    <th scope="col">Key</th>
+                                    <th scope="col">Value</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>drug_code</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>pharmaceutical_std</strong></td>
+                                    <td>The ...</td>
+                                </tr>
+                            </table>
+                            <!--h3-section-start-->
+                            <section>
+                                <h3 id="a7.3">Sample response</h3>
+                                <pre class="prettify prettyprint linenums">{"drug_code":10,"pharmaceutical_std":""}</pre>
+                            </section>
+                            <section>
+                                <h3 id="a7.4">jQuery example</h3>
+                                <p>Example for a function of packaging to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <pre class="prettify prettyprint linenums">function getPharmaceuticalStd(id, lang) {
+                                var base = 'https://imsd.hres.ca';
+                                var uri = base + '/dpd/api/pharmaceuticalstd/?lang=' + lang + '&id=' + id;
+                                $.ajax({
+                                    url:uri,
+                                    type:'GET',
+                                    Accept:&quot;application/json&quot;,
+                                    dataType: 'json',
+                                    success:function(data){
+                                        console.log(data.package_type);
+                                        var frag = document.createDocumentFragment();
+                                        var h2 = document.createElement(&quot;h2&quot;);
+                                        var PharmaceuticalStd = document.createTextNode(data.pharmaceutical_std);
+                                        var p = document.createElement(&quot;p&quot;);
+                                        var text = document.createTextNode(data.panels[0].text);
+                                        h2.appendChild(PharmaceuticalStd);
+                                        p.appendChild(text);
+                                        frag.appendChild(h2);
+                                        frag.appendChild(p);
+                                        $(&quot;#responses&quot;)[0].appendChild(frag);
+                                    },
+                                    error:function(error){
+                                    },
+                                });
+                                return;
+                            };			</pre>
+                            </section>
+                        </section>
+                    </section>
+                    <section>
+                        <h2 id="a8">Schedule</h2>
+                        <p>TODO put description of schedule.....</p>
+
+                        <section>
+                            <h3 id="a8.1">Parameters</h3>
+                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <table>
+                                <caption>
+                                    Request parameters
+                                </caption>
+                                <tr>
+                                    <th scope="col">Parameter</th>
+                                    <th scope="col">Meaning</th>
+                                    <th scope="col">Values</th>
+                                    <th scope="col">Required?</th>
+                                    <th scope="col">Notes</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">dpd/api/schedule/?id=</span></td>
                                     <td>Returns schedule by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1119,7 +1236,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/schedule/?lang=en</span></td>
+                                    <td><span class="nowrap">dpd/api/schedule/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1131,7 +1248,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/schedule/?type=json</span></td>
+                                    <td><span class="nowrap">dpd/api/schedule/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1145,12 +1262,12 @@
                             </table>
                             <p>Schedule can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/schedule/?lang=en&type=json">https://api.hres.ca/dpd/api-v1/schedule/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/schedule/?lang=fr&type=json">https://api.hres.ca/dpd/api-v1/schedule/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/schedule/?lang=en&type=json">https://api.hres.ca/dpd/api/schedule/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/schedule/?lang=fr&type=json">https://api.hres.ca/dpd/api/schedule/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a7.2">Response format</h3>
+                            <h3 id="a8.2">Response format</h3>
                             <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
 
                             <p>Each&nbsp;<strong>schedule</strong>&nbsp;object consists of the following values:</p>
@@ -1181,15 +1298,15 @@
                             </table>
                             <!--h3-section-start-->
                             <section>
-                                <h3 id="a7.3">Sample response</h3>
+                                <h3 id="a8.3">Sample response</h3>
                                 <pre class="prettify prettyprint linenums">{"drug_code":10,"schedule_name":"Schedule G (CDSA IV)","inactive_date":null,"schedule_code":0},{"drug_code":100,"schedule_name":"Prescription","inactive_date":null,"schedule_code":0}</pre>
                             </section>
                             <section>
-                                <h3 id="a7.4">jQuery example</h3>
+                                <h3 id="a8.4">jQuery example</h3>
                                 <p>Example for a function of schedule to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getSchedule(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api-v1/schedule/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/schedule/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
@@ -1218,11 +1335,11 @@
                     </section>
                     
                     <section>
-                        <h2 id="a8">Route</h2>
+                        <h2 id="a9">Route</h2>
                         <p>TODO put description of route.....</p>
 
                         <section>
-                            <h3 id="a8.1">Parameters</h3>
+                            <h3 id="a9.1">Parameters</h3>
                             <p>There are three parameters in the request: language, id and format type.</p>
                             <table>
                                 <caption>
@@ -1236,7 +1353,7 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/route/?id=</span></td>
+                                    <td><span class="nowrap">dpd/api/route/?id=</span></td>
                                     <td>Returns route by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1247,7 +1364,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/route/?lang=en</span></td>
+                                    <td><span class="nowrap">dpd/api/route/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1259,7 +1376,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/route/?type=json</span></td>
+                                    <td><span class="nowrap">dpd/api/route/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1273,12 +1390,12 @@
                             </table>
                             <p>Route can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/route/?lang=en&type=json">https://api.hres.ca/dpd/api-v1/route/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/route/?lang=fr&type=json">https://api.hres.ca/dpd/api-v1/route/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/route/?lang=en&type=json">https://api.hres.ca/dpd/api/route/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/route/?lang=fr&type=json">https://api.hres.ca/dpd/api/route/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a8.2">Response format</h3>
+                            <h3 id="a9.2">Response format</h3>
                             <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
 
                             <p>Each&nbsp;<strong>route</strong>&nbsp;object consists of the following values:</p>
@@ -1310,15 +1427,15 @@
                             </table>
                             <!--h3-section-start-->
                             <section>
-                                <h3 id="a8.3">Sample response</h3>
+                                <h3 id="a9.3">Sample response</h3>
                                 <pre class="prettify prettyprint linenums">{"drug_code":10,"route_of_administration_name":"Oral","route_of_administration_code":56,"inactive_date":null}</pre>
                             </section>
                             <section>
-                                <h3 id="a8.4">jQuery example</h3>
+                                <h3 id="a9.4">jQuery example</h3>
                                 <p>Example for a function of route to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getRoute(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api-v1/route/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/route/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
@@ -1346,11 +1463,11 @@
                         </section>
                     </section>
                     <section>
-                        <h2 id="a9">Status</h2>
+                        <h2 id="a10">Status</h2>
                         <p>TODO put description of status.....</p>
 
                         <section>
-                            <h3 id="a9.1">Parameters</h3>
+                            <h3 id="a10.1">Parameters</h3>
                             <p>There are three parameters in the request: language, id and format type.</p>
                             <table>
                                 <caption>
@@ -1364,7 +1481,7 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/status/?id=</span></td>
+                                    <td><span class="nowrap">dpd/api/status/?id=</span></td>
                                     <td>Returns status by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1375,7 +1492,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/status/?lang=en</span></td>
+                                    <td><span class="nowrap">dpd/api/status/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1387,7 +1504,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/status/?type=json</span></td>
+                                    <td><span class="nowrap">dpd/api/status/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1401,12 +1518,12 @@
                             </table>
                             <p>Status can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/status/?lang=en&type=json">https://api.hres.ca/dpd/api-v1/status/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/status/?lang=fr&type=json">https://api.hres.ca/dpd/api-v1/status/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/status/?lang=en&type=json">https://api.hres.ca/dpd/api/status/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/status/?lang=fr&type=json">https://api.hres.ca/dpd/api/status/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a9.2">Response format</h3>
+                            <h3 id="a10.2">Response format</h3>
                             <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
 
                             <p>Each&nbsp;<strong>status</strong>&nbsp;object consists of the following values:</p>
@@ -1458,15 +1575,15 @@
                             </table>
                             <!--h3-section-start-->
                             <section>
-                                <h3 id="a9.3">Sample response</h3>
+                                <h3 id="a10.3">Sample response</h3>
                                 <pre class="prettify prettyprint linenums">{"drug_code":10,"status_code":4,"status_name":"Discontinued (By Company Post-Market)","history_date":"2004-03-05","first_marketed_date":null,"original_market_date":"2039-12-31","external_status_code":4,"expiration_date":null,"lot_number":0}</pre>
                             </section>
                             <section>
-                                <h3 id="a9.4">jQuery example</h3>
+                                <h3 id="a10.4">jQuery example</h3>
                                 <p>Example for a function of status to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getStatus(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api-v1/status/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/status/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
@@ -1494,11 +1611,11 @@
                         </section>
                     </section>
                     <section>
-                        <h2 id="a10">Status External</h2>
+                        <h2 id="a11">Status External</h2>
                         <p>TODO put description of status external.....</p>
 
                         <section>
-                            <h3 id="a10.1">Parameters</h3>
+                            <h3 id="a11.1">Parameters</h3>
                             <p>There are three parameters in the request: language, id and format type.</p>
                             <table>
                                 <caption>
@@ -1512,7 +1629,7 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/statusexternal/?id=</span></td>
+                                    <td><span class="nowrap">dpd/api/statusexternal/?id=</span></td>
                                     <td>Returns status by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1523,7 +1640,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/statusexternal/?lang=en</span></td>
+                                    <td><span class="nowrap">dpd/api/statusexternal/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1535,7 +1652,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/statusexternal/?type=json</span></td>
+                                    <td><span class="nowrap">dpd/api/statusexternal/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1549,12 +1666,12 @@
                             </table>
                             <p>Status can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/statusexternal/?lang=en&type=json">https://api.hres.ca/dpd/api-v1/statusexternal/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/statusexternal/?lang=fr&type=json">https://api.hres.ca/dpd/api-v1/status/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/statusexternal/?lang=en&type=json">https://api.hres.ca/dpd/api/statusexternal/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/statusexternal/?lang=fr&type=json">https://api.hres.ca/dpd/api/status/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a10.2">Response format</h3>
+                            <h3 id="a11.2">Response format</h3>
                             <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
 
                             <p>Each&nbsp;<strong>status external</strong>&nbsp;object consists of the following values:</p>
@@ -1583,15 +1700,15 @@
                             </table>
                             <!--h3-section-start-->
                             <section>
-                                <h3 id="a10.3">Sample response</h3>
+                                <h3 id="a11.3">Sample response</h3>
                                 <pre class="prettify prettyprint linenums">{"external_status_code":1,"external_status_name":"Approved","inactive_date":null}</pre>
                             </section>
                             <section>
-                                <h3 id="a10.4">jQuery example</h3>
+                                <h3 id="a11.4">jQuery example</h3>
                                 <p>Example for a function of status external to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getStatusExternal(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api-v1/statusexternal/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/statusexternal/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
@@ -1619,11 +1736,11 @@
                         </section>
                     </section>
                     <section>
-                        <h2 id="a11">Therapeutic Class</h2>
+                        <h2 id="a12">Therapeutic Class</h2>
                         <p>TODO put description of therapeutic class.....</p>
 
                         <section>
-                            <h3 id="a11.1">Parameters</h3>
+                            <h3 id="a12.1">Parameters</h3>
                             <p>There are three parameters in the request: language, id and format type.</p>
                             <table>
                                 <caption>
@@ -1637,7 +1754,7 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/company/?id=</span></td>
+                                    <td><span class="nowrap">dpd/api/company/?id=</span></td>
                                     <td>Returns therapeutic class by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1648,7 +1765,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/therapeuticclass/?lang=en</span></td>
+                                    <td><span class="nowrap">dpd/api/therapeuticclass/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1660,7 +1777,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/therapeuticclass/?type=json</span></td>
+                                    <td><span class="nowrap">dpd/api/therapeuticclass/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1674,12 +1791,12 @@
                             </table>
                             <p>Company can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/therapeuticclass/?lang=en&type=json">https://api.hres.ca/dpd/api-v1/therapeuticclass/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/therapeuticclass/?lang=fr&type=json">https://api.hres.ca/dpd/api-v1/therapeuticclass/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/therapeuticclass/?lang=en&type=json">https://api.hres.ca/dpd/api/therapeuticclass/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/therapeuticclass/?lang=fr&type=json">https://api.hres.ca/dpd/api/therapeuticclass/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a11.2">Response format</h3>
+                            <h3 id="a12.2">Response format</h3>
                             <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
 
                             <p>Each&nbsp;<strong>therapeutic class</strong>&nbsp;object consists of the following values:</p>
@@ -1707,15 +1824,15 @@
                             </table>
                             <!--h3-section-start-->
                             <section>
-                                <h3 id="a11.3">Sample response</h3>
+                                <h3 id="a12.3">Sample response</h3>
                                 <pre class="prettify prettyprint linenums">{"tc_atc_code":1,"tc_atc_number":"A01AA02","tc_atc_desc_name":"SODIUM MONOFLUOROPHOSPHATE"},{"tc_atc_code":2,"tc_atc_number":"A01AB03","tc_atc_desc_name":"CHLORHEXIDINE"}</pre>
                             </section>
                             <section>
-                                <h3 id="a11.4">jQuery example</h3>
+                                <h3 id="a12.4">jQuery example</h3>
                                 <p>Example for a function of therapeutic class to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getTherapeuticClass(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api-v1/therapeuticclass/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/therapeuticclass/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
@@ -1743,11 +1860,11 @@
                         </section>
                     </section>
                     <section>
-                        <h2 id="a12">Veterinary Species</h2>
+                        <h2 id="a13">Veterinary Species</h2>
                         <p>TODO put description of veterinary species.....</p>
 
                         <section>
-                            <h3 id="a12.1">Parameters</h3>
+                            <h3 id="a13.1">Parameters</h3>
                             <p>There are three parameters in the request: language, id and format type.</p>
                             <table>
                                 <caption>
@@ -1761,7 +1878,7 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/drugveterinaryspecies/?id=</span></td>
+                                    <td><span class="nowrap">dpd/api/drugveterinaryspecies/?id=</span></td>
                                     <td>Returns company by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1772,7 +1889,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/drugveterinaryspecies/?lang=en</span></td>
+                                    <td><span class="nowrap">dpd/api/drugveterinaryspecies/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1784,7 +1901,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api-v1/drugveterinaryspecies/?type=json</span></td>
+                                    <td><span class="nowrap">dpd/api/drugveterinaryspecies/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1798,12 +1915,12 @@
                             </table>
                             <p>Veterinary species can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/drugveterinaryspecies/?lang=en&type=json">https://api.hres.ca/dpd/api-v1/drugveterinaryspecies/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/dpd/api-v1/drugveterinaryspecies/?lang=fr&type=json">https://api.hres.ca/dpd/api-v1/drugveterinaryspecies/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=en&type=json">https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=fr&type=json">https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a12.2">Response format</h3>
+                            <h3 id="a13.2">Response format</h3>
                             <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
 
                             <p>Each&nbsp;<strong>veterinary species</strong>&nbsp;object consists of the following values:</p>
@@ -1830,15 +1947,15 @@
                             </table>
                             <!--h3-section-start-->
                             <section>
-                                <h3 id="a12.3">Sample response</h3>
+                                <h3 id="a13.3">Sample response</h3>
                                 <pre class="prettify prettyprint linenums">{"drug_code":10000,"vet_species_code":15,"vet_species_name":"Swine (pigs)"},{"drug_code":10000,"vet_species_code":18,"vet_species_name":"Poultry"}</pre>
                             </section>
                             <section>
-                                <h3 id="a12.4">jQuery example</h3>
+                                <h3 id="a13.4">jQuery example</h3>
                                 <p>Example for a function of veterinary species to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getDrugVeterinarySpecies(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api-v1/drugveterinaryspecies/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/drugveterinaryspecies/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
