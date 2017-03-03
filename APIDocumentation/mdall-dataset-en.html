@@ -42,6 +42,9 @@
     <script>
 	dataLayer1 = [];
     </script><!-- End Google Tag Manager -->
+
+    <script src="./js/JSONtoCSV.js"></script>
+
 </head>
 <body class="secondary" typeof="WebPage" vocab="http://schema.org/">
     <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
@@ -367,9 +370,10 @@
                                         <td>Dataset</td>
                                         <td>JSON</td>
                                         <td>Active</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/licence/?status=active&type=json" target="_blank" title="Resource 1">Access</a>
-                                        </td>
+                          
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/licence/?status=active&type=json" target="_blank" title="Resource 1">Access</a></td>
+                                        <td><input type="button" id="dlLicence" class="btn btn-default" value="CSV" onclick="JSONtoCSV('Licence Data', 'https://api.hres.ca/cta/api/licence/?lang=en&type=json');" /></td>
+                                        
                                     </tr>
                                     <tr>
                                         <td>Licence</td>
@@ -407,6 +411,7 @@
                                         <td>
                                             <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/company/?status=active&type=json" target="_blank" title="Resource 1">Access</a>
                                         </td>
+                                        <td><input type="button" id="dlCompany" class="btn btn-default" value="CSV" onclick="JSONtoCSV('Company Data', 'https://api.hres.ca/cta/api/company/?lang=en&type=json');" /></td>
                                     </tr>
                                     <tr>
                                         <td>Company</td>
@@ -444,6 +449,7 @@
                                         <td>
                                             <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/device/?status=active&type=json" target="_blank" title="Resource 1">Access</a>
                                         </td>
+                                        <td><input type="button" id="dlDevice" class="btn btn-default" value="CSV" onclick="JSONtoCSV('Device Data', 'https://api.hres.ca/cta/api/device/?lang=en&type=json');" /></td>
                                     </tr>
                                     <tr>
                                         <td>Device</td>
@@ -480,6 +486,7 @@
                                         <td>
                                             <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/deviceidentifier/?type=json" target="_blank" title="Resource 1">Access</a>
                                         </td>
+                                        <td><input type="button" id="dlIdentifier" class="btn btn-default" value="CSV" onclick="JSONtoCSV('Device Identifier Data', 'https://api.hres.ca/cta/api/deviceidentifier/?lang=en&type=json');" /></td>
                                     </tr>
                                     <tr>
                                         <td>Device Identifier</td>
@@ -498,6 +505,7 @@
                                         <td>
                                             <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/licencetype/?lang=en&type=json" target="_blank" title="Resource 1">Access</a>
                                         </td>
+                                        <td><input type="button" id="dlType" class="btn btn-default" value="CSV" onclick="JSONtoCSV('Licence Type Data', 'https://api.hres.ca/cta/api/licencetype/?lang=en&type=json');" /></td>
                                     </tr>
                                     <tr>
                                         <td>Licence Type</td>
@@ -534,6 +542,7 @@
                                         <td>
                                             <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/sbdlocation/?lang=en&type=json" target="_blank" title="Resource 1">Access</a>
                                         </td>
+                                        <td><input type="button" id="dlLocation" class="btn btn-default" value="CSV" onclick="JSONtoCSV('SBD Location Data', 'https://api.hres.ca/cta/api/sbdlocation/?lang=en&type=json');" /></td>
                                     </tr>
                                     <tr>
                                         <td>Summary Basis Decision Location</td>
