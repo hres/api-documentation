@@ -18,7 +18,7 @@ function JSONtoCSV(fileName, url)
         csv += row + '\r\n';
 
         for (var i = 0; i < arrData.length; i++) {
-            var row = "";
+            var row = "";   
             for (var index in arrData[i]) {
                 row += '"' + arrData[i][index] + '",';          //create rows from the JSON data objects
             }
