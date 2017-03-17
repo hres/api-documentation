@@ -1,7 +1,5 @@
 function JSONtoCSV(fileName, url) {
 
-
-
     var json = $.getJSON(url, function (json) {
 
         var row = "";
@@ -25,7 +23,6 @@ function JSONtoCSV(fileName, url) {
                 row += '"' + arrData[i][index] + '",';          //create rows from the JSON data objects
             }
             row.slice(0, row.length);
-
             csv += row + '\r\n';                               //add it to the CSV string
         }
 
