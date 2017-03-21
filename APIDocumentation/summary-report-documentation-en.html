@@ -204,7 +204,7 @@
                         <h2 id="a1">Introduction</h2>
                         <p>The Drug and Health Product Register web site brings together Information on product licences, drug and health product inspections, buying and using products safely, and side effects, recalls and complaints.</p>
                         <p>This Application Programming Interface (API) allows developers to access that information in JSON format for reuse in their own applications.</p>
-                        <p>The base URI for the Regulatory Content &nbsp;<a href="https://imsd.hres.ca/regcontent/api/">https://imsd.hres.ca/regcontent/api/</a>. Any requests are made relative to this URI.</p>
+                        <p>The base URI for the Summary Reports &nbsp;<a href="https://imsd.hres.ca/regcontent/api/">https://imsd.hres.ca/regcontent/api/</a>. Any requests are made relative to this URI.</p>
                     </section>
                     <!--h2-section-end-->
                     <section>
@@ -432,10 +432,10 @@
                                     <td><strong>b_quality_basis</strong></td>
                                     <td>The Quality Basis for Decision.</td>
                                 </tr>
-                                <tr>
+                                <!--<tr>
                                     <td><strong>contact</strong></td>
                                     <td>The contact??????.</td>
-                                </tr>
+                                </tr>-->
                                 <tr>
                                     <td><strong>din</strong></td>
                                     <td>The Drug Identification number(s).</td>
@@ -644,7 +644,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>date_filed</strong></td>
-                                    <td>The date the submission filed.</td>
+                                    <td>The date the submission was filed.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>control_number</strong></td>
@@ -670,7 +670,7 @@
 
                                 -->
 
-                                <tr>
+                                <!--<tr>
                                     <td><strong>din</strong></td>
                                     <td>The product din.</td>
                                 </tr>
@@ -685,7 +685,7 @@
                                 <tr>
                                     <td><strong>bullet_list</strong></td>
                                     <td>The product bull_list.</td>
-                                </tr>
+                                </tr>-->
                             </table>
                             <!--h3-section-start-->
                             <section>
@@ -809,7 +809,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>template</strong></td>
-                                    <td>There are two different formats for the SSRs.  This variable defines which template is used.  Possible values are1 or 2.</td>
+                                    <td>There are two different formats for the SSRs.  This variable defines which template is used.  Possible values are 1 or 2.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>link_id</strong></td>
@@ -889,6 +889,26 @@
                                     <td><strong>created_date</strong></td>
                                     <td>The date the SSR was created.</td>
                                 </tr>
+                                <tr>
+                                    <td><strong>num_order</strong></td>
+                                    <td>The ordering number for the bulleted lists.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>field_id_en</strong></td>
+                                    <td>The reference number linked to from the main table.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>bullet_value_en</strong></td>
+                                    <td>The text of the bullet points in English.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>field_id_fr</strong></td>
+                                    <td>The reference number linked to from the main table.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>bullet_view_fr</strong></td>
+                                    <td>The text of the bullet points in French.</td>
+                                </tr>
 
                                 <!--
 
@@ -899,7 +919,7 @@
 
                                 -->
 
-                                <tr>
+                                <!--<tr>
                                     <td><strong>key_message_list</strong></td>
                                     <td>The product key message list.</td>
                                 </tr>
@@ -922,7 +942,7 @@
                                 <tr>
                                     <td><strong>conclusion_list</strong></td>
                                     <td>The product conclusion list.</td>
-                                </tr>
+                                </tr>-->
                                 
                             </table>
                             <!--h3-section-start-->
