@@ -1,13 +1,13 @@
 ﻿
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
-<html class="no-js" lang="en" dir="ltr">
+<html class="no-js" lang="fr" dir="ltr">
 <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
     wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title>Notice of Compliance Database (NOC) API</title>
+    <title>Clinical Trials Database (CTA) API</title>
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <!-- Meta data -->
     <meta name="dcterms.language" title="ISO639-2" content="eng" />
@@ -66,7 +66,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="list-inline margin-bottom-none">
-                            <li><a lang="fr" href="noc-documentation-fr.html">Français</a></li>
+                            <li><a lang="fr" href="cta-documentation-en.html">English</a></li>
                         </ul>
                     </div>
                 </div>
@@ -151,27 +151,27 @@
                         <h2>Topics menu</h2>
                         <div class="row">
                             <ul class="list-inline menu">
-                                <li><a href="index-en.html">Home</a></li>
-                                <li><a href="api-en.html">APIs</a></li>
-                                <li><a href="application-en.html">Applications</a></li>
-                                <li><a href="framework-en.html">Framework</a></li>
-                                <li><a href="architecture-en.html">Architecture Diagram</a></li>
-                                <li><a href="data-source-en.html">Data Sources</a></li>
-                                <li><a href="terms-of-service-en.html">Terms of Service</a></li>
-                                <li><a href="contact-us-en.html">Contact Us</a></li>
+                                <li><a href="index-fr.html">Home</a></li>
+                                <li><a href="api-fr.html">APIs</a></li>
+                                <li><a href="application-fr.html">Applications</a></li>
+                                <li><a href="framework-fr.html">Framework</a></li>
+                                <li><a href="architecture-fr.html">Architecture Diagram</a></li>
+                                <li><a href="data-source-fr.html">Data Sources</a></li>
+                                <li><a href="terms-of-service-fr.html">Terms of Service</a></li>
+                                <li><a href="contact-us-fr.html">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
                 </nav>
                 <section>
-                    <h1 id="wb-cont">Notice of Compliance Database (NOC) API Guide</h1>
+                    <h1 id="wb-cont">Clinical Trials Database (CTA) API Guide</h1>
 
                     <section>
                         <h2 id="a">Table of contents</h2>
                         <ul>
                             <li><a href="#a1">Introduction</a></li>
                             <li>
-                                <a href="#a2">Brand</a>
+                                <a href="#a2">Manufacturer</a>
                                 <ul>
                                     <li><a href="#a2.1">Parameters</a></li>
                                     <li><a href="#a2.2">Response format</a></li>
@@ -180,7 +180,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a3">Notice Of Compliance Main</a>
+                                <a href="#a3">Medical Condition</a>
                                 <ul>
                                     <li><a href="#a3.1">Parameters</a></li>
                                     <li><a href="#a3.2">Response format</a></li>
@@ -189,7 +189,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a4">Product</a>
+                                <a href="#a4">Product Brand</a>
                                 <ul>
                                     <li><a href="#a4.1">Parameters</a></li>
                                     <li><a href="#a4.2">Response format</a></li>
@@ -198,7 +198,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a5">Product Form</a>
+                                <a href="#a5">Protocol</a>
                                 <ul>
                                     <li><a href="#a5.1">Parameters</a></li>
                                     <li><a href="#a5.2">Response format</a></li>
@@ -207,7 +207,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a6">Product Ingredient</a>
+                                <a href="#a6">Status</a>
                                 <ul>
                                     <li><a href="#a6.1">Parameters</a></li>
                                     <li><a href="#a6.2">Response format</a></li>
@@ -216,7 +216,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a7">Product Route</a>
+                                <a href="#a7">Study Population</a>
                                 <ul>
                                     <li><a href="#a7.1">Parameters</a></li>
                                     <li><a href="#a7.2">Response format</a></li>
@@ -224,29 +224,19 @@
                                     <li><a href="#a7.4">jQuery example </a></li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="#a8">Veterinary Species</a>
-                                <ul>
-                                    <li><a href="#a8.1">Parameters</a></li>
-                                    <li><a href="#a8.2">Response format</a></li>
-                                    <li><a href="#a8.3">Sample response</a></li>
-                                    <li><a href="#a8.4">jQuery example </a></li>
-                                </ul>
-                            </li>
                         </ul>
                     </section>
 
                     <section>
                         <h2 id="a1">Introduction</h2>
-                        <p>A Notice of Compliance (NOC) is issued to a manufacturer following the satisfactory review of a submission for a new drug, and signifies compliance with the Food and Drug Regulations.</p>
-                        <p>The database is updated nightly and contains NOC information on human drugs from January 1, 1994 to date. It also contains NOC information on Veterinary drugs from September 19, 2000 to date. Through a phased in approach Health Canada will populate the remaining NOCs for Veterinary drugs from January 1, 1994 to September 18, 2000.</p>
+                        <p>Clinical Trials Database, is providing to the public a listing of specific information relating to phase I, II and III clinical trials in patients. The database is managed by Health Canada and provides a source of information about Canadian clinical trials involving human pharmaceutical and biological drugs.</p>
                         <p>This Application Programming Interface (API) allows developers to access that information in JSON format for reuse in their own applications.</p>
-                        <p>The base URI for the Notice of Compliance Database &nbsp;<a href="https://api.hres.ca/noc/api/">https://api.hres.ca/noc/api/</a>. Any requests are made relative to this URI.</p>
+                        <p>The base URI for the Notice of Compliance Database &nbsp;<a href="https://api.hres.ca/cta/api/">https://api.hres.ca/cta/api/</a>. Any requests are made relative to this URI.</p>
                     </section>
 
                     <section>
-                        <h2 id="a2">Brand</h2>
-                        <p>TODO put description of brand.....</p>
+                        <h2 id="a2">Manufacturer</h2>
+                        <p>TODO put description of manufacturer.....</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a2.1">Parameters</h3>
@@ -263,18 +253,18 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/brand/?id=</span></td>
-                                    <td>Returns brand by id.</td>
+                                    <td><span class="nowrap">cta/api/manufacturer/?id=</span></td>
+                                    <td>Returns manufacturer by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the brand
+                                            #####&nbsp;- ID of the manufacturer
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/brand/?lang=en</span></td>
+                                    <td><span class="nowrap">cta/api/manufacturer/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -286,7 +276,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/brand/?type=json</span></td>
+                                    <td><span class="nowrap">cta/api/manufacturer/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -300,8 +290,8 @@
                             </table>
                             <p>Brands can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/noc/api/brand/?lang=en&type=json">https://api.hres.ca/noc/api/brand/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/noc/api/brand/?lang=fr&type=json">https://api.hres.ca/noc/api/brand/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/cta/api/manufacturer/?lang=en&type=json">https://api.hres.ca/manufacturer/api/brand/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/cta/api/manufacturer/?lang=fr&type=json">https://api.hres.ca/manufacturer/api/brand/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
 
@@ -312,50 +302,46 @@
                             <p>Each&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Brand object values
+                                    Manufacturer object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
                                     <th scope="col">Value</th>
                                 </tr>
-                                <tr>
-                                    <td><strong>noc_number</strong></td>
+                                <tr> <!--LEFT OFF HERE - 20170209 BarryM - Manufacturer-->
+                                    <td><strong>manufacturer_id</strong></td>
                                     <td>The ...</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>noc_br_brand_id</strong></td>
+                                    <td><strong>manufacturer_name</strong></td>
                                     <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_br_brandname</strong></td>
-                                    <td>The ...</td>
                                 </tr>
                             </table>
 
                             <section>
                                 <h3 id="a2.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"noc_number":8267,"noc_br_brand_id":8714,"noc_br_brandname":"AGRYLIN"}</pre>
+                                <pre class="prettify prettyprint linenums">{"manufacturer_id":1118,"manufacturer_name":"ST JOSEPHS HEALTH CENTRE LONDON"}</pre>
                             </section>
 
                             <section>
                                 <h3 id="a2.4">jQuery example</h3>
-                                <p>Example for a function of brand to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getBrand(id, lang) {
+                                <p>Example for a function of manufacturer to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <pre class="prettify prettyprint linenums">function getManufacturer(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/brand/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/manufacturer/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
                                     Accept:&quot;application/json&quot;,
                                     dataType: 'json',
                                     success:function(data){
-                                        console.log(data.brand_name);
+                                        console.log(data.manufacturer_name);
                                         var frag = document.createDocumentFragment();
                                         var h2 = document.createElement(&quot;h2&quot;);
-                                        var Brand = document.createTextNode(data.brand_name);
+                                        var Manufacturer = document.createTextNode(data.manufacturer_name);
                                         var p = document.createElement(&quot;p&quot;);
                                         var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(Brand);
+                                        h2.appendChild(Manufacturer);
                                         p.appendChild(text);
                                         frag.appendChild(h2);
                                         frag.appendChild(p);
@@ -369,11 +355,11 @@
                             </section>
 
                         </section>
-                    </section><!--END of Brand-->
-                    <!--BEGIN of Notice of Compliance-->
+                    </section><!--END of Manufacturer-->
+                    <!--BEGIN of Medical Condition medicalcondition-->
                     <section>
-                        <h2 id="a3">Notice of Compliance</h2>
-                        <p>TODO put description of notice of compliance.....</p>
+                        <h2 id="a3">Medical Condition</h2>
+                        <p>TODO put description of medical condition.....</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a3.1">Parameters</h3>
@@ -390,18 +376,18 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/noticeofcompliancemain/?id=</span></td>
-                                    <td>Returns notice of compliance by id.</td>
+                                    <td><span class="nowrap">cta/api/medicalcondition/?id=</span></td>
+                                    <td>Returns medical condition by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the notice of compliance
+                                            #####&nbsp;- ID of the medical condition
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/noticeofcompliancemain/?lang=en</span></td>
+                                    <td><span class="nowrap">cta/api/medicalcondition/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -413,7 +399,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/noticeofcompliancemain/?type=json</span></td>
+                                    <td><span class="nowrap">cta/api/medicalcondition/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -427,10 +413,10 @@
                             </table>
                             <p>Brands can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=en&type=json">https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=fr&type=json">https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=fr&type=json</a></li>
-                                <li><a href="https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=en&type=xml">https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=en&type=xml</a></li>
-                                <li><a href="https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=fr&type=xml">https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=fr&type=xml</a></li>
+                                <li><a href="https://api.hres.ca/cta/api/medicalcondition/?lang=en&type=json">https://api.hres.ca/cta/api/medicalcondition/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/cta/api/medicalcondition/?lang=fr&type=json">https://api.hres.ca/cta/api/medicalcondition/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/cta/api/medicalcondition/?lang=en&type=xml">https://api.hres.ca/cta/api/medicalcondition/?lang=en&type=xml</a></li>
+                                <li><a href="https://api.hres.ca/cta/api/medicalcondition/?lang=fr&type=xml">https://api.hres.ca/cta/api/medicalcondition/?lang=fr&type=xml</a></li>
                             </ul>
                         </section>
 
@@ -441,158 +427,46 @@
                             <p>Each&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Notice of Compliance object values
+                                    Medical Condition object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
                                     <th scope="col">Value</th>
                                 </tr>
                                 <tr>
-                                    <td><strong>noc_number</strong></td>
+                                    <td><strong>med_condition_id</strong></td>
                                     <td>The ...</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>noc_date</strong></td>
+                                    <td><strong>med_condition</strong></td>
                                     <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_submission_number</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_manufacturer_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_status_with_conditions</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_qn_fname</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_dhcpl_fname</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_factsheet_fname</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_on_submission_type</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_is_suppliment</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>"noc_submission_class</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_is_admin</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_product_type</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_file_number</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_crp_product_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_crp_company_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_crp_country_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_active_status</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_scanned_page</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_reason_supplement</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_reason_submission</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_therapeutic_class</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_notes</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_notes_entry_date</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_last_update_date</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_entry_date</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_sbd_fname</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_nd_fname</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_ci_part_iii_fname</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_pm_fname</strong></td>
-                                    <td>The ...</td>
                                 </tr>
                             </table>
 
                             <section>
                                 <h3 id="a3.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"noc_number":403,"noc_date":"2002-03-13","noc_submission_number":"N/A","noc_manufacturer_name":"AVENTIS PASTEUR LIMITED","noc_status_with_conditions":"N","noc_qn_fname":"","noc_dhcpl_fname":"","noc_factsheet_fname":"","noc_on_submission_type":"Supplement to a New Drug Submission (SNDS)","noc_is_suppliment":"Y","noc_submission_class":"Other","noc_is_admin":"N","noc_product_type":"Biologic","noc_file_number":"N/A","noc_crp_product_name":"","noc_crp_company_name":"","noc_crp_country_name":"","noc_active_status":"1","noc_scanned_page":"N/A","noc_reason_supplement":"NEW MANUFACTURING FACILITY","noc_reason_submission":"","noc_therapeutic_class":"ACTIVE IMMUNIZING AGENT","noc_notes":"","noc_notes_entry_date":"1111-11-11","noc_last_update_date":"1111-11-11","noc_entry_date":"1111-11-11","noc_sbd_fname":"","noc_nd_fname":"","noc_ci_part_iii_fname":"","noc_pm_fname":""}</pre>
+                                <pre class="prettify prettyprint linenums">{"med_condition_id":154,"med_condition":"MELANOMA"}</pre>
                             </section>
 
                             <section>
                                 <h3 id="a3.4">jQuery example</h3>
-                                <p>Example for a function of notice of compliance to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function GetNoticeOfComplianceMain(id, lang) {
+                                <p>Example for a function of medical condition to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <pre class="prettify prettyprint linenums">function GetAllMedicalCondition(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/noticeofcompliancemain/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/medicalcondition/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
                                     Accept:&quot;application/json&quot;,
                                     dataType: 'json',
                                     success:function(data){
-                                        console.log(data.notice_of_compliance_name);
+                                        console.log(data.medcondition);
                                         var frag = document.createDocumentFragment();
                                         var h2 = document.createElement(&quot;h2&quot;);
-                                        var Brand = document.createTextNode(data.notice_of_compliance_name);
+                                        var MedicalCondition = document.createTextNode(data.medcondition);
                                         var p = document.createElement(&quot;p&quot;);
                                         var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(NoticeOfCompliance);
+                                        h2.appendChild(MedicalCondition);
                                         p.appendChild(text);
                                         frag.appendChild(h2);
                                         frag.appendChild(p);
@@ -604,14 +478,13 @@
                                 return;
                             };			</pre>
                             </section>
-
                         </section>
-                    </section><!--END of Notice of Compliance-->
+                    </section><!--END of Medical Condition-->
 
                     <section>
-                        <!--BEGIN of Product-->
-                        <h2 id="a4">Product</h2>
-                        <p>TODO put description of product.....</p>
+                        <!--BEGIN of Product Brand -->
+                        <h2 id="a4">Product Brand</h2>
+                        <p>TODO put description of product brand.....</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a4.1">Parameters</h3>
@@ -628,18 +501,18 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/product/?id=</span></td>
-                                    <td>Returns product by id.</td>
+                                    <td><span class="nowrap">cta/api/productbrand/?id=</span></td>
+                                    <td>Returns product brand by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the product
+                                            #####&nbsp;- ID of the product brand
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/product/?lang=en</span></td>
+                                    <td><span class="nowrap">cta/api/productbrand/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -651,7 +524,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/product/?type=json</span></td>
+                                    <td><span class="nowrap">cta/api/productbrand/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -665,8 +538,8 @@
                             </table>
                             <p>Products can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/noc/api/product/?lang=en&type=json">https://api.hres.ca/noc/api/product/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/noc/api/product/?lang=fr&type=json">https://api.hres.ca/noc/api/product/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/cta/api/productbrand/?lang=en&type=json">https://api.hres.ca/cta/api/productbrand/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/cta/api/productbrand/?lang=fr&type=json">https://api.hres.ca/cta/api/productbrand/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
 
@@ -677,26 +550,34 @@
                             <p>Each&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Product object values
+                                    Product Brand object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
                                     <th scope="col">Value</th>
                                 </tr>
                                 <tr>
-                                    <td><strong>noc_number</strong></td>
+                                    <td><strong>protocol_id</strong></td>
                                     <td>The ...</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>noc_br_product_id</strong></td>
+                                    <td><strong>submission_no</strong></td>
                                     <td>The .....</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>noc_br_brand_id</strong></td>
+                                    <td><strong>brand_id</strong></td>
                                     <td>The ...</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>noc_br_din</strong></td>
+                                    <td><strong>manufacturer_id</strong></td>
+                                    <td>The ...</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>manufacturer_name</strong></td>
+                                    <td>The ...</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>brand_name</strong></td>
                                     <td>The ...</td>
                                 </tr>
 
@@ -704,28 +585,28 @@
 
                             <section>
                                 <h3 id="a4.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"noc_number":6475,"noc_br_product_id":12401,"noc_br_brand_id":6805,"noc_br_din":"02038358"}</pre>
+                                <pre class="prettify prettyprint linenums">{"protocol_id":28627,"submission_no":"169227","brand_id":151809,"manufacturer_id":2445,"manufacturer_name":"MCMASTER UNIVERSITY","brand_name":"ALLERGEN EXTRACT FOR INHALATION (CAT HAIR)"}</pre>
                             </section>
-
+                            
                             <section>
                                 <h3 id="a4.4">jQuery example</h3>
-                                <p>Example for a function of product to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getProduct(id, lang) {
+                                <p>Example for a function of product brand to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <pre class="prettify prettyprint linenums">function getProductBrand(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/product/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/productbrand/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
                                     Accept:&quot;application/json&quot;,
                                     dataType: 'json',
                                     success:function(data){
-                                        console.log(data.product_name);
+                                        console.log(data.brand_name);
                                         var frag = document.createDocumentFragment();
                                         var h2 = document.createElement(&quot;h2&quot;);
-                                        var Ingredient = document.createTextNode(data.product_name);
+                                        var ProductBrand = document.createTextNode(data.brand_name);
                                         var p = document.createElement(&quot;p&quot;);
                                         var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(Product);
+                                        h2.appendChild(ProductBrand);
                                         p.appendChild(text);
                                         frag.appendChild(h2);
                                         frag.appendChild(p);
@@ -739,12 +620,12 @@
                             </section>
 
                         </section>
-                    </section><!-- -->
+                    </section><!-- END of Product Brand -->
  
                     <section>
-                        <!--BEGIN of Product Form-->
-                        <h2 id="a5">Product Form</h2>
-                        <p>TODO put description of product form.....</p>
+                        <!--BEGIN of Protocol -->
+                        <h2 id="a5">Protocol</h2>
+                        <p>TODO put description of Protocol.....</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a5.1">Parameters</h3>
@@ -761,18 +642,18 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/productform/?id=</span></td>
-                                    <td>Returns product by id.</td>
+                                    <td><span class="nowrap">cta/api/protocol/?id=</span></td>
+                                    <td>Returns protocol by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the product form
+                                            #####&nbsp;- ID of the protocol
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/productform/?lang=en</span></td>
+                                    <td><span class="nowrap">cta/api/protocol/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -784,7 +665,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/productform/?type=json</span></td>
+                                    <td><span class="nowrap">cta/api/protocol/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -796,10 +677,10 @@
                                     <td>Determines whether the result will be of type Json or XML.</td>
                                 </tr>
                             </table>
-                            <p>Product Forms can be accessed via these URIs:</p>
+                            <p>Protocols can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/noc/api/productform/?lang=en&type=json">https://api.hres.ca/noc/api/productform/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/noc/api/productform/?lang=fr&type=json">https://api.hres.ca/noc/api/productform/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/cta/api/protocol/?lang=en&type=json">https://api.hres.ca/cta/api/protocol/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/cta/api/protocol/?lang=fr&type=json">https://api.hres.ca/cta/api/protocol/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
 
@@ -810,50 +691,94 @@
                             <p>Each&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Product form object values
+                                    Protocol object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
                                     <th scope="col">Value</th>
                                 </tr>
                                 <tr>
-                                    <td><strong>noc_number</strong></td>
+                                    <td><strong>protocol_id</strong></td>
                                     <td>The ...</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>noc_pf_din_product_id</strong></td>
+                                    <td><strong>protocol_no</strong></td>
                                     <td>The .....</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>noc_pf_form_name</strong></td>
+                                    <td><strong>submission_no</strong></td>
                                     <td>The ...</td>
                                 </tr>
+                            <tr>
+                                <td><strong>status_id</strong></td>
+                                <td>The ...</td>
+                            </tr>
+                            <tr>
+                                <td><strong>start_date</strong></td>
+                                <td>The ...</td>
+                            </tr>
+                            <tr>
+                                <td><strong>end_date</strong></td>
+                                <td>The ...</td>
+                            </tr>
+                            <tr>
+                                <td><strong>nol_date</strong></td>
+                                <td>The ...</td>
+                            </tr>
+                            <tr>
+                                <td><strong>medConditionList</strong></td>
+                                <td>The ...</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>med_condition_id</strong>
+                                    <!--<ul class="list-unstyled mrgn-lft-md nowrap">med_condition_id</ul>--></td>
+                                <td><!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The ...-->
+                                    <!--<ul class="list-unstyled mrgn-lft-md nowrap">The ...</ul>--></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>med_condition</strong>
+                                   <!--<ul class="list-unstyled mrgn-lft-md nowrap">med_condtion</ul>--></td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The ...
+                                    <!--<ul class="list-unstyled mrgn-lft-md nowrap">The ...</ul>--></td>
+                            </tr>
+                            <tr>
+                                <td><strong>studyPopulationList</strong></td>
+                                <td>The ...</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>study_population_id</strong></td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The ...</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>study_population</strong></td>
+                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The ...</td>
+                            </tr>
                             </table>
 
                             <section>
                                 <h3 id="a5.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"noc_number":1136,"noc_pf_din_product_id":2219,"noc_pf_form_name":"Capsule"}</pre>
+                                <pre class="prettify prettyprint linenums">{"protocol_id":27351,"protocol_no":"AMB116457","submission_no":"165540","status_id":1,"start_date":"2013-10-30","end_date":null,"nol_date":"2013-07-05","protocol_title":"AN OPEN-LABEL EXTENSION STUDY OF THE LONG-TERM SAFETY, TOLERABILITY AND EFFICACY OF AMBRISENTAN IN SUBJECTS WITH INOPERABLE CHRONIC THROMBOEMBOLIC PULMONARY HYPERTENSION (CTEPH).","medConditionList":[{"med_condition_id":326,"med_condition":"CHRONIC THROMBOEMBOLIC PULMONARY HYPERTENSION (CTEPH)"},{"med_condition_id":260,"med_condition":"PULMONARY DISORDERS"}],"studyPopulationList":[{"study_population_id":1,"study_population":"ADULT MALE"},{"study_population_id":2,"study_population":"ADULT FEMALE"}]}</pre>
                             </section>
 
                             <section>
                                 <h3 id="a5.4">jQuery example</h3>
-                                <p>Example for a function of product to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getProductForm(id, lang) {
+                                <p>Example for a function of protocol to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <pre class="prettify prettyprint linenums">function getProtocol(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/productform/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/protocol/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
                                     Accept:&quot;application/json&quot;,
                                     dataType: 'json',
                                     success:function(data){
-                                        console.log(data.product_form_name);
+                                        console.log(data.rotocol_name);
                                         var frag = document.createDocumentFragment();
                                         var h2 = document.createElement(&quot;h2&quot;);
-                                        var Ingredient = document.createTextNode(data.product_form_name);
+                                        var Protocol = document.createTextNode(data.protocol_name);
                                         var p = document.createElement(&quot;p&quot;);
                                         var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(ProductForm);
+                                        h2.appendChild(Protocol);
                                         p.appendChild(text);
                                         frag.appendChild(h2);
                                         frag.appendChild(p);
@@ -867,11 +792,11 @@
                             </section>
 
                         </section>
-                    </section><!--END of Product Form-->
+                    </section><!--END of Protocol -->
                     <section>
-                        <!--BEGIN of Product Ingredient-->
-                        <h2 id="a6">Product Ingredient</h2>
-                        <p>TODO put description of product ingredient.....</p>
+                        <!--BEGIN of Status -->
+                        <h2 id="a6">Status</h2>
+                        <p>TODO put description of status.....</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a6.1">Parameters</h3>
@@ -888,18 +813,18 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/productingredient/?id=</span></td>
-                                    <td>Returns product ingredient by id.</td>
+                                    <td><span class="nowrap">cta/api/status/?id=</span></td>
+                                    <td>Returns status ingredient by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the product ingredient
+                                            #####&nbsp;- ID of the status ingredient
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/productingredient/?lang=en</span></td>
+                                    <td><span class="nowrap">cta/api/status/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -911,7 +836,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/productingredient/?type=json</span></td>
+                                    <td><span class="nowrap">cta/api/status/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -925,8 +850,8 @@
                             </table>
                             <p>Product Forms can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/noc/api/productingredient/?lang=en&type=json">https://api.hres.ca/noc/api/productingredient/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/noc/api/productingredient/?lang=fr&type=json">https://api.hres.ca/noc/api/productingredient/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/cta/api/status/?lang=en&type=json">https://api.hres.ca/cta/api/status/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/cta/api/status/?lang=fr&type=json">https://api.hres.ca/cta/api/status/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
 
@@ -937,66 +862,46 @@
                             <p>Each&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Product Ingredient form object values
+                                    Status form object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
                                     <th scope="col">Value</th>
                                 </tr>
                                 <tr>
-                                    <td><strong>noc_number</strong></td>
+                                    <td><strong>status_id</strong></td>
                                     <td>The ...</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>noc_pi_din_product_id</strong></td>
+                                    <td><strong>status</strong></td>
                                     <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_pi_medic_ingr_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_pi_strength</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_pi_unit</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_pi_basic_unit</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_pi_base</strong></td>
-                                    <td>The ...</td>
                                 </tr>
                             </table>
 
                             <section>
                                 <h3 id="a6.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"noc_number":8558,"noc_pi_din_product_id":15903,"noc_pi_medic_ingr_name":"CILAZAPRIL MONOHYDRATE","noc_pi_strength":1,"noc_pi_unit":"MG","noc_pi_basic_unit":"TAB","noc_pi_base":"X"}</pre>
+                                <pre class="prettify prettyprint linenums">{"status_id":1,"status":"ONGOING"}</pre>
                             </section>
 
                             <section>
                                 <h3 id="a6.4">jQuery example</h3>
-                                <p>Example for a function of product ingredient to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getProductIngredient(id, lang) {
+                                <p>Example for a function of status to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <pre class="prettify prettyprint linenums">function getStatus(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/productingredient/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/status/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
                                     Accept:&quot;application/json&quot;,
                                     dataType: 'json',
                                     success:function(data){
-                                        console.log(data.product_ingredient_name);
+                                        console.log(data.status);
                                         var frag = document.createDocumentFragment();
                                         var h2 = document.createElement(&quot;h2&quot;);
-                                        var Ingredient = document.createTextNode(data.product_ingredient_name);
+                                        var Status = document.createTextNode(data.status);
                                         var p = document.createElement(&quot;p&quot;);
                                         var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(ProductIngredient);
+                                        h2.appendChild(Status);
                                         p.appendChild(text);
                                         frag.appendChild(h2);
                                         frag.appendChild(p);
@@ -1008,13 +913,12 @@
                                 return;
                             };			</pre>
                             </section>
-
                         </section>
-                    </section><!--END of Product Ingredient-->
+                    </section><!--END of Status-->
                     <section>
-                        <!--BEGIN of Product Route-->
-                        <h2 id="a7">Product Route</h2>
-                        <p>TODO put description of product route.....</p>
+                        <!--BEGIN of Study Population-->
+                        <h2 id="a7">Study Population</h2>
+                        <p>TODO put description of study population.....</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a7.1">Parameters</h3>
@@ -1031,7 +935,7 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/productroute/?id=</span></td>
+                                    <td><span class="nowrap">cta/api/studypopulation/?id=</span></td>
                                     <td>Returns product route by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1042,7 +946,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/productroute/?lang=en</span></td>
+                                    <td><span class="nowrap">cta/api/studypopulation/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1054,7 +958,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/productroute/?type=json</span></td>
+                                    <td><span class="nowrap">cta/api/studypopulation/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1066,10 +970,10 @@
                                     <td>Determines whether the result will be of type Json or XML.</td>
                                 </tr>
                             </table>
-                            <p>Product Routes can be accessed via these URIs:</p>
+                            <p>Study Population can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/noc/api/productroute/?lang=en&type=json">https://api.hres.ca/noc/api/productroute/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/noc/api/productroute/?lang=fr&type=json">https://api.hres.ca/noc/api/productroute/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/cta/api/studypopulation/?lang=en&type=json">https://api.hres.ca/cta/api/studypopulation/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/cta/api/studypopulation/?lang=fr&type=json">https://api.hres.ca/cta/api/studypopulation/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
 
@@ -1080,47 +984,43 @@
                             <p>Each&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Product Route form object values
+                                    Study Population form object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
                                     <th scope="col">Value</th>
                                 </tr>
                                 <tr>
-                                    <td><strong>noc_number</strong></td>
+                                    <td><strong>study_population_id</strong></td>
                                     <td>The ...</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>noc_pr_din_product_id</strong></td>
+                                    <td><strong>study_population</strong></td>
                                     <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_pr_route</strong></td>
-                                    <td>The ...</td>
                                 </tr>
                             </table>
 
                             <section>
                                 <h3 id="a7.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"noc_number":2963,"noc_pr_din_product_id":5634,"noc_pr_route":"Intramuscular"}</pre>
+                                <pre class="prettify prettyprint linenums">{"study_population_id":3,"study_population":"PEDIATRIC"}</pre>
                             </section>
 
                             <section>
                                 <h3 id="a7.4">jQuery example</h3>
-                                <p>Example for a function of product route to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getProductIngredient(id, lang) {
+                                <p>Example for a function of study population to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <pre class="prettify prettyprint linenums">function getStudyPopulation(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/productroute/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/studypopulation/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
                                     Accept:&quot;application/json&quot;,
                                     dataType: 'json',
                                     success:function(data){
-                                        console.log(data.product_route_name);
+                                        console.log(data.study_population);
                                         var frag = document.createDocumentFragment();
                                         var h2 = document.createElement(&quot;h2&quot;);
-                                        var Ingredient = document.createTextNode(data.product_route_name);
+                                        var Study Population = document.createTextNode(data.study_population);
                                         var p = document.createElement(&quot;p&quot;);
                                         var text = document.createTextNode(data.panels[0].text);
                                         h2.appendChild(ProductRoute);
@@ -1137,132 +1037,7 @@
                             </section>
 
                         </section>
-                    </section><!--END of Product Route-->
-
-                    <section>
-                        <!--BEGIN of Veterinary Species-->
-                        <h2 id="a8">Veterinary Species</h2>
-                        <p>TODO put description of veterinary species.....</p>
-                        <!--h3-section-start-->
-                        <section>
-                            <h3 id="a8.1">Parameters</h3>
-                            <p>There are three parameters in the request: language, id and format type.</p>
-                            <table>
-                                <caption>
-                                    Request parameters
-                                </caption>
-                                <tr>
-                                    <th scope="col">Parameter</th>
-                                    <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
-                                    <th scope="col">Required?</th>
-                                    <th scope="col">Notes</th>
-                                </tr>
-                                <tr>
-                                    <td><span class="nowrap">noc/api/vetspecies/?id=</span></td>
-                                    <td>Returns product route by id.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the veterinary species
-                                        </ul>
-                                    </td>
-                                    <td><strong>Yes</strong></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="nowrap">noc/api/vetspecies/?lang=en</span></td>
-                                    <td>Changes language</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>en</code>&nbsp;- English</li>
-                                            <li><code>fr</code>&nbsp;- French</li>
-                                        </ul>
-                                    </td>
-                                    <td><strong>No</strong>, but defaults to English if not specified</td>
-                                    <td>Determines whether the response is in English or French.</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="nowrap">noc/api/vetspecies/?type=json</span></td>
-                                    <td>Changes the format of result.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
-                                        </ul>
-                                    </td>
-                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
-                                </tr>
-                            </table>
-                            <p>Product Routes can be accessed via these URIs:</p>
-                            <ul>
-                                <li><a href="https://api.hres.ca/noc/api/vetspecies/?lang=en&type=json">https://api.hres.ca/noc/api/vetspecies/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/noc/api/vetspecies/?lang=fr&type=json">https://api.hres.ca/noc/api/vetspecies/?lang=fr&type=json</a></li>
-                            </ul>
-                        </section>
-
-                        <section>
-                            <h3 id="a8.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
-
-                            <p>Each&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values:</p>
-                            <table>
-                                <caption>
-                                    Veterinary Species form object values
-                                </caption>
-                                <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
-                                </tr>
-                                <tr>
-                                    <td><strong>noc_number</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>vet_species_desc</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                            </table>
-
-                            <section>
-                                <h3 id="a8.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"noc_number":6702,"vet_species_desc":"DOGS"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a8.4">jQuery example</h3>
-                                <p>Example for a function of product route to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getProductIngredient(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/vetspecies/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.veterinary_species_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Species = document.createTextNode(data.veterinary_species_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(VeterinarySpecies);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
-                        </section>
-                    </section><!--END of Veterinary Species-->
-
+                    </section><!--END of Study Population-->
                 </section><!--END Entire Doc Section-->
             </div>
             <div class="row pagedetails">

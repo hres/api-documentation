@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" dir="ltr">
 <!--<![endif]-->
@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" href="./distro/4.0.20/GCWeb/css/ie8-theme.min.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
     <script src="./distro/4.0.20/wet-boew/js/ie8-wet-boew.min.js"></script>
     <![endif]-->
     <!--[if lte IE 9]>
@@ -43,6 +44,10 @@
     <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
     <script>dataLayer1 = [];</script>
     <!-- End Google Tag Manager -->
+    <!--<script type="text/javascript" src="./js/JSONtoCSV.js"></script>-->
+    <script src="./js/JSONtoCSV.js"></script>
+
+
 </head>
 
 <body vocab="http://schema.org/" typeof="WebPage" class="secondary">
@@ -65,7 +70,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="list-inline margin-bottom-none">
-                            <li><a lang="fr" href="index-fr.html">Français</a></li>
+                            <li><a lang="fr" href="cta-dataset-fr.html">Français</a></li>
                         </ul>
                     </div>
                 </div>
@@ -419,6 +424,7 @@
             <!-- Snippet package/snippets/resource_item.html start -->
             <!--Manufacturer Begins-->
             <tr>
+                
                 <td>Manufacturer</td>
                 <td>Dataset</td>
                 <td>JSON</td>
@@ -430,7 +436,7 @@
                 <td>Dataset</td>
                 <td>JSON</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/cta/api/anufacturer/?lang=fr&type=json" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/manufacturer/?lang=fr&type=json" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
                 <td>Manufacturer</td>
@@ -445,6 +451,20 @@
                 <td>XML</td>
                 <td>French</td>
                 <td><a href="https://api.hres.ca/cta/api/manufacturer/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+            </tr>
+            <tr>
+                <td>Manufacturer</td>
+                <td>Dataset</td>
+                <td>CSV</td>
+                <td>English</td>
+                <td><input type="button" id="manufacturerEn" class="btn btn-default" value="CSV (Download)" onclick="JSONtoCSV('Manufacturer Data', 'https://api.hres.ca/cta/api/manufacturer/?lang=en&type=json');" /></td>
+            </tr>
+            <tr>
+                <td>Manufacturer</td>
+                <td>Dataset</td>
+                <td>CSV</td>
+                <td>French</td>
+                <td><input type="button" id="manufacturerFr" class="btn btn-default" value="CSV (Download)" onclick="JSONtoCSV('Manufacturer Data', 'https://api.hres.ca/cta/api/manufacturer/?lang=fr&type=json');" /></td>
             </tr>
             <!--Manufacturer Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
@@ -748,10 +768,11 @@
             </div>
         </div>
     </footer>
-
+    
     <!--[if gte IE 9 | !IE ]><!-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <script src="./distro/4.0.20/wet-boew/js/wet-boew.min.js"></script>
+    
     <!--<![endif]-->
     <!--[if lt IE 9]>
     <script src="./distro/4.0.20/wet-boew/js/ie8-wet-boew2.min.js"></script>

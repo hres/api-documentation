@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
 <!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
-<html class="no-js" dir="ltr" lang="en">
+<html class="no-js" dir="ltr" lang="fr">
 <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
     wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title>Summary Reports API</title>
+    <title>Drug Product Database (DPD) API</title>
     <meta content="width=device-width,initial-scale=1" name="viewport"><!-- Meta data -->
     <meta content="eng" name="dcterms.language" title="ISO639-2">
     <meta content="Drug and health product inspections" name="dcterms.title">
@@ -65,7 +65,7 @@
                     <div class="col-md-12">
                         <ul class="list-inline margin-bottom-none">
                             <li>
-                                <a href="summary-report-dataset-fr.html" lang="fr">Français</a>
+                                <a href="dhpr-dataset-en.html" lang="en">English</a>
                             </li>
                         </ul>
                     </div>
@@ -140,6 +140,7 @@
                 </div>
             </div>
         </nav>
+
         <nav id="wb-bc" property="breadcrumb" role="navigation">
             <h2>You are here:</h2>
             <div class="container">
@@ -327,7 +328,7 @@
                     <div class="row"></div>
                     <div class="row">
                         <div class="col-md-12">
-                            <h1>Summary Reports</h1>
+                            <h1>Drug Product Database (DPD)</h1>
                         </div>
                     </div>
                     <div class="row">
@@ -340,7 +341,9 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                Summary Reports......
+                                <p>The DPD contains product specific information on drugs approved for use in Canada. The database is managed by Health Canada and includes human pharmaceutical and biological drugs, veterinary drugs, radiopharmaceutical drugs and disinfectant products. It contains approximately 47,000 products that are currently approved, marketed or cancelled.</p>
+                                <p>Human, veterinary, disinfectants and Schedule C drugs (e.g. radiopharmaceutical products) approved products will be available in the DPD online at the time of authorization, with the exception of three monographed product groups under Division 1, Part C of the Food and Drug Regulations: sunscreen (sunscreens, lipstick making a SPF claim, cosmetic-like products with sunscreen claims, etc.), anti-dandruff shampoo, and hard surface disinfectants. For these products, applications filed after June 15, 2015, there may be a six month delay after approval for the inclusion in the DPD online.</p>
+                                <p>Health Canada is the federal regulator of therapeutic products and does not provide medical advice on the use of the products identified in this database. For information related to treatment options, choices of medications and their uses, illnesses, side effects or drug interactions, please contact your health care professional. For information on where these products are sold, please contact the individual company directly.</p>
                             </div>
                             <div class="col-md-12">
                                 <h4>Licence:</h4>
@@ -361,135 +364,443 @@
                                             <th scope="col">Link</th>
                                         </tr>
                                     </thead><!-- Snippet package/snippets/resource_item.html start -->
+                                    <!--Active Ingredients-->
                                     <tr>
-                                        <td>Summary Basis of Decision</td>
+                                        <td>Active Ingredients</td>
                                         <td>Dataset</td>
                                         <td>JSON</td>
                                         <td>English</td>
                                         <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/regcontent/api/basisdecision/?lang=en&type=json" target="_blank" title="Resource 1">Access</a>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/activeingredient/?lang=en&type=json" target="_blank" title="Resource 1">Access</a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Summary Basis of Decision</td>
+                                        <td>Active Ingredients</td>
                                         <td>Dataset</td>
                                         <td>JSON</td>
                                         <td>French</td>
                                         <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/regcontent/api/basisdecision/?lang=fr&type=json" target="_blank" title="Resource 2">Access</a>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/activeingredient/?lang=fr&type=json" target="_blank" title="Resource 2">Access</a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Summary Basis of Decision</td>
+                                        <td>Active Ingredients</td>
                                         <td>Dataset</td>
                                         <td>XML</td>
                                         <td>English</td>
                                         <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/regcontent/api/basisdecision/?lang=en&type=xml" target="_blank" title="Resource 1">Access</a>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/activeingredient/?lang=en&type=xml" target="_blank" title="Resource 1">Access</a>
                                         </td>
                                     </tr><!-- Snippet package/snippets/resource_item.html end -->
                                     <!-- Snippet package/snippets/resource_item.html start -->
                                     <tr>
-                                        <td>Summary Basis of Decision</td>
+                                        <td>Active Ingredients</td>
                                         <td>Dataset</td>
                                         <td>XML</td>
                                         <td>French</td>
                                         <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/regcontent/api/basisdecision/?lang=fr&type=xml" target="_blank" title="Resource 2">Access</a>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/activeingredient/?lang=fr&type=xml" target="_blank" title="Resource 2">Access</a>
                                         </td>
-                                    </tr>
+                                    </tr><!--Company-->
                                     <tr>
-                                        <td>Regulatory Decision</td>
+                                        <td>Company</td>
                                         <td>Dataset</td>
                                         <td>JSON</td>
                                         <td>English</td>
                                         <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/regcontent/api/regulatorydecision/?lang=en&type=json" target="_blank" title="Resource 1">Access</a>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/company/?lang=en&type=json" target="_blank" title="Resource 1">Access</a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Regulatory Decision</td>
+                                        <td>Company</td>
                                         <td>Dataset</td>
                                         <td>JSON</td>
                                         <td>French</td>
                                         <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/regcontent/api/regulatorydecision/?lang=fr&type=json" target="_blank" title="Resource 2">Access</a>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/company/?lang=fr&type=json" target="_blank" title="Resource 2">Access</a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Regulatory Decision</td>
+                                        <td>Company</td>
                                         <td>Dataset</td>
                                         <td>XML</td>
                                         <td>English</td>
                                         <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/regcontent/api/regulatorydecision/?lang=en&type=xml" target="_blank" title="Resource 1">Access</a>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/company/?lang=en&type=xml" target="_blank" title="Resource 1">Access</a>
                                         </td>
                                     </tr><!-- Snippet package/snippets/resource_item.html end -->
                                     <!-- Snippet package/snippets/resource_item.html start -->
                                     <tr>
-                                        <td>Regulatory Decision</td>
+                                        <td>Company</td>
                                         <td>Dataset</td>
                                         <td>XML</td>
                                         <td>French</td>
                                         <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/regcontent/api/regulatorydecision/?lang=fr&type=xml" target="_blank" title="Resource 2">Access</a>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/company/?lang=fr&type=xml" target="_blank" title="Resource 2">Access</a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Summary Safety Review</td>
+                                        <td>Drug Product</td>
                                         <td>Dataset</td>
                                         <td>JSON</td>
                                         <td>English</td>
                                         <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/regcontent/api/safetyreview/?lang=en&type=json" target="_blank" title="Resource 1">Access</a>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/drugproduct/?lang=en&type=json" target="_blank" title="Resource 1">Access</a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Summary Safety Review</td>
+                                        <td>Drug Product</td>
                                         <td>Dataset</td>
                                         <td>JSON</td>
                                         <td>French</td>
                                         <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/regcontent/api/safetyreview/?lang=fr&type=json" target="_blank" title="Resource 2">Access</a>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/drugproduct/?lang=fr&type=json" target="_blank" title="Resource 2">Access</a>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>Summary Safety Review</td>
+                                        <td>Drug Product</td>
                                         <td>Dataset</td>
                                         <td>XML</td>
                                         <td>English</td>
                                         <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/regcontent/api/safetyreview/?lang=en&type=xml" target="_blank" title="Resource 1">Access</a>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/drugproduct/?lang=en&type=xml" target="_blank" title="Resource 1">Access</a>
                                         </td>
-                                    </tr><!-- Snippet package/snippets/resource_item.html end -->
-                                    <!-- Snippet package/snippets/resource_item.html start -->
+                                    </tr>
                                     <tr>
-                                        <td>Summary Safety Review</td>
+                                        <td>Drug Product</td>
                                         <td>Dataset</td>
                                         <td>XML</td>
                                         <td>French</td>
                                         <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/regcontent/api/safetyreview/?lang=fr&type=xml" target="_blank" title="Resource 2">Access</a>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/drugproduct/?lang=fr&type=xml" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr><!-- Snippet package/snippets/resource_item.html end -->
+                                    <!-- Snippet package/snippets/resource_item.html start -->
+                                    <!--form -->
+                                    <tr>
+                                        <td>Form</td>
+                                        <td>Dataset</td>
+                                        <td>JSON</td>
+                                        <td>English</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/form/?lang=en&type=json" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Form</td>
+                                        <td>Dataset</td>
+                                        <td>JSON</td>
+                                        <td>French</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/form/?lang=fr&type=json" target="_blank" title="Resource 2">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Form</td>
+                                        <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>English</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/form/?lang=en&type=xml" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Form</td>
+                                        <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>French</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/form/?lang=fr&type=xml" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr><!-- Packaging-->
+                                    <tr>
+                                        <td>Packaging</td>
+                                        <td>Dataset</td>
+                                        <td>JSON</td>
+                                        <td>English</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/packaging/?lang=en&type=json" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Packaging</td>
+                                        <td>Dataset</td>
+                                        <td>JSON</td>
+                                        <td>French</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/packaging/?lang=fr&type=json" target="_blank" title="Resource 2">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Packaging</td>
+                                        <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>English</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/packaging/?lang=en&type=xml" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Packaging</td>
+                                        <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>French</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/packaging/?lang=fr&type=xml" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr><!-- Pharmaceutical Std -->
+                                    <tr>
+                                        <td>Pharmaceutical Std</td>
+                                        <td>Dataset</td>
+                                        <td>JSON</td>
+                                        <td>Unilingual</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/pharmaceuticalstd/?type=json" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pharmaceutical Std</td>
+                                        <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>Unilingual</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/pharmaceuticalstd/?type=xml" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr><!--Schedule-->
+                                    <tr>
+                                        <td>Schedule</td>
+                                        <td>Dataset</td>
+                                        <td>JSON</td>
+                                        <td>English</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/schedule/?lang=en&type=json" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Schedule</td>
+                                        <td>Dataset</td>
+                                        <td>JSON</td>
+                                        <td>French</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/schedule/?lang=fr&type=json" target="_blank" title="Resource 2">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Schedule</td>
+                                        <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>English</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/schedule/?lang=en&type=xml" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Schedule</td>
+                                        <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>French</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/schedule/?lang=fr&type=xml" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr><!-- Status -->
+                                    <tr>
+                                        <td>Status</td>
+                                        <td>Dataset</td>
+                                        <td>JSON</td>
+                                        <td>English</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/status/?lang=en&type=json" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status</td>
+                                        <td>Dataset</td>
+                                        <td>JSON</td>
+                                        <td>French</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/status/?lang=fr&type=json" target="_blank" title="Resource 2">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status</td>
+                                        <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>English</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/status/?lang=en&type=xml" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status</td>
+                                        <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>French</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/status/?lang=fr&type=xml" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr><!-- Status External -->
+                                    <tr>
+                                        <td>Status External</td>
+                                        <td>Dataset</td>
+                                        <td>JSON</td>
+                                        <td>English</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/statusexternal/?lang=en&type=json" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status External</td>
+                                        <td>Dataset</td>
+                                        <td>JSON</td>
+                                        <td>French</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/statusexternal/?lang=fr&type=json" target="_blank" title="Resource 2">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status External</td>
+                                        <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>English</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/statusexternal/?lang=en&type=xml" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status External</td>
+                                        <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>French</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/statusexternal/?lang=fr&type=xml" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr><!-- Route -->
+                                    <tr>
+                                        <td>Route</td>
+                                        <td>Dataset</td>
+                                        <td>JSON</td>
+                                        <td>English</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/route/?lang=en&type=json" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Route</td>
+                                        <td>Dataset</td>
+                                        <td>JSON</td>
+                                        <td>French</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/route/?lang=fr&type=json" target="_blank" title="Resource 2">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Route</td>
+                                        <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>English</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/route/?lang=en&type=xml" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Route</td>
+                                        <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>French</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/route/?lang=fr&type=xml" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr><!-- Therapeutic Class-->
+                                    <tr>
+                                        <td>Therapeutic Class</td>
+                                        <td>Dataset</td>
+                                        <td>JSON</td>
+                                        <td>English</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/therapeuticclass/?lang=en&type=json" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Therapeutic Class</td>
+                                        <td>Dataset</td>
+                                        <td>JSON</td>
+                                        <td>French</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/therapeuticclass/?lang=fr&type=json" target="_blank" title="Resource 2">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Therapeutic Class</td>
+                                        <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>English</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/therapeuticclass/?lang=en&type=xml" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Therapeutic Class</td>
+                                        <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>French</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/therapeuticclass/?lang=fr&type=xml" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr><!-- Veterinary Species -->
+                                    <tr>
+                                        <td>Veterinary Species</td>
+                                        <td>Dataset</td>
+                                        <td>JSON</td>
+                                        <td>English</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=en&type=json" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Veterinary Species</td>
+                                        <td>Dataset</td>
+                                        <td>JSON</td>
+                                        <td>French</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=fr&type=json" target="_blank" title="Resource 2">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Veterinary Species</td>
+                                        <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>English</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=en&type=xml" target="_blank" title="Resource 1">Access</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Veterinary Species</td>
+                                        <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>French</td>
+                                        <td>
+                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=fr&type=xml" target="_blank" title="Resource 2">Access</a>
                                         </td>
                                     </tr><!-- Snippet package/snippets/resource_item.html end -->
                                     <!-- Snippet package/snippets/resource_item.html start -->
                                     <tr>
-                                        <td>Summary Reports API Documentation</td>
+                                        <td>Drug Product API Documentation</td>
                                         <td>Dataset</td>
                                         <td>HTML</td>
                                         <td>English</td>
                                         <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="http://api.hres.ca/documentation/summary-report-documentation-en.html" target="_blank" title="Resource 3">Access</a>
+                                            <a class="resource-url-analytics btn btn-primary" href="http://api.hres.ca/documentation/dpd-documentation-en.html" target="_blank" title="Resource 3">Access</a>
                                         </td>
                                     </tr><!-- Snippet package/snippets/resource_item.html end -->
                                     <!-- Snippet package/snippets/resource_item.html start -->
                                     <tr>
-                                        <td>Summary Reports API Documentation</td>
+                                        <td>Drug Product API Documentation</td>
                                         <td>Dataset</td>
                                         <td>HTML</td>
                                         <td>French</td>
                                         <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="http://api.hres.ca/documentation/summary-report-documentation-fr.html" target="_blank" title="Resource 4">Access</a>
+                                            <a class="resource-url-analytics btn btn-primary" href="http://api.hres.ca/documentation/dpd-documentation-fr.html" target="_blank" title="Resource 4">Access</a>
                                         </td>
                                     </tr><!-- Snippet package/snippets/resource_item.html end -->
                                 </table><!-- Snippet package/snippets/resources_list.html end -->

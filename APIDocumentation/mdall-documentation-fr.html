@@ -1,7 +1,7 @@
 ﻿
 <!DOCTYPE html>
 <!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
-<html class="no-js" lang="en" dir="ltr">
+<html class="no-js" lang="fr" dir="ltr">
 <!--<![endif]-->
 <head>
     <meta charset="utf-8">
@@ -66,7 +66,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="list-inline margin-bottom-none">
-                            <li><a lang="fr" href="mdall-documentation-fr.html">Français</a></li>
+                            <li><a lang="en" href="mdall-documentation-en.html">English</a></li>
                         </ul>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
                             <input name="langs" value="eng" type="hidden" />
                             <input name="st1rt" value="0" type="hidden">
                             <input name="s5bm3ts21rch" value="x" type="hidden" />
-                            <input id="wb-srch-q" class="wb-srch-q form-control" name="q" type="search" value="" size="27" maxlength="150" placeholder="Search Canada.ca" />
+                            <input id="wb-srch-q" class="wb-srch-q form-control" name="q" type="search" value="" size="27" maxlength="150" placeholder="Rechercher dans Canada.ca" />
                         </div>
                         <div class="form-group submit">
                             <button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub"><span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
@@ -151,14 +151,14 @@
                         <h2>Topics menu</h2>
                         <div class="row">
                             <ul class="list-inline menu">
-                                <li><a href="index-en.html">Home</a></li>
-                                <li><a href="api-en.html">APIs</a></li>
-                                <li><a href="application-en.html">Applications</a></li>
-                                <li><a href="framework-en.html">Framework</a></li>
-                                <li><a href="architecture-en.html">Architecture Diagram</a></li>
-                                <li><a href="data-source-en.html">Data Sources</a></li>
-                                <li><a href="terms-of-service-en.html">Terms of Service</a></li>
-                                <li><a href="contact-us-en.html">Contact Us</a></li>
+                                <li><a href="index-fr.html">Home</a></li>
+                                <li><a href="api-fr.html">APIs</a></li>
+                                <li><a href="application-fr.html">Applications</a></li>
+                                <li><a href="framework-fr.html">Framework</a></li>
+                                <li><a href="architecture-fr.html">Architecture Diagram</a></li>
+                                <li><a href="data-source-fr.html">Data Sources</a></li>
+                                <li><a href="terms-of-service-fr.html">Terms of Service</a></li>
+                                <li><a href="contact-us-fr.html">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -167,61 +167,61 @@
                     <h1 id="wb-cont">Medical Devices Active Licence Listing (MDALL) API Guide</h1>
 
                     <section>
-                        <h2 id="a">Table of contents</h2>
+                        <h2 id="a">Table des matières</h2>
                         <ul>
                             <li><a href="#a1">Introduction</a></li>
                             <li>
                                 <a href="#a2">Licence</a>
                                 <ul>
-                                    <li><a href="#a2.1">Parameters</a></li>
-                                    <li><a href="#a2.2">Response format</a></li>
-                                    <li><a href="#a2.3">Sample response</a></li>
-                                    <li><a href="#a2.4">jQuery example</a></li>
+                                    <li><a href="#a2.1">Paramètres</a></li>
+                                    <li><a href="#a2.2">Format de réponse</a></li>
+                                    <li><a href="#a2.3">Exemple de réponse</a></li>
+                                    <li><a href="#a2.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a3">Company</a>
+                                <a href="#a3">Companie</a>
                                 <ul>
-                                    <li><a href="#a3.1">Parameters</a></li>
-                                    <li><a href="#a3.2">Response format</a></li>
-                                    <li><a href="#a3.3">Sample response</a></li>
-                                    <li><a href="#a3.4">jQuery example</a></li>
+                                    <li><a href="#a3.1">Paramètres</a></li>
+                                    <li><a href="#a3.2">Format de réponse</a></li>
+                                    <li><a href="#a3.3">Exemple de réponse</a></li>
+                                    <li><a href="#a3.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#a4">Device</a>
                                 <ul>
-                                    <li><a href="#a4.1">Parameters</a></li>
-                                    <li><a href="#a4.2">Response format</a></li>
-                                    <li><a href="#a4.3">Sample response</a></li>
-                                    <li><a href="#a4.4">jQuery example </a></li>
+                                    <li><a href="#a4.1">Paramètres</a></li>
+                                    <li><a href="#a4.2">Format de réponse</a></li>
+                                    <li><a href="#a4.3">Exemple de réponse</a></li>
+                                    <li><a href="#a4.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#a5">Device Identifier</a>
                                 <ul>
-                                    <li><a href="#a5.1">Parameters</a></li>
-                                    <li><a href="#a5.2">Response format</a></li>
-                                    <li><a href="#a5.3">Sample response</a></li>
-                                    <li><a href="#a5.4">jQuery example </a></li>
+                                    <li><a href="#a5.1">Paramètres</a></li>
+                                    <li><a href="#a5.2">Format de réponse</a></li>
+                                    <li><a href="#a5.3">Exemple de réponse</a></li>
+                                    <li><a href="#a5.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#a6">Licence Type</a>
                                 <ul>
-                                    <li><a href="#a6.1">Parameters</a></li>
-                                    <li><a href="#a6.2">Response format</a></li>
-                                    <li><a href="#a6.3">Sample response</a></li>
-                                    <li><a href="#a6.4">jQuery example </a></li>
+                                    <li><a href="#a6.1">Paramètres</a></li>
+                                    <li><a href="#a6.2">Format de réponse</a></li>
+                                    <li><a href="#a6.3">Exemple de réponse</a></li>
+                                    <li><a href="#a6.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
                             <li>
                                 <a href="#a7">Summary Basis Decision Location</a>
                                 <ul>
-                                    <li><a href="#a7.1">Parameters</a></li>
-                                    <li><a href="#a7.2">Response format</a></li>
-                                    <li><a href="#a7.3">Sample response</a></li>
-                                    <li><a href="#a7.4">jQuery example </a></li>
+                                    <li><a href="#a7.1">Paramètres</a></li>
+                                    <li><a href="#a7.2">Format de réponse</a></li>
+                                    <li><a href="#a7.3">Exemple de réponse</a></li>
+                                    <li><a href="#a7.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
                            
@@ -243,17 +243,17 @@
                         <p>This is the permit that is delivered for a device to a company.</p>
                         <!--h3-section-start-->
                         <section>
-                            <h3 id="a2.1">Parameters</h3>
-                            <p>There are seven parameters in the request: id, lang, status, licence_name, licence_number, company_id and format type.</p>
+                            <h3 id="a2.1">paramètres</h3>
+                            <p>Il y a sept paramètres dans la requête: id, lang, status, licence_name, licence_number, company_id and format type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Request paramètres
                                 </caption>
                                 <tr>
-                                    <th scope="col">Parameter</th>
-                                    <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
-                                    <th scope="col">Required?</th>
+                                    <th scope="col">Paramètre</th>
+                                    <th scope="col">Définition</th>
+                                    <th scope="col">Valeurs</th>
+                                    <th scope="col">Requis?</th>
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
@@ -269,27 +269,27 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/licence/?lang=en</span></td>
-                                    <td>Changes language</td>
+                                    <td>Change la langue</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>en</code>&nbsp;- English</li>
-                                            <li><code>fr</code>&nbsp;- French</li>
+                                            <li><code>en</code>&nbsp;- Anglais</li>
+                                            <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to English if not specified</td>
-                                    <td>Determines whether the response is in English or French.</td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
+                                    <td>Détermine si la réponse est affichée en anglais ou en français..</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/licence/?status=active</span></td>
                                     <td>Changes status</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>active</code>&nbsp;- Active</li>
-                                            <li><code>archived</code>&nbsp;- Archived</li>
+                                            <li><code>actif</code>&nbsp;- Actif</li>
+                                            <li><code>archivé</code>&nbsp;- Archivé</li>
                                         </ul>
                                     </td>
                                     <td><strong>Nothing</strong>will load all licences</td>
-                                    <td>Determines whether the response is in Active or Archived.</td>
+                                    <td>Détermine si la réponse est affichée en actif ou archivé.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/licence/?licence_name=red</span></td>
@@ -333,8 +333,8 @@
                                             <li><code>xml</code>&nbsp;- Xml</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
+                                    <td>Détermine si la réponse est de type Json ou XML.</td>
                                 </tr>
                             </table>
                             <p>Licence can be accessed via these URIs:</p>
@@ -345,8 +345,8 @@
                         </section>
 
                         <section>
-                            <h3 id="a2.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <h3 id="a2.2">Format de réponse</h3>
+                            <p>La réponse est en format JSON et contient un objet&nbsp;<strong>résultat </strong>&nbsp;qui comporte cinq objets:</p>
 
                             <p>Each&nbsp;<strong>licence</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -354,8 +354,8 @@
                                     Licence object values
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
                                     <td><strong>original_licence_no</strong></td>
@@ -418,13 +418,13 @@
                             </table>
                            
                             <section>
-                                <h3 id="a2.3">Sample response</h3>
+                                <h3 id="a2.3">Exemple de réponse</h3>
                                 <pre class="prettify prettyprint linenums">{<br/> &nbsp;"original_licence_no":1556,<br /> &nbsp;"licence_status":"I",<br /> &nbsp;"application_id":14685,<br /> &nbsp;"appl_risk_class":3,<br /> &nbsp;"licence_name":"PRIME & BOND NT",<br /> &nbsp;"first_licence_status_dt":"1999-03-16",<br /> &nbsp;"last_refresh_dt":"2013-01-29",<br /> &nbsp;"end_date":null,"licence_type_cd":"D",<br /> &nbsp;"company_id":105795,<br /> &nbsp;"licence_type_desc":"Single Device",<br /> &nbsp;"noc_location":null,<br /> &nbsp;"sbd_location":null,<br /> &nbsp;"has_location":false<br />}</pre>
                             </section>
 
                             <section>
-                                <h3 id="a2.4">jQuery example</h3>
-                                <p>Example for a function of licence to an element with id &quot;#responses&quot;, given an ID selection:</p>
+                                <h3 id="a2.4">Exemple de jQuery</h3>
+                                <p>Exemple pour une fonction de licence à un élément avec id &quot;#responses&quot;, donné une sélection ID</p>
                                 <pre class="prettify prettyprint linenums">function getAllLicence(status, licence_name) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/mdall/api-v1/licence/?status=' + status + '&licence_name=' + licenceName;
@@ -461,17 +461,17 @@
                         <p>This contains the company name and address.</p>
                         <!--h3-section-start-->
                         <section>
-                            <h3 id="a3.1">Parameters</h3>
-                            <p>There are three parameters in the request: status, id and format type.</p>
+                            <h3 id="a3.1">paramètres</h3>
+                            <p>Il y a trois paramètres dans la requête: status, id and format type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Request paramètres
                                 </caption>
                                 <tr>
-                                    <th scope="col">Parameter</th>
-                                    <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
-                                    <th scope="col">Required?</th>
+                                    <th scope="col">Paramètre</th>
+                                    <th scope="col">Définition</th>
+                                    <th scope="col">Valeurs</th>
+                                    <th scope="col">Requis?</th>
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
@@ -494,7 +494,7 @@
                                         </ul>
                                     </td>
                                     <td><strong>Nothing</strong>will load all companies</td>
-                                    <td>Determines whether the response is in Active or Archived.</td>
+                                    <td>Détermine si la réponse est affichée en actif ou archivé.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/company/?status=active</span></td>
@@ -506,7 +506,7 @@
                                         </ul>
                                     </td>
                                     <td><strong>Nothing</strong>will load all companies</td>
-                                    <td>Determines whether the response is in Active or Archived.</td>
+                                    <td>Détermine si la réponse est affichée en actif ou archivé.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/company/?type=json</span></td>
@@ -518,7 +518,7 @@
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td>Détermine si la réponse est de type Json ou XML.</td>
                                 </tr>
                             </table>
                             <p>Company can be accessed via these URIs:</p>
@@ -529,8 +529,8 @@
                         </section>
 
                         <section>
-                            <h3 id="a3.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <h3 id="a3.2">Format de réponse</h3>
+                            <p>La réponse est dans JSON, et se compose d'un objet de&nbsp;<strong>résultat</strong>&nbsp;qui contient un objet:</p>
 
                             <p>Each&nbsp;<strong>company</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -551,15 +551,15 @@
                                 </tr>
                                 <tr>
                                     <td><strong>addr_line_1</strong></td>
-                                    <td>The address line 1.</td>
+                                    <td>La ligne d'adresse 1.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>addr_line_2</strong></td>
-                                    <td>The address line 2.</td>
+                                    <td>La ligne d'adresse 2.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>addr_line_3</strong></td>
-                                    <td>The address line 3.</td>
+                                    <td>La ligne d'adresse 3.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>postal_code</strong></td>
@@ -593,13 +593,13 @@
 
                             </table>
                             <section>
-                                <h3 id="a3.3">Sample response</h3>
+                                <h3 id="a3.3">Exemple de réponse</h3>
                                 <pre class="prettify prettyprint linenums">{<br />&nbsp;"company_id":112453,<br />&nbsp;"company_name":"MENNEN MEDICAL LTD",<br />&nbsp;"addr_line_1":"4 Ha-Yarden Street",<br />&nbsp;"addr_line_2":"",<br />&nbsp;"addr_line_3":"",<br />&nbsp;"postal_code":"0076100",<br />&nbsp;"city":"Yavne",<br />&nbsp;"country_cd":"IL",<br />&nbsp;"region_cd":"",<br />&nbsp;"company_status":"A"<br />}</pre>
                             </section>
 
                             <section>
-                                <h3 id="a3.4">jQuery example</h3>
-                                <p>Example for a function of company to an element with id &quot;#responses&quot;, given an id and lang selection:</p>
+                                <h3 id="a3.4">Exemple de jQuery</h3>
+                                <p>Exemple pour une fonction avec un élément avec id &quot;#responses&quot;, donné une sélection id et lang:</p>
                                 <pre class="prettify prettyprint linenums">function getCompany(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/mdall/api-v1/company/?lang=' + lang + '&id=' + id;
@@ -636,17 +636,17 @@
                         <p>This is the device information.</p>
 
                         <section>
-                            <h3 id="a4.1">Parameters</h3>
-                            <p>There are five parameters in the request: status, id, device_name, licence_number and format type.</p>
+                            <h3 id="a4.1">paramètres</h3>
+                            <p>Il y a cinq paramètres dans la requête: status, id, device_name, licence_number and format type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Request paramètres
                                 </caption>
                                 <tr>
-                                    <th scope="col">Parameter</th>
-                                    <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
-                                    <th scope="col">Required?</th>
+                                    <th scope="col">Paramètre</th>
+                                    <th scope="col">Définition</th>
+                                    <th scope="col">Valeurs</th>
+                                    <th scope="col">Requis?</th>
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
@@ -670,7 +670,7 @@
                                         </ul>
                                     </td>
                                     <td><strong>Nothing</strong>will load all companies</td>
-                                    <td>Determines whether the response is in Active or Archived.</td>
+                                    <td>Détermine si la réponse est affichée en actif ou archivé.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/device/?type=json</span></td>
@@ -682,7 +682,7 @@
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td>Détermine si la réponse est de type Json ou XML.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/device/?device_name=red</span></td>
@@ -720,9 +720,8 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a4.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
-
+                            <h3 id="a4.2">Format de réponse</h3>
+                            <p>La réponse est dans JSON, et se compose d'un objet de&nbsp;<strong>résultat</strong>&nbsp;qui contient un objet:</p>
                             <p>Each&nbsp;<strong>device</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
@@ -766,12 +765,12 @@
                             </table>
                             <!--h3-section-start-->
                             <section>
-                                <h3 id="a4.3">Sample response</h3>
+                                <h3 id="a4.3">Exemple de réponse</h3>
                                 <pre class="prettify prettyprint linenums">{<br />&nbsp;"original_licence_no":65113,<br />&nbsp;"device_id":189995,<br />&nbsp;"device_first_issue_dt":"2004-07-08",<br />&nbsp;"end_date":null,<br />&nbsp;"trade_name":"'HOPKINS' TELE-OTOSCOPE"<br />}</pre>
                             </section>
                             <section>
-                                <h3 id="a4.4">jQuery example</h3>
-                                <p>Example for a function of device to an element with id &quot;#responses&quot;, given an id and language selection:</p>
+                                <h3 id="a4.4">Exemple de jQuery</h3>
+                                <p>Exemple pour une fonction du périphérique à un élément avec id &quot;#responses&quot;, donné une sélection d'id et de langue:</p>
                                 <pre class="prettify prettyprint linenums">function getDevice(deviceName) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/mdall/api-v1/device/?device_name=' + deviceName;
@@ -806,17 +805,17 @@
                         <p>This is the list of all identifiers that uniquely identify a device (on the label).</p>
 
                         <section>
-                            <h3 id="a5.1">Parameters</h3>
-                            <p>There are four parameters in the request: device identifier, id, lang and format type.</p>
+                            <h3 id="a5.1">paramètres</h3>
+                            <p>Il y a quatre paramètres dans la requête: device identifier, id, lang and format type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Request paramètres
                                 </caption>
                                 <tr>
-                                    <th scope="col">Parameter</th>
-                                    <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
-                                    <th scope="col">Required?</th>
+                                    <th scope="col">Paramètre</th>
+                                    <th scope="col">Définition</th>
+                                    <th scope="col">Valeurs</th>
+                                    <th scope="col">Requis?</th>
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
@@ -846,11 +845,11 @@
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>en</code>&nbsp;- English</li>
-                                            <li><code>fr</code>&nbsp;- French</li>
+                                            <li><code>en</code>&nbsp;- Anglais</li>
+                                            <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to English if not specified</td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
@@ -863,7 +862,7 @@
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td>Détermine si la réponse est de type Json ou XML.</td>
                                 </tr>
                             </table>
                             <p>Form can be accessed via these URIs:</p>
@@ -873,8 +872,8 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a5.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <h3 id="a5.2">Format de réponse</h3>
+                            <p>La réponse est dans JSON, et se compose d'un objet de&nbsp;<strong>résultat</strong>&nbsp;qui contient un objet:</p>
 
                             <p>Each&nbsp;<strong>device identifier</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -908,12 +907,12 @@
                             </table>
                             <!--h3-section-start-->
                             <section>
-                                <h3 id="a5.3">Sample response</h3>
+                                <h3 id="a5.3">Exemple de réponse</h3>
                                 <pre class="prettify prettyprint linenums">to come</pre>
                             </section>
                             <section>
-                                <h3 id="a5.4">jQuery example</h3>
-                                <p>Example for a function of device identifier to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <h3 id="a5.4">Exemple de jQuery</h3>
+                                <p>Exemple pour une fonction d'identificateur de périphérique pour un élément avec id &quot;#responses&quot;, donné une identification et une sélection de la langue:</p>
                                 <pre class="prettify prettyprint linenums">function getDeviceIdentifier(id) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/mdall/api-v1/deviceidentifier/?status=' + strStatus + 'id=' + id;
@@ -948,19 +947,18 @@
                         <p>This contains the list of all licence type codes and their definitions.</p>
 
                         <section>
-                            <h3 id="a6.1">Parameters</h3>
-                            <p>There are three parameters in the request: code, language and format type.</p>
+                            <h3 id="a6.1">paramètres</h3>
+                            <p>Il y a trois paramètres dans la requête: code, language and format type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Request paramètres
                                 </caption>
                                 <tr>
-                                    <th scope="col">Parameter</th>
-                                    <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
-                                    <th scope="col">Required?</th>
+                                    <th scope="col">Paramètre</th>
+                                    <th scope="col">Définition</th>
+                                    <th scope="col">Valeurs</th>
+                                    <th scope="col">Requis?</th>
                                     <th scope="col">Notes</th>
-                                
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/licencetype/?code=D</span></td>
@@ -978,12 +976,12 @@
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>en</code>&nbsp;- English</li>
-                                            <li><code>fr</code>&nbsp;- French</li>
+                                            <li><code>en</code>&nbsp;- Anglais</li>
+                                            <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong>, but defaults to English if not specified</td>
-                                    <td>Determines whether the response is in English or French.</td>
+                                    <td><strong>Oui</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
+                                    <td>Détermine si la réponse est affichée en anglais ou en français.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/licencetype/?type=json</span></td>
@@ -995,7 +993,7 @@
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td>Détermine si la réponse est de type Json ou XML.</td>
                                 </tr>
                             </table>
                             <p>Licence type can be accessed via these URIs:</p>
@@ -1005,8 +1003,8 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a6.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <h3 id="a6.2">Format de réponse</h3>
+                            <p>La réponse est dans JSON, et se compose d'un objet de&nbsp;<strong>résultat</strong>&nbsp;qui contient un objet:</p>
 
                             <p>Each&nbsp;<strong>licence type</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -1030,12 +1028,12 @@
                             </table>
                             <!--h3-section-start-->
                             <section>
-                                <h3 id="a6.3">Sample response</h3>
+                                <h3 id="a6.3">Exemple de réponse</h3>
                                 <pre class="prettify prettyprint linenums">{<br />&nbsp;"licence_type_cd":"G",<br />&nbsp;"licence_type_desc":"Device Group"<br />}</pre>
                             </section>
                             <section>
-                                <h3 id="a6.4">jQuery example</h3>
-                                <p>Example for a function of licence type to an element with id &quot;#responses&quot;, given a code and language selection:</p>
+                                <h3 id="a6.4">Exemple de jQuery</h3>
+                                <p>Exemple pour une fonction de type de licence à un élément avec id &quot;#responses&quot;, donné une sélection de code et de langue:</p>
                                 <pre class="prettify prettyprint linenums">function getLicenceType(code, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/mdall/api-v1/licencetype/?lang=' + lang + '&id=' + id;
@@ -1070,17 +1068,17 @@
                         <p>This contains the web site address of the summary basis of decisions.</p>
 
                         <section>
-                            <h3 id="a7.1">Parameters</h3>
-                            <p>There are two parameters in the request: id and format type.</p>
+                            <h3 id="a7.1">paramètres</h3>
+                            <p>Il y a deux paramètres dans la requête: id and format type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Request paramètres
                                 </caption>
                                 <tr>
-                                    <th scope="col">Parameter</th>
-                                    <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
-                                    <th scope="col">Required?</th>
+                                    <th scope="col">Paramètre</th>
+                                    <th scope="col">Définition</th>
+                                    <th scope="col">Valeurs</th>
+                                    <th scope="col">Requis?</th>
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
@@ -1117,7 +1115,7 @@
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td>Détermine si la réponse est de type Json ou XML.</td>
                                 </tr>
                             </table>
                             <p>Summary basis decision location can be accessed via these URIs:</p>
@@ -1127,8 +1125,8 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a7.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <h3 id="a7.2">Format de réponse</h3>
+                            <p>La réponse est dans JSON, et se compose d'un objet de&nbsp;<strong>résultat</strong>&nbsp;qui contient un objet:</p>
 
                             <p>Each&nbsp;<strong>summary basis decision location</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -1213,12 +1211,12 @@
 
                             <!--h3-section-start-->
                             <section>
-                                <h3 id="a7.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{<br />&nbsp;"original_licence_no":75574,<br />&nbsp;"sbd_notice_web_loc":"http://www.hc-sc.gc.ca/dhp-mps/prodpharma/sbd-smd/md-im/sbd_smd_2008_elana_122213-eng.php#a2",<br />&nbsp;"sbd_web_loc":"http://www.hc-sc.gc.ca/dhp-mps/prodpharma/sbd-smd/md-im/sbd_smd_2008_elana_122213"<br />}</pre>
+                                <h3 id="a7.3">Exemple de réponse</h3>
+                                <pre class="prettify prettyprint linenums">{<br />&nbsp;"original_licence_no":75574,<br />&nbsp;"sbd_notice_web_loc":"http://www.hc-sc.gc.ca/dhp-mps/prodpharma/sbd-smd/md-im/sbd_smd_2008_elana_122213-eng.php#a2",<br />&nbsp;"sbd_web_loc":"http://www.hc-sc.gc.ca/dhp-mps/prodpharma/sbd-smd/md-im/sbd_smd_2008_elana_122213",<br />&nbsp;"pkg_insert1_keyword":"",<br />&nbsp;"pkg_insert1_loc":"",<br />&nbsp;"pkg_insert2_keyword":"",<br />&nbsp;"pkg_insert2_loc":"",<br />&nbsp;"pkg_insert3_keyword":"",<br />&nbsp;"pkg_insert3_loc":"",<br />&nbsp;"op_manual1_keyword":"Elana Surgical Kit",<br />&nbsp;"op_manual1_loc":"http://www.hc-sc.gc.ca/dhp-mps/alt_formats/hpfb-dgpsa/pdf/prodpharma/om_gl_2007_elana_122213_partiii",<br />&nbsp;"op_manual2_keyword":"",<br />&nbsp;"op_manual2_loc":"",<br />&nbsp;"op_manual3_keyword":"",<br />&nbsp;"op_manual3_loc":"",<br />&nbsp;"additional_op_pkg":"N"<br />}</pre>
                             </section>
                             <section>
-                                <h3 id="a7.4">jQuery example</h3>
-                                <p>Example for a function of sbc location to an element with id &quot;#responses&quot;, given an ID selection:</p>
+                                <h3 id="a7.4">Exemple de jQuery</h3>
+                                <p>Exemple pour une fonction d'emplacement sbc pour un élément avec id &quot;#responses&quot;, donné une sélection d'identification:</p>
                                 <pre class="prettify prettyprint linenums">function getSbdLocation(id) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/mdall/api-v1/sbdlocation/?id=' + id ;
@@ -1253,8 +1251,8 @@
             <div class="row pagedetails">
                 <div class="col-sm-5 col-xs-12 datemod">
                     <dl id="wb-dtmd">
-                        <dt>Date modified:&#32;</dt>
-                        <dd><time property="dateModified">2017-03-07</time></dd>
+                        <dt>Date de modification:&#32;</dt>
+                        <dd><time property="dateModified">2017-03-17</time></dd>
                     </dl>
                 </div>
                 <div class="clear visible-xs"></div>

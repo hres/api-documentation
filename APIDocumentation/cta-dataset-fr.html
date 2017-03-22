@@ -1,12 +1,12 @@
 ﻿<!DOCTYPE html>
 <!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
-<html class="no-js" lang="en" dir="ltr">
+<html class="no-js" lang="fr" dir="ltr">
 <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
     wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title>Notice of Compliance Database (NOC) API</title>
+    <title>Clinical Trials Database (CTA) API</title>
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <!-- Meta data -->
     <meta name="dcterms.language" title="ISO639-2" content="eng" />
@@ -31,6 +31,7 @@
 
     <link rel="stylesheet" href="./distro/4.0.20/GCWeb/css/ie8-theme.min.css" />
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
     <script src="./distro/4.0.20/wet-boew/js/ie8-wet-boew.min.js"></script>
     <![endif]-->
     <!--[if lte IE 9]>
@@ -43,6 +44,10 @@
     <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
     <script>dataLayer1 = [];</script>
     <!-- End Google Tag Manager -->
+    <!--<script type="text/javascript" src="./js/JSONtoCSV.js"></script>-->
+    <script src="./js/JSONtoCSV.js"></script>
+
+
 </head>
 
 <body vocab="http://schema.org/" typeof="WebPage" class="secondary">
@@ -65,7 +70,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul class="list-inline margin-bottom-none">
-                            <li><a lang="fr" href="noc-dataset-fr.html">Français</a></li>
+                            <li><a lang="fr" href="cta-dataset-en.html">English</a></li>
                         </ul>
                     </div>
                 </div>
@@ -382,7 +387,7 @@
 </div>
 <div class="row">
 <div class="col-md-12">
-    <h1>Notice of Compliance Database (NOC)</h1>
+    <h1>Clinical Trials Database (CTA)</h1>
 </div>
 </div>
 <div class="row">
@@ -395,7 +400,7 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <p>The NOC is issued to a manufacturer following the satisfactory review of a submission for a new drug, and signifies compliance with the Food and Drug Regulations. The database is updated nightly and contains NOC information on human drugs from January 1, 1994 to date. It also contains NOC information on Veterinary drugs from September 19, 2000 to date. Through a phased in approach Health Canada will populate the remaining NOCs for Veterinary drugs from January 1, 1994 to September 18, 2000.</p>
+        <p>Clinical Trials Database (CTA), is providing to the public a listing of specific information relating to phase I, II and III clinical trials in patients. The database is managed by Health Canada and provides a source of information about Canadian clinical trials involving human pharmaceutical and biological drugs.</p>
     </div>
     <div class="col-md-12">
         <h4>Licence: </h4>
@@ -413,248 +418,232 @@
                     <th scope="col">Resource Type</th>
                     <th scope="col">Format</th>
                     <th scope="col">Language</th>
-                    <th scope="col">Link</th>
+                    <th scope="col">Links</th>
                 </tr>
             </thead>
             <!-- Snippet package/snippets/resource_item.html start -->
-            <!--Brand Begins-->
+            <!--Manufacturer Begins-->
             <tr>
-                <td>Brand</td>
+                
+                <td>Manufacturer</td>
                 <td>Dataset</td>
                 <td>JSON</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/brand/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/manufacturer/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Brand</td>
+                <td>Manufacturer</td>
                 <td>Dataset</td>
                 <td>JSON</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/brand/?lang=fr&type=json" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/manufacturer/?lang=fr&type=json" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Brand</td>
+                <td>Manufacturer</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/brand/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/manufacturer/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Brand</td>
+                <td>Manufacturer</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/brand/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/manufacturer/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
-            <!--Brand Ends-->
+            <tr>
+                <td>Manufacturer</td>
+                <td>Dataset</td>
+                <td>CSV</td>
+                <td>English</td>
+                <td><input type="button" id="manufacturerEn" class="btn btn-default" value="CSV (Download)" onclick="JSONtoCSV('Manufacturer Data', 'https://api.hres.ca/cta/api/manufacturer/?lang=en&type=json');" /></td>
+            </tr>
+            <tr>
+                <td>Manufacturer</td>
+                <td>Dataset</td>
+                <td>CSV</td>
+                <td>French</td>
+                <td><input type="button" id="manufacturerFr" class="btn btn-default" value="CSV (Download)" onclick="JSONtoCSV('Manufacturer Data', 'https://api.hres.ca/cta/api/manufacturer/?lang=fr&type=json');" /></td>
+            </tr>
+            <!--Manufacturer Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
             <!-- Snippet package/snippets/resource_item.html start -->
-            <!--NOC Main Begins-->
+            <!--Medical Condition Begins-->
             <tr>
-                <td>Notice of Compliance</td>
+                <td>Medical Condition</td>
                 <td>Dataset</td>
                 <td>JSON</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/medicalcondition/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Notice of Compliance</td>
+                <td>Medical Condition</td>
                 <td>Dataset</td>
                 <td>JSON</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=fr&type=json" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/medicalcondition/?lang=fr&type=json" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Notice of Compliance</td>
+                <td>Medical Condition</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/medicalcondition/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Notice of Compliance</td>
+                <td>Medical Condition</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/medicalcondition/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
-            <!--NOC Main Ends-->
+            <!--Medical Condition Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
             <!-- Snippet package/snippets/resource_item.html start -->
             <!--Product Begins-->
             <tr>
-                <td>Product</td>
+                <td>Product Brand</td>
                 <td>Dataset</td>
                 <td>JSON</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/product/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/productbrand/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Product</td>
+                <td>Product Brand</td>
                 <td>Dataset</td>
                 <td>JSON</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/product/?lang=fr&type=json" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/productbrand/?lang=fr&type=json" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Product</td>
+                <td>Product Brand</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/product/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/productbrand/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Product</td>
+                <td>Product Brand</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/product/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/productbrand/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
-            <!--Product Ends-->
+            <!--Product Brand Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
             <!-- Snippet package/snippets/resource_item.html start -->
-            <!--Product Form Begins-->
+            <!--Protocol Form Begins-->
             <tr>
-                <td>Product Form</td>
+                <td>Protocol</td>
                 <td>Dataset</td>
                 <td>JSON</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/productform/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/protocol/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Product Form</td>
+                <td>Protocol</td>
                 <td>Dataset</td>
                 <td>JSON</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/productform/?lang=fr&type=json" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/protocol/?lang=fr&type=json" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Product Form</td>
+                <td>Protocol</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/productform/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/protocol/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Product Form</td>
+                <td>Protocol</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/productform/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/protocol/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
-            <!--Product Form Ends-->
+            <!--Protocol Form Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
             <!-- Snippet package/snippets/resource_item.html start -->
-            <!--Product Ingredient Begins-->
+            <!--Status Begins-->
             <tr>
-                <td>Product Ingredient</td>
+                <td>Status</td>
                 <td>Dataset</td>
                 <td>JSON</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/productingredient/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/status/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Product Ingredient</td>
+                <td>Status</td>
                 <td>Dataset</td>
                 <td>JSON</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/productingredient/?lang=fr&type=json" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/status/?lang=fr&type=json" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Product Ingredient</td>
+                <td>Status</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/productingredient/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/status/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Product Ingredient</td>
+                <td>Status</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/productingredient/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/status/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
-            <!--Product Ingredient Ends-->
+            <!--Status Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
             <!-- Snippet package/snippets/resource_item.html start -->
-            <!--Product Route Begins-->
+            <!--Study Population Begins-->
             <tr>
-                <td>Product Route</td>
+                <td>Study Population</td>
                 <td>Dataset</td>
                 <td>JSON</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/productroute/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/studypopulation/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Product Route</td>
+                <td>Study Population</td>
                 <td>Dataset</td>
                 <td>JSON</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/productroute/?lang=fr&type=json" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/studypopulation/?lang=fr&type=json" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Product Route</td>
+                <td>Study Population</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/productroute/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/studypopulation/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Product Route</td>
+                <td>Study Population</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/productroute/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="https://api.hres.ca/cta/api/studypopulation/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
-            <!--Product Route Ends-->
+            <!--Study Population Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
-            <!-- Snippet package/snippets/resource_item.html start -->
-            <!--Veterinary Species Route Begins-->
-            <tr>
-                <td>Veterinary Species</td>
-                <td>Dataset</td>
-                <td>JSON</td>
-                <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/vetspecies/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
-            </tr>
-            <tr>
-                <td>Veterinary Species</td>
-                <td>Dataset</td>
-                <td>JSON</td>
-                <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/vetspecies/?lang=fr&type=json" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
-            </tr>
-            <tr>
-                <td>Veterinary Species</td>
-                <td>Dataset</td>
-                <td>XML</td>
-                <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/vetspecies/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
-            </tr>
-            <tr>
-                <td>Veterinary Species</td>
-                <td>Dataset</td>
-                <td>XML</td>
-                <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/vetspecies/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
-            </tr>
-            <!--Veterinary Species Ends-->
-            <!-- Snippet package/snippets/resource_item.html end -->
+ 
             <!-- Snippet package/snippets/resource_item.html start -->
             <!--Link to Documentation Begins-->
             <tr>
-                <td>Notice of Compliance API Documentation</td>
+                <td>Clinical Trials Database API Documentation</td>
                 <td>Guide</td>
                 <td>HTML</td>
                 <td>English</td>
-                <td><a href="http://api.hres.ca/documentation/noc-documentation-en.html" title="Resource 3" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="http://api.hres.ca/documentation/cta-documentation-en.html" title="Resource 3" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <tr>
-                <td>Notice of Compliance API Documentation</td>
+                <td>Clinical Trials API Documentation</td>
                 <td>Guide</td>
                 <td>HTML</td>
                 <td>French</td>
-                <td><a href="http://api.hres.ca/documentation/noc-documentation-fr.html" title="Resource 4" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
+                <td><a href="http://api.hres.ca/documentation/cta-documentation-fr.html" title="Resource 4" class="resource-url-analytics btn btn-primary" target="_blank">Access</a></td>
             </tr>
             <!--Link to Documentation Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
@@ -678,7 +667,6 @@
     </div>
     </div>
  </div>
-
 
     <div class="row pagedetails">
         <div class="col-sm-5 col-xs-12 datemod">
@@ -780,10 +768,11 @@
             </div>
         </div>
     </footer>
-
+    
     <!--[if gte IE 9 | !IE ]><!-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <script src="./distro/4.0.20/wet-boew/js/wet-boew.min.js"></script>
+    
     <!--<![endif]-->
     <!--[if lt IE 9]>
     <script src="./distro/4.0.20/wet-boew/js/ie8-wet-boew2.min.js"></script>
