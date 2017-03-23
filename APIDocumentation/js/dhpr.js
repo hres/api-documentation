@@ -2,6 +2,30 @@
 
 var dhpr = "./controller/dhprController.ashx?";
 
+function saveXML(url, elementName) {
+    var filename = elementName + '.xml';
+    if (window.navigator.msSaveBlob) {
+        $.ajax({
+            url: url,
+            type: "POST", /* or type:"GET" or type:"PUT" */
+            dataType: "xml",
+            data: {
+            },
+            success: function (XMLContent) {
+                window.navigator.msSaveOrOpenBlob(new Blob([XMLContent], { type: "text/xml;" }), filename);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                $("#" + elementName).attr({ 'href': url, 'target': '_blank' });
+                console.log("jqXHR: " + jqXHR + " Status: " + textStatus + " Error: " + errorThrown);
+                return;
+            }
+        });
+    }
+    else {
+        $("#" + elementName).attr({ 'download': filename, 'href': url, 'target': '_blank' });
+    }
+};
+
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
