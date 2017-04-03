@@ -46,6 +46,7 @@
 
 </head>
 <body class="secondary" typeof="WebPage" vocab="http://schema.org/">
+    <script src="./js/dhpr.js"></script>
     <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
     <noscript><iframe height="0" src="//www.googletagmanager.com/ns.html?id=GTM-TLGQ9K" style="display:none;visibility:hidden" title="Google Tag Manager" width="0"></iframe></noscript>
     <script>
@@ -405,9 +406,7 @@
                                         <td>Dataset</td>
                                         <td>XML</td>
                                         <td>Active</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/licence/?status=active&type=xml" target="_blank" title="Resource 1">Access</a>
-                                        </td>
+                                        <td><a id="licenceActive" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/licence/?status=active&type=xml', 'licenceActive')">Access</a></td>
                                     </tr><!-- Snippet package/snippets/resource_item.html end -->
                                     <!-- Snippet package/snippets/resource_item.html start -->
                                     <tr>
@@ -415,9 +414,7 @@
                                         <td>Dataset</td>
                                         <td>XML</td>
                                         <td>Archived</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/licence/?status=archived&type=xml" target="_blank" title="Resource 2">Access</a>
-                                        </td>
+                                        <td><a id="licenceArchived" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/licence/?status=archived&type=xml', 'licenceArchived')">Access</a></td>
                                     </tr><!--Company-->
                                     <tr>
                                         <td>Company</td>
@@ -462,9 +459,7 @@
                                         <td>Dataset</td>
                                         <td>XML</td>
                                         <td>Active</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/company/?status=active&type=xml" target="_blank" title="Resource 1">Access</a>
-                                        </td>
+                                        <td><a id="companyActive" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/company/?status=active&type=xml', 'companyActive')">Access</a></td>
                                     </tr><!-- Snippet package/snippets/resource_item.html end -->
                                     <!-- Snippet package/snippets/resource_item.html start -->
                                     <tr>
@@ -472,9 +467,7 @@
                                         <td>Dataset</td>
                                         <td>XML</td>
                                         <td>Archived</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/company/?status=archived&type=xml" target="_blank" title="Resource 2">Access</a>
-                                        </td>
+                                        <td><a id="companyArchived" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/company/?status=archived&type=xml', 'companyArchived')">Access</a></td>
                                     </tr><!--Device-->
                                     <tr>
                                         <td>Device</td>
@@ -517,18 +510,14 @@
                                         <td>Dataset</td>
                                         <td>XML</td>
                                         <td>Active</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/device/?status=active&type=xml" target="_blank" title="Resource 1">Access</a>
-                                        </td>
+                                        <td><a id="deviceActive" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/device/?status=active&type=xml', 'deviceActive')">Access</a></td>
                                     </tr>
                                     <tr>
                                         <td>Device</td>
                                         <td>Dataset</td>
                                         <td>XML</td>
                                         <td>Archived</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/device/?status=archived&type=xml" target="_blank" title="Resource 1">Access</a>
-                                        </td>
+                                        <td><a id="deviceArchived" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/device/?status=archived&type=xml', 'deviceArchived')">Access</a></td>
                                     </tr><!--Device Identifier -->
                                     <tr>
                                         <td>Device Identifier</td>
@@ -626,19 +615,14 @@
                                         <td>Dataset</td>
                                         <td>XML</td>
                                         <td>English</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/licencetype/?lang=en&type=xml" target="_blank" title="Resource 1">Access</a>
-                                        </td>
+                                        <td><a id="licencetypeEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/licencetype/?lang=en&type=xml', 'licencetypeEN')">Access</a></td>
                                     </tr>
                                     <tr>
                                         <td>Licence Type</td>
                                         <td>Dataset</td>
                                         <td>XML</td>
                                         <td>French</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/licencetype/?lang=fr&type=xml" target="_blank" title="Resource 1">Access</a>
-                                        </td>
-                                    </tr><!--SBD Location-->
+                                        <td><a id="licencetypeFR" href="#" title="Resource " class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/licencetype/?lang=fr&type=xml', 'licencetypeFR')">Access</a></td>                                    </tr><!--SBD Location-->
                                     <tr>
                                         <td>Summary Basis Decision Location</td>
                                         <td>Dataset</td>
@@ -684,19 +668,14 @@
                                         <td>Dataset</td>
                                         <td>XML</td>
                                         <td>English</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/sbdlocation/?lang=en&type=xml" target="_blank" title="Resource 1">Access</a>
-                                        </td>
+                                        <td><a id="sbdlocationEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/sbdlocation/?lang=en&type=xml', 'sbdlocationEN')">Access</a></td>
                                     </tr>
                                     <tr>
                                         <td>Summary Basis Decision Location</td>
                                         <td>Dataset</td>
                                         <td>XML</td>
                                         <td>French</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/sbdlocation/?lang=fr&type=xml" target="_blank" title="Resource 1">Access</a>
-                                        </td>
-                                    </tr>
+                                        <td><a id="sbdlocationFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/sbdlocation/?lang=fr&type=xml', 'sbdlocationFR')">Access</a></td>                                    </tr>
                                     <tr>
                                         <td>Medical Devices Active Licence Listing API Documentation</td>
                                         <td>Dataset</td>

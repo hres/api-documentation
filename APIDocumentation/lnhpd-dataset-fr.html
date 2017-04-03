@@ -46,6 +46,7 @@
 </head>
 
 <body vocab="http://schema.org/" typeof="WebPage" class="secondary">
+    <script src="./js/dhpr.js"></script>
     <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
     <noscript><iframe title="Google Tag Manager" src="//www.googletagmanager.com/ns.html?id=GTM-TLGQ9K" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer1' ? '&l=' + l : ''; j.async = true; j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer1', 'GTM-TLGQ9K');</script>
@@ -480,13 +481,13 @@
 										<td>Ingredient</td>
 										<td>XML</td>
 										<td>English</td>
-										<td><a href="https://api.hres.ca/lnhpd/api/ingredient/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Download</a></td>
+                                        <td><a id="ingredientEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/lnhpd/api/ingredient/?lang=en&type=xml', 'ingredientEN')">Download</a></td>
 									</tr>
 									<tr>
 										<td>Ingredient</td>
 										<td>XML</td>
 										<td>French</td>
-										<td><a href="https://api.hres.ca/lnhpd/api/ingredient/?lang=fr&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Download</a></td>
+                                        <td><a id="ingredientFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/lnhpd/api/ingredient/?lang=fr&type=xml', 'ingredientFR')">Download</a></td>
 									</tr>
 									
 									<!-- Ingredient Quantity -->
@@ -506,13 +507,13 @@
 										<td>Ingredient Quantity</td>
 										<td>XML</td>
 										<td>English</td>
-										<td><a href="https://api.hres.ca/lnhpd/api/ingredientquantity/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Download</a></td>
+                                        <td><a id="ingredientquantityEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/lnhpd/api/ingredientquantity/?lang=en&type=xml', 'ingredientquantityEN')">Download</a></td>
 									</tr>
 									<tr>
 										<td>Ingredient Quantity</td>
 										<td>XML</td>
 										<td>French</td>
-										<td><a href="https://api.hres.ca/lnhpd/api/ingredientquantity/?lang=fr&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Download</a></td>
+                                        <td><a id="ingredientquantityFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/lnhpd/api/ingredientquantity/?lang=fr&type=xml', 'ingredientquantityFR')">Download</a></td>
 									</tr>
 									
 									<!-- Ingredient Source -->
@@ -532,13 +533,13 @@
 										<td>Ingredient Source</td>
 										<td>XML</td>
 										<td>English</td>
-										<td><a href="https://api.hres.ca/lnhpd/api/ingredientsource/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Download</a></td>
+                                        <td><a id="ingredientsourceEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/lnhpd/api/ingredientsource/?lang=en&type=xml', 'ingredientsourceEN')">Download</a></td>
 									</tr>
 									<tr>
 										<td>Ingredient Source</td>
 										<td>XML</td>
 										<td>French</td>
-										<td><a href="https://api.hres.ca/lnhpd/api/ingredientsource/?lang=fr&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Download</a></td>
+                                        <td><a id="ingredientsourceFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/lnhpd/api/ingredientsource/?lang=fr&type=xml', 'ingredientsourceFR')">Download</a></td>
 									</tr>
 									
 									<!-- Ingredient Submission -->
@@ -558,13 +559,13 @@
 										<td>Ingredient Submission</td>
 										<td>XML</td>
 										<td>English</td>
-										<td><a href="https://api.hres.ca/lnhpd/api/ingredientsubmission/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Download</a></td>
+                                        <td><a id="ingredientsubmissionEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/lnhpd/api/ingredientsubmission/?lang=en&type=xml', 'ingredientsubmissionEN')">Download</a></td>
 									</tr>
 									<tr>
 										<td>Ingredient Submission</td>
 										<td>XML</td>
 										<td>French</td>
-										<td><a href="https://api.hres.ca/lnhpd/api/ingredientsubmission/?lang=fr&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Download</a></td>
+                                        <td><a id="ingredientsubmissionFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/lnhpd/api/ingredientsubmission/?lang=fr&type=xml', 'ingredientsubmissionFR')">Download</a></td>
 									</tr>
 									
 									<!-- Product Dose -->
@@ -584,13 +585,13 @@
 										<td>Product Dose</td>
 										<td>XML</td>
 										<td>English</td>
-										<td><a href="https://api.hres.ca/lnhpd/api/productdose/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Download</a></td>
+                                        <td><a id="productdoseEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/lnhpd/api/productdose/?lang=en&type=xml', 'productdoseEN')">Download</a></td>
 									</tr>
 									<tr>
 										<td>Product Dose</td>
 										<td>XML</td>
 										<td>French</td>
-										<td><a href="https://api.hres.ca/lnhpd/api/productdose/?lang=fr&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Download</a></td>
+                                        <td><a id="productdoseFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/lnhpd/api/productdose/?lang=fr&type=xml', 'productdoseFR')">Download</a></td>
 									</tr>
 									
 									<!-- Product Licence -->
@@ -610,13 +611,13 @@
 										<td>Product Licence</td>
 										<td>XML</td>
 										<td>English</td>
-										<td><a href="https://api.hres.ca/lnhpd/api/productlicence/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Download</a></td>
+                                        <td><a id="productlicenceEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/lnhpd/api/productlicence/?lang=en&type=xml', 'productlicenceEN')">Download</a></td>
 									</tr>
 									<tr>
 										<td>Product Licence</td>
 										<td>XML</td>
 										<td>French</td>
-										<td><a href="https://api.hres.ca/lnhpd/api/productlicence/?lang=fr&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Download</a></td>
+                                        <td><a id="productlicenceFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/lnhpd/api/productlicence/?lang=fr&type=xml', 'productlicenceFR')">Download</a></td>
 									</tr>
 									
 									<!-- Product Purpose -->
@@ -636,13 +637,13 @@
 										<td>Product Purpose</td>
 										<td>XML</td>
 										<td>English</td>
-										<td><a href="https://api.hres.ca/lnhpd/api/productpurpose/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Download</a></td>
+                                        <td><a id="productpurposeEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/lnhpd/api/productpurpose/?lang=en&type=xml', 'productpurposeEN')">Download</a></td>
 									</tr>
 									<tr>
 										<td>Product Purpose</td>
 										<td>XML</td>
 										<td>French</td>
-										<td><a href="https://api.hres.ca/lnhpd/api/productpurpose/?lang=fr&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Download</a></td>
+                                        <td><a id="productpurposeFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/lnhpd/api/productpurpose/?lang=fr&type=xml', 'productpurposeFR')">Download</a></td>
 									</tr>
 									
 									<!-- Product Risk -->
@@ -662,13 +663,13 @@
 										<td>Product Risk</td>
 										<td>XML</td>
 										<td>English</td>
-										<td><a href="https://api.hres.ca/lnhpd/api/productrisk/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Download</a></td>
+                                        <td><a id="productriskEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/lnhpd/api/productrisk/?lang=en&type=xml', 'productriskEN')">Download</a></td>
 									</tr>
 									<tr>
 										<td>Product Risk</td>
 										<td>XML</td>
 										<td>French</td>
-										<td><a href="https://api.hres.ca/lnhpd/api/productrisk/?lang=fr&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Download</a></td>
+                                        <td><a id="productriskFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/lnhpd/api/productrisk/?lang=fr&type=xml', 'productriskFR')">Download</a></td>
 									</tr>
 									
 									<!-- Product Route -->
@@ -688,13 +689,13 @@
 										<td>Product Route</td>
 										<td>XML</td>
 										<td>English</td>
-										<td><a href="https://api.hres.ca/lnhpd/api/productroute/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Download</a></td>
+                                        <td><a id="productrouteEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/lnhpd/api/productroute/?lang=en&type=xml', 'productrouteEN')">Download</a></td>
 									</tr>
 									<tr>
 										<td>Product Route</td>
 										<td>XML</td>
 										<td>French</td>
-										<td><a href="https://api.hres.ca/lnhpd/api/productroute/?lang=fr&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Download</a></td>
+                                        <td><a id="productrouteFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/lnhpd/api/productroute/?lang=fr&type=xml', 'productrouteFR')">Download</a></td>
 									</tr>
                                     
                                     <tr>

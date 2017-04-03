@@ -51,6 +51,7 @@
 </head>
 
 <body vocab="http://schema.org/" typeof="WebPage" class="secondary">
+    <script src="./js/dhpr.js"></script>
     <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
     <noscript><iframe title="Google Tag Manager" src="//www.googletagmanager.com/ns.html?id=GTM-TLGQ9K" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer1' ? '&l=' + l : ''; j.async = true; j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer1', 'GTM-TLGQ9K');</script>
@@ -443,14 +444,14 @@
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/cta/api/manufacturer/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="manufacturerEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cta/api/manufacturer/?lang=en&type=xml', 'manufacturerEN')">Accès</a></td>
             </tr>
             <tr>
                 <td>Manufacturer</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/cta/api/manufacturer/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="manufacturerFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cta/api/manufacturer/?lang=fr&type=xml', 'manufacturerFR')">Accès</a></td>
             </tr>
             <tr>
                 <td>Manufacturer</td>
@@ -489,14 +490,14 @@
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/cta/api/medicalcondition/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="medicalconditionEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cta/api/medicalcondition/?lang=en&type=xml', 'medicalconditionEN')">Accès</a></td>
             </tr>
             <tr>
                 <td>Medical Condition</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/cta/api/medicalcondition/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="medicalconditionFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cta/api/medicalcondition/?lang=fr&type=xml', 'medicalconditionFR')">Accès</a></td>
             </tr>
             <!--Medical Condition Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
@@ -521,14 +522,14 @@
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/cta/api/productbrand/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="productbrandEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cta/api/productbrand/?lang=en&type=xml', 'productbrandEN')">Accès</a></td>
             </tr>
             <tr>
                 <td>Product Marque</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/cta/api/productbrand/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="productbrandFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cta/api/productbrand/?lang=fr&type=xml', 'productbrandFR')">Accès</a></td>
             </tr>
             <!--Product Brand Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
@@ -553,14 +554,14 @@
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/cta/api/protocol/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="protocolEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cta/api/protocol/?lang=en&type=xml', 'protocolEN')">Accès</a></td>
             </tr>
             <tr>
                 <td>Protocol</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/cta/api/protocol/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="protocolFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cta/api/protocol/?lang=fr&type=xml', 'protocolFR')">Accès</a></td>
             </tr>
             <!--Protocol Form Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
@@ -585,14 +586,14 @@
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/cta/api/status/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="statusEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cta/api/status/?lang=en&type=xml', 'statusEN')">Accès</a></td>
             </tr>
             <tr>
                 <td>Status</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/cta/api/status/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="statusFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cta/api/status/?lang=fr&type=xml', 'statusFR')">Accès</a></td>
             </tr>
             <!--Status Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
@@ -617,14 +618,14 @@
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/cta/api/studypopulation/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="studypopulationEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cta/api/studypopulation/?lang=en&type=xml', 'studypopulationEN')">Accès</a></td>
             </tr>
             <tr>
                 <td>Study Population</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/cta/api/studypopulation/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="studypopulationFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cta/api/studypopulation/?lang=fr&type=xml', 'studypopulationFR')">Accès</a></td>
             </tr>
             <!--Study Population Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
