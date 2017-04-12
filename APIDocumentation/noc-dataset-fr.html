@@ -46,6 +46,7 @@
 </head>
 
 <body vocab="http://schema.org/" typeof="WebPage" class="secondary">
+    <script src="./js/dhpr.js"></script>
     <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
     <noscript><iframe title="Google Tag Manager" src="//www.googletagmanager.com/ns.html?id=GTM-TLGQ9K" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer1' ? '&l=' + l : ''; j.async = true; j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer1', 'GTM-TLGQ9K');</script>
@@ -436,14 +437,14 @@
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/brand/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="brandEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/noc/api/brand/?lang=en&type=xml', 'brandEN')">Accès</a></td>               
             </tr>
             <tr>
                 <td>Marque</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/brand/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="brandFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/noc/api/brand/?lang=fr&type=xml', 'brandFR')">Accès</a></td>
             </tr>
             <!--Brand Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
@@ -468,14 +469,14 @@
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="noticeofcompliancemainEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=en&type=xml', 'noticeofcompliancemainEN')">Accès</a></td>               
             </tr>
             <tr>
                 <td>Notice of Compliance</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="noticeofcompliancemainFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=fr&type=xml', 'noticeofcompliancemainFR')">Accès</a></td>               
             </tr>
             <!--NOC Main Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
@@ -500,14 +501,14 @@
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/product/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="productEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/noc/api/product/?lang=en&type=xml', 'productEN')">Accès</a></td>               
             </tr>
             <tr>
                 <td>Product</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/product/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="productFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/noc/api/product/?lang=fr&type=xml', 'productFR')">Accès</a></td>               
             </tr>
             <!--Product Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
@@ -532,14 +533,14 @@
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/productform/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="productformEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/noc/api/productform/?lang=en&type=xml', 'productformEN')">Accès</a></td>
             </tr>
             <tr>
                 <td>Product Form</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/productform/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="productformFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/noc/api/productform/?lang=fr&type=xml', 'productformFR')">Accès</a></td>
             </tr>
             <!--Product Form Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
@@ -564,14 +565,14 @@
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/productingredient/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="productingredientEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/noc/api/productingredient/?lang=en&type=xml', 'productingredientEN')">Accès</a></td>
             </tr>
             <tr>
                 <td>Product Ingredient</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/productingredient/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="productingredientFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/noc/api/productingredient/?lang=fr&type=xml', 'productingredientFR')">Accès</a></td>
             </tr>
             <!--Product Ingredient Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
@@ -596,14 +597,14 @@
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/productroute/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="productrouteEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/noc/api/productroute/?lang=en&type=xml', 'productrouteEN')">Accès</a></td>
             </tr>
             <tr>
                 <td>Product Route</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/productroute/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="productrouteFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/noc/api/productroute/?lang=fr&type=xml', 'productrouteFR')">Accès</a></td>
             </tr>
             <!--Product Route Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
@@ -628,14 +629,14 @@
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>English</td>
-                <td><a href="https://api.hres.ca/noc/api/vetspecies/?lang=en&type=xml" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="vetspeciesEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/noc/api/vetspecies/?lang=en&type=xml', 'vetspeciesEN')">Accès</a></td>
             </tr>
             <tr>
                 <td>Veterinary Species</td>
                 <td>Dataset</td>
                 <td>XML</td>
                 <td>French</td>
-                <td><a href="https://api.hres.ca/noc/api/vetspecies/?lang=fr&type=xml" title="Resource 2" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                <td><a id="vetspeciesFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/noc/api/vetspecies/?lang=fr&type=xml', 'vetspeciesFR')">Accès</a></td>
             </tr>
             <!--Veterinary Species Ends-->
             <!-- Snippet package/snippets/resource_item.html end -->
