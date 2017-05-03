@@ -170,8 +170,6 @@
             </div>
         </div>
     </header>
-
-
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-md-push-9">
@@ -369,85 +367,84 @@
                                         <td>Company</td>
                                         <td>Dataset</td>
                                         <td>JSON</td>
-                                        <td><a class="resource-url-analytics btn btn-primary" href="http://localhost:51195/api/company/?type=json" target="_blank" title="Resource 1">Access</a></td>
-                                        <!--<td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdel/api-v1/company/type=json" target="_blank" title="Resource 1">Access</a></td> -->
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/api-v1/company/?company_name=&type=json" target="_blank" title="Resource 1">Access</a></td>
                                     </tr>
                                     
                                     <tr>
                                         <td>Company</td>
                                         <td>Dataset</td>
                                         <td>XML</td>
-                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdel/api-v1/company/type=xml" target="_blank" title="Resource 1">Access</a></td>
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/api-v1/company/?company_name=&type=xml" target="_blank" title="Resource 1">Access</a></td>
                                     </tr>
 
                                     <tr>
                                         <td>Company</td>
                                         <td>Dataset</td>
                                         <td>CSV</td>
-                                        <td><input type="button" id="dlCompany" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Company Data', 'https://api.hres.ca/mdel/api-v1/company/type=json');" /></td>
+                                        <td><input type="button" id="dlCompany" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Company Data', 'https://api.hres.ca/api-v1/company/?company_name=&type=json');" /></td>
                                     </tr>
 
                                     <tr>
                                         <td>Country</td>
                                         <td>Dataset</td>
                                         <td>JSON</td>
-                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdel/api-v1/company/type=json" target="_blank" title="Resource 1">Access</a></td>
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/api-v1/country/?lang=en&country=&type=json" target="_blank" title="Resource 1">Access</a></td>
                                     </tr>
 
                                     <tr>
                                         <td>Country</td>
                                         <td>Dataset</td>
                                         <td>XML</td>
-                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdel/api-v1/company/type=xml" target="_blank" title="Resource 1">Access</a></td>
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/api-v1/country/?lang=en&country=&type=xml" target="_blank" title="Resource 1">Access</a></td>
                                     </tr>
 
                                     <tr>
                                         <td>Country</td>
                                         <td>Dataset</td>
                                         <td>CSV</td>
-                                        <td><input type="button" id="dlCountry" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Country Data', 'https://api.hres.ca/mdel/api-v1/country/type=json');" /></td>
+                                        <td><input type="button" id="dlCountry" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Country Data', 'https://api.hres.ca/api-v1/country/?lang=en&country=&type=json');" /></td>
                                     </tr>
 
                                     <tr>
                                         <td>Establishment</td>
                                         <td>Dataset</td>
                                         <td>JSON</td>
-                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdel/api-v1/establishment/type=json" target="_blank" title="Resource 1">Access</a></td>
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/api-v1/establishment/?lang=en&establishmentName=&type=json" target="_blank" title="Resource 1">Access</a></td>
                                     </tr>
 
                                     <tr>
                                         <td>Establishment</td>
                                         <td>Dataset</td>
                                         <td>XML</td>
-                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdel/api-v1/establishment/type=xml" target="_blank" title="Resource 1">Access</a></td>
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/api-v1/establishment/?lang=en&establishmentName=&type=xml" target="_blank" title="Resource 1">Access</a></td>
                                     </tr>
 
                                     <tr>
                                         <td>Establishment</td>
                                         <td>Dataset</td>
                                         <td>CSV</td>
-                                        <td><input type="button" id="dlEst" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Establishment Data', 'https://api.hres.ca/mdel/api-v1/establishment/type=json');" /></td>
+                                        <td><input type="button" id="dlEst" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Establishment Data', 'https://api.hres.ca/api-v1/establishment/?lang=en&establishmentName=&type=json');" /></td>
                                     </tr>
 
                                     <tr>
                                         <td>Province</td>
                                         <td>Dataset</td>
                                         <td>JSON</td>
-                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdel/api-v1/province/type=json" target="_blank" title="Resource 1">Access</a></td>
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/api-v1/province/?province=&lang=en&type=json" target="_blank" title="Resource 1">Access</a></td>
                                     </tr>
 
                                     <tr>
                                         <td>Province</td>
                                         <td>Dataset</td>
                                         <td>XML</td>
-                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdel/api-v1/province/type=xml" target="_blank" title="Resource 1">Access</a></td>
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/api-v1/province/?province=&lang=en&type=xml" target="_blank" title="Resource 1">Access</a></td>
                                     </tr>
 
                                     <tr>
                                         <td>Province</td>
                                         <td>Dataset</td>
                                         <td>CSV</td>
-                                        <td><input type="button" id="dlEst" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Province Data', 'https://api.hres.ca/mdel/api-v1/province/type=json');" /></td>
+                                        <td><input type="button" id="dlEst" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Province Data', 'https://api.hres.ca/api-v1/province/?province=&lang=en&type=json');" /></td>
                                     </tr>
 
                                 </table>    
