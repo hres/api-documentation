@@ -1,18 +1,17 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
 <html class="no-js" lang="fr" dir="ltr">
 <!--<![endif]-->
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
-    wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title>Drug Product Database (DPD) API</title>
+        wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>Guide API - Base de données sur les produits pharmaceutiques (BDPP)</title>
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <!-- Meta data -->
-    <meta name="dcterms.language" title="ISO639-2" content="eng" />
-    <meta name="dcterms.title" content="Drug and health product inspections" />
-    <meta name="description" content="Find the latest results from the Government's drug and health product inspections." />
+    <meta name="dcterms.language" title="ISO639-2" content="fra" />
+    <meta name="dcterms.title" content="Guide API - Base de données sur les produits pharmaceutiques (BDPP)" />
+    <meta name="description" content="Documentation pour API - Base de données sur les produits pharmaceutiques (BDPP)." />
     <meta name="dcterms.subject" title="scheme" content="" />
     <meta name="dcterms.creator" content="Government of Canada, Health Canada and the Public health Agency of Canada" />
     <meta name="dcterms.contributor" content="" />
@@ -22,156 +21,79 @@
     <meta name="dcterms.modified" title="W3CDTF" content="2016-03-18" />
     <meta name="review_date" content="" />
     <meta name="meta_date" content="" />
-    <!-- Meta data-->
-    <!--[if gte IE 9 | !IE ]><!-->
-    <link href="./distro/4.0.20/GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon">
-    <link rel="stylesheet" href="./distro/4.0.20/GCWeb/css/theme.min.css">
-    <!--<![endif]-->
-    <!--[if lt IE 9]>
-    <link href="./distro/4.0.20/GCWeb/assets/favicon.ico" rel="shortcut icon" />
 
-    <link rel="stylesheet" href="./distro/4.0.20/GCWeb/css/ie8-theme.min.css" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="./distro/4.0.20/wet-boew/js/ie8-wet-boew.min.js"></script>
-    <![endif]-->
-    <!--[if lte IE 9]>
-    <![endif]-->
-    <!--Start Healthy Canadians CSS-->
-    <link rel="stylesheet" href="./css/hcans.css" />
-    <!--End Healthy Canadians CSS--><!-- CUSTOM SCRIPTS/CSS START | DEBUT DES SCRIPTS/CSS PERSONNALISES -->
-    <!-- CUSTOM SCRIPTS/CSS END | FIN DES SCRIPTS/CSS PERSONNALISES -->
-    <noscript><link rel="stylesheet" href="./distro/4.0.20/wet-boew/css/noscript.min.css" /></noscript>
+    <!-- Load closure template scripts -->
+    <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/soyutils.js"></script>
+    <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/wet-fr.js"></script>
+    <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/plugins-fr.js"></script>
+    <!-- Load closure template scripts -->
+    <noscript>
+        <link rel="import" href="./StaticFallbackFiles/gcweb/refTop.html">
+    </noscript>
+    <!-- Write closure template -->
+    <script type="text/javascript">
+            document.write(wet.builder.refTop({
+                cdnEnv: "prod"
+            }));
+    </script>
+
     <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
     <script>dataLayer1 = [];</script>
     <!-- End Google Tag Manager -->
 </head>
 
-<body vocab="http://schema.org/" typeof="WebPage" class="secondary">
+<body vocab="http://schema.org/" typeof="WebPage">
     <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
-    <noscript><iframe title="Google Tag Manager" src="//www.googletagmanager.com/ns.html?id=GTM-TLGQ9K" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer1' ? '&l=' + l : ''; j.async = true; j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer1', 'GTM-TLGQ9K');</script>
+    <noscript>
+        <iframe title="Google Tag Manager" src="//www.googletagmanager.com/ns.html?id=GTM-TLGQ9K" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement
+
+(s),dl=l!='dataLayer1'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})
+
+(window,document,'script','dataLayer1','GTM-TLGQ9K');
+    </script>
     <!-- End Google Tag Manager -->
-    <ul id="wb-tphp">
-        <li class="wb-slc">
-            <a class="wb-sl" href="#wb-cont">Skip to main content</a>
-        </li>
-        <li class="wb-slc visible-sm visible-md visible-lg">
-            <a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
-        </li>
-    </ul>
-    <header role="banner">
-        <div id="wb-bnr" class="container">
-            <section id="wb-lng" class="visible-md visible-lg text-right">
-                <h2 class="wb-inv">Language selection</h2>
-                <div class="row">
-                    <div class="col-md-12">
-                        <ul class="list-inline margin-bottom-none">
-                            <li><a lang="en" href="dpd-documentation-en.html">English</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            <div class="row">
-                <div class="brand col-xs-8 col-sm-9 col-md-6">
-                    <a href="http://www.canada.ca/en/index.html"><object type="image/svg+xml" tabindex="-1" data="./distro/4.0.20/GCWeb/assets/sig-blk-en.svg"></object><span class="wb-inv"> Government of Canada</span></a>
-                </div>
-                <section class="wb-mb-links col-xs-4 col-sm-3 visible-sm visible-xs" id="wb-glb-mn">
-                    <h2>Search and menus</h2>
-                    <ul class="list-inline text-right chvrn">
-                        <li><a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Search and menus</span></span></span></a></li>
-                    </ul>
-                    <div id="mb-pnl"></div>
-                </section>
-                <section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg">
-                    <h2>Search</h2>
-                    <form action="http://recherche-search.gc.ca/rGs/s_r?#wb-land" method="get" name="cse-search-box" role="search" class="form-inline">
-                        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-                        <script type="text/javascript">
-                            var autoCompletionOptions = { 'validLanguages': 'en', };
-                            google.load('search', '1');
-                            google.setOnLoadCallback(function () { google.search.CustomSearchControl.attachAutoCompletionWithOptions('008724028898028201144:knjjdikrhq0', document.getElementById('wb-srch-q'), 'cse-search-box', autoCompletionOptions); });
-                            google.setOnLoadCallback(function () { setTimeout(function () { google.search.CustomSearchControl.attachAutoCompletionWithOptions('008724028898028201144:knjjdikrhq0', document.getElementById('wb-srch-q-imprt'), 'cse-search-box', autoCompletionOptions); }, 2000); });</script>
-                        <div class="form-group">
-                            <label for="wb-srch-q" class="wb-inv">Search website</label>
-                            <input name="cdn" value="canada" type="hidden" />
-                            <input name="st" value="s" type="hidden" />
-                            <input name="num" value="10" type="hidden" />
-                            <input name="langs" value="eng" type="hidden" />
-                            <input name="st1rt" value="0" type="hidden">
-                            <input name="s5bm3ts21rch" value="x" type="hidden" />
-                            <input id="wb-srch-q" class="wb-srch-q form-control" name="q" type="search" value="" size="27" maxlength="150" placeholder="Search Canada.ca" />
-                        </div>
-                        <div class="form-group submit">
-                            <button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub"><span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
-                        </div>
-                    </form>
-                </section>
-            </div>
-        </div>
-        <nav role="navigation" id="wb-sm" class="wb-menu visible-md visible-lg" data-trgt="mb-pnl" data-ajax-replace="//cdn.canada.ca/gcweb-cdn-live/sitemenu/sitemenu-en.html" typeof="SiteNavigationElement">
-            <div class="container nvbar">
-                <h2>Topics menu</h2>
-                <div class="row">
-                    <ul class="list-inline menu">
-                        <li><a href="http://www.esdc.gc.ca/en/jobs/index.page">Emplois</a></li>
-                        <li><a href="http://www.cic.gc.ca/english/index.asp">Immigration</a></li>
-                        <li><a href="http://travel.gc.ca">Voyage</a></li>
-                        <li><a href="http://www.canada.ca/en/services/business/index.html">Entreprises</a></li>
-                        <li><a href="http://www.canada.ca/en/services/benefits/index.html">Prestations</a></li>
-                        <li><a href="http://healthycanadians.gc.ca/index-eng.php">Sant&eacute;</a></li>
-                        <li><a href="http://www.canada.ca/en/services/taxes/index.html">Imp&ocirc;</a></li>
-                        <li><a href="http://www.canada.ca/en/services/index.html">Autre services</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <nav role="navigation" id="wb-bc" property="breadcrumb">
-            <h2>You are here:</h2>
-            <div class="container">
-                <div class="row">
-                    <ol class="breadcrumb">
-                        <li><a href="http://canada.ca/en/index.html">Accueil</a></li>
-                        <li><a href="http://healthycanadians.gc.ca/index-eng.php">Sant&eacute;</a></li>
-                        <li><a href="http://healthycanadians.gc.ca/drugs-products-medicaments-produits/index-eng.php">Drug and health products</a></li>
-                        <li><a href="http://healthycanadians.gc.ca/drugs-products-medicaments-produits/inspecting-monitoring-inspection-controle/index-eng.php">Inspecting and monitoring drug and health products</a></li>
-                        <li><a href="http://healthycanadians.gc.ca/drugs-products-medicaments-produits/inspecting-monitoring-inspection-controle/inspections/index-eng.php">Drug and health product inspections</a></li>
-                    </ol>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <div id="def-top">
+        <!-- top-en.html-Start-->
+        <link rel="import" href="./StaticFallbackFiles/gcweb/top-fr.html">
+        <!-- top-en.html-End-->
+    </div>
+    <!-- Write closure template -->
+    <script type="text/javascript">
+	var defTop = document.getElementById("def-top");
+	var jsonbread = [];
+
+	//console.log(jsonbread);
+	defTop.outerHTML = wet.builder.top({
+	    cdnEnv: "prod",
+	    search: true,
+		lngLinks: [{
+			lang: "fr",
+			href: "dpd-documentation-en.html",
+			text: "English",
+		}],
+		showPreContent: true,
+		breadcrumbs:jsonbread,
+	});
+    </script>
 
     <div class="container">
         <main role="main" property="mainContentOfPage" class="container">
             <div class="wb-frmvld">
 
 
-                <nav role="navigation" id="wb-sm" data-ajax-fetch="ajax/menu-include-en.html" data-trgt="mb-pnl" class="wb-menu visible-md visible-lg" typeof="SiteNavigationElement">
-                    <div class="container nvbar">
-                        <h2>Topics menu</h2>
-                        <div class="row">
-                            <ul class="list-inline menu">
-                                <li><a href="index-fr.html">Accueil</a></li>
-                                <li><a href="api-fr.html">APIs</a></li>
-                                <li><a href="application-fr.html">Applications</a></li>
-                                <li><a href="framework-fr.html">Cadre</a></li>
-                                <li><a href="architecture-fr.html">Diagramme d'architecture</a></li>
-                                <li><a href="data-source-fr.html">Les sources de données</a></li>
-                                <li><a href="terms-of-service-fr.html">Conditions d'utilisation</a></li>
-                                <li><a href="contact-us-fr.html">Contactez nous</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
                 <section>
-                    <h1 id="wb-cont">Drug Product Database (DPD) API Guide</h1>
+                    <h1 id="wb-cont">Guide API - Base de données sur les produits pharmaceutiques (BDPP)</h1>
 
                     <section>
                         <h2 id="a">Table des matières</h2>
                         <ul>
                             <li><a href="#a1">Introduction</a></li>
                             <li>
-                                <a href="#a2">Active Ingredient</a>
+                                <a href="#a2">Ingrédient actif</a>
                                 <ul>
                                     <li><a href="#a2.1">Paramètres</a></li>
                                     <li><a href="#a2.2">Format de réponse</a></li>
@@ -180,7 +102,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a3">Company</a>
+                                <a href="#a3">Companie</a>
                                 <ul>
                                     <li><a href="#a3.1">Paramètres</a></li>
                                     <li><a href="#a3.2">Format de réponse</a></li>
@@ -189,7 +111,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a4">Drug Product</a>
+                                <a href="#a4">Produit pharmaceutique</a>
                                 <ul>
                                     <li><a href="#a4.1">Paramètres</a></li>
                                     <li><a href="#a4.2">Format de réponse</a></li>
@@ -207,7 +129,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a6">Packaging</a>
+                                <a href="#a6">Emballage</a>
                                 <ul>
                                     <li><a href="#a6.1">Paramètres</a></li>
                                     <li><a href="#a6.2">Format de réponse</a></li>
@@ -215,8 +137,8 @@
                                     <li><a href="#a6.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
-							<li>
-                                <a href="#a7">Pharmaceutical Std</a>
+                            <li>
+                                <a href="#a7">Norme pharmaceutique</a>
                                 <ul>
                                     <li><a href="#a7.1">Paramètres</a></li>
                                     <li><a href="#a7.2">Format de réponse</a></li>
@@ -225,7 +147,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a8">Schedule</a>
+                                <a href="#a8">Voie d'administration</a>
                                 <ul>
                                     <li><a href="#a8.1">Paramètres</a></li>
                                     <li><a href="#a8.2">Format de réponse</a></li>
@@ -234,7 +156,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a9">Route</a>
+                                <a href="#a9">Schedule</a>
                                 <ul>
                                     <li><a href="#a9.1">Paramètres</a></li>
                                     <li><a href="#a9.2">Format de réponse</a></li>
@@ -242,6 +164,7 @@
                                     <li><a href="#a9.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
+
                             <li>
                                 <a href="#a10">Status</a>
                                 <ul>
@@ -252,7 +175,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a11">Status External</a>
+                                <a href="#a11">Therapeutic Class</a>
                                 <ul>
                                     <li><a href="#a11.1">Paramètres</a></li>
                                     <li><a href="#a11.2">Format de réponse</a></li>
@@ -261,7 +184,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a12">Therapeutic Class</a>
+                                <a href="#a12">Espèce animale</a>
                                 <ul>
                                     <li><a href="#a12.1">Paramètres</a></li>
                                     <li><a href="#a12.2">Format de réponse</a></li>
@@ -269,37 +192,28 @@
                                     <li><a href="#a12.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="#a13">Veterinary Species</a>
-                                <ul>
-                                    <li><a href="#a13.1">Paramètres</a></li>
-                                    <li><a href="#a13.2">Format de réponse</a></li>
-                                    <li><a href="#a13.3">Exemple de réponse</a></li>
-                                    <li><a href="#a13.4">Exemple de jQuery</a></li>
-                                </ul>
-                            </li>
                         </ul>
                     </section>
 
                     <section>
                         <h2 id="a1">Introduction</h2>
-                        <p>The DPD contains product specific information on drugs approved for use in Canada. The database is managed by Health Canada and includes human pharmaceutical and biological drugs, veterinary drugs, radiopharmaceutical drugs and disinfectant products. It contains approximately 47,000 products that are currently approved, marketed or cancelled.</p>
-                        <p>Human, veterinary, disinfectants and Schedule C drugs (e.g. radiopharmaceutical products) approved products will be available in the DPD online at the time of authorization, with the exception of three monographed product groups under Division 1, Part C of the Food and Drug Regulations: sunscreen (sunscreens, lipstick making a SPF claim, cosmetic-like products with sunscreen claims, etc.), anti-dandruff shampoo, and hard surface disinfectants.  For these products, applications filed after June 15, 2015, there may be a six month delay after approval for the inclusion in the DPD online.</p>
-                        <p>Health Canada is the federal regulator of therapeutic products and does not provide medical advice on the use of the products identified in this database. For information related to treatment options, choices of medications and their uses, illnesses, side effects or drug interactions, please contact your health care professional. For information on where these products are sold, please contact the individual company directly.</p>
-                        <p>This Application Programming Interface (API) allows developers to access that information in JSON format for reuse in their own applications.</p>
-                        <p>The base URI for the Drug Product Database &nbsp;<a href="https://api.hres.ca/dpd/api/">https://api.hres.ca/dpd/api/</a>. Any requests are made relative to this URI.</p>
+                        <p>La BDPP contient des informations spécifiques sur les médicaments commercialisés au Canada. Cette base de données, administrée par la Direction des produits thérapeutiques, porte sur les produits à usages humains et vétérinaires, radio pharmaceutiques et désinfectants. Elle renferme environ 47 000 produits qui sont présentement approuvés, commercialisés ou annulés.</p>
+                        <p>Les produits à usage humain, vétérinaire, désinfectants et ceux faisant partie de l'Annexe C (produits radiopharmaceutiques) seront disponibles dans la BDPP en ligne dès leur approbation, àl'exception des produits appartenant aux trois groupes de monographies listées dans la Partie C, Titre 1, du Règlement sur les Aliments et Drogues. Ces produits sont : les produits solaires (crèmes solaires, baumes à lèvres revendiquant un FPS, produits cosmétiques contenant un agent de protection solaire, etc...), les shampoings antipelliculaires et les désinfectants pour surfaces dures. Pour ces produits, dont les applications ont été soumises après le 15 juin 2015, il peut y avoir un délai de 6 mois,  après la date d'approbation, avant qu'ils n'apparaissent dans la BDPP en ligne.</p>
+                        <p>Santé Canada est l'organisme fédéral qui réglemente les produits thérapeutiques et nous ne donnons pas de conseils médicaux sur l'utilisation des produits dans cette base de données. Pour de plus amples informations sur les choix de traitement, les choix de médicament et leurs utilisations, maladies, effets secondaires et interactions médicamenteuses, veuillez contacter votre professionnel de la santé.</p>
+                        <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON afin de les utiliser dans leurs propres applications.</p>
+                        <p>L'adresse URI de base sur les produits pharmaceutiques est &nbsp;<a href="https://api.hres.ca/dpd/api/">https://api.hres.ca/dpd/api/</a>. Toute requête est effectuée par l'entremise de cette adresse URI.</p>
                     </section>
 
                     <section>
-                        <h2 id="a2">Active Ingredient</h2>
+                        <h2 id="a2">Ingrédient actif</h2>
                         <p>TODO put description of active ingredient.....</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a2.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <p>Il y a trois paramètre dans la requête : la langue, id et type de format.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètres de la chaîne d'interrogation
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
@@ -310,41 +224,42 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/activeingredient/?id=</span></td>
-                                    <td>Returns active ingredient by id.</td>
+                                    <td>Affice l'ingrédient actif par numéro d'identificateur.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the active ingredient
+                                            #####&nbsp;- numéro d'identificateur de l'ingrédient actif
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api/activeingredient/?lang=en</span></td>
-                                    <td>Change la langue.</td>
+                                    <td><span class="nowrap">dpd/api/activeingredient/?lang=fr</span></td>
+                                    <td>Change langue</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
-                                            <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
                                     <td>Détermine si la réponse est affichée en anglais ou en français.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/activeingredient/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Change le format type du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais Json est le format type par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Active ingredient can be accessed via these URIs:</p>
+                            <p>Exemple d'adresse URI d'une requête :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/activeingredient/?lang=en&type=json">https://api.hres.ca/dpd/api/activeingredient/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/activeingredient/?lang=fr&type=json">https://api.hres.ca/dpd/api/activeingredient/?lang=fr&type=json</a></li>
@@ -353,72 +268,63 @@
 
                         <section>
                             <h3 id="a2.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Each&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values:</p>
+                            <p>Chaque&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values :</p>
                             <table>
                                 <caption>
-                                    Active Ingredient object values
+                                    Valeurs des objets - ingrédient actif
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
-                                </tr>
-                                <tr>
-                                    <td><strong>active_ingredient_id</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>drug_code</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>ingredient_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>strength_unit</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>strength</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>active_ingredient_code</strong></td>
-                                    <td>The ...</td>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
                                     <td><strong>dosage_unit</strong></td>
-                                    <td>The ...</td>
+                                    <td>L'unité posologique</td>
                                 </tr>
                                 <tr>
                                     <td><strong>dosage_value</strong></td>
-                                    <td>The ...</td>
+                                    <td>La valeur pour une unité posologique</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>drug_code</strong></td>
+                                    <td>Le code attribué à chaque produit pharmaceutique</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ingredient_name</strong></td>
+                                    <td>Le nom de l'ingrédient</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>strength</strong></td>
+                                    <td>La concentration de l'ingrédient actif contenu dans un produit pharmaceutique</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>strength_unit</strong></td>
+                                    <td>L'unité du concentration de l'ingrédient actif</td>
                                 </tr>
                             </table>
-
                             <section>
-                                <h3 id="a2.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"active_ingredient_id":100,"drug_code":47494,"ingredient_name":"CALCIUM (CALCIUM HVP CHELATE)","strength_unit":"MG","strength":"83.33","active_ingredient_code":0,"dosage_unit":"CAP","dosage_value":""}</pre>
+                                <h3 id="a2.3">Exemple de réponse </h3>
+                                <pre class="prettify prettyprint linenums">{"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"VITAMIN E","strength":"200","strength_unit":"UNIT"}</pre>
                             </section>
 
                             <section>
                                 <h3 id="a2.4">Exemple de jQuery</h3>
-                                <p>Example for a function of active ingredient to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récents ingrédients actifs à un élément avec le numéro d'identification et selon la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getActiveIngredient(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/activeingredient/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/activeingredient/?id=' + id + ' &lang =' + lang;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
                                     Accept:&quot;application/json&quot;,
                                     dataType: 'json',
                                     success:function(data){
-                                        console.log(data.ingredient_name);
+                                        console.log(data.drug_code);
                                         var frag = document.createDocumentFragment();
                                         var h2 = document.createElement(&quot;h2&quot;);
-                                        var Ingredient = document.createTextNode(data.ingredient_name);
+                                        var DrugCode = document.createTextNode(data.drug_code);
                                         var p = document.createElement(&quot;p&quot;);
                                         var text = document.createTextNode(data.panels[0].text);
                                         h2.appendChild(Ingredient);
@@ -438,15 +344,15 @@
 
                     </section>
                     <section>
-                        <h2 id="a3">Company</h2>
+                        <h2 id="a3">Companie</h2>
                         <p>TODO put description of company.....</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a3.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <p>There are three parameters in the request: language, id and format type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètres de détails
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
@@ -457,22 +363,22 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/company/?id=</span></td>
-                                    <td>Returns company by id.</td>
+                                    <td>Affiche les détails de la companie par numéro d'identification.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the company
+                                            #####&nbsp;- Affiche le numéro d'identification de la companie recherché.
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api/company/?lang=en</span></td>
-                                    <td>Change la langue.</td>
+                                    <td><span class="nowrap">dpd/api/company/?lang=fr</span></td>
+                                    <td>Change la langue</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
-                                            <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
@@ -480,18 +386,19 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/company/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Change le format type du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais Json est le format type par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Company can be accessed via these URIs:</p>
+                            <p>Exemple d'adresse URI d'une requête :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/company/?lang=en&type=json">https://api.hres.ca/dpd/api/company/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/company/?lang=fr&type=json">https://api.hres.ca/dpd/api/company/?lang=fr&type=json</a></li>
@@ -500,72 +407,68 @@
 
                         <section>
                             <h3 id="a3.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Each&nbsp;<strong>company</strong>&nbsp;object consists of the following values:</p>
+                            <p>Chaque&nbsp;<strong>companie</strong>&nbsp;qui comporte les objets suivants :</p>
                             <table>
                                 <caption>
-                                    Company object values
+                                    Valeurs des objets - companie
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
-                                </tr>
-                                <tr>
-                                    <td><strong>company_code</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>mfr_code</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>company_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>company_type</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>suite_number</strong></td>
-                                    <td>The ...</td>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
                                     <td><strong>city_name</strong></td>
-                                    <td>The ...</td>
+                                    <td>Le nom de la ville</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>street_name</strong></td>
-                                    <td>The ...</td>
+                                    <td><strong>company_code</strong></td>
+                                    <td>Le code attribué à l'entreprise</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>province_name</strong></td>
-                                    <td>The ...</td>
+                                    <td><strong>company_name</strong></td>
+                                    <td>Le nom de l'entreprise</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>company_type</strong></td>
+                                    <td>Le type de compagnie</td>
                                 </tr>
                                 <tr>
                                     <td><strong>country_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>postal_code</strong></td>
-                                    <td>The ...</td>
+                                    <td>Le nom du pays</td>
                                 </tr>
                                 <tr>
                                     <td><strong>post_office_box</strong></td>
-                                    <td>The ...</td>
+                                    <td>Le numéro du boîte postale (s'il y a lieu)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>postal_code</strong></td>
+                                    <td>Le code postale</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>province_name</strong></td>
+                                    <td>Le nom de la province</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>street_name</strong></td>
+                                    <td>Le nom de la rue</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>suite_number</strong></td>
+                                    <td>Le numéro de la pièce</td>
                                 </tr>
                             </table>
                             <section>
                                 <h3 id="a3.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"company_code":-99,"mfr_code":"","company_name":"UNKNOWN COMPANY (SEE NOTES)","company_type":"DIN OWNER","suite_number":"","city_name":"Unknown Company City","street_name":"Unknown Company Street","province_name":"Saone Et Loire","country_name":"Nigeria","postal_code":"N/A","post_office_box":""}</pre>
+                                <pre class="prettify prettyprint linenums">{"city_name":"Mississauga","company_code":10825,"company_name":"PAX-ALL MANUFACTURING INC.","company_type":"DIN OWNER","country_name":"Canada","post_office_box":"","postal_code":"L5S 1R7","province_name":"Ontario","street_name":"7115 Tomken Road","suite_number":""}</pre>
                             </section>
 
                             <section>
                                 <h3 id="a3.4">Exemple de jQuery</h3>
-                                <p>Example for a function of company to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récentes companie selon le numéro d'identification du rappel "#responses" et selon la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getCompany(id, lang) {
-                                var base = 'https://imsd.hres.ca';
+                                var base = 'https://api.hres.ca';
                                 var uri = base + '/dpd/api/company/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
@@ -596,15 +499,15 @@
 
                     </section>
                     <section>
-                        <h2 id="a4">Drug Product</h2>
-                        <p>TODO put description of Drug Product.....</p>
+                        <h2 id="a4">Produit pharmaceutique</h2>
+                        <p>TODO put description of produit pharmaceutique.....</p>
 
                         <section>
                             <h3 id="a4.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <p>Il y a quatre paramètres dans la requête : la langue, le numéro d'identification, le status et format type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètres de détails
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
@@ -615,41 +518,57 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/drugproduct/?id=</span></td>
-                                    <td>Returns drug product by id.</td>
+                                    <td>Affiche le numéro d'identification du ..............</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the Drug Product.
+                                            #####&nbsp;- Affiche le numéro d'identification du ..............
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api/drugproduct/?lang=en</span></td>
-                                    <td>Change la langue.</td>
+                                    <td><span class="nowrap">dpd/api/drugproduct/?lang=fr</span></td>
+                                    <td>Change la langue</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
-                                            <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
                                     <td>Détermine si la réponse est affichée en anglais ou en français.</td>
                                 </tr>
                                 <tr>
+                                    <td><span class="nowrap">dpd/api/drugproduct/?status=1&lang=fr</span></td>
+                                    <td>Get drug product by status</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>1</code>&nbsp;- Approuvé</li>
+                                            <li><code>2</code>&nbsp;- Commercialisé</li>
+                                            <li><code>3</code>&nbsp;- Annulé avant commercialisation</li>
+                                            <li><code>4</code>&nbsp;- Annulé après commercialisation</li>
+                                            <li><code>5</code>&nbsp;- Dormant</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
+                                    <td>Détermine si la réponse est affiché selon .............Determines whether the response is in specific status.</td>
+                                </tr>
+                                <tr>
                                     <td><span class="nowrap">dpd/api/drugproduct/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Change le format type du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais Json est le format type par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Drug Product can be accessed via these URIs:</p>
+                            <p>Exemple d'adresse URI d'une requête :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/drugproduct/?lang=en&type=json">https://api.hres.ca/dpd/api/drugproduct/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/drugproduct/?lang=fr&type=json">https://api.hres.ca/dpd/api/drugproduct/?lang=fr&type=json</a></li>
@@ -657,151 +576,60 @@
                         </section>
                         <section>
                             <h3 id="a4.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Each&nbsp;<strong>drug product</strong>&nbsp;object consists of the following values:</p>
+                            <p>Chaque&nbsp;<strong> produit pharmaceutique</strong>&nbsp;object consists of the following values :</p>
                             <table>
                                 <caption>
-                                    Drug Product object values
+                                    Valeurs des objets - produit pharmaceutique
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
-                                </tr>
-
-                                <tr>
-                                    <td><strong>drug_code</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>drug_identification_number</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>brand_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>strength</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>strength_unit_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>company_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>street_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>city_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>country_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>province_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>postal_code</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>suite_number</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>ai_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>number_of_ais</strong></td>
-                                    <td>The ...</td>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
                                     <td><strong>ai_group_no</strong></td>
-                                    <td>The ...</td>
+                                    <td>Le numéro de groupe d'ingrédients actifs</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>schedule_name</strong></td>
-                                    <td>The ...</td>
+                                    <td><strong>brand_name</strong></td>
+                                    <td>Le nom commercial du produit pharmaceutique</td>
                                 </tr>
                                 <tr>
                                     <td><strong>class_name</strong></td>
-                                    <td>The ...</td>
+                                    <td>La classe thérapeutique attribuée à un produit pharmaceutique</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>status_name</strong></td>
-                                    <td>The ...</td>
+                                    <td><strong>company</strong></td>
+                                    <td>L'entreprise</td>
+
                                 </tr>
                                 <tr>
-                                    <td><strong>dosage_value</strong></td>
-                                    <td>The ...</td>
+                                    <td><strong>descriptor</strong></td>
+                                    <td>The .....</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>dosage_unit</strong></td>
-                                    <td>The ...</td>
+                                    <td><strong>drug_code</strong></td>
+                                    <td>Le code attribué à chaque produit pharmaceutique</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>atc_name</strong></td>
-                                    <td>The ...</td>
+                                    <td><strong>drug_identification_number</strong></td>
+                                    <td>L'Identification numérique de drogue</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>ahfs_name</strong></td>
-                                    <td>The ...</td>
+                                    <td><strong>number_of_ais</strong></td>
+                                    <td>Le nombre d'ingrédients actifs</td>
                                 </tr>
-                                <tr>
-                                    <td><strong>pm_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>route_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>form_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>history_date</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>original_market_date</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>external_status_code</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>ai_strength_and_dosage</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>ai_dosage</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>dosage_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
+
                             </table>
                             <!--h3-section-start-->
                             <section>
                                 <h3 id="a4.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":10019,"drug_identification_number":"00835471","brand_name":"","strength":"30","strength_unit_name":"MG","company_name":"NAIM CANADA INC.","street_name":"18th Street Ne","city_name":"Calgary","country_name":"Canada","province_name":"Alberta","postal_code":"T2E 7K5","suite_number":"UNIT 2827","ai_name":"UBIDECARENONE","number_of_ais":"1","ai_group_no":"0119427003","schedule_name":"OTC","class_name":"Human","status_name":"Cancelled Post Market","dosage_value":null,"dosage_unit":null,"atc_name":"UBIDECARENONE","ahfs_name":"OTHER NUTRITIONAL AGENTS","pm_name":"","route_name":"Oral","form_name":"Capsule","history_date":"2002-09-19","original_market_date":"1989-12-31","external_status_code":4,"DosageName":" ","PMExist":"0","AiDosageText":"","AiStrengthAndDosageText":"","AiStrengthText":"30 MG"}</pre>
+                                <pre class="prettify prettyprint linenums">{"drug_code":2049,"class_name":"Human","drug_identification_number":"00326925","brand_name":"SINEQUAN","descriptor":"","number_of_ais":"1","ai_group_no":"0107703005","company":{"city_name":"Concord","company_code":16419,"company_name":"ASPRI PHARMA CANADA INC","company_type":"DIN OWNER","country_name":"Canada","post_office_box":"","postal_code":"L4K 3T8","province_name":"Ontario","street_name":"665 Millway Avenue, Suite 31 B","suite_number":""}}</pre>
                             </section>
                             <section>
                                 <h3 id="a4.4">Exemple de jQuery</h3>
-                                <p>Example for a function of drug product to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Exemple d'une fonctionnalité qui affiche ......... "#responses", selon le numéro d'identification et la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getDrugProduct(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/drugproduct/?lang=' + lang + '&id=' + id;
@@ -837,10 +665,10 @@
 
                         <section>
                             <h3 id="a5.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <p>Il y a trois paramètre dans la requête : la langue, numéro d'identification, actif et format type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètre pour la requête
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
@@ -857,35 +685,48 @@
                                             #####&nbsp;- ID of the form
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api/form/?lang=en</span></td>
-                                    <td>Change la langue.</td>
+                                    <td><span class="nowrap">dpd/api/form/?lang=fr</span></td>
+                                    <td>Change la langue</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
-                                            <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
                                     <td>Détermine si la réponse est affichée en anglais ou en français.</td>
                                 </tr>
                                 <tr>
+                                    <td><span class="nowrap">dpd/api/form/?active=yes</span></td>
+                                    <td>Get form that are active or not</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>yes</code>&nbsp;- Return the form that has a date that is greater than today or no date.</li>
+
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais par défaut affiche toutes les résultats.</td>
+                                    <td>Determines whether the response is returning all the form or only the one with a date that is greater than today or no date identified.</td>
+                                </tr>
+                                <tr>
                                     <td><span class="nowrap">dpd/api/form/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Change le format type du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais Json est le format type par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Form can be accessed via these URIs:</p>
+                            <p>Exemple d'adresse URI d'une requête :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/form/?lang=en&type=json">https://api.hres.ca/dpd/api/form/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/form/?lang=fr&type=json">https://api.hres.ca/dpd/api/form/?lang=fr&type=json</a></li>
@@ -893,43 +734,39 @@
                         </section>
                         <section>
                             <h3 id="a5.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Each&nbsp;<strong>form</strong>&nbsp;object consists of the following values:</p>
+                            <p>Chaque&nbsp;<strong>forme posologique</strong>&nbsp;object consists of the following values :</p>
                             <table>
                                 <caption>
-                                    Form object values
+                                    Valeurs des objets - forme posologique
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
                                     <td><strong>drug_code</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>inactive_date</strong></td>
-                                    <td>The ...</td>
+                                    <td>Le code attribué à chaque produit pharmaceutique</td>
                                 </tr>
                                 <tr>
                                     <td><strong>pharmaceutical_form_code</strong></td>
-                                    <td>The ...</td>
+                                    <td>Le code attribué à une forme posologique</td>
                                 </tr>
                                 <tr>
                                     <td><strong>pharmaceutical_form_name</strong></td>
-                                    <td>The ...</td>
+                                    <td>La forme posologique</td>
                                 </tr>
 
                             </table>
                             <!--h3-section-start-->
                             <section>
                                 <h3 id="a5.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":10,"inactive_date":null,"pharmaceutical_form_code":5,"pharmaceutical_form_name":"Capsule"}</pre>
+                                <pre class="prettify prettyprint linenums">{"drug_code":10776,"pharmaceutical_form_code":34,"pharmaceutical_form_name":"Liquid"}</pre>
                             </section>
                             <section>
                                 <h3 id="a5.4">Exemple de jQuery</h3>
-                                <p>Example for a function of form to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récents produit pharmaceutique à un élément avec le numéro d'identification et selon la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getForm(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/form/?lang=' + lang + '&id=' + id;
@@ -960,15 +797,15 @@
                         </section>
                     </section>
                     <section>
-                        <h2 id="a6">Packaging</h2>
-                        <p>TODO put description of packaging.....</p>
+                        <h2 id="a6">Emballage</h2>
+                        <p>TODO put description of emballage.....</p>
 
                         <section>
                             <h3 id="a6.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <p>There are three parameters in the request: language, id and format type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètre pour la requête
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
@@ -979,10 +816,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/packaging/?id=</span></td>
-                                    <td>Returns packaging by id.</td>
+                                    <td>Returns emballage by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the packaging
+                                            #####&nbsp;- ID of the emballage
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -990,30 +827,31 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/packaging/?lang=en</span></td>
-                                    <td>Change la langue.</td>
+                                    <td>Change langue</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
-                                            <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
                                     <td>Détermine si la réponse est affichée en anglais ou en français.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/packaging/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Change le format type du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais Json est le format type par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Packaging can be accessed via these URIs:</p>
+                            <p>Exemple d'adresse URI d'une requête :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/packaging/?lang=en&type=json">https://api.hres.ca/dpd/api/packaging/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/packaging/?lang=fr&type=json">https://api.hres.ca/dpd/api/packaging/?lang=fr&type=json</a></li>
@@ -1021,54 +859,50 @@
                         </section>
                         <section>
                             <h3 id="a6.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Each&nbsp;<strong>packaging</strong>&nbsp;object consists of the following values:</p>
+                            <p>Chaque&nbsp;<strong>emballage</strong>&nbsp;object consists of the following values :</p>
                             <table>
                                 <caption>
-                                    Packaging object values
+                                    Valeurs des objets - emballage
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
-                                </tr>
-                                <tr>
-                                    <td><strong>packaging_id</strong></td>
-                                    <td>The .....</td>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
                                     <td><strong>drug_code</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>upc</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>package_size_unit</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>package_type</strong></td>
-                                    <td>The ...</td>
+                                    <td>Le code attribué à chaque produit pharmaceutique</td>
                                 </tr>
                                 <tr>
                                     <td><strong>package_size</strong></td>
-                                    <td>The ...</td>
+                                    <td>La capacité de l'emballage</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>package_size_unit</strong></td>
+                                    <td>L'unité du capacité de l'emballage</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>package_type</strong></td>
+                                    <td>Le type d'emballage</td>
                                 </tr>
                                 <tr>
                                     <td><strong>product_information</strong></td>
-                                    <td>The ...</td>
+                                    <td>La quantité de produit pharmaceutique dans l'emballage</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>upc</strong></td>
+                                    <td>Le code universel des produits</td>
                                 </tr>
                             </table>
                             <!--h3-section-start-->
                             <section>
                                 <h3 id="a6.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"packaging_id":1,"drug_code":10,"upc":"","package_size_unit":"","package_type":"","package_size":"","product_information":""}</pre>
+                                <pre class="prettify prettyprint linenums">{"drug_code":27914,"upc":"","package_size_unit":"","package_type":"","package_size":"","product_information":""}</pre>
                             </section>
                             <section>
                                 <h3 id="a6.4">Exemple de jQuery</h3>
-                                <p>Example for a function of packaging to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récents emballage à un élément avec le numéro d'identification et selon la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getPackaging(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/packaging/?id=' + id;
@@ -1098,16 +932,16 @@
                             </section>
                         </section>
                     </section>
-					<section>
-                        <h2 id="a7">Pharmaceutical Std</h2>
-                        <p>TODO put description of pharmaceutical std.....</p>
+                    <section>
+                        <h2 id="a7">Norme pharmaceutique</h2>
+                        <p>TODO put description of norme pharmaceutique....</p>
 
                         <section>
                             <h3 id="a7.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <p>There are three parameters in the request: language, id and format type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètre pour la requête
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
@@ -1118,7 +952,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/pharmaceuticalstd/?id=</span></td>
-                                    <td>Returns pharmaceutical std by id.</td>
+                                    <td>Returns norme pharmaceutique by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             #####&nbsp;- ID of the pharmaceutical std
@@ -1127,21 +961,22 @@
                                     <td><strong>Yes</strong></td>
                                     <td></td>
                                 </tr>
-                                
+
                                 <tr>
                                     <td><span class="nowrap">dpd/api/pharmaceuticalstd/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Change le format type du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais Json est le format type par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Pharmaceutical Std can be accessed via these URIs:</p>
+                            <p>Exemple d'adresse URI d'une requête :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/pharmaceuticalstd/?type=json">https://api.hres.ca/dpd/api/pharmaceuticalstd/?type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/pharmaceuticalstd/?type=json">https://api.hres.ca/dpd/api/pharmaceuticalstd/?type=json</a></li>
@@ -1149,34 +984,34 @@
                         </section>
                         <section>
                             <h3 id="a7.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Each&nbsp;<strong>pharmaceutical std</strong>&nbsp;object consists of the following values:</p>
+                            <p>Chaque&nbsp;<strong> norme pharmaceutique</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Pharmaceutical Std object values
+                                    Valeurs des objets - norme pharmaceutique
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
                                     <td><strong>drug_code</strong></td>
-                                    <td>The .....</td>
+                                    <td>Le code attribué à chaque produit pharmaceutique</td>
                                 </tr>
                                 <tr>
                                     <td><strong>pharmaceutical_std</strong></td>
-                                    <td>The ...</td>
+                                    <td>La norme pharmaceutique</td>
                                 </tr>
                             </table>
                             <!--h3-section-start-->
                             <section>
                                 <h3 id="a7.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":10,"pharmaceutical_std":""}</pre>
+                                <pre class="prettify prettyprint linenums">{"drug_code":11535,"pharmaceutical_std":""}</pre>
                             </section>
                             <section>
                                 <h3 id="a7.4">Exemple de jQuery</h3>
-                                <p>Example for a function of packaging to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Example for a function of emballage to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getPharmaceuticalStd(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/pharmaceuticalstd/?lang=' + lang + '&id=' + id;
@@ -1207,143 +1042,15 @@
                         </section>
                     </section>
                     <section>
-                        <h2 id="a8">Schedule</h2>
-                        <p>TODO put description of schedule.....</p>
-
-                        <section>
-                            <h3 id="a8.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
-                            <table>
-                                <caption>
-                                    Request parameters
-                                </caption>
-                                <tr>
-                                    <th scope="col">Paramètre</th>
-                                    <th scope="col">Définition</th>
-                                    <th scope="col">Valeurs</th>
-                                    <th scope="col">Requis?</th>
-                                    <th scope="col">Notes</th>
-                                </tr>
-                                <tr>
-                                    <td><span class="nowrap">dpd/api/schedule/?id=</span></td>
-                                    <td>Returns schedule by id.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the schedule
-                                        </ul>
-                                    </td>
-                                    <td><strong>Yes</strong></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="nowrap">dpd/api/schedule/?lang=en</span></td>
-                                    <td>Change la langue.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>en</code>&nbsp;- Anglais</li>
-                                            <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
-                                        </ul>
-                                    </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est affichée en anglais ou en français.</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="nowrap">dpd/api/schedule/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
-                                        </ul>
-                                    </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
-                                </tr>
-                            </table>
-                            <p>Schedule can be accessed via these URIs:</p>
-                            <ul>
-                                <li><a href="https://api.hres.ca/dpd/api/schedule/?lang=en&type=json">https://api.hres.ca/dpd/api/schedule/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/dpd/api/schedule/?lang=fr&type=json">https://api.hres.ca/dpd/api/schedule/?lang=fr&type=json</a></li>
-                            </ul>
-                        </section>
-                        <section>
-                            <h3 id="a8.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
-
-                            <p>Each&nbsp;<strong>schedule</strong>&nbsp;object consists of the following values:</p>
-                            <table>
-                                <caption>
-                                    Schedule object values
-                                </caption>
-                                <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
-                                </tr>
-                                <tr>
-                                    <td><strong>drug_code</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>schedule_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>inactive_date</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>schedule_code</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                            </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a8.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":10,"schedule_name":"Schedule G (CDSA IV)","inactive_date":null,"schedule_code":0},{"drug_code":100,"schedule_name":"Prescription","inactive_date":null,"schedule_code":0}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a8.4">Exemple de jQuery</h3>
-                                <p>Example for a function of schedule to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getSchedule(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/schedule/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.schedule_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var ScheduleName = document.createTextNode(data.schedule_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(ScheduleName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-                        </section>
-                    </section>
-                    
-                    <section>
-                        <h2 id="a9">Route</h2>
+                        <h2 id="a8">Voie d'administration</h2>
                         <p>TODO put description of route.....</p>
 
                         <section>
-                            <h3 id="a9.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <h3 id="a8.1">Paramètres</h3>
+                            <p>There are three parameters in the request: language, id, active and format type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètre pour la requête
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
@@ -1360,79 +1067,87 @@
                                             #####&nbsp;- ID of the route
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/route/?lang=en</span></td>
-                                    <td>Change la langue.</td>
+                                    <td>Change langue</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
-                                            <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
                                     <td>Détermine si la réponse est affichée en anglais ou en français.</td>
                                 </tr>
                                 <tr>
+                                    <td><span class="nowrap">dpd/api/route/?active=yes</span></td>
+                                    <td>Get form that are active or not</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>yes</code>&nbsp;- Return the route that has a date that is greater than today or no date.</li>
+
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to all the route.</td>
+                                    <td>Determines whether the response is returning all the route or only the one with a date that is greater than today or no date identified.</td>
+                                </tr>
+                                <tr>
                                     <td><span class="nowrap">dpd/api/route/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Change le format type du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais Json est le format type par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Route can be accessed via these URIs:</p>
+                            <p>Exemple d'adresse URI d'une requête :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/route/?lang=en&type=json">https://api.hres.ca/dpd/api/route/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/route/?lang=fr&type=json">https://api.hres.ca/dpd/api/route/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a9.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <h3 id="a8.2">Format de réponse</h3>
+                            <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Each&nbsp;<strong>route</strong>&nbsp;object consists of the following values:</p>
+                            <p>Chaque&nbsp;<strong> voie d'administration</strong>&nbsp;object consists of the following values :</p>
                             <table>
                                 <caption>
-                                    Route object values
+                                    Valeurs des objets - voie d'administration
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
                                     <td><strong>drug_code</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>route_of_administration_name</strong></td>
-                                    <td>The ...</td>
+                                    <td>Le code attribué à chaque produit pharmaceutique</td>
                                 </tr>
                                 <tr>
                                     <td><strong>route_of_administration_code</strong></td>
-                                    <td>The ...</td>
+                                    <td>Le code attribué à une voie d'administration</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>inactive_date</strong></td>
-                                    <td>The ...</td>
+                                    <td><strong>route_of_administration_name</strong></td>
+                                    <td>La voie d'administration</td>
                                 </tr>
-
                             </table>
                             <!--h3-section-start-->
                             <section>
-                                <h3 id="a9.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":10,"route_of_administration_name":"Oral","route_of_administration_code":56,"inactive_date":null}</pre>
+                                <h3 id="a8.3">Exemple de réponse</h3>
+                                <pre class="prettify prettyprint linenums">{"drug_code":10705,"route_of_administration_code":49,"route_of_administration_name":"Intravenous"}</pre>
                             </section>
                             <section>
-                                <h3 id="a9.4">Exemple de jQuery</h3>
-                                <p>Example for a function of route to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <h3 id="a8.4">Exemple de jQuery</h3>
+                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récents voie d'administration à un élément avec le numéro d'identification et selon la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getRoute(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/route/?lang=' + lang + '&id=' + id;
@@ -1463,15 +1178,149 @@
                         </section>
                     </section>
                     <section>
+                        <h2 id="a9">Schedule</h2>
+                        <p>TODO put description of schedule.....</p>
+
+                        <section>
+                            <h3 id="a9.1">Paramètres</h3>
+                            <p>There are three parameters in the request: language, id, active and format type.</p>
+                            <table>
+                                <caption>
+                                    Paramètre pour la requête
+                                </caption>
+                                <tr>
+                                    <th scope="col">Paramètre</th>
+                                    <th scope="col">Définition</th>
+                                    <th scope="col">Valeurs</th>
+                                    <th scope="col">Requis?</th>
+                                    <th scope="col">Notes</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">dpd/api/schedule/?id=</span></td>
+                                    <td>Returns schedule by id.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            #####&nbsp;- ID of the schedule
+                                        </ul>
+                                    </td>
+                                    <td><strong>Oui</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">dpd/api/schedule/?lang=en</span></td>
+                                    <td>Change langue</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- Anglais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si la réponse est affichée en anglais ou en français.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">dpd/api/schedule/?active=yes</span></td>
+                                    <td>Get form that are active or not</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>yes</code>&nbsp;- Return the schedule that has a date that is greater than today or no date.</li>
+
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to all the schedule.</td>
+                                    <td>Determines whether the response is returning all the schedule or only the one with a date that is greater than today or no date identified.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">dpd/api/schedule/?type=json</span></td>
+                                    <td>Change le format type du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- Json</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais Json est le format type par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
+                                </tr>
+                            </table>
+                            <p>Exemple d'adresse URI d'une requête :</p>
+                            <ul>
+                                <li><a href="https://api.hres.ca/dpd/api/schedule/?lang=en&type=json">https://api.hres.ca/dpd/api/schedule/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/schedule/?lang=fr&type=json">https://api.hres.ca/dpd/api/schedule/?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a9.2">Format de réponse</h3>
+                            <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
+
+                            <p>Chaque&nbsp;<strong>schedule</strong>&nbsp;object consists of the following values :</p>
+                            <table>
+                                <caption>
+                                    Valeurs des objets - Schedule ????
+                                </caption>
+                                <tr>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>drug_code</strong></td>
+                                    <td>Le code attribué à chaque produit pharmaceutique</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>schedule_name</strong></td>
+                                    <td>L'annexe conformément au <i>Règlement sur les aliments et drogues</i> et à la <i>Loi réglementant certaines drogues et autres substances</i>.</td>
+                                </tr>
+                            </table>
+                            <!--h3-section-start-->
+                            <section>
+                                <h3 id="a9.3">Exemple de réponse</h3>
+                                <pre class="prettify prettyprint linenums">{"drug_code":10682,"schedule_name":"OTC"}</pre>
+                            </section>
+                            <section>
+                                <h3 id="a9.4">Exemple de jQuery</h3>
+                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récents ????? à un élément avec le numéro d'identification et selon la langue sélectionnée :</p>
+                                <pre class="prettify prettyprint linenums">function getSchedule(id, lang) {
+                                var base = 'https://imsd.hres.ca';
+                                var uri = base + '/dpd/api/schedule/?lang=' + lang + '&id=' + id;
+                                $.ajax({
+                                    url:uri,
+                                    type:'GET',
+                                    Accept:&quot;application/json&quot;,
+                                    dataType: 'json',
+                                    success:function(data){
+                                        console.log(data.schedule_name);
+                                        var frag = document.createDocumentFragment();
+                                        var h2 = document.createElement(&quot;h2&quot;);
+                                        var ScheduleName = document.createTextNode(data.schedule_name);
+                                        var p = document.createElement(&quot;p&quot;);
+                                        var text = document.createTextNode(data.panels[0].text);
+                                        h2.appendChild(ScheduleName);
+                                        p.appendChild(text);
+                                        frag.appendChild(h2);
+                                        frag.appendChild(p);
+                                        $(&quot;#responses&quot;)[0].appendChild(frag);
+                                    },
+                                    error:function(error){
+                                    },
+                                });
+                                return;
+                            };			</pre>
+                            </section>
+                        </section>
+                    </section>
+
+
+                    <section>
                         <h2 id="a10">Status</h2>
                         <p>TODO put description of status.....</p>
 
                         <section>
                             <h3 id="a10.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <p>There are three parameters in the request: language, id and format type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètre pour la requête
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
@@ -1482,41 +1331,42 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/status/?id=</span></td>
-                                    <td>Returns status by id.</td>
+                                    <td>Affice le status par numéro d'identificateur.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the status
+                                            #####&nbsp;- Affice le numéro d'identificateur
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/status/?lang=en</span></td>
-                                    <td>Change la langue.</td>
+                                    <td>Change langue</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
-                                            <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
                                     <td>Détermine si la réponse est affichée en anglais ou en français.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/status/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Change le format type du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais Json est le format type par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Status can be accessed via these URIs:</p>
+                            <p>Exemple d'adresse URI d'une requête :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/status/?lang=en&type=json">https://api.hres.ca/dpd/api/status/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/status/?lang=fr&type=json">https://api.hres.ca/dpd/api/status/?lang=fr&type=json</a></li>
@@ -1524,63 +1374,55 @@
                         </section>
                         <section>
                             <h3 id="a10.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Each&nbsp;<strong>status</strong>&nbsp;object consists of the following values:</p>
+                            <p>Chaque&nbsp;<strong>status</strong>&nbsp;object consists of the following values :</p>
                             <table>
                                 <caption>
-                                    Status object values
+                                    Valeurs des objets - status
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
                                     <td><strong>drug_code</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>status_code</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>status_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>history_date</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>first_marketed_date</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>original_market_date</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>external_status_code</strong></td>
-                                    <td>The ...</td>
+                                    <td>Le code attribué à chaque produit pharmaceutique</td>
                                 </tr>
                                 <tr>
                                     <td><strong>expiration_date</strong></td>
-                                    <td>The ...</td>
+                                    <td>La date limite d'utilisation la plus tardive attribuée à la drogue distribuée au Canada, où la vente du produit est cessé par le fabricant</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>external_status_code</strong></td>
+                                    <td>Le code attribué à un état externe</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>history_date</strong></td>
+                                    <td>La date historique associée à l'état du produit pharmaceutique</td>
                                 </tr>
                                 <tr>
                                     <td><strong>lot_number</strong></td>
-                                    <td>The ...</td>
+                                    <td>Le numéro de lot la plus tardive attribuée à la drogue distribuée au Canada, où la vente du produit est cessé par le fabricant</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>original_market_date</strong></td>
+                                    <td>La date d'origine de commercialisation pour un produit pharmaceutique</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>status</strong></td>
+                                    <td>Le nom de l'état</td>
                                 </tr>
 
                             </table>
                             <!--h3-section-start-->
                             <section>
                                 <h3 id="a10.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":10,"status_code":4,"status_name":"Discontinued (By Company Post-Market)","history_date":"2004-03-05","first_marketed_date":null,"original_market_date":"2039-12-31","external_status_code":4,"expiration_date":null,"lot_number":0}</pre>
+                                <pre class="prettify prettyprint linenums">{"drug_code":10828,"status":"Marketed","history_date":"1990-12-31","original_market_date":"1990-12-31","external_status_code":2,"expiration_date":null,"lot_number":0}</pre>
                             </section>
                             <section>
                                 <h3 id="a10.4">Exemple de jQuery</h3>
-                                <p>Example for a function of status to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récents status à un élément avec le numéro d'identification et selon la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getStatus(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/status/?lang=' + lang + '&id=' + id;
@@ -1610,141 +1452,17 @@
                             </section>
                         </section>
                     </section>
+
                     <section>
-                        <h2 id="a11">Status External</h2>
-                        <p>TODO put description of status external.....</p>
-
-                        <section>
-                            <h3 id="a11.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
-                            <table>
-                                <caption>
-                                    Request parameters
-                                </caption>
-                                <tr>
-                                    <th scope="col">Paramètre</th>
-                                    <th scope="col">Définition</th>
-                                    <th scope="col">Valeurs</th>
-                                    <th scope="col">Requis?</th>
-                                    <th scope="col">Notes</th>
-                                </tr>
-                                <tr>
-                                    <td><span class="nowrap">dpd/api/statusexternal/?id=</span></td>
-                                    <td>Returns status by id.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the status
-                                        </ul>
-                                    </td>
-                                    <td><strong>Yes</strong></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="nowrap">dpd/api/statusexternal/?lang=en</span></td>
-                                    <td>Change la langue.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>en</code>&nbsp;- Anglais</li>
-                                            <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
-                                        </ul>
-                                    </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est affichée en anglais ou en français.</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="nowrap">dpd/api/statusexternal/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
-                                        </ul>
-                                    </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
-                                </tr>
-                            </table>
-                            <p>Status can be accessed via these URIs:</p>
-                            <ul>
-                                <li><a href="https://api.hres.ca/dpd/api/statusexternal/?lang=en&type=json">https://api.hres.ca/dpd/api/statusexternal/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/dpd/api/statusexternal/?lang=fr&type=json">https://api.hres.ca/dpd/api/status/?lang=fr&type=json</a></li>
-                            </ul>
-                        </section>
-                        <section>
-                            <h3 id="a11.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
-
-                            <p>Each&nbsp;<strong>status external</strong>&nbsp;object consists of the following values:</p>
-                            <table>
-                                <caption>
-                                    Status object values
-                                </caption>
-                                <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
-                                </tr>
-                                <tr>
-                                    <td><strong>external_status_code</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>external_status</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>inactive_date</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                
-
-                            </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a11.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"external_status_code":1,"external_status_name":"Approved","inactive_date":null}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a11.4">Exemple de jQuery</h3>
-                                <p>Example for a function of status external to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getStatusExternal(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/statusexternal/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.external_status);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var ExternalStatus = document.createTextNode(data.external_status);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(ExternalStatus);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-                        </section>
-                    </section>
-                    <section>
-                        <h2 id="a12">Therapeutic Class</h2>
+                        <h2 id="a11">Therapeutic Class</h2>
                         <p>TODO put description of therapeutic class.....</p>
 
                         <section>
-                            <h3 id="a12.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <h3 id="a11.1">Paramètres</h3>
+                            <p>There are three parameters in the request: language, id and format type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètre pour la requête
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
@@ -1766,70 +1484,79 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/therapeuticclass/?lang=en</span></td>
-                                    <td>Change la langue.</td>
+                                    <td>Change langue</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
-                                            <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
                                     <td>Détermine si la réponse est affichée en anglais ou en français.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/therapeuticclass/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Change le format type du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais Json est le format type par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Company can be accessed via these URIs:</p>
+                            <p>Exemple d'adresse URI d'une requête :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/therapeuticclass/?lang=en&type=json">https://api.hres.ca/dpd/api/therapeuticclass/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/therapeuticclass/?lang=fr&type=json">https://api.hres.ca/dpd/api/therapeuticclass/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a12.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <h3 id="a11.2">Format de réponse</h3>
+                            <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Each&nbsp;<strong>therapeutic class</strong>&nbsp;object consists of the following values:</p>
+                            <p>Chaque&nbsp;<strong>therapeutic class</strong>&nbsp;object consists of the following values :</p>
                             <table>
                                 <caption>
-                                    Therapeutic Class object values
+                                    Valeurs des objets -
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
-                                    <td><strong>tc_atc_code</strong></td>
+                                    <td><strong>drug_code</strong></td>
+                                    <td>Le code attribué à chaque produit pharmaceutique</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>tc_ahfs</strong></td>
                                     <td>The .....</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>tc_atc_number</strong></td>
+                                    <td><strong>tc_ahfs_number</strong></td>
                                     <td>The ...</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>tc_atc_desc_name</strong></td>
-                                    <td>The ...</td>
+                                    <td><strong>tc_atc</strong></td>
+                                    <td>La description du code anatomique, thérapeutique, chimique</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>tc_atc_number</strong></td>
+                                    <td>Le code anatomique, thérapeutique, chimique</td>
                                 </tr>
 
                             </table>
                             <!--h3-section-start-->
                             <section>
-                                <h3 id="a12.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"tc_atc_code":1,"tc_atc_number":"A01AA02","tc_atc_desc_name":"SODIUM MONOFLUOROPHOSPHATE"},{"tc_atc_code":2,"tc_atc_number":"A01AB03","tc_atc_desc_name":"CHLORHEXIDINE"}</pre>
+                                <h3 id="a11.3">Exemple de réponse</h3>
+                                <pre class="prettify prettyprint linenums">{"drug_code":10564,"tc_atc_number":"V07AV","tc_atc":"TECHNICAL DISINFECTANTS","tc_ahfs_number":"38:00.00","tc_ahfs":"DISINFECTANTS (FOR AGENTS USED ON OBJECT)"}</pre>
                             </section>
                             <section>
-                                <h3 id="a12.4">Exemple de jQuery</h3>
-                                <p>Example for a function of therapeutic class to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <h3 id="a11.4">Exemple de jQuery</h3>
+                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récents ????? à un élément avec le numéro d'identification et selon la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getTherapeuticClass(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/therapeuticclass/?lang=' + lang + '&id=' + id;
@@ -1860,15 +1587,15 @@
                         </section>
                     </section>
                     <section>
-                        <h2 id="a13">Veterinary Species</h2>
+                        <h2 id="a12">Veterinary Species</h2>
                         <p>TODO put description of veterinary species.....</p>
 
                         <section>
-                            <h3 id="a13.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <h3 id="a12.1">Paramètres</h3>
+                            <p>There are three parameters in the request: language, id and format type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètre pour la requête
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
@@ -1885,74 +1612,71 @@
                                             #####&nbsp;- ID of the veterinary species
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/drugveterinaryspecies/?lang=en</span></td>
-                                    <td>Change la langue.</td>
+                                    <td>Change langue</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
-                                            <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
                                     <td>Détermine si la réponse est affichée en anglais ou en français.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/drugveterinaryspecies/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Change le format type du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais Json est le format type par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Veterinary species can be accessed via these URIs:</p>
+                            <p>Exemple d'adresse URI d'une requête :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=en&type=json">https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=fr&type=json">https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a13.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <h3 id="a12.2">Format de réponse</h3>
+                            <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Each&nbsp;<strong>veterinary species</strong>&nbsp;object consists of the following values:</p>
+                            <p>Chaque&nbsp;<strong>espèce animale</strong>&nbsp;object consists of the following values :</p>
                             <table>
                                 <caption>
-                                    Veterinary species object values
+                                    Valeurs des objets - espèce animale
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
                                     <td><strong>drug_code</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>vet_species_code</strong></td>
-                                    <td>The ...</td>
+                                    <td>Le code attribué à chaque produit pharmaceutique</td>
                                 </tr>
                                 <tr>
                                     <td><strong>vet_species_name</strong></td>
-                                    <td>The ...</td>
+                                    <td>L'espèce animale</td>
                                 </tr>
                             </table>
                             <!--h3-section-start-->
                             <section>
-                                <h3 id="a13.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":10000,"vet_species_code":15,"vet_species_name":"Swine (pigs)"},{"drug_code":10000,"vet_species_code":18,"vet_species_name":"Poultry"}</pre>
+                                <h3 id="a12.3">Exemple de réponse</h3>
+                                <pre class="prettify prettyprint linenums">{"drug_code":13751,"vet_species_name":"Wild/miscellaneous"}</pre>
                             </section>
                             <section>
-                                <h3 id="a13.4">Exemple de jQuery</h3>
-                                <p>Example for a function of veterinary species to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <h3 id="a12.4">Exemple de jQuery</h3>
+                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récents ????? à un élément avec le numéro d'identification et selon la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getDrugVeterinarySpecies(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/drugveterinaryspecies/?lang=' + lang + '&id=' + id;
@@ -1984,114 +1708,45 @@
                     </section>
                 </section>
             </div>
-            <div class="row pagedetails">
-                <div class="col-sm-5 col-xs-12 datemod">
-                    <dl id="wb-dtmd">
-                        <dt>Date modified:&#32;</dt>
-                        <dd><time property="dateModified">2016-11-02</time></dd>
-                    </dl>
-                </div>
-                <div class="clear visible-xs"></div>
-                <div class="col-sm-4 col-xs-6">
-                    <a href="http://www.canada.ca/en/contact/feedback.html" class="btn btn-default"><span class="glyphicon glyphicon-comment mrgn-rght-sm"></span>Feedback<span class="wb-inv"> about this web site</span></a>
-                </div>
-                <div class="col-sm-3 col-xs-6 text-right">
-                    <div class="wb-share" data-wb-share='{"lnkClass": "btn btn-default"}'></div>
-                </div>
-                <div class="clear visible-xs"></div>
+            <!-- prefooter-en.html-Start-->
+            <div id="def-preFooter">
+                <link rel="import" href="./StaticFallbackFiles/gcweb/prefooter-fr.html">
             </div>
+            <!-- prefooter-en.html-End-->
+            <!-- Write closure template -->
+            <script type="text/javascript">
+                var defPreFooter = document.getElementById("def-preFooter");
+                defPreFooter.outerHTML = wet.builder.preFooter({
+                    cdnEnv: "prod",
+                    dateModified: "2017-06-27",
+                    showPostContent: true,
+                    showShare: true,
+                });
+            </script>
         </main>
     </div>
 
-    <footer role="contentinfo" id="wb-info">
-        <nav role="navigation" class="container visible-sm visible-md visible-lg wb-navcurr">
-            <h2 class="wb-inv">About this site</h2>
-            <div class="row">
-                <div class="col-sm-3 col-lg-3">
-                    <section>
-                        <h3>Contact information</h3>
-                        <!--Start Healthy Canadians contact info-->
-                        <ul class="list-unstyled">
-                            <li><a href="/report-signalez/index-eng.php">Report a concern</a></li>
-                            <li><a href="/say-exprimez/index-eng.php">Public involvement</a></li>
-                            <li><a href="/contact-contactez/index-eng.php">General enquiries</a></li>
-                            <li><a href="/connect-connectez/index-eng.php">Stay connected</a></li>
-                        </ul>
-                        <!--End Healthy Canadians contact info-->
-                    </section>
-                    <section>
-                        <h3>News</h3>
-                        <ul class="list-unstyled">
-                            <li><a href="http://news.gc.ca/web/index-en.do">Newsroom</a></li>
-                            <li><a href="http://news.gc.ca/web/nwsprdct-en.do?mthd=tp&amp;crtr.tp1D=1">News releases</a></li>
-                            <li><a href="http://news.gc.ca/web/nwsprdct-en.do?mthd=tp&amp;crtr.tp1D=3">Media advisories</a></li>
-                            <li><a href="http://news.gc.ca/web/nwsprdct-en.do?mthd=tp&amp;crtr.tp1D=970">Speeches</a></li>
-                            <li><a href="http://news.gc.ca/web/nwsprdct-en.do?mthd=tp&amp;crtr.tp1D=980">Statements</a></li>
-                        </ul>
-                    </section>
-                </div>
-                <section class="col-sm-3 col-lg-3">
-                    <h3>Government</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="http://www.canada.ca/en/gov/system">How government works</a></li>
-                        <li><a href="http://www.canada.ca/en/gov/dept">Departments and agencies</a></li>
-                        <li><a href="http://pm.gc.ca/eng">Prime Minister</a></li>
-                        <li><a href="http://www.canada.ca/en/gov/ministers">Ministers</a></li>
-                        <li><a href="http://www.canada.ca/en/gov/publicservice">Public service and military</a></li>
-                        <li><a href="http://www.canada.ca/en/government/system/laws.html">Treaties, laws and regulations</a></li>
-                        <li><a href="http://www.canada.ca/en/gov/libraries">Libraries</a></li>
-                        <li><a href="http://www.canada.ca/en/gov/publications">Publications</a></li>
-                        <li><a href="http://www.canada.ca/en/gov/statistics">Statistics and data</a></li>
-                        <li><a href="http://www.canada.ca/en/newsite.html">About Canada.ca</a></li>
-                    </ul>
-                </section>
-                <section class="col-sm-3 col-lg-3 brdr-lft">
-                    <h3>Transparency</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="http://www.canada.ca/en/transparency/reporting.html">Government-wide reporting</a></li>
-                        <li><a href="http://open.canada.ca/en">Open government</a></li>
-                        <li><a href="http://www.canada.ca/en/transparency/disclosure.html">Proactive disclosure</a></li>
-                        <li><a href="http://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></li>
-                        <li><a href="http://www.canada.ca/en/transparency/privacy.html">Privacy</a></li>
-                    </ul>
-                </section>
-                <div class="col-sm-3 col-lg-3 brdr-lft">
-                    <section>
-                        <h3>Feedback</h3>
-                        <p><a href="http://www.canada.ca/en/contact/feedback.html"><img src="./distro/4.0.20/GCWeb/assets/feedback.png" alt="Feedback about this Web site"></a></p>
-                    </section>
-                    <section>
-                        <h3>Social media</h3>
-                        <p><a href="http://www.canada.ca/en/social"><img src="./distro/4.0.20/GCWeb/assets/social.png" alt="Social media"></a></p>
-                    </section>
-                    <section>
-                        <h3>Mobile centre</h3>
-                        <p><a href="http://www.canada.ca/en/mobile"><img src="./distro/4.0.20/GCWeb/assets/mobile.png" alt="Mobile centre"></a></p>
-                    </section>
-                </div>
-            </div>
-        </nav>
-        <div class="brand">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-6 visible-sm visible-xs tofpg">
-                        <a href="#wb-cont">Top of Page <span class="glyphicon glyphicon-chevron-up"></span></a>
-                    </div>
-                    <div class="col-xs-6 col-md-12 text-right">
-                        <object type="image/svg+xml" tabindex="-1" role="img" data="./distro/4.0.20/GCWeb/assets/wmms-blk.svg" aria-label="Symbol of the Government of Canada"></object>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!--[if gte IE 9 | !IE ]><!-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-    <script src="./distro/4.0.20/wet-boew/js/wet-boew.min.js"></script>
+    <!-- footer-en.html-Start-->
+    <div id="def-footer">
+        <link rel="import" href="./StaticFallbackFiles/gcweb/footer-fr.html">
+    </div>
+    <!-- footer-en.html-End-->
+    <!-- Write closure template -->
+    <script type="text/javascript">
+            var defFooter = document.getElementById("def-footer");
+            defFooter.outerHTML = wet.builder.footer({
+                cdnEnv: "prod",
+                showFeatures: true,
+            });
+    </script>
+    <!-- Write closure template -->
+    <script type="text/javascript">
+                document.write(wet.builder.refFooter({
+                    cdnEnv: "prod"
+                }));
+    </script>
+    <!--[if lt IE 10 | !IE ]><!-->
+    <script src="./js/jquery.xdomainrequest.min.js"></script>
     <!--<![endif]-->
-    <!--[if lt IE 9]>
-    <script src="./distro/4.0.20/wet-boew/js/ie8-wet-boew2.min.js"></script>
-    <![endif]-->
-
 </body>
-</html>
+</html>            

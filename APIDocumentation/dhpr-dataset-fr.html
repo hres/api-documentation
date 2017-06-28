@@ -3,15 +3,15 @@
 <html class="no-js" lang="fr" dir="ltr">
 <!--<![endif]-->
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
-    wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title>Drug and Health Product Register (DHPR)</title>
+        wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>Dataset - Registre des médicaments et des produits de santé</title>
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <!-- Meta data -->
-    <meta name="dcterms.language" title="ISO639-2" content="eng" />
-    <meta name="dcterms.title" content="Drug and health product inspections" />
-    <meta name="description" content="Find the latest results from the Government's drug and health product inspections." />
+    <meta name="dcterms.language" title="ISO639-2" content="fra" />
+    <meta name="dcterms.title" content="Dataset - Registre des médicaments et des produits de santé" />
+    <meta name="description" content="Dataset - Registre des médicaments et des produits de santé." />
     <meta name="dcterms.subject" title="scheme" content="" />
     <meta name="dcterms.creator" content="Government of Canada, Health Canada and the Public health Agency of Canada" />
     <meta name="dcterms.contributor" content="" />
@@ -21,144 +21,64 @@
     <meta name="dcterms.modified" title="W3CDTF" content="2016-03-18" />
     <meta name="review_date" content="" />
     <meta name="meta_date" content="" />
-    <!-- Meta data-->
-    <!--[if gte IE 9 | !IE ]><!-->
-    <link href="./distro/4.0.20/GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon">
-    <link rel="stylesheet" href="./distro/4.0.20/GCWeb/css/theme.min.css">
-    <!--<![endif]-->
-    <!--[if lt IE 9]>
-    <link href="./distro/4.0.20/GCWeb/assets/favicon.ico" rel="shortcut icon" />
 
-    <link rel="stylesheet" href="./distro/4.0.20/GCWeb/css/ie8-theme.min.css" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="./distro/4.0.20/wet-boew/js/ie8-wet-boew.min.js"></script>
-    <![endif]-->
-    <!--[if lte IE 9]>
-    <![endif]-->
-    <!--Start Healthy Canadians CSS-->
-    <link rel="stylesheet" href="./css/hcans.css" />
-    <!--End Healthy Canadians CSS--><!-- CUSTOM SCRIPTS/CSS START | DEBUT DES SCRIPTS/CSS PERSONNALISES -->
-    <!-- CUSTOM SCRIPTS/CSS END | FIN DES SCRIPTS/CSS PERSONNALISES -->
-    <noscript><link rel="stylesheet" href="./distro/4.0.20/wet-boew/css/noscript.min.css" /></noscript>
+    <!-- Load closure template scripts -->
+    <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/soyutils.js"></script>
+    <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/wet-fr.js"></script>
+    <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/plugins-fr.js"></script>
+    <!-- Load closure template scripts -->
+    <noscript>
+        <link rel="import" href="./StaticFallbackFiles/gcweb/refTop.html">
+    </noscript>
+    <!-- Write closure template -->
+    <script type="text/javascript">
+            document.write(wet.builder.refTop({
+                cdnEnv: "prod"
+            }));
+    </script>
+
     <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
     <script>dataLayer1 = [];</script>
     <!-- End Google Tag Manager -->
 </head>
 
-<body vocab="http://schema.org/" typeof="WebPage" class="secondary">
-    <script src="./js/dhpr.js"></script>
+<body vocab="http://schema.org/" typeof="WebPage">
     <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
-    <noscript><iframe title="Google Tag Manager" src="//www.googletagmanager.com/ns.html?id=GTM-TLGQ9K" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer1' ? '&l=' + l : ''; j.async = true; j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer1', 'GTM-TLGQ9K');</script>
+    <noscript>
+        <iframe title="Google Tag Manager" src="//www.googletagmanager.com/ns.html?id=GTM-TLGQ9K" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement
+
+(s),dl=l!='dataLayer1'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})
+
+(window,document,'script','dataLayer1','GTM-TLGQ9K');
+    </script>
     <!-- End Google Tag Manager -->
-    <ul id="wb-tphp">
-        <li class="wb-slc">
-            <a class="wb-sl" href="#wb-cont">Skip to main content</a>
-        </li>
-        <li class="wb-slc visible-sm visible-md visible-lg">
-            <a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
-        </li>
-    </ul>
-    <header role="banner">
-        <div id="wb-bnr" class="container">
-            <section id="wb-lng" class="visible-md visible-lg text-right">
-                <h2 class="wb-inv">Language selection</h2>
-                <div class="row">
-                    <div class="col-md-12">
-                        <ul class="list-inline margin-bottom-none">
-                            <li><a lang="en" href="dhpr-dataset-en.html">English</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            <div class="row">
-                <div class="brand col-xs-8 col-sm-9 col-md-6">
-                    <a href="http://www.canada.ca/en/index.html"><object type="image/svg+xml" tabindex="-1" data="./distro/4.0.20/GCWeb/assets/sig-blk-en.svg"></object><span class="wb-inv"> Government of Canada</span></a>
-                </div>
-                <section class="wb-mb-links col-xs-4 col-sm-3 visible-sm visible-xs" id="wb-glb-mn">
-                    <h2>Search and menus</h2>
-                    <ul class="list-inline text-right chvrn">
-                        <li><a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Search and menus</span></span></span></a></li>
-                    </ul>
-                    <div id="mb-pnl"></div>
-                </section>
-                <section id="wb-srch" class="col-xs-6 text-right visible-md visible-lg">
-                    <h2>Search</h2>
-                    <form action="http://recherche-search.gc.ca/rGs/s_r?#wb-land" method="get" name="cse-search-box" role="search" class="form-inline">
-                        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-                        <script type="text/javascript">
-                            var autoCompletionOptions = { 'validLanguages': 'en', };
-                            google.load('search', '1');
-                            google.setOnLoadCallback(function () { google.search.CustomSearchControl.attachAutoCompletionWithOptions('008724028898028201144:knjjdikrhq0', document.getElementById('wb-srch-q'), 'cse-search-box', autoCompletionOptions); });
-                            google.setOnLoadCallback(function () { setTimeout(function () { google.search.CustomSearchControl.attachAutoCompletionWithOptions('008724028898028201144:knjjdikrhq0', document.getElementById('wb-srch-q-imprt'), 'cse-search-box', autoCompletionOptions); }, 2000); });</script>
-                        <div class="form-group">
-                            <label for="wb-srch-q" class="wb-inv">Search website</label>
-                            <input name="cdn" value="canada" type="hidden" />
-                            <input name="st" value="s" type="hidden" />
-                            <input name="num" value="10" type="hidden" />
-                            <input name="langs" value="eng" type="hidden" />
-                            <input name="st1rt" value="0" type="hidden">
-                            <input name="s5bm3ts21rch" value="x" type="hidden" />
-                            <input id="wb-srch-q" class="wb-srch-q form-control" name="q" type="search" value="" size="27" maxlength="150" placeholder="Search Canada.ca" />
-                        </div>
-                        <div class="form-group submit">
-                            <button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub"><span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
-                        </div>
-                    </form>
-                </section>
-            </div>
-        </div>
-        <nav role="navigation" id="wb-sm" class="wb-menu visible-md visible-lg" data-trgt="mb-pnl" data-ajax-replace="//cdn.canada.ca/gcweb-cdn-live/sitemenu/sitemenu-en.html" typeof="SiteNavigationElement">
-            <div class="container nvbar">
-                <h2>Topics menu</h2>
-                <div class="row">
-                    <ul class="list-inline menu">
-                        <li><a href="http://www.esdc.gc.ca/en/jobs/index.page">Emplois</a></li>
-                        <li><a href="http://www.cic.gc.ca/english/index.asp">Immigration</a></li>
-                        <li><a href="http://travel.gc.ca">Voyage</a></li>
-                        <li><a href="http://www.canada.ca/en/services/business/index.html">Entreprises</a></li>
-                        <li><a href="http://www.canada.ca/en/services/benefits/index.html">Prestations</a></li>
-                        <li><a href="http://healthycanadians.gc.ca/index-eng.php">Sant&eacute;</a></li>
-                        <li><a href="http://www.canada.ca/en/services/taxes/index.html">Imp&ocirc;</a></li>
-                        <li><a href="http://www.canada.ca/en/services/index.html">Autre services</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+    <div id="def-top">
+        <!-- top-en.html-Start-->
+        <link rel="import" href="./StaticFallbackFiles/gcweb/top-fr.html">
+        <!-- top-en.html-End-->
+    </div>
+    <!-- Write closure template -->
+    <script type="text/javascript">
+	var defTop = document.getElementById("def-top");
+	var jsonbread = [];
 
-        <nav role="navigation" id="wb-bc" property="breadcrumb">
-            <h2>You are here:</h2>
-
-            <div class="container">
-                <div class="row">
-                    <ol class="breadcrumb">
-
-                        <!-- Snippet snippets/home_breadcrumb_item.html start -->
-
-
-                        <li><a href="http://canada.gc.ca/en">Home</a></li>
-                        <li><a href="/en">Open Government</a></li>
-                        <li><a href="/en/open-data">Open Data</a></li>
-
-                        <!-- Snippet snippets/home_breadcrumb_item.html end -->
-
-
-                        <li><a href="/data/en/dataset">Search Open Data</a></li>
-
-                    </ol>
-                </div>
-            </div>
-        </nav>
-
-
-        <div class="container">
-            <div class="row">
-                <div data-ajax-replace="/static/_site_messaging/header_od_ckan.en"></div>
-            </div>
-        </div>
-
-
-    </header>
+	//console.log(jsonbread);
+	defTop.outerHTML = wet.builder.top({
+	    cdnEnv: "prod",
+	    search: true,
+		lngLinks: [{
+			lang: "fr",
+			href: "dhpr-dataset-en.html",
+			text: "English",
+		}],
+		showPreContent: true,
+		breadcrumbs:jsonbread,
+	});
+    </script>
     <div class="container">
         <div class="row">
 
@@ -405,7 +325,7 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <h1>Drug and Health Product Register (DHPR)</h1>
+                            <h1>Dataset - Registre des médicaments et des produits de santé</h1>
                         </div>
                     </div>
 
@@ -462,13 +382,13 @@
                                         </tr>
                                     </thead>
                                     <!-- Active Ingredients -->
-									<tr>
-										<td>Active Ingredient</td>
+                                    <tr>
+                                        <td>Active Ingredient</td>
                                         <td>Dataset</td>
-										<td>JSON</td>
-										<td>English</td>
-										<td><a href="https://api.hres.ca/dhpr1/api/activeingredient/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
-									</tr>
+                                        <td>JSON</td>
+                                        <td>English</td>
+                                        <td><a href="https://api.hres.ca/dhpr1/api/activeingredient/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                                    </tr>
                                     <tr>
                                         <td>Active Ingredient</td>
                                         <td>Dataset</td>
@@ -490,14 +410,14 @@
                                         <td>French</td>
                                         <td><a id="activeingredientFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/dhpr1/api/activeingredient/?lang=fr&type=xml', 'activeingredientFR')">Accès</a></td>
                                     </tr>
-									<!-- Aer -->
-									<tr>
-										<td>Aer</td>
+                                    <!-- Aer -->
+                                    <tr>
+                                        <td>Aer</td>
                                         <td>Dataset</td>
-										<td>JSON</td>
-										<td>English</td>
-										<td><a href="https://api.hres.ca/dhpr1/api/aer/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
-									</tr>
+                                        <td>JSON</td>
+                                        <td>English</td>
+                                        <td><a href="https://api.hres.ca/dhpr1/api/aer/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                                    </tr>
                                     <tr>
                                         <td>Aer</td>
                                         <td>Dataset</td>
@@ -548,14 +468,14 @@
                                         <td>French</td>
                                         <td><a id="aergenderFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/dhpr1/api/aergender/?lang=fr&type=xml', 'aergenderFR')">Accès</a></td>
                                     </tr>
-									<!-- Aer Indication -->
-									<tr>
-										<td>Aer Indication</td>
+                                    <!-- Aer Indication -->
+                                    <tr>
+                                        <td>Aer Indication</td>
                                         <td>Dataset</td>
-										<td>JSON</td>
-										<td>English</td>
-										<td><a href="https://api.hres.ca/dhpr1/api/aerindication/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
-									</tr>
+                                        <td>JSON</td>
+                                        <td>English</td>
+                                        <td><a href="https://api.hres.ca/dhpr1/api/aerindication/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                                    </tr>
                                     <tr>
                                         <td>Aer Indication</td>
                                         <td>Dataset</td>
@@ -577,14 +497,14 @@
                                         <td>French</td>
                                         <td><a id="aerindicationFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/dhpr1/api/aerindication/?lang=fr&type=xml', 'aerindicationFR')">Accès</a></td>
                                     </tr>
-									<!-- Aer Ingredient -->
-									<tr>
-										<td>Aer Ingredient</td>
+                                    <!-- Aer Ingredient -->
+                                    <tr>
+                                        <td>Aer Ingredient</td>
                                         <td>Dataset</td>
-										<td>JSON</td>
-										<td>English</td>
-										<td><a href="https://api.hres.ca/dhpr1/api/aeringredient/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
-									</tr>
+                                        <td>JSON</td>
+                                        <td>English</td>
+                                        <td><a href="https://api.hres.ca/dhpr1/api/aeringredient/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                                    </tr>
                                     <tr>
                                         <td>Aer Ingredient</td>
                                         <td>Dataset</td>
@@ -817,7 +737,7 @@
                                         <td>Unilingual</td>
                                         <td><a href="https://api.hres.ca/dhpr1/api/brandname/?type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
                                     </tr>
-                                    
+
                                     <!-- Ci -->
                                     <tr>
                                         <td>Ci</td>
@@ -847,14 +767,14 @@
                                         <td>French</td>
                                         <td><a id="ciFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/dhpr1/api/ci/?lang=fr&type=xml', 'ciFR')">Accès</a></td>
                                     </tr>
-									<!-- Company -->
-									<tr>
-										<td>Company</td>
+                                    <!-- Company -->
+                                    <tr>
+                                        <td>Company</td>
                                         <td>Dataset</td>
-										<td>JSON</td>
-										<td>English</td>
-										<td><a href="https://api.hres.ca/dhpr1/api/company/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
-									</tr>
+                                        <td>JSON</td>
+                                        <td>English</td>
+                                        <td><a href="https://api.hres.ca/dhpr1/api/company/?lang=en&type=json" title="Resource 1" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
+                                    </tr>
                                     <tr>
                                         <td>Company</td>
                                         <td>Dataset</td>
@@ -1015,134 +935,64 @@
                                         <td><a href="http://api.hres.ca/documentation/dhpr-documentation-fr.html" title="Resource 3" class="resource-url-analytics btn btn-primary" target="_blank">Accès</a></td>
                                     </tr>
                                 </table>
-                                                    </div>
-                                                    <div class="col-md-12">
-                                                        <h4>Developer Tools</h4>
-                                                        <ul class="list-unstyled">
-                                                            <li class="mrgn-bttm-md">
-                                                                The information on this page (the dataset metadata) is also available in JSON format<br />
-                                                                <a href="http://open.canada.ca/data/api/action/package_show?id=d38de914-c94c-429b-8ab1-8776c31643e3">Link to JSON format</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                </div>
-
-
-                                        </main>
-                                    </div>
-                                </div>
                             </div>
-
-
-                            <div class="row pagedetails">
-                                <div class="col-sm-5 col-xs-12 datemod">
-                                    <dl id="wb-dtmd">
-                                        <dt>Date modifiée:&#32;</dt>
-                                        <dd><time property="dateModified">2017-02-15</time></dd>
-                                    </dl>
-                                </div>
-                                <div class="clear visible-xs"></div>
-                                <div class="col-sm-4 col-xs-6">
-                                    <a href="http://www.canada.ca/en/contact/feedback.html" class="btn btn-default"><span class="glyphicon glyphicon-comment mrgn-rght-sm"></span>Feedback<span class="wb-inv"> about this web site</span></a>
-                                </div>
-                                <div class="col-sm-3 col-xs-6 text-right">
-                                    <div class="wb-share" data-wb-share='{"lnkClass": "btn btn-default"}'></div>
-                                </div>
-                                <div class="clear visible-xs"></div>
-                            </div>
-                            </main>
-                            </div>
-
-                            <footer role="contentinfo" id="wb-info">
-                                <nav role="navigation" class="container visible-sm visible-md visible-lg wb-navcurr">
-                                    <h2 class="wb-inv">About this site</h2>
-                                    <div class="row">
-                                        <div class="col-sm-3 col-lg-3">
-                                            <section>
-                                                <h3>Contact information</h3>
-                                                <!--Start Healthy Canadians contact info-->
-                            <ul class="list-unstyled">
-                                <li><a href="/report-signalez/index-eng.php">Report a concern</a></li>
-                                <li><a href="/say-exprimez/index-eng.php">Public involvement</a></li>
-                                <li><a href="/contact-contactez/index-eng.php">General enquiries</a></li>
-                                <li><a href="/connect-connectez/index-eng.php">Stay connected</a></li>
-                            </ul>
-                            <!--End Healthy Canadians contact info-->
-                            </section>
-                            <section>
-                                <h3>News</h3>
+                            <div class="col-md-12">
+                                <h4>Developer Tools</h4>
                                 <ul class="list-unstyled">
-                                    <li><a href="http://news.gc.ca/web/index-en.do">Newsroom</a></li>
-                                    <li><a href="http://news.gc.ca/web/nwsprdct-en.do?mthd=tp&amp;crtr.tp1D=1">News releases</a></li>
-                                    <li><a href="http://news.gc.ca/web/nwsprdct-en.do?mthd=tp&amp;crtr.tp1D=3">Media advisories</a></li>
-                                    <li><a href="http://news.gc.ca/web/nwsprdct-en.do?mthd=tp&amp;crtr.tp1D=970">Speeches</a></li>
-                                    <li><a href="http://news.gc.ca/web/nwsprdct-en.do?mthd=tp&amp;crtr.tp1D=980">Statements</a></li>
+                                    <li class="mrgn-bttm-md">
+                                        The information on this page (the dataset metadata) is also available in JSON format<br />
+                                        <a href="http://open.canada.ca/data/api/action/package_show?id=d38de914-c94c-429b-8ab1-8776c31643e3">Link to JSON format</a>
+                                    </li>
                                 </ul>
-                            </section>
-                    </div>
-                    <section class="col-sm-3 col-lg-3">
-                        <h3>Government</h3>
-                        <ul class="list-unstyled">
-                            <li><a href="http://www.canada.ca/en/gov/system">How government works</a></li>
-                            <li><a href="http://www.canada.ca/en/gov/dept">Departments and agencies</a></li>
-                            <li><a href="http://pm.gc.ca/eng">Prime Minister</a></li>
-                            <li><a href="http://www.canada.ca/en/gov/ministers">Ministers</a></li>
-                            <li><a href="http://www.canada.ca/en/gov/publicservice">Public service and military</a></li>
-                            <li><a href="http://www.canada.ca/en/government/system/laws.html">Treaties, laws and regulations</a></li>
-                            <li><a href="http://www.canada.ca/en/gov/libraries">Libraries</a></li>
-                            <li><a href="http://www.canada.ca/en/gov/publications">Publications</a></li>
-                            <li><a href="http://www.canada.ca/en/gov/statistics">Statistics and data</a></li>
-                            <li><a href="http://www.canada.ca/en/newsite.html">About Canada.ca</a></li>
-                        </ul>
-                    </section>
-                    <section class="col-sm-3 col-lg-3 brdr-lft">
-                        <h3>Transparency</h3>
-                        <ul class="list-unstyled">
-                            <li><a href="http://www.canada.ca/en/transparency/reporting.html">Government-wide reporting</a></li>
-                            <li><a href="http://open.canada.ca/en">Open government</a></li>
-                            <li><a href="http://www.canada.ca/en/transparency/disclosure.html">Proactive disclosure</a></li>
-                            <li><a href="http://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></li>
-                            <li><a href="http://www.canada.ca/en/transparency/privacy.html">Privacy</a></li>
-                        </ul>
-                    </section>
-                    <div class="col-sm-3 col-lg-3 brdr-lft">
-                        <section>
-                            <h3>Feedback</h3>
-                            <p><a href="http://www.canada.ca/en/contact/feedback.html"><img src="./distro/4.0.20/GCWeb/assets/feedback.png" alt="Feedback about this Web site"></a></p>
-                        </section>
-                        <section>
-                            <h3>Social media</h3>
-                            <p><a href="http://www.canada.ca/en/social"><img src="./distro/4.0.20/GCWeb/assets/social.png" alt="Social media"></a></p>
-                        </section>
-                        <section>
-                            <h3>Mobile centre</h3>
-                            <p><a href="http://www.canada.ca/en/mobile"><img src="./distro/4.0.20/GCWeb/assets/mobile.png" alt="Mobile centre"></a></p>
-                        </section>
-                    </div>
-                </div>
-                </nav>
-                <div class="brand">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-6 visible-sm visible-xs tofpg">
-                                <a href="#wb-cont">Top of Page <span class="glyphicon glyphicon-chevron-up"></span></a>
                             </div>
-                            <div class="col-xs-6 col-md-12 text-right">
-                                <object type="image/svg+xml" tabindex="-1" role="img" data="./distro/4.0.20/GCWeb/assets/wmms-blk.svg" aria-label="Symbol of the Government of Canada"></object>
-                            </div>
+
                         </div>
-                    </div>
-                </div>
-                </footer>
 
-                <!--[if gte IE 9 | !IE ]><!-->
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-                <script src="./distro/4.0.20/wet-boew/js/wet-boew.min.js"></script>
-                <!--<![endif]-->
-                <!--[if lt IE 9]>
-                <script src="./distro/4.0.20/wet-boew/js/ie8-wet-boew2.min.js"></script>
-                <![endif]-->
 
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <!-- prefooter-en.html-Start-->
+    <div id="def-preFooter">
+        <link rel="import" href="./StaticFallbackFiles/gcweb/prefooter-fr.html">
+    </div>
+    <!-- prefooter-en.html-End-->
+    <!-- Write closure template -->
+    <script type="text/javascript">
+                var defPreFooter = document.getElementById("def-preFooter");
+                defPreFooter.outerHTML = wet.builder.preFooter({
+                    cdnEnv: "prod",
+                    dateModified: "2017-06-27",
+                    showPostContent: true,
+                    showShare: true,
+                });
+    </script>
+    </main>
+    </div>
+
+    <!-- footer-en.html-Start-->
+    <div id="def-footer">
+        <link rel="import" href="./StaticFallbackFiles/gcweb/footer-fr.html">
+    </div>
+    <!-- footer-en.html-End-->
+    <!-- Write closure template -->
+    <script type="text/javascript">
+            var defFooter = document.getElementById("def-footer");
+            defFooter.outerHTML = wet.builder.footer({
+                cdnEnv: "prod",
+                showFeatures: true,
+            });
+    </script>
+    <!-- Write closure template -->
+    <script type="text/javascript">
+                document.write(wet.builder.refFooter({
+                    cdnEnv: "prod"
+                }));
+    </script>
+    <!--[if lt IE 10 | !IE ]><!-->
+    <script src="./js/jquery.xdomainrequest.min.js"></script>
+    <!--<![endif]-->
 </body>
 </html>

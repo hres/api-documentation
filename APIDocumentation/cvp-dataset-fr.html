@@ -1,893 +1,692 @@
-﻿<!DOCTYPE html>
-<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
-<html class="no-js" dir="ltr" lang="fr">
-<!--<![endif]-->
-<head>
-    <meta charset="utf-8">
-    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
-    wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-    <title>Canada Vigilance API</title>
-    <meta content="width=device-width,initial-scale=1" name="viewport"><!-- Meta data -->
-    <meta content="eng" name="dcterms.language" title="ISO639-2">
-    <meta content="Drug and health product inspections" name="dcterms.title">
-    <meta content="Find the latest results from the Government's drug and health product inspections." name="description">
-    <meta content="" name="dcterms.subject" title="scheme">
-    <meta content="Government of Canada, Health Canada and the Public health Agency of Canada" name="dcterms.creator">
-    <meta content="" name="dcterms.contributor">
-    <meta content="" name="dcterms.type" title="gctype">
-    <meta content="" name="dcterms.audience" title="gcaudience">
-    <meta content="2015-04-21" name="dcterms.issued" title="W3CDTF">
-    <meta content="2016-03-18" name="dcterms.modified" title="W3CDTF">
-    <meta content="" name="review_date">
-    <meta content="" name="meta_date"><!-- Meta data-->
-    <!--[if gte IE 9 | !IE ]><!-->
-    <link href="./distro/4.0.20/GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon">
-    <link href="./distro/4.0.20/GCWeb/css/theme.min.css" rel="stylesheet"><!--<![endif]-->
-    <!--[if lt IE 9]>
-    <link href="./distro/4.0.20/GCWeb/assets/favicon.ico" rel="shortcut icon" />
+﻿    <!DOCTYPE html>
+    <!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+    <html class="no-js" lang="fr" dir="ltr">
+    <!--<![endif]-->
+    <head>
+        <meta charset="utf-8" />
+        <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+            wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+        <title>Dataset - Base de données en ligne des effets indésirables de Canada Vigilance</title>
+        <meta content="width=device-width,initial-scale=1" name="viewport">
+        <!-- Meta data -->
+        <meta name="dcterms.language" title="ISO639-2" content="fra" />
+        <meta name="dcterms.title" content="Dataset - Base de données en ligne des effets indésirables de Canada Vigilance" />
+        <meta name="description" content="Dataset - Base de données en ligne des effets indésirables de Canada Vigilance." />
+        <meta name="dcterms.subject" title="scheme" content="" />
+        <meta name="dcterms.creator" content="Government of Canada, Health Canada and the Public health Agency of Canada" />
+        <meta name="dcterms.contributor" content="" />
+        <meta name="dcterms.type" title="gctype" content="" />
+        <meta name="dcterms.audience" title="gcaudience" content="" />
+        <meta name="dcterms.issued" title="W3CDTF" content="2015-04-21" />
+        <meta name="dcterms.modified" title="W3CDTF" content="2016-03-18" />
+        <meta name="review_date" content="" />
+        <meta name="meta_date" content="" />
 
-    <link rel="stylesheet" href="./distro/4.0.20/GCWeb/css/ie8-theme.min.css" />
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="./distro/4.0.20/wet-boew/js/ie8-wet-boew.min.js"></script>
-    <![endif]-->
-    <!--[if lte IE 9]>
-    <![endif]-->
-    <!--Start Healthy Canadians CSS-->
-    <link href="./css/hcans.css" rel="stylesheet"><!--End Healthy Canadians CSS--><!-- CUSTOM SCRIPTS/CSS START | DEBUT DES SCRIPTS/CSS PERSONNALISES -->
-    <!-- CUSTOM SCRIPTS/CSS END | FIN DES SCRIPTS/CSS PERSONNALISES -->
-    <noscript>
-        <link href="./distro/4.0.20/wet-boew/css/noscript.min.css" rel="stylesheet">
-    </noscript><!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
+        <!-- Load closure template scripts -->
+        <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/soyutils.js"></script>
+        <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/wet-fr.js"></script>
+        <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/plugins-fr.js"></script>
+        <!-- Load closure template scripts -->
+        <noscript>
+            <link rel="import" href="./StaticFallbackFiles/gcweb/refTop.html">
+        </noscript>
+        <!-- Write closure template -->
+        <script type="text/javascript">
+            document.write(wet.builder.refTop({
+                cdnEnv: "prod"
+            }));
+        </script>
 
-    <script>
-	dataLayer1 = [];
-    </script><!-- End Google Tag Manager -->
-</head>
-<body class="secondary" typeof="WebPage" vocab="http://schema.org/">
-    <script src="./js/dhpr.js"></script>
-    <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
-    <noscript><iframe height="0" src="//www.googletagmanager.com/ns.html?id=GTM-TLGQ9K" style="display:none;visibility:hidden" title="Google Tag Manager" width="0"></iframe></noscript>
-    <script>
-	(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer1' ? '&l=' + l : ''; j.async = true; j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer1', 'GTM-TLGQ9K');
-    </script> <!-- End Google Tag Manager -->
-    <ul id="wb-tphp">
-        <li class="wb-slc">
-            <a class="wb-sl" href="#wb-cont">Skip to main content</a>
-        </li>
-        <li class="wb-slc visible-sm visible-md visible-lg">
-            <a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
-        </li>
-    </ul>
-    <header role="banner">
-        <div class="container" id="wb-bnr">
-            <section class="visible-md visible-lg text-right" id="wb-lng">
-                <h2 class="wb-inv">Language selection</h2>
-                <div class="row">
-                    <div class="col-md-12">
-                        <ul class="list-inline margin-bottom-none">
-                            <li>
-                                <a href="cta-dataset-en.html" lang="en">English</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-            <div class="row">
-                <div class="brand col-xs-8 col-sm-9 col-md-6">
-                    <a href="http://www.canada.ca/en/index.html">
-                        <object data="./distro/4.0.20/GCWeb/assets/sig-blk-en.svg" tabindex="-1" type="image/svg+xml"></object> <span class="wb-inv">Government of Canada</span>
-                    </a>
-                </div>
-                <section class="wb-mb-links col-xs-4 col-sm-3 visible-sm visible-xs" id="wb-glb-mn">
-                    <h2>Search and menus</h2>
-                    <ul class="list-inline text-right chvrn">
-                        <li>
-                            <a aria-controls="mb-pnl" class="overlay-lnk" href="#mb-pnl" role="button" title="Search and menus"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Search and menus</span></span></span></a>
-                        </li>
-                    </ul>
-                    <div id="mb-pnl"></div>
-                </section>
-                <section class="col-xs-6 text-right visible-md visible-lg" id="wb-srch">
-                    <h2>Search</h2>
-                    <form action="http://recherche-search.gc.ca/rGs/s_r?#wb-land" class="form-inline" id="cse-search-box" method="get" name="cse-search-box" role="search">
-                        <script src="https://www.google.com/jsapi" type="text/javascript">
-                        </script>
-                        <script type="text/javascript">
-						                      var autoCompletionOptions = { 'validLanguages': 'en', };
-						                      google.load('search', '1');
-						                      google.setOnLoadCallback(function () { google.search.CustomSearchControl.attachAutoCompletionWithOptions('008724028898028201144:knjjdikrhq0', document.getElementById('wb-srch-q'), 'cse-search-box', autoCompletionOptions); });
-						                      google.setOnLoadCallback(function () { setTimeout(function () { google.search.CustomSearchControl.attachAutoCompletionWithOptions('008724028898028201144:knjjdikrhq0', document.getElementById('wb-srch-q-imprt'), 'cse-search-box', autoCompletionOptions); }, 2000); });
-                        </script>
-                        <div class="form-group">
-                            <label class="wb-inv" for="wb-srch-q">Search website</label> <input name="cdn" type="hidden" value="canada"> <input name="st" type="hidden" value="s"> <input name="num" type="hidden" value="10"> <input name="langs" type="hidden" value="eng"> <input name="st1rt" type="hidden" value="0"> <input name="s5bm3ts21rch" type="hidden" value="x"> <input class="wb-srch-q form-control" id="wb-srch-q" maxlength="150" name="q" placeholder="Search Canada.ca" size="27" type="search" value="">
-                        </div>
-                        <div class="form-group submit">
-                            <button class="btn btn-primary btn-small" id="wb-srch-sub" name="wb-srch-sub" type="submit"><span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
-                        </div>
-                    </form>
-                </section>
-            </div>
+        <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
+        <script>dataLayer1 = [];</script>
+        <!-- End Google Tag Manager -->
+    </head>
+
+    <body vocab="http://schema.org/" typeof="WebPage">
+        <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
+        <noscript>
+            <iframe title="Google Tag Manager" src="//www.googletagmanager.com/ns.html?id=GTM-TLGQ9K" height="0" width="0"
+                    style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement
+
+(s),dl=l!='dataLayer1'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})
+
+(window,document,'script','dataLayer1','GTM-TLGQ9K');
+        </script>
+        <!-- End Google Tag Manager -->
+        <div id="def-top">
+            <!-- top-en.html-Start-->
+            <link rel="import" href="./StaticFallbackFiles/gcweb/top-fr.html">
+            <!-- top-en.html-End-->
         </div>
-        <nav class="wb-menu visible-md visible-lg" data-ajax-replace="//cdn.canada.ca/gcweb-cdn-live/sitemenu/sitemenu-en.html" data-trgt="mb-pnl" id="wb-sm" role="navigation" typeof="SiteNavigationElement">
-            <div class="container nvbar">
-                <h2>Topics menu</h2>
-                <div class="row">
-                    <ul class="list-inline menu">
-                        <li>
-                            <a href="http://www.esdc.gc.ca/en/jobs/index.page">Emplois</a>
-                        </li>
-                        <li>
-                            <a href="http://www.cic.gc.ca/english/index.asp">Immigration</a>
-                        </li>
-                        <li>
-                            <a href="http://travel.gc.ca">Voyage</a>
-                        </li>
-                        <li>
-                            <a href="http://www.canada.ca/en/services/business/index.html">Entreprises</a>
-                        </li>
-                        <li>
-                            <a href="http://www.canada.ca/en/services/benefits/index.html">Prestations</a>
-                        </li>
-                        <li>
-                            <a href="http://healthycanadians.gc.ca/index-eng.php">Sant&eacute;</a>
-                        </li>
-                        <li>
-                            <a href="http://www.canada.ca/en/services/taxes/index.html">Imp&ocirc;</a>
-                        </li>
-                        <li>
-                            <a href="http://www.canada.ca/en/services/index.html">Autre services</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <nav id="wb-bc" property="breadcrumb" role="navigation">
-            <h2>You are here:</h2>
-            <div class="container">
-                <div class="row">
-                    <ol class="breadcrumb">
-                        <!-- Snippet snippets/home_breadcrumb_item.html start -->
-                        <li>
-                            <a href="http://canada.gc.ca/en">Home</a>
-                        </li>
-                        <li>
-                            <a href="/en">Open Government</a>
-                        </li>
-                        <li>
-                            <a href="/en/open-data">Open Data</a>
-                        </li><!-- Snippet snippets/home_breadcrumb_item.html end -->
-                        <li>
-                            <a href="/data/en/dataset">Search Open Data</a>
-                        </li>
-                    </ol>
-                </div>
-            </div>
-        </nav>
+        <!-- Write closure template -->
+        <script type="text/javascript">
+	var defTop = document.getElementById("def-top");
+	var jsonbread = [];
+
+	//console.log(jsonbread);
+	defTop.outerHTML = wet.builder.top({
+	    cdnEnv: "prod",
+	    search: true,
+		lngLinks: [{
+			lang: "fr",
+			href: "cvp-dataset-en.html",
+			text: "English",
+		}],
+		showPreContent: true,
+		breadcrumbs:jsonbread,
+	});
+        </script>
         <div class="container">
             <div class="row">
-                <div data-ajax-replace="/static/_site_messaging/header_od_ckan.en"></div>
-            </div>
-        </div>
-    </header>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-md-push-9">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">
-                            Have your say
+                <div class="col-md-3 col-md-push-9">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                Have your say
+                            </div>
                         </div>
-                    </div>
-                    <div class="panel-body">
-                        <ul class="list-unstyled">
-                            <li>
-                                <img alt="This dataset is currently ranked three stars" class="image-actual" src="http://open.canada.ca/data/static/img/leaves/threestar.png"><br>
-                                <a href="/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3">Rate this dataset</a>
-                            </li>
-                            <li>
-                                <a href="#comments">2 Comment(s)</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <div class="panel-title">
-                            About this Dataset
-                        </div><a href="/data/en/dataset/history/d38de914-c94c-429b-8ab1-8776c31643e3?format=atom" title="RSS"><span class="fa fa-rss"></span> RSS Feed</a>
-                    </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <b>Éditeur:</b><br>
-                            Santé Canada
-                        </li>
-                        <li class="list-group-item">
-                            <b>Tags:</b> <small></small>
-                            <ul class='list-inline'>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Cosmetics" title="Keyword Cosmetics">Cosmétique</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Electronics" title="Keyword Electronics">Électronique</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Hobby+Craft+Items" title="Keyword Hobby Craft Items">Articles d'hobby</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Household+Items" title="Keyword Household Items">Articles ménagers</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Jewellery" title="Keyword Jewellery">bijoux</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Miscellaneous" title="Keyword Miscellaneous">Divers</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Outdoor+Living" title="Keyword Outdoor Living">Vivre dehors</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Specialized+Products" title="Keyword Specialized Products">Specialized Products</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Sports+Fitness" title="Keyword Sports Fitness">Fitness sportif</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Tools+and+Electrical+Products" title="Keyword Tools and Electrical Products">Outils et produits électriques</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Toys" title="Keyword Toys">Jouets</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Coconut" title="Keyword Allergen Coconut">Allergène à la noix de coco</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Crustacean+Shellfish" title="Keyword Allergen Crustacean Shellfish">Allergènes crustacés</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Egg" title="Keyword Allergen Egg">Oeuf d'allergène</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Fish" title="Keyword Allergen Fish">Allergène poisson</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Gluten" title="Keyword Allergen Gluten">Allergène gluten</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Milk" title="Keyword Allergen Milk">Allergène au lait</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Mustard" title="Keyword Allergen Mustard">Moutarde allergène</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+OtherAllergen+Peanut" title="Keyword Allergen OtherAllergen Peanut">Allergen OtherAllergen Peanut</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Sesame+Seeds" title="Keyword Allergen Sesame Seeds">Allergène graines de sésame</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Soy" title="Keyword Allergen Soy">Allergen Soy</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Sulphites" title="Keyword Allergen Sulphites">Allergènes sulfites</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Tree+Nut" title="Keyword Allergen Tree Nut">Allergène noix</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Wheat" title="Keyword Allergen Wheat">Blé allergène</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Chemical" title="Keyword Chemical">Chimique</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Extraneous+Material" title="Keyword Extraneous Material">Matériel Extrane</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Labelling" title="Keyword Labelling">Étiquetage</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Marine+Biotoxin" title="Keyword Marine Biotoxin">Biotoxine marine</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Microbiological" title="Keyword Microbiological">Microbiologique</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Clostridium+botulinum" title="Keyword Clostridium botulinum">Clostridium botulinum</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Microbiological+E.+coli" title="Keyword Microbiological E. coli">E. coli microbiologique</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Microbiological" title="Keyword Microbiological">Microbiologique</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Listeria" title="Keyword Listeria">Listeria</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Microbiological+Non+harmful" title="Keyword Microbiological Non harmful">Microbiologique Non nuisible</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Salmonella" title="Keyword Salmonella">Salmonelle</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Staphylococcus+aureus" title="Keyword Staphylococcus aureus">Staphylococcus aureus</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Non-permitted+Food+Ingredients" title="Keyword Non-permitted Food Ingredients">Ingrédients alimentaires non autorisés</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Nutrition" title="Keyword Nutrition">Nutrition</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Tampering" title="Keyword Tampering">Altération</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Biologic+vaccine" title="Keyword Biologic vaccine">Vaccin biologique</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Drugs" title="Keyword Drugs">Drogues</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Medical+Device" title="Keyword Medical Device">Dispositif médical</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Natural+health+products" title="Keyword Natural health products">Produits de santé naturels</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Veterinary+Drugs" title="Keyword Veterinary Drugs">Médicaments vétérinaires</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                            </ul>
-                        </li>
-                        <li class="list-group-item">
-                            <b>Subject:</b> <small></small>
-                            <ul class='list-inline'>
-                                <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?subject=Health+and+Safety++Sant%C3%A9+et+s%C3%A9curit%C3%A9" title="Subject Health and Safety">Santé et sécurité</a></small></li>
-                                <li style="list-style: none"><small></small></li>
-                            </ul>
-                        </li>
-                        <li class="list-group-item">
-                            <b>Date Published:</b>
-                            <p>2016-09-23</p>
-                        </li>
-                        <li class="list-group-item">
-                            <b>Date modifiée:</b>
-                            <p></p>
-                        </li>
-                        <li class="list-group-item"><b>Program Page URL:</b></li>
-                        <li class="list-group-item"><b>Frequency:</b> Continual</li>
-                    </ul>
-                    <ul class="list-group">
-                        <li class="list-group-item">
+                        <div class="panel-body">
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="/en/openness-rating"><b>Openness rating</b></a>:<img alt="three stars" class="image-actual margin-bottom-none openness-rating-stars" src="/data/static/img/stars/star3.png">
+                                    <img alt="This dataset is currently ranked three stars" class="image-actual" src="http://open.canada.ca/data/static/img/leaves/threestar.png"><br>
+                                    <a href="/en/dataset/d38de914-c94c-429b-8ab1-8776c31643e3">Rate this dataset</a>
+                                </li>
+                                <li>
+                                    <a href="#comments">2 Comment(s)</a>
                                 </li>
                             </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-9 col-md-pull-3">
-                <main property="mainContentOfPage" role="main">
-                    <div class="row"></div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1>Canada Vigilance Project (CVP)</h1>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <ul class="nav nav-pills">
-                                    <li class="active"></li>
-                                </ul>
-                            </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                About this Dataset
+                            </div><a href="/data/en/dataset/history/d38de914-c94c-429b-8ab1-8776c31643e3?format=atom" title="RSS"><span class="fa fa-rss"></span> RSS Feed</a>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <p>The Canada Vigilance Adverse Reaction Online Database contains information about suspected adverse reactions (also known as side effects) to health products.</p>
-                            </div>
-                            <div class="col-md-12">
-                                <h4>Licence:</h4>
-                            </div>
-                            <div class="col-md-12">
-                                <a href="http://open.canada.ca/en/open-government-licence-canada">Open Government Licence - Canada</a>
-                            </div>
-                            <div class="col-md-12">
-                                <!-- Snippet package/snippets/resources_list.html start -->
-                                <h4>Dataset Resources</h4>
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Nom de la ressource</th>
-                                            <th scope="col">Type de ressource</th>
-                                            <th scope="col">Format</th>
-                                            <th scope="col">La Langue</th>
-                                            <th scope="col">Lien</th>
-                                        </tr>
-                                    </thead><!--Drug product ingredient-->
-                                    <tr>
-                                        <td>Drug product ingredient</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>English</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/drugproductingredient/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Drug product ingredient</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>French</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/drugproductingredient/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Drug product ingredient</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>English</td>
-                                        <td><a id="drugproductingredientEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/drugproductingredient/?lang=en&type=xml', 'drugproductingredientEN')">Accès</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Drug product ingredient</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>French</td>
-                                        <td><a id="drugproductingredientFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/drugproductingredient/?lang=fr&type=xml', 'drugproductingredientFR')">Accès</a></td>
-                                    </tr><!--Drug product-->
-                                    <tr>
-                                        <td>Drug product</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>English</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/drugproduct/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Drug product</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>French</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/drugproduct/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Drug product</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>English</td>
-                                        <td><a id="drugproductEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/drugproduct/?lang=en&type=xml', 'drugproductEN')">Accès</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Drug product</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>French</td>
-                                        <td><a id="drugproductFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/drugproduct/?lang=fr&type=xml', 'drugproductFR')">Accès</a></td>
-                                    </tr><!--Gender -->
-                                    <tr>
-                                        <td>Gender</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>English</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/gender/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gender</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>French</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/gender/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gender</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>English</td>
-                                        <td><a id="genderEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/gender/?lang=en&type=xml', 'genderEN')">Accès</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Gender</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>French</td>
-                                        <td><a id="genderFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/gender/?lang=fr&type=xml', 'genderFR')">Accès</a></td>
-                                    </tr><!-- Outcome-->
-                                    <tr>
-                                        <td>Outcome</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>English</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/outcome/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Outcome</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>French</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/outcome/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Outcome</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>English</td>
-                                        <td><a id="outcomeEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/outcome/?lang=en&type=xml', 'outcomeEN')">Accès</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Outcome</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>French</td>
-                                        <td><a id="outcomeFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/outcome/?lang=fr&type=xml', 'outcomeFR')">Accès</a></td>
-                                    </tr><!--Reaction-->
-                                    <tr>
-                                        <td>Reaction</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>English</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/reaction/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Reaction</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>French</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/reaction/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Reaction</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>English</td>
-                                        <td><a id="reactionEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/reaction/?lang=en&type=xml', 'reactionEN')">Accès</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Reaction</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>French</td>
-                                        <td><a id="reactionFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/reaction/?lang=fr&type=xml', 'reactionFR')">Accès</a></td>
-                                    </tr><!-- Report Drug -->
-                                    <tr>
-                                        <td>Report Drug</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>English</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/reportdrug/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Report Drug</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>French</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/reportdrug/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Report Drug</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>English</td>
-                                        <td><a id="reportdrugEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/reportdrug/?lang=en&type=xml', 'reportdrugEN')">Accès</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Report Drug</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>French</td>
-                                        <td><a id="reportdrugFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/reportdrug/?lang=fr&type=xml', 'reportdrugFR')">Accès</a></td>
-                                    </tr><!-- Report Link-->
-                                    <tr>
-                                        <td>Report Link</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>English</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/reportlink/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Report Link</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>French</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/reportlink/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Report Link</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>English</td>
-                                        <td><a id="reportlinkEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/reportlink/?lang=en&type=xml', 'reportlinkEN')">Accès</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Report Link</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>French</td>
-                                        <td><a id="reportlinkFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/reportlink/?lang=fr&type=xml', 'reportlinkFR')">Accès</a></td>                                    </tr><!--Report Type-->
-                                    <tr>
-                                        <td>Report Type</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>English</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/reporttype/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Report Type</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>French</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/reporttype/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Report Type</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>English</td>
-                                        <td><a id="reporttypeEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/reporttype/?lang=en&type=xml', 'reporttypeEN')">Accès</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Report Type</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>French</td>
-                                        <td><a id="reporttypeFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/reporttype/?lang=fr&type=xml', 'reporttypeFR')">Accès</a></td>
-                                    </tr><!--Reports-->
-                                    <tr>
-                                        <td>Report</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>English</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/report/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Report</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>French</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/report/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Report</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>English</td>
-                                        <td><a id="reportEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/report/?lang=en&type=xml', 'reportEN')">Accès</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Report</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>French</td>
-                                        <td><a id="reportFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/report/?lang=fr&type=xml', 'reportFR')">Accès</a></td>
-                                    </tr><!--Seriousness-->
-                                    <tr>
-                                        <td>Seriousness</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>English</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/seriousness/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Seriousness</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>French</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/seriousness/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Seriousness</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>English</td>
-                                        <td><a id="seriousnessEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/seriousness/?lang=en&type=xml', 'seriousnessEN')">Accès</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Seriousness</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>French</td>
-                                        <td><a id="seriousnessFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/seriousness/?lang=fr&type=xml', 'seriousnessFR')">Accès</a></td>
-                                    </tr><!--Source-->
-                                    <tr>
-                                        <td>Source</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>English</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/source/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Source</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>French</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/source/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Source</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>English</td>
-                                        <td><a id="sourceEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/source/?lang=en&type=xml', 'sourceEN')">Accès</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Source</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>French</td>
-                                        <td><a id="sourceFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/source/?lang=fr&type=xml', 'sourceFR')">Accès</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Canada Vigilance Project API Documentation</td>
-                                        <td>Dataset</td>
-                                        <td>HTML</td>
-                                        <td>English</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="http://api.hres.ca/documentation/cvp-documentation-en.html" target="_blank" title="Resource 3">Accès</a>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="col-md-12">
-                                <h4>Developer Tools</h4>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <b>Éditeur:</b><br>
+                                Santé Canada
+                            </li>
+                            <li class="list-group-item">
+                                <b>Tags:</b> <small></small>
+                                <ul class='list-inline'>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Cosmetics" title="Keyword Cosmetics">Cosmétique</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Electronics" title="Keyword Electronics">Électronique</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Hobby+Craft+Items" title="Keyword Hobby Craft Items">Articles d'hobby</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Household+Items" title="Keyword Household Items">Articles ménagers</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Jewellery" title="Keyword Jewellery">bijoux</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Miscellaneous" title="Keyword Miscellaneous">Divers</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Outdoor+Living" title="Keyword Outdoor Living">Vivre dehors</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Specialized+Products" title="Keyword Specialized Products">Specialized Products</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Sports+Fitness" title="Keyword Sports Fitness">Fitness sportif</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Tools+and+Electrical+Products" title="Keyword Tools and Electrical Products">Outils et produits électriques</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Toys" title="Keyword Toys">Jouets</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Coconut" title="Keyword Allergen Coconut">Allergène à la noix de coco</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Crustacean+Shellfish" title="Keyword Allergen Crustacean Shellfish">Allergènes crustacés</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Egg" title="Keyword Allergen Egg">Oeuf d'allergène</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Fish" title="Keyword Allergen Fish">Allergène poisson</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Gluten" title="Keyword Allergen Gluten">Allergène gluten</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Milk" title="Keyword Allergen Milk">Allergène au lait</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Mustard" title="Keyword Allergen Mustard">Moutarde allergène</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+OtherAllergen+Peanut" title="Keyword Allergen OtherAllergen Peanut">Allergen OtherAllergen Peanut</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Sesame+Seeds" title="Keyword Allergen Sesame Seeds">Allergène graines de sésame</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Soy" title="Keyword Allergen Soy">Allergen Soy</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Sulphites" title="Keyword Allergen Sulphites">Allergènes sulfites</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Tree+Nut" title="Keyword Allergen Tree Nut">Allergène noix</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Allergen+Wheat" title="Keyword Allergen Wheat">Blé allergène</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Chemical" title="Keyword Chemical">Chimique</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Extraneous+Material" title="Keyword Extraneous Material">Matériel Extrane</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Labelling" title="Keyword Labelling">Étiquetage</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Marine+Biotoxin" title="Keyword Marine Biotoxin">Biotoxine marine</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Microbiological" title="Keyword Microbiological">Microbiologique</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Clostridium+botulinum" title="Keyword Clostridium botulinum">Clostridium botulinum</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Microbiological+E.+coli" title="Keyword Microbiological E. coli">E. coli microbiologique</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Microbiological" title="Keyword Microbiological">Microbiologique</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Listeria" title="Keyword Listeria">Listeria</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Microbiological+Non+harmful" title="Keyword Microbiological Non harmful">Microbiologique Non nuisible</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Salmonella" title="Keyword Salmonella">Salmonelle</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Staphylococcus+aureus" title="Keyword Staphylococcus aureus">Staphylococcus aureus</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Non-permitted+Food+Ingredients" title="Keyword Non-permitted Food Ingredients">Ingrédients alimentaires non autorisés</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Nutrition" title="Keyword Nutrition">Nutrition</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Tampering" title="Keyword Tampering">Altération</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Biologic+vaccine" title="Keyword Biologic vaccine">Vaccin biologique</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Drugs" title="Keyword Drugs">Drogues</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Medical+Device" title="Keyword Medical Device">Dispositif médical</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Natural+health+products" title="Keyword Natural health products">Produits de santé naturels</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?keywords=Veterinary+Drugs" title="Keyword Veterinary Drugs">Médicaments vétérinaires</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                </ul>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Subject:</b> <small></small>
+                                <ul class='list-inline'>
+                                    <li><small><a class="btn btn-default btn-xs mrgn-bttm-sm mrgn-rght-sm" href="/data/en/dataset?subject=Health+and+Safety++Sant%C3%A9+et+s%C3%A9curit%C3%A9" title="Subject Health and Safety">Santé et sécurité</a></small></li>
+                                    <li style="list-style: none"><small></small></li>
+                                </ul>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Date Published:</b>
+                                <p>2016-09-23</p>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Date modifiée:</b>
+                                <p></p>
+                            </li>
+                            <li class="list-group-item"><b>Program Page URL:</b></li>
+                            <li class="list-group-item"><b>Frequency:</b> Continual</li>
+                        </ul>
+                        <ul class="list-group">
+                            <li class="list-group-item">
                                 <ul class="list-unstyled">
-                                    <li class="mrgn-bttm-md">
-                                        The information on this page (the dataset metadata) is also available in JSON format<br>
-                                        <a href="http://open.canada.ca/data/api/action/package_show?id=d38de914-c94c-429b-8ab1-8776c31643e3">Link to JSON format</a>
+                                    <li>
+                                        <a href="/en/openness-rating"><b>Openness rating</b></a>:<img alt="three stars" class="image-actual margin-bottom-none openness-rating-stars" src="/data/static/img/stars/star3.png">
                                     </li>
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-            </div>
-        </div>
-    </div>
-    <div class="row pagedetails">
-        <div class="col-sm-5 col-xs-12 datemod">
-            <dl id="wb-dtmd">
-                <dt>Date modifiée:&#32;</dt>
-                <dd><time property="dateModified">2017-02-15</time></dd>
-            </dl>
-        </div>
-        <div class="clear visible-xs"></div>
-        <div class="col-sm-4 col-xs-6">
-            <a class="btn btn-default" href="http://www.canada.ca/en/contact/feedback.html"><span class="glyphicon glyphicon-comment mrgn-rght-sm"></span>Feedback <span class="wb-inv">about this web site</span></a>
-        </div>
-        <div class="col-sm-3 col-xs-6 text-right">
-            <div class="wb-share" data-wb-share='{"lnkClass": "btn btn-default"}'></div>
-        </div>
-        <div class="clear visible-xs"></div>
-    </div>
-    <footer id="wb-info" role="contentinfo">
-        <nav class="container visible-sm visible-md visible-lg wb-navcurr" role="navigation">
-            <h2 class="wb-inv">About this site</h2>
-            <div class="row">
-                <div class="col-sm-3 col-lg-3">
-                    <section>
-                        <h3>Contact information</h3><!--Start Healthy Canadians contact info-->
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="/report-signalez/index-eng.php">Report a concern</a>
-                            </li>
-                            <li>
-                                <a href="/say-exprimez/index-eng.php">Public involvement</a>
-                            </li>
-                            <li>
-                                <a href="/contact-contactez/index-eng.php">General enquiries</a>
-                            </li>
-                            <li>
-                                <a href="/connect-connectez/index-eng.php">Stay connected</a>
-                            </li>
-                        </ul><!--End Healthy Canadians contact info-->
-                    </section>
-                    <section>
-                        <h3>News</h3>
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="http://news.gc.ca/web/index-en.do">Newsroom</a>
-                            </li>
-                            <li>
-                                <a href="http://news.gc.ca/web/nwsprdct-en.do?mthd=tp&amp;crtr.tp1D=1">News releases</a>
-                            </li>
-                            <li>
-                                <a href="http://news.gc.ca/web/nwsprdct-en.do?mthd=tp&amp;crtr.tp1D=3">Media advisories</a>
-                            </li>
-                            <li>
-                                <a href="http://news.gc.ca/web/nwsprdct-en.do?mthd=tp&amp;crtr.tp1D=970">Speeches</a>
-                            </li>
-                            <li>
-                                <a href="http://news.gc.ca/web/nwsprdct-en.do?mthd=tp&amp;crtr.tp1D=980">Statements</a>
                             </li>
                         </ul>
-                    </section>
-                </div>
-                <section class="col-sm-3 col-lg-3">
-                    <h3>Government</h3>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="http://www.canada.ca/en/gov/system">How government works</a>
-                        </li>
-                        <li>
-                            <a href="http://www.canada.ca/en/gov/dept">Departments and agencies</a>
-                        </li>
-                        <li>
-                            <a href="http://pm.gc.ca/eng">Prime Minister</a>
-                        </li>
-                        <li>
-                            <a href="http://www.canada.ca/en/gov/ministers">Ministers</a>
-                        </li>
-                        <li>
-                            <a href="http://www.canada.ca/en/gov/publicservice">Public service and military</a>
-                        </li>
-                        <li>
-                            <a href="http://www.canada.ca/en/government/system/laws.html">Treaties, laws and regulations</a>
-                        </li>
-                        <li>
-                            <a href="http://www.canada.ca/en/gov/libraries">Libraries</a>
-                        </li>
-                        <li>
-                            <a href="http://www.canada.ca/en/gov/publications">Publications</a>
-                        </li>
-                        <li>
-                            <a href="http://www.canada.ca/en/gov/statistics">Statistics and data</a>
-                        </li>
-                        <li>
-                            <a href="http://www.canada.ca/en/newsite.html">About Canada.ca</a>
-                        </li>
-                    </ul>
-                </section>
-                <section class="col-sm-3 col-lg-3 brdr-lft">
-                    <h3>Transparency</h3>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="http://www.canada.ca/en/transparency/reporting.html">Government-wide reporting</a>
-                        </li>
-                        <li>
-                            <a href="http://open.canada.ca/en">Open government</a>
-                        </li>
-                        <li>
-                            <a href="http://www.canada.ca/en/transparency/disclosure.html">Proactive disclosure</a>
-                        </li>
-                        <li>
-                            <a href="http://www.canada.ca/en/transparency/terms.html">Terms and conditions</a>
-                        </li>
-                        <li>
-                            <a href="http://www.canada.ca/en/transparency/privacy.html">Privacy</a>
-                        </li>
-                    </ul>
-                </section>
-                <div class="col-sm-3 col-lg-3 brdr-lft">
-                    <section>
-                        <h3>Feedback</h3>
-                        <p><a href="http://www.canada.ca/en/contact/feedback.html"><img alt="Feedback about this Web site" src="./distro/4.0.20/GCWeb/assets/feedback.png"></a></p>
-                    </section>
-                    <section>
-                        <h3>Social media</h3>
-                        <p><a href="http://www.canada.ca/en/social"><img alt="Social media" src="./distro/4.0.20/GCWeb/assets/social.png"></a></p>
-                    </section>
-                    <section>
-                        <h3>Mobile centre</h3>
-                        <p><a href="http://www.canada.ca/en/mobile"><img alt="Mobile centre" src="./distro/4.0.20/GCWeb/assets/mobile.png"></a></p>
-                    </section>
-                </div>
-            </div>
-        </nav>
-        <div class="brand">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-6 visible-sm visible-xs tofpg">
-                        <a href="#wb-cont">Top of Page <span class="glyphicon glyphicon-chevron-up"></span></a>
                     </div>
-                    <div class="col-xs-6 col-md-12 text-right">
-                        <object aria-label="Symbol of the Government of Canada" data="./distro/4.0.20/GCWeb/assets/wmms-blk.svg" role="img" tabindex="-1" type="image/svg+xml"></object>
-                    </div>
+                </div>
+                <div class="col-md-9 col-md-pull-3">
+                    <main property="mainContentOfPage" role="main">
+                        <div class="row"></div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1>Dataset - Base de données en ligne des effets indésirables de Canada Vigilance</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <ul class="nav nav-pills">
+                                        <li class="active"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>The Canada Vigilance Adverse Reaction Online Database contains information about suspected adverse reactions (also known as side effects) to health products.</p>
+                                </div>
+                                <div class="col-md-12">
+                                    <h4>Licence:</h4>
+                                </div>
+                                <div class="col-md-12">
+                                    <a href="http://open.canada.ca/en/open-government-licence-canada">Open Government Licence - Canada</a>
+                                </div>
+                                <div class="col-md-12">
+                                    <!-- Snippet package/snippets/resources_list.html start -->
+                                    <h4>Dataset Resources</h4>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Nom de la ressource</th>
+                                                <th scope="col">Type de ressource</th>
+                                                <th scope="col">Format</th>
+                                                <th scope="col">La Langue</th>
+                                                <th scope="col">Lien</th>
+                                            </tr>
+                                        </thead><!--Drug product ingredient-->
+                                        <tr>
+                                            <td>Drug product ingredient</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>English</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/drugproductingredient/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Drug product ingredient</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>French</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/drugproductingredient/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Drug product ingredient</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>English</td>
+                                            <td><a id="drugproductingredientEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/drugproductingredient/?lang=en&type=xml', 'drugproductingredientEN')">Accès</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Drug product ingredient</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>French</td>
+                                            <td><a id="drugproductingredientFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/drugproductingredient/?lang=fr&type=xml', 'drugproductingredientFR')">Accès</a></td>
+                                        </tr><!--Drug product-->
+                                        <tr>
+                                            <td>Drug product</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>English</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/drugproduct/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Drug product</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>French</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/drugproduct/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Drug product</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>English</td>
+                                            <td><a id="drugproductEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/drugproduct/?lang=en&type=xml', 'drugproductEN')">Accès</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Drug product</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>French</td>
+                                            <td><a id="drugproductFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/drugproduct/?lang=fr&type=xml', 'drugproductFR')">Accès</a></td>
+                                        </tr><!--Gender -->
+                                        <tr>
+                                            <td>Gender</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>English</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/gender/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gender</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>French</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/gender/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gender</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>English</td>
+                                            <td><a id="genderEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/gender/?lang=en&type=xml', 'genderEN')">Accès</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gender</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>French</td>
+                                            <td><a id="genderFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/gender/?lang=fr&type=xml', 'genderFR')">Accès</a></td>
+                                        </tr><!-- Outcome-->
+                                        <tr>
+                                            <td>Outcome</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>English</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/outcome/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Outcome</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>French</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/outcome/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Outcome</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>English</td>
+                                            <td><a id="outcomeEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/outcome/?lang=en&type=xml', 'outcomeEN')">Accès</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Outcome</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>French</td>
+                                            <td><a id="outcomeFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/outcome/?lang=fr&type=xml', 'outcomeFR')">Accès</a></td>
+                                        </tr><!--Reaction-->
+                                        <tr>
+                                            <td>Reaction</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>English</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/reaction/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Reaction</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>French</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/reaction/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Reaction</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>English</td>
+                                            <td><a id="reactionEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/reaction/?lang=en&type=xml', 'reactionEN')">Accès</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Reaction</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>French</td>
+                                            <td><a id="reactionFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/reaction/?lang=fr&type=xml', 'reactionFR')">Accès</a></td>
+                                        </tr><!-- Report Drug -->
+                                        <tr>
+                                            <td>Report Drug</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>English</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/reportdrug/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Report Drug</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>French</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/reportdrug/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Report Drug</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>English</td>
+                                            <td><a id="reportdrugEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/reportdrug/?lang=en&type=xml', 'reportdrugEN')">Accès</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Report Drug</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>French</td>
+                                            <td><a id="reportdrugFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/reportdrug/?lang=fr&type=xml', 'reportdrugFR')">Accès</a></td>
+                                        </tr><!-- Report Link-->
+                                        <tr>
+                                            <td>Report Link</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>English</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/reportlink/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Report Link</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>French</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/reportlink/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Report Link</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>English</td>
+                                            <td><a id="reportlinkEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/reportlink/?lang=en&type=xml', 'reportlinkEN')">Accès</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Report Link</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>French</td>
+                                            <td><a id="reportlinkFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/reportlink/?lang=fr&type=xml', 'reportlinkFR')">Accès</a></td>
+                                        </tr><!--Report Type-->
+                                        <tr>
+                                            <td>Report Type</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>English</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/reporttype/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Report Type</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>French</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/reporttype/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Report Type</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>English</td>
+                                            <td><a id="reporttypeEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/reporttype/?lang=en&type=xml', 'reporttypeEN')">Accès</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Report Type</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>French</td>
+                                            <td><a id="reporttypeFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/reporttype/?lang=fr&type=xml', 'reporttypeFR')">Accès</a></td>
+                                        </tr><!--Reports-->
+                                        <tr>
+                                            <td>Report</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>English</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/report/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Report</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>French</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/report/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Report</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>English</td>
+                                            <td><a id="reportEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/report/?lang=en&type=xml', 'reportEN')">Accès</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Report</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>French</td>
+                                            <td><a id="reportFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/report/?lang=fr&type=xml', 'reportFR')">Accès</a></td>
+                                        </tr><!--Seriousness-->
+                                        <tr>
+                                            <td>Seriousness</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>English</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/seriousness/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Seriousness</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>French</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/seriousness/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Seriousness</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>English</td>
+                                            <td><a id="seriousnessEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/seriousness/?lang=en&type=xml', 'seriousnessEN')">Accès</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Seriousness</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>French</td>
+                                            <td><a id="seriousnessFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/seriousness/?lang=fr&type=xml', 'seriousnessFR')">Accès</a></td>
+                                        </tr><!--Source-->
+                                        <tr>
+                                            <td>Source</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>English</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/source/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Source</td>
+                                            <td>Dataset</td>
+                                            <td>JSON</td>
+                                            <td>French</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/cvp/api-v1/source/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Source</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>English</td>
+                                            <td><a id="sourceEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/source/?lang=en&type=xml', 'sourceEN')">Accès</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Source</td>
+                                            <td>Dataset</td>
+                                            <td>XML</td>
+                                            <td>French</td>
+                                            <td><a id="sourceFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/cvp/api-v1/source/?lang=fr&type=xml', 'sourceFR')">Accès</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Canada Vigilance Project API Documentation</td>
+                                            <td>Dataset</td>
+                                            <td>HTML</td>
+                                            <td>English</td>
+                                            <td>
+                                                <a class="resource-url-analytics btn btn-primary" href="http://api.hres.ca/documentation/cvp-documentation-en.html" target="_blank" title="Resource 3">Accès</a>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-md-12">
+                                    <h4>Developer Tools</h4>
+                                    <ul class="list-unstyled">
+                                        <li class="mrgn-bttm-md">
+                                            The information on this page (the dataset metadata) is also available in JSON format<br>
+                                            <a href="http://open.canada.ca/data/api/action/package_show?id=d38de914-c94c-429b-8ab1-8776c31643e3">Link to JSON format</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- prefooter-en.html-Start-->
+                        <div id="def-preFooter">
+                            <link rel="import" href="./StaticFallbackFiles/gcweb/prefooter-fr.html">
+                        </div>
+                        <!-- prefooter-en.html-End-->
+                        <!-- Write closure template -->
+                        <script type="text/javascript">
+                            var defPreFooter = document.getElementById("def-preFooter");
+                            defPreFooter.outerHTML = wet.builder.preFooter({
+                                cdnEnv: "prod",
+                                dateModified: "2017-06-27",
+                                showPostContent: true,
+                                showShare: true,
+                            });
+                        </script>
+                    </main>
                 </div>
             </div>
         </div>
-    </footer><!--[if gte IE 9 | !IE ]><!-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js">
-    </script>
-    <script src="./distro/4.0.20/wet-boew/js/wet-boew.min.js">
-    </script> <!--<![endif]-->
-    <!--[if lt IE 9]>
-    <script src="./distro/4.0.20/wet-boew/js/ie8-wet-boew2.min.js"></script>
-    <![endif]-->
-</body>
+
+                <!-- footer-en.html-Start-->
+                <div id="def-footer">
+                    <link rel="import" href="./StaticFallbackFiles/gcweb/footer-fr.html">
+                </div>
+                <!-- footer-en.html-End-->
+                <!-- Write closure template -->
+                <script type="text/javascript">
+            var defFooter = document.getElementById("def-footer");
+            defFooter.outerHTML = wet.builder.footer({
+                cdnEnv: "prod",
+                showFeatures: true,
+            });
+                </script>
+                <!-- Write closure template -->
+                <script type="text/javascript">
+                document.write(wet.builder.refFooter({
+                    cdnEnv: "prod"
+                }));
+                </script>
+                <!--[if lt IE 10 | !IE ]><!-->
+                <script src="./js/jquery.xdomainrequest.min.js"></script>
+                <!--<![endif]-->
+    </body>
 </html>
