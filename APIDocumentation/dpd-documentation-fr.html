@@ -102,7 +102,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a3">Companie</a>
+                                <a href="#a3">Compagnie</a>
                                 <ul>
                                     <li><a href="#a3.1">Paramètres</a></li>
                                     <li><a href="#a3.2">Format de réponse</a></li>
@@ -200,7 +200,7 @@
                         <p>La BDPP contient des informations spécifiques sur les médicaments commercialisés au Canada. Cette base de données, administrée par la Direction des produits thérapeutiques, porte sur les produits à usages humains et vétérinaires, radio pharmaceutiques et désinfectants. Elle renferme environ 47 000 produits qui sont présentement approuvés, commercialisés ou annulés.</p>
                         <p>Les produits à usage humain, vétérinaire, désinfectants et ceux faisant partie de l'Annexe C (produits radiopharmaceutiques) seront disponibles dans la BDPP en ligne dès leur approbation, àl'exception des produits appartenant aux trois groupes de monographies listées dans la Partie C, Titre 1, du Règlement sur les Aliments et Drogues. Ces produits sont : les produits solaires (crèmes solaires, baumes à lèvres revendiquant un FPS, produits cosmétiques contenant un agent de protection solaire, etc...), les shampoings antipelliculaires et les désinfectants pour surfaces dures. Pour ces produits, dont les applications ont été soumises après le 15 juin 2015, il peut y avoir un délai de 6 mois,  après la date d'approbation, avant qu'ils n'apparaissent dans la BDPP en ligne.</p>
                         <p>Santé Canada est l'organisme fédéral qui réglemente les produits thérapeutiques et nous ne donnons pas de conseils médicaux sur l'utilisation des produits dans cette base de données. Pour de plus amples informations sur les choix de traitement, les choix de médicament et leurs utilisations, maladies, effets secondaires et interactions médicamenteuses, veuillez contacter votre professionnel de la santé.</p>
-                        <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON afin de les utiliser dans leurs propres applications.</p>
+                        <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON, XML et CSV afin de les utiliser dans leurs propres applications.</p>
                         <p>L'adresse URI de base sur les produits pharmaceutiques est &nbsp;<a href="https://api.hres.ca/dpd/api/">https://api.hres.ca/dpd/api/</a>. Toute requête est effectuée par l'entremise de cette adresse URI.</p>
                     </section>
 
@@ -210,7 +210,7 @@
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a2.1">Paramètres</h3>
-                            <p>Il y a trois paramètre dans la requête : la langue, id et type de format.</p>
+                            <p>Il y a trois paramètres dans la requête : la langue, id et type de format.</p>
                             <table>
                                 <caption>
                                     Paramètres de la chaîne d'interrogation
@@ -235,7 +235,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/activeingredient/?lang=fr</span></td>
-                                    <td>Change langue</td>
+                                    <td>Change le language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -259,7 +259,7 @@
                                     <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Exemple d'adresse URI d'une requête :</p>
+                            <p>L'ingrédient actif peut être accédé par l'adresse URI suivante :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/activeingredient/?lang=en&type=json">https://api.hres.ca/dpd/api/activeingredient/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/activeingredient/?lang=fr&type=json">https://api.hres.ca/dpd/api/activeingredient/?lang=fr&type=json</a></li>
@@ -270,10 +270,10 @@
                             <h3 id="a2.2">Format de réponse</h3>
                             <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Chaque&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values :</p>
+                            <p>Chaque&nbsp;<strong>ingrédient actif</strong>&nbsp;contient un object avec les valeurs suivantes :</p>
                             <table>
                                 <caption>
-                                    Valeurs des objets - ingrédient actif
+                                    Valeurs de l'objet ingrédient actif
                                 </caption>
                                 <tr>
                                     <th scope="col">Code</th>
@@ -306,14 +306,14 @@
                             </table>
                             <section>
                                 <h3 id="a2.3">Exemple de réponse </h3>
-                                <pre class="prettify prettyprint linenums">{"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"VITAMIN E","strength":"200","strength_unit":"UNIT"}</pre>
+                                <pre class="prettify prettyprint linenums">{"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Vitamine A","strength":"1250","strength_unit":"Unité"}</pre>
                             </section>
 
                             <section>
                                 <h3 id="a2.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récents ingrédients actifs à un élément avec le numéro d'identification et selon la langue sélectionnée :</p>
+                                <p>Exemple d'une fonctionnalité qui recherche un ingrédient actif selon le numéro d'identification et la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getActiveIngredient(id, lang) {
-                                var base = 'https://imsd.hres.ca';
+                                var base = 'https://api.hres.ca';
                                 var uri = base + '/dpd/api/activeingredient/?id=' + id + ' &lang =' + lang;
                                 $.ajax({
                                     url:uri,
@@ -344,12 +344,12 @@
 
                     </section>
                     <section>
-                        <h2 id="a3">Companie</h2>
+                        <h2 id="a3">Compagnie</h2>
                         <p>TODO put description of company.....</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a3.1">Paramètres</h3>
-                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <p>Il y a trois paramètres dans la requête : la langue, le numéro d'identification et format type.</p>
                             <table>
                                 <caption>
                                     Paramètres de détails
@@ -363,10 +363,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/company/?id=</span></td>
-                                    <td>Affiche les détails de la companie par numéro d'identification.</td>
+                                    <td>Affiche les détails de la compagnie par numéro d'identification.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- Affiche le numéro d'identification de la companie recherché.
+                                            #####&nbsp;- Affiche le numéro d'identification de la compagnie recherché.
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -374,7 +374,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/company/?lang=fr</span></td>
-                                    <td>Change la langue</td>
+                                    <td>Change le language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -398,7 +398,7 @@
                                     <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Exemple d'adresse URI d'une requête :</p>
+                            <p>La compagnie peut être accédé par l'adresse URI suivante :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/company/?lang=en&type=json">https://api.hres.ca/dpd/api/company/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/company/?lang=fr&type=json">https://api.hres.ca/dpd/api/company/?lang=fr&type=json</a></li>
@@ -409,10 +409,10 @@
                             <h3 id="a3.2">Format de réponse</h3>
                             <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Chaque&nbsp;<strong>companie</strong>&nbsp;qui comporte les objets suivants :</p>
+                            <p>Chaque&nbsp;<strong>compagnie</strong>&nbsp;contient un object avec les valeurs suivantes :</p>
                             <table>
                                 <caption>
-                                    Valeurs des objets - companie
+                                    Valeurs de l'objet compagnie
                                 </caption>
                                 <tr>
                                     <th scope="col">Code</th>
@@ -466,7 +466,7 @@
 
                             <section>
                                 <h3 id="a3.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récentes companie selon le numéro d'identification du rappel "#responses" et selon la langue sélectionnée :</p>
+                                <p>Exemple d'une fonctionnalité qui recherche une compagnie selon le numéro d'identification et la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getCompany(id, lang) {
                                 var base = 'https://api.hres.ca';
                                 var uri = base + '/dpd/api/company/?lang=' + lang + '&id=' + id;
@@ -529,7 +529,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/drugproduct/?lang=fr</span></td>
-                                    <td>Change la langue</td>
+                                    <td>Change le language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -541,7 +541,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/drugproduct/?status=1&lang=fr</span></td>
-                                    <td>Get drug product by status</td>
+                                    <td>Affiche le produit pharmaceutique par status</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>1</code>&nbsp;- Approuvé</li>
@@ -552,7 +552,7 @@
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
-                                    <td>Détermine si la réponse est affiché selon .............Determines whether the response is in specific status.</td>
+                                    <td>Détermine si la réponse est affiché selon un status spécifique.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/drugproduct/?type=json</span></td>
@@ -568,7 +568,7 @@
                                     <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Exemple d'adresse URI d'une requête :</p>
+                            <p>Le produit pharmaceutique peut être accédé par l'adresse URI suivante :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/drugproduct/?lang=en&type=json">https://api.hres.ca/dpd/api/drugproduct/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/drugproduct/?lang=fr&type=json">https://api.hres.ca/dpd/api/drugproduct/?lang=fr&type=json</a></li>
@@ -578,10 +578,10 @@
                             <h3 id="a4.2">Format de réponse</h3>
                             <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Chaque&nbsp;<strong> produit pharmaceutique</strong>&nbsp;object consists of the following values :</p>
+                            <p>Chaque&nbsp;<strong> produit pharmaceutique</strong>&nbsp;contient un object avec les valeurs suivantes :</p>
                             <table>
                                 <caption>
-                                    Valeurs des objets - produit pharmaceutique
+                                    Valeurs de l'objet produit pharmaceutique
                                 </caption>
                                 <tr>
                                     <th scope="col">Code</th>
@@ -629,7 +629,7 @@
                             </section>
                             <section>
                                 <h3 id="a4.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui affiche ......... "#responses", selon le numéro d'identification et la langue sélectionnée :</p>
+                                <p>Exemple d'une fonctionnalité qui recherche un produit pharmaceutique selon le numéro d'identification et la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getDrugProduct(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/drugproduct/?lang=' + lang + '&id=' + id;
@@ -665,7 +665,7 @@
 
                         <section>
                             <h3 id="a5.1">Paramètres</h3>
-                            <p>Il y a trois paramètre dans la requête : la langue, numéro d'identification, actif et format type.</p>
+                            <p>Il y a trois paramètres dans la requête : la langue, numéro d'identification, actif et format type.</p>
                             <table>
                                 <caption>
                                     Paramètre pour la requête
@@ -679,10 +679,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/form/?id=</span></td>
-                                    <td>Returns form by id.</td>
+                                    <td>Affiche la FFFF form par numéro d'identificateur.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the form
+                                            #####&nbsp;- numéro d'identificateur de FFFF form
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -690,7 +690,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/form/?lang=fr</span></td>
-                                    <td>Change la langue</td>
+                                    <td>Change le language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -702,15 +702,15 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/form/?active=yes</span></td>
-                                    <td>Get form that are active or not</td>
+                                    <td>Affiche le FFFform qui sont actif ou pas</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>yes</code>&nbsp;- Return the form that has a date that is greater than today or no date.</li>
+                                            <li><code>yes</code>&nbsp;- Affiche le FFF form qui a une date qui est plus grande que la date d'aujourd'hui ou pas de date.</li>
 
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais par défaut affiche toutes les résultats.</td>
-                                    <td>Determines whether the response is returning all the form or only the one with a date that is greater than today or no date identified.</td>
+                                    <td>Détermine si la réponse retourne tous les FFF ou seulement ceux dont la date est plus grande que la date d'aujourd'hui ou pas de date.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/form/?type=json</span></td>
@@ -726,7 +726,7 @@
                                     <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Exemple d'adresse URI d'une requête :</p>
+                            <p>La forme posologique peut être accédé par l'adresse URI suivante :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/form/?lang=en&type=json">https://api.hres.ca/dpd/api/form/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/form/?lang=fr&type=json">https://api.hres.ca/dpd/api/form/?lang=fr&type=json</a></li>
@@ -736,10 +736,10 @@
                             <h3 id="a5.2">Format de réponse</h3>
                             <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Chaque&nbsp;<strong>forme posologique</strong>&nbsp;object consists of the following values :</p>
+                            <p>Chaque&nbsp;<strong>forme posologique</strong>&nbsp;contient un object avec les valeurs suivantes :</p>
                             <table>
                                 <caption>
-                                    Valeurs des objets - forme posologique
+                                    Valeurs de l'objet forme posologique
                                 </caption>
                                 <tr>
                                     <th scope="col">Code</th>
@@ -762,11 +762,11 @@
                             <!--h3-section-start-->
                             <section>
                                 <h3 id="a5.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":10776,"pharmaceutical_form_code":34,"pharmaceutical_form_name":"Liquid"}</pre>
+                                <pre class="prettify prettyprint linenums">{"drug_code":10776,"pharmaceutical_form_code":34,"pharmaceutical_form_name":"Liquide"}</pre>
                             </section>
                             <section>
                                 <h3 id="a5.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récents produit pharmaceutique à un élément avec le numéro d'identification et selon la langue sélectionnée :</p>
+                                <p>Exemple d'une fonctionnalité qui recherche un FFFFFFF selon le numéro d'identification et la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getForm(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/form/?lang=' + lang + '&id=' + id;
@@ -802,7 +802,7 @@
 
                         <section>
                             <h3 id="a6.1">Paramètres</h3>
-                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <p>Il y a trois paramètres dans la requête : la langue, numéro d'identification, actif et format type.</p>
                             <table>
                                 <caption>
                                     Paramètre pour la requête
@@ -816,10 +816,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/packaging/?id=</span></td>
-                                    <td>Returns emballage by id.</td>
+                                    <td>Affice l'emballage par numéro d'identification.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the emballage
+                                            #####&nbsp;- numéro d'identification de l'emballage
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -827,7 +827,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/packaging/?lang=en</span></td>
-                                    <td>Change langue</td>
+                                    <td>Change le language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -851,7 +851,7 @@
                                     <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Exemple d'adresse URI d'une requête :</p>
+                            <p>L'emballage peut être accédé par l'adresse URI suivante ::</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/packaging/?lang=en&type=json">https://api.hres.ca/dpd/api/packaging/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/packaging/?lang=fr&type=json">https://api.hres.ca/dpd/api/packaging/?lang=fr&type=json</a></li>
@@ -861,10 +861,10 @@
                             <h3 id="a6.2">Format de réponse</h3>
                             <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Chaque&nbsp;<strong>emballage</strong>&nbsp;object consists of the following values :</p>
+                            <p>Chaque&nbsp;<strong>emballage</strong>&nbsp;contient un object avec les valeurs suivantes :</p>
                             <table>
                                 <caption>
-                                    Valeurs des objets - emballage
+                                    Valeurs de l'objet emballage
                                 </caption>
                                 <tr>
                                     <th scope="col">Code</th>
@@ -938,7 +938,7 @@
 
                         <section>
                             <h3 id="a7.1">Paramètres</h3>
-                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <p>Il y a deux paramètres dans la requête : le numéro d'identification et format type</p>
                             <table>
                                 <caption>
                                     Paramètre pour la requête
@@ -952,13 +952,13 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/pharmaceuticalstd/?id=</span></td>
-                                    <td>Returns norme pharmaceutique by id.</td>
+                                    <td>Affiche FFFF norme pharmaceutique par numéro d'identification.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the pharmaceutical std
+                                            #####&nbsp;- numéro d'identification de FFF pharmaceutical std
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
 
@@ -976,7 +976,7 @@
                                     <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Exemple d'adresse URI d'une requête :</p>
+                            <p>L'FFFFF peut être accédé par l'adresse URI suivante :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/pharmaceuticalstd/?type=json">https://api.hres.ca/dpd/api/pharmaceuticalstd/?type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/pharmaceuticalstd/?type=json">https://api.hres.ca/dpd/api/pharmaceuticalstd/?type=json</a></li>
@@ -986,10 +986,10 @@
                             <h3 id="a7.2">Format de réponse</h3>
                             <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Chaque&nbsp;<strong> norme pharmaceutique</strong>&nbsp;object consists of the following values:</p>
+                            <p>Chaque&nbsp;<strong> norme pharmaceutique</strong>&nbsp;contient un object avec les valeurs suivantes :</p>
                             <table>
                                 <caption>
-                                    Valeurs des objets - norme pharmaceutique
+                                    Valeurs de l'objet norme pharmaceutique
                                 </caption>
                                 <tr>
                                     <th scope="col">Code</th>
@@ -1011,7 +1011,7 @@
                             </section>
                             <section>
                                 <h3 id="a7.4">Exemple de jQuery</h3>
-                                <p>Example for a function of emballage to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Exemple d'une fonctionnalité qui recherche un emballage selon le numéro d'identification et la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getPharmaceuticalStd(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/pharmaceuticalstd/?lang=' + lang + '&id=' + id;
@@ -1047,7 +1047,7 @@
 
                         <section>
                             <h3 id="a8.1">Paramètres</h3>
-                            <p>There are three parameters in the request: language, id, active and format type.</p>
+                            <p>Il y a quatre paramètres dans la requête : la langue, numéro d'identification, actif et format type.</p>
                             <table>
                                 <caption>
                                     Paramètre pour la requête
@@ -1061,10 +1061,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/route/?id=</span></td>
-                                    <td>Returns route by id.</td>
+                                    <td>Affiche la voie d'administration par numéro d'identification.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the route
+                                            #####&nbsp;- numéro d'identification de la voie d'administration
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -1072,7 +1072,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/route/?lang=en</span></td>
-                                    <td>Change langue</td>
+                                    <td>Change le language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -1084,15 +1084,15 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/route/?active=yes</span></td>
-                                    <td>Get form that are active or not</td>
+                                    <td>Affiche la voie d'administration qui est actif ou pas</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>yes</code>&nbsp;- Return the route that has a date that is greater than today or no date.</li>
+                                            <li><code>yes</code>&nbsp;- Affiche la voie d'administration qui a une date qui est plus grande que la date d'aujourd'hui ou pas de date.</li>
 
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to all the route.</td>
-                                    <td>Determines whether the response is returning all the route or only the one with a date that is greater than today or no date identified.</td>
+                                    <td><strong>Non</strong>, mais par défaut affiche toutes les résultats.</td>
+                                    <td>Détermine si la réponse retourne tous les FFF ou seulement ceux dont la date est plus grande que la date d'aujourd'hui ou pas de date.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/route/?type=json</span></td>
@@ -1108,7 +1108,7 @@
                                     <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Exemple d'adresse URI d'une requête :</p>
+                            <p>La voie d'administration peut être accédé par l'adresse URI suivante :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/route/?lang=en&type=json">https://api.hres.ca/dpd/api/route/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/route/?lang=fr&type=json">https://api.hres.ca/dpd/api/route/?lang=fr&type=json</a></li>
@@ -1118,10 +1118,10 @@
                             <h3 id="a8.2">Format de réponse</h3>
                             <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Chaque&nbsp;<strong> voie d'administration</strong>&nbsp;object consists of the following values :</p>
+                            <p>Chaque&nbsp;<strong> voie d'administration</strong>&nbsp;contient un object avec les valeurs suivantes :</p>
                             <table>
                                 <caption>
-                                    Valeurs des objets - voie d'administration
+                                    Valeurs de l'objet voie d'administration
                                 </caption>
                                 <tr>
                                     <th scope="col">Code</th>
@@ -1143,11 +1143,11 @@
                             <!--h3-section-start-->
                             <section>
                                 <h3 id="a8.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":10705,"route_of_administration_code":49,"route_of_administration_name":"Intravenous"}</pre>
+                                <pre class="prettify prettyprint linenums">{"drug_code":10707,"route_of_administration_code":56,"route_of_administration_name":"Orale"}</pre>
                             </section>
                             <section>
                                 <h3 id="a8.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récents voie d'administration à un élément avec le numéro d'identification et selon la langue sélectionnée :</p>
+                                <p>Exemple d'une fonctionnalité qui recherche une voie d'administration selon le numéro d'identification et la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getRoute(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/route/?lang=' + lang + '&id=' + id;
@@ -1183,7 +1183,7 @@
 
                         <section>
                             <h3 id="a9.1">Paramètres</h3>
-                            <p>There are three parameters in the request: language, id, active and format type.</p>
+                            <p>Il y a quatre paramètres dans la requête : la langue, le numéro d'identification, actif et format type.</p>
                             <table>
                                 <caption>
                                     Paramètre pour la requête
@@ -1197,10 +1197,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/schedule/?id=</span></td>
-                                    <td>Returns schedule by id.</td>
+                                    <td>Affiche FFF schedule par le numéro d'identification.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the schedule
+                                            #####&nbsp;- numéro d'identification FFF schedule
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -1208,7 +1208,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/schedule/?lang=en</span></td>
-                                    <td>Change langue</td>
+                                    <td>Change le language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -1219,16 +1219,16 @@
                                     <td>Détermine si la réponse est affichée en anglais ou en français.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api/schedule/?active=yes</span></td>
-                                    <td>Get form that are active or not</td>
+                                    <td><span class="nowrap">dpd/api/route/?active=yes</span></td>
+                                    <td>Affiche la FFFF qui est actif ou pas</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>yes</code>&nbsp;- Return the schedule that has a date that is greater than today or no date.</li>
+                                            <li><code>yes</code>&nbsp;- Affiche la FFFF qui a une date qui est plus grande que la date d'aujourd'hui ou pas de date.</li>
 
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to all the schedule.</td>
-                                    <td>Determines whether the response is returning all the schedule or only the one with a date that is greater than today or no date identified.</td>
+                                    <td><strong>Non</strong>, mais par défaut affiche toutes les résultats.</td>
+                                    <td>Détermine si la réponse retourne tous les FFF ou seulement ceux dont la date est plus grande que la date d'aujourd'hui ou pas de date.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/schedule/?type=json</span></td>
@@ -1244,7 +1244,7 @@
                                     <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Exemple d'adresse URI d'une requête :</p>
+                            <p>La FFFFF peut être accédé par l'adresse URI suivante :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/schedule/?lang=en&type=json">https://api.hres.ca/dpd/api/schedule/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/schedule/?lang=fr&type=json">https://api.hres.ca/dpd/api/schedule/?lang=fr&type=json</a></li>
@@ -1254,10 +1254,10 @@
                             <h3 id="a9.2">Format de réponse</h3>
                             <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Chaque&nbsp;<strong>schedule</strong>&nbsp;object consists of the following values :</p>
+                            <p>Chaque&nbsp;<strong>schedule</strong>&nbsp;contient un object avec les valeurs suivantes :</p>
                             <table>
                                 <caption>
-                                    Valeurs des objets - Schedule ????
+                                    Valeurs de l'objet  FFFFF Schedule ????
                                 </caption>
                                 <tr>
                                     <th scope="col">Code</th>
@@ -1275,11 +1275,11 @@
                             <!--h3-section-start-->
                             <section>
                                 <h3 id="a9.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":10682,"schedule_name":"OTC"}</pre>
+                                <pre class="prettify prettyprint linenums">{"drug_code":10686,"schedule_name":"En vente libre"}</pre>
                             </section>
                             <section>
                                 <h3 id="a9.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récents ????? à un élément avec le numéro d'identification et selon la langue sélectionnée :</p>
+                                <p>Exemple d'une fonctionnalité qui recherche une FFFFFF selon le numéro d'identification et la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getSchedule(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/schedule/?lang=' + lang + '&id=' + id;
@@ -1317,7 +1317,7 @@
 
                         <section>
                             <h3 id="a10.1">Paramètres</h3>
-                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <p>Il y a trois paramètres dans la requête : la langue, le numéro d'identification et format type.</p>
                             <table>
                                 <caption>
                                     Paramètre pour la requête
@@ -1342,7 +1342,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/status/?lang=en</span></td>
-                                    <td>Change langue</td>
+                                    <td>Change le language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -1366,7 +1366,7 @@
                                     <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Exemple d'adresse URI d'une requête :</p>
+                            <p>Le status peut être accédé par l'adresse URI suivante :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/status/?lang=en&type=json">https://api.hres.ca/dpd/api/status/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/status/?lang=fr&type=json">https://api.hres.ca/dpd/api/status/?lang=fr&type=json</a></li>
@@ -1376,10 +1376,10 @@
                             <h3 id="a10.2">Format de réponse</h3>
                             <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Chaque&nbsp;<strong>status</strong>&nbsp;object consists of the following values :</p>
+                            <p>Chaque&nbsp;<strong>status</strong>&nbsp;contient un object avec les valeurs suivantes :</p>
                             <table>
                                 <caption>
-                                    Valeurs des objets - status
+                                    Valeurs de l'objet status
                                 </caption>
                                 <tr>
                                     <th scope="col">Code</th>
@@ -1418,11 +1418,11 @@
                             <!--h3-section-start-->
                             <section>
                                 <h3 id="a10.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":10828,"status":"Marketed","history_date":"1990-12-31","original_market_date":"1990-12-31","external_status_code":2,"expiration_date":null,"lot_number":0}</pre>
+                                <pre class="prettify prettyprint linenums">{"drug_code":10229,"status":"Annulé après commercialisation","history_date":"1997-10-15","original_market_date":"1989-12-31","external_status_code":4,"expiration_date":null,"lot_number":0}</pre>
                             </section>
                             <section>
                                 <h3 id="a10.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récents status à un élément avec le numéro d'identification et selon la langue sélectionnée :</p>
+                                <p>Exemple d'une fonctionnalité qui recherche un status selon le numéro d'identification et la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getStatus(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/status/?lang=' + lang + '&id=' + id;
@@ -1459,7 +1459,7 @@
 
                         <section>
                             <h3 id="a11.1">Paramètres</h3>
-                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <p>Il y a trois paramètres dans la requête : la langue, le numéro d'identification et format type.</p>
                             <table>
                                 <caption>
                                     Paramètre pour la requête
@@ -1473,18 +1473,18 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/company/?id=</span></td>
-                                    <td>Returns therapeutic class by id.</td>
+                                    <td>Affiche FFFF therapeutic class par numéro d'identification</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the therapeutic class
+                                            #####&nbsp;- numéro d'identification FFFF therapeutic class
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/therapeuticclass/?lang=en</span></td>
-                                    <td>Change langue</td>
+                                    <td>Change le language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -1508,7 +1508,7 @@
                                     <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Exemple d'adresse URI d'une requête :</p>
+                            <p>La FFFF peut être accédé par l'adresse URI suivante :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/therapeuticclass/?lang=en&type=json">https://api.hres.ca/dpd/api/therapeuticclass/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/therapeuticclass/?lang=fr&type=json">https://api.hres.ca/dpd/api/therapeuticclass/?lang=fr&type=json</a></li>
@@ -1518,10 +1518,10 @@
                             <h3 id="a11.2">Format de réponse</h3>
                             <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Chaque&nbsp;<strong>therapeutic class</strong>&nbsp;object consists of the following values :</p>
+                            <p>Chaque&nbsp;<strong>therapeutic class</strong>&nbsp;contient un object avec les valeurs suivantes :</p>
                             <table>
                                 <caption>
-                                    Valeurs des objets -
+                                    Valeurs de l'objet FFFFF
                                 </caption>
                                 <tr>
                                     <th scope="col">Code</th>
@@ -1556,7 +1556,7 @@
                             </section>
                             <section>
                                 <h3 id="a11.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récents ????? à un élément avec le numéro d'identification et selon la langue sélectionnée :</p>
+                                <p>Exemple d'une fonctionnalité qui recherche FFFFF selon le numéro d'identification et la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getTherapeuticClass(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/therapeuticclass/?lang=' + lang + '&id=' + id;
@@ -1592,7 +1592,7 @@
 
                         <section>
                             <h3 id="a12.1">Paramètres</h3>
-                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <p>Il y a trois paramètres dans la requête : la langue, le numéro d'identification et format type.</p>
                             <table>
                                 <caption>
                                     Paramètre pour la requête
@@ -1605,19 +1605,19 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api/drugveterinaryspecies/?id=</span></td>
-                                    <td>Returns company by id.</td>
+                                    <td><span class="nowrap">dpd/api/veterinaryspecies/?id=</span></td>
+                                    <td>Affiche l'espèce animale par le numéro d'identification.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the veterinary species
+                                            #####&nbsp;- numéro d'identification de l'espèce animale
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api/drugveterinaryspecies/?lang=en</span></td>
-                                    <td>Change langue</td>
+                                    <td><span class="nowrap">dpd/api/veterinaryspecies/?lang=en</span></td>
+                                    <td>Change le language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -1628,7 +1628,7 @@
                                     <td>Détermine si la réponse est affichée en anglais ou en français.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api/drugveterinaryspecies/?type=json</span></td>
+                                    <td><span class="nowrap">dpd/api/veterinaryspecies/?type=json</span></td>
                                     <td>Change le format type du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1641,20 +1641,20 @@
                                     <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Exemple d'adresse URI d'une requête :</p>
+                            <p>L'espèce animale peut être accédé par l'adresse URI suivante :</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=en&type=json">https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=fr&type=json">https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/veterinaryspecies/?lang=en&type=json">https://api.hres.ca/dpd/api/veterinaryspecies/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/veterinaryspecies/?lang=fr&type=json">https://api.hres.ca/dpd/api/veterinaryspecies/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
                             <h3 id="a12.2">Format de réponse</h3>
                             <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Chaque&nbsp;<strong>espèce animale</strong>&nbsp;object consists of the following values :</p>
+                            <p>Chaque&nbsp;<strong>espèce animale</strong>&nbsp;contient un object avec les valeurs suivantes :</p>
                             <table>
                                 <caption>
-                                    Valeurs des objets - espèce animale
+                                    Valeurs de l'objet espèce animale
                                 </caption>
                                 <tr>
                                     <th scope="col">Code</th>
@@ -1672,14 +1672,14 @@
                             <!--h3-section-start-->
                             <section>
                                 <h3 id="a12.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":13751,"vet_species_name":"Wild/miscellaneous"}</pre>
+                                <pre class="prettify prettyprint linenums">{"drug_code":13755,"vet_species_name":"Chiens"}</pre>
                             </section>
                             <section>
                                 <h3 id="a12.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récents ????? à un élément avec le numéro d'identification et selon la langue sélectionnée :</p>
-                                <pre class="prettify prettyprint linenums">function getDrugVeterinarySpecies(id, lang) {
+                                <p>Exemple d'une fonctionnalité qui recherche l'espèce animale selon le numéro d'identification et la langue sélectionnée :</p>
+                                <pre class="prettify prettyprint linenums">function getVeterinarySpecies(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/drugveterinaryspecies/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/veterinaryspecies/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',

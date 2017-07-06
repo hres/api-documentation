@@ -201,7 +201,7 @@
                         <p>The DPD contains product specific information on drugs approved for use in Canada. The database is managed by Health Canada and includes human pharmaceutical and biological drugs, veterinary drugs, radiopharmaceutical drugs and disinfectant products. It contains approximately 47,000 products that are currently approved, marketed or cancelled.</p>
                         <p>Human, veterinary, disinfectants and Schedule C drugs (e.g. radiopharmaceutical products) approved products will be available in the DPD online at the time of authorization, with the exception of three monographed product groups under Division 1, Part C of the Food and Drug Regulations: sunscreen (sunscreens, lipstick making a SPF claim, cosmetic-like products with sunscreen claims, etc.), anti-dandruff shampoo, and hard surface disinfectants.  For these products, applications filed after June 15, 2015, there may be a six month delay after approval for the inclusion in the DPD online.</p>
                         <p>Health Canada is the federal regulator of therapeutic products and does not provide medical advice on the use of the products identified in this database. For information related to treatment options, choices of medications and their uses, illnesses, side effects or drug interactions, please contact your health care professional. For information on where these products are sold, please contact the individual company directly.</p>
-                        <p>This Application Programming Interface (API) allows developers to access that information in JSON format for reuse in their own applications.</p>
+                        <p>This Application Programming Interface (API) allows developers to access that information in JSON, XML and CSV format for reuse in their own applications.</p>
                         <p>The base URI for the Drug Product Database &nbsp;<a href="https://api.hres.ca/dpd/api/">https://api.hres.ca/dpd/api/</a>. Any requests are made relative to this URI.</p>
                     </section>
 
@@ -270,7 +270,7 @@
                             <h3 id="a2.2">Response format</h3>
                             <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
 
-                            <p>Each&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>active ingredient</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
                                     Active Ingredient object values
@@ -311,9 +311,9 @@
 
                             <section>
                                 <h3 id="a2.4">jQuery example</h3>
-                                <p>Example for a function of active ingredient to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Example of a function that search for an active ingredient given an ID and a language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getActiveIngredient(id, lang) {
-                                var base = 'https://imsd.hres.ca';
+                                var base = 'https://api.hres.ca';
                                 var uri = base + '/dpd/api/activeingredient/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
@@ -466,7 +466,7 @@
 
                             <section>
                                 <h3 id="a3.4">jQuery example</h3>
-                                <p>Example for a function of company to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Example of a function that search for a company given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getCompany(id, lang) {
                                 var base = 'https://api.hres.ca';
                                 var uri = base + '/dpd/api/company/?lang=' + lang + '&id=' + id;
@@ -504,7 +504,7 @@
 
                         <section>
                             <h3 id="a4.1">Parameters</h3>
-                            <p>There are three parameters in the request: language, id, status and format type.</p>
+                            <p>There are four parameters in the request: language, id, status and format type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -564,7 +564,7 @@
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td>Determines whether the result will be of type Json, XML or CSV.</td>
                                 </tr>
                             </table>
                             <p>Drug Product can be accessed via these URIs:</p>
@@ -628,7 +628,7 @@
                             </section>
                             <section>
                                 <h3 id="a4.4">jQuery example</h3>
-                                <p>Example for a function of drug product to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Example of a function that search for a drug product given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getDrugProduct(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/drugproduct/?lang=' + lang + '&id=' + id;
@@ -764,7 +764,7 @@
                             </section>
                             <section>
                                 <h3 id="a5.4">jQuery example</h3>
-                                <p>Example for a function of form to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Example of a function that search for a form given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getForm(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/form/?lang=' + lang + '&id=' + id;
@@ -899,7 +899,7 @@
                             </section>
                             <section>
                                 <h3 id="a6.4">jQuery example</h3>
-                                <p>Example for a function of packaging to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Example of a function that search for a packaging given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getPackaging(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/packaging/?id=' + id;
@@ -1007,7 +1007,7 @@
                             </section>
                             <section>
                                 <h3 id="a7.4">jQuery example</h3>
-                                <p>Example for a function of packaging to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Example of a function that search for a packaging given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getPharmaceuticalStd(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/pharmaceuticalstd/?lang=' + lang + '&id=' + id;
@@ -1142,7 +1142,7 @@
                             </section>
                             <section>
                                 <h3 id="a8.4">jQuery example</h3>
-                                <p>Example for a function of route to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Example of a function that search for a route given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getRoute(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/route/?lang=' + lang + '&id=' + id;
@@ -1273,7 +1273,7 @@
                             </section>
                             <section>
                                 <h3 id="a9.4">jQuery example</h3>
-                                <p>Example for a function of schedule to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Example of a function that search for a schedule given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getSchedule(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/schedule/?lang=' + lang + '&id=' + id;
@@ -1415,7 +1415,7 @@
                             </section>
                             <section>
                                 <h3 id="a10.4">jQuery example</h3>
-                                <p>Example for a function of status to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Example of a function that search for a status given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getStatus(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/status/?lang=' + lang + '&id=' + id;
@@ -1548,7 +1548,7 @@
                             </section>
                             <section>
                                 <h3 id="a11.4">jQuery example</h3>
-                                <p>Example for a function of therapeutic class to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Example of a function that search for a therapeutic class given an ID and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getTherapeuticClass(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/therapeuticclass/?lang=' + lang + '&id=' + id;
@@ -1597,7 +1597,7 @@
                                     <th scope="col">Notes</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api/drugveterinaryspecies/?id=</span></td>
+                                    <td><span class="nowrap">dpd/api/veterinaryspecies/?id=</span></td>
                                     <td>Returns company by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1608,7 +1608,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api/drugveterinaryspecies/?lang=en</span></td>
+                                    <td><span class="nowrap">dpd/api/veterinaryspecies/?lang=en</span></td>
                                     <td>Changes language</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1620,7 +1620,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api/drugveterinaryspecies/?type=json</span></td>
+                                    <td><span class="nowrap">dpd/api/veterinaryspecies/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1634,8 +1634,8 @@
                             </table>
                             <p>Veterinary species can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=en&type=json">https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=fr&type=json">https://api.hres.ca/dpd/api/drugveterinaryspecies/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/veterinaryspecies/?lang=en&type=json">https://api.hres.ca/dpd/api/veterinaryspecies/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/veterinaryspecies/?lang=fr&type=json">https://api.hres.ca/dpd/api/veterinaryspecies/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1667,10 +1667,10 @@
                             </section>
                             <section>
                                 <h3 id="a12.4">jQuery example</h3>
-                                <p>Example for a function of veterinary species to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getDrugVeterinarySpecies(id, lang) {
+                                <p>Example of a function that search for a veterinary species given an ID and language selection:</p>
+                                <pre class="prettify prettyprint linenums">function getVeterinarySpecies(id, lang) {
                                 var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/drugveterinaryspecies/?lang=' + lang + '&id=' + id;
+                                var uri = base + '/dpd/api/veterinaryspecies/?lang=' + lang + '&id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
