@@ -120,7 +120,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a5">Form</a>
+                                <a href="#a5">Forme posologique</a>
                                 <ul>
                                     <li><a href="#a5.1">Paramètres</a></li>
                                     <li><a href="#a5.2">Format de réponse</a></li>
@@ -156,7 +156,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a9">Schedule</a>
+                                <a href="#a9">Annexe</a>
                                 <ul>
                                     <li><a href="#a9.1">Paramètres</a></li>
                                     <li><a href="#a9.2">Format de réponse</a></li>
@@ -175,7 +175,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a11">Therapeutic Class</a>
+                                <a href="#a11">Classe thérapeutique</a>
                                 <ul>
                                     <li><a href="#a11.1">Paramètres</a></li>
                                     <li><a href="#a11.2">Format de réponse</a></li>
@@ -184,7 +184,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a12">Espèce animale</a>
+                                <a href="#a12">Espèces animales</a>
                                 <ul>
                                     <li><a href="#a12.1">Paramètres</a></li>
                                     <li><a href="#a12.2">Format de réponse</a></li>
@@ -461,7 +461,7 @@
                             </table>
                             <section>
                                 <h3 id="a3.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"city_name":"Mississauga","company_code":10825,"company_name":"PAX-ALL MANUFACTURING INC.","company_type":"DIN OWNER","country_name":"Canada","post_office_box":"","postal_code":"L5S 1R7","province_name":"Ontario","street_name":"7115 Tomken Road","suite_number":""}</pre>
+                                <pre class="prettify prettyprint linenums">{"city_name":"Alpharetta","company_code":10831,"company_name":"FIRST HORIZON PHARMACEUTICAL CORP.","company_type":"DIN OWNER","country_name":"ÉTATS UNIS","post_office_box":"","postal_code":"30005","province_name":"GEORGIA","street_name":"6195 Shiloh Road","suite_number":""}</pre>
                             </section>
 
                             <section>
@@ -518,10 +518,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/drugproduct/?id=</span></td>
-                                    <td>Affiche le numéro d'identification du ..............</td>
+                                    <td>Affiche le numéro d'identification du produit pharmaceutique.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- Affiche le numéro d'identification du ..............
+                                            #####&nbsp;- Affiche le numéro d'identification du produit pharmaceutique.
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -606,7 +606,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>descriptor</strong></td>
-                                    <td>The .....</td>
+                                    <td>Des détails supplémentaires ou des descriptions pour un produit, s'il y a lieu.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>drug_code</strong></td>
@@ -660,7 +660,7 @@
                         </section>
                     </section>
                     <section>
-                        <h2 id="a5">Form</h2>
+                        <h2 id="a5">Forme posologique</h2>
                         <p>TODO put description of form.....</p>
 
                         <section>
@@ -679,10 +679,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/form/?id=</span></td>
-                                    <td>Affiche la FFFF form par numéro d'identificateur.</td>
+                                    <td>Affiche la forme posologique par numéro d'identificateur.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- numéro d'identificateur de FFFF form
+                                            #####&nbsp;- numéro d'identificateur de la forme.
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -702,15 +702,15 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/form/?active=yes</span></td>
-                                    <td>Affiche le FFFform qui sont actif ou pas</td>
+                                    <td>Affiche la forme posologique qui est active ou pas</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>yes</code>&nbsp;- Affiche le FFF form qui a une date qui est plus grande que la date d'aujourd'hui ou pas de date.</li>
+                                            <li><code>yes</code>&nbsp;- Affiche la forme posologique qui a une date qui est plus grande que la date d'aujourd'hui ou pas de date.</li>
 
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais par défaut affiche toutes les résultats.</td>
-                                    <td>Détermine si la réponse retourne tous les FFF ou seulement ceux dont la date est plus grande que la date d'aujourd'hui ou pas de date.</td>
+                                    <td>Détermine si la réponse retourne toutes les formes posologiques ou seulement ceux dont la date est plus grande que la date d'aujourd'hui ou pas de date.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/form/?type=json</span></td>
@@ -766,7 +766,7 @@
                             </section>
                             <section>
                                 <h3 id="a5.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche un FFFFFFF selon le numéro d'identification et la langue sélectionnée :</p>
+                                <p>Exemple d'une fonctionnalité qui recherche une forme posologique selon le numéro d'identification et la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getForm(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/form/?lang=' + lang + '&id=' + id;
@@ -802,7 +802,7 @@
 
                         <section>
                             <h3 id="a6.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête : la langue, numéro d'identification, actif et format type.</p>
+                            <p>Il y a deux paramètres dans la requête : le numéro d'identification et le format type.</p>
                             <table>
                                 <caption>
                                     Paramètre pour la requête
@@ -826,18 +826,6 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api/packaging/?lang=en</span></td>
-                                    <td>Change le language</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>en</code>&nbsp;- Anglais</li>
-                                            <li><code>fr</code>&nbsp;- Français</li>
-                                        </ul>
-                                    </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
-                                    <td>Détermine si la réponse est affichée en anglais ou en français.</td>
-                                </tr>
-                                <tr>
                                     <td><span class="nowrap">dpd/api/packaging/?type=json</span></td>
                                     <td>Change le format type du résultat.</td>
                                     <td>
@@ -853,8 +841,8 @@
                             </table>
                             <p>L'emballage peut être accédé par l'adresse URI suivante ::</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/dpd/api/packaging/?lang=en&type=json">https://api.hres.ca/dpd/api/packaging/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/dpd/api/packaging/?lang=fr&type=json">https://api.hres.ca/dpd/api/packaging/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/packaging/?type=json">https://api.hres.ca/dpd/api/packaging/?type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/packaging/?type=json">https://api.hres.ca/dpd/api/packaging/?type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -902,9 +890,9 @@
                             </section>
                             <section>
                                 <h3 id="a6.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récents emballage à un élément avec le numéro d'identification et selon la langue sélectionnée :</p>
-                                <pre class="prettify prettyprint linenums">function getPackaging(id, lang) {
-                                var base = 'https://imsd.hres.ca';
+                                <p>Exemple d'une fonctionnalité qui ajoute une liste des plus récents emballage à un élément avec le numéro d'identification sélectionné :</p>
+                                <pre class="prettify prettyprint linenums">function getPackaging(id) {
+                                var base = 'https://api.hres.ca';
                                 var uri = base + '/dpd/api/packaging/?id=' + id;
                                 $.ajax({
                                     url:uri,
@@ -952,11 +940,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/pharmaceuticalstd/?id=</span></td>
-                                    <td>Affiche FFFF norme pharmaceutique par numéro d'identification.</td>
+                                    <td>Affiche la norme pharmaceutique par numéro d'identification.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- numéro d'identification de FFF pharmaceutical std
-                                        </ul>
+                                            #####&nbsp;- numéro d'identification par norme pharmaceutique.                                       </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
                                     <td></td>
@@ -976,7 +963,7 @@
                                     <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>L'FFFFF peut être accédé par l'adresse URI suivante :</p>
+                            <p>La norme pharmaceutique peut être accédé par l'adresse URI suivante :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/pharmaceuticalstd/?type=json">https://api.hres.ca/dpd/api/pharmaceuticalstd/?type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/pharmaceuticalstd/?type=json">https://api.hres.ca/dpd/api/pharmaceuticalstd/?type=json</a></li>
@@ -1012,9 +999,9 @@
                             <section>
                                 <h3 id="a7.4">Exemple de jQuery</h3>
                                 <p>Exemple d'une fonctionnalité qui recherche un emballage selon le numéro d'identification et la langue sélectionnée :</p>
-                                <pre class="prettify prettyprint linenums">function getPharmaceuticalStd(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/pharmaceuticalstd/?lang=' + lang + '&id=' + id;
+                                <pre class="prettify prettyprint linenums">function getPharmaceuticalStd(id) {
+                                var base = 'https://api.hres.ca';
+                                var uri = base + '/dpd/api/pharmaceuticalstd/?id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
@@ -1092,7 +1079,7 @@
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais par défaut affiche toutes les résultats.</td>
-                                    <td>Détermine si la réponse retourne tous les FFF ou seulement ceux dont la date est plus grande que la date d'aujourd'hui ou pas de date.</td>
+                                    <td>Détermine si la réponse retourne tous les voies d'administration ou seulement ceux dont la date est plus grande que la date d'aujourd'hui ou pas de date.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/route/?type=json</span></td>
@@ -1178,7 +1165,7 @@
                         </section>
                     </section>
                     <section>
-                        <h2 id="a9">Schedule</h2>
+                        <h2 id="a9">Annexe</h2>
                         <p>TODO put description of schedule.....</p>
 
                         <section>
@@ -1197,10 +1184,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/schedule/?id=</span></td>
-                                    <td>Affiche FFF schedule par le numéro d'identification.</td>
+                                    <td>Affiche l'annexe par le numéro d'identification.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- numéro d'identification FFF schedule
+                                            #####&nbsp;- numéro d'identification par l'annexe.
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -1220,15 +1207,15 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/route/?active=yes</span></td>
-                                    <td>Affiche la FFFF qui est actif ou pas</td>
+                                    <td>Affiche l'annexe qui est active ou pas</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>yes</code>&nbsp;- Affiche la FFFF qui a une date qui est plus grande que la date d'aujourd'hui ou pas de date.</li>
+                                            <li><code>yes</code>&nbsp;- Affiche l'annexe qui a une date qui est plus grande que la date d'aujourd'hui ou pas de date.</li>
 
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais par défaut affiche toutes les résultats.</td>
-                                    <td>Détermine si la réponse retourne tous les FFF ou seulement ceux dont la date est plus grande que la date d'aujourd'hui ou pas de date.</td>
+                                    <td>Détermine si la réponse retourne tous les annexes ou seulement ceux dont la date est plus grande que la date d'aujourd'hui ou pas de date.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/schedule/?type=json</span></td>
@@ -1244,7 +1231,7 @@
                                     <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>La FFFFF peut être accédé par l'adresse URI suivante :</p>
+                            <p>L'annexe peut être accédé par l'adresse URI suivante :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/schedule/?lang=en&type=json">https://api.hres.ca/dpd/api/schedule/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/schedule/?lang=fr&type=json">https://api.hres.ca/dpd/api/schedule/?lang=fr&type=json</a></li>
@@ -1254,10 +1241,10 @@
                             <h3 id="a9.2">Format de réponse</h3>
                             <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Chaque&nbsp;<strong>schedule</strong>&nbsp;contient un object avec les valeurs suivantes :</p>
+                            <p>Chaque&nbsp;<strong>annexe</strong>&nbsp;contient un object avec les valeurs suivantes :</p>
                             <table>
                                 <caption>
-                                    Valeurs de l'objet  FFFFF Schedule ????
+                                    Valeurs de l'objet de l'annexe.
                                 </caption>
                                 <tr>
                                     <th scope="col">Code</th>
@@ -1279,7 +1266,7 @@
                             </section>
                             <section>
                                 <h3 id="a9.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche une FFFFFF selon le numéro d'identification et la langue sélectionnée :</p>
+                                <p>Exemple d'une fonctionnalité qui recherche une annexe selon le numéro d'identification et la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getSchedule(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/schedule/?lang=' + lang + '&id=' + id;
@@ -1473,10 +1460,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/company/?id=</span></td>
-                                    <td>Affiche FFFF therapeutic class par numéro d'identification</td>
+                                    <td>Affiche la classe thérapeutique par numéro d'identification</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- numéro d'identification FFFF therapeutic class
+                                            #####&nbsp;- numéro d'identification de la classe thérapeutique.
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -1508,7 +1495,7 @@
                                     <td>Détermine si la réponse est affichée en format type Json, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>La FFFF peut être accédé par l'adresse URI suivante :</p>
+                            <p>La classe thérapeutique peut être accédé par l'adresse URI suivante :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/dpd/api/therapeuticclass/?lang=en&type=json">https://api.hres.ca/dpd/api/therapeuticclass/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/dpd/api/therapeuticclass/?lang=fr&type=json">https://api.hres.ca/dpd/api/therapeuticclass/?lang=fr&type=json</a></li>
@@ -1518,10 +1505,10 @@
                             <h3 id="a11.2">Format de réponse</h3>
                             <p>La réponse est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
 
-                            <p>Chaque&nbsp;<strong>therapeutic class</strong>&nbsp;contient un object avec les valeurs suivantes :</p>
+                            <p>Chaque&nbsp;<strong>classe thérapeutique</strong>&nbsp;contient un object avec les valeurs suivantes :</p>
                             <table>
                                 <caption>
-                                    Valeurs de l'objet FFFFF
+                                    Valeurs de l'objet la classe thérapeutique
                                 </caption>
                                 <tr>
                                     <th scope="col">Code</th>
@@ -1533,11 +1520,11 @@
                                 </tr>
                                 <tr>
                                     <td><strong>tc_ahfs</strong></td>
-                                    <td>The .....</td>
+                                    <td>La description du code American Hospital Formulary Service.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>tc_ahfs_number</strong></td>
-                                    <td>The ...</td>
+                                    <td>Le code American Hospital Formulary Service.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>tc_atc</strong></td>
@@ -1556,7 +1543,7 @@
                             </section>
                             <section>
                                 <h3 id="a11.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche FFFFF selon le numéro d'identification et la langue sélectionnée :</p>
+                                <p>Exemple d'une fonctionnalité qui recherche la classe thérapeutique selon le numéro d'identification et la langue sélectionnée :</p>
                                 <pre class="prettify prettyprint linenums">function getTherapeuticClass(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/therapeuticclass/?lang=' + lang + '&id=' + id;

@@ -605,7 +605,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>descriptor</strong></td>
-                                    <td>The .....</td>
+                                    <td>Additional details or descriptions for a product, if applicable.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>drug_code</strong></td>
@@ -800,7 +800,7 @@
 
                         <section>
                             <h3 id="a6.1">Parameters</h3>
-                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <p>There are two parameters in the request: id and format type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -824,18 +824,6 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">dpd/api/packaging/?lang=en</span></td>
-                                    <td>Changes language</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>en</code>&nbsp;- English</li>
-                                            <li><code>fr</code>&nbsp;- French</li>
-                                        </ul>
-                                    </td>
-                                    <td><strong>No</strong>, but defaults to English if not specified</td>
-                                    <td>Determines whether the response is in English or French.</td>
-                                </tr>
-                                <tr>
                                     <td><span class="nowrap">dpd/api/packaging/?type=json</span></td>
                                     <td>Changes the format of result.</td>
                                     <td>
@@ -850,8 +838,8 @@
                             </table>
                             <p>Packaging can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/dpd/api/packaging/?lang=en&type=json">https://api.hres.ca/dpd/api/packaging/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/dpd/api/packaging/?lang=fr&type=json">https://api.hres.ca/dpd/api/packaging/?lang=fr&type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/packaging/?type=json">https://api.hres.ca/dpd/api/packaging/?type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/packaging/?&type=json">https://api.hres.ca/dpd/api/packaging/?type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -899,8 +887,8 @@
                             </section>
                             <section>
                                 <h3 id="a6.4">jQuery example</h3>
-                                <p>Example of a function that search for a packaging given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getPackaging(id, lang) {
+                                <p>Example of a function that search for a packaging given an ID selection:</p>
+                                <pre class="prettify prettyprint linenums">function getPackaging(id) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/packaging/?id=' + id;
                                 $.ajax({
@@ -935,7 +923,7 @@
 
                         <section>
                             <h3 id="a7.1">Parameters</h3>
-                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <p>There are two parameters in the request: id and format type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -1007,10 +995,10 @@
                             </section>
                             <section>
                                 <h3 id="a7.4">jQuery example</h3>
-                                <p>Example of a function that search for a packaging given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getPharmaceuticalStd(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/pharmaceuticalstd/?lang=' + lang + '&id=' + id;
+                                <p>Example of a function that search for a packaging given an ID selection:</p>
+                                <pre class="prettify prettyprint linenums">function getPharmaceuticalStd(id) {
+                                var base = 'https://api.hres.ca';
+                                var uri = base + '/dpd/api/pharmaceuticalstd/?id=' + id;
                                 $.ajax({
                                     url:uri,
                                     type:'GET',
@@ -1525,11 +1513,11 @@
                                 </tr>
                                 <tr>
                                     <td><strong>tc_ahfs</strong></td>
-                                    <td>The .....</td>
+                                    <td>The description of the American Hospital Formulary Service.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>tc_ahfs_number</strong></td>
-                                    <td>The ...</td>
+                                    <td>The American Hospital Formulary Service code.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>tc_atc</strong></td>
