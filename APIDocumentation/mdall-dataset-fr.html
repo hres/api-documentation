@@ -273,55 +273,61 @@
                                         </tr>
                                     </thead><!-- Snippet package/snippets/resource_item.html start -->
                                     <!--Licence-->
+
+
                                     <tr>
                                         <td>Licence</td>
                                         <td>Dataset</td>
                                         <td>JSON</td>
                                         <td>Actif</td>
-
                                         <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/licence/?status=active&type=json" target="_blank" title="Resource 1">Accès</a></td>
 
                                     </tr>
-                                    <tr>
-                                        <td>Licence</td>
-                                        <td>Dataset</td>
-                                        <td>CSV</td>
-                                        <td>Actif</td>
-                                        <td><input type="button" id="dlLicence" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Licence Data', 'https://api.hres.ca/mdall/api-v1/licence/?status=active&type=json');" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Licence</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>Archivé</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/licence/?status=archived&type=json" target="_blank" title="Resource 2">Accès</a>
-                                        </td>
-                                    </tr>
 
-                                    <tr>
-                                        <td>Licence</td>
-                                        <td>Dataset</td>
-                                        <td>CSV</td>
-                                        <td>Archivé</td>
-                                        <td><input type="button" id="dlLicence" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Licence Data (Archived)', 'https://api.hres.ca/mdall/api-v1/licence/?status=archived&type=json');" /></td>
-                                    </tr>
 
                                     <tr>
                                         <td>Licence</td>
                                         <td>Dataset</td>
                                         <td>XML</td>
                                         <td>Actif</td>
-                                        <td><a id="licenceActive" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/licence/?status=active&type=xml', 'licenceActive')">Accès</a></td>
-                                    </tr><!-- Snippet package/snippets/resource_item.html end -->
-                                    <!-- Snippet package/snippets/resource_item.html start -->
+                                        <td><a id="licenceActive" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/licence/?status=active&type=xml', 'licenceArchived')">Accès</a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Licence</td>
+                                        <td>Dataset</td>
+                                        <td>CSV</td>
+                                        <td>Actif</td>
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/CSV/DownloadCSV?dataType=licence&lang=fr">Accès</a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Licence</td>
+                                        <td>Dataset</td>
+                                        <td>JSON</td>
+                                        <td>Archivé</td>
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/licence/?status=archived&type=json" target="_blank" title="Resource 1">Accès</a></td>
+                                    </tr>
+
                                     <tr>
                                         <td>Licence</td>
                                         <td>Dataset</td>
                                         <td>XML</td>
                                         <td>Archivé</td>
                                         <td><a id="licenceArchived" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/licence/?status=archived&type=xml', 'licenceArchived')">Accès</a></td>
-                                    </tr><!--Company-->
+                                    </tr>
+
+                                    <tr>
+                                        <td>Licence</td>
+                                        <td>Dataset</td>
+                                        <td>CSV</td>
+                                        <td>Archivé</td>
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/CSV/DownloadCSV?dataType=archLicence&lang=en">Accès</a></td>
+                                    </tr>
+
+
+                                    <!-- COMPANY -->
+
                                     <tr>
                                         <td>Company</td>
                                         <td>Dataset</td>
@@ -332,13 +338,21 @@
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td>Company</td>
+                                        <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>Actif</td>
+                                        <td><a id="companyActive" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/company/?status=active&type=xml', 'companyActive')">Accès</a></td>
+                                    </tr>
+
 
                                     <tr>
                                         <td>Company</td>
                                         <td>Dataset</td>
                                         <td>CSV</td>
                                         <td>Actif</td>
-                                        <td><input type="button" id="dlCompany" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Company Data', 'https://api.hres.ca/mdall/api-v1/company/?status=active&type=json');" /></td>
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/CSV/DownloadCSV?dataType=company&lang=en">Accès</a></td>
                                     </tr>
 
 
@@ -355,26 +369,23 @@
                                     <tr>
                                         <td>Company</td>
                                         <td>Dataset</td>
-                                        <td>CSV</td>
+                                        <td>XML</td>
                                         <td>Archivé</td>
-                                        <td><input type="button" id="dlCompany" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Company Data (Archived)', 'https://api.hres.ca/mdall/api-v1/company/?status=archived&type=json');" /></td>
+                                        <td><a id="companyArchived" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/company/?status=archived&type=xml', 'companyArchived')">Accès</a></td>
                                     </tr>
 
                                     <tr>
                                         <td>Company</td>
                                         <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>Actif</td>
-                                        <td><a id="companyActive" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/company/?status=active&type=xml', 'companyActive')">Accès</a></td>
-                                    </tr><!-- Snippet package/snippets/resource_item.html end -->
-                                    <!-- Snippet package/snippets/resource_item.html start -->
-                                    <tr>
-                                        <td>Company</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
+                                        <td>CSV</td>
                                         <td>Archivé</td>
-                                        <td><a id="companyArchived" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/company/?status=archived&type=xml', 'companyArchived')">Accès</a></td>
-                                    </tr><!--Device-->
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/CSV/DownloadCSV?dataType=archCompany&lang=en">Accès</a></td>
+                                    </tr>
+
+
+                                    <!--Device-->
+
+
                                     <tr>
                                         <td>Device</td>
                                         <td>Dataset</td>
@@ -388,9 +399,17 @@
                                     <tr>
                                         <td>Device</td>
                                         <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>Actif</td>
+                                        <td><a id="deviceActive" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/device/?status=active&type=xml', 'deviceActive')">Accès</a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Device</td>
+                                        <td>Dataset</td>
                                         <td>CSV</td>
                                         <td>Actif</td>
-                                        <td><input type="button" id="dlDevice" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Device Data', 'https://api.hres.ca/mdall/api-v1/device/?status=active&type=json');" /></td>
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/CSV/DownloadCSV?dataType=device&lang=en">Accès</a></td>
                                     </tr>
 
                                     <tr>
@@ -406,30 +425,26 @@
                                     <tr>
                                         <td>Device</td>
                                         <td>Dataset</td>
-                                        <td>CSV</td>
+                                        <td>XML</td>
                                         <td>Archivé</td>
-                                        <td><input type="button" id="dlDevice" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Device Data (Archived)', 'https://api.hres.ca/mdall/api-v1/device/?status=archived&type=json');" /></td>
+                                        <td><a id="deviceArchived" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/device/?status=archived&type=xml', 'deviceArchived')">Accès</a></td>
                                     </tr>
 
                                     <tr>
                                         <td>Device</td>
                                         <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>Actif</td>
-                                        <td><a id="deviceActive" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/device/?status=active&type=xml', 'deviceActive')">Accès</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Device</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
+                                        <td>CSV</td>
                                         <td>Archivé</td>
-                                        <td><a id="deviceArchived" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/device/?status=archived&type=xml', 'deviceArchived')">Accès</a></td>
-                                    </tr><!--Device Identifier -->
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/CSV/DownloadCSV?dataType=archDevice&lang=en">Accès</a></td>
+                                    </tr>
+
+
+                                    <!--Device Identifier -->
                                     <tr>
                                         <td>Device Identifier</td>
                                         <td>Dataset</td>
                                         <td>JSON</td>
-                                        <td></td>
+                                        <td>Actif</td>
                                         <td>
                                             <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/deviceidentifier/?type=json" target="_blank" title="Resource 1">Accès</a>
                                         </td>
@@ -438,16 +453,24 @@
                                     <tr>
                                         <td>Device Identifier</td>
                                         <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>Actif</td>
+                                        <td><a id="deviceIdActive" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/deviceIdentifier/?status=active&type=xml', 'deviceIdActive')">Accès</a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Device Identifier</td>
+                                        <td>Dataset</td>
                                         <td>CSV</td>
-                                        <td></td>
-                                        <td><input type="button" id="dlDevice" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Device Identifier Data', 'https://api.hres.ca/mdall/api-v1/deviceidentifier/?type=json');" /></td>
+                                        <td>Actif</td>
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/CSV/DownloadCSV?dataType=identifier&lang=en">Accès</a></td>
                                     </tr>
 
                                     <tr>
                                         <td>Device Identifier</td>
                                         <td>Dataset</td>
                                         <td>JSON</td>
-                                        <td></td>
+                                        <td>Archivé</td>
                                         <td>
                                             <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/deviceidentifier/?type=json" target="_blank" title="Resource 2">Accès</a>
                                         </td>
@@ -456,9 +479,17 @@
                                     <tr>
                                         <td>Device Identifier</td>
                                         <td>Dataset</td>
+                                        <td>XML</td>
+                                        <td>Archivé</td>
+                                        <td><a id="deviceIDArchived" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/deviceIdentifier/?status=archived&type=xml', 'deviceIDArchived')">Accès</a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Device Identifier</td>
+                                        <td>Dataset</td>
                                         <td>CSV</td>
-                                        <td></td>
-                                        <td><input type="button" id="dlDevice" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Device Identifier Data', 'https://api.hres.ca/mdall/api-v1/deviceidentifier/?type=json');" /></td>
+                                        <td>Archivé</td>
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/CSV/DownloadCSV?dataType=archIdentifier&lang=en">Accès</a></td>
                                     </tr>
 
                                     <!-- Licence Type-->
@@ -466,75 +497,37 @@
                                         <td>Licence Type</td>
                                         <td>Dataset</td>
                                         <td>JSON</td>
-                                        <td>English</td>
+                                        <td>Français</td>
                                         <td>
                                             <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/licencetype/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td>Licence Type</td>
-                                        <td>Dataset</td>
-                                        <td>CSV</td>
-                                        <td>English</td>
-                                        <td><input type="button" id="dlLicenceType" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Licence Type Data', 'https://api.hres.ca/mdall/api-v1/licencetype/?lang=en&type=json');" /></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Licence Type</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>English</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/licencetype/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Licence Type</td>
-                                        <td>Dataset</td>
-                                        <td>CSV</td>
-                                        <td>English</td>
-                                        <td><input type="button" id="dlLicenceType" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Licence Type Data', 'https://api.hres.ca/mdall/api-v1/licencetype/?lang=en&type=json');" /></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Licence Type</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>French</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/licencetype/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Licence Type</td>
-                                        <td>Dataset</td>
-                                        <td>CSV</td>
-                                        <td>French</td>
-                                        <td><input type="button" id="dlLicenceType" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('Licence Type Data', 'https://api.hres.ca/mdall/api-v1/licencetype/?lang=fr&type=json');" /></td>
-                                    </tr>
 
                                     <tr>
                                         <td>Licence Type</td>
                                         <td>Dataset</td>
                                         <td>XML</td>
-                                        <td>English</td>
-                                        <td><a id="licencetypeEn" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/licencetype/?lang=en&type=xml', 'licencetypeEN')">Accès</a></td>
+                                        <td>Français</td>
+                                        <td><a id="licencetypeEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/licencetype/?lang=en&type=xml', 'licencetypeEN')">Accès</a></td>
                                     </tr>
+
                                     <tr>
                                         <td>Licence Type</td>
                                         <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>French</td>
-                                        <td><a id="licencetypeFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/licencetype/?lang=fr&type=xml', 'licencetypeFR')">Accès</a></td>
-                                    </tr><!--SBD Location-->
+                                        <td>CSV</td>
+                                        <td>Français</td>
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/CSV/DownloadCSV?dataType=licenceType&lang=en">Accès</a></td>
+                                    </tr>
+
+                                    <!--SBD Location-->
+
+
                                     <tr>
                                         <td>Summary Basis Decision Location</td>
                                         <td>Dataset</td>
                                         <td>JSON</td>
-                                        <td>English</td>
+                                        <td>Français</td>
                                         <td>
                                             <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/sbdlocation/?lang=en&type=json" target="_blank" title="Resource 1">Accès</a>
                                         </td>
@@ -543,61 +536,23 @@
                                     <tr>
                                         <td>Summary Basis Decision Location</td>
                                         <td>Dataset</td>
-                                        <td>CSV</td>
-                                        <td>English</td>
-                                        <td>
-                                            <input type="button" id="dlSBDLocation" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('SBD Location Data', 'https://api.hres.ca/mdall/api-v1/sbdlocation/?lang=en&type=json');" />
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Summary Basis Decision Location</td>
-                                        <td>Dataset</td>
-                                        <td>JSON</td>
-                                        <td>French</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/sbdlocation/?lang=fr&type=json" target="_blank" title="Resource 2">Accès</a>
-                                        </td>
+                                        <td>XML</td>
+                                        <td>Français</td>
+                                        <td><a id="sbdlocationEN" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/sbdlocation/?lang=en&type=xml', 'sbdlocationEN')">Accès</a></td>
                                     </tr>
 
                                     <tr>
                                         <td>Summary Basis Decision Location</td>
                                         <td>Dataset</td>
                                         <td>CSV</td>
-                                        <td>French</td>
-                                        <td>
-                                            <input type="button" id="dlSBDLocation" class="resource-url-analytics btn btn-primary" value="CSV" onclick="JSONtoCSV('SBD Location Data', 'https://api.hres.ca/mdall/api-v1/sbdlocation/?lang=fr&type=json');" />
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Summary Basis Decision Location</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>English</td>
-                                        <td><a id="sbdlocationEn" href="#" title="Resource 1" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/sbdlocation/?lang=en&type=xml', 'sbdlocationEN')">Accès</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Summary Basis Decision Location</td>
-                                        <td>Dataset</td>
-                                        <td>XML</td>
-                                        <td>French</td>
-                                        <td><a id="sbdlocationFR" href="#" title="Resource 2" class="resource-url-analytics btn btn-primary" onclick="saveXML('https://api.hres.ca/mdall/api-v1/sbdlocation/?lang=fr&type=xml', 'sbdlocationFR')">Accès</a></td>
+                                        <td>Français</td>
+                                        <td><a class="resource-url-analytics btn btn-primary" href="https://api.hres.ca/mdall/api-v1/CSV/DownloadCSV?dataType=sbdLocation&lang=en">CSV</a></td>
                                     </tr>
                                     <tr>
                                         <td>Medical Devices Active Licence Listing API Documentation</td>
                                         <td>Dataset</td>
                                         <td>HTML</td>
-                                        <td>English</td>
-                                        <td>
-                                            <a class="resource-url-analytics btn btn-primary" href="http://api.hres.ca/documentation/mdall-documentation-en.html" target="_blank" title="Resource 3">Accès</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Medical Devices Active Licence Listing API Documentation</td>
-                                        <td>Dataset</td>
-                                        <td>HTML</td>
-                                        <td>French</td>
+                                        <td>Français</td>
                                         <td>
                                             <a class="resource-url-analytics btn btn-primary" href="http://api.hres.ca/documentation/mdall-documentation-fr.html" target="_blank" title="Resource 4">Accès</a>
                                         </td>
