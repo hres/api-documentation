@@ -1,0 +1,1488 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+        wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>Guide API - Base de donnée de produits de santé naturels homologués (BDPSNH)</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <!-- Meta data -->
+    <meta name="dcterms.language" title="ISO639-2" content="fra" />
+    <meta name="dcterms.title" content="Guide API - Base de donnée de produits de santé naturels homologués (BDPSNH)" />
+    <meta name="description" content="Documentation pour API - Base de donnée de produits de santé naturels homologués (BDPSNH)." />
+    <meta name="dcterms.subject" title="scheme" content="" />
+    <meta name="dcterms.creator" content="Government of Canada, Health Canada and the Public health Agency of Canada" />
+    <meta name="dcterms.contributor" content="" />
+    <meta name="dcterms.type" title="gctype" content="" />
+    <meta name="dcterms.audience" title="gcaudience" content="" />
+    <meta name="dcterms.issued" title="W3CDTF" content="2015-04-21" />
+    <meta name="dcterms.modified" title="W3CDTF" content="2016-03-18" />
+    <meta name="review_date" content="" />
+    <meta name="meta_date" content="" />
+
+    <!-- Load closure template scripts -->
+    <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/soyutils.js"></script>
+    <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/wet-fr.js"></script>
+    <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/plugins-fr.js"></script>
+    <!-- Load closure template scripts -->
+    <noscript>
+        <link rel="import" href="./StaticFallbackFiles/gcweb/refTop.html">
+    </noscript>
+    <!-- Write closure template -->
+    <script type="text/javascript">
+            document.write(wet.builder.refTop({
+                cdnEnv: "prod"
+            }));
+    </script>
+
+    <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
+    <script>dataLayer1 = [];</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body vocab="http://schema.org/" typeof="WebPage">
+    <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
+    <noscript>
+        <iframe title="Google Tag Manager" src="//www.googletagmanager.com/ns.html?id=GTM-TLGQ9K" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement
+
+(s),dl=l!='dataLayer1'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})
+
+(window,document,'script','dataLayer1','GTM-TLGQ9K');
+    </script>
+    <!-- End Google Tag Manager -->
+    <div id="def-top">
+        <!-- top-en.html-Start-->
+        <link rel="import" href="./StaticFallbackFiles/gcweb/top-fr.html">
+        <!-- top-en.html-End-->
+    </div>
+    <!-- Write closure template -->
+    <script type="text/javascript">
+	var defTop = document.getElementById("def-top");
+	var jsonbread = [];
+
+	//console.log(jsonbread);
+	defTop.outerHTML = wet.builder.top({
+	    cdnEnv: "prod",
+	    search: true,
+		lngLinks: [{
+			lang: "fr",
+			href: "lnhpd-documentation-en.html",
+			text: "English",
+		}],
+		showPreContent: true,
+		breadcrumbs:jsonbread,
+	});
+    </script>
+    <div class="container">
+        <main role="main" property="mainContentOfPage" class="container">
+            <div class="wb-frmvld">
+                <section>
+                    <h2 id="a1">Introduction</h2>
+                    <p>The Drug and Health Products Register contains information about .....</p>
+                    <p>The base URI for the Drug and Health Products Register &nbsp;<a href="https://api.hres.ca/dhpr1/api/">https://api.hres.ca/dhpr1/api/</a>. Any requests are made relative to this URI.</p>
+                </section>
+                <section>
+                    <h1 id="wb-cont">Guide API - Base de donnée de produits de santé naturels homologués (BDPSNH)</h1>
+                    <section>
+                        <h2 id="a">Table of contents</h2>
+                        <ul>
+                            <li><a href="#a1">Introduction</a></li>
+                            <li>
+                                <a href="#a2">Ingredient</a>
+                                <ul>
+                                    <li><a href="#a2.1">Parameters</a></li>
+                                    <li><a href="#a2.2">Response format</a></li>
+                                    <li><a href="#a2.3">Sample response</a></li>
+                                    <li><a href="#a2.4">jQuery example </a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#a3">Ingredient Quantity</a>
+                                <ul>
+                                    <li><a href="#a3.1">Parameters</a></li>
+                                    <li><a href="#a3.2">Response format</a></li>
+                                    <li><a href="#a3.3">Sample response</a></li>
+                                    <li><a href="#a3.4">jQuery example </a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#a4">Ingredient Source</a>
+                                <ul>
+                                    <li><a href="#a4.1">Parameters</a></li>
+                                    <li><a href="#a4.2">Response format</a></li>
+                                    <li><a href="#a4.3">Sample response</a></li>
+                                    <li><a href="#a4.4">jQuery example </a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#a5">Ingredient Submission</a>
+                                <ul>
+                                    <li><a href="#a5.1">Parameters</a></li>
+                                    <li><a href="#a5.2">Response format</a></li>
+                                    <li><a href="#a5.3">Sample response</a></li>
+                                    <li><a href="#a5.4">jQuery example </a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#a6">Product Dose</a>
+                                <ul>
+                                    <li><a href="#a6.1">Parameters</a></li>
+                                    <li><a href="#a6.2">Response format</a></li>
+                                    <li><a href="#a6.3">Sample response</a></li>
+                                    <li><a href="#a6.4">jQuery example </a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#a7">Product Licence</a>
+                                <ul>
+                                    <li><a href="#a7.1">Parameters</a></li>
+                                    <li><a href="#a7.2">Response format</a></li>
+                                    <li><a href="#a7.3">Sample response</a></li>
+                                    <li><a href="#a7.4">jQuery example </a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#a8">Product Purpose</a>
+                                <ul>
+                                    <li><a href="#a8.1">Parameters</a></li>
+                                    <li><a href="#a8.2">Response format</a></li>
+                                    <li><a href="#a8.3">Sample response</a></li>
+                                    <li><a href="#a8.4">jQuery example </a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#a9">Product Risk</a>
+                                <ul>
+                                    <li><a href="#a9.1">Parameters</a></li>
+                                    <li><a href="#a9.2">Response format</a></li>
+                                    <li><a href="#a9.3">Sample response</a></li>
+                                    <li><a href="#a9.4">jQuery example </a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#a10">Product Route</a>
+                                <ul>
+                                    <li><a href="#a10.1">Parameters</a></li>
+                                    <li><a href="#a10.2">Response format</a></li>
+                                    <li><a href="#a10.3">Sample response</a></li>
+                                    <li><a href="#a10.4">jQuery example </a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <!-- INGREDIENT start -->
+                    <section>
+                        <h2 id="a2">Ingredient</h2>
+                        <p>TODO put description of ingredient.....</p>
+                        <!--h3-section-start-->
+                        <section>
+                            <h3 id="a2.1">Parameters</h3>
+                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <table>
+                                <caption>Request parameters</caption>
+                                <tr>
+                                    <th scope="col">Parameter</th>
+                                    <th scope="col">Meaning</th>
+                                    <th scope="col">Values</th>
+                                    <th scope="col">Required?</th>
+                                    <th scope="col">Notes</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/ingredient/?id=</span></td>
+                                    <td>Returns ingredients by id.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">#####&nbsp;- ID of the ingredients</ul>
+                                    </td>
+                                    <td><strong>Yes</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/ingredient/?lang=en</span></td>
+                                    <td>Changes language</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- English</li>
+                                            <li><code>fr</code>&nbsp;- French</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to English if not specified</td>
+                                    <td>Determines whether the response is in English or French.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/ingredient/?type=json</span></td>
+                                    <td>Changes the format of result.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- Json</li>
+                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
+                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                </tr>
+                            </table>
+                            <p>Ingredients can be accessed via these URIs:</p>
+                            <ul>
+                                <li><a href="https://api.hres.ca/lnhpd/api/ingredient/?lang=en&type=json">https://api.hres.ca/lnhpd/api/ingredient/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/lnhpd/api/ingredient/?lang=fr&type=json">https://api.hres.ca/lnhpd/api/ingredient/?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a2.2">Response format</h3>
+                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>Each&nbsp;<strong>ingredient</strong>&nbsp;object consists of the following values:</p>
+                            <table>
+                                <caption>Ingredient object values</caption>
+                                <tr>
+                                    <th scope="col">Key</th>
+                                    <th scope="col">Value</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>submission_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ingredient_name</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>matrix_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>matrix_type_code</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>quantity_list</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                            </table>
+                            <section>
+                                <h3 id="a2.3">Sample response</h3>
+                                <pre class="prettify prettyprint linenums">to come</pre>
+                            </section>
+                            <section>
+                                <h3 id="a2.4">jQuery example</h3>
+                                <p>Example for a function of ingredient to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <pre class="prettify prettyprint linenums">function getIngredient(id, lang) {
+	var base = 'https://imsd.hres.ca';
+	var uri = base + '/lnhpd/api/ingredient/?lang=' + lang + '&id=' + id;
+	$.ajax({
+		url: uri,
+		type: 'GET',
+		Accept: &quot;application/json&quot;,
+		dataType: 'json',
+		success: function(data) {
+			console.log(data.ingredient_name);
+			var frag = document.createDocumentFragment();
+			var h2 = document.createElement(&quot;h2&quot;);
+			var IngredientName = document.createTextNode(data.ingredient_name);
+			var p = document.createElement(&quot;p&quot;);
+			var text = document.createTextNode(data.panels[0].text);
+			h2.appendChild(IngredientName);
+			p.appendChild(text);
+			frag.appendChild(h2);
+			frag.appendChild(p);
+			$(&quot;#responses&quot;)[0].appendChild(frag);
+		},
+		error: function(error) {},
+	});
+	return;
+};			</pre>
+                            </section>
+                        </section>
+                    </section>
+                    <!-- INGREDIENTS end -->
+                    <!-- INGREDIENT QUANTITY start -->
+                    <section>
+                        <h2 id="a3">Ingredient Quantity</h2>
+                        <p>TODO put description of ingredient quantity.....</p>
+                        <!--h3-section-start-->
+                        <section>
+                            <h3 id="a3.1">Parameters</h3>
+                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <table>
+                                <caption>Request parameters</caption>
+                                <tr>
+                                    <th scope="col">Parameter</th>
+                                    <th scope="col">Meaning</th>
+                                    <th scope="col">Values</th>
+                                    <th scope="col">Required?</th>
+                                    <th scope="col">Notes</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/ingredientquantity/?id=</span></td>
+                                    <td>Returns ingredient quantities by id.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">#####&nbsp;- ID of the ingredient quantities</ul>
+                                    </td>
+                                    <td><strong>Yes</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/ingredientquantity/?lang=en</span></td>
+                                    <td>Changes language</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- English</li>
+                                            <li><code>fr</code>&nbsp;- French</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to English if not specified</td>
+                                    <td>Determines whether the response is in English or French.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/ingredientquantity/?type=json</span></td>
+                                    <td>Changes the format of result.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- Json</li>
+                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
+                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                </tr>
+                            </table>
+                            <p>Ingredient Quantities can be accessed via these URIs:</p>
+                            <ul>
+                                <li><a href="https://api.hres.ca/lnhpd/api/ingredientquantity/?lang=en&type=json">https://api.hres.ca/lnhpd/api/ingredientquantity/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/lnhpd/api/ingredientquantity/?lang=fr&type=json">https://api.hres.ca/lnhpd/api/ingredientquantity/?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a3.2">Response format</h3>
+                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>Each&nbsp;<strong>ingredient quantity</strong>&nbsp;object consists of the following values:</p>
+                            <table>
+                                <caption>Ingredient Quantity object values</caption>
+                                <tr>
+                                    <th scope="col">Key</th>
+                                    <th scope="col">Value</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>ingredient_amount_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ingredient_name</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>matrix_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>quantity</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>quantity_minimum</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>quantity_maximum</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>quantity_uom_type_desc</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>quantity_string</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ratio_numerator</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ratio_denominator</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>dried_herb_equivalent</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>dried_herb_equivalent_uom_type_desc</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>extract_type_desc</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>extract_string</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>potency</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>potency_uom_type_desc</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>potency_constituent</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>potency_string</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                            </table>
+                            <section>
+                                <h3 id="a3.3">Sample response</h3>
+                                <pre class="prettify prettyprint linenums">to come</pre>
+                            </section>
+                            <section>
+                                <h3 id="a3.4">jQuery example</h3>
+                                <p>Example for a function of ingredient quantity to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <pre class="prettify prettyprint linenums">function getIngredientQuantity(id, lang) {
+	var base = 'https://imsd.hres.ca';
+	var uri = base + '/lnhpd/api/ingredientquantity/?lang=' + lang + '&id=' + id;
+	$.ajax({
+		url: uri,
+		type: 'GET',
+		Accept: &quot;application/json&quot;,
+		dataType: 'json',
+		success: function(data) {
+			console.log(data.ingredient_quantity_name);
+			var frag = document.createDocumentFragment();
+			var h2 = document.createElement(&quot;h2&quot;);
+			var IngredientQuantityName = document.createTextNode(data.ingredient_quantity_name);
+			var p = document.createElement(&quot;p&quot;);
+			var text = document.createTextNode(data.panels[0].text);
+			h2.appendChild(IngredientQuantityName);
+			p.appendChild(text);
+			frag.appendChild(h2);
+			frag.appendChild(p);
+			$(&quot;#responses&quot;)[0].appendChild(frag);
+		},
+		error: function(error) {},
+	});
+	return;
+};			</pre>
+                            </section>
+                        </section>
+                    </section>
+                    <!-- INGREDIENT QUANTITIES end -->
+                    <!-- INGREDIENT SOURCE start -->
+                    <section>
+                        <h2 id="a4">Ingredient Source</h2>
+                        <p>TODO put description of ingredient source.....</p>
+                        <!--h3-section-start-->
+                        <section>
+                            <h3 id="a4.1">Parameters</h3>
+                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <table>
+                                <caption>Request parameters</caption>
+                                <tr>
+                                    <th scope="col">Parameter</th>
+                                    <th scope="col">Meaning</th>
+                                    <th scope="col">Values</th>
+                                    <th scope="col">Required?</th>
+                                    <th scope="col">Notes</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/ingredientsource/?id=</span></td>
+                                    <td>Returns ingredient sources by id.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">#####&nbsp;- ID of the ingredient sources</ul>
+                                    </td>
+                                    <td><strong>Yes</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/ingredientsource/?lang=en</span></td>
+                                    <td>Changes language</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- English</li>
+                                            <li><code>fr</code>&nbsp;- French</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to English if not specified</td>
+                                    <td>Determines whether the response is in English or French.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/ingredientsource/?type=json</span></td>
+                                    <td>Changes the format of result.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- Json</li>
+                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
+                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                </tr>
+                            </table>
+                            <p>Ingredient Sources can be accessed via these URIs:</p>
+                            <ul>
+                                <li><a href="https://api.hres.ca/lnhpd/api/ingredientsource/?lang=en&type=json">https://api.hres.ca/lnhpd/api/ingredientsource/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/lnhpd/api/ingredientsource/?lang=fr&type=json">https://api.hres.ca/lnhpd/api/ingredientsource/?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a4.2">Response format</h3>
+                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>Each&nbsp;<strong>ingredient source</strong>&nbsp;object consists of the following values:</p>
+                            <table>
+                                <caption>Ingredient Source object values</caption>
+                                <tr>
+                                    <th scope="col">Key</th>
+                                    <th scope="col">Value</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>material_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>matrix_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>material_type_desc</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                            </table>
+                            <section>
+                                <h3 id="a4.3">Sample response</h3>
+                                <pre class="prettify prettyprint linenums">to come</pre>
+                            </section>
+                            <section>
+                                <h3 id="a4.4">jQuery example</h3>
+                                <p>Example for a function of ingredient source to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <pre class="prettify prettyprint linenums">function getIngredientSource(id, lang) {
+	var base = 'https://imsd.hres.ca';
+	var uri = base + '/lnhpd/api/ingredientsource/?lang=' + lang + '&id=' + id;
+	$.ajax({
+		url: uri,
+		type: 'GET',
+		Accept: &quot;application/json&quot;,
+		dataType: 'json',
+		success: function(data) {
+			console.log(data.ingredient_source_name);
+			var frag = document.createDocumentFragment();
+			var h2 = document.createElement(&quot;h2&quot;);
+			var IngredientSourceName = document.createTextNode(data.ingredient_source_name);
+			var p = document.createElement(&quot;p&quot;);
+			var text = document.createTextNode(data.panels[0].text);
+			h2.appendChild(IngredientSourceName);
+			p.appendChild(text);
+			frag.appendChild(h2);
+			frag.appendChild(p);
+			$(&quot;#responses&quot;)[0].appendChild(frag);
+		},
+		error: function(error) {},
+	});
+	return;
+};			</pre>
+                            </section>
+                        </section>
+                    </section>
+                    <!-- INGREDIENT SOURCES end -->
+                    <!-- INGREDIENT SUBMISSION start -->
+                    <section>
+                        <h2 id="a5">Ingredient Submission</h2>
+                        <p>TODO put description of ingredient submission.....</p>
+                        <!--h3-section-start-->
+                        <section>
+                            <h3 id="a5.1">Parameters</h3>
+                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <table>
+                                <caption>Request parameters</caption>
+                                <tr>
+                                    <th scope="col">Parameter</th>
+                                    <th scope="col">Meaning</th>
+                                    <th scope="col">Values</th>
+                                    <th scope="col">Required?</th>
+                                    <th scope="col">Notes</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/ingredientsubmission/?id=</span></td>
+                                    <td>Returns ingredient submissions by id.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">#####&nbsp;- ID of the ingredient submissions</ul>
+                                    </td>
+                                    <td><strong>Yes</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/ingredientsubmission/?lang=en</span></td>
+                                    <td>Changes language</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- English</li>
+                                            <li><code>fr</code>&nbsp;- French</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to English if not specified</td>
+                                    <td>Determines whether the response is in English or French.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/ingredientsubmission/?type=json</span></td>
+                                    <td>Changes the format of result.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- Json</li>
+                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
+                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                </tr>
+                            </table>
+                            <p>Ingredient Submissions can be accessed via these URIs:</p>
+                            <ul>
+                                <li><a href="https://api.hres.ca/lnhpd/api/ingredientsubmission/?lang=en&type=json">https://api.hres.ca/lnhpd/api/ingredientsubmission/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/lnhpd/api/ingredientsubmission/?lang=fr&type=json">https://api.hres.ca/lnhpd/api/ingredientsubmission/?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a5.2">Response format</h3>
+                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>Each&nbsp;<strong>ingredient submission</strong>&nbsp;object consists of the following values:</p>
+                            <table>
+                                <caption>Ingredient Submission object values</caption>
+                                <tr>
+                                    <th scope="col">Key</th>
+                                    <th scope="col">Value</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>matrix_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>submission_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ingredient_type_code</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>brand_name</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                            </table>
+                            <section>
+                                <h3 id="a5.3">Sample response</h3>
+                                <pre class="prettify prettyprint linenums">to come</pre>
+                            </section>
+                            <section>
+                                <h3 id="a5.4">jQuery example</h3>
+                                <p>Example for a function of ingredient submission to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <pre class="prettify prettyprint linenums">function getIngredientSubmission(id, lang) {
+	var base = 'https://imsd.hres.ca';
+	var uri = base + '/lnhpd/api/ingredientsubmission/?lang=' + lang + '&id=' + id;
+	$.ajax({
+		url: uri,
+		type: 'GET',
+		Accept: &quot;application/json&quot;,
+		dataType: 'json',
+		success: function(data) {
+			console.log(data.ingredient_submission_name);
+			var frag = document.createDocumentFragment();
+			var h2 = document.createElement(&quot;h2&quot;);
+			var IngredientSubmissionName = document.createTextNode(data.ingredient_submission_name);
+			var p = document.createElement(&quot;p&quot;);
+			var text = document.createTextNode(data.panels[0].text);
+			h2.appendChild(IngredientSubmissionName);
+			p.appendChild(text);
+			frag.appendChild(h2);
+			frag.appendChild(p);
+			$(&quot;#responses&quot;)[0].appendChild(frag);
+		},
+		error: function(error) {},
+	});
+	return;
+};</pre>
+                            </section>
+                        </section>
+                    </section>
+                    <!-- INGREDIENT SUBMISSIONS end -->
+                    <!-- PRODUCT DOSE start -->
+                    <section>
+                        <h2 id="a6">Product Dose</h2>
+                        <p>TODO put description of product dose.....</p>
+                        <!--h3-section-start-->
+                        <section>
+                            <h3 id="a6.1">Parameters</h3>
+                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <table>
+                                <caption>Request parameters</caption>
+                                <tr>
+                                    <th scope="col">Parameter</th>
+                                    <th scope="col">Meaning</th>
+                                    <th scope="col">Values</th>
+                                    <th scope="col">Required?</th>
+                                    <th scope="col">Notes</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/productdose/?id=</span></td>
+                                    <td>Returns product doses by id.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">#####&nbsp;- ID of the product doses</ul>
+                                    </td>
+                                    <td><strong>Yes</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/productdose/?lang=en</span></td>
+                                    <td>Changes language</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- English</li>
+                                            <li><code>fr</code>&nbsp;- French</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to English if not specified</td>
+                                    <td>Determines whether the response is in English or French.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/productdose/?type=json</span></td>
+                                    <td>Changes the format of result.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- Json</li>
+                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
+                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                </tr>
+                            </table>
+                            <p>Product Doses can be accessed via these URIs:</p>
+                            <ul>
+                                <li><a href="https://api.hres.ca/lnhpd/api/productdose/?lang=en&type=json">https://api.hres.ca/lnhpd/api/productdose/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/lnhpd/api/productdose/?lang=fr&type=json">https://api.hres.ca/lnhpd/api/productdose/?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a6.2">Response format</h3>
+                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>Each&nbsp;<strong>product dose</strong>&nbsp;object consists of the following values:</p>
+                            <table>
+                                <caption>Product Dose object values</caption>
+                                <tr>
+                                    <th scope="col">Key</th>
+                                    <th scope="col">Value</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>submission_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>dose_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>population_type_desc</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>age</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>age_minimum</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>age_maximum</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>age_uom_type_desc</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>quantity_dose</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>quantity_dose_minimum</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>quantity_dose_maximum</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>quantity_dose_uom_type_desc</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>frequency</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>frequency_minimum</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>frequency_maximum</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>frequency_uom_type_desc</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                            </table>
+                            <section>
+                                <h3 id="a6.3">Sample response</h3>
+                                <pre class="prettify prettyprint linenums">to come</pre>
+                            </section>
+                            <section>
+                                <h3 id="a6.4">jQuery example</h3>
+                                <p>Example for a function of product dose to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <pre class="prettify prettyprint linenums">function getProductDose(id, lang) {
+	var base = 'https://imsd.hres.ca';
+	var uri = base + '/lnhpd/api/productdose/?lang=' + lang + '&id=' + id;
+	$.ajax({
+		url: uri,
+		type: 'GET',
+		Accept: &quot;application/json&quot;,
+		dataType: 'json',
+		success: function(data) {
+			console.log(data.product_dose_name);
+			var frag = document.createDocumentFragment();
+			var h2 = document.createElement(&quot;h2&quot;);
+			var ProductDoseName = document.createTextNode(data.product_dose_name);
+			var p = document.createElement(&quot;p&quot;);
+			var text = document.createTextNode(data.panels[0].text);
+			h2.appendChild(ProductDoseName);
+			p.appendChild(text);
+			frag.appendChild(h2);
+			frag.appendChild(p);
+			$(&quot;#responses&quot;)[0].appendChild(frag);
+		},
+		error: function(error) {},
+	});
+	return;
+};			</pre>
+                            </section>
+                        </section>
+                    </section>
+                    <!-- PRODUCT DOSES end -->
+                    <!-- PRODUCT LICENCE start -->
+                    <section>
+                        <h2 id="a7">Product Licence</h2>
+                        <p>TODO put description of product licence.....</p>
+                        <!--h3-section-start-->
+                        <section>
+                            <h3 id="a7.1">Parameters</h3>
+                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <table>
+                                <caption>Request parameters</caption>
+                                <tr>
+                                    <th scope="col">Parameter</th>
+                                    <th scope="col">Meaning</th>
+                                    <th scope="col">Values</th>
+                                    <th scope="col">Required?</th>
+                                    <th scope="col">Notes</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/productlicence/?id=</span></td>
+                                    <td>Returns product licences by id.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">#####&nbsp;- ID of the product licences</ul>
+                                    </td>
+                                    <td><strong>Yes</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/productlicence/?lang=en</span></td>
+                                    <td>Changes language</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- English</li>
+                                            <li><code>fr</code>&nbsp;- French</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to English if not specified</td>
+                                    <td>Determines whether the response is in English or French.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/productlicence/?type=json</span></td>
+                                    <td>Changes the format of result.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- Json</li>
+                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
+                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                </tr>
+                            </table>
+                            <p>Product Licences can be accessed via these URIs:</p>
+                            <ul>
+                                <li><a href="https://api.hres.ca/lnhpd/api/productlicence/?lang=en&type=json">https://api.hres.ca/lnhpd/api/productlicence/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/lnhpd/api/productlicence/?lang=fr&type=json">https://api.hres.ca/lnhpd/api/productlicence/?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a7.2">Response format</h3>
+                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>Each&nbsp;<strong>product licence</strong>&nbsp;object consists of the following values:</p>
+                            <table>
+                                <caption>Product Licence object values</caption>
+                                <tr>
+                                    <th scope="col">Key</th>
+                                    <th scope="col">Value</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>file_number</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>submission_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>licence_number</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>licence_date</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>revised_date</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>time_receipt</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>date_start</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>notes</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>product_name_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>product_name</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>dosage_form</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>company_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>company_name_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>company_name</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>sub_submission_type_code</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>sub_submission_type_desc</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>flag_primary_name</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>flag_product_status</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>flag_attested_monograph</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>secondary_brand_name_list</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>dose_list</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>route_list</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>purpose_list</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>risk_list</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>medicinal_ingredient_list</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>non_medicinal_ingredient_list</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                            </table>
+                            <section>
+                                <h3 id="a7.3">Sample response</h3>
+                                <pre class="prettify prettyprint linenums">to come</pre>
+                            </section>
+                            <section>
+                                <h3 id="a7.4">jQuery example</h3>
+                                <p>Example for a function of product licence to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <pre class="prettify prettyprint linenums">function getProductLicence(id, lang) {
+	var base = 'https://imsd.hres.ca';
+	var uri = base + '/lnhpd/api/productlicence/?lang=' + lang + '&id=' + id;
+	$.ajax({
+		url: uri,
+		type: 'GET',
+		Accept: &quot;application/json&quot;,
+		dataType: 'json',
+		success: function(data) {
+			console.log(data.product_licence_name);
+			var frag = document.createDocumentFragment();
+			var h2 = document.createElement(&quot;h2&quot;);
+			var ProductLicenceName = document.createTextNode(data.product_licence_name);
+			var p = document.createElement(&quot;p&quot;);
+			var text = document.createTextNode(data.panels[0].text);
+			h2.appendChild(ProductLicenceName);
+			p.appendChild(text);
+			frag.appendChild(h2);
+			frag.appendChild(p);
+			$(&quot;#responses&quot;)[0].appendChild(frag);
+		},
+		error: function(error) {},
+	});
+	return;
+};			</pre>
+                            </section>
+                        </section>
+                    </section>
+                    <!-- PRODUCT LICENCES end -->
+                    <!-- PRODUCT PURPOSE start -->
+                    <section>
+                        <h2 id="a8">Product Purpose</h2>
+                        <p>TODO put description of product purpose.....</p>
+                        <!--h3-section-start-->
+                        <section>
+                            <h3 id="a8.1">Parameters</h3>
+                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <table>
+                                <caption>Request parameters</caption>
+                                <tr>
+                                    <th scope="col">Parameter</th>
+                                    <th scope="col">Meaning</th>
+                                    <th scope="col">Values</th>
+                                    <th scope="col">Required?</th>
+                                    <th scope="col">Notes</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/productpurpose/?id=</span></td>
+                                    <td>Returns product purposes by id.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">#####&nbsp;- ID of the product purposes</ul>
+                                    </td>
+                                    <td><strong>Yes</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/productpurpose/?lang=en</span></td>
+                                    <td>Changes language</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- English</li>
+                                            <li><code>fr</code>&nbsp;- French</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to English if not specified</td>
+                                    <td>Determines whether the response is in English or French.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/productpurpose/?type=json</span></td>
+                                    <td>Changes the format of result.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- Json</li>
+                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
+                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                </tr>
+                            </table>
+                            <p>Product Purposes can be accessed via these URIs:</p>
+                            <ul>
+                                <li><a href="https://api.hres.ca/lnhpd/api/productpurpose/?lang=en&type=json">https://api.hres.ca/lnhpd/api/productpurpose/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/lnhpd/api/productpurpose/?lang=fr&type=json">https://api.hres.ca/lnhpd/api/productpurpose/?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a8.2">Response format</h3>
+                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>Each&nbsp;<strong>product purpose</strong>&nbsp;object consists of the following values:</p>
+                            <table>
+                                <caption>Product Purpose object values</caption>
+                                <tr>
+                                    <th scope="col">Key</th>
+                                    <th scope="col">Value</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>text_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>submission_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>purpose</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                            </table>
+                            <section>
+                                <h3 id="a8.3">Sample response</h3>
+                                <pre class="prettify prettyprint linenums">to come</pre>
+                            </section>
+                            <section>
+                                <h3 id="a8.4">jQuery example</h3>
+                                <p>Example for a function of product purpose to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <pre class="prettify prettyprint linenums">function getProductPurpose(id, lang) {
+	var base = 'https://imsd.hres.ca';
+	var uri = base + '/lnhpd/api/productpurpose/?lang=' + lang + '&id=' + id;
+	$.ajax({
+		url: uri,
+		type: 'GET',
+		Accept: &quot;application/json&quot;,
+		dataType: 'json',
+		success: function(data) {
+			console.log(data.product_purpose_name);
+			var frag = document.createDocumentFragment();
+			var h2 = document.createElement(&quot;h2&quot;);
+			var ProductPurposeName = document.createTextNode(data.product_purpose_name);
+			var p = document.createElement(&quot;p&quot;);
+			var text = document.createTextNode(data.panels[0].text);
+			h2.appendChild(ProductPurposeName);
+			p.appendChild(text);
+			frag.appendChild(h2);
+			frag.appendChild(p);
+			$(&quot;#responses&quot;)[0].appendChild(frag);
+		},
+		error: function(error) {},
+	});
+	return;
+};			</pre>
+                            </section>
+                        </section>
+                    </section>
+                    <!-- PRODUCT PURPOSES end -->
+                    <!-- PRODUCT RISK start -->
+                    <section>
+                        <h2 id="a9">Product Risk</h2>
+                        <p>TODO put description of product risk.....</p>
+                        <!--h3-section-start-->
+                        <section>
+                            <h3 id="a9.1">Parameters</h3>
+                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <table>
+                                <caption>Request parameters</caption>
+                                <tr>
+                                    <th scope="col">Parameter</th>
+                                    <th scope="col">Meaning</th>
+                                    <th scope="col">Values</th>
+                                    <th scope="col">Required?</th>
+                                    <th scope="col">Notes</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/productrisk/?id=</span></td>
+                                    <td>Returns product risks by id.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">#####&nbsp;- ID of the product risks</ul>
+                                    </td>
+                                    <td><strong>Yes</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/productrisk/?lang=en</span></td>
+                                    <td>Changes language</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- English</li>
+                                            <li><code>fr</code>&nbsp;- French</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to English if not specified</td>
+                                    <td>Determines whether the response is in English or French.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/productrisk/?type=json</span></td>
+                                    <td>Changes the format of result.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- Json</li>
+                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
+                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                </tr>
+                            </table>
+                            <p>Product Risks can be accessed via these URIs:</p>
+                            <ul>
+                                <li><a href="https://api.hres.ca/lnhpd/api/productrisk/?lang=en&type=json">https://api.hres.ca/lnhpd/api/productrisk/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/lnhpd/api/productrisk/?lang=fr&type=json">https://api.hres.ca/lnhpd/api/productrisk/?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a9.2">Response format</h3>
+                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>Each&nbsp;<strong>product risk</strong>&nbsp;object consists of the following values:</p>
+                            <table>
+                                <caption>Product Risk object values</caption>
+                                <tr>
+                                    <th scope="col">Key</th>
+                                    <th scope="col">Value</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>submission_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>risk_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>risk_type_desc</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>sub_risk_type_desc</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>risk_text_list</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                            </table>
+                            <section>
+                                <h3 id="a9.3">Sample response</h3>
+                                <pre class="prettify prettyprint linenums">to come</pre>
+                            </section>
+                            <section>
+                                <h3 id="a9.4">jQuery example</h3>
+                                <p>Example for a function of product risk to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <pre class="prettify prettyprint linenums">function getProductRisk(id, lang) {
+	var base = 'https://imsd.hres.ca';
+	var uri = base + '/lnhpd/api/productrisk/?lang=' + lang + '&id=' + id;
+	$.ajax({
+		url: uri,
+		type: 'GET',
+		Accept: &quot;application/json&quot;,
+		dataType: 'json',
+		success: function(data) {
+			console.log(data.product_risk_name);
+			var frag = document.createDocumentFragment();
+			var h2 = document.createElement(&quot;h2&quot;);
+			var ProductRiskName = document.createTextNode(data.product_risk_name);
+			var p = document.createElement(&quot;p&quot;);
+			var text = document.createTextNode(data.panels[0].text);
+			h2.appendChild(ProductRiskName);
+			p.appendChild(text);
+			frag.appendChild(h2);
+			frag.appendChild(p);
+			$(&quot;#responses&quot;)[0].appendChild(frag);
+		},
+		error: function(error) {},
+	});
+	return;
+};			</pre>
+                            </section>
+                        </section>
+                    </section>
+                    <!-- PRODUCT RISKS end -->
+                    <!-- PRODUCT ROUTE start -->
+                    <section>
+                        <h2 id="a10">Product Route</h2>
+                        <p>TODO put description of product route.....</p>
+                        <!--h3-section-start-->
+                        <section>
+                            <h3 id="a10.1">Parameters</h3>
+                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <table>
+                                <caption>Request parameters</caption>
+                                <tr>
+                                    <th scope="col">Parameter</th>
+                                    <th scope="col">Meaning</th>
+                                    <th scope="col">Values</th>
+                                    <th scope="col">Required?</th>
+                                    <th scope="col">Notes</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/productroute/?id=</span></td>
+                                    <td>Returns product routes by id.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">#####&nbsp;- ID of the product routes</ul>
+                                    </td>
+                                    <td><strong>Yes</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/productroute/?lang=en</span></td>
+                                    <td>Changes language</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- English</li>
+                                            <li><code>fr</code>&nbsp;- French</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to English if not specified</td>
+                                    <td>Determines whether the response is in English or French.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">lnhpd/api/productroute/?type=json</span></td>
+                                    <td>Changes the format of result.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- Json</li>
+                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
+                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                </tr>
+                            </table>
+                            <p>Product Routes can be accessed via these URIs:</p>
+                            <ul>
+                                <li><a href="https://api.hres.ca/lnhpd/api/productroute/?lang=en&type=json">https://api.hres.ca/lnhpd/api/productroute/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/lnhpd/api/productroute/?lang=fr&type=json">https://api.hres.ca/lnhpd/api/productroute/?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a10.2">Response format</h3>
+                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>Each&nbsp;<strong>product route</strong>&nbsp;object consists of the following values:</p>
+                            <table>
+                                <caption>Product Route object values</caption>
+                                <tr>
+                                    <th scope="col">Key</th>
+                                    <th scope="col">Value</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>submission_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>route_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>route_type_desc</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                            </table>
+                            <section>
+                                <h3 id="a10.3">Sample response</h3>
+                                <pre class="prettify prettyprint linenums">to come</pre>
+                            </section>
+                            <section>
+                                <h3 id="a10.4">jQuery example</h3>
+                                <p>Example for a function of product route to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <pre class="prettify prettyprint linenums">function getProductRoute(id, lang) {
+	var base = 'https://imsd.hres.ca';
+	var uri = base + '/lnhpd/api/productroute/?lang=' + lang + '&id=' + id;
+	$.ajax({
+		url: uri,
+		type: 'GET',
+		Accept: &quot;application/json&quot;,
+		dataType: 'json',
+		success: function(data) {
+			console.log(data.product_route_name);
+			var frag = document.createDocumentFragment();
+			var h2 = document.createElement(&quot;h2&quot;);
+			var ProductRouteName = document.createTextNode(data.product_route_name);
+			var p = document.createElement(&quot;p&quot;);
+			var text = document.createTextNode(data.panels[0].text);
+			h2.appendChild(ProductRouteName);
+			p.appendChild(text);
+			frag.appendChild(h2);
+			frag.appendChild(p);
+			$(&quot;#responses&quot;)[0].appendChild(frag);
+		},
+		error: function(error) {},
+	});
+	return;
+};			</pre>
+                            </section>
+                        </section>
+                    </section>
+                    <!-- PRODUCT ROUTES end -->
+
+            </div>
+            <!-- prefooter-en.html-Start-->
+            <div id="def-preFooter">
+                <link rel="import" href="./StaticFallbackFiles/gcweb/prefooter-fr.html">
+            </div>
+            <!-- prefooter-en.html-End-->
+            <!-- Write closure template -->
+            <script type="text/javascript">
+                            var defPreFooter = document.getElementById("def-preFooter");
+                            defPreFooter.outerHTML = wet.builder.preFooter({
+                                cdnEnv: "prod",
+                                dateModified: "2017-06-27",
+                                showPostContent: true,
+                                showShare: true,
+                            });
+            </script>
+        </main>
+    </div>
+    </div>
+    </div>
+
+    <!-- footer-en.html-Start-->
+    <div id="def-footer">
+        <link rel="import" href="./StaticFallbackFiles/gcweb/footer-fr.html">
+    </div>
+    <!-- footer-en.html-End-->
+    <!-- Write closure template -->
+    <script type="text/javascript">
+            var defFooter = document.getElementById("def-footer");
+            defFooter.outerHTML = wet.builder.footer({
+                cdnEnv: "prod",
+                showFeatures: true,
+            });
+    </script>
+    <!-- Write closure template -->
+    <script type="text/javascript">
+                document.write(wet.builder.refFooter({
+                    cdnEnv: "prod"
+                }));
+    </script>
+    <!--[if lt IE 10 | !IE ]><!-->
+    <script src="./js/jquery.xdomainrequest.min.js"></script>
+    <!--<![endif]-->
+</body>
+</html>
