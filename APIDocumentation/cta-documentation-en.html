@@ -17,8 +17,8 @@
     <meta name="dcterms.contributor" content="" />
     <meta name="dcterms.type" title="gctype" content="" />
     <meta name="dcterms.audience" title="gcaudience" content="public" />
-    <meta name="dcterms.issued" title="W3CDTF" content="2017-06-27" />
-    <meta name="dcterms.modified" title="W3CDTF" content="2018-06-27" />
+    <meta name="dcterms.issued" title="W3CDTF" content="2017-11-30" />
+    <meta name="dcterms.modified" title="W3CDTF" content="2017-11-30" />
     <meta name="review_date" content="" />
     <meta name="meta_date" content="" />
 
@@ -128,7 +128,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a6">Status</a>
+                                <a href="#a6">Trial Status</a>
                                 <ul>
                                     <li><a href="#a6.1">Parameters</a></li>
                                     <li><a href="#a6.2">Response format</a></li>
@@ -151,7 +151,7 @@
                     <section>
                         <h2 id="a1">Introduction</h2>
                         <p>Clinical Trials Database, is providing to the public a listing of specific information relating to phase I, II and III clinical trials in patients. The database is managed by Health Canada and provides a source of information about Canadian clinical trials involving human pharmaceutical and biological drugs.</p>
-                        <p>This Application Programming Interface (API) allows developers to access that information in JSON format for reuse in their own applications.</p>
+                        <p>This Application Programming Interface (API) allows developers to access that information in JSON, XML and CSV format for reuse in their own applications.</p>
                         <p>The base URI for the Notice of Compliance Database &nbsp;<a href="https://api.hres.ca/cta/api/">https://api.hres.ca/cta/api/</a>. Any requests are made relative to this URI.</p>
                     </section>
 
@@ -161,7 +161,7 @@
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a2.1">Parameters</h3>
-                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <p>There are three parameters in the request: id, lang and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -169,16 +169,16 @@
                                 <tr>
                                     <th scope="col">Parameter</th>
                                     <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
+                                    <th scope="col">Value</th>
                                     <th scope="col">Required?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/manufacturer/?id=</span></td>
-                                    <td>Returns manufacturer by id.</td>
+                                    <td>Returns manufacturer by identification number.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the manufacturer
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- identification number of the manufacturer
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -186,30 +186,31 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/manufacturer/?lang=en</span></td>
-                                    <td>Changes language</td>
+                                    <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- English</li>
                                             <li><code>fr</code>&nbsp;- French</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to English if not specified</td>
+                                    <td><strong>No</strong>, but defaults to English if not specified.</td>
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/manufacturer/?type=json</span></td>
-                                    <td>Changes the format of result.</td>
+                                    <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td><strong>No</strong>, but defaults to JSON if not specified.</td>
+                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
                                 </tr>
                             </table>
-                            <p>Brands can be accessed via these URIs:</p>
+                            <p>Manufacturers can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cta/api/manufacturer/?lang=en&type=json">https://api.hres.ca/manufacturer/api/brand/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cta/api/manufacturer/?lang=fr&type=json">https://api.hres.ca/manufacturer/api/brand/?lang=fr&type=json</a></li>
@@ -218,9 +219,9 @@
 
                         <section>
                             <h3 id="a2.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
 
-                            <p>Each&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>manufacturer</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
                                     Manufacturer object values
@@ -229,14 +230,13 @@
                                     <th scope="col">Key</th>
                                     <th scope="col">Value</th>
                                 </tr>
-                                <tr>
-                                    <!--LEFT OFF HERE - 20170209 BarryM - Manufacturer-->
+                                <tr>                                   
                                     <td><strong>manufacturer_id</strong></td>
-                                    <td>The ...</td>
+                                    <td>The identification number assigned to a manufacturer.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>manufacturer_name</strong></td>
-                                    <td>The .....</td>
+                                    <td>The name of the manufacturer.</td>
                                 </tr>
                             </table>
 
@@ -247,7 +247,7 @@
 
                             <section>
                                 <h3 id="a2.4">jQuery example</h3>
-                                <p>Example for a function of manufacturer to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Example of a function that search for a manufacturer given an id and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getManufacturer(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/manufacturer/?lang=' + lang + '&id=' + id;
@@ -281,11 +281,11 @@
                     <!--BEGIN of Medical Condition medicalcondition-->
                     <section>
                         <h2 id="a3">Medical Condition</h2>
-                        <p>TODO put description of medical condition.....</p>
+                        <p>The disease or a description of the intended indication that is being investigated in the clinical trial. </p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a3.1">Parameters</h3>
-                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <p>There are three parameters in the request: id, lang and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -293,16 +293,16 @@
                                 <tr>
                                     <th scope="col">Parameter</th>
                                     <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
+                                    <th scope="col">Value</th>
                                     <th scope="col">Required?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/medicalcondition/?id=</span></td>
-                                    <td>Returns medical condition by id.</td>
+                                    <td>Returns medical condition by identification number .</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the medical condition
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- identification number of the medical condition
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -310,43 +310,42 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/medicalcondition/?lang=en</span></td>
-                                    <td>Changes language</td>
+                                    <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- English</li>
                                             <li><code>fr</code>&nbsp;- French</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to English if not specified</td>
+                                    <td><strong>No</strong>, but defaults to English if not specified.</td>
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/medicalcondition/?type=json</span></td>
-                                    <td>Changes the format of result.</td>
+                                    <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td><strong>No</strong>, but defaults to JSON if not specified.</td>
+                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
                                 </tr>
                             </table>
-                            <p>Brands can be accessed via these URIs:</p>
+                            <p>Medical Conditions can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cta/api/medicalcondition/?lang=en&type=json">https://api.hres.ca/cta/api/medicalcondition/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/cta/api/medicalcondition/?lang=fr&type=json">https://api.hres.ca/cta/api/medicalcondition/?lang=fr&type=json</a></li>
-                                <li><a href="https://api.hres.ca/cta/api/medicalcondition/?lang=en&type=xml">https://api.hres.ca/cta/api/medicalcondition/?lang=en&type=xml</a></li>
-                                <li><a href="https://api.hres.ca/cta/api/medicalcondition/?lang=fr&type=xml">https://api.hres.ca/cta/api/medicalcondition/?lang=fr&type=xml</a></li>
+                                <li><a href="https://api.hres.ca/cta/api/medicalcondition/?lang=fr&type=json">https://api.hres.ca/cta/api/medicalcondition/?lang=fr&type=json</a></li>                                
                             </ul>
                         </section>
 
                         <section>
                             <h3 id="a3.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
 
-                            <p>Each&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>medical condition</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
                                     Medical Condition object values
@@ -357,11 +356,11 @@
                                 </tr>
                                 <tr>
                                     <td><strong>med_condition_id</strong></td>
-                                    <td>The ...</td>
+                                    <td>The identification number assigned to a medical condition.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>med_condition</strong></td>
-                                    <td>The .....</td>
+                                    <td>The medical condition.</td>
                                 </tr>
                             </table>
 
@@ -372,7 +371,7 @@
 
                             <section>
                                 <h3 id="a3.4">jQuery example</h3>
-                                <p>Example for a function of medical condition to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Example of a function that search for a medical condition given an id and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function GetAllMedicalCondition(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/medicalcondition/?lang=' + lang + '&id=' + id;
@@ -402,15 +401,14 @@
                             </section>
                         </section>
                     </section><!--END of Medical Condition-->
-
                     <section>
-                        <!--BEGIN of Product Brand -->
-                        <h2 id="a4">Product Brand</h2>
-                        <p>TODO put description of product brand.....</p>
+                        <!--BEGIN of Drug -->
+                        <h2 id="a4">Drug</h2>
+                        <p>Name given to the drug used in the clinical trial. This may be a code name, the chemical name of the active ingredient, the non-proprietary name, or a brand name. </p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a4.1">Parameters</h3>
-                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <p>There are three parameters in the request: id, lang and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -418,16 +416,16 @@
                                 <tr>
                                     <th scope="col">Parameter</th>
                                     <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
+                                    <th scope="col">Value</th>
                                     <th scope="col">Required?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/productbrand/?id=</span></td>
-                                    <td>Returns product brand by id.</td>
+                                    <td>Returns drug by identification number.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the product brand
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- identification number of the drug
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -435,30 +433,31 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/productbrand/?lang=en</span></td>
-                                    <td>Changes language</td>
+                                    <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- English</li>
                                             <li><code>fr</code>&nbsp;- French</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to English if not specified</td>
+                                    <td><strong>No</strong>, but defaults to English if not specified.</td>
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/productbrand/?type=json</span></td>
-                                    <td>Changes the format of result.</td>
+                                    <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td><strong>No</strong>, but defaults to JSON if not specified.</td>
+                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
                                 </tr>
                             </table>
-                            <p>Products can be accessed via these URIs:</p>
+                            <p>Drugs can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cta/api/productbrand/?lang=en&type=json">https://api.hres.ca/cta/api/productbrand/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cta/api/productbrand/?lang=fr&type=json">https://api.hres.ca/cta/api/productbrand/?lang=fr&type=json</a></li>
@@ -467,12 +466,12 @@
 
                         <section>
                             <h3 id="a4.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
 
-                            <p>Each&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>drug</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Product Brand object values
+                                    Drug object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
@@ -480,27 +479,27 @@
                                 </tr>
                                 <tr>
                                     <td><strong>protocol_id</strong></td>
-                                    <td>The ...</td>
+                                    <td>The identification number assigned to a protocol.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>submission_no</strong></td>
-                                    <td>The .....</td>
+                                    <td>The control number.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>brand_id</strong></td>
-                                    <td>The ...</td>
+                                    <td>The identification number assigned to a brand.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>manufacturer_id</strong></td>
-                                    <td>The ...</td>
+                                    <td>The identification number assigned to a manufacturer.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>manufacturer_name</strong></td>
-                                    <td>The ...</td>
+                                    <td>The name of the manufacturer.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>brand_name</strong></td>
-                                    <td>The ...</td>
+                                    <td>The brand name for the drug product.</td>
                                 </tr>
 
                             </table>
@@ -512,7 +511,7 @@
 
                             <section>
                                 <h3 id="a4.4">jQuery example</h3>
-                                <p>Example for a function of product brand to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Example of a function that search for a drug given an id and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getProductBrand(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/productbrand/?lang=' + lang + '&id=' + id;
@@ -542,16 +541,16 @@
                             </section>
 
                         </section>
-                    </section><!-- END of Product Brand -->
+                    </section><!-- END of Drug -->
 
                     <section>
                         <!--BEGIN of Protocol -->
                         <h2 id="a5">Protocol</h2>
-                        <p>TODO put description of Protocol.....</p>
+                        <p>A document that describes the objective(s), design, methodology, statistical considerations and organisation of a trial. </p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a5.1">Parameters</h3>
-                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <p>There are three parameters in the request: id, lang and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -559,16 +558,16 @@
                                 <tr>
                                     <th scope="col">Parameter</th>
                                     <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
+                                    <th scope="col">Value</th>
                                     <th scope="col">Required?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/protocol/?id=</span></td>
-                                    <td>Returns protocol by id.</td>
+                                    <td>Returns protocol by identification number.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the protocol
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- identification number of the protocol
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -576,27 +575,28 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/protocol/?lang=en</span></td>
-                                    <td>Changes language</td>
+                                    <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- English</li>
                                             <li><code>fr</code>&nbsp;- French</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to English if not specified</td>
+                                    <td><strong>No</strong>, but defaults to English if not specified.</td>
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/protocol/?type=json</span></td>
-                                    <td>Changes the format of result.</td>
+                                    <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td><strong>No</strong>, but defaults to JSON if not specified.</td>
+                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
                                 </tr>
                             </table>
                             <p>Protocols can be accessed via these URIs:</p>
@@ -608,9 +608,9 @@
 
                         <section>
                             <h3 id="a5.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
 
-                            <p>Each&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>protocol</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
                                     Protocol object values
@@ -621,67 +621,56 @@
                                 </tr>
                                 <tr>
                                     <td><strong>protocol_id</strong></td>
-                                    <td>The ...</td>
+                                    <td>The identification number assigned to a protocol.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>protocol_no</strong></td>
-                                    <td>The .....</td>
+                                    <td>The protocol number.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>submission_no</strong></td>
-                                    <td>The ...</td>
+                                    <td>The control number.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>status_id</strong></td>
-                                    <td>The ...</td>
+                                    <td>The identification number assigned to a status.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>start_date</strong></td>
-                                    <td>The ...</td>
+                                    <td>The study start date.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>end_date</strong></td>
-                                    <td>The ...</td>
+                                    <td>The study end date.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>nol_date</strong></td>
-                                    <td>The ...</td>
+                                    <td>The date of the No Objection Letter.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>medConditionList</strong></td>
-                                    <td>The ...</td>
+                                    <td>List of medical conditions.</td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>med_condition_id</strong>
-                                        <!--<ul class="list-unstyled mrgn-lft-md nowrap">med_condition_id</ul>-->
-                                    </td>
-                                    <td>
-                                        <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The ...-->
-                                        <!--<ul class="list-unstyled mrgn-lft-md nowrap">The ...</ul>-->
-                                    </td>
+                                    <td><strong>med_condition_id</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The identification number assigned to a medical condition.</td>
+
                                 </tr>
                                 <tr>
-                                    <td>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>med_condition</strong>
-                                        <!--<ul class="list-unstyled mrgn-lft-md nowrap">med_condtion</ul>-->
-                                    </td>
-                                    <td>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The ...
-                                        <!--<ul class="list-unstyled mrgn-lft-md nowrap">The ...</ul>-->
-                                    </td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>med_condition</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The medical condition.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>studyPopulationList</strong></td>
-                                    <td>The ...</td>
+                                    <td>The study population list.</td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>study_population_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The ...</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The identification number assigned to a study population.</td>
                                 </tr>
                                 <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>study_population</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The ...</td>
+                                    <td><strong>study_population</strong></td>
+                                    <td>The study population.</td>
                                 </tr>
                             </table>
 
@@ -692,7 +681,7 @@
 
                             <section>
                                 <h3 id="a5.4">jQuery example</h3>
-                                <p>Example for a function of protocol to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Example of a function that search for a protocol given an id and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getProtocol(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/protocol/?lang=' + lang + '&id=' + id;
@@ -725,12 +714,12 @@
                     </section><!--END of Protocol -->
                     <section>
                         <!--BEGIN of Status -->
-                        <h2 id="a6">Status</h2>
-                        <p>TODO put description of status.....</p>
+                        <h2 id="a6">Trial Status</h2>
+                        <p>A "PENDING" status means Health Canada is pending the receipt of information from the sponsor indicating that the trial started. An "ONGOING" status means Health Canada has received information from the sponsor indicating the proposed study start date, and an "ENDED" status means Health Canada has received information from the sponsor indicating that the clinical trial has ended. </p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a6.1">Parameters</h3>
-                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <p>There are three parameters in the request: id, lang and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -738,16 +727,16 @@
                                 <tr>
                                     <th scope="col">Parameter</th>
                                     <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
+                                    <th scope="col">Value</th>
                                     <th scope="col">Required?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/status/?id=</span></td>
-                                    <td>Returns status ingredient by id.</td>
+                                    <td>Returns status by identification number.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the status ingredient
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- identification number of the status
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -755,30 +744,31 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/status/?lang=en</span></td>
-                                    <td>Changes language</td>
+                                    <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- English</li>
                                             <li><code>fr</code>&nbsp;- French</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to English if not specified</td>
+                                    <td><strong>No</strong>, but defaults to English if not specified.</td>
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/status/?type=json</span></td>
-                                    <td>Changes the format of result.</td>
+                                    <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td><strong>No</strong>, but defaults to Json if not specified.</td>
+                                    <td>Determines whether the result will be of type JSON or XML.</td>
                                 </tr>
                             </table>
-                            <p>Product Forms can be accessed via these URIs:</p>
+                            <p>Status can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cta/api/status/?lang=en&type=json">https://api.hres.ca/cta/api/status/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cta/api/status/?lang=fr&type=json">https://api.hres.ca/cta/api/status/?lang=fr&type=json</a></li>
@@ -787,12 +777,12 @@
 
                         <section>
                             <h3 id="a6.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
 
-                            <p>Each&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>status</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Status form object values
+                                    Status object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
@@ -800,11 +790,11 @@
                                 </tr>
                                 <tr>
                                     <td><strong>status_id</strong></td>
-                                    <td>The ...</td>
+                                    <td>The identification number assigned to a status.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>status</strong></td>
-                                    <td>The .....</td>
+                                    <td>The status of the trial.</td>
                                 </tr>
                             </table>
 
@@ -815,7 +805,7 @@
 
                             <section>
                                 <h3 id="a6.4">jQuery example</h3>
-                                <p>Example for a function of status to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Example of a function that search for a trial status given an id and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getStatus(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/status/?lang=' + lang + '&id=' + id;
@@ -848,11 +838,11 @@
                     <section>
                         <!--BEGIN of Study Population-->
                         <h2 id="a7">Study Population</h2>
-                        <p>TODO put description of study population.....</p>
+                        <p>Characteristics of subjects that are eligible to participate in the clinical trial, e.g., adult males and females, children, etc. </p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a7.1">Parameters</h3>
-                            <p>There are three parameters in the request: language, id and format type.</p>
+                            <p>There are three parameters in the request: id, lang and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -860,16 +850,16 @@
                                 <tr>
                                     <th scope="col">Parameter</th>
                                     <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
+                                    <th scope="col">Value</th>
                                     <th scope="col">Required?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/studypopulation/?id=</span></td>
-                                    <td>Returns product route by id.</td>
+                                    <td>Returns study population by identification number.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the product route
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- identification number of the study population
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -877,30 +867,31 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/studypopulation/?lang=en</span></td>
-                                    <td>Changes language</td>
+                                    <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- English</li>
                                             <li><code>fr</code>&nbsp;- French</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to English if not specified</td>
+                                    <td><strong>No</strong>, but defaults to English if not specified.</td>
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/studypopulation/?type=json</span></td>
-                                    <td>Changes the format of result.</td>
+                                    <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td><strong>No</strong>, but defaults to JSON if not specified.</td>
+                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
                                 </tr>
                             </table>
-                            <p>Study Population can be accessed via these URIs:</p>
+                            <p>Population Studies can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cta/api/studypopulation/?lang=en&type=json">https://api.hres.ca/cta/api/studypopulation/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cta/api/studypopulation/?lang=fr&type=json">https://api.hres.ca/cta/api/studypopulation/?lang=fr&type=json</a></li>
@@ -909,12 +900,12 @@
 
                         <section>
                             <h3 id="a7.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
 
-                            <p>Each&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>study population</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Study Population form object values
+                                    Study Population object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
@@ -922,11 +913,11 @@
                                 </tr>
                                 <tr>
                                     <td><strong>study_population_id</strong></td>
-                                    <td>The ...</td>
+                                    <td>The identification number assigned to a study population.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>study_population</strong></td>
-                                    <td>The .....</td>
+                                    <td>The study population.</td>
                                 </tr>
                             </table>
 
@@ -937,7 +928,7 @@
 
                             <section>
                                 <h3 id="a7.4">jQuery example</h3>
-                                <p>Example for a function of study population to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
+                                <p>Example of a function that search for a study population given an id and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getStudyPopulation(id, lang) {
                                 var base = 'https://imsd.hres.ca';
                                 var uri = base + '/dpd/api/studypopulation/?lang=' + lang + '&id=' + id;
@@ -980,7 +971,7 @@
                 var defPreFooter = document.getElementById("def-preFooter");
                 defPreFooter.outerHTML = wet.builder.preFooter({
                     cdnEnv: "prod",
-                    dateModified: "2017-02-27",
+                    dateModified: "2017-08-02",
                     showPostContent: true,
                     showShare: true,
                 });
