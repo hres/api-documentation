@@ -13,12 +13,12 @@
     <meta name="dcterms.title" content="Guide API - Base de données en ligne des effets indésirables de Canada Vigilance (BDEI)" />
     <meta name="description" content="Guide API - Base de données en ligne des effets indésirables de Canada Vigilance (BDEI)." />
     <meta name="dcterms.subject" title="scheme" content="" />
-    <meta name="dcterms.creator" content="Government of Canada, Health Canada and the Public health Agency of Canada" />
+    <meta name="dcterms.creator" content="Gouvernement du Canada, Santé Canada et l'Agence de la santé publique du Canada" />
     <meta name="dcterms.contributor" content="" />
     <meta name="dcterms.type" title="gctype" content="" />
     <meta name="dcterms.audience" title="gcaudience" content="" />
-    <meta name="dcterms.issued" title="W3CDTF" content="2015-04-21" />
-    <meta name="dcterms.modified" title="W3CDTF" content="2016-03-18" />
+    <meta name="dcterms.issued" title="W3CDTF" content="2017-11-30" />
+    <meta name="dcterms.modified" title="W3CDTF" content="2017-11-30" />
     <meta name="review_date" content="" />
     <meta name="meta_date" content="" />
 
@@ -81,16 +81,7 @@
     </script>
     <div class="container">
         <main role="main" property="mainContentOfPage" class="container">
-            <div class="wb-frmvld">
-
-                <section>
-                    <h2 id="a1">Introduction</h2>
-                    <p>The Canada Vigilance Adverse Reaction Online Database contains information about suspected adverse reactions (also known as side effects) to health products.</p>
-                    <p>The base URI for the Canada Vigilance Product (CVP) &nbsp;<a href="https://api.hres.ca/cvp/api-v1/">https://api.hres.ca/cvp/api-v1/</a>. Any requests are made relative to this URI.</p>
-                </section>
-
-
-
+            <div class="wb-frmvld"> 
                 <section>
                     <h1 id="wb-cont">Guide API - Base de données en ligne des effets indésirables de Canada Vigilance (BDEI)</h1>
                     <section>
@@ -101,8 +92,8 @@
                                 <a href="#a2">Drug product ingredient</a>
                                 <ul>
                                     <li><a href="#a2.1">Paramètres</a></li>
-                                    <li><a href="#a2.2">Format de réponse</a></li>
-                                    <li><a href="#a2.3">Exemple de réponse</a></li>
+                                    <li><a href="#a2.2">Format du résultat</a></li>
+                                    <li><a href="#a2.3">Exemple de résultat</a></li>
                                     <li><a href="#a2.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
@@ -110,8 +101,8 @@
                                 <a href="#a3">Drug product</a>
                                 <ul>
                                     <li><a href="#a3.1">Paramètres</a></li>
-                                    <li><a href="#a3.2">Format de réponse</a></li>
-                                    <li><a href="#a3.3">Exemple de réponse</a></li>
+                                    <li><a href="#a3.2">Format du résultat</a></li>
+                                    <li><a href="#a3.3">Exemple de résultat</a></li>
                                     <li><a href="#a3.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
@@ -119,8 +110,8 @@
                                 <a href="#a4">Gender</a>
                                 <ul>
                                     <li><a href="#a4.1">Paramètres</a></li>
-                                    <li><a href="#a4.2">Format de réponse</a></li>
-                                    <li><a href="#a4.3">Exemple de réponse</a></li>
+                                    <li><a href="#a4.2">Format du résultat</a></li>
+                                    <li><a href="#a4.3">Exemple de résultat</a></li>
                                     <li><a href="#a4.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
@@ -128,8 +119,8 @@
                                 <a href="#a5">Outcome</a>
                                 <ul>
                                     <li><a href="#a5.1">Paramètres</a></li>
-                                    <li><a href="#a5.2">Format de réponse</a></li>
-                                    <li><a href="#a5.3">Exemple de réponse</a></li>
+                                    <li><a href="#a5.2">Format du résultat</a></li>
+                                    <li><a href="#a5.3">Exemple de résultat</a></li>
                                     <li><a href="#a5.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
@@ -137,8 +128,8 @@
                                 <a href="#a6">Reaction</a>
                                 <ul>
                                     <li><a href="#a6.1">Paramètres</a></li>
-                                    <li><a href="#a6.2">Format de réponse</a></li>
-                                    <li><a href="#a6.3">Exemple de réponse</a></li>
+                                    <li><a href="#a6.2">Format du résultat</a></li>
+                                    <li><a href="#a6.3">Exemple de résultat</a></li>
                                     <li><a href="#a6.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
@@ -146,8 +137,8 @@
                                 <a href="#a7">Report Drug</a>
                                 <ul>
                                     <li><a href="#a7.1">Paramètres</a></li>
-                                    <li><a href="#a7.2">Format de réponse</a></li>
-                                    <li><a href="#a7.3">Exemple de réponse</a></li>
+                                    <li><a href="#a7.2">Format du résultat</a></li>
+                                    <li><a href="#a7.3">Exemple de résultat</a></li>
                                     <li><a href="#a7.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
@@ -156,8 +147,8 @@
                                 <a href="#a8">Report Link</a>
                                 <ul>
                                     <li><a href="#a8.1">Paramètres</a></li>
-                                    <li><a href="#a8.2">Format de réponse</a></li>
-                                    <li><a href="#a8.3">Exemple de réponse</a></li>
+                                    <li><a href="#a8.2">Format du résultat</a></li>
+                                    <li><a href="#a8.3">Exemple de résultat</a></li>
                                     <li><a href="#a8.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
@@ -165,8 +156,8 @@
                                 <a href="#a9">Report Type</a>
                                 <ul>
                                     <li><a href="#a9.1">Paramètres</a></li>
-                                    <li><a href="#a9.2">Format de réponse</a></li>
-                                    <li><a href="#a9.3">Exemple de réponse</a></li>
+                                    <li><a href="#a9.2">Format du résultat</a></li>
+                                    <li><a href="#a9.3">Exemple de résultat</a></li>
                                     <li><a href="#a9.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
@@ -174,8 +165,8 @@
                                 <a href="#a10">Report</a>
                                 <ul>
                                     <li><a href="#a10.1">Paramètres</a></li>
-                                    <li><a href="#a10.2">Format de réponse</a></li>
-                                    <li><a href="#a10.3">Exemple de réponse</a></li>
+                                    <li><a href="#a10.2">Format du résultat</a></li>
+                                    <li><a href="#a10.3">Exemple de résultat</a></li>
                                     <li><a href="#a10.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
@@ -183,8 +174,8 @@
                                 <a href="#a11">Seriousness</a>
                                 <ul>
                                     <li><a href="#a11.1">Paramètres</a></li>
-                                    <li><a href="#a11.2">Format de réponse</a></li>
-                                    <li><a href="#a11.3">Exemple de réponse</a></li>
+                                    <li><a href="#a11.2">Format du résultat</a></li>
+                                    <li><a href="#a11.3">Exemple de résultat</a></li>
                                     <li><a href="#a11.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
@@ -192,48 +183,52 @@
                                 <a href="#a12">Source</a>
                                 <ul>
                                     <li><a href="#a12.1">Paramètres</a></li>
-                                    <li><a href="#a12.2">Format de réponse</a></li>
-                                    <li><a href="#a12.3">Exemple de réponse</a></li>
+                                    <li><a href="#a12.2">Format du résultat</a></li>
+                                    <li><a href="#a12.3">Exemple de résultat</a></li>
                                     <li><a href="#a12.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </section>
-
-
-
                     <section>
-                        <h2 id="a2">Drug product ingredients</h2>
+                        <h2 id="a1">Introduction</h2>
+                        <p>La base de données en ligne des effets indésirables de Canada Vigilance renferme de l'information au sujet des effets indésirables soupçonnés (ou effets secondaires) associés à des produits de santé.</p>
+                        <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON, XML et CSV afin de les utiliser dans leurs propres applications.</p>
+                        <p>L'adresse URI de base sur la Base de données en ligne des effets indésirables de Canada Vigilance (BDEI) est &nbsp;<a href="https://api.hres.ca/cvp/api-v1/">https://api.hres.ca/cvp/api-v1/</a>. Toute requête est effectuée par l'entremise de cette adresse URI.</p>
+                    </section>
+                    <section>
+                        <!--Drug Product Ingredient - section-start-->
+                        <h2 id="a2">Ingrédient actif</h2>
                         <p>TODO put description of drug product ingredients.....</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a2.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <p>Il y a trois paramètres dans la requête: id, lang et type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètres pour la requête
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
                                     <th scope="col">Définition</th>
-                                    <th scope="col">Valeurs</th>
+                                    <th scope="col">Valeur</th>
                                     <th scope="col">Requis?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cvp/api-v1/drugproductingredient/?id=</span></td>
-                                    <td>Returns drug product ingredient by id.</td>
+                                    <td>Affiche l'ingrédient selon le numéro d'identification de l'ingrédient actif d'un produit spécifié dans la requête.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the drug product ingredient
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- numéro d'identification de l'ingrédient actif d'un produit
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">cvp/api-v1/drugproductingredient/?lang=en</span></td>
-                                    <td>Change la langue.</td>
+                                    <td><span class="nowrap">cvp/api-v1/drugproductingredient/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -241,40 +236,39 @@
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est affichée en anglais ou en français.</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cvp/api-v1/drugproductingredient/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Drug product ingredient can be accessed via these URIs:</p>
+                            <p>La liste des ingrédients actifs peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cvp/api-v1/drugproductingredient/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/drugproductingredient/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cvp/api-v1/drugproductingredient/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/drugproductingredient/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
-
                         <section>
-                            <h3 id="a2.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
-
-                            <p>Each&nbsp;<strong>drug product ingredient</strong>&nbsp;object consists of the following values:</p>
+                            <h3 id="a2.2">Format du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>ingrédient actif</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
-                                    Drug product ingredient object values
+                                    Valeurs de l'object ingrédient actif
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
                                     <td><strong>drug_product_ingredient_id</strong></td>
@@ -301,78 +295,77 @@
                                     <td>The .....</td>
                                 </tr>
                             </table>
-
-                            <section>
-                                <h3 id="a2.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_product_ingredient_id":242002322,"drug_product_id":2420,"product_id":14208,"drug_name":"INTROPIN INJECTION 40MG/ML","active_ingredient_id":2322,"active_ingredient_name":"dopamine hydrochloride"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a2.4">Exemple de jQuery</h3>
-                                <p>Example for a function of drug product ingredient to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getDrugProductIngredient(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/cvp/api-v1/drugproductingredient/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.active_ingredient_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var ActiveIngredientName = document.createTextNode(data.active_ingredient_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(ActiveIngredientName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-
+                        <section>
+                            <h3 id="a2.3">Exemple de résultat</h3>
+                            <pre class="prettify prettyprint linenums">{"drug_product_ingredient_id":242002322,"drug_product_id":2420,"product_id":14208,"drug_name":"INTROPIN INJECTION 40MG/ML","active_ingredient_id":2322,"active_ingredient_name":"dopamine hydrochloride"}</pre>
+                        </section>
+                        <section>
+                            <h3 id="a2.4">Exemple de jQuery</h3>
+                            <p>Exemple d'une fonctionnalité qui recherche un ingrédient actif selon le numéro d'identification de l'ingrédient d'un produit et la langue sélectionnée&nbsp;:</p>
+                            <pre class="prettify prettyprint linenums">function getDrugProductIngredient(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/cvp/api-v1/drugproductingredient/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.active_ingredient_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var ActiveIngredientName = document.createTextNode(data.active_ingredient_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(ActiveIngredientName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>
+                        </section>
                     </section>
-                    <section>
-                        <h2 id="a3">Drug product</h2>
+                    <!--Drug Product Ingredient - section-end-->
+                    <!--START Drug Product - section-start-->
+                    <section>                        
+                        <h2 id="a3">Drug product (Produit)</h2>
                         <p>TODO put description of drug product.....</p>
+
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a3.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <p>Il y a trois paramètres dans la requête: id, lang et type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètres pour la requête
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
                                     <th scope="col">Définition</th>
-                                    <th scope="col">Valeurs</th>
+                                    <th scope="col">Valeur</th>
                                     <th scope="col">Requis?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cvp/api-v1/drugproduct/?id=</span></td>
-                                    <td>Returns drug product by id.</td>
+                                    <td>Affiche le produit selon le numéro d'identification du produit spécifié dans la requête.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the drug product
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- numéro d'identification du produit
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">cvp/api-v1/drugproduct/?lang=en</span></td>
-                                    <td>Change la langue.</td>
+                                    <td><span class="nowrap">cvp/api-v1/drugproduct/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -380,40 +373,39 @@
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est affichée en anglais ou en français.</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cvp/api-v1/drugproduct/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Drug product can be accessed via these URIs:</p>
+                            <p>La liste des produits peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cvp/api-v1/drugproduct/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/drugproduct/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cvp/api-v1/drugproduct/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/drugproduct/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
-
                         <section>
-                            <h3 id="a3.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
-
-                            <p>Each&nbsp;<strong>drug product</strong>&nbsp;object consists of the following values:</p>
+                            <h3 id="a3.2">Format du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>produit</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
-                                    Drug product object values
+                                    Valeurs de l'object produit
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
                                     <td><strong>drug_product_id</strong></td>
@@ -433,77 +425,78 @@
                                 </tr>
 
                             </table>
-                            <section>
-                                <h3 id="a3.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_product_id":1,"product_id":1643,"drug_name":"HERISAN ONT 150MG","cpd_flag":1}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a3.4">Exemple de jQuery</h3>
-                                <p>Example for a function of drug product to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getDrugProduct(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/cvp/api-v1/drugproduct/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.drug_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var DrugName = document.createTextNode(data.drug_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(DrugName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-
+                        <section>
+                            <h3 id="a3.3">Exemple de résultat</h3>
+                            <pre class="prettify prettyprint linenums">{"drug_product_id":1,"product_id":1643,"drug_name":"HERISAN ONT 150MG","cpd_flag":1}</pre>
+                        </section>
+                        <section>
+                            <h3 id="a3.4">Exemple de jQuery</h3>
+                            <p>Exemple d'une fonctionnalité qui recherche un produit selon le numéro d'identification d'un produit et la langue sélectionnée&nbsp;:</p>
+                            <pre class="prettify prettyprint linenums">function getDrugProduct(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/cvp/api-v1/drugproduct/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.drug_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var DrugName = document.createTextNode(data.drug_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(DrugName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      
+      });
+      return;
+ };			</pre>
+                        </section>
                     </section>
-                    <section>
-                        <h2 id="a4">Gender</h2>
+                    <!--Drug Product - section-end-->
+                    <!-- Gender - section-start -->
+                    <section>                        
+                        <h2 id="a4">Gender(Sexe)</h2>
                         <p>TODO put description of gender.....</p>
 
+                        <!--h3-section-start-->
                         <section>
                             <h3 id="a4.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <p>Il y a trois paramètres dans la requête: id, lang et type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètres pour la requête
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
                                     <th scope="col">Définition</th>
-                                    <th scope="col">Valeurs</th>
+                                    <th scope="col">Valeur</th>
                                     <th scope="col">Requis?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cvp/api-v1/gender/?id=</span></td>
-                                    <td>Returns gender by id.</td>
+                                    <td>Affiche le sexe selon le numéro d'identification du sexe spécifié dans la requête.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the gender.
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- numéro d'identification du sexe
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">cvp/api-v1/gender/?lang=en</span></td>
-                                    <td>Change la langue.</td>
+                                    <td><span class="nowrap">cvp/api-v1/gender/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -511,46 +504,44 @@
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est affichée en anglais ou en français.</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cvp/api-v1/gender/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Gender can be accessed via these URIs:</p>
+                            <p>La liste des sexes peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cvp/api-v1/gender/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/gender/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cvp/api-v1/gender/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/gender/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a4.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
-
-                            <p>Each&nbsp;<strong>gender</strong>&nbsp;object consists of the following values:</p>
+                            <h3 id="a4.2">Format du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>sexe</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
-                                    Gender object values
+                                    Valeurs de l'object sexe
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
-
                                 <tr>
                                     <td><strong>gender_id</strong></td>
                                     <td>The .....</td>
                                 </tr>
-
                                 <tr>
                                     <td><strong>gender_code</strong></td>
                                     <td>The ...</td>
@@ -560,75 +551,77 @@
                                     <td>The ...</td>
                                 </tr>
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a4.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"gender_id":41,"gender_code":"1","gender_name":"Male"}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a4.4">Exemple de jQuery</h3>
-                                <p>Example for a function of gender to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getGender(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/cvp/api-v1/gender/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.gender_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var GenderName = document.createTextNode(data.gender_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(GenderName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
+                        </section>
+                        <section>
+                            <h3 id="a4.3">Exemple de résultat</h3>
+                            <pre class="prettify prettyprint linenums">{"gender_id":41,"gender_code":"1","gender_name":"Homme"}</pre>
+                        </section>
+                        <section>
+                            <h3 id="a4.4">Exemple de jQuery</h3>
+                            <p>Exemple d'une fonctionnalité qui recherche un sexe selon le numéro d'identification d'un sexe et la langue sélectionnée&nbsp;:</p>
+                            <pre class="prettify prettyprint linenums">function getGender(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/cvp/api-v1/gender/?lang=' + lang + '&id=' + id;
+      $.ajax({                
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.gender_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var GenderName = document.createTextNode(data.gender_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(GenderName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>
                         </section>
                     </section>
-                    <section>
+                    <!--Gender - section-end -->
+                    <!--Outcome - section-start -->
+                    <section>                        
                         <h2 id="a5">Outcome</h2>
                         <p>TODO put description of outcome.....</p>
 
+                        <!--h3-section-start-->
                         <section>
                             <h3 id="a5.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <p>Il y a trois paramètres dans la requête: id, lang et type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètres pour la requête
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
                                     <th scope="col">Définition</th>
-                                    <th scope="col">Valeurs</th>
+                                    <th scope="col">Valeur</th>
                                     <th scope="col">Requis?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cvp/api-v1/outcome/?id=</span></td>
-                                    <td>Returns form by id.</td>
+                                    <td>Affiche le OUTCOME selon le numéro d'identification du OUTCOME spécifié dans la requête.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the outcome
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- numéro d'identification de OUTCOME
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">cvp/api-v1/outcome/?lang=en</span></td>
-                                    <td>Change la langue.</td>
+                                    <td><span class="nowrap">cvp/api-v1/outcome/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -636,39 +629,39 @@
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est affichée en anglais ou en français.</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cvp/api-v1/outcome/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Outcome can be accessed via these URIs:</p>
+                            <p>La liste des OUTCOMES peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cvp/api-v1/outcome/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/outcome/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cvp/api-v1/outcome/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/outcome/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a5.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
-
-                            <p>Each&nbsp;<strong>outcome</strong>&nbsp;object consists of the following values:</p>
+                            <h3 id="a5.2">Format du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>OUTCOME</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
-                                    Outcome object values
+                                    Valeurs de l'object OUTCOME
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
 
                                 <tr>
@@ -683,77 +676,79 @@
                                     <td><strong>outcome_name</strong></td>
                                     <td>The ...</td>
                                 </tr>
-
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a5.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"outcome_id":1906,"outcome_code":"06","outcome_name":"Unknown"}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a5.4">Exemple de jQuery</h3>
-                                <p>Example for a function of outcome to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getOutcome(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/cvp/api-v1/outcome/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.outcome_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var OutcomeName = document.createTextNode(data.outcome_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(OutcomeName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
+                        </section>
+                        <section>
+                            <h3 id="a5.3">Exemple de résultat</h3>
+                            <pre class="prettify prettyprint linenums">{"outcome_id":1906,"outcome_code":"06","outcome_name":"Inconnu"}</pre>
+                        </section>
+                        <section>
+                            <h3 id="a5.4">Exemple de jQuery</h3>
+                            <p>Exemple d'une fonctionnalité qui recherche un OUTCOME selon le numéro d'identification d'un OUTCOME et la langue sélectionnée&nbsp;:</p>
+                            <pre class="prettify prettyprint linenums">function getOutcome(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/cvp/api-v1/outcome/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.outcome_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var OutcomeName = document.createTextNode(data.outcome_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(OutcomeName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>
                         </section>
                     </section>
+                    <!--Outcome - section-end -->
+                    <!--Reaction - section-start-->
                     <section>
+                        
                         <h2 id="a6">Reaction</h2>
                         <p>TODO put description of reaction.....</p>
 
+                        <!--h3-section-start-->
                         <section>
                             <h3 id="a6.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <p>Il y a trois paramètres dans la requête: id, lang et type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètres pour la requête
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
                                     <th scope="col">Définition</th>
-                                    <th scope="col">Valeurs</th>
+                                    <th scope="col">Valeur</th>
                                     <th scope="col">Requis?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cvp/api-v1/reaction/?id=</span></td>
-                                    <td>Returns reaction by id.</td>
+                                    <td>Affiche le REACTION selon le numéro d'identification du REACTION spécifié dans la requête.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the reaction
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- numéro d'identification de REACTION
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">cvp/api-v1/reaction/?lang=en</span></td>
-                                    <td>Change la langue.</td>
+                                    <td><span class="nowrap">cvp/api-v1/reaction/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -761,39 +756,39 @@
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est affichée en anglais ou en français.</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cvp/api-v1/reaction/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Reaction can be accessed via these URIs:</p>
+                            <p>La liste des REACTION peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cvp/api-v1/reaction/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/reaction/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cvp/api-v1/reaction/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/reaction/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a6.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
-
-                            <p>Each&nbsp;<strong>reaction</strong>&nbsp;object consists of the following values:</p>
+                            <h3 id="a6.2">Format du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>REACTION</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
-                                    Reaction object values
+                                    Valeurs de l'object REACTION
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
                                     <td><strong>reaction_id</strong></td>
@@ -823,77 +818,78 @@
                                     <td><strong>meddra_version</strong></td>
                                     <td>The ...</td>
                                 </tr>
-
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a6.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"reaction_id":5801,"report_id":58,"duration":0,"duration_unit":"","pt_name":"Conjunctivitis","soc_name":"Infections and infestations","meddra_version":"v.18.1"}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a6.4">Exemple de jQuery</h3>
-                                <p>Example for a function of reaction to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getReaction(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/cvp/api-v1/reaction/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.duration);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Duration = document.createTextNode(data.duration);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(Duration);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
+                        </section>
+                        <section>
+                            <h3 id="a6.3">Exemple de résultat</h3>
+                            <pre class="prettify prettyprint linenums">{"reaction_id":5801,"report_id":58,"duration":0,"duration_unit":"","pt_name":"Conjonctivite","soc_name":"Infections et infestations","meddra_version":"v.18.1"}</pre>
+                        </section>
+                        <section>
+                            <h3 id="a6.4">Exemple de jQuery</h3>
+                            <p>Exemple d'une fonctionnalité qui recherche un REACTION selon le numéro d'identification d'un REACTION et la langue sélectionnée&nbsp;:</p>
+                            <pre class="prettify prettyprint linenums">function getReaction(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/cvp/api-v1/reaction/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.duration);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var Duration = document.createTextNode(data.duration);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(Duration);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>
                         </section>
                     </section>
-                    <section>
+                    <!--Reaction - section-end -->
+                    <!--Report Drug - section-start -->                    
+                    <section>                        
                         <h2 id="a7">Report Drug</h2>
                         <p>TODO put description of report drug.....</p>
 
+                        <!--h3-section-start-->
                         <section>
                             <h3 id="a7.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <p>Il y a trois paramètres dans la requête: id, lang et type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètres pour la requête
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
                                     <th scope="col">Définition</th>
-                                    <th scope="col">Valeurs</th>
+                                    <th scope="col">Valeur</th>
                                     <th scope="col">Requis?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cvp/api-v1/reportdrug/?id=</span></td>
-                                    <td>Returns report drug by id.</td>
+                                    <td>Affiche le REPORT DRUG selon le numéro d'identification du REPORT spécifié dans la requête.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the report drug
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- numéro d'identification de REPORT DRUG
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">cvp/api-v1/reportdrug/?lang=en</span></td>
-                                    <td>Change la langue.</td>
+                                    <td><span class="nowrap">cvp/api-v1/reportdrug/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -901,39 +897,39 @@
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est affichée en anglais ou en français.</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cvp/api-v1/reportdrug/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Report drug can be accessed via these URIs:</p>
+                            <p>La liste des DRUG REPORTS peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cvp/api-v1/reportdrug/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/reportdrug/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cvp/api-v1/reportdrug/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/reportdrug/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a7.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
-
-                            <p>Each&nbsp;<strong>report drug</strong>&nbsp;object consists of the following values:</p>
+                            <h3 id="a7.2">Format du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>REPORT DRUG</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
-                                    Report Drug object values
+                                    Valeurs de l'object REPORT DRUG
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
                                     <td><strong>report_drug_id</strong></td>
@@ -1008,78 +1004,78 @@
                                     <td><strong>indication_name</strong></td>
                                     <td>The ...</td>
                                 </tr>
-
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a7.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"report_drug_id":1251474,"report_id":195,"drug_product_id":13348,"drug_name":"CODEINE","drug_involv_name":"Suspect","route_admin":null,"route_admin_name":"","unit_dose_qty":0,"dose_unit":"","dose_unit_name":null,"frequency":0,"freq_time":0,"frequency_time":"","freq_time_unit":"","therapy_duration":1,"therapy_duration_unit":"Day(s)","dosage_form":"NOT SPECIFIED","indication_name":null}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a7.4">Exemple de jQuery</h3>
-                                <p>Example for a function of schedule to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getReportDrug(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/cvp/api-v1/reportdrug/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.drug_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var DrugName = document.createTextNode(data.drug_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(DrugName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
+                        </section>
+                        <section>
+                            <h3 id="a7.3">Exemple de résultat</h3>
+                            <pre class="prettify prettyprint linenums">{"report_drug_id":1106349,"report_id":50,"drug_product_id":16876,"drug_name":"FORTICILLIN","drug_involv_name":"Suspect","route_admin":null,"route_admin_name":"Intramusculaire","unit_dose_qty":0,"dose_unit":"","dose_unit_name":null,"frequency":2,"freq_time":1,"frequency_time":"2 chaque 1 Jour(s)","freq_time_unit":"Jour(s)","therapy_duration":1,"therapy_duration_unit":"Jours","dosage_form":"NON PRÉCISÉE","indication_name":null}</pre>
+                        </section>
+                        <section>
+                            <h3 id="a7.4">Exemple de jQuery</h3>
+                            <p>Exemple d'une fonctionnalité qui recherche un REPORT DRUG selon le numéro d'identification d'un REPORT DRUG et la langue sélectionnée&nbsp;:</p>
+                            <pre class="prettify prettyprint linenums">function getReportDrug(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/cvp/api-v1/reportdrug/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.drug_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var DrugName = document.createTextNode(data.drug_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(DrugName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>
                         </section>
                     </section>
-
-                    <section>
+                    <!--Report Drug - section-end -->
+                    <!--Report Link - section-start -->
+                    <section>                        
                         <h2 id="a8">Report Link</h2>
                         <p>TODO put description of report links.....</p>
 
+                        <!--h3-section-start-->
                         <section>
                             <h3 id="a8.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <p>Il y a trois paramètres dans la requête: id, lang et type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètres pour la requête
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
                                     <th scope="col">Définition</th>
-                                    <th scope="col">Valeurs</th>
+                                    <th scope="col">Valeur</th>
                                     <th scope="col">Requis?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cvp/api-v1/reportlink/?id=</span></td>
-                                    <td>Returns report link by id.</td>
+                                    <td>Affiche le REPORT LINK selon le numéro d'identification du REPORT LINK spécifié dans la requête.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the report link
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- numéro d'identification de REPORT LINK
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">cvp/api-v1/reportlink/?lang=en</span></td>
-                                    <td>Change la langue.</td>
+                                    <td><span class="nowrap">cvp/api-v1/reportlink/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -1087,39 +1083,39 @@
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est affichée en anglais ou en français.</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cvp/api-v1/reportlink/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Report link can be accessed via these URIs:</p>
+                            <p>La liste des REPORT LINKS peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cvp/api-v1/reportlink/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/reportlink/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cvp/api-v1/reportlink/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/reportlink/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a8.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
-
-                            <p>Each&nbsp;<strong>report link</strong>&nbsp;object consists of the following values:</p>
+                            <h3 id="a8.2">Format du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>REPORT LINK</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
-                                    Report link object values
+                                    Valeurs de l'object REPORT LINK
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
                                     <td><strong>report_link_id</strong></td>
@@ -1137,77 +1133,78 @@
                                     <td><strong>report_link_no</strong></td>
                                     <td>The ...</td>
                                 </tr>
-
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a8.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"report_link_id":1544951,"report_id":154495,"record_type":"Duplicate","report_link_no":"000328721"}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a8.4">Exemple de jQuery</h3>
-                                <p>Example for a function of report link to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getReportLink(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/cvp/api-v1/reportlink/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.record_type);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var RecordType = document.createTextNode(data.record_type);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(RecordType);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
+                        </section>
+                        <section>
+                            <h3 id="a8.3">Exemple de résultat</h3>
+                            <pre class="prettify prettyprint linenums">{"report_link_id":1531151,"report_id":153115,"record_type":"Lié","report_link_no":"000153114"}</pre>
+                        </section>
+                        <section>
+                            <h3 id="a8.4">Exemple de jQuery</h3>
+                            <p>Exemple d'une fonctionnalité qui recherche un REPORT LINK selon le numéro d'identification d'un REPORT LINK et la langue sélectionnée&nbsp;:</p>
+                            <pre class="prettify prettyprint linenums">function getReportLink(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/cvp/api-v1/reportlink/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.record_type);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var RecordType = document.createTextNode(data.record_type);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(RecordType);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>
                         </section>
                     </section>
-                    <section>
+                    <!--Report Link - section-end -->
+                    <!--Report Type - section-start -->
+                    <section>                        
                         <h2 id="a9">Report Type</h2>
                         <p>TODO put description of report type.....</p>
 
+                        <!--h3-section-start-->
                         <section>
                             <h3 id="a9.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <p>Il y a trois paramètres dans la requête: id, lang et type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètres pour la requête
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
                                     <th scope="col">Définition</th>
-                                    <th scope="col">Valeurs</th>
+                                    <th scope="col">Valeur</th>
                                     <th scope="col">Requis?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cvp/api-v1/reporttype/?id=</span></td>
-                                    <td>Returns therapeutic class by id.</td>
+                                    <td>Affiche le REPORT TYPE selon le numéro d'identification du REPORT REPORT TYPE spécifié dans la requête.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the report type
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- numéro d'identification de REPORT TYPE
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">cvp/api-v1/reporttype/?lang=en</span></td>
-                                    <td>Change la langue.</td>
+                                    <td><span class="nowrap">cvp/api-v1/reporttype/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -1215,39 +1212,39 @@
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est affichée en anglais ou en français.</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cvp/api-v1/reporttype/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Report type can be accessed via these URIs:</p>
+                            <p>La liste des types de REPORT TYPE peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cvp/api-v1/reporttype/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/reporttype/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cvp/api-v1/reporttype/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/reporttype/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a9.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
-
-                            <p>Each&nbsp;<strong>report type</strong>&nbsp;object consists of the following values:</p>
+                            <h3 id="a9.2">Format du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>REPORT TYPE</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
-                                    Report type object values
+                                    Valeurs de l'object REPORT TYPE
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
                                     <td><strong>report_type_id</strong></td>
@@ -1263,75 +1260,77 @@
                                 </tr>
 
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a9.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"report_type_id":70095007,"report_type_code":"5","report_type":"Published"}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a9.4">Exemple de jQuery</h3>
-                                <p>Example for a function of report type to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getReportType(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/cvp/api-v1/reporttype/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.report_type);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var ReportType = document.createTextNode(data.report_type);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(ReportType);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
+                        </section>
+                        <section>
+                            <h3 id="a9.3">Exemple de résultat</h3>
+                            <pre class="prettify prettyprint linenums">{"report_type_id":70095007,"report_type_code":"5","report_type":"Publiée"}</pre>
+                        </section>
+                        <section>
+                            <h3 id="a9.4">Exemple de jQuery</h3>
+                            <p>Exemple d'une fonctionnalité qui recherche un REPORT TYPE selon le numéro d'identification d'un REPORT TYPE et la langue sélectionnée&nbsp;:</p>
+                            <pre class="prettify prettyprint linenums">function getReportType(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/cvp/api-v1/reporttype/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.report_type);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var ReportType = document.createTextNode(data.report_type);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(ReportType);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>
                         </section>
                     </section>
-                    <section>
+                    <!--Report Type - section-end -->
+                    <!--Report - section-start -->
+                    <section>                        
                         <h2 id="a10">Report</h2>
                         <p>TODO put description of report....</p>
 
+                        <!--h3-section-start-->
                         <section>
                             <h3 id="a10.1">Paramètres</h3>
-                            <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
+                            <p>Il y a trois paramètres dans la requête: id, lang et type.</p>
                             <table>
                                 <caption>
-                                    Request parameters
+                                    Paramètres pour la requête
                                 </caption>
                                 <tr>
                                     <th scope="col">Paramètre</th>
                                     <th scope="col">Définition</th>
-                                    <th scope="col">Valeurs</th>
+                                    <th scope="col">Valeur</th>
                                     <th scope="col">Requis?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cvp/api-v1/report/?id=</span></td>
-                                    <td>Returns report by id.</td>
+                                    <td>Affiche le REPORT selon le numéro d'identification du REPORT spécifié dans la requête.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- ID of the report
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- numéro d'identification de REPORT
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">cvp/api-v1/report/?lang=en</span></td>
-                                    <td>Change la langue.</td>
+                                    <td><span class="nowrap">cvp/api-v1/report/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- Anglais</li>
@@ -1339,39 +1338,39 @@
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est affichée en anglais ou en français.</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cvp/api-v1/report/?type=json</span></td>
-                                    <td>Modifie le résultat du format.</td>
+                                    <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                    <td>Détermine si la réponse est de type Json ou XML.</td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>Report can be accessed via these URIs:</p>
+                            <p>La liste des DÉCLARATIONS peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cvp/api-v1/report/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/report/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cvp/api-v1/report/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/report/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a10.2">Format de réponse</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
-
-                            <p>Each&nbsp;<strong>report</strong>&nbsp;object consists of the following values:</p>
+                            <h3 id="a10.2">Format du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>REPORT</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
-                                    Report object values
+                                    Valeurs de l'object REPORT
                                 </caption>
                                 <tr>
-                                    <th scope="col">Key</th>
-                                    <th scope="col">Value</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
                                 </tr>
 
                                 <tr>
@@ -1426,13 +1425,10 @@
                                     <td><strong>age_unit_code</strong></td>
                                     <td>The ...</td>
                                 </tr>
-
                                 <tr>
                                     <td><strong>age_unit</strong></td>
                                     <td>The ...</td>
                                 </tr>
-
-
                                 <tr>
                                     <td><strong>age_group_code</strong></td>
                                     <td>The ...</td>
@@ -1551,294 +1547,295 @@
                                     <td>The ...</td>
                                 </tr>
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a10.3">Exemple de réponse</h3>
-                                <pre class="prettify prettyprint linenums">{"report_id":195,"report_no":"000000195","version_no":0,"date_received":"1973-06-21","date_int_received":"1973-06-21","mah_no":"","report_type_code":null,"report_type_name":"Spontaneous","gender_code":"2","gender_name":"Female","age":49,"age_y":49,"age_unit_code":"07","age_unit":"Years","age_group_code":"","age_group_name":"","outcome_code":"06","outcome":"Unknown","weight":0,"weight_unit_code":"","weight_unit":"","height":0,"height_unit_code":"","height_unit":"","seriousness_code":"01","seriousness":"Yes","death":"","disability":"","congenital_anomaly":"","life_threatening":"","hosp_required":"","other_medically_imp_cond":"","reporter_type_code":"","reporter_type":"","source_code":"03","source_name":"Hospital","report_link_flg":0,"aer_id":90100144001,"pt_name":"Chest pain, Dyspnoea","soc_name":"General disorders and administration site conditions, Respiratory, thoracic and mediastinal disorders","duration":0,"duration_unit":"","drug_name":"CODEINE","cpd_flag":0}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a10.4">Exemple de jQuery</h3>
-                                <p>Example for a function of report to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getReport(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/cvp/api-v1/report/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.report_no);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var ReportNo = document.createTextNode(data.report_no);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(ReportNo);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };</pre>
-                            </section>
+                        </section>
+                        <section>
+                            <h3 id="a10.3">Exemple de résultat</h3>
+                            <pre class="prettify prettyprint linenums">{"report_id":97,"report_no":"000000097","version_no":0,"date_received":"1973-06-01","date_int_received":"1973-06-01","mah_no":"","report_type_code":null,"report_type_name":"Déclaration spontanée","gender_code":"1","gender_name":"Homme","age":21,"age_y":21,"age_unit_code":"07","age_unit":"Ans","age_group_code":"","age_group_name":"","outcome_code":"11","outcome":"Décès","weight":0,"weight_unit_code":"","weight_unit":"","height":0,"height_unit_code":"","height_unit":"","seriousness_code":"01","seriousness":"Oui","death":"1","disability":"","congenital_anomaly":"","life_threatening":"","hosp_required":"","other_medically_imp_cond":"","reporter_type_code":"9","reporter_type":"Professionnel de la santé","source_code":"","source_name":"","report_link_flg":0,"aer_id":90100078809,"pt_name":"Surdose accidentelle","soc_name":"Lésions, intoxications et complications liées aux procédures","duration":0,"duration_unit":"","drug_name":"ETHANOL, PMA","cpd_flag":0}</pre>
+                        </section>
+                        <section>
+                            <h3 id="a10.4">Exemple de jQuery</h3>
+                            <p>Exemple d'une fonctionnalité qui recherche un REPORT selon le numéro d'identification d'un REPORT et la langue sélectionnée&nbsp;:</p>
+                            <pre class="prettify prettyprint linenums">function getReport(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/cvp/api-v1/report/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.report_no);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var ReportNo = document.createTextNode(data.report_no);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(ReportNo);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };</pre>
                         </section>
                     </section>
-                </section>
+                    <!--Report - section-end -->
+                    <!--Seriousness - section-start -->
+                    <section>                       
+                        <h2 id="a11">Seriousness</h2>
+                        <p>TODO put description of seriousness.....</p>
 
-                <section>
-                    <h2 id="a11">Seriousness</h2>
-                    <p>TODO put description of seriousness.....</p>
-
-                    <section>
-                        <h3 id="a11.1">Paramètres</h3>
-                        <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
-                        <table>
-                            <caption>
-                                Request parameters
-                            </caption>
-                            <tr>
-                                <th scope="col">Paramètre</th>
-                                <th scope="col">Définition</th>
-                                <th scope="col">Valeurs</th>
-                                <th scope="col">Requis?</th>
-                                <th scope="col">Notes</th>
-                            </tr>
-                            <tr>
-                                <td><span class="nowrap">cvp/api-v1/seriousness/?id=</span></td>
-                                <td>Returns company by id.</td>
-                                <td>
-                                    <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                        #####&nbsp;- ID of the seriousness
-                                    </ul>
-                                </td>
-                                <td><strong>Yes</strong></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><span class="nowrap">cvp/api-v1/seriousness/?lang=en</span></td>
-                                <td>Change la langue.</td>
-                                <td>
-                                    <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                        <li><code>en</code>&nbsp;- Anglais</li>
-                                        <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
-                                    </ul>
-                                </td>
-                                <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                <td>Détermine si la réponse est affichée en anglais ou en français.</td>
-                            </tr>
-                            <tr>
-                                <td><span class="nowrap">cvp/api-v1/seriousness/?type=json</span></td>
-                                <td>Modifie le résultat du format.</td>
-                                <td>
-                                    <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                        <li><code>json</code>&nbsp;- Json</li>
-                                        <li><code>xml</code>&nbsp;- Xml</li>
-                                    </ul>
-                                </td>
-                                <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                <td>Détermine si la réponse est de type Json ou XML.</td>
-                            </tr>
-                        </table>
-                        <p>Seriousness can be accessed via these URIs:</p>
-                        <ul>
-                            <li><a href="https://api.hres.ca/cvp/api-v1/seriousness/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/seriousness/?lang=en&type=json</a></li>
-                            <li><a href="https://api.hres.ca/cvp/api-v1/seriousness/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/seriousness/?lang=fr&type=json</a></li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h3 id="a11.2">Format de réponse</h3>
-                        <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
-
-                        <p>Each&nbsp;<strong>seriousness</strong>&nbsp;object consists of the following values:</p>
-                        <table>
-                            <caption>
-                                Seriousness object values
-                            </caption>
-                            <tr>
-                                <th scope="col">Key</th>
-                                <th scope="col">Value</th>
-                            </tr>
-                            <tr>
-                                <td><strong>seriousness_id</strong></td>
-                                <td>The .....</td>
-                            </tr>
-                            <tr>
-                                <td><strong>seriousness_code</strong></td>
-                                <td>The ...</td>
-                            </tr>
-                            <tr>
-                                <td><strong>seriousness</strong></td>
-                                <td>The ...</td>
-                            </tr>
-                        </table>
                         <!--h3-section-start-->
                         <section>
-                            <h3 id="a11.3">Exemple de réponse</h3>
-                            <pre class="prettify prettyprint linenums">{"seriousness_id":2001,"seriousness_code":"01","seriousness":"Yes"}</pre>
+                            <h3 id="a11.1">Paramètres</h3>
+                            <p>Il y a trois paramètres dans la requête: id, lang et type.</p>
+                            <table>
+                                <caption>
+                                    Paramètres pour la requête
+                                </caption>
+                                <tr>
+                                    <th scope="col">Paramètre</th>
+                                    <th scope="col">Définition</th>
+                                    <th scope="col">Valeur</th>
+                                    <th scope="col">Requis?</th>
+                                    <th scope="col">Note</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">cvp/api-v1/seriousness/?id=</span></td>
+                                    <td>Affiche le SERIOUSNESS selon le numéro d'identification du SERIOUSNESS spécifié dans la requête.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- numéro d'identification de SERIOUSNESS
+                                        </ul>
+                                    </td>
+                                    <td><strong>Oui</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">cvp/api-v1/seriousness/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- Anglais</li>
+                                            <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">cvp/api-v1/seriousness/?type=json</span></td>
+                                    <td>Modifie le format du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
+                                </tr>
+                            </table>
+                            <p>La liste des GRAVITÉS peut être accédée aux adresses URI suivantes&nbsp;:</p>
+                            <ul>
+                                <li><a href="https://api.hres.ca/cvp/api-v1/seriousness/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/seriousness/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/cvp/api-v1/seriousness/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/seriousness/?lang=fr&type=json</a></li>
+                            </ul>
                         </section>
                         <section>
-                            <h3 id="a11.4">Exemple de jQuery</h3>
-                            <p>Example for a function of veterinary species to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                            <pre class="prettify prettyprint linenums">function getSeriousness(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/cvp/api-v1/seriousness/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.Seriousness);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Seriousness = document.createTextNode(data.seriousness);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(Seriousness);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };</pre>
+                            <h3 id="a11.2">Format du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>SERIOUSNESS</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
+                            <table>
+                                <caption>
+                                    Valeurs de l'object SERIOUSNESS
+                                </caption>
+                                <tr>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>seriousness_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>seriousness_code</strong></td>
+                                    <td>The ...</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>seriousness</strong></td>
+                                    <td>The ...</td>
+                                </tr>
+                            </table>
+                        </section>                            
+                        <section>
+                             <h3 id="a11.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">{"seriousness_id":2001,"seriousness_code":"01","seriousness":"Oui"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a11.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche un SERIOUSNESS selon le numéro d'identification d'un SERIOUSNESS et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getSeriousness(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/cvp/api-v1/seriousness/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.Seriousness);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var Seriousness = document.createTextNode(data.seriousness);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(Seriousness);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };</pre>                            
                         </section>
                     </section>
-                </section>
-                <section>
-                    <h2 id="a12">Source</h2>
-                    <p>TODO put description of source.....</p>
+                    <!--Seriousness - section-end -->
+                    <!--Source - section-start -->
+                    <section>                        
+                        <h2 id="a12">Source</h2>
+                        <p>TODO put description of source.....</p>
 
-                    <section>
-                        <h3 id="a12.1">Paramètres</h3>
-                        <p>Il y a trois paramètres dans la requête: language, id and format type.</p>
-                        <table>
-                            <caption>
-                                Request parameters
-                            </caption>
-                            <tr>
-                                <th scope="col">Paramètre</th>
-                                <th scope="col">Définition</th>
-                                <th scope="col">Valeurs</th>
-                                <th scope="col">Requis?</th>
-                                <th scope="col">Notes</th>
-                            </tr>
-                            <tr>
-                                <td><span class="nowrap">cvp/api-v1/source/?id=</span></td>
-                                <td>Returns source by id.</td>
-                                <td>
-                                    <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                        #####&nbsp;- ID of the source
-                                    </ul>
-                                </td>
-                                <td><strong>Yes</strong></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td><span class="nowrap">cvp/api-v1/source/?lang=en</span></td>
-                                <td>Change la langue.</td>
-                                <td>
-                                    <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                        <li><code>en</code>&nbsp;- Anglais</li>
-                                        <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
-                                    </ul>
-                                </td>
-                                <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                <td>Détermine si la réponse est affichée en anglais ou en français.</td>
-                            </tr>
-                            <tr>
-                                <td><span class="nowrap">cvp/api-v1/source/?type=json</span></td>
-                                <td>Modifie le résultat du format.</td>
-                                <td>
-                                    <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                        <li><code>json</code>&nbsp;- Json</li>
-                                        <li><code>xml</code>&nbsp;- Xml</li>
-                                    </ul>
-                                </td>
-                                <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
-                                <td>Détermine si la réponse est de type Json ou XML.</td>
-                            </tr>
-                        </table>
-                        <p>Source can be accessed via these URIs:</p>
-                        <ul>
-                            <li><a href="https://api.hres.ca/cvp/api-v1/source/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/source/?lang=en&type=json</a></li>
-                            <li><a href="https://api.hres.ca/cvp/api-v1/source/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/source/?lang=fr&type=json</a></li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h3 id="a12.2">Format de réponse</h3>
-                        <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
-
-                        <p>Each&nbsp;<strong>source</strong>&nbsp;object consists of the following values:</p>
-                        <table>
-                            <caption>
-                                Source object values
-                            </caption>
-                            <tr>
-                                <th scope="col">Key</th>
-                                <th scope="col">Value</th>
-                            </tr>
-                            <tr>
-                                <td><strong>source_id</strong></td>
-                                <td>The .....</td>
-                            </tr>
-                            <tr>
-                                <td><strong>source_code</strong></td>
-                                <td>The ...</td>
-                            </tr>
-                            <tr>
-                                <td><strong>source</strong></td>
-                                <td>The ...</td>
-                            </tr>
-                        </table>
                         <!--h3-section-start-->
                         <section>
-                            <h3 id="a12.3">Exemple de réponse</h3>
-                            <pre class="prettify prettyprint linenums">{"source_id":1001,"source_code":"01","source":"Community"}</pre>
+                            <h3 id="a12.1">Paramètres</h3>
+                            <p>Il y a trois paramètres dans la requête: id, lang et type.</p>
+                            <table>
+                                <caption>
+                                    Paramètres pour la requête
+                                </caption>
+                                <tr>
+                                    <th scope="col">Paramètre</th>
+                                    <th scope="col">Définition</th>
+                                    <th scope="col">Valeur</th>
+                                    <th scope="col">Requis?</th>
+                                    <th scope="col">Note</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">cvp/api-v1/source/?id=</span></td>
+                                    <td>Affiche le SOURCE selon le numéro d'identification du SOURCE spécifié dans la requête.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- numéro d'identification de SOURCE
+                                        </ul>
+                                    </td>
+                                    <td><strong>Oui</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">cvp/api-v1/source/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- Anglais</li>
+                                            <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">cvp/api-v1/source/?type=json</span></td>
+                                    <td>Modifie le format du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
+                                </tr>
+                            </table>
+                            <p>La liste des SOURCES de DÉCLARATION peut être accédée aux adresses URI suivantes&nbsp;:</p>
+                            <ul>
+                                <li><a href="https://api.hres.ca/cvp/api-v1/source/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/source/?lang=en&type=json</a></li>
+                                <li><a href="https://api.hres.ca/cvp/api-v1/source/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/source/?lang=fr&type=json</a></li>
+                            </ul>
                         </section>
                         <section>
-                            <h3 id="a12.4">Exemple de jQuery</h3>
-                            <p>Example for a function of source to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                            <pre class="prettify prettyprint linenums">function getSource(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/cvp/api-v1/source/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.source);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Source = document.createTextNode(data.source);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(Source);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };</pre>
+                            <h3 id="a12.2">Format du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>SOURCE</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
+                            <table>
+                                <caption>
+                                    Valeurs de l'object SOURCE
+                                </caption>
+                                <tr>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>source_id</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>source_code</strong></td>
+                                    <td>The ...</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>source</strong></td>
+                                    <td>The ...</td>
+                                </tr>
+                            </table>
+                        </section>                            
+                        <section>
+                             <h3 id="a12.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">{"source_id":1001,"source_code":"01","source":"Communauté"}</pre>
                         </section>
-                    </section>
-                </section>
-
-
+                        <section>
+                             <h3 id="a12.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche un SOURCE selon le numéro d'identification d'un SOURCE et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getSource(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/cvp/api-v1/source/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.source);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var Source = document.createTextNode(data.source);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(Source);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };</pre>                           
+                        </section>
+                    </section><!--Source - section-end -->
+                </section><!--END Entire Doc Section-->
             </div>
+
             <div class="row pagedetails">
                 <div class="col-sm-5 col-xs-12 datemod">
                     <dl id="wb-dtmd">

@@ -83,8 +83,6 @@
     <div class="container">
         <main role="main" property="mainContentOfPage" class="container">
             <div class="wb-frmvld">
-
-
                 <section>
                     <h1 id="wb-cont">Guide API - Base de données sur les produits pharmaceutiques (BDPP)</h1>
 
@@ -194,7 +192,6 @@
                             </li>
                         </ul>
                     </section>
-
                     <section>
                         <h2 id="a1">Introduction</h2>
                         <p>La BDPP contient des informations spécifiques sur les médicaments commercialisés au Canada. Cette base de données, administrée par la Direction des produits thérapeutiques, porte sur les produits à usages humains et vétérinaires, radio pharmaceutiques et désinfectants. Elle renferme environ 47 000 produits qui sont présentement approuvés, commercialisés ou annulés.</p>
@@ -203,8 +200,8 @@
                         <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON, XML et CSV afin de les utiliser dans leurs propres applications.</p>
                         <p>L'adresse URI de base sur les produits pharmaceutiques est &nbsp;<a href="https://api.hres.ca/dpd/api/">https://api.hres.ca/dpd/api/</a>. Toute requête est effectuée par l'entremise de cette adresse URI.</p>
                     </section>
-
                     <section>
+                        <!--Active ingredient-section-start-->
                         <h2 id="a2">Ingrédient actif</h2>
                         <p>Le terme «&nbsp;ingrédient actif&nbsp;» désigne toute composante qui possède des propriétés médicinales, une action pharmacologique ou qui a des effets directs sur le diagnostic, la guérison, l'atténuation, le traitement ou la prévention des maladies, ou qui agit sur la structure ou toute fonction du corps de l'être humain ou de l'animal.</p>
                         <p>La base de données précise le nom et la concentration de chaque ingrédient actif contenu dans un produit. On précise entre parenthèses la forme (le type de sel) sous laquelle l'ingrédient est fourni; cette information n'est disponible que pour certains ingrédients. Le nombre indiqué dans le champ «&nbsp;Concentration&nbsp;» fait référence à la portion active du médicament. Par exemple (p. ex.), dans «&nbsp;Calcium (carbonate de calcium) 200 milligrammes [mg]&nbsp;», 200 mg fait référence à la concentration de calcium élémentaire et non à la quantité de carbonate de calcium.</p>
@@ -226,7 +223,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/activeingredient/?id=</span></td>
-                                    <td>Affiche le ou les ingrédient(s) actif(s) par code de produit pharmaceutique.</td>
+                                    <td>Affiche le ou les ingrédients actifs selon le code du produit pharmaceutique spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- code du produit pharmaceutique
@@ -267,12 +264,10 @@
                                 <li><a href="https://api.hres.ca/dpd/api/activeingredient/?lang=fr&type=json">https://api.hres.ca/dpd/api/activeingredient/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
-
                         <section>
                             <h3 id="a2.2">Format du résultat</h3>
-                            <p>Le résultat est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
-
-                            <p>Chaque&nbsp;<strong>ingrédient actif</strong>&nbsp;contient un objet avec les valeurs suivantes :</p>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>ingrédient actif</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
                                     Valeurs de l'objet ingrédient actif
@@ -306,46 +301,67 @@
                                     <td>L'unité du concentration de l'ingrédient actif.</td>
                                 </tr>
                             </table>
-                            <section>
-                                <h3 id="a2.3">Exemple de résultat </h3>
-                                <pre class="prettify prettyprint linenums">{"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Vitamine A","strength":"1250","strength_unit":"Unité"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a2.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche un ingrédient actif selon le numéro d'identification et la langue sélectionnée&nbsp;:</p>
-                                <pre class="prettify prettyprint linenums">function getActiveIngredient(id, lang) {
-                                var base = 'https://api.hres.ca';
-                                var uri = base + '/dpd/api/activeingredient/?id=' + id + ' &lang =' + lang;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.drug_code);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var DrugCode = document.createTextNode(data.drug_code);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(Ingredient);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-
+                        <section>
+                             <h3 id="a2.3">Exemple de résultat </h3>
+                             <pre class="prettify prettyprint linenums">[{"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Vitamine A","strength":"1250","strength_unit":"Unité"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Vitamine C","strength":"125","strength_unit":"MG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Chrome","strength":"0.5","strength_unit":"MCG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Molybdène (MOLYBDENUM PROTEINATE)","strength":"2.5","strength_unit":"MG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Manganèse (MANGANESE GLUCONATE)","strength":"1.25","strength_unit":"MG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Vitamine B6","strength":"5","strength_unit":"MG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Potassium (POTASSIUM CHLORIDE)","strength":"15","strength_unit":"MG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Zinc (ZINC GLUCONATE)","strength":"7.5","strength_unit":"MG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Acide folique","strength":"0.2","strength_unit":"MG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Vitamine B12","strength":"9","strength_unit":"MCG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Sélénium","strength":"100","strength_unit":"MCG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Iode (POTASSIUM IODIDE)","strength":"0.075","strength_unit":"MG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Nicotinamide","strength":"20","strength_unit":"MG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Acide d-pantothénique","strength":"10","strength_unit":"MG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Choline","strength":"5","strength_unit":"MG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Inositol","strength":"5","strength_unit":"MG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Biotine","strength":"75","strength_unit":"MCG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Vitamine D2 (VITAMIN D2)","strength":"200","strength_unit":"Unité"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Vitamine B1","strength":"2.25","strength_unit":"MG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Vitanine B2","strength":"3.75","strength_unit":"MG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Bétacarotène (PROVITAMIN A)","strength":"2916","strength_unit":"Unité"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Cuivre (CUPRIC OXIDE)","strength":"1.5","strength_unit":"MG"},
+    {"dosage_unit":"","dosage_value":"","drug_code":48905,"ingredient_name":"Vitamine E","strength":"200","strength_unit":"Unité"}]</pre>
+                        </section>
+                        <section>
+                             <h3 id="a2.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche le ou les ingrédients actifs selon le code d'un produit pharmaceutique et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getActiveIngredient(id, lang) {
+      var base = 'https://api.hres.ca';
+      var uri = base + '/dpd/api/activeingredient/?id=' + id + ' &lang =' + lang;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.drug_code);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var DrugCode = document.createTextNode(data.drug_code);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(Ingredient);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>
+                        </section>
                     </section>
-                    <section>
+                    <!--Active ingredient-section-end-->
+                    <!--Company-section-start-->
+                    <section>                       
                         <h2 id="a3">Entreprise</h2>
                         <p>Dans la BDPP, plusieurs entreprises peuvent être associées à un produit. À chaque produit est rattaché un détenteur de DIN. Si un détenteur de DIN a chargé une autre entreprise de recevoir sa correspondance, le nom et l'adresse de cette entreprise seront aussi inclus et peuvent être repérés au symbole «&nbsp;Y&nbsp;» dans le champ ADDRESS_MAILING_FLAG.</p>
                         <p>Les renseignements sur la personne-ressource ne sont pas inclus dans l'API (ATTENTION_TO, LANGUAGE, TELEPHONE_NUMBER, FAX_NUMBER, EMAIL_ADDRESS). Dans la base de données, il s'agit généralement d'un représentant du département des Affaires réglementaires. Il semble que certains utilisateurs communiquent avec ces personnes pour obtenir des renseignements généraux.</p>
@@ -366,7 +382,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/company/?id=</span></td>
-                                    <td>Affiche les détails de l'entreprise par code.</td>
+                                    <td>Affiche les détails de l'entreprise selon le code de l'entreprise spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- code de l'entreprise
@@ -407,12 +423,10 @@
                                 <li><a href="https://api.hres.ca/dpd/api/company/?lang=fr&type=json">https://api.hres.ca/dpd/api/company/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
-
                         <section>
                             <h3 id="a3.2">Format du résultat</h3>
-                            <p>Le résultat est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
-
-                            <p>Chaque&nbsp;<strong>entreprise</strong>&nbsp;contient un objet avec les valeurs suivantes :</p>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>entreprise</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
                                     Valeurs de l'objet entreprise
@@ -462,52 +476,51 @@
                                     <td>Le numéro de la pièce.</td>
                                 </tr>
                             </table>
-                            <section>
-                                <h3 id="a3.3">Exemple de résultat</h3>
-                                <pre class="prettify prettyprint linenums">{"city_name":"Alpharetta","company_code":10831,"company_name":"FIRST HORIZON PHARMACEUTICAL CORP.","company_type":"DIN OWNER","country_name":"ÉTATS UNIS","post_office_box":"","postal_code":"30005","province_name":"GEORGIA","street_name":"6195 Shiloh Road","suite_number":""}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a3.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche une entreprise selon le numéro d'identification et la langue sélectionnée&nbsp;:</p>
-                                <pre class="prettify prettyprint linenums">function getCompany(id, lang) {
-                                var base = 'https://api.hres.ca';
-                                var uri = base + '/dpd/api/company/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.company_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var CompanyName = document.createTextNode(data.company_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(CompanyName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-
+                        <section>
+                             <h3 id="a3.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">{"city_name":"Alpharetta","company_code":10831,"company_name":"FIRST HORIZON PHARMACEUTICAL CORP.","company_type":"DIN OWNER","country_name":"ÉTATS UNIS","post_office_box":"","postal_code":"30005","province_name":"GEORGIA","street_name":"6195 Shiloh Road","suite_number":""}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a3.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche une entreprise selon le code d'une entreprise et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getCompany(id, lang) {
+      var base = 'https://api.hres.ca';
+      var uri = base + '/dpd/api/company/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.company_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var CompanyName = document.createTextNode(data.company_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(CompanyName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>
+                        </section>
                     </section>
-                    <section>
+                    <!--Company-section-end-->
+                    <!--Product-section-start-->
+                    <section>                       
                         <h2 id="a4">Produit pharmaceutique</h2>
-                        <p>Informations sur le produit pharmaceutique, telles que le nom commercial et l'identification numérique de drogue.</p>
-
+                        <p>Information sur le produit pharmaceutique, telles que le nom commercial et l'identification numérique de drogue.</p>
+                        <!--h3-section-start-->
                         <section>
                             <h3 id="a4.1">Paramètres</h3>
-                            <p>Il y a quatre paramètres dans la requête : id, lang, status et type.</p>
+                            <p>Il y a quatre paramètres dans la requête : id, status, lang et type.</p>
                             <table>
                                 <caption>
                                     Paramètres pour la requête
@@ -521,7 +534,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/drugproduct/?id=</span></td>
-                                    <td>Affiche le produit pharmaceutique par code.</td>
+                                    <td>Affiche le produit pharmaceutique selon le code du produit pharmaceutique spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- code du produit pharmaceutique
@@ -529,6 +542,21 @@
                                     </td>
                                     <td><strong>Oui</strong></td>
                                     <td></td>
+                                </tr>                                
+                                <tr>
+                                    <td><span class="nowrap">dpd/api/drugproduct/?status=1</span></td>
+                                    <td>Affiche les produits pharmaceutiques selon l'état spécifié dans la requête.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>1</code>&nbsp;- Approuvé</li>
+                                            <li><code>2</code>&nbsp;- Commercialisé</li>
+                                            <li><code>3</code>&nbsp;- Annulé avant commercialisation</li>
+                                            <li><code>4</code>&nbsp;- Annulé après commercialisation</li>
+                                            <li><code>6</code>&nbsp;- Dormant</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
+                                    <td>Détermine si le résultat est affiché selon un état spécifique.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/drugproduct/?lang=fr</span></td>
@@ -541,21 +569,6 @@
                                     </td>
                                     <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="nowrap">dpd/api/drugproduct/?status=1</span></td>
-                                    <td>Affiche le produit pharmaceutique selon l'état.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>1</code>&nbsp;- Approuvé</li>
-                                            <li><code>2</code>&nbsp;- Commercialisé</li>
-                                            <li><code>3</code>&nbsp;- Annulé avant commercialisation</li>
-                                            <li><code>4</code>&nbsp;- Annulé après commercialisation</li>
-                                            <li><code>6</code>&nbsp;- Dormant</li>
-                                        </ul>
-                                    </td>
-                                    <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
-                                    <td>Détermine si le résultat est affiché selon un état spécifique.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/drugproduct/?type=json</span></td>
@@ -579,9 +592,9 @@
                         </section>
                         <section>
                             <h3 id="a4.2">Format du résultat</h3>
-                            <p>Le résultat est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
 
-                            <p>Chaque&nbsp;<strong> produit pharmaceutique</strong>&nbsp;contient un objet avec les valeurs suivantes :</p>
+                            <p>Chaque objet&nbsp;<strong>&nbsp;produit pharmaceutique</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
                                     Valeurs de l'objet produit pharmaceutique
@@ -605,7 +618,6 @@
                                 <tr>
                                     <td><strong>company</strong></td>
                                     <td>L'entreprise.</td>
-
                                 </tr>
                                 <tr>
                                     <td><strong>descriptor</strong></td>
@@ -625,55 +637,96 @@
                                 </tr>
                                 <tr>
                                     <td><strong>company</strong></td>
-                                    <td>Objet entreprise contenant toutes ses valeurs.</td>
+                                    <td>L'entreprise et ses renseignement.</td>
                                 </tr>
-
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>city_name</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le nom de la ville.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>company_code</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le code attribué à l'entreprise.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>company_name</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le nom de l'entreprise.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>company_type</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le type d'entreprise.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>country_name</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le nom du pays.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>post_office_box</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le numéro de la boîte postale (s'il y a lieu).</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>postal_code</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le code postal.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>province_name</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le nom de la province.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>street_name</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le nom de la rue.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>suite_number</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le numéro de la pièce.</td>
+                                </tr>
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a4.3">Exemple de résultat</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":2049,"class_name":"Human","drug_identification_number":"00326925","brand_name":"SINEQUAN","descriptor":"","number_of_ais":"1","ai_group_no":"0107703005","company":{"city_name":"Concord","company_code":16419,"company_name":"ASPRI PHARMA CANADA INC","company_type":"DIN OWNER","country_name":"Canada","post_office_box":"","postal_code":"L4K 3T8","province_name":"Ontario","street_name":"665 Millway Avenue, Suite 31 B","suite_number":""}}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a4.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche un produit pharmaceutique selon le numéro d'identification et la langue sélectionnée&nbsp;:</p>
-                                <pre class="prettify prettyprint linenums">function getDrugProduct(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/drugproduct/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.drug_identification_number);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var DIN = document.createTextNode(data.drug_identification_number);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(DIN);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
+                        </section>
+                        <section>
+                             <h3 id="a4.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">{"drug_code":225,"class_name":"Human","drug_identification_number":"00000019","brand_name":"PLACIDYL CAP 200MG","descriptor":"","number_of_ais":"1","ai_group_no":"0107593001",
+    "company":{"city_name":"Saint-Laurent","company_code":3525,"company_name":"ABBOTT LABORATORIES, LIMITED","company_type":"DIN OWNER","country_name":"CANADA","post_office_box":"","postal_code":"H4S 1Z1","province_name":"QUÉBEC","street_name":"8401 Trans-Canada Highway","suite_number":""}}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a4.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche un produit pharmaceutique selon selon le code d'un produit pharmaceutique et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getDrugProduct(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/drugproduct/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.drug_identification_number);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var DIN = document.createTextNode(data.drug_identification_number);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(DIN);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
                         </section>
                     </section>
-                    <section>
+                    <!--Product-section-end-->
+                    <!--Product Form-section-start-->
+                    <section>                        
                         <h2 id="a5">Forme posologique</h2>
                         <p>La forme posologique est la forme sous laquelle le produit est vendu, par exemple comprimée, gélule, poudre, etc.</p>
                         <p>Un produit peut avoir plus d'une forme posologique (p.&nbsp;ex. comprimé, gélule) dans le cas d'une trousse.</p>
-
+                        <!--h3-section-start-->
                         <section>
                             <h3 id="a5.1">Paramètres</h3>
-                            <p>Il y a quatre paramètres dans la requête : id, lang, status et type.</p>
+                            <p>Il y a quatre paramètres dans la requête : id, status, lang et type.</p>
                             <table>
                                 <caption>
                                     Paramètres pour la requête
@@ -687,7 +740,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="wrap">dpd/api/form/?id=</span></td>
-                                    <td>Affiche la ou les forme(s) posologique(s) par code de produit pharmaceutique.</td>
+                                    <td>Affiche la ou les formes posologiques selon le code du produit pharmaceutique spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- code du produit pharmaceutique
@@ -695,6 +748,18 @@
                                     </td>
                                     <td><strong>Oui</strong></td>
                                     <td></td>
+                                </tr>                                
+                                <tr>
+                                    <td><span class="nowrap">dpd/api/form/?active=yes</span></td>
+                                    <td>Affiche les codes de produit et les formes posologiques qui sont actives ou pas.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            <li><code>yes</code>&nbsp;- Affiche les codes de produit et les formes posologiques qui ont une date qui est plus grande que la date d'aujourd'hui ou pas de date.</li>
+
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
+                                    <td>Détermine si le résultat retourne toutes les formes posologiques des produits ou seulement celles dont la date est plus grande que la date d'aujourd'hui ou pas de date.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/form/?lang=fr</span></td>
@@ -707,18 +772,6 @@
                                     </td>
                                     <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="nowrap">dpd/api/form/?active=yes</span></td>
-                                    <td>Affiche la forme posologique qui est active ou pas.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            <li><code>yes</code>&nbsp;- Affiche la forme posologique qui a une date qui est plus grande que la date d'aujourd'hui ou pas de date.</li>
-
-                                        </ul>
-                                    </td>
-                                    <td><strong>Non</strong>, mais par défaut affiche tous les résultats.</td>
-                                    <td>Détermine si le résultat retourne toutes les formes posologiques ou seulement celles dont la date est plus grande que la date d'aujourd'hui ou pas de date.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/form/?type=json</span></td>
@@ -742,9 +795,8 @@
                         </section>
                         <section>
                             <h3 id="a5.2">Format du résultat</h3>
-                            <p>Le résultat est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
-
-                            <p>Chaque&nbsp;<strong>forme posologique</strong>&nbsp;contient un objet avec les valeurs suivantes :</p>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>forme posologique</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
                                     Valeurs de l'objet forme posologique
@@ -765,49 +817,49 @@
                                     <td><strong>pharmaceutical_form_name</strong></td>
                                     <td>La forme posologique.</td>
                                 </tr>
-
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a5.3">Exemple de résultat</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":10776,"pharmaceutical_form_code":34,"pharmaceutical_form_name":"Liquide"}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a5.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche une forme posologique selon le numéro d'identification et la langue sélectionnée&nbsp;:</p>
-                                <pre class="prettify prettyprint linenums">function getForm(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/form/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.pharmaceutical_form_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var PharmaceuticalFormName = document.createTextNode(data.pharmaceutical_form_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(PharmaceuticalFormName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
+                        </section>
+                        <section>
+                             <h3 id="a5.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">[{"drug_code":10776,"pharmaceutical_form_code":34,"pharmaceutical_form_name":"Liquide"}]</pre>
+                        </section>
+                        <section>
+                             <h3 id="a5.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche la ou les forme posologique d'un produit selon le code d'un produit pharmaceutique et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getForm(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/form/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.pharmaceutical_form_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var PharmaceuticalFormName = document.createTextNode(data.pharmaceutical_form_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(PharmaceuticalFormName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>        
                         </section>
                     </section>
-                    <section>
+                    <!--Product Form-section-end-->
+                    <!--Packaging-section-start-->
+                    <section>                        
                         <h2 id="a6">Emballage</h2>
                         <p>Informations sur les capacités d'emballage disponible pour chaque produit pharmaceutique.</p>
-
+                        <!--h3-section-start-->
                         <section>
                             <h3 id="a6.1">Paramètres</h3>
                             <p>Il y a deux paramètres dans la requête : id et type.</p>
@@ -824,13 +876,13 @@
                                 </tr>
                                 <tr>
                                     <td><span class="wrap">dpd/api/packaging/?id=</span></td>
-                                    <td>Affiche l'emballage par code de produit pharmaceutique.</td>
+                                    <td>Affiche l'emballage selon le code du produit pharmaceutique spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- code du produit pharmaceutique
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
+                                    <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
@@ -847,17 +899,15 @@
                                     <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>La liste des emballages peut être accédée aux adresses URI suivantes ::</p>
+                            <p>La liste des emballages par produit peut être accédée à l'adresse URI suivante :</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/dpd/api/packaging/?type=json">https://api.hres.ca/dpd/api/packaging/?type=json</a></li>
-                                <li><a href="https://api.hres.ca/dpd/api/packaging/?type=json">https://api.hres.ca/dpd/api/packaging/?type=json</a></li>
+                                <li><a href="https://api.hres.ca/dpd/api/packaging/?type=json">https://api.hres.ca/dpd/api/packaging/?type=json</a></li>                                
                             </ul>
                         </section>
                         <section>
                             <h3 id="a6.2">Format du résultat</h3>
-                            <p>Le résultat est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
-
-                            <p>Chaque&nbsp;<strong>emballage</strong>&nbsp;contient un objet avec les valeurs suivantes&nbsp;:</p>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>emballage</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
                                     Valeurs de l'objet emballage
@@ -891,47 +941,48 @@
                                     <td>Le code universel des produits.</td>
                                 </tr>
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a6.3">Exemple de résultat</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":27914,"upc":"","package_size_unit":"","package_type":"","package_size":"","product_information":""}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a6.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche un emballage selon le numéro d'identification :</p>
-                                <pre class="prettify prettyprint linenums">function getPackaging(id) {
-                                var base = 'https://api.hres.ca';
-                                var uri = base + '/dpd/api/packaging/?id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.package_type);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var PackagingType = document.createTextNode(data.package_type);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(PackagingType);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
+                        </section>
+                        <section>
+                             <h3 id="a6.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">{"drug_code":11685,"upc":"055599047240","package_size_unit":"24","package_type":"Blister Pack","package_size":"Ea","product_information":""}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a6.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche les emballages selon le code d'un produit pharmaceutique&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getPackaging(id) {
+      var base = 'https://api.hres.ca';
+      var uri = base + '/dpd/api/packaging/?id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.package_type);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var PackagingType = document.createTextNode(data.package_type);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(PackagingType);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
                         </section>
                     </section>
-                    <section>
+                    <!--Packaging-section-end-->
+                    <!--Pharmaceutical Std-section-start-->
+                    <section>                        
                         <h2 id="a7">Norme pharmaceutique</h2>
                         <p>La norme qui régit la fabrication et la représentation d'un produit pharmaceutique.</p>
-
+                        <!--h3-section-start-->
                         <section>
                             <h3 id="a7.1">Paramètres</h3>
                             <p>Il y a deux paramètres dans la requête : id et type.</p>
@@ -948,7 +999,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="wrap">dpd/api/pharmaceuticalstd/?id=</span></td>
-                                    <td>Affiche la norme pharmaceutique par code de produit pharmaceutique.</td>
+                                    <td>Affiche la norme pharmaceutique selon le code du produit pharmaceutique spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- code du produit pharmaceutique
@@ -957,7 +1008,6 @@
                                     <td><strong>Oui</strong></td>
                                     <td></td>
                                 </tr>
-
                                 <tr>
                                     <td><span class="wrap">dpd/api/pharmaceuticalstd/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
@@ -980,9 +1030,8 @@
                         </section>
                         <section>
                             <h3 id="a7.2">Format du résultat</h3>
-                            <p>Le résultat est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
-
-                            <p>Chaque&nbsp;<strong> norme pharmaceutique</strong>&nbsp;contient un objet avec les valeurs suivantes&nbsp;:</p>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>norme pharmaceutique</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
                                     Valeurs de l'objet norme pharmaceutique
@@ -1000,50 +1049,52 @@
                                     <td>La norme pharmaceutique.</td>
                                 </tr>
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a7.3">Exemple de résultat</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":11535,"pharmaceutical_std":""}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a7.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche une norme pharmaceutique selon le numéro d'identification :</p>
-                                <pre class="prettify prettyprint linenums">function getPharmaceuticalStd(id) {
-                                var base = 'https://api.hres.ca';
-                                var uri = base + '/dpd/api/pharmaceuticalstd/?id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.package_type);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var PharmaceuticalStd = document.createTextNode(data.pharmaceutical_std);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(PharmaceuticalStd);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
+                        </section>
+                        <section>
+                             <h3 id="a7.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">{"drug_code":11534,"pharmaceutical_std":"MFR"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a7.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche une norme pharmaceutique selon le code d'un produit pharmaceutique :</p>
+                             <pre class="prettify prettyprint linenums">function getPharmaceuticalStd(id) {
+      var base = 'https://api.hres.ca';
+      var uri = base + '/dpd/api/pharmaceuticalstd/?id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.package_type);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var PharmaceuticalStd = document.createTextNode(data.pharmaceutical_std);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(PharmaceuticalStd);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
                         </section>
                     </section>
-                    <section>
+                    <!--Pharmaceutical Std-section-end-->
+                    <!--Route-section-start-->
+                    <section>                        
                         <h2 id="a8">Voie d'administration</h2>
                         <p>Désigne la partie du corps sur laquelle, par laquelle ou dans laquelle le produit est administré (par exemple voie orale, topique, intramusculaire, rectale, etc.).</p>
                         <p>Un produit peut avoir plus d'une voie d'administration (p. ex. voie intraveineuse, intramusculaire, intra-articulaire, etc.).</p>
+                        <!--h3-section-start-->
                         <section>
                             <h3 id="a8.1">Paramètres</h3>
-                            <p>Il y a quatre paramètres dans la requête : id, lang, active et type.</p>
+                            <p>Il y a quatre paramètres dans la requête : id, active, lang et type.</p>
                             <table>
                                 <caption>
                                     Paramètres pour la requête
@@ -1057,7 +1108,7 @@
                                 </tr>    
                                 <tr>
                                     <td><span class="nowrap">dpd/api/route/?id=</span></td>
-                                    <td>Affiche la voie d'administration par code du produit pharmaceutique.</td>
+                                    <td>Affiche la ou les voies d'administration selon le code du produit pharmaceutique spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- code du produit pharmaceutique
@@ -1065,6 +1116,17 @@
                                     </td>
                                     <td><strong>Oui</strong></td>
                                     <td></td>
+                                </tr>                                
+                                <tr>
+                                    <td><span class="nowrap">dpd/api/route/?active=yes</span></td>
+                                    <td>Affiche les voies d'administration qui sont actives ou pas.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            <li><code>yes</code>&nbsp;- Affiche les voies d'administration qui ont une date qui est plus grande que la date d'aujourd'hui ou pas de date.</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
+                                    <td>Détermine si le résultat retourne toutes les voies d'administration ou seulement celles dont la date est plus grande que la date d'aujourd'hui ou pas de date.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/route/?lang=fr</span></td>
@@ -1077,18 +1139,6 @@
                                     </td>
                                     <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="nowrap">dpd/api/route/?active=yes</span></td>
-                                    <td>Affiche la voie d'administration qui est active ou pas.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            <li><code>yes</code>&nbsp;- Affiche la voie d'administration qui a une date qui est plus grande que la date d'aujourd'hui ou pas de date.</li>
-
-                                        </ul>
-                                    </td>
-                                    <td><strong>Non</strong>, mais par défaut affiche tous les résultats.</td>
-                                    <td>Détermine si le résultat retourne toutes les voies d'administration ou seulement celles dont la date est plus grande que la date d'aujourd'hui ou pas de date.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/route/?type=json</span></td>
@@ -1112,9 +1162,9 @@
                         </section>
                         <section>
                             <h3 id="a8.2">Format du résultat</h3>
-                            <p>Le résultat est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
 
-                            <p>Chaque&nbsp;<strong> voie d'administration</strong>&nbsp;contient un objet avec les valeurs suivantes :</p>
+                            <p>Chaque objet&nbsp;<strong>voie d'administration</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
                                     Valeurs de l'objet voie d'administration
@@ -1136,44 +1186,49 @@
                                     <td>La voie d'administration.</td>
                                 </tr>
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a8.3">Exemple de résultat</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":10707,"route_of_administration_code":56,"route_of_administration_name":"Orale"}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a8.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche une voie d'administration selon le numéro d'identification et la langue sélectionnée&nbsp;:</p>
-                                <pre class="prettify prettyprint linenums">function getRoute(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/route/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.route_of_administration_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var RouteOfAdministrationName = document.createTextNode(data.route_of_administration_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(RouteOfAdministrationName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
+                        </section>   
+                        <section>
+                             <h3 id="a8.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">[{"drug_code":3,"route_of_administration_code":10,"route_of_administration_name":"Intra-articulaire"},
+    {"drug_code":3,"route_of_administration_code":33,"route_of_administration_name":"Intrapéritonéale"},
+    {"drug_code":3,"route_of_administration_code":34,"route_of_administration_name":"Intrapleurale"},
+    {"drug_code":3,"route_of_administration_code":31,"route_of_administration_name":"Intrathécale"},
+    {"drug_code":3,"route_of_administration_code":49,"route_of_administration_name":"Intraveineuse"}]</pre>
+                        </section>
+                        <section>
+                             <h3 id="a8.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche les voies d'administration selon le code d'un produit pharmaceutique et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getRoute(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/route/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.route_of_administration_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var RouteOfAdministrationName = document.createTextNode(data.route_of_administration_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(RouteOfAdministrationName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
                         </section>
                     </section>
-                    <section>
+                    <!--Route-section-end-->
+                    <!--Schedule-section-start-->
+                    <section>                        
                         <h2 id="a9">Annexe</h2>
                         <p>Chaque médicament est classé dans une ou plusieurs annexes, conformément au <i>Règlement sur les aliments et drogues</i> et à la <i>Loi réglementant certaines drogues et autres substances</i>.</p>
                         <ul>
@@ -1192,10 +1247,10 @@
                             <li>Médicaments en vente libre (OTC - Les médicaments qui ne font pas partie d'une annexe, ou <b>qui n'ont pas été recommandés pour ajout à une annexe</b>)</li>
                             <li>Spécialité médicale&nbsp;: médicament qui peut être vendu sans ordonnance en vertu des lois fédérales, mais qui est habituellement prescrit par un praticien. Les produits de spécialité médicale sont des médicaments sans ordonnance, qui ne font pas partie d'une annexe, à usage professionnel (par exemple, les agents de contraste pour imagerie par résonance magnétique (IRM) et les solutions pour l'hémodialyse) et quelques médicaments pour cas d'urgence (par exemple, la nitroglycérine).</li>
                         </ul>
-
+                        <!--h3-section-start-->
                         <section>
                             <h3 id="a9.1">Paramètres</h3>
-                            <p>Il y a quatre paramètres dans la requête : id, lang, active et type.</p>
+                            <p>Il y a quatre paramètres dans la requête : id, active, lang et type.</p>
                             <table>
                                 <caption>
                                     Paramètres pour la requête
@@ -1209,7 +1264,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/schedule/?id=</span></td>
-                                    <td>Affiche l'annexe par code de produit pharmaceutique.</td>
+                                    <td>Affiche la ou les annexes selon le code du produit pharmaceutique spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- code du produit pharmaceutique
@@ -1217,6 +1272,18 @@
                                     </td>
                                     <td><strong>Oui</strong></td>
                                     <td></td>
+                                </tr>                               
+                                <tr>
+                                    <td><span class="nowrap">dpd/api/schedule/?active=yes</span></td>
+                                    <td>Affiche les annexes qui sont actives ou pas.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            <li><code>yes</code>&nbsp;- Affiche les annexes qui ont une date qui est plus grande que la date d'aujourd'hui ou pas de date.</li>
+
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
+                                    <td>Détermine si le résultat retourne toutes les annexes ou seulement celles dont la date est plus grande que la date d'aujourd'hui ou pas de date.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/schedule/?lang=fr</span></td>
@@ -1229,18 +1296,6 @@
                                     </td>
                                     <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="nowrap">dpd/api/schedule/?active=yes</span></td>
-                                    <td>Affiche l'annexe qui est active ou pas.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            <li><code>yes</code>&nbsp;- Affiche l'annexe qui a une date qui est plus grande que la date d'aujourd'hui ou pas de date.</li>
-
-                                        </ul>
-                                    </td>
-                                    <td><strong>Non</strong>, mais par défaut affiche tous les résultats.</td>
-                                    <td>Détermine si le résultat retourne toutes les annexes ou seulement celles dont la date est plus grande que la date d'aujourd'hui ou pas de date.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/schedule/?type=json</span></td>
@@ -1264,9 +1319,8 @@
                         </section>
                         <section>
                             <h3 id="a9.2">Format du résultat</h3>
-                            <p>Le résultat est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
-
-                            <p>Chaque&nbsp;<strong>annexe</strong>&nbsp;contient un objet avec les valeurs suivantes :</p>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>annexe</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
                                     Valeurs de l'objet annexe
@@ -1284,46 +1338,45 @@
                                     <td>L'annexe conformément au <i>Règlement sur les aliments et drogues</i> et à la <i>Loi réglementant certaines drogues et autres substances</i>.</td>
                                 </tr>
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a9.3">Exemple de résultat</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":10686,"schedule_name":"En vente libre"}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a9.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche une annexe selon le numéro d'identification et la langue sélectionnée&nbsp;:</p>
-                                <pre class="prettify prettyprint linenums">function getSchedule(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/schedule/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.schedule_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var ScheduleName = document.createTextNode(data.schedule_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(ScheduleName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
+                        </section>
+                        <section>
+                             <h3 id="a9.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">[{"drug_code":10687,"schedule_name":"Prescription"},{"drug_code":10687,"schedule_name":"Annexe D"}]</pre>
+                        </section>
+                        <section>
+                             <h3 id="a9.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche les annexes selon le code d'un produit pharmaceutique et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getSchedule(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/schedule/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.schedule_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var ScheduleName = document.createTextNode(data.schedule_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(ScheduleName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                           
                         </section>
                     </section>
-
-
-                    <section>
+                    <!--Schedule-section-end-->
+                    <!--Status-section-start-->
+                    <section>                       
                         <h2 id="a10">État</h2>
                         <p>Les états énumérés ci-dessous sont une représentation directe des états qui apparaissent dans l'outil de Recherche de produits pharmaceutiques en ligne de la BDPP et la description de chaque état est présenté ci-dessous&nbsp;: </p>
                         <ul>
@@ -1335,7 +1388,7 @@
                             <li><strong>Commercialisé</strong>&nbsp;: fait référence à un DIN actif pour une drogue actuellement vendue au Canada.</li>
                             <li><strong>Dormant</strong>&nbsp;: fait référence à un DIN actif pour une drogue qui était commercialisée au Canada dont le fabricant a suspendu la vente pendant au moins 12 mois.</li>
                         </ul>
-
+                        <!--h3-section-start-->
                         <section>
                             <h3 id="a10.1">Paramètres</h3>
                             <p>Il y a trois paramètres dans la requête : id, lang et type.</p>
@@ -1352,7 +1405,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/status/?id=</span></td>
-                                    <td>Affiche l'état par code de produit pharmaceutique.</td>
+                                    <td>Affiche l'état du produit selon le code du produit pharmaceutique spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- code du produit pharmaceutique
@@ -1395,9 +1448,8 @@
                         </section>
                         <section>
                             <h3 id="a10.2">Format du résultat</h3>
-                            <p>Le résultat est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
-
-                            <p>Chaque&nbsp;<strong>état</strong>&nbsp;contient un objet avec les valeurs suivantes :</p>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>état</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
                                     Valeurs de l'objet état
@@ -1434,50 +1486,49 @@
                                     <td><strong>status</strong></td>
                                     <td>Le nom de l'état.</td>
                                 </tr>
-
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a10.3">Exemple de résultat</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":10229,"status":"Annulé après commercialisation","history_date":"1997-10-15","original_market_date":"1989-12-31","external_status_code":4,"expiration_date":null,"lot_number":0}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a10.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche un état selon le numéro d'identification et la langue sélectionnée&nbsp;:</p>
-                                <pre class="prettify prettyprint linenums">function getStatus(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/status/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.status_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var StatusName = document.createTextNode(data.status_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(StatusName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
+                        </section>
+                        <section>
+                             <h3 id="a10.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">[{"drug_code":10229,"status":"Annulé après commercialisation","history_date":"1997-10-15","original_market_date":"1989-12-31","external_status_code":4,"expiration_date":null,"lot_number":0}]</pre>
+                        </section>
+                        <section>
+                             <h3 id="a10.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche l'état d'un produit selon le code d'un produit pharmaceutique et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getStatus(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/status/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.status_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var StatusName = document.createTextNode(data.status_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(StatusName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
                         </section>
                     </section>
-
-                    <section>
+                    <!--Status-section-end-->
+                    <!--Therapeutic class-section-start-->
+                    <section>                        
                         <h2 id="a11">Classe thérapeutique</h2>
                         <p>Classe attribuée à un médicament en fonction du principal usage thérapeutique.</p>
-
+                        <!--h3-section-start-->
                         <section>
                             <h3 id="a11.1">Paramètres</h3>
                             <p>Il y a trois paramètres dans la requête : id, lang et type.</p>
@@ -1494,7 +1545,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/therapeuticclass/?id=</span></td>
-                                    <td>Affiche la classe thérapeutique par code de produit pharmaceutique.</td>
+                                    <td>Affiche la classe thérapeutique selon le code du produit pharmaceutique spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- code du produit pharmaceutique
@@ -1537,9 +1588,9 @@
                         </section>
                         <section>
                             <h3 id="a11.2">Format du résultat</h3>
-                            <p>Le résultat est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
 
-                            <p>Chaque&nbsp;<strong>classe thérapeutique</strong>&nbsp;contient un objet avec les valeurs suivantes :</p>
+                            <p>Chaque objet&nbsp;<strong>classe thérapeutique</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
                                     Valeurs de l'objet classe thérapeutique
@@ -1568,49 +1619,49 @@
                                     <td><strong>tc_atc_number</strong></td>
                                     <td>Le code anatomique, thérapeutique, chimique.</td>
                                 </tr>
-
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a11.3">Exemple de résultat</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":10564,"tc_atc_number":"V07AV","tc_atc":"TECHNICAL DISINFECTANTS","tc_ahfs_number":"38:00.00","tc_ahfs":"DISINFECTANTS (FOR AGENTS USED ON OBJECT)"}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a11.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche une classe thérapeutique selon le numéro d'identification et la langue sélectionnée&nbsp;:</p>
-                                <pre class="prettify prettyprint linenums">function getTherapeuticClass(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/therapeuticclass/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.TcAtcDescName);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var TcAtcDescName = document.createTextNode(data.TcAtcDescName);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(TcAtcDescName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
+                        </section>                            
+                       <section>
+                            <h3 id="a11.3">Exemple de résultat</h3>
+                            <pre class="prettify prettyprint linenums">{"drug_code":10564,"tc_atc_number":"V07AV","tc_atc":"TECHNICAL DISINFECTANTS","tc_ahfs_number":"38:00.00","tc_ahfs":"DISINFECTANTS (FOR AGENTS USED ON OBJECT)"}</pre>
+                       </section>
+                       <section>
+                            <h3 id="a11.4">Exemple de jQuery</h3>
+                            <p>Exemple d'une fonctionnalité qui recherche une classe thérapeutique selon le code d'un produit pharmaceutique et la langue sélectionnée&nbsp;:</p>
+                            <pre class="prettify prettyprint linenums">function getTherapeuticClass(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/therapeuticclass/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.TcAtcDescName);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var TcAtcDescName = document.createTextNode(data.TcAtcDescName);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(TcAtcDescName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
                         </section>
                     </section>
-                    <section>
+                    <!--Therapeutic class -section-end-->
+                    <!--Species-section-start-->
+                    <section>                        
                         <h2 id="a12">Espèces animales</h2>
                         <p>Les espèces auxquelles les produits vétérinaires sont destinés (p.&nbsp;ex. mouton, chien, bovin et volaille).</p>
-
+                        <!--h3-section-start-->
                         <section>
                             <h3 id="a12.1">Paramètres</h3>
                             <p>Il y a trois paramètres dans la requête : id, lang et type.</p>
@@ -1627,7 +1678,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">dpd/api/veterinaryspecies/?id=</span></td>
-                                    <td>Affiche l'espèce animale par code de produit pharmaceutique.</td>
+                                    <td>Affiche la ou les espèces animales selon le code du produit pharmaceutique spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- code du produit pharmaceutique
@@ -1670,9 +1721,8 @@
                         </section>
                         <section>
                             <h3 id="a12.2">Format du résultat</h3>
-                            <p>Le résultat est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
-
-                            <p>Chaque&nbsp;<strong>espèce animale</strong>&nbsp;contient un objet avec les valeurs suivantes :</p>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>espèce animale</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
                                     Valeurs de l'objet espèce animale
@@ -1690,44 +1740,45 @@
                                     <td>L'espèce animale.</td>
                                 </tr>
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a12.3">Exemple de résultat</h3>
-                                <pre class="prettify prettyprint linenums">{"drug_code":13755,"vet_species_name":"Chiens"}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a12.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche une espèce animale selon le numéro d'identification et la langue sélectionnée&nbsp;:</p>
-                                <pre class="prettify prettyprint linenums">function getVeterinarySpecies(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/veterinaryspecies/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.vet_species_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var VetSpeciesName = document.createTextNode(data.vet_species_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(VetSpeciesName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };</pre>
-                            </section>
+                        </section>  
+                        <section>
+                             <h3 id="a12.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">[{"drug_code":13755,"vet_species_name":"Cheveaux"},
+    {"drug_code":13755,"vet_species_name":"Chats"},
+    {"drug_code":13755,"vet_species_name":"Chiens"}]</pre>
                         </section>
-                    </section>
-                </section>
+                        <section>
+                             <h3 id="a12.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche les espèces animales selon le code d'un produit pharmaceutique et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getVeterinarySpecies(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/veterinaryspecies/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.vet_species_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var VetSpeciesName = document.createTextNode(data.vet_species_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(VetSpeciesName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };         </pre>                            
+                        </section>
+                    </section><!--Species-section-end-->
+                </section><!--END Entire Doc Section-->
             </div>
             <!-- prefooter-fr.html-Start-->
             <div id="def-preFooter">

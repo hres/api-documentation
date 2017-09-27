@@ -101,7 +101,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a3">Notice Of Compliance</a>
+                                <a href="#a3">Notice of Compliance</a>
                                 <ul>
                                     <li><a href="#a3.1">Parameters</a></li>
                                     <li><a href="#a3.2">Response format</a></li>
@@ -156,7 +156,6 @@
                             </li>
                         </ul>
                     </section>
-
                     <section>
                         <h2 id="a1">Introduction</h2>
                         <p>A Notice of Compliance (NOC) is issued to a manufacturer following the satisfactory review of a submission for a new drug, and signifies compliance with the Food and Drug Regulations.</p>
@@ -164,8 +163,8 @@
                         <p>This Application Programming Interface (API) allows developers to access that information in JSON, XML and CSV format for reuse in their own applications.</p>
                         <p>The base URI for the Notice of Compliance Database &nbsp;<a href="https://api.hres.ca/noc/api/">https://api.hres.ca/noc/api/</a>. Any requests are made relative to this URI.</p>
                     </section>
-
-                    <section>
+                    <!--Brand-section-start-->  
+                    <section>                        
                         <h2 id="a2">Brand</h2>
                         <p>The brand name is the unique name under which the manufacturer of a drug product advertises and sells it.</p>
                         <!--h3-section-start-->
@@ -185,7 +184,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">noc/api/brand/?id=</span></td>
-                                    <td>Search for Notice of Compliance according to the identification number of the brand specify in the request.</td>
+                                    <td>Returns brand according to the identification number of the brand specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- identification number of the brand
@@ -226,12 +225,11 @@
                                 <li><a href="https://api.hres.ca/noc/api/brand/?lang=fr&type=json">https://api.hres.ca/noc/api/brand/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
-
                         <section>
                             <h3 id="a2.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
-                            <p>Each&nbsp;<strong>Brand</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>brand</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
                                     Brand object values
@@ -253,46 +251,44 @@
                                     <td>The brand name for the drug product.</td>
                                 </tr>
                             </table>
-
-                            <section>
-                                <h3 id="a2.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"noc_number":8267,"noc_br_brand_id":8714,"noc_br_brandname":"AGRYLIN"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a2.4">jQuery example</h3>
-                                <p>Example for a function of brand to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getBrand(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/brand/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.brand_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Brand = document.createTextNode(data.brand_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(Brand);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-                    </section><!--END of Brand-->
-                    <!--BEGIN of Notice of Compliance-->
+                        <section>
+                             <h3 id="a2.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">{"noc_number":8267,"noc_br_brand_id":8714,"noc_br_brandname":"AGRYLIN"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a2.4">jQuery example</h3>
+                             <p>Example of a function that search for a brand given the identification number of a brand and language selection:</p>
+                             <pre class="prettify prettyprint linenums">function getBrand(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/brand/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.brand_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var Brand = document.createTextNode(data.brand_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(Brand);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
+                        </section>
+                    </section>
+                    <!--Brand-section-end-->
+                    <!--Notice of Compliance section-start---->
                     <section>
                         <h2 id="a3">Notice of Compliance</h2>
                         <p>An NOC/c is the authorization to market a drug ([such as (i.e.)] a Notice of Compliance (NOC)), with the condition that the manufacturer carries out more studies to verify the clinical benefit. The NOC, qualifying under the NOC/c policy (Notice of Compliance with Conditions: Revised Policy), is issued under section C.08.004 of the <i>Food and Drug Regulations</i>. </p>
@@ -313,10 +309,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">noc/api/noticeofcompliancemain/?id=</span></td>
-                                    <td>Returns notice of compliance by id.</td>
+                                    <td>Returns a notice of compliance according to the notice of compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- ID of the notice of compliance
+                                            #####&nbsp;- number of the notice of compliance
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -348,17 +344,15 @@
                                     <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
                                 </tr>
                             </table>
-                            <p>Brands can be accessed via these URIs:</p>
+                            <p>Notices of Compliance can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=en&type=json">https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=fr&type=json">https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=fr&type=json</a></li>                                
                             </ul>
                         </section>
-
                         <section>
                             <h3 id="a3.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
-
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>Notice of Compliance</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
@@ -383,7 +377,7 @@
                                 <tr>
                                     <td><strong>noc_status_with_conditions</strong></td>
                                     <td>Whether the product was authorized under the Notice of Compliance with Conditions Policy.</td>
-                                </tr>                                
+                                </tr>
                                 <tr>
                                     <td><strong>noc_on_submission_type</strong></td>
                                     <td>The submission type.</td>
@@ -393,17 +387,17 @@
                                     <td>Whether the submission is a supplement.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>"noc_submission_class</strong></td>
+                                    <td><strong>noc_submission_class</strong></td>
                                     <td>The submission class.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>"noc_is_admin</strong></td>
+                                    <td><strong>noc_is_admin</strong></td>
                                     <td>Whether the submission was filed administratively.</td>
-                                </tr>                                 
+                                </tr>
                                 <tr>
                                     <td><strong>noc_product_type</strong></td>
                                     <td>The type of drug product.</td>
-                                </tr>                                
+                                </tr>
                                 <tr>
                                     <td><strong>noc_crp_product_name</strong></td>
                                     <td>The name of the Canadian Reference Product.</td>
@@ -419,7 +413,7 @@
                                 <tr>
                                     <td><strong>noc_active_status</strong></td>
                                     <td>Whether or not the Notice of Compliance is active or suspended.</td>
-                                </tr>                                
+                                </tr>
                                 <tr>
                                     <td><strong>noc_reason_supplement</strong></td>
                                     <td>If the submission is a supplement, the reason for the supplement.</td>
@@ -431,54 +425,51 @@
                                 <tr>
                                     <td><strong>noc_therapeutic_class</strong></td>
                                     <td>The therapeutic class of a drug product.</td>
-                                </tr>                                
+                                </tr>
                                 <tr>
                                     <td><strong>noc_last_update_date</strong></td>
                                     <td>The date that the Notice of Compliance was last updated.</td>
-                                </tr>                                
+                                </tr>
                             </table>
-
-                            <section>
-                                <h3 id="a3.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"noc_number":403,"noc_date":"2002-03-13","noc_submission_number":"N/A","noc_manufacturer_name":"AVENTIS PASTEUR LIMITED","noc_status_with_conditions":"N","noc_qn_fname":"","noc_dhcpl_fname":"","noc_factsheet_fname":"","noc_on_submission_type":"Supplement to a New Drug Submission (SNDS)","noc_is_suppliment":"Y","noc_submission_class":"Other","noc_is_admin":"N","noc_product_type":"Biologic","noc_file_number":"N/A","noc_crp_product_name":"","noc_crp_company_name":"","noc_crp_country_name":"","noc_active_status":"1","noc_scanned_page":"N/A","noc_reason_supplement":"NEW MANUFACTURING FACILITY","noc_reason_submission":"","noc_therapeutic_class":"ACTIVE IMMUNIZING AGENT","noc_notes":"","noc_notes_entry_date":"1111-11-11","noc_last_update_date":"1111-11-11","noc_entry_date":"1111-11-11","noc_sbd_fname":"","noc_nd_fname":"","noc_ci_part_iii_fname":"","noc_pm_fname":""}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a3.4">jQuery example</h3>
-                                <p>Example of a function that search for a notice of compliance given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function GetNoticeOfComplianceMain(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/noticeofcompliancemain/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.notice_of_compliance_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Brand = document.createTextNode(data.notice_of_compliance_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(NoticeOfCompliance);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-                    </section><!--END of Notice of Compliance-->
-
-                    <section>
-                        <!--BEGIN of Product-->
+                        <section>
+                             <h3 id="a3.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">{"noc_number":403,"noc_date":"2002-03-13","noc_submission_number":"N/A","noc_manufacturer_name":"AVENTIS PASTEUR LIMITED","noc_status_with_conditions":"N","noc_qn_fname":"","noc_dhcpl_fname":"","noc_factsheet_fname":"","noc_on_submission_type":"Supplement to a New Drug Submission (SNDS)","noc_is_suppliment":"Y","noc_submission_class":"Other","noc_is_admin":"N","noc_product_type":"Biologic","noc_file_number":"N/A","noc_crp_product_name":"","noc_crp_company_name":"","noc_crp_country_name":"","noc_active_status":"1","noc_scanned_page":"N/A","noc_reason_supplement":"NEW MANUFACTURING FACILITY","noc_reason_submission":"","noc_therapeutic_class":"ACTIVE IMMUNIZING AGENT","noc_notes":"","noc_notes_entry_date":"1111-11-11","noc_last_update_date":"1111-11-11","noc_entry_date":"1111-11-11","noc_sbd_fname":"","noc_nd_fname":"","noc_ci_part_iii_fname":"","noc_pm_fname":""}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a3.4">jQuery example</h3>
+                             <p>Example of a function that search for a notice of compliance given a notice of compliance number and language selection:</p>
+                             <pre class="prettify prettyprint linenums">function GetNoticeOfComplianceMain(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/noticeofcompliancemain/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+               success:function(data){
+                            console.log(data.notice_of_compliance_name);
+                            var frag = document.createDocumentFragment();
+                            var h2 = document.createElement(&quot;h2&quot;);
+                            var Brand = document.createTextNode(data.notice_of_compliance_name);
+                            var p = document.createElement(&quot;p&quot;);
+                            var text = document.createTextNode(data.panels[0].text);
+                            h2.appendChild(NoticeOfCompliance);
+                            p.appendChild(text);
+                            frag.appendChild(h2);
+                            frag.appendChild(p);
+                            $(&quot;#responses&quot;)[0].appendChild(frag);
+               },
+               error:function(error){
+               },
+      });
+      return;
+ };			</pre>
+                        </section>
+                    </section>
+                    <!--Notice of Compliance section-end---->
+                    <!--Product section-start-->
+                    <section>                       
                         <h2 id="a4">Product</h2>
                         <p>TODO put description of product.....</p>
                         <!--h3-section-start-->
@@ -498,10 +489,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">noc/api/product/?id=</span></td>
-                                    <td>Returns product by id.</td>
+                                    <td>Returns product according to the identification number of the DIN product specified in the request..</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- ID of the product
+                                            #####&nbsp;- identification number of the DIN product
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -539,12 +530,11 @@
                                 <li><a href="https://api.hres.ca/noc/api/product/?lang=fr&type=json">https://api.hres.ca/noc/api/product/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
-
                         <section>
                             <h3 id="a4.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
-                            <p>Each&nbsp;<strong>Product</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>product</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
                                     Product object values
@@ -569,50 +559,46 @@
                                     <td><strong>noc_br_din</strong></td>
                                     <td>The Drug Identification Number.</td>
                                 </tr>
-
                             </table>
-
-                            <section>
-                                <h3 id="a4.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"noc_number":6475,"noc_br_product_id":12401,"noc_br_brand_id":6805,"noc_br_din":"02038358"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a4.4">jQuery example</h3>
-                                <p>Example of a function that search for a product given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getProduct(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/product/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.product_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Ingredient = document.createTextNode(data.product_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(Product);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-                    </section><!-- -->
-
-                    <section>
-                        <!--BEGIN of Product Form-->
+                        <section>
+                             <h3 id="a4.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">{"noc_number":6475,"noc_br_product_id":12401,"noc_br_brand_id":6805,"noc_br_din":"02038358"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a4.4">jQuery example</h3>
+                             <p>Example of a function that search for a product given the identification number of a DIN product and language selection:</p>
+                             <pre class="prettify prettyprint linenums">function getProduct(id, lang) {
+     var base = 'https://imsd.hres.ca';
+     var uri = base + '/dpd/api/product/?lang=' + lang + '&id=' + id;
+     $.ajax({
+             url:uri,
+             type:'GET',
+             Accept:&quot;application/json&quot;,
+             dataType: 'json',
+             success:function(data){
+                          console.log(data.product_name);
+                          var frag = document.createDocumentFragment();
+                          var h2 = document.createElement(&quot;h2&quot;);
+                          var Ingredient = document.createTextNode(data.product_name);
+                          var p = document.createElement(&quot;p&quot;);
+                          var text = document.createTextNode(data.panels[0].text);
+                          h2.appendChild(Product);
+                          p.appendChild(text);
+                          frag.appendChild(h2);
+                          frag.appendChild(p);
+                          $(&quot;#responses&quot;)[0].appendChild(frag);
+             },
+             error:function(error){
+             },
+     });
+     return;
+ };			</pre> 
+                        </section>
+                    </section>
+                    <!--Product section-end---->
+                    <!--Product Form section-start-->
+                    <section>                        
                         <h2 id="a5">Product Form</h2>
                         <p>TODO put description of product form.....</p>
                         <!--h3-section-start-->
@@ -632,10 +618,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">noc/api/productform/?id=</span></td>
-                                    <td>Returns product form by id.</td>
+                                    <td>Returns product form according to the identification number of the product form specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- ID of the product form
+                                            #####&nbsp;- identification number of the product form
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -673,12 +659,11 @@
                                 <li><a href="https://api.hres.ca/noc/api/productform/?lang=fr&type=json">https://api.hres.ca/noc/api/productform/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
-
                         <section>
                             <h3 id="a5.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
-                            <p>Each&nbsp;<strong>Product Form</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>product form</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
                                     Product Form object values
@@ -700,47 +685,45 @@
                                     <td>The pharmaceutical form.</td>
                                 </tr>
                             </table>
-
-                            <section>
-                                <h3 id="a5.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"noc_number":1136,"noc_pf_din_product_id":2219,"noc_pf_form_name":"Capsule"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a5.4">jQuery example</h3>
-                                <p>Example of a function that search for a product form given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getProductForm(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/productform/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.product_form_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Ingredient = document.createTextNode(data.product_form_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(ProductForm);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-                    </section><!--END of Product Form-->
-                    <section>
-                        <!--BEGIN of Product Ingredient-->
+                        <section>
+                             <h3 id="a5.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">{"noc_number":15761,"noc_pf_din_product_id":31036,"noc_pf_form_name":"Tablet For Suspension"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a5.4">jQuery example</h3>
+                             <p>Example of a function that search for a product form given an identification number and language selection:</p>
+                             <pre class="prettify prettyprint linenums">function getProductForm(id, lang) {
+     var base = 'https://imsd.hres.ca';
+     var uri = base + '/dpd/api/productform/?lang=' + lang + '&id=' + id;
+     $.ajax({
+             url:uri,
+             type:'GET',
+             Accept:&quot;application/json&quot;,
+             dataType: 'json',
+             success:function(data){
+                          console.log(data.product_form_name);
+                          var frag = document.createDocumentFragment();
+                          var h2 = document.createElement(&quot;h2&quot;);
+                          var Ingredient = document.createTextNode(data.product_form_name);
+                          var p = document.createElement(&quot;p&quot;);
+                          var text = document.createTextNode(data.panels[0].text);
+                          h2.appendChild(ProductForm);
+                          p.appendChild(text);
+                          frag.appendChild(h2);
+                          frag.appendChild(p);
+                          $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+     });
+     return;
+ };			</pre> 
+                        </section>
+                    </section>
+                    <!--Product Form section-end-->
+                    <!--Product Ingredient section-start-->    
+                    <section>                        
                         <h2 id="a6">Product Ingredient</h2>
                         <p>TODO put description of product ingredient.....</p>
                         <!--h3-section-start-->
@@ -760,10 +743,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">noc/api/productingredient/?id=</span></td>
-                                    <td>Returns product ingredient by id.</td>
+                                    <td>Returns product ingredient according to the identification number of the product ingredient specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- ID of the product ingredient
+                                            #####&nbsp;- identification number of the product ingredient
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -801,12 +784,11 @@
                                 <li><a href="https://api.hres.ca/noc/api/productingredient/?lang=fr&type=json">https://api.hres.ca/noc/api/productingredient/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
-
                         <section>
                             <h3 id="a6.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
-                            <p>Each&nbsp;<strong>Product Ingredient</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>product ingredient</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
                                     Product Ingredient object values
@@ -838,49 +820,47 @@
                                 <tr>
                                     <td><strong>noc_pi_basic_unit</strong></td>
                                     <td>The medicinal ingredient dosage unit.</td>
-                                </tr>                                
+                                </tr>
                             </table>
-
-                            <section>
-                                <h3 id="a6.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"noc_number":8558,"noc_pi_din_product_id":15903,"noc_pi_medic_ingr_name":"CILAZAPRIL MONOHYDRATE","noc_pi_strength":1,"noc_pi_unit":"MG","noc_pi_basic_unit":"TAB","noc_pi_base":"X"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a6.4">jQuery example</h3>
-                                <p>Example of a function that search for a product ingredient given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getProductIngredient(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/productingredient/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.product_ingredient_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Ingredient = document.createTextNode(data.product_ingredient_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(ProductIngredient);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-                    </section><!--END of Product Ingredient-->
-                    <section>
-                        <!--BEGIN of Product Route-->
+                        <section>
+                             <h3 id="a6.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">{"noc_number":8558,"noc_pi_din_product_id":15903,"noc_pi_medic_ingr_name":"CILAZAPRIL MONOHYDRATE","noc_pi_strength":1,"noc_pi_unit":"MG","noc_pi_basic_unit":"TAB"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a6.4">jQuery example</h3>
+                             <p>Example of a function that search for a product ingredient given the identification number of a product ingredient  and language selection:</p>
+                             <pre class="prettify prettyprint linenums">function getProductIngredient(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/productingredient/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.product_ingredient_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var Ingredient = document.createTextNode(data.product_ingredient_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(ProductIngredient);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+               },
+               error:function(error){
+               },
+      });
+      return;
+ };			</pre>
+                        </section>
+                    </section>
+                    <!--Product Ingredient section-end-->
+                    <!--Product Route section-start-->  
+                    <section>                       
                         <h2 id="a7">Product Route</h2>
                         <p>This term indicates the part of the body on which, through which or into which the product is to be introduced. (e.g. oral, topical, intramuscular, rectal, etc.)</p>
                         <p>A product can have more than one route of administration (e.g. intravenous, intramuscular, intra-articular, etc.).</p>
@@ -901,10 +881,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">noc/api/productroute/?id=</span></td>
-                                    <td>Returns product route by id.</td>
+                                    <td>Returns product route according to the identification number of the product route specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- ID of the product route
+                                            #####&nbsp;- identification number of the product route
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -942,12 +922,10 @@
                                 <li><a href="https://api.hres.ca/noc/api/productroute/?lang=fr&type=json">https://api.hres.ca/noc/api/productroute/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
-
                         <section>
                             <h3 id="a7.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
-
-                            <p>Each&nbsp;<strong>Product Route</strong>&nbsp;object consists of the following values:</p>
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
+                            <p>Each&nbsp;<strong>product route</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
                                     Product Route object values
@@ -969,48 +947,45 @@
                                     <td>The route of administration.</td>
                                 </tr>
                             </table>
-
-                            <section>
-                                <h3 id="a7.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"noc_number":2963,"noc_pr_din_product_id":5634,"noc_pr_route":"Intramuscular"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a7.4">jQuery example</h3>
-                                <p>Example of a function that search for a product route given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getProductIngredient(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/productroute/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.product_route_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Ingredient = document.createTextNode(data.product_route_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(ProductRoute);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-                    </section><!--END of Product Route-->
-
-                    <section>
-                        <!--BEGIN of Veterinary Species-->
+                        <section>
+                             <h3 id="a7.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">{"noc_number":2963,"noc_pr_din_product_id":5634,"noc_pr_route":"Intramuscular"}</pre>
+                       </section>
+                       <section>
+                             <h3 id="a7.4">jQuery example</h3>
+                             <p>Example of a function that search for a product route given the identification number of a product route and language selection:</p>
+                             <pre class="prettify prettyprint linenums">function getProductIngredient(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/productroute/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.product_route_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var Ingredient = document.createTextNode(data.product_route_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(ProductRoute);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>
+                        </section>
+                    </section>
+                    <!--Product Route section-end-->
+                    <!--Veterinary Species section-start--> 
+                    <section>                        
                         <h2 id="a8">Veterinary Species</h2>
                         <p>TODO put description of veterinary species.....</p>
                         <!--h3-section-start-->
@@ -1030,10 +1005,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">noc/api/vetspecies/?id=</span></td>
-                                    <td>Returns veterinary species by id.</td>
+                                    <td>Returns veterinary species according to the identification number of the veterinary specie specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- ID of the veterinary species
+                                            #####&nbsp;- identification number of the veterinary specie
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -1071,12 +1046,11 @@
                                 <li><a href="https://api.hres.ca/noc/api/vetspecies/?lang=fr&type=json">https://api.hres.ca/noc/api/vetspecies/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
-
                         <section>
                             <h3 id="a8.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
-                            <p>Each&nbsp;<strong>Veterinary Species</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>veterinary species</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
                                     Veterinary Species object values
@@ -1094,47 +1068,43 @@
                                     <td>The animal species description.</td>
                                 </tr>
                             </table>
-
-                            <section>
-                                <h3 id="a8.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"noc_number":6702,"vet_species_desc":"DOGS"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a8.4">jQuery example</h3>
-                                <p>Example of a function that search for a veterinary species given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getProductIngredient(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/vetspecies/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.veterinary_species_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Species = document.createTextNode(data.veterinary_species_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(VeterinarySpecies);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-                    </section><!--END of Veterinary Species-->
-
-                </section><!--END Entire Doc Section-->
+                        <section>
+                             <h3 id="a8.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">{"noc_number":12051,"vet_species_desc":"PASTURE CATTLE (NON-LACTATING)"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a8.4">jQuery example</h3>
+                             <p>Example of a function that search for veterinary species given the identification number of a veterinary specie and language selection:</p>
+                             <pre class="prettify prettyprint linenums">function getProductIngredient(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/vetspecies/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.veterinary_species_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var Species = document.createTextNode(data.veterinary_species_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(VeterinarySpecies);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ }; 			</pre>
+                        </section>
+                    </section><!--Veterinary Species Section end-->
+                </section><!--Entire Doc Section end-->
             </div>
             <!-- prefooter-en.html-Start-->
             <div id="def-preFooter">

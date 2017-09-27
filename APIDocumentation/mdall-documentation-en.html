@@ -17,8 +17,8 @@
     <meta name="dcterms.contributor" content="" />
     <meta name="dcterms.type" title="gctype" content="" />
     <meta name="dcterms.audience" title="gcaudience" content="public" />
-    <meta name="dcterms.issued" title="W3CDTF" content="2017-06-27" />
-    <meta name="dcterms.modified" title="W3CDTF" content="2018-06-27" />
+    <meta name="dcterms.issued" title="W3CDTF" content="2017-11-30" />
+    <meta name="dcterms.modified" title="W3CDTF" content="2017-11-30" />
     <meta name="review_date" content="" />
     <meta name="meta_date" content="" />
 
@@ -152,20 +152,20 @@
                     <section>
                         <h2 id="a1">Introduction</h2>
                         <p>Health Canada is the federal regulator of therapeutic products, including medical devices. We do not provide medical advice on the use of the products identified in this listing.
-                        <p>The Medical Devices Bureau (Bureau) of the Therapeutic Products Directorate, Health Canada is the Canadian federal regulator responsible for licensing medical devices in accordance with the Food and Drugs Act and Regulations and the Medical Devices Regulations. </p>
+                        <p>The Medical Devices Bureau (Bureau) of the Therapeutic Products Directorate, Health Canada is the Canadian federal regulator responsible for licensing medical devices in accordance with the <i>Food and Drugs Act and Regulations</i> and the <i>Medical Devices Regulations</i>. </p>
                         <p>The Bureau maintains a database of all licensed Class II, III, and IV medical devices offered for sale in Canada. Class I medical devices do not require a medical device licence and are monitored by the Health Products and Food Branch Inspectorate (Compliance and Enforcement) through Establishment Licensing.</p>
                         <p>Only products which appear in this database listing may be offered for general marketing purposes in Canada. Class I Devices, or devices which relate to Investigational Testing Authorization or Special Access do not appear in this listing.</p>
-                        <p>This Application Programming Interface (API) allows developers to access that information in JSON format for reuse in their own applications.</p>
+                        <p>This Application Programming Interface (API) allows developers to access that information in JSON, XML and CSV format for reuse in their own applications.</p>
                         <p>The base URI for the Medical Devices Active Licence Listing &nbsp;<a href="https://api.hres.ca/mall/api-v1/">https://api.hres.ca/mdall/api-v1/</a>. Any requests are made relative to this URI.</p>
                     </section>
-
                     <section>
+                        <!--Licence-section-start-->
                         <h2 id="a2">Licence</h2>
                         <p>This is the permit that is delivered for a device to a company.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a2.1">Parameters</h3>
-                            <p>There are seven parameters in the request: id, lang, status, licence_name, licence_number, company_id and format type.</p>
+                            <p>There are seven parameters in the request: id, status, licence_name, licence_number, company_id, lang and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -173,101 +173,102 @@
                                 <tr>
                                     <th scope="col">Parameter</th>
                                     <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
+                                    <th scope="col">Value</th>
                                     <th scope="col">Required?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/licence/?id=</span></td>
-                                    <td>Returns active ingredient by id.</td>
+                                    <td>Returns the licence according to the original licence number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- id of the Licence
+                                            #####&nbsp;- original licence number
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
                                     <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="nowrap">mdall/api-v1/licence/?lang=en</span></td>
-                                    <td>Changes language</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>en</code>&nbsp;- English</li>
-                                            <li><code>fr</code>&nbsp;- French</li>
-                                        </ul>
-                                    </td>
-                                    <td><strong>No</strong>, but defaults to English if not specified</td>
-                                    <td>Determines whether the response is in English or French.</td>
-                                </tr>
+                                </tr>                               
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/licence/?status=active</span></td>
-                                    <td>Changes status</td>
+                                    <td>Returns a list of licences that have a specific status.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>active</code>&nbsp;- Active</li>
                                             <li><code>archived</code>&nbsp;- Archived</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Nothing</strong>will load all licences</td>
-                                    <td>Determines whether the response is in Active or Archived.</td>
+                                    <td><strong>No</strong>, but default to all if not specified.</td>
+                                    <td>Determines whether the response is for a specific status.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/licence/?licence_name=red</span></td>
-                                    <td>Returns a list of licence where the licence name contain the word red.</td>
+                                    <td><span class="nowrap">mdall/api-v1/licence/?licence_name=flood</span></td>
+                                    <td>Returns a list of licences with flood in the licence name.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>red</code>&nbsp;- %RED% - licence name that contains the word red.</li>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            <li><code>red</code>&nbsp;- %FLOOD% - word flood in the licence name </li>
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong>will return all licences that contain red.</td>
-                                    <td></td>
+                                    <td><strong>No</strong>, but default to all if not specified.</td>
+                                    <td>Determines whether the response is for a specific licence name.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/licence/?licence_number=64507</span></td>
-                                    <td>Returns a list of licence where the licence number contain the number 64507.</td>
+                                    <td>Returns a list of licences where the licence number have the number 64507.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>64507</code>&nbsp;- %64507% - licence number that contains the number 64507.</li>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            <li><code>64507</code>&nbsp;- %64507% - licence number that haves the number 64507</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong>will return all licences that contain 64507.</td>
-                                    <td></td>
+                                    <td><strong>No</strong>, but default to all if not specified.</td>
+                                    <td>Determines whether the response is for a specific licence number.</td> 
+                                    
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/licence/?company_id=133876</span></td>
-                                    <td>Returns a list of licence for the company id 133876.</td>
+                                    <td>Returns a list of licences for the company id 133876.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>133876</code>&nbsp;- %133876% - company id 133876.</li>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            <li><code>133876</code>&nbsp;- %133876% - company id 133876</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong>will return all licences for the company id 133876.</td>
-                                    <td></td>
+                                    <td><strong>No</strong>, but default to all if not specified.</td>
+                                    <td>Determines whether the response is for a specific company id.</td>                                    
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">mdall/api-v1/licence/?lang=en</span></td>
+                                    <td>Changes the language of the response.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- English</li>
+                                            <li><code>fr</code>&nbsp;- French</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to English if not specified.</td>
+                                    <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/licence/?type=json</span></td>
-                                    <td>Changes the format of result.</td>
+                                    <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td><strong>No</strong>, but defaults to JSON if not specified.</td>
+                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
                                 </tr>
                             </table>
-                            <p>Licence can be accessed via these URIs:</p>
+                            <p>Licences can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/mdall/api-v1/licence/?status=active&type=json">https://api.hres.ca/mdall/api-v1/licence/?status=active&type=json</a></li>
                                 <li><a href="https://api.hres.ca/mdall/api-v1/licence/?status=archived&type=json">https://api.hres.ca/mdall/api-v1/licence/?status=archived&type=json</a></li>
                             </ul>
                         </section>
-
                         <section>
                             <h3 id="a2.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>licence</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -318,72 +319,69 @@
                                     <td><strong>company_id</strong></td>
                                     <td>The company identification number.</td>
                                 </tr>
-
                                 <tr>
                                     <td><strong>licence_type_desc</strong></td>
                                     <td>The licence type description.</td>
                                 </tr>
-
-                                <!--  consider removing
-
                                 <tr>
-                                    <td><strong>companyInfo</strong></td>
-                                    <td>ITEM DOES NOT EXIST IN TABLE?</td>
+                                    <td><strong>noc_location</strong></td>
+                                    <td>NEED DESCRIPTION.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>deviceList</strong></td>
-                                    <td>ITEM DOES NOT EXIST IN TABLE?</td>
+                                    <td><strong>sbd_location</strong></td>
+                                    <td>NEED DESCRIPTION.</td>
                                 </tr>
-
-                                    -->
+                                <tr>
+                                    <td><strong>has_location</strong></td>
+                                    <td>NEED DESCRIPTION.</td>
+                                </tr>
                             </table>
-
-                            <section>
-                                <h3 id="a2.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{<br /> &nbsp;"original_licence_no":1556,<br /> &nbsp;"licence_status":"I",<br /> &nbsp;"application_id":14685,<br /> &nbsp;"appl_risk_class":3,<br /> &nbsp;"licence_name":"PRIME & BOND NT",<br /> &nbsp;"first_licence_status_dt":"1999-03-16",<br /> &nbsp;"last_refresh_dt":"2013-01-29",<br /> &nbsp;"end_date":null,"licence_type_cd":"D",<br /> &nbsp;"company_id":105795,<br /> &nbsp;"licence_type_desc":"Single Device",<br /> &nbsp;"noc_location":null,<br /> &nbsp;"sbd_location":null,<br /> &nbsp;"has_location":false<br />}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a2.4">jQuery example</h3>
-                                <p>Example for a function of licence to an element with id &quot;#responses&quot;, given an ID selection:</p>
-                                <pre class="prettify prettyprint linenums">function getAllLicence(status, licence_name) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/mdall/api-v1/licence/?status=' + status + '&licence_name=' + licenceName;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.licence_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var LicenceName = document.createTextNode(data.licence_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(LicenceName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-
+                        <section>
+                             <h3 id="a2.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">[{"original_licence_no":1561,"licence_status":"I","application_id":15345,"appl_risk_class":2,"licence_name":"FLOOD PHANTOM","first_licence_status_dt":"1999-02-23","last_refresh_dt":"2013-01-29","end_date":null,"licence_type_cd":"F","company_id":101500,"licence_type_desc":"Device Family","noc_location":null,"sbd_location":null,"has_location":false},
+    {"original_licence_no":67624,"licence_status":"I","application_id":89957,"appl_risk_class":2,"licence_name":"FLOOD SOURCE","first_licence_status_dt":"2005-03-02","last_refresh_dt":"2013-01-29","end_date":null,"licence_type_cd":"F","company_id":117675,"licence_type_desc":"Device Family","noc_location":null,"sbd_location":null,"has_location":false}]</pre>
+                        </section>
+                        <section>
+                             <h3 id="a2.4">jQuery example</h3>                               
+                             <p>Example of a function that search for licences given a status and a licence name:</p>
+                             <pre class="prettify prettyprint linenums">function getAllLicence(status, licence_name) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/mdall/api-v1/licence/?status=' + status + '&licence_name=' + licenceName;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.licence_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var LicenceName = document.createTextNode(data.licence_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(LicenceName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
+                        </section>
                     </section>
-                    <section>
+                    <!--Licence-section-end-->
+                    <!--Company-section-start-->                    
+                    <section>                        
                         <h2 id="a3">Company</h2>
                         <p>This contains the company name and address.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a3.1">Parameters</h3>
-                            <p>There are three parameters in the request: status, id and format type.</p>
+                            <p>There are four parameters in the request: id, status, company_name and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -391,58 +389,59 @@
                                 <tr>
                                     <th scope="col">Parameter</th>
                                     <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
+                                    <th scope="col">Value</th>
                                     <th scope="col">Required?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/company/?id=</span></td>
-                                    <td>Returns company by id.</td>
+                                    <td>Returns the company according to the identification number of the company specified in the request.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- id of the company
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- identification number of the company
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
                                     <td></td>
-                                </tr>
-                                <tr>
-                                    <td><span class="nowrap">mdall/api-v1/company/?company_name=bayer</span></td>
-                                    <td>Returns all company where the company name contains the word bayer.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>%bayer%</code>&nbsp;- every company name that contain the word bayer</li>
-                                        </ul>
-                                    </td>
-                                    <td><strong>Nothing</strong>will load all companies</td>
-                                    <td>Determines whether the response is in Active or Archived.</td>
-                                </tr>
+                                </tr>                                
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/company/?status=active</span></td>
-                                    <td>Changes status</td>
+                                    <td>Returns a list of companies that have a specific status.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>active</code>&nbsp;- Active</li>
                                             <li><code>archived</code>&nbsp;- Archived</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Nothing</strong>will load all companies</td>
-                                    <td>Determines whether the response is in Active or Archived.</td>
+                                    <td><strong>No</strong>, but default to all if not specified.</td>
+                                    <td>Determines whether the response is for a specific status.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">mdall/api-v1/company/?company_name=bayer</span></td>
+                                    <td>Returns a list of companies with bayer in the company name.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            <li><code>%bayer%</code>&nbsp;- word bayer in the company name</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but default to all if not specified.</td>
+                                    <td>Determines whether the response is for a specific company name </td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/company/?type=json</span></td>
-                                    <td>Changes the format of result.</td>
+                                    <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td><strong>No</strong>, but defaults to JSON if not specified.</td>
+                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
                                 </tr>
                             </table>
-                            <p>Company can be accessed via these URIs:</p>
+                            <p>Companies can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/mdall/api-v1/company/?status=active&type=json">https://api.hres.ca/mdall/api-v1/company/?status=active&type=json</a></li>
                                 <li><a href="https://api.hres.ca/mdall/api-v1/company/?status=archived&type=json">https://api.hres.ca/mdall/api-v1/company/?status=archived&type=json</a></li>
@@ -451,7 +450,7 @@
 
                         <section>
                             <h3 id="a3.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>company</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -502,63 +501,52 @@
                                     <td><strong>company_status</strong></td>
                                     <td>The company status (active or inactive).</td>
                                 </tr>
-
-                                <!--    consider removing
-
-                                <tr>
-                                    <td><strong>licenceList</strong></td>
-                                    <td>ITEM DOES NOT EXIST IN TABLE?</td>
-                                </tr>
-
-                                -->
-
                             </table>
-                            <section>
-                                <h3 id="a3.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{<br />&nbsp;"company_id":112453,<br />&nbsp;"company_name":"MENNEN MEDICAL LTD",<br />&nbsp;"addr_line_1":"4 Ha-Yarden Street",<br />&nbsp;"addr_line_2":"",<br />&nbsp;"addr_line_3":"",<br />&nbsp;"postal_code":"0076100",<br />&nbsp;"city":"Yavne",<br />&nbsp;"country_cd":"IL",<br />&nbsp;"region_cd":"",<br />&nbsp;"company_status":"A"<br />}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a3.4">jQuery example</h3>
-                                <p>Example for a function of company to an element with id &quot;#responses&quot;, given an id and lang selection:</p>
-                                <pre class="prettify prettyprint linenums">function getCompany(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/mdall/api-v1/company/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.company_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var CompanyName = document.createTextNode(data.company_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(CompanyName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-
+                        <section>
+                             <h3 id="a3.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">{"company_id":112453,"company_name":"MENNEN MEDICAL LTD","addr_line_1":"4 Ha-Yarden Street","addr_line_2":"","addr_line_3":"","postal_code":"0076100","city":"Yavne","country_cd":"IL","region_cd":"","company_status":"A"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a3.4">jQuery example</h3>
+                             <p>Example of a function that search for a company given the identification number of a company :</p>
+                             <pre class="prettify prettyprint linenums">function getCompany(id) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/mdall/api-v1/company/?&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.company_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var CompanyName = document.createTextNode(data.company_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(CompanyName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>
+                        </section>
                     </section>
+                    <!--Company-section-end-->
+                    <!--Device-section-start--> 
                     <section>
                         <h2 id="a4">Device</h2>
                         <p>This is the device information.</p>
 
                         <section>
                             <h3 id="a4.1">Parameters</h3>
-                            <p>There are five parameters in the request: status, id, device_name, licence_number and format type.</p>
+                            <p>There are four parameters in the request: id, status, device_name, and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -566,16 +554,16 @@
                                 <tr>
                                     <th scope="col">Parameter</th>
                                     <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
+                                    <th scope="col">Value</th>
                                     <th scope="col">Required?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/device/?id=</span></td>
-                                    <td>Returns device by id.</td>
+                                    <td>Returns the device according to the device identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- id of the Device.
+                                            #####&nbsp;- device identification number
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -583,38 +571,40 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/device/?status=active</span></td>
-                                    <td>Changes status</td>
+                                    <td>Returns a list of devices that have a specific status.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>active</code>&nbsp;- Active</li>
                                             <li><code>archived</code>&nbsp;- Archived</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Nothing</strong>will load all companies</td>
-                                    <td>Determines whether the response is in Active or Archived.</td>
+                                    <td><strong>No</strong>, but default to all if not specified.</td>
+                                    <td>Determines whether the response is for a specific status.</td>
+                                </tr>                                
+                                <tr>
+                                    <td><span class="nowrap">mdall/api-v1/device/?device_name=red</span></td>
+                                    <td>Returns a list of devices with red in the device name.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            <ul class="list-unstyled mrgn-lft-0 wrap">
+                                                <li><code>red</code>&nbsp;- %RED% - word red in the device name</li>
+                                            </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but default to all if not specified.</td>
+                                    <td>Determines whether the response is for a specific device name.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/device/?type=json</span></td>
-                                    <td>Changes the format of result.</td>
+                                    <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="nowrap">mdall/api-v1/device/?device_name=red</span></td>
-                                    <td>Changes the result by name.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>Device name criteria</code>&nbsp;for example %red%</li>
-
-                                        </ul>
-                                    </td>
-                                    <td>The result will return everything where the device name contain the word red.</td>
+                                    <td><strong>No</strong>, but defaults to JSON if not specified.</td>
+                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
                                 </tr>
 
                                 <!--           search-by-device will not return devices by licence number
@@ -634,15 +624,14 @@
                                 -->
 
                             </table>
-                            <p>Device can be accessed via these URIs:</p>
+                            <p>Devices can be accessed via that URI:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/device/?type=json">https://api.hres.ca/mdall/api-v1/device/?type=json</a></li>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/device/?type=json">https://api.hres.ca/mdall/api-v1/device/?type=json</a></li>
+                                <li><a href="https://api.hres.ca/mdall/api-v1/device/?type=json">https://api.hres.ca/mdall/api-v1/device/?type=json</a></li>                                
                             </ul>
                         </section>
                         <section>
                             <h3 id="a4.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>device</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -653,7 +642,6 @@
                                     <th scope="col">Key</th>
                                     <th scope="col">Value</th>
                                 </tr>
-
                                 <tr>
                                     <td><strong>original_licence_no</strong></td>
                                     <td>The licence number.</td>
@@ -673,62 +661,53 @@
                                 <tr>
                                     <td><strong>trade_name</strong></td>
                                     <td>The name of the device.</td>
-                                </tr>
-
-                                <!-- consider removing
-
-                                <tr>
-                                    <td><strong>deviceIdentifierList</strong></td>
-                                    <td>ITEM DOES NOT EXIST IN THE TABLE?</td>
-                                </tr>
-
-                                    -->
-
+                                </tr>                              
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a4.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{<br />&nbsp;"original_licence_no":65113,<br />&nbsp;"device_id":189995,<br />&nbsp;"device_first_issue_dt":"2004-07-08",<br />&nbsp;"end_date":null,<br />&nbsp;"trade_name":"'HOPKINS' TELE-OTOSCOPE"<br />}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a4.4">jQuery example</h3>
-                                <p>Example for a function of device to an element with id &quot;#responses&quot;, given an id and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getDevice(deviceName) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/mdall/api-v1/device/?device_name=' + deviceName;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.trade_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var DeviceName = document.createTextNode(data.trade_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(DeviceName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
+                        </section>
+                        <section>
+                             <h3 id="a4.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">{"original_licence_no":65113,"device_id":189995,"device_first_issue_dt":"2004-07-08","end_date":null,"trade_name":"'HOPKINS' TELE-OTOSCOPE"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a4.4">jQuery example</h3>
+                             <p>Example of a function that search for devices given a device name:</p>
+                             <pre class="prettify prettyprint linenums">function getDevice(deviceName) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/mdall/api-v1/device/?device_name=' + deviceName;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.trade_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var DeviceName = document.createTextNode(data.trade_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(DeviceName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
                         </section>
                     </section>
+                    <!--Device-section-end-->
+                    <!--Device Identifier-section-start--> 
                     <section>
                         <h2 id="a5">Device Identifier</h2>
                         <p>This is the list of all identifiers that uniquely identify a device (on the label).</p>
 
                         <section>
                             <h3 id="a5.1">Parameters</h3>
-                            <p>There are four parameters in the request: device identifier, id, lang and format type.</p>
+                            <p>There are four parameters in the request: id, device identifier, lang and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -736,58 +715,59 @@
                                 <tr>
                                     <th scope="col">Parameter</th>
                                     <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
+                                    <th scope="col">Value</th>
                                     <th scope="col">Required?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/deviceidentifier/?id=</span></td>
-                                    <td>Returns one device identifier by device identifier name.</td>
+                                    <td>Returns a device identifier according to the device identification number specify in the request.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            Enter exact name of the device identifier ex.: RED-7
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- device identification number
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/deviceidentifier/?device_identifier=</span></td>
-                                    <td>Returns all device identifier by device identifier name.</td>
+                                    <td><span class="wrap">mdall/api-v1/deviceidentifier/?device_identifier=4017</span></td>
+                                    <td>Returns a list of device identifiers with 4017 in the device identifier.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            Enter part or full name  % device identifier % contain part of the device identifier name.
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            <li><code>%4017%</code>&nbsp;- 4017 in the device identifier</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
-                                    <td></td>
+                                    <td><strong>No</strong>, but default to all if not specified.</td>
+                                    <td>Determines whether the response is for a specific device identifier.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/deviceidentifier/?lang=en</span></td>
-                                    <td>Changes language</td>
+                                    <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- English</li>
                                             <li><code>fr</code>&nbsp;- French</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to English if not specified</td>
+                                    <td><strong>No</strong>, but defaults to English if not specified.</td>
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/deviceidentifier/?type=json</span></td>
-                                    <td>Changes the format of result.</td>
+                                    <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td><strong>No</strong>, but defaults to JSON if not specified.</td>
+                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
                                 </tr>
                             </table>
-                            <p>Form can be accessed via these URIs:</p>
+                            <p>Device Identifiers can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/mdall/api-v1/deviceidentifier/?lang=en&type=json">https://api.hres.ca/mdall/api-v1/deviceidentifier/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/mdall/api-v1/deviceidentifier/?lang=fr&type=json">https://api.hres.ca/mdall/api-v1/deviceidentifier/?lang=fr&type=json</a></li>
@@ -795,8 +775,7 @@
                         </section>
                         <section>
                             <h3 id="a5.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
-
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>device identifier</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
@@ -827,50 +806,51 @@
                                     <td>The identifier.</td>
                                 </tr>
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a5.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">to come</pre>
-                            </section>
-                            <section>
-                                <h3 id="a5.4">jQuery example</h3>
-                                <p>Example for a function of device identifier to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getDeviceIdentifier(id) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/mdall/api-v1/deviceidentifier/?status=' + strStatus + 'id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.device_identifier);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var DeviceIdentifier = document.createTextNode(data.device_identifier);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(DeviceIdentifier);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
+                        </section>
+                        <section>
+                             <h3 id="a5.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">{"original_licence_no":29756,"device_id":408838,"identifier_first_issue_dt":"2001-05-24","end_date":null,"device_identifier":"P02-14030"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a5.4">jQuery example</h3>
+                             <p>Example of a function that search for a device identifier given a device identification number:</p>                                
+                             <pre class="prettify prettyprint linenums">function getDeviceIdentifier(id) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/mdall/api-v1/deviceidentifier/?id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.device_identifier);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var DeviceIdentifier = document.createTextNode(data.device_identifier);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(DeviceIdentifier);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
                         </section>
                     </section>
+                    <!--Device Identifier-section-end-->
+                    <!--Licence Type-section-start--> 
                     <section>
                         <h2 id="a6">Licence Type</h2>
                         <p>This contains the list of all licence type codes and their definitions.</p>
 
                         <section>
                             <h3 id="a6.1">Parameters</h3>
-                            <p>There are three parameters in the request: code, language and format type.</p>
+                            <p>There are three parameters in the request: code, language and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -878,16 +858,16 @@
                                 <tr>
                                     <th scope="col">Parameter</th>
                                     <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
+                                    <th scope="col">Value</th>
                                     <th scope="col">Required?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
 
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/licencetype/?code=D</span></td>
-                                    <td>Returns licence type by code.</td>
+                                    <td>Returns a licence type according to the licence type code specify in the request.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- code of the licence type
                                         </ul>
                                     </td>
@@ -896,30 +876,31 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/licencetype/?lang=en</span></td>
-                                    <td>Changes language</td>
+                                    <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>en</code>&nbsp;- English</li>
                                             <li><code>fr</code>&nbsp;- French</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong>, but defaults to English if not specified</td>
+                                    <td><strong>No</strong>, but defaults to English if not specified.</td>
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/licencetype/?type=json</span></td>
-                                    <td>Changes the format of result.</td>
+                                    <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td><strong>No</strong>, but defaults to JSON if not specified.</td>
+                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
                                 </tr>
                             </table>
-                            <p>Licence type can be accessed via these URIs:</p>
+                            <p>Licence Types can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/mdall/api-v1/licencetype/?lang=en&type=json">https://api.hres.ca/mdall/api-v1/licencetype/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/mdall/api-v1/licencetype/?lang=fr&type=json">https://api.hres.ca/mdall/api-v1/licencetype/?lang=fr&type=json</a></li>
@@ -927,12 +908,11 @@
                         </section>
                         <section>
                             <h3 id="a6.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
-
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>licence type</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Licence type object values
+                                    Licence Type object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
@@ -946,53 +926,52 @@
                                     <td><strong>licence_type_desc</strong></td>
                                     <td>The definition of the code.</td>
                                 </tr>
-
-
                             </table>
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a6.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{<br />&nbsp;"licence_type_cd":"G",<br />&nbsp;"licence_type_desc":"Device Group"<br />}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a6.4">jQuery example</h3>
-                                <p>Example for a function of licence type to an element with id &quot;#responses&quot;, given a code and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getLicenceType(code, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/mdall/api-v1/licencetype/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.licence_type_desc);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var LicenceType = document.createTextNode(data.licence_type_desc);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(LicenceType);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
+                        </section>
+                        <section>
+                             <h3 id="a6.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">{"licence_type_cd":"G","licence_type_desc":"Device Group"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a6.4">jQuery example</h3>                                
+                             <p>Example of a function that search for a licence type given a licence type code and language selection:</p>
+                             <pre class="prettify prettyprint linenums">function getLicenceType(code, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/mdall/api-v1/licencetype/?lang=' + lang + '&code=' + code;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.licence_type_desc);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var LicenceType = document.createTextNode(data.licence_type_desc);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(LicenceType);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
                         </section>
                     </section>
+                    <!--Licence Type-section-end-->
+                    <!--Summary Basis Decision -section-start-->
                     <section>
                         <h2 id="a7">Summary Basis Decision Location</h2>
                         <p>This contains the web site address of the summary basis of decisions.</p>
 
                         <section>
                             <h3 id="a7.1">Parameters</h3>
-                            <p>There are two parameters in the request: id and format type.</p>
+                            <p>There are two parameters in the request: id and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -1000,28 +979,16 @@
                                 <tr>
                                     <th scope="col">Parameter</th>
                                     <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
+                                    <th scope="col">Value</th>
                                     <th scope="col">Required?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
-                                <tr>
-                                    <td><span class="nowrap">mdall/api-v1/sbdlocation/</span></td>
-                                    <td>Returns all summary basis decision location.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            No parameter will return all summary basis decision location.
-                                        </ul>
-                                    </td>
-                                    <td><strong>No</strong></td>
-                                    <td></td>
-                                </tr>
-
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/sbdlocation/?id=</span></td>
-                                    <td>Returns summary basis decision location by id.</td>
+                                    <td>Returns summary basis decision location according to the licence number specify in the request.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- id of the summary basis decision location.
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- licence number
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -1033,28 +1000,28 @@
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td><strong>No</strong>, but defaults to JSON if not specified.</td>
+                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
                                 </tr>
                             </table>
-                            <p>Summary basis decision location can be accessed via these URIs:</p>
+                            <p>Summary Basis Decision Locations can be accessed via that URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/sbdlocation/?type=json">https://api.hres.ca/mdall/api-v1/sbdlocation/?type=json</a></li>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/sbdlocation/?type=json">https://api.hres.ca/mdall/api-v1/sbdlocation/?type=json</a></li>
+                                <li><a href="https://api.hres.ca/mdall/api-v1/sbdlocation/?type=json">https://api.hres.ca/mdall/api-v1/sbdlocation/?type=json</a></li>                                
                             </ul>
                         </section>
                         <section>
                             <h3 id="a7.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>summary basis decision location</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Schedule object values
+                                    Summary Basis Decision Location object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
@@ -1075,101 +1042,99 @@
 
                                 <!--        Consider removing
 
-                                <tr>
-                                    <td><strong>pkg_insert1_keyword</strong></td>
-                                    <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>pkg_insert1_loc</strong></td>
-                                    <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>pkg_insert2_keyword</strong></td>
-                                    <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>pkg_insert2_loc</strong></td>
-                                    <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>pkg_insert3_keyword</strong></td>
-                                    <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>pkg_insert3_loc</strong></td>
-                                    <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>op_manual1_keyword</strong></td>
-                                    <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>op_manual1_loc</strong></td>
-                                    <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>op_manual2_keyword</strong></td>
-                                    <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>op_manual2_loc</strong></td>
-                                    <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>op_manual3_keyword</strong></td>
-                                    <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>op_manual3_loc</strong></td>
-                                    <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>additional_op_pkg</strong></td>
-                                    <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
-                                </tr>
+            <tr>
+                <td><strong>pkg_insert1_keyword</strong></td>
+                <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
+            </tr>
+            <tr>
+                <td><strong>pkg_insert1_loc</strong></td>
+                <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
+            </tr>
+            <tr>
+                <td><strong>pkg_insert2_keyword</strong></td>
+                <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
+            </tr>
+            <tr>
+                <td><strong>pkg_insert2_loc</strong></td>
+                <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
+            </tr>
+            <tr>
+                <td><strong>pkg_insert3_keyword</strong></td>
+                <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
+            </tr>
+            <tr>
+                <td><strong>pkg_insert3_loc</strong></td>
+                <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
+            </tr>
+            <tr>
+                <td><strong>op_manual1_keyword</strong></td>
+                <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
+            </tr>
+            <tr>
+                <td><strong>op_manual1_loc</strong></td>
+                <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
+            </tr>
+            <tr>
+                <td><strong>op_manual2_keyword</strong></td>
+                <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
+            </tr>
+            <tr>
+                <td><strong>op_manual2_loc</strong></td>
+                <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
+            </tr>
+            <tr>
+                <td><strong>op_manual3_keyword</strong></td>
+                <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
+            </tr>
+            <tr>
+                <td><strong>op_manual3_loc</strong></td>
+                <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
+            </tr>
+            <tr>
+                <td><strong>additional_op_pkg</strong></td>
+                <td>NO LONGER SUPPORTED ON HC WEBSITE</td>
+            </tr>
 
-                                    -->
+                -->
 
                             </table>
-
-                            <!--h3-section-start-->
-                            <section>
-                                <h3 id="a7.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{<br />&nbsp;"original_licence_no":75574,<br />&nbsp;"sbd_notice_web_loc":"http://www.hc-sc.gc.ca/dhp-mps/prodpharma/sbd-smd/md-im/sbd_smd_2008_elana_122213-eng.php#a2",<br />&nbsp;"sbd_web_loc":"http://www.hc-sc.gc.ca/dhp-mps/prodpharma/sbd-smd/md-im/sbd_smd_2008_elana_122213"<br />}</pre>
-                            </section>
-                            <section>
-                                <h3 id="a7.4">jQuery example</h3>
-                                <p>Example for a function of sbc location to an element with id &quot;#responses&quot;, given an ID selection:</p>
-                                <pre class="prettify prettyprint linenums">function getSbdLocation(id) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/mdall/api-v1/sbdlocation/?id=' + id ;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.sbd_notice_web_loc);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Location = document.createTextNode(data.sbd_notice_web_loc);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(Location);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
                         </section>
-                    </section>
-                </section>
+                        <section>
+                             <h3 id="a7.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">{"original_licence_no":75574,"sbd_notice_web_loc":"http://www.hc-sc.gc.ca/dhp-mps/prodpharma/sbd-smd/md-im/sbd_smd_2008_elana_122213-eng.php#a2","sbd_web_loc":"http://www.hc-sc.gc.ca/dhp-mps/prodpharma/sbd-smd/md-im/sbd_smd_2008_elana_122213"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a7.4">jQuery example</h3>
+                             <p>Example of a function that search for a summary basis decision location given a licence number:</p>
+                             <pre class="prettify prettyprint linenums">function getSbdLocation(id) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/mdall/api-v1/sbdlocation/?id=' + id ;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.sbd_notice_web_loc);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var Location = document.createTextNode(data.sbd_notice_web_loc);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(Location);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
+                        </section>
+                    </section><!--Summary Basis Decision -section-end-->
+                </section><!--END Entire Doc Section-->
             </div>
             <!-- prefooter-en.html-Start-->
             <div id="def-preFooter">

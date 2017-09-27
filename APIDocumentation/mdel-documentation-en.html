@@ -17,8 +17,8 @@
     <meta name="dcterms.contributor" content="" />
     <meta name="dcterms.type" title="gctype" content="" />
     <meta name="dcterms.audience" title="gcaudience" content="public" />
-    <meta name="dcterms.issued" title="W3CDTF" content="2017-06-27" />
-    <meta name="dcterms.modified" title="W3CDTF" content="2018-06-27" />
+    <meta name="dcterms.issued" title="W3CDTF" content="2017-11-30" />
+    <meta name="dcterms.modified" title="W3CDTF" content="2017-11-30" />
     <meta name="review_date" content="" />
     <meta name="meta_date" content="" />
 
@@ -135,20 +135,20 @@
                     <section>
                         <h2 id="a1">Introduction</h2>
                         <p>Health Canada is the federal regulator of therapeutic products, including medical devices. We do not provide medical advice on the use of the products identified in this listing.
-                        <p>The Medical Devices Bureau (Bureau) of the Therapeutic Products Directorate, Health Canada is the Canadian federal regulator responsible for licensing medical devices in accordance with the Food and Drugs Act and Regulations and the Medical Devices Regulations. </p>
+                        <p>The Medical Devices Bureau (Bureau) of the Therapeutic Products Directorate, Health Canada is the Canadian federal regulator responsible for licensing medical devices in accordance with the <i>Food and Drugs Act and Regulations</i> and the <i>Medical Devices Regulations</i>. </p>
                         <p>The Bureau maintains a database of all licensed Class II, III, and IV medical devices offered for sale in Canada. Class I medical devices do not require a medical device licence and are monitored by the Health Products and Food Branch Inspectorate (Compliance and Enforcement) through Establishment Licensing.</p>
                         <p>Only products which appear in this database listing may be offered for general marketing purposes in Canada. Class I Devices, or devices which relate to Investigational Testing Authorization or Special Access do not appear in this listing.</p>
-                        <p>This Application Programming Interface (API) allows developers to access that information in JSON format for reuse in their own applications.</p>
+                        <p>This Application Programming Interface (API) allows developers to access that information in JSON, XML and CSV format for reuse in their own applications.</p>
                         <p>The base URI for the Medical Devices Establishment Listing Search &nbsp;<a href="https://api.hres.ca/mdels/api-v1/">https://api.hres.ca/mdels/api-v1/</a>. Any requests are made relative to this URI.</p>
                     </section>
 
                     <section>
                         <h2 id="a2">Company</h2>
-                        <p>This is the permit that is delivered for a device to a company.</p>
+                        <p>NEED description.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a2.1">Parameters</h3>
-                            <p>There are two parameters in the request: company name and format type.</p>
+                            <p>There are two parameters in the request: company_name and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -156,44 +156,44 @@
                                 <tr>
                                     <th scope="col">Parameter</th>
                                     <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
+                                    <th scope="col">Value</th>
                                     <th scope="col">Required?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdels/api-v1/company/?company_name=bay</span></td>
+                                    <td><span class="wrap">mdels/api-v1/company/?company_name=bay</span></td>
                                     <td>Returns a list of establishments where the company name contains the word bay.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
                                             <li><code>bay</code>&nbsp;- %BAY% - company name that contains the word bay.</li>
                                         </ul>
                                     </td>
-                                    <td><strong>Yes</strong>will return all companies that contain bay.</td>
+                                    <td><strong>Yes</strong>, will return all companies that contain bay.</td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdels/api-v1/company/?type=json</span></td>
-                                    <td>Changes the format of result.</td>
+                                    <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td><strong>No</strong>, but defaults to JSON if not specified.</td>
+                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
                                 </tr>
                             </table>
-                            <p>Licence can be accessed via these URIs:</p>
+                            <p>Licences can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/mdels/api-v1/licence/?status=active&type=json">https://api.hres.ca/mdels/api-v1/licence/?status=active&type=json</a></li>
-                                <li><a href="https://api.hres.ca/mdels/api-v1/licence/?status=archived&type=json">https://api.hres.ca/mdels/api-v1/licence/?status=archived&type=json</a></li>
+                                <li><a href="https://api.hres.ca/mdels/api-v1/company/?type=json">https://api.hres.ca/mdels/api-v1/company/?type=json</a></li>                                
                             </ul>
                         </section>
 
                         <section>
                             <h3 id="a2.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>licence</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -260,38 +260,45 @@
 
                             <section>
                                 <h3 id="a2.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{<br /> &nbsp;"company_id": 101486,<br /> &nbsp;"company_name":"Adaltis Inc.",<br /> &nbsp;"addr_line_1":"10900 Hamon Street",<br /> &nbsp;"addr_line_2":"",<br /> &nbsp;"addr_line_3":"",<br /> &nbsp;"addr_line_4":"Montreal, Quebec",<br /> &nbsp;"addr_line_5":"Canada",<br /> &nbsp;"postal_code":"H3M 3A2",<br /> &nbsp;"region_code":"08",<br /> &nbsp;"city":"Montreal",<br /> &nbsp;"country_cd":"CA",<br /> &nbsp;"region_cd":"QC",<br /> &nbsp;"company_status":"A",<br /> &nbsp;"status_dt":"1999-03-18"<br />}</pre>
+                                <pre class="prettify prettyprint linenums">{"company_id": 101486,"company_name":"Adaltis Inc.","addr_line_1":"10900 Hamon Street","addr_line_2":"","addr_line_3":"","addr_line_4":"Montreal, Quebec","addr_line_5":"Canada","postal_code":"H3M 3A2","region_code":"08","city":"Montreal","country_cd":"CA","region_cd":"QC","company_status":"A","status_dt":"1999-03-18"}</pre>
                             </section>
 
                             <section>
                                 <h3 id="a2.4">jQuery example</h3>
-                                <p>Example for a function of company to an element with id &quot;#responses&quot;, given an ID selection:</p>
-                                <pre class="prettify prettyprint linenums">function getAllCompany(language, company_name) {
-                                var base = 'https://api.hres.ca';
-                                var uri = base + '/mdels/api-v1/company/?company_name=' + searchTerm';
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.licence_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var companyName = document.createTextNode(data.licence_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(companyName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
+                                <li><code>json</code>&nbsp;- JSON</li>
+                                <li><code>xml</code>&nbsp;- XML</li>
+                                <li><code>csv</code>&nbsp;- CSV</li>
+                                </ul>
+                                </td>
+                                <td><strong>No</strong>, but defaults to JSON if not specified.</td>
+                                <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                <p>Example of a function that search for company given a company name and a language selection:</p>                                
+                                <pre class="prettify prettyprint linenums">function getAllCompany(company_name) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/mdels/api-v1/company/?&company_name=' + companyName;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.licence_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var CompanyName = document.createTextNode(data.company_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(CompanyName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+       return;
+ };			</pre>
                             </section>
 
                         </section>
@@ -302,7 +309,7 @@
                         <p>This contains all of the establishments in a Country.</p>
                         <section>
                             <h3 id="a3.1">Parameters</h3>
-                            <p>There are two parameters in the request: country and format type.</p>
+                            <p>There are two parameters in the request: country and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -310,9 +317,9 @@
                                 <tr>
                                     <th scope="col">Parameter</th>
                                     <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
+                                    <th scope="col">Value</th>
                                     <th scope="col">Required?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdels/api-v1/country/?country=belgium</span></td>
@@ -327,18 +334,19 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdels/api-v1/company/?type=json</span></td>
-                                    <td>Changes the format of result.</td>
+                                    <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td><strong>No</strong>, but defaults to JSON if not specified.</td>
+                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
                                 </tr>
                             </table>
-                            <p>Company can be accessed via these URIs:</p>
+                            <p>Countries can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/mdels/api-v1/company/?status=active&type=json">https://api.hres.ca/mdels/api-v1/company/?status=active&type=json</a></li>
                                 <li><a href="https://api.hres.ca/mdels/api-v1/company/?status=archived&type=json">https://api.hres.ca/mdels/api-v1/company/?status=archived&type=json</a></li>
@@ -347,9 +355,9 @@
 
                         <section>
                             <h3 id="a3.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
-                            <p>Each&nbsp;<strong>company</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>country</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
                                     Country object values
@@ -374,38 +382,38 @@
                             </table>
                             <section>
                                 <h3 id="a3.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{<br />&nbsp;"country_cd":"BE",<br />&nbsp;"country_desc":"Belgium",<br />&nbsp;"country_desc_f":"Belgique",<br />}</pre>
+                                <pre class="prettify prettyprint linenums">{"country_cd":"BE","country_desc":"Belgium","country_desc_f":"Belgique"}</pre>
                             </section>
 
                             <section>
                                 <h3 id="a3.4">jQuery example</h3>
-                                <p>Example for a function of company to an element with id &quot;#responses&quot;, given an id and lang selection:</p>
-                                <pre class="prettify prettyprint linenums">function getCompany(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/mdels/api-v1/company/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.company_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var CompanyName = document.createTextNode(data.company_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(CompanyName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
+                                <p>Example of a function that search for coountry given an id and a language selection:</p>                                
+                                <pre class="prettify prettyprint linenums">function getCountry(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/mdels/api-v1/country/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.countryy_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var CountryName = document.createTextNode(data.country_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(CompanyName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>
                             </section>
 
                         </section>
@@ -422,7 +430,7 @@
                         -->
                         <section>
                             <h3 id="a4.1">Parameters</h3>
-                            <p>There are two parameters in the request: establishment and format type.</p>
+                            <p>There are two parameters in the request: establishmentName and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -430,16 +438,16 @@
                                 <tr>
                                     <th scope="col">Parameter</th>
                                     <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
+                                    <th scope="col">Value</th>
                                     <th scope="col">Required?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdels/api-v1/device/?id=</span></td>
+                                    <td><span class="nowrap">mdels/api-v1/establishment/?establishmentName=</span></td>
                                     <td>Returns establishment or company by id.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- id of the Device.
+                                            #####&nbsp;- establishment name.
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -447,16 +455,16 @@
                                 </tr>
 
                                 <tr>
-                                    <td><span class="nowrap">mdels/api-v1/device/?type=json</span></td>
-                                    <td>Changes the format of result.</td>
+                                    <td><span class="nowrap">mdels/api-v1/establishment/?type=json</span></td>
+                                    <td>Changes the format of the result.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                        <li><code>json</code>&nbsp;- JSON</li>
+                                        <li><code>xml</code>&nbsp;- XML</li>
+                                        <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td><strong>No</strong>, but defaults to JSON if not specified.</td>
+                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
                                 </tr>
                             </table>
                             <p>Establishment can be accessed via these URIs:</p>
@@ -467,7 +475,7 @@
                         </section>
                         <section>
                             <h3 id="a4.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>device</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -587,38 +595,37 @@
                             <!--h3-section-start-->
                             <section>
                                 <h3 id="a4.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{<br />&nbsp; "establishment_id":65113,<br />&nbsp; "company_id":100027,<br />&nbsp; "entry_date":"1999-03-26",<br />&nbsp; "application_type":"R",<br />&nbsp; "licence_status":"I",<br />&nbsp; "status_date":"2016-02-04",<br />&nbsp; "imp_dist_class_I":"Y",<br />&nbsp; "imp_dist_class_2_3_4":null,<br />&nbsp; "dist_flag":"N",<br />&nbsp; "class_I_flag":"Y",<br />&nbsp; "imp_dist_class_II":"Y",<br />&nbsp; "imp_dist_class_III":"Y",<br />&nbsp; "imp_dist_class_IV":"N",<br />&nbsp; "dist_class_I":null,<br />&nbsp; "dist_class_II":"N",<br />&nbsp; "dist_class_III":"N",<br />&nbsp; "dist_class_IV":"N",<br />&nbsp; "not_importer":"N",<br />&nbsp; "not_import_dist":"N",<br />&nbsp; "company_name":"3m Canada Company",<br />&nbsp; "addr_line_1":"1840 Oxford Street East",<br />&nbsp; "addr_line_2":"P.O. Box 5757",<br />&nbsp; "addr_line_3":"",<br />&nbsp; "addr_line_4":"London, Ontario",<br />&nbsp; "addr_line_5":"Canada",<br />&nbsp; "postal_code":"N5V 3R6",<br />&nbsp; "region_code":"07",<br />&nbsp; "city":"London",<br />&nbsp; "country_cd":"CA",<br />&nbsp; "region_cd":"ON"<br />}
-                                </pre>
+                                <pre class="prettify prettyprint linenums">{"establishment_id":65113,"company_id":100027,"entry_date":"1999-03-26","application_type":"R","licence_status":"I","status_date":"2016-02-04","imp_dist_class_I":"Y","imp_dist_class_2_3_4":null,"dist_flag":"N","class_I_flag":"Y","imp_dist_class_II":"Y","imp_dist_class_III":"Y","imp_dist_class_IV":"N","dist_class_I":null,"dist_class_II":"N","dist_class_III":"N","dist_class_IV":"N","not_importer":"N","not_import_dist":"N","company_name":"3m Canada Company","addr_line_1":"1840 Oxford Street East","addr_line_2":"P.O. Box 5757","addr_line_3":"","addr_line_4":"London, Ontario","addr_line_5":"Canada","postal_code":"N5V 3R6","region_code":"07","city":"London","country_cd":"CA","region_cd":"ON"}</pre>
                             </section>
                             <section>
                                 <h3 id="a4.4">jQuery example</h3>
                                 <p>Example for a function of device to an element with id &quot;#responses&quot;, given an id and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getDevice(deviceName) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/mdels/api-v1/device/?device_name=' + deviceName;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.trade_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var DeviceName = document.createTextNode(data.trade_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(DeviceName);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
+                                <pre class="prettify prettyprint linenums">function getEstablishment(id) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/mdels/api-v1/establishment/?id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.trade_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var EstablishmentName = document.createTextNode(data.company_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(EstablishmentName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>
                             </section>
                         </section>
                     </section>
@@ -628,7 +635,7 @@
 
                         <section>
                             <h3 id="a5.1">Parameters</h3>
-                            <p>There are three parameters in the request: lang, province, and format type.</p>
+                            <p>There are three parameters in the request: province, lang and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -636,17 +643,16 @@
                                 <tr>
                                     <th scope="col">Parameter</th>
                                     <th scope="col">Meaning</th>
-                                    <th scope="col">Values</th>
+                                    <th scope="col">Value</th>
                                     <th scope="col">Required?</th>
-                                    <th scope="col">Notes</th>
+                                    <th scope="col">Note</th>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdels/api-v1/province/?province=</span></td>
                                     <td>Returns a list of establishments by province.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            Enter the name or part of the name of a province.
-                                            ex.: Calif
+                                            region cd
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -661,23 +667,24 @@
                                             <li><code>fr</code>&nbsp;- French</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to English if not specified</td>
+                                    <td><strong>No</strong>, but defaults to English if not specified.</td>
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdels/api-v1/province/?type=json</span></td>
-                                    <td>Changes the format of result.</td>
+                                    <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>json</code>&nbsp;- Json</li>
-                                            <li><code>xml</code>&nbsp;- Xml</li>
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                            <li><code>csv</code>&nbsp;- CSV</li>
                                         </ul>
                                     </td>
-                                    <td><strong>No</strong>, but defaults to Json if not specified</td>
-                                    <td>Determines whether the result will be of type Json or XML.</td>
+                                    <td><strong>No</strong>, but defaults to JSON if not specified.</td>
+                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
                                 </tr>
                             </table>
-                            <p>Form can be accessed via these URIs:</p>
+                            <p>Provinces can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/mdels/api-v1/province/?lang=en&province=&type=json">https://api.hres.ca/mdels/api-v1/province/?lang=en&province=&type=json</a></li>
                                 <li><a href="https://api.hres.ca/mdels/api-v1/province/?lang=fr&province=&type=json">https://api.hres.ca/mdels/api-v1/province/?lang=fr&province=&type=json</a></li>
@@ -685,7 +692,7 @@
                         </section>
                         <section>
                             <h3 id="a5.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one objects:</p>
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>province</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -716,37 +723,37 @@
                             <!--h3-section-start-->
                             <section>
                                 <h3 id="a5.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{<br />&nbsp; "country_cd":"US",<br />&nbsp; "region_cd":"CA",<br />&nbsp; "region_desc":"California",<br />&nbsp; "region_desc_f":"Californie",<br />}</pre>
+                                <pre class="prettify prettyprint linenums">{"country_cd":"US","region_cd":"CA","region_desc":"California","region_desc_f":"Californie"}</pre>
                             </section>
                             <section>
                                 <h3 id="a5.4">jQuery example</h3>
                                 <p>Example for a function of device identifier to an element with id &quot;#responses&quot;, given an ID and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getDeviceIdentifier(id) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/mdels/api-v1/deviceidentifier/?status=' + strStatus + 'id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.device_identifier);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var DeviceIdentifier = document.createTextNode(data.device_identifier);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(DeviceIdentifier);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
+                                <pre class="prettify prettyprint linenums">function getProvince(id) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/mdels/api-v1/province/?id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.province_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var ProvinceName = document.createTextNode(data.province_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(DeviceIdentifier);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>
                             </section>
                         </section>
                     </section>

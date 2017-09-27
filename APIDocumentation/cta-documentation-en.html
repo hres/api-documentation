@@ -147,14 +147,13 @@
                             </li>
                         </ul>
                     </section>
-
                     <section>
                         <h2 id="a1">Introduction</h2>
                         <p>Clinical Trials Database, is providing to the public a listing of specific information relating to phase I, II and III clinical trials in patients. The database is managed by Health Canada and provides a source of information about Canadian clinical trials involving human pharmaceutical and biological drugs.</p>
                         <p>This Application Programming Interface (API) allows developers to access that information in JSON, XML and CSV format for reuse in their own applications.</p>
                         <p>The base URI for the Notice of Compliance Database &nbsp;<a href="https://api.hres.ca/cta/api/">https://api.hres.ca/cta/api/</a>. Any requests are made relative to this URI.</p>
-                    </section>
-
+                    </section>                    
+                    <!--Manufacturer-section-start-->
                     <section>
                         <h2 id="a2">Manufacturer</h2>
                         <p>TODO put description of manufacturer.....</p>
@@ -175,7 +174,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/manufacturer/?id=</span></td>
-                                    <td>Returns manufacturer by identification number.</td>
+                                    <td>Returns manufacturer according to the identification number of the manufacturer specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- identification number of the manufacturer
@@ -216,11 +215,9 @@
                                 <li><a href="https://api.hres.ca/cta/api/manufacturer/?lang=fr&type=json">https://api.hres.ca/manufacturer/api/brand/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
-
                         <section>
                             <h3 id="a2.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
-
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>manufacturer</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
@@ -230,7 +227,7 @@
                                     <th scope="col">Key</th>
                                     <th scope="col">Value</th>
                                 </tr>
-                                <tr>                                   
+                                <tr>
                                     <td><strong>manufacturer_id</strong></td>
                                     <td>The identification number assigned to a manufacturer.</td>
                                 </tr>
@@ -239,46 +236,44 @@
                                     <td>The name of the manufacturer.</td>
                                 </tr>
                             </table>
-
-                            <section>
-                                <h3 id="a2.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"manufacturer_id":1118,"manufacturer_name":"ST JOSEPHS HEALTH CENTRE LONDON"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a2.4">jQuery example</h3>
-                                <p>Example of a function that search for a manufacturer given an id and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getManufacturer(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/manufacturer/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.manufacturer_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Manufacturer = document.createTextNode(data.manufacturer_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(Manufacturer);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-                    </section><!--END of Manufacturer-->
-                    <!--BEGIN of Medical Condition medicalcondition-->
+                        <section>
+                             <h3 id="a2.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">{"manufacturer_id":1118,"manufacturer_name":"ST JOSEPHS HEALTH CENTRE LONDON"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a2.4">jQuery example</h3>
+                             <p>Example of a function that search for a manufacturer given a manufacturer identification number and language selection:</p>
+                             <pre class="prettify prettyprint linenums">function getManufacturer(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/manufacturer/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.manufacturer_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var Manufacturer = document.createTextNode(data.manufacturer_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(Manufacturer);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>
+                        </section>
+                    </section>
+                    <!--Manufacturer - Section end-->
+                    <!--Medical Condition - Section start-->
                     <section>
                         <h2 id="a3">Medical Condition</h2>
                         <p>The disease or a description of the intended indication that is being investigated in the clinical trial. </p>
@@ -299,7 +294,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/medicalcondition/?id=</span></td>
-                                    <td>Returns medical condition by identification number .</td>
+                                    <td>Returns medical condition according to the identification number of the medical condition specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- identification number of the medical condition
@@ -340,11 +335,9 @@
                                 <li><a href="https://api.hres.ca/cta/api/medicalcondition/?lang=fr&type=json">https://api.hres.ca/cta/api/medicalcondition/?lang=fr&type=json</a></li>                                
                             </ul>
                         </section>
-
                         <section>
                             <h3 id="a3.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
-
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>medical condition</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
@@ -363,47 +356,46 @@
                                     <td>The medical condition.</td>
                                 </tr>
                             </table>
-
-                            <section>
-                                <h3 id="a3.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"med_condition_id":154,"med_condition":"MELANOMA"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a3.4">jQuery example</h3>
-                                <p>Example of a function that search for a medical condition given an id and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function GetAllMedicalCondition(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/medicalcondition/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.medcondition);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var MedicalCondition = document.createTextNode(data.medcondition);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(MedicalCondition);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
                         </section>
-                    </section><!--END of Medical Condition-->
-                    <section>
-                        <!--BEGIN of Drug -->
-                        <h2 id="a4">Drug</h2>
+                        <section>
+                             <h3 id="a3.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">{"med_condition_id":154,"med_condition":"MELANOMA"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a3.4">jQuery example</h3>
+                             <p>Example of a function that search for a medical condition given a medical condition identification number and language selection:</p>
+                             <pre class="prettify prettyprint linenums">function GetAllMedicalCondition(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/medicalcondition/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.medcondition);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var MedicalCondition = document.createTextNode(data.medcondition);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(MedicalCondition);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>        
+                        </section>
+                    </section>
+                    <!--Medical Condition - Section end-->
+                    <!--Product Brand - Section start-->
+                    <section>                        
+                        <h2 id="a4">Product Brand</h2>
                         <p>Name given to the drug used in the clinical trial. This may be a code name, the chemical name of the active ingredient, the non-proprietary name, or a brand name. </p>
                         <!--h3-section-start-->
                         <section>
@@ -421,11 +413,11 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">cta/api/productbrand/?id=</span></td>
-                                    <td>Returns drug by identification number.</td>
+                                    <td><span class="wrap">cta/api/productbrand/?id=</span></td>
+                                    <td>Returns product brand according to the identification number of the brand specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identification number of the drug
+                                            #####&nbsp;- identification number of the brand
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -457,21 +449,19 @@
                                     <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
                                 </tr>
                             </table>
-                            <p>Drugs can be accessed via these URIs:</p>
+                            <p>Product Brands can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cta/api/productbrand/?lang=en&type=json">https://api.hres.ca/cta/api/productbrand/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cta/api/productbrand/?lang=fr&type=json">https://api.hres.ca/cta/api/productbrand/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
-
                         <section>
                             <h3 id="a4.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
-
-                            <p>Each&nbsp;<strong>drug</strong>&nbsp;object consists of the following values:</p>
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
+                            <p>Each&nbsp;<strong>product brand</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Drug object values
+                                    Product Brand object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
@@ -501,50 +491,46 @@
                                     <td><strong>brand_name</strong></td>
                                     <td>The brand name for the drug product.</td>
                                 </tr>
-
                             </table>
-
-                            <section>
-                                <h3 id="a4.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"protocol_id":28627,"submission_no":"169227","brand_id":151809,"manufacturer_id":2445,"manufacturer_name":"MCMASTER UNIVERSITY","brand_name":"ALLERGEN EXTRACT FOR INHALATION (CAT HAIR)"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a4.4">jQuery example</h3>
-                                <p>Example of a function that search for a drug given an id and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getProductBrand(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/productbrand/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.brand_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var ProductBrand = document.createTextNode(data.brand_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(ProductBrand);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-                    </section><!-- END of Drug -->
-
-                    <section>
-                        <!--BEGIN of Protocol -->
+                        <section>
+                             <h3 id="a4.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">{"protocol_id":35778,"submission_no":"173436","brand_id":155817,"manufacturer_id":4794,"manufacturer_name":"GOVERNORS OF THE UNIVERSITY OF ALBERTA","brand_name":"FECAL MICROBIOTA TRANSPLANTATION"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a4.4">jQuery example</h3>
+                             <p>Example of a function that search for a product brand given a brand identification number and language selection:</p>
+                             <pre class="prettify prettyprint linenums">function getProductBrand(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/productbrand/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.brand_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var ProductBrand = document.createTextNode(data.brand_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(ProductBrand);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+               },
+               error:function(error){
+               },
+      });
+      return;
+ };			</pre>                            
+                        </section>
+                    </section>
+                    <!-- Product Brand- Section end -->
+                    <!--Protocol - Section start-->
+                    <section>                        
                         <h2 id="a5">Protocol</h2>
                         <p>A document that describes the objective(s), design, methodology, statistical considerations and organisation of a trial. </p>
                         <!--h3-section-start-->
@@ -564,7 +550,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/protocol/?id=</span></td>
-                                    <td>Returns protocol by identification number.</td>
+                                    <td>Returns protocol according to the protocol identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- identification number of the protocol
@@ -605,10 +591,9 @@
                                 <li><a href="https://api.hres.ca/cta/api/protocol/?lang=fr&type=json">https://api.hres.ca/cta/api/protocol/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
-
                         <section>
                             <h3 id="a5.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>protocol</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -652,7 +637,7 @@
                                     <td>List of medical conditions.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>med_condition_id</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>med_condition_id</strong></td>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The identification number assigned to a medical condition.</td>
 
                                 </tr>
@@ -669,51 +654,54 @@
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The identification number assigned to a study population.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>study_population</strong></td>
-                                    <td>The study population.</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>study_population</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The study population.</td>
                                 </tr>
                             </table>
-
-                            <section>
-                                <h3 id="a5.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"protocol_id":27351,"protocol_no":"AMB116457","submission_no":"165540","status_id":1,"start_date":"2013-10-30","end_date":null,"nol_date":"2013-07-05","protocol_title":"AN OPEN-LABEL EXTENSION STUDY OF THE LONG-TERM SAFETY, TOLERABILITY AND EFFICACY OF AMBRISENTAN IN SUBJECTS WITH INOPERABLE CHRONIC THROMBOEMBOLIC PULMONARY HYPERTENSION (CTEPH).","medConditionList":[{"med_condition_id":326,"med_condition":"CHRONIC THROMBOEMBOLIC PULMONARY HYPERTENSION (CTEPH)"},{"med_condition_id":260,"med_condition":"PULMONARY DISORDERS"}],"studyPopulationList":[{"study_population_id":1,"study_population":"ADULT MALE"},{"study_population_id":2,"study_population":"ADULT FEMALE"}]}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a5.4">jQuery example</h3>
-                                <p>Example of a function that search for a protocol given an id and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getProtocol(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/protocol/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.rotocol_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Protocol = document.createTextNode(data.protocol_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(Protocol);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-                    </section><!--END of Protocol -->
-                    <section>
-                        <!--BEGIN of Status -->
+                        <section>
+                             <h3 id="a5.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">{"protocol_id":27351,"protocol_no":"AMB116457","submission_no":"165540","status_id":1,"start_date":"2013-10-30","end_date":null,"nol_date":"2013-07-05",
+    "protocol_title":"AN OPEN-LABEL EXTENSION STUDY OF THE LONG-TERM SAFETY, TOLERABILITY AND EFFICACY OF AMBRISENTAN IN SUBJECTS WITH INOPERABLE CHRONIC THROMBOEMBOLIC PULMONARY HYPERTENSION (CTEPH).",
+    "medConditionList":[{"med_condition_id":326,"med_condition":"CHRONIC THROMBOEMBOLIC PULMONARY HYPERTENSION (CTEPH)"},
+                        {"med_condition_id":260,"med_condition":"PULMONARY DISORDERS"}],
+    "studyPopulationList":[{"study_population_id":1,"study_population":"ADULT MALE"},
+                           {"study_population_id":2,"study_population":"ADULT FEMALE"}]}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a5.4">jQuery example</h3>
+                             <p>Example of a function that search for a protocol given a protocol identification number and language selection:</p>
+                             <pre class="prettify prettyprint linenums">function getProtocol(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/protocol/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.rotocol_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var Protocol = document.createTextNode(data.protocol_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(Protocol);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
+                        </section>
+                    </section>
+                    <!--Protocol- Section end -->
+                    <!--Status - Section start -->
+                    <section>                        
                         <h2 id="a6">Trial Status</h2>
                         <p>A "PENDING" status means Health Canada is pending the receipt of information from the sponsor indicating that the trial started. An "ONGOING" status means Health Canada has received information from the sponsor indicating the proposed study start date, and an "ENDED" status means Health Canada has received information from the sponsor indicating that the clinical trial has ended. </p>
                         <!--h3-section-start-->
@@ -733,7 +721,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/status/?id=</span></td>
-                                    <td>Returns status by identification number.</td>
+                                    <td>Returns the trial status according to the status identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- identification number of the status
@@ -768,21 +756,20 @@
                                     <td>Determines whether the result will be of type JSON or XML.</td>
                                 </tr>
                             </table>
-                            <p>Status can be accessed via these URIs:</p>
+                            <p>Trial Status can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cta/api/status/?lang=en&type=json">https://api.hres.ca/cta/api/status/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cta/api/status/?lang=fr&type=json">https://api.hres.ca/cta/api/status/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
-
                         <section>
                             <h3 id="a6.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
-                            <p>Each&nbsp;<strong>status</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>trial status</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Status object values
+                                    Trial Status object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
@@ -797,46 +784,45 @@
                                     <td>The status of the trial.</td>
                                 </tr>
                             </table>
-
-                            <section>
-                                <h3 id="a6.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"status_id":1,"status":"ONGOING"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a6.4">jQuery example</h3>
-                                <p>Example of a function that search for a trial status given an id and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getStatus(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/status/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.status);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Status = document.createTextNode(data.status);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(Status);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
                         </section>
-                    </section><!--END of Status-->
-                    <section>
-                        <!--BEGIN of Study Population-->
+                        <section>
+                             <h3 id="a6.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">{"status_id":1,"status":"ONGOING"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a6.4">jQuery example</h3>
+                             <p>Example of a function that search for a trial status given a status identification number and language selection:</p>
+                             <pre class="prettify prettyprint linenums">function getStatus(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/status/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.status);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var Status = document.createTextNode(data.status);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(Status);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
+                        </section>
+                    </section>
+                    <!--Status - Section end-->
+                    <!--Study Population Section start-->
+                    <section>                        
                         <h2 id="a7">Study Population</h2>
                         <p>Characteristics of subjects that are eligible to participate in the clinical trial, e.g., adult males and females, children, etc. </p>
                         <!--h3-section-start-->
@@ -856,7 +842,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/studypopulation/?id=</span></td>
-                                    <td>Returns study population by identification number.</td>
+                                    <td>Returns study population according to the study population identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- identification number of the study population
@@ -900,7 +886,7 @@
 
                         <section>
                             <h3 id="a7.2">Response format</h3>
-                            <p>The response is in JSON, and consists of a&nbsp;<strong>result</strong>&nbsp;object that contains one object:</p>
+                            <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>study population</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -920,45 +906,42 @@
                                     <td>The study population.</td>
                                 </tr>
                             </table>
-
-                            <section>
-                                <h3 id="a7.3">Sample response</h3>
-                                <pre class="prettify prettyprint linenums">{"study_population_id":3,"study_population":"PEDIATRIC"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a7.4">jQuery example</h3>
-                                <p>Example of a function that search for a study population given an id and language selection:</p>
-                                <pre class="prettify prettyprint linenums">function getStudyPopulation(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/studypopulation/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.study_population);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Study Population = document.createTextNode(data.study_population);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(ProductRoute);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-                    </section><!--END of Study Population-->
+                        <section>
+                             <h3 id="a7.3">Sample response</h3>
+                             <pre class="prettify prettyprint linenums">{"study_population_id":3,"study_population":"PEDIATRIC"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a7.4">jQuery example</h3>
+                             <p>Example of a function that search for a study population given a study population identification number and language selection:</p>
+                             <pre class="prettify prettyprint linenums">function getStudyPopulation(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/studypopulation/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.study_population);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var Study Population = document.createTextNode(data.study_population);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(ProductRoute);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+               },
+               error:function(error){
+               },
+      });
+      return;
+ };			</pre>
+                        </section>
+                    </section><!--Study Population Section end-->
                 </section><!--END Entire Doc Section-->
             </div>
             <!-- prefooter-en.html-Start-->

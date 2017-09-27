@@ -109,7 +109,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a4">Product/Brand</a>
+                                <a href="#a4">Marque du produit</a>
                                 <ul>
                                     <li><a href="#a4.1">Paramètres</a></li>
                                     <li><a href="#a4.2">Format du résultat</a></li>
@@ -154,7 +154,7 @@
                         <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON, XML et CSV afin de les utiliser dans leurs propres applications.</p>
                         <p>L'adresse URI de base sur les produits pharmaceutiques est &nbsp;<a href="https://api.hres.ca/cta/api/">https://api.hres.ca/cta/api/</a>. Toute requête est effectuée par l'entremise de cette adresse URI.</p>
                     </section>
-
+                    <!--Manufacturer-section-start-->
                     <section>
                         <h2 id="a2">Fabricant</h2>
                         <p>TODO put description of manufacturer.....</p>
@@ -175,7 +175,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="wrap">cta/api/manufacturer/?id=</span></td>
-                                    <td>Affiche le fabricant par numéro d'identification.</td>
+                                    <td>Affiche le fabricant selon le numéro d'identification du fabricant spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- numéro d'identification du fabricant
@@ -219,9 +219,9 @@
 
                         <section>
                             <h3 id="a2.2">Format du résultat</h3>
-                            <p>Le résultat est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
+                            <p>Le <strong>résultat</strong> contient un ou plusieurs objets.</p>
 
-                            <p>Chaque&nbsp;<strong>fabricant</strong>&nbsp;contient un objet avec les valeurs suivantes&nbsp;:</p>
+                            <p>Chaque objet&nbsp;<strong>fabricant</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
                                     Valeurs de l'objet fabricant
@@ -240,46 +240,45 @@
                                     <td>Le nom du fabricant.</td>
                                 </tr>
                             </table>
-
-                            <section>
-                                <h3 id="a2.3">Exemple de résultat</h3>
-                                <pre class="prettify prettyprint linenums">{"manufacturer_id":1118,"manufacturer_name":"ST JOSEPHS HEALTH CENTRE LONDON"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a2.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche un fabricant selon le numéro d'identification et la langue sélectionnée&nbsp;:</p>
-                                <pre class="prettify prettyprint linenums">function getManufacturer(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/manufacturer/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.manufacturer_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Manufacturer = document.createTextNode(data.manufacturer_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(Manufacturer);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-                    </section><!--END of Manufacturer-->
-                    <!--BEGIN of Medical Condition medicalcondition-->
+                        <section>
+                             <h3 id="a2.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">{"manufacturer_id":1118,"manufacturer_name":"ST JOSEPHS HEALTH CENTRE LONDON"}</pre>
+                        </section>
+
+                        <section>
+                             <h3 id="a2.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche un fabricant selon le numéro d'identification d'un fabricant et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getManufacturer(id, lang) {
+     var base = 'https://imsd.hres.ca';
+     var uri = base + '/dpd/api/manufacturer/?lang=' + lang + '&id=' + id;
+     $.ajax({
+             url:uri,
+             type:'GET',
+             Accept:&quot;application/json&quot;,
+             dataType: 'json',
+             success:function(data){
+                          console.log(data.manufacturer_name);
+                          var frag = document.createDocumentFragment();
+                          var h2 = document.createElement(&quot;h2&quot;);
+                          var Manufacturer = document.createTextNode(data.manufacturer_name);
+                          var p = document.createElement(&quot;p&quot;);
+                          var text = document.createTextNode(data.panels[0].text);
+                          h2.appendChild(Manufacturer);
+                          p.appendChild(text);
+                          frag.appendChild(h2);
+                          frag.appendChild(p);
+                          $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+     });
+     return;
+ };			</pre> 
+                        </section>
+                    </section>
+                    <!--Manufacturer - Section end-->
+                    <!--Medical Condition - Section start-->
                     <section>
                         <h2 id="a3">Condition médicale</h2>
                         <p>La maladie ou une description de l'indication recherchée qui est à l'étude dans le cadre de l'essai clinique. </p>
@@ -300,7 +299,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/medicalcondition/?id=</span></td>
-                                    <td>Affiche la condition médicale par numéro d'identification.</td>
+                                    <td>Affiche la condition médicale selon le numéro d'identification de la condition médicale spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- numéro d'identification de la condition médicale
@@ -344,9 +343,9 @@
 
                         <section>
                             <h3 id="a3.2">Format du résultat</h3>
-                            <p>Le résultat est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
+                            <p>Le <strong>résultat</strong> contient un ou plusieurs objets.</p>
 
-                            <p>Chaque&nbsp;<strong>condition médicale</strong>&nbsp;contient un objet avec les valeurs suivantes&nbsp;:</p>
+                            <p>Chaque objet&nbsp;<strong>condition médicale</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
                                     Valeurs de l'objet condition médicale
@@ -364,48 +363,47 @@
                                     <td>La condition médicale.</td>
                                 </tr>
                             </table>
-
-                            <section>
-                                <h3 id="a3.3">Exemple de résultat</h3>
-                                <pre class="prettify prettyprint linenums">{"med_condition_id":154,"med_condition":"MELANOMA"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a3.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche une condition médicale selon le numéro d'identification et la langue sélectionnée&nbsp;:</p>
-                                <pre class="prettify prettyprint linenums">function GetAllMedicalCondition(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/medicalcondition/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.medcondition);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var MedicalCondition = document.createTextNode(data.medcondition);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(MedicalCondition);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
                         </section>
-                    </section><!--END of Medical Condition-->
+                        <section>
+                             <h3 id="a3.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">{"med_condition_id":154,"med_condition":"MÉLANOME"}</pre>
+                        </section>
 
-                    <section>
-                        <!--BEGIN of Product Brand -->
-                        <h2 id="a4">Product/Brand</h2>
+                        <section>
+                             <h3 id="a3.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche une condition médicale selon le numéro d'identification d'une condition médicale et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function GetAllMedicalCondition(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/medicalcondition/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.medcondition);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var MedicalCondition = document.createTextNode(data.medcondition);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(MedicalCondition);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
+                        </section>
+                    </section>
+                    <!--Medical Condition - Section end-->
+                    <!--Product Brand - Section start-->
+                    <section>                        
+                        <h2 id="a4">Marque du produit</h2>
                         <p>NEED DESCRIPTION </p>
                         <!--h3-section-start-->
                         <section>
@@ -424,10 +422,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/productbrand/?id=</span></td>
-                                    <td>Affiche le numéro d'identification attribué à un médicament.</td>
+                                    <td>Affiche le protocole et la marque du produit selon le numéro d'identification d'une marque spécifié dans la requête..</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- numéro d'identification du médicament
+                                            #####&nbsp;- numéro d'identification d'une marque
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -459,7 +457,7 @@
                                     <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
                                 </tr>
                             </table>
-                            <p>La liste des médicaments peut être accédée aux adresses URI suivantes&nbsp;:</p>
+                            <p>La liste des marques de produit et protocole peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cta/api/productbrand/?lang=en&type=json">https://api.hres.ca/cta/api/productbrand/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cta/api/productbrand/?lang=fr&type=json">https://api.hres.ca/cta/api/productbrand/?lang=fr&type=json</a></li>
@@ -468,9 +466,9 @@
 
                         <section>
                             <h3 id="a4.2">Format du résultat</h3>
-                            <p>Le résultat est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
+                            <p>Le <strong>résultat</strong> contient un ou plusieurs objets.</p>
 
-                            <p>Chaque&nbsp;<strong> médicament</strong>&nbsp;contient un objet avec les valeurs suivantes&nbsp;:</p>
+                            <p>Chaque objet&nbsp;<strong>médicament</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
                                     Valeurs de l'objet médicament
@@ -505,48 +503,45 @@
                                 </tr>
 
                             </table>
-
-                            <section>
-                                <h3 id="a4.3">Exemple de résultat</h3>
-                                <pre class="prettify prettyprint linenums">{"protocol_id":28627,"submission_no":"169227","brand_id":151809,"manufacturer_id":2445,"manufacturer_name":"MCMASTER UNIVERSITY","brand_name":"ALLERGEN EXTRACT FOR INHALATION (CAT HAIR)"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a4.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche un produit pharmaceutique selon le numéro d'identification et la langue sélectionnée&nbsp;:</p>
-                                <pre class="prettify prettyprint linenums">function getProductBrand(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/productbrand/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.brand_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var ProductBrand = document.createTextNode(data.brand_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(ProductBrand);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-                    </section><!-- END of Product Brand -->
-
-                    <section>
-                        <!--BEGIN of Protocol -->
+                        <section>
+                             <h3 id="a4.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">{"protocol_id":35778,"submission_no":"173436","brand_id":155817,"manufacturer_id":4794,"manufacturer_name":"GOVERNORS OF THE UNIVERSITY OF ALBERTA","brand_name":"TRANSPLANTATION DE MICROBIOTES FÉCALES"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a4.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche une marque de produit selon le numéro d'identification d'une marque de produit et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getProductBrand(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/productbrand/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.brand_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var ProductBrand = document.createTextNode(data.brand_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(ProductBrand);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre> 
+                        </section>
+                    </section>
+                    <!-- Product Brand- Section end -->
+                    <!--Protocol - Section start-->
+                    <section>                        
                         <h2 id="a5">Protocole</h2>
                         <p>Document qui décrit le ou les objectifs, la conception, la méthodologie, les considérations d'ordre statistique et l'organisation d'un essai clinique. </p>
                         <!--h3-section-start-->
@@ -566,7 +561,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/protocol/?id=</span></td>
-                                    <td>Affiche le protocole par numéro d'identification.</td>
+                                    <td>Affiche le protocole selon le numéro d'identification du protocole spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- numéro d'identification du protocole
@@ -610,9 +605,9 @@
 
                         <section>
                             <h3 id="a5.2">Format du résultat</h3>
-                            <p>Le résultat est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
+                            <p>Le <strong>résultat</strong> contient un ou plusieurs objets.</p>
 
-                            <p>Chaque&nbsp;<strong>protocole</strong>&nbsp;contient un objet avec les valeurs suivantes&nbsp;:</p>
+                            <p>Chaque objet&nbsp;<strong>protocole</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
                                     Valeurs de l'objet protocole
@@ -654,7 +649,7 @@
                                     <td>Liste des conditions médicales.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>med_condition_id</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>med_condition_id</strong></td>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le numéro d'identification attribué à une condition médicale.</td>
                                 </tr>
                                 <tr>
@@ -673,49 +668,53 @@
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>study_population</strong></td>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La population de l'étude.</td>
                                 </tr>
-
                             </table>
-
-                            <section>
-                                <h3 id="a5.3">Exemple de résultat</h3>
-                                <pre class="prettify prettyprint linenums">{"protocol_id":27351,"protocol_no":"AMB116457","submission_no":"165540","status_id":1,"start_date":"2013-10-30","end_date":null,"nol_date":"2013-07-05","protocol_title":"AN OPEN-LABEL EXTENSION STUDY OF THE LONG-TERM SAFETY, TOLERABILITY AND EFFICACY OF AMBRISENTAN IN SUBJECTS WITH INOPERABLE CHRONIC THROMBOEMBOLIC PULMONARY HYPERTENSION (CTEPH).","medConditionList":[{"med_condition_id":326,"med_condition":"CHRONIC THROMBOEMBOLIC PULMONARY HYPERTENSION (CTEPH)"},{"med_condition_id":260,"med_condition":"PULMONARY DISORDERS"}],"studyPopulationList":[{"study_population_id":1,"study_population":"ADULT MALE"},{"study_population_id":2,"study_population":"ADULT FEMALE"}]}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a5.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche un protocole selon le numéro d'identification et la langue sélectionnée&nbsp;:</p>
-                                <pre class="prettify prettyprint linenums">function getProtocol(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/protocol/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.rotocol_name);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Protocol = document.createTextNode(data.protocol_name);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(Protocol);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
                         </section>
-                    </section><!--END of Protocol -->
-                    <section>
-                        <!--BEGIN of Status -->
+                        
+                        <section>
+                             <h3 id="a5.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">{"protocol_id":27351,"protocol_no":"AMB116457","submission_no":"165540","status_id":1,"start_date":"2013-10-30","end_date":null,"nol_date":"2013-07-05",
+    "protocol_title":"ÉTUDE DE PROLONGATION OUVERTE SUR L'INNOCUITÉ, LA TOLÉRABILITÉ ET L'EFFICACITÉ À LONG TERME D'AMBRISENTAN CHEZ LES SUJETS ATTEINTS D'HYPERTENSION PULMONAIRE THROMBOEMBOLIQUE CHRONIQUE (HPTC) INOPÉRABLE",
+    "medConditionList":[{"med_condition_id":326,"med_condition":"HYPERTENSION THROMBOEMBOLIQUE CHRONIQUE PULMONAIRE"},
+                        {"med_condition_id":260,"med_condition":"TROUBLES PULMONAIRES"}],
+    "studyPopulationList":[{"study_population_id":1,"study_population":"ADULTE MASCULINE"},
+                           {"study_population_id":2,"study_population":"ADULTE FÉMININE"}]}</pre>
+                        </section>
+
+                        <section>
+                             <h3 id="a5.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche un protocole selon le numéro d'identification d'un protocole et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getProtocol(id, lang) {
+     var base = 'https://imsd.hres.ca';
+     var uri = base + '/dpd/api/protocol/?lang=' + lang + '&id=' + id;
+     $.ajax({
+             url:uri,
+             type:'GET',
+             Accept:&quot;application/json&quot;,
+             dataType: 'json',
+             success:function(data){
+                          console.log(data.rotocol_name);
+                          var frag = document.createDocumentFragment();
+                          var h2 = document.createElement(&quot;h2&quot;);
+                          var Protocol = document.createTextNode(data.protocol_name);
+                          var p = document.createElement(&quot;p&quot;);
+                          var text = document.createTextNode(data.panels[0].text);
+                          h2.appendChild(Protocol);
+                          p.appendChild(text);
+                          frag.appendChild(h2);
+                          frag.appendChild(p);
+                          $(&quot;#responses&quot;)[0].appendChild(frag);
+             },
+             error:function(error){
+             },
+     });
+     return;
+ };			</pre> 
+                        </section>
+                    </section>
+                    <!--Protocol- Section end -->
+                    <!--Status - Section start -->
+                    <section>                       
                         <h2 id="a6">Statut de l'essai </h2>
                         <p>« EN ATTENTE » signifie que Santé Canada attend de recevoir du promoteur l'information selon laquelle l'essai est commencé. « EN COURS » signifie que Santé Canada a reçu du promoteur l'information indiquant la date proposée pour le début de l'essai, et « TERMINÉ » signifie que Santé Canada a reçu du promoteur l'information selon laquelle l'essai clinique est terminé. </p>
                         <!--h3-section-start-->
@@ -735,10 +734,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/status/?id=</span></td>
-                                    <td>Affiche le statut de l'essai par numéro d'identification.</td>
+                                    <td>Affiche le statut selon le numéro d'identification du statut spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- numéro d'identification du statut de l'essai
+                                            #####&nbsp;- numéro d'identification du statut
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -779,9 +778,8 @@
 
                         <section>
                             <h3 id="a6.2">Format du résultat</h3>
-                            <p>Le résultat est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
-
-                            <p>Chaque&nbsp;<strong>statut</strong>&nbsp;contient un objet avec les valeurs suivantes&nbsp;:</p>
+                            <p>Le <strong>résultat</strong> contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>statut</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
                                     Valeurs de l'objet statut
@@ -799,46 +797,46 @@
                                     <td>Le statut de l'essai.</td>
                                 </tr>
                             </table>
-
-                            <section>
-                                <h3 id="a6.3">Exemple de résultat</h3>
-                                <pre class="prettify prettyprint linenums">{"status_id":1,"status":"ONGOING"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a6.4">Exemple de jQuery</h3>
-                                <p>Exemple d'une fonctionnalité qui recherche un statut d'essai selon le numéro d'identification et la langue sélectionnée&nbsp;:</p>
-                                <pre class="prettify prettyprint linenums">function getStatus(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/status/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.status);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Status = document.createTextNode(data.status);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(Status);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
                         </section>
-                    </section><!--END of Status-->
-                    <section>
-                        <!--BEGIN of Population à l'étude-->
+                        <section>
+                             <h3 id="a6.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">{"status_id":1,"status":"En cours"}</pre>
+                        </section>
+
+                        <section>
+                             <h3 id="a6.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche un statut d'essai selon le numéro d'identification d'un statut et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getStatus(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/status/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.status);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var Status = document.createTextNode(data.status);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(Status);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+               },
+               error:function(error){
+               },
+      });
+      return;
+ };			</pre>                            
+                        </section>
+                    </section>
+                    <!--Status - Section end-->
+                    <!--Study Population Section start-->
+                    <section>                       
                         <h2 id="a7">Population à l'étude</h2>
                         <p>Caractéristiques des sujets admissibles à l'essai clinique, p. ex. hommes et femmes adultes, enfants, etc. </p>
                         <!--h3-section-start-->
@@ -858,7 +856,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/studypopulation/?id=</span></td>
-                                    <td>Affiche la population à l'étude par numéro d'identification.</td>
+                                    <td>Affiche la population à l'étude selon le numéro d'identification d'une population à l'étude spécifié dans la requête..</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- numéro d'identification de la population à l'étude
@@ -899,12 +897,10 @@
                                 <li><a href="https://api.hres.ca/cta/api/studypopulation/?lang=fr&type=json">https://api.hres.ca/cta/api/studypopulation/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
-
                         <section>
                             <h3 id="a7.2">Format du résultat</h3>
-                            <p>Le résultat est en format JSON, et contient un objet&nbsp;<strong>résultat</strong>&nbsp;:</p>
-
-                            <p>Chaque&nbsp;<strong>population à l'étude</strong>&nbsp;contient un objet avec les valeurs suivantes&nbsp;:</p>
+                            <p>Le <strong>résultat</strong> contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>population à l'étude</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
                                     Valeurs de l'objet population à l'étude
@@ -922,42 +918,40 @@
                                     <td>La population à l'étude.</td>
                                 </tr>
                             </table>
+                        </section>
+                        <section>
+                             <h3 id="a7.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">{"study_population_id":3,"study_population":"PÉDIATRIQUE"}</pre>
+                        </section>
 
-                            <section>
-                                <h3 id="a7.3">Exemple de résultat</h3>
-                                <pre class="prettify prettyprint linenums">{"study_population_id":3,"study_population":"PEDIATRIC"}</pre>
-                            </section>
-
-                            <section>
-                                <h3 id="a7.4">Exemple de jQuery</h3>                                
-                                <p>Exemple d'une fonctionnalité qui recherche une population à l'étude selon le numéro d'identification et la langue sélectionnée&nbsp;:</p>                                <pre class="prettify prettyprint linenums">function getStudyPopulation(id, lang) {
-                                var base = 'https://imsd.hres.ca';
-                                var uri = base + '/dpd/api/studypopulation/?lang=' + lang + '&id=' + id;
-                                $.ajax({
-                                    url:uri,
-                                    type:'GET',
-                                    Accept:&quot;application/json&quot;,
-                                    dataType: 'json',
-                                    success:function(data){
-                                        console.log(data.study_population);
-                                        var frag = document.createDocumentFragment();
-                                        var h2 = document.createElement(&quot;h2&quot;);
-                                        var Etudie la population = document.createTextNode(data.study_population);
-                                        var p = document.createElement(&quot;p&quot;);
-                                        var text = document.createTextNode(data.panels[0].text);
-                                        h2.appendChild(ProductRoute);
-                                        p.appendChild(text);
-                                        frag.appendChild(h2);
-                                        frag.appendChild(p);
-                                        $(&quot;#responses&quot;)[0].appendChild(frag);
-                                    },
-                                    error:function(error){
-                                    },
-                                });
-                                return;
-                            };			</pre>
-                            </section>
-
+                        <section>
+                             <h3 id="a7.4">Exemple de jQuery</h3>                                
+                             <p>Exemple d'une fonctionnalité qui recherche une population à l'étude selon le numéro d'identification d'une population à l'étude et la langue sélectionnée&nbsp;:</p>                                <pre class="prettify prettyprint linenums">function getStudyPopulation(id, lang) {
+      var base = 'https://imsd.hres.ca';
+      var uri = base + '/dpd/api/studypopulation/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.study_population);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var Etudie la population = document.createTextNode(data.study_population);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(ProductRoute);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>  
                         </section>
                     </section><!--END of Population à l'étude-->
                 </section><!--END Entire Doc Section-->
