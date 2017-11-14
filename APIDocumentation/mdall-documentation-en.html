@@ -95,7 +95,7 @@
                                 <a href="#a2">Licence</a>
                                 <ul>
                                     <li><a href="#a2.1">Parameters</a></li>
-                                    <li><a href="#a2.2">Response format</a></li>
+                                    <li><a href="#a2.2">Contents of the response</a></li>
                                     <li><a href="#a2.3">Sample response</a></li>
                                     <li><a href="#a2.4">jQuery example</a></li>
                                 </ul>
@@ -104,7 +104,7 @@
                                 <a href="#a3">Company</a>
                                 <ul>
                                     <li><a href="#a3.1">Parameters</a></li>
-                                    <li><a href="#a3.2">Response format</a></li>
+                                    <li><a href="#a3.2">Contents of the response</a></li>
                                     <li><a href="#a3.3">Sample response</a></li>
                                     <li><a href="#a3.4">jQuery example</a></li>
                                 </ul>
@@ -113,7 +113,7 @@
                                 <a href="#a4">Device</a>
                                 <ul>
                                     <li><a href="#a4.1">Parameters</a></li>
-                                    <li><a href="#a4.2">Response format</a></li>
+                                    <li><a href="#a4.2">Contents of the response</a></li>
                                     <li><a href="#a4.3">Sample response</a></li>
                                     <li><a href="#a4.4">jQuery example </a></li>
                                 </ul>
@@ -122,7 +122,7 @@
                                 <a href="#a5">Device Identifier</a>
                                 <ul>
                                     <li><a href="#a5.1">Parameters</a></li>
-                                    <li><a href="#a5.2">Response format</a></li>
+                                    <li><a href="#a5.2">Contents of the response</a></li>
                                     <li><a href="#a5.3">Sample response</a></li>
                                     <li><a href="#a5.4">jQuery example </a></li>
                                 </ul>
@@ -131,7 +131,7 @@
                                 <a href="#a6">Licence Type</a>
                                 <ul>
                                     <li><a href="#a6.1">Parameters</a></li>
-                                    <li><a href="#a6.2">Response format</a></li>
+                                    <li><a href="#a6.2">Contents of the response</a></li>
                                     <li><a href="#a6.3">Sample response</a></li>
                                     <li><a href="#a6.4">jQuery example </a></li>
                                 </ul>
@@ -140,7 +140,7 @@
                                 <a href="#a7">Summary Basis Decision Location</a>
                                 <ul>
                                     <li><a href="#a7.1">Parameters</a></li>
-                                    <li><a href="#a7.2">Response format</a></li>
+                                    <li><a href="#a7.2">Contents of the response</a></li>
                                     <li><a href="#a7.3">Sample response</a></li>
                                     <li><a href="#a7.4">jQuery example </a></li>
                                 </ul>
@@ -153,7 +153,7 @@
                         <h2 id="a1">Introduction</h2>
                         <p>Health Canada is the federal regulator of therapeutic products, including medical devices. We do not provide medical advice on the use of the products identified in this listing.
                         <p>The Medical Devices Bureau (Bureau) of the Therapeutic Products Directorate, Health Canada is the Canadian federal regulator responsible for licensing medical devices in accordance with the <i>Food and Drugs Act and Regulations</i> and the <i>Medical Devices Regulations</i>. </p>
-                        <p>The Bureau maintains a database of all licensed Class II, III, and IV medical devices offered for sale in Canada. Class I medical devices do not require a medical device licence and are monitored by the Health Products and Food Branch Inspectorate (Compliance and Enforcement) through Establishment Licensing.</p>
+                        <p>The Bureau maintains a database of all licensed Class II, III, and IV medical devices offered for sale in Canada. Class I medical devices do not require a medical device licence and are monitored by the Regulatory Operations and Regions Branch (Compliance and Enforcement) through Establishment Licensing.</p>
                         <p>Only products which appear in this database listing may be offered for general marketing purposes in Canada. Class I Devices, or devices which relate to Investigational Testing Authorization or Special Access do not appear in this listing.</p>
                         <p>This Application Programming Interface (API) allows developers to access that information in JSON, XML and CSV format for reuse in their own applications.</p>
                         <p>The base URI for the Medical Devices Active Licence Listing &nbsp;<a href="https://api.hres.ca/mall/api-v1/">https://api.hres.ca/mdall/api-v1/</a>. Any requests are made relative to this URI.</p>
@@ -179,10 +179,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/licence/?id=</span></td>
-                                    <td>Returns the licence according to the original licence number specified in the request.</td>
+                                    <td>Returns the licence according to the licence number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- original licence number
+                                            #####&nbsp;- licence number
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -252,12 +252,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML. </td>
                                 </tr>
                             </table>
                             <p>Licences can be accessed via these URIs:</p>
@@ -267,7 +266,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a2.2">Response format</h3>
+                            <h3 id="a2.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>licence</strong>&nbsp;object consists of the following values:</p>
@@ -281,16 +280,18 @@
                                 </tr>
                                 <tr>
                                     <td><strong>original_licence_no</strong></td>
-                                    <td>The original licence number.</td>
+                                    <td>The licence number.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>licence_status</strong></td>
                                     <td>The licence status.</td>
                                 </tr>
+                                <!-- Remove from code October 2017 Request Sarah Chandler
                                 <tr>
                                     <td><strong>application_id</strong></td>
                                     <td>The application id.</td>
                                 </tr>
+                                ------------>
                                 <tr>
                                     <td><strong>appl_risk_class</strong></td>
                                     <td>The application risk class.</td>
@@ -339,8 +340,7 @@
                         </section>
                         <section>
                              <h3 id="a2.3">Sample response</h3>
-                             <pre class="prettify prettyprint linenums">[{"original_licence_no":1561,"licence_status":"I","application_id":15345,"appl_risk_class":2,"licence_name":"FLOOD PHANTOM","first_licence_status_dt":"1999-02-23","last_refresh_dt":"2013-01-29","end_date":null,"licence_type_cd":"F","company_id":101500,"licence_type_desc":"Device Family"},
-    {"original_licence_no":67624,"licence_status":"I","application_id":89957,"appl_risk_class":2,"licence_name":"FLOOD SOURCE","first_licence_status_dt":"2005-03-02","last_refresh_dt":"2013-01-29","end_date":null,"licence_type_cd":"F","company_id":117675,"licence_type_desc":"Device Family"}]</pre>
+                             <pre class="prettify prettyprint linenums">{"original_licence_no":1561,"licence_status":"I","appl_risk_class":2,"licence_name":"FLOOD PHANTOM","first_licence_status_dt":"1999-02-23","last_refresh_dt":"2013-01-29","end_date":null,"licence_type_cd":"F","company_id":101500,"licence_type_desc":"Device Family"}</pre>
                         </section>
                         <section>
                              <h3 id="a2.4">jQuery example</h3>                               
@@ -395,7 +395,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/company/?id=</span></td>
-                                    <td>Returns the company according to the identification number of the company specified in the request.</td>
+                                    <td>Returns the company according to the company identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- identification number of the company
@@ -433,12 +433,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML. </td>
                                 </tr>
                             </table>
                             <p>Companies can be accessed via these URIs:</p>
@@ -449,7 +448,7 @@
                         </section>
 
                         <section>
-                            <h3 id="a3.2">Response format</h3>
+                            <h3 id="a3.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>company</strong>&nbsp;object consists of the following values:</p>
@@ -599,12 +598,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                           
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML. </td>
                                 </tr>
 
                                 <!--           search-by-device will not return devices by licence number
@@ -630,7 +628,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a4.2">Response format</h3>
+                            <h3 id="a4.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>device</strong>&nbsp;object consists of the following values:</p>
@@ -721,7 +719,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/deviceidentifier/?id=</span></td>
-                                    <td>Returns a device identifier according to the device identification number specify in the request.</td>
+                                    <td>Returns a device identifier according to the device identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- device identification number
@@ -759,12 +757,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML. </td>
                                 </tr>
                             </table>
                             <p>Device Identifiers can be accessed via these URIs:</p>
@@ -774,7 +771,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a5.2">Response format</h3>
+                            <h3 id="a5.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>device identifier</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -865,7 +862,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/licencetype/?code=D</span></td>
-                                    <td>Returns a licence type according to the licence type code specify in the request.</td>
+                                    <td>Returns a licence type according to the licence type code specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- code of the licence type
@@ -892,12 +889,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML. </td>
                                 </tr>
                             </table>
                             <p>Licence Types can be accessed via these URIs:</p>
@@ -907,7 +903,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a6.2">Response format</h3>
+                            <h3 id="a6.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>licence type</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -985,7 +981,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/sbdlocation/?id=</span></td>
-                                    <td>Returns summary basis decision location according to the licence number specify in the request.</td>
+                                    <td>Returns summary basis decision location according to the licence number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- licence number
@@ -1001,12 +997,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML. </td>
                                 </tr>
                             </table>
                             <p>Summary Basis Decision Locations can be accessed via that URIs:</p>
@@ -1015,7 +1010,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a7.2">Response format</h3>
+                            <h3 id="a7.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>summary basis decision location</strong>&nbsp;object consists of the following values:</p>

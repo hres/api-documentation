@@ -92,10 +92,10 @@
                         <ul>
                             <li><a href="#a1">Introduction</a></li>
                             <li>
-                                <a href="#a2">Manufacturer</a>
+                                <a href="#a2">Sponsor</a>
                                 <ul>
                                     <li><a href="#a2.1">Parameters</a></li>
-                                    <li><a href="#a2.2">Response format</a></li>
+                                    <li><a href="#a2.2">Contents of the response</a></li>
                                     <li><a href="#a2.3">Sample response</a></li>
                                     <li><a href="#a2.4">jQuery example</a></li>
                                 </ul>
@@ -104,16 +104,16 @@
                                 <a href="#a3">Medical Condition</a>
                                 <ul>
                                     <li><a href="#a3.1">Parameters</a></li>
-                                    <li><a href="#a3.2">Response format</a></li>
+                                    <li><a href="#a3.2">Contents of the response</a></li>
                                     <li><a href="#a3.3">Sample response</a></li>
                                     <li><a href="#a3.4">jQuery example</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a4">Product Brand</a>
+                                <a href="#a4">Drug Product</a>
                                 <ul>
                                     <li><a href="#a4.1">Parameters</a></li>
-                                    <li><a href="#a4.2">Response format</a></li>
+                                    <li><a href="#a4.2">Contents of the response</a></li>
                                     <li><a href="#a4.3">Sample response</a></li>
                                     <li><a href="#a4.4">jQuery example </a></li>
                                 </ul>
@@ -122,7 +122,7 @@
                                 <a href="#a5">Protocol</a>
                                 <ul>
                                     <li><a href="#a5.1">Parameters</a></li>
-                                    <li><a href="#a5.2">Response format</a></li>
+                                    <li><a href="#a5.2">Contents of the response</a></li>
                                     <li><a href="#a5.3">Sample response</a></li>
                                     <li><a href="#a5.4">jQuery example </a></li>
                                 </ul>
@@ -131,7 +131,7 @@
                                 <a href="#a6">Trial Status</a>
                                 <ul>
                                     <li><a href="#a6.1">Parameters</a></li>
-                                    <li><a href="#a6.2">Response format</a></li>
+                                    <li><a href="#a6.2">Contents of the response</a></li>
                                     <li><a href="#a6.3">Sample response</a></li>
                                     <li><a href="#a6.4">jQuery example </a></li>
                                 </ul>
@@ -140,7 +140,7 @@
                                 <a href="#a7">Study Population</a>
                                 <ul>
                                     <li><a href="#a7.1">Parameters</a></li>
-                                    <li><a href="#a7.2">Response format</a></li>
+                                    <li><a href="#a7.2">Contents of the response</a></li>
                                     <li><a href="#a7.3">Sample response</a></li>
                                     <li><a href="#a7.4">jQuery example </a></li>
                                 </ul>
@@ -149,14 +149,15 @@
                     </section>
                     <section>
                         <h2 id="a1">Introduction</h2>
-                        <p>Clinical Trials Database, is providing to the public a listing of specific information relating to phase I, II and III clinical trials in patients. The database is managed by Health Canada and provides a source of information about Canadian clinical trials involving human pharmaceutical and biological drugs.</p>
+                        <p>The Clinical Trials Database provides to the public a listing of specific information relating to phase I, II and III clinical trials in patients. The database is managed by Health Canada and provides a source of information about Canadian clinical trials involving human pharmaceutical and biological drugs.</p>
                         <p>This Application Programming Interface (API) allows developers to access that information in JSON, XML and CSV format for reuse in their own applications.</p>
                         <p>The base URI for the Notice of Compliance Database &nbsp;<a href="https://api.hres.ca/cta/api/">https://api.hres.ca/cta/api/</a>. Any requests are made relative to this URI.</p>
                     </section>                    
-                    <!--Manufacturer-section-start-->
+                    <!--Sponsor-section-start-->
                     <section>
-                        <h2 id="a2">Manufacturer</h2>
-                        <p>TODO put description of manufacturer.....</p>
+                        <h2 id="a2">Sponsor</h2>
+                        <p>A clinical trial sponsor is an individual, corporate body, institution or organization that conducts a clinical trial. The sponsor is responsible for every aspect of a clinical trial, including ensuring that the trial is carried out under good clinical practices at each clinical trial site.</p>
+                        <p>Each clinical trial site must have a Qualified Investigator, i.e., a licensed physician or dentist. The Qualified Investigator is the person responsible to the sponsor for the conduct of the clinical trial at the clinical trial site.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a2.1">Parameters</h3>
@@ -174,10 +175,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/manufacturer/?id=</span></td>
-                                    <td>Returns manufacturer according to the identification number of the manufacturer specified in the request.</td>
+                                    <td>Returns sponsor according to the identification number of the sponsor specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identification number of the manufacturer
+                                            #####&nbsp;- identification number of the sponsor
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -201,27 +202,26 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                           
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
-                            <p>Manufacturers can be accessed via these URIs:</p>
+                            <p>Sponsors can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cta/api/manufacturer/?lang=en&type=json">https://api.hres.ca/manufacturer/api/brand/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cta/api/manufacturer/?lang=fr&type=json">https://api.hres.ca/manufacturer/api/brand/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a2.2">Response format</h3>
+                            <h3 id="a2.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
-                            <p>Each&nbsp;<strong>manufacturer</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>sponsor</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Manufacturer object values
+                                    Sponsor object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
@@ -229,11 +229,11 @@
                                 </tr>
                                 <tr>
                                     <td><strong>manufacturer_id</strong></td>
-                                    <td>The identification number assigned to a manufacturer.</td>
+                                    <td>The identification number assigned to a sponsor.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>manufacturer_name</strong></td>
-                                    <td>The name of the manufacturer.</td>
+                                    <td>The name of the sponsor.</td>
                                 </tr>
                             </table>
                         </section>
@@ -243,7 +243,7 @@
                         </section>
                         <section>
                              <h3 id="a2.4">jQuery example</h3>
-                             <p>Example of a function that search for a manufacturer given a manufacturer identification number and language selection:</p>
+                             <p>Example of a function that search for a sponsor given a sponsor identification number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getManufacturer(id, lang) {
       var base = 'https://imsd.hres.ca';
       var uri = base + '/dpd/api/manufacturer/?lang=' + lang + '&id=' + id;
@@ -272,7 +272,7 @@
  };			</pre>
                         </section>
                     </section>
-                    <!--Manufacturer - Section end-->
+                    <!--Sponsor - Section end-->
                     <!--Medical Condition - Section start-->
                     <section>
                         <h2 id="a3">Medical Condition</h2>
@@ -294,7 +294,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/medicalcondition/?id=</span></td>
-                                    <td>Returns medical condition according to the identification number of the medical condition specified in the request.</td>
+                                    <td>Returns medical condition according to the medical condition identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- identification number of the medical condition
@@ -321,12 +321,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Medical Conditions can be accessed via these URIs:</p>
@@ -336,7 +335,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a3.2">Response format</h3>
+                            <h3 id="a3.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>medical condition</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -373,10 +372,10 @@
               Accept:&quot;application/json&quot;,
               dataType: 'json',
               success:function(data){
-                           console.log(data.medcondition);
+                           console.log(data.med_condition);
                            var frag = document.createDocumentFragment();
                            var h2 = document.createElement(&quot;h2&quot;);
-                           var MedicalCondition = document.createTextNode(data.medcondition);
+                           var MedicalCondition = document.createTextNode(data.med_condition);
                            var p = document.createElement(&quot;p&quot;);
                            var text = document.createTextNode(data.panels[0].text);
                            h2.appendChild(MedicalCondition);
@@ -395,8 +394,8 @@
                     <!--Medical Condition - Section end-->
                     <!--Product Brand - Section start-->
                     <section>                        
-                        <h2 id="a4">Product Brand</h2>
-                        <p>Name given to the drug used in the clinical trial. This may be a code name, the chemical name of the active ingredient, the non-proprietary name, or a brand name. </p>
+                        <h2 id="a4">Drug Product</h2>
+                        <p>Basic information about the drug product, such as the name given to the drug used in the clinical trial. This may be a code name, the chemical name of the active ingredient, the non-proprietary name, or a brand name. </p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a4.1">Parameters</h3>
@@ -414,7 +413,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="wrap">cta/api/productbrand/?id=</span></td>
-                                    <td>Returns product brand according to the identification number of the brand specified in the request.</td>
+                                    <td>Returns drug product according to the brand identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- identification number of the brand
@@ -441,27 +440,26 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
-                            <p>Product Brands can be accessed via these URIs:</p>
+                            <p>Drug Products can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cta/api/productbrand/?lang=en&type=json">https://api.hres.ca/cta/api/productbrand/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cta/api/productbrand/?lang=fr&type=json">https://api.hres.ca/cta/api/productbrand/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a4.2">Response format</h3>
+                            <h3 id="a4.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
-                            <p>Each&nbsp;<strong>product brand</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>drug product</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Product Brand object values
+                                    Drug Product object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
@@ -481,11 +479,11 @@
                                 </tr>
                                 <tr>
                                     <td><strong>manufacturer_id</strong></td>
-                                    <td>The identification number assigned to a manufacturer.</td>
+                                    <td>The identification number assigned to a sponsor.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>manufacturer_name</strong></td>
-                                    <td>The name of the manufacturer.</td>
+                                    <td>The name of the sponsor.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>brand_name</strong></td>
@@ -499,7 +497,7 @@
                         </section>
                         <section>
                              <h3 id="a4.4">jQuery example</h3>
-                             <p>Example of a function that search for a product brand given a brand identification number and language selection:</p>
+                             <p>Example of a function that search for a drug product given a brand identification number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getProductBrand(id, lang) {
       var base = 'https://imsd.hres.ca';
       var uri = base + '/dpd/api/productbrand/?lang=' + lang + '&id=' + id;
@@ -532,7 +530,7 @@
                     <!--Protocol - Section start-->
                     <section>                        
                         <h2 id="a5">Protocol</h2>
-                        <p>A document that describes the objective(s), design, methodology, statistical considerations and organisation of a trial. </p>
+                        <p>A document that describes the objective(s), design, methodology, statistical considerations and organization of a trial. </p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a5.1">Parameters</h3>
@@ -577,12 +575,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Protocols can be accessed via these URIs:</p>
@@ -592,7 +589,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a5.2">Response format</h3>
+                            <h3 id="a5.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>protocol</strong>&nbsp;object consists of the following values:</p>
@@ -634,12 +631,11 @@
                                 </tr>
                                 <tr>
                                     <td><strong>medConditionList</strong></td>
-                                    <td>List of medical conditions.</td>
+                                    <td>The consolidated list of medical conditions for a clinical trial protocol.</td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>med_condition_id</strong></td>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The identification number assigned to a medical condition.</td>
-
                                 </tr>
                                 <tr>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>med_condition</strong></td>
@@ -647,7 +643,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>studyPopulationList</strong></td>
-                                    <td>The study population list.</td>
+                                    <td>The consolidated list of study populations for a clinical trial protocol.</td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>study_population_id</strong></td>
@@ -680,7 +676,7 @@
               Accept:&quot;application/json&quot;,
               dataType: 'json',
               success:function(data){
-                           console.log(data.rotocol_name);
+                           console.log(data.protocol_name);
                            var frag = document.createDocumentFragment();
                            var h2 = document.createElement(&quot;h2&quot;);
                            var Protocol = document.createTextNode(data.protocol_name);
@@ -748,8 +744,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to Json if not specified.</td>
@@ -763,7 +758,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a6.2">Response format</h3>
+                            <h3 id="a6.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>trial status</strong>&nbsp;object consists of the following values:</p>
@@ -869,12 +864,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Population Studies can be accessed via these URIs:</p>
@@ -885,7 +879,7 @@
                         </section>
 
                         <section>
-                            <h3 id="a7.2">Response format</h3>
+                            <h3 id="a7.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>study population</strong>&nbsp;object consists of the following values:</p>
@@ -926,10 +920,10 @@
                            console.log(data.study_population);
                            var frag = document.createDocumentFragment();
                            var h2 = document.createElement(&quot;h2&quot;);
-                           var Study Population = document.createTextNode(data.study_population);
+                           var StudyPopulation = document.createTextNode(data.study_population);
                            var p = document.createElement(&quot;p&quot;);
                            var text = document.createTextNode(data.panels[0].text);
-                           h2.appendChild(ProductRoute);
+                           h2.appendChild(StudyPopulation);
                            p.appendChild(text);
                            frag.appendChild(h2);
                            frag.appendChild(p);

@@ -94,7 +94,7 @@
                                 <a href="#a2">Ingredient</a>
                                 <ul>
                                     <li><a href="#a2.1">Parameters</a></li>
-                                    <li><a href="#a2.2">Response format</a></li>
+                                    <li><a href="#a2.2">Contents of the response</a></li>
                                     <li><a href="#a2.3">Sample response</a></li>
                                     <li><a href="#a2.4">jQuery example </a></li>
                                 </ul>
@@ -103,7 +103,7 @@
                                 <a href="#a3">Ingredient Quantity</a>
                                 <ul>
                                     <li><a href="#a3.1">Parameters</a></li>
-                                    <li><a href="#a3.2">Response format</a></li>
+                                    <li><a href="#a3.2">Contents of the response</a></li>
                                     <li><a href="#a3.3">Sample response</a></li>
                                     <li><a href="#a3.4">jQuery example </a></li>
                                 </ul>
@@ -112,7 +112,7 @@
                                 <a href="#a4">Ingredient Source</a>
                                 <ul>
                                     <li><a href="#a4.1">Parameters</a></li>
-                                    <li><a href="#a4.2">Response format</a></li>
+                                    <li><a href="#a4.2">Contents of the response</a></li>
                                     <li><a href="#a4.3">Sample response</a></li>
                                     <li><a href="#a4.4">jQuery example </a></li>
                                 </ul>
@@ -121,7 +121,7 @@
                                 <a href="#a5">Ingredient Submission</a>
                                 <ul>
                                     <li><a href="#a5.1">Parameters</a></li>
-                                    <li><a href="#a5.2">Response format</a></li>
+                                    <li><a href="#a5.2">Contents of the response</a></li>
                                     <li><a href="#a5.3">Sample response</a></li>
                                     <li><a href="#a5.4">jQuery example </a></li>
                                 </ul>
@@ -130,7 +130,7 @@
                                 <a href="#a6">Product Dose</a>
                                 <ul>
                                     <li><a href="#a6.1">Parameters</a></li>
-                                    <li><a href="#a6.2">Response format</a></li>
+                                    <li><a href="#a6.2">Contents of the response</a></li>
                                     <li><a href="#a6.3">Sample response</a></li>
                                     <li><a href="#a6.4">jQuery example </a></li>
                                 </ul>
@@ -139,7 +139,7 @@
                                 <a href="#a7">Product Licence</a>
                                 <ul>
                                     <li><a href="#a7.1">Parameters</a></li>
-                                    <li><a href="#a7.2">Response format</a></li>
+                                    <li><a href="#a7.2">Contents of the response</a></li>
                                     <li><a href="#a7.3">Sample response</a></li>
                                     <li><a href="#a7.4">jQuery example </a></li>
                                 </ul>
@@ -148,7 +148,7 @@
                                 <a href="#a8">Product Purpose</a>
                                 <ul>
                                     <li><a href="#a8.1">Parameters</a></li>
-                                    <li><a href="#a8.2">Response format</a></li>
+                                    <li><a href="#a8.2">Contents of the response</a></li>
                                     <li><a href="#a8.3">Sample response</a></li>
                                     <li><a href="#a8.4">jQuery example </a></li>
                                 </ul>
@@ -157,7 +157,7 @@
                                 <a href="#a9">Product Risk</a>
                                 <ul>
                                     <li><a href="#a9.1">Parameters</a></li>
-                                    <li><a href="#a9.2">Response format</a></li>
+                                    <li><a href="#a9.2">Contents of the response</a></li>
                                     <li><a href="#a9.3">Sample response</a></li>
                                     <li><a href="#a9.4">jQuery example </a></li>
                                 </ul>
@@ -166,7 +166,7 @@
                                 <a href="#a10">Product Route</a>
                                 <ul>
                                     <li><a href="#a10.1">Parameters</a></li>
-                                    <li><a href="#a10.2">Response format</a></li>
+                                    <li><a href="#a10.2">Contents of the response</a></li>
                                     <li><a href="#a10.3">Sample response</a></li>
                                     <li><a href="#a10.4">jQuery example </a></li>
                                 </ul>
@@ -200,7 +200,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">lnhpd/api/ingredient/?id=</span></td>
-                                    <td>Returns active ingredient(s) according to the submission identification number specify in the request.</td>
+                                    <td>Returns active ingredient(s) according to the submission identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- identification number of the submission
@@ -227,12 +227,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Ingredients can be accessed via these URIs:</p>
@@ -242,7 +241,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a2.2">Response format</h3>
+                            <h3 id="a2.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>ingredient</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -407,7 +406,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">lnhpd/api/ingredientquantity/?id=</span></td>
-                                    <td>Returns ingredient quantity according to the ingredient amount identification number specify in the request.</td>
+                                    <td>Returns ingredient quantity according to the ingredient amount identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- identification number of an ingredient amount
@@ -434,12 +433,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Ingredient Quantities can be accessed via these URIs:</p>
@@ -449,7 +447,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a3.2">Response format</h3>
+                            <h3 id="a3.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>ingredient quantity</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -589,7 +587,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">lnhpd/api/ingredientsource/?id=</span></td>
-                                    <td>Returns ingredient source according to the material identification number specify in the request.</td>
+                                    <td>Returns ingredient source according to the material identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- identification number of the material
@@ -616,12 +614,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Ingredient Sources can be accessed via these URIs:</p>
@@ -631,7 +628,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a4.2">Response format</h3>
+                            <h3 id="a4.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>ingredient source</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -708,7 +705,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">lnhpd/api/ingredientsubmission/?id=</span></td>
-                                    <td>Returns ingredient(s) submission according to the submission identification number specify in the request.</td>
+                                    <td>Returns ingredient(s) submission according to the submission identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- identification number of the submission
@@ -735,12 +732,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Ingredient Submissions can be accessed via these URIs:</p>
@@ -750,7 +746,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a5.2">Response format</h3>
+                            <h3 id="a5.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>ingredient submission</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -831,7 +827,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">lnhpd/api/productdose/?id=</span></td>
-                                    <td>Returns product dose according to the product dose identification number specify in the request.</td>
+                                    <td>Returns product dose according to the product dose identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- identification number of the product dose
@@ -858,12 +854,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Product Doses can be accessed via these URIs:</p>
@@ -873,7 +868,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a6.2">Response format</h3>
+                            <h3 id="a6.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>product dose</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -1000,7 +995,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">lnhpd/api/productlicence/?id=</span></td>
-                                    <td>Returns product licence according to the licence number specify in the request.</td>
+                                    <td>Returns product licence according to the licence number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- number of the licence
@@ -1027,12 +1022,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                             </table>
                             <p>Product Licences can be accessed via these URIs:</p>
                             <ul>
@@ -1041,7 +1035,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a7.2">Response format</h3>
+                            <h3 id="a7.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>product licence</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -1549,7 +1543,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">lnhpd/api/productpurpose/?id=</span></td>
-                                    <td>Returns product purpose(s) according to the submission identification number specify in the request.</td>
+                                    <td>Returns product purpose(s) according to the submission identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- identification number of the submission
@@ -1576,12 +1570,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Product Purposes can be accessed via these URIs:</p>
@@ -1591,7 +1584,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a8.2">Response format</h3>
+                            <h3 id="a8.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>product purpose</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -1668,7 +1661,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">lnhpd/api/productrisk/?id=</span></td>
-                                    <td>Returns product risk according to the product risk identification number specify in the request.</td>
+                                    <td>Returns product risk according to the product risk identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- identification number of the product risk
@@ -1695,12 +1688,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Product Risks can be accessed via these URIs:</p>
@@ -1710,7 +1702,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a9.2">Response format</h3>
+                            <h3 id="a9.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>product risk</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -1795,7 +1787,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">lnhpd/api/productroute/?id=</span></td>
-                                    <td>Returns product route according to the product route identification number specify in the request.</td>
+                                    <td>Returns product route according to the product route identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- identification number of the product route
@@ -1822,12 +1814,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Product Routes can be accessed via these URIs:</p>
@@ -1837,7 +1828,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a10.2">Response format</h3>
+                            <h3 id="a10.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>product route</strong>&nbsp;object consists of the following values:</p>
                             <table>

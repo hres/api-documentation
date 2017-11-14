@@ -89,10 +89,10 @@
                         <ul>
                             <li><a href="#a1">Introduction</a></li>
                             <li>
-                                <a href="#a2">Licence</a>
+                                <a href="#a2">Homologation</a>
                                 <ul>
                                     <li><a href="#a2.1">Paramètres</a></li>
-                                    <li><a href="#a2.2">Format du résultat</a></li>
+                                    <li><a href="#a2.2">Contenu du résultat</a></li>
                                     <li><a href="#a2.3">Exemple de résultat</a></li>
                                     <li><a href="#a2.4">Exemple de jQuery</a></li>
                                 </ul>
@@ -101,7 +101,7 @@
                                 <a href="#a3">Entreprise</a>
                                 <ul>
                                     <li><a href="#a3.1">Paramètres</a></li>
-                                    <li><a href="#a3.2">Format du résultat</a></li>
+                                    <li><a href="#a3.2">Contenu du résultat</a></li>
                                     <li><a href="#a3.3">Exemple de résultat</a></li>
                                     <li><a href="#a3.4">Exemple de jQuery</a></li>
                                 </ul>
@@ -110,7 +110,7 @@
                                 <a href="#a4">Instrument médical</a>
                                 <ul>
                                     <li><a href="#a4.1">Paramètres</a></li>
-                                    <li><a href="#a4.2">Format du résultat</a></li>
+                                    <li><a href="#a4.2">Contenu du résultat</a></li>
                                     <li><a href="#a4.3">Exemple de résultat</a></li>
                                     <li><a href="#a4.4">Exemple de jQuery</a></li>
                                 </ul>
@@ -119,25 +119,25 @@
                                 <a href="#a5">Identificateur de l'instrument</a>
                                 <ul>
                                     <li><a href="#a5.1">Paramètres</a></li>
-                                    <li><a href="#a5.2">Format du résultat</a></li>
+                                    <li><a href="#a5.2">Contenu du résultat</a></li>
                                     <li><a href="#a5.3">Exemple de résultat</a></li>
                                     <li><a href="#a5.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a6">Type de licence</a>
+                                <a href="#a6">Type de demande d'homologation</a>
                                 <ul>
                                     <li><a href="#a6.1">Paramètres</a></li>
-                                    <li><a href="#a6.2">Format du résultat</a></li>
+                                    <li><a href="#a6.2">Contenu du résultat</a></li>
                                     <li><a href="#a6.3">Exemple de résultat</a></li>
                                     <li><a href="#a6.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a7">Summary Basis Decision Location</a>
+                                <a href="#a7">Sommaire des motifs de décision (emplacement) </a>
                                 <ul>
                                     <li><a href="#a7.1">Paramètres</a></li>
-                                    <li><a href="#a7.2">Format du résultat</a></li>
+                                    <li><a href="#a7.2">Contenu du résultat</a></li>
                                     <li><a href="#a7.3">Exemple de résultat</a></li>
                                     <li><a href="#a7.4">Exemple de jQuery</a></li>
                                 </ul>
@@ -148,15 +148,15 @@
                         <h2 id="a1">Introduction</h2>
                         <p>Santé Canada est l'organe fédéral de réglementation des produits thérapeutiques, notamment des instruments médicaux. Il ne formule pas de conseils médicaux sur l'utilisation des produits figurant sur cette liste.</p>
                         <p>Le Bureau des matériels médicaux (Bureau) de la Direction des produits thérapeutiques, Santé Canada, est l'organe fédéral de réglementation responsable de l'homologation des instruments médicaux, conformément à la <i>Loi sur les aliments et drogues</i> et au <i>Réglement sur les instruments médicaux</i>. </p>
-                        <p>Le Bureau maintient une base de données sur tous les instruments médicaux de classe II, III ou IV vendus au Canada. Les instruments médicaux de classe I ne requiert pas une homologation des intruments médicaux. Ils sont réglementés par l'Inspectorat de la Direction générale des produits de santé et des aliments (Conformité et application de la loi) au moyen des licences d'établissement.</p>
+                        <p>Le Bureau maintient une base de données sur tous les instruments médicaux de classe II, III ou IV vendus au Canada. Les instruments médicaux de classe I ne requiert pas une homologation des intruments médicaux. Ils sont réglementés par la Direction générale des opérations réglementaires et des régions (Conformité et application de la loi) au moyen des licences d'établissement.</p>
                         <p>Seuls les produits figurant sur cette liste électronique peuvent être offerts pour la vente au Canada. Les instruments médicaux de classe 1 ou vendus aux fins d'essais expérimentaux et aux fins d'un accès spécial ne sont pas inclus.</p>
                         <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON, XML et CSV afin de les utiliser dans leurs propres applications.</p>
                         <p>L'adresse URI de base sur la Liste des instruments médicaux homologués en vigueur est &nbsp;<a href="" https//api.hres.ca/mall/api-v1/">https://api.hres.ca/mdall/api-v1/</a>. Toute requête est effectuée par l'entremise de cette adresse URI.</p>               
                     </section>
                     <section>
                         <!--Licence-section-start-->
-                        <h2 id="a2">Licence</h2>
-                        <p>This is the permit that is delivered for a device to a company.</p>
+                        <h2 id="a2">Homologation</h2>
+                        <p>L'homogolation est une certification de conformité d'un instrument médical pour la vente au Canada détenu par un fabricant.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a2.1">Paramètres</h3>
@@ -174,10 +174,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/licence/?id=</span></td>
-                                    <td>Affiche la licence selon le numéro original de la licence spécifié dans la requête.</td>
+                                    <td>Affiche l'homogolation selon le numéro d'homogolation spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- numéro original de la licence
+                                            #####&nbsp;- numéro de l'homogolation
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -185,7 +185,7 @@
                                 </tr>                                
                                 <tr>
                                     <td><span class="wrap">mdall/api-v1/licence/?status=active</span></td>
-                                    <td>Affiche les licences selon l'état spécifié dans la requête.</td>
+                                    <td>Affiche les homogolations selon l'état spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>active</code>&nbsp;- Actif</li>
@@ -196,11 +196,11 @@
                                     <td>Détermine si le résultat est affiché selon un état spécifique.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="wrap">mdall/api-v1/licence/?licence_name=flood</span></td>
-                                    <td>Affiche les licences qui contiennent flood dans leur nom.</td>
+                                    <td><span class="wrap">mdall/api-v1/licence/?licence_name=endo</span></td>
+                                    <td>Affiche les homogolations qui contiennent flood dans leur nom.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            <li><code>endo</code>&nbsp;- %FLOOD% - nom de licence avec flood dans le nom</li>
+                                            <li><code>endo</code>&nbsp;- %ENDO% - nom d'homogolation avec endo dans le nom</li>
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
@@ -208,10 +208,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="wrap">mdall/api-v1/licence/?licence_number=64507</span></td>
-                                    <td>Affiche les licences qui ont 64507 dans leur numéro.</td>
+                                    <td>Affiche les homogolations qui ont 64507 dans leur numéro.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            <li><code>64507</code>&nbsp;- %64507% - licence avec 64507 dans le numéro</li>
+                                            <li><code>64507</code>&nbsp;- %64507% - homogolation avec 64507 dans le numéro</li>
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
@@ -219,7 +219,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="wrap">mdall/api-v1/licence/?company_id=133876</span></td>
-                                    <td>Affiche les licences dont le numéro d'identification de l'entreprise est 133876.</td>
+                                    <td>Affiche les homogolations dont le numéro d'identification de l'entreprise est 133876.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             <li><code>133876</code>&nbsp;- %133876% - numéro d'identification de l'entreprise est 133876.</li>
@@ -246,27 +246,26 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
-                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
                                 </tr>
                             </table>
-                            <p>La liste des licences peut être accédée aux adresses URI suivantes&nbsp;:</p>
+                            <p>La liste des homogolations peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/mdall/api-v1/licence/?status=active&type=json">https://api.hres.ca/mdall/api-v1/licence/?status=active&type=json</a></li>
                                 <li><a href="https://api.hres.ca/mdall/api-v1/licence/?status=archived&type=json">https://api.hres.ca/mdall/api-v1/licence/?status=archived&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a2.2">Format du résultat</h3>
+                            <h3 id="a2.2">Contenu du résultat</h3>
                             <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
-                            <p>Chaque objet&nbsp;<strong>licence</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
+                            <p>Chaque objet&nbsp;<strong>homogolation</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
-                                    Valeurs de l'objet licence
+                                    Valeurs de l'objet homogolation
                                 </caption>
                                 <tr>
                                     <th scope="col">Code</th>
@@ -274,48 +273,50 @@
                                 </tr>
                                 <tr>
                                     <td><strong>original_licence_no</strong></td>
-                                    <td>Le numéro original d'une licence.</td>
+                                    <td>Le numéro de l'homologation.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>licence_status</strong></td>
-                                    <td>L'état d'une licence.</td>
+                                    <td>L'état de l'homologation.</td>
                                 </tr>
+                                <!-- Remove from code October 2017 Request Sarah Chandler
                                 <tr>
                                     <td><strong>application_id</strong></td>
                                     <td>Le numéro d'identification d'une demande.</td>
                                 </tr>
+                                -------->
                                 <tr>
                                     <td><strong>appl_risk_class</strong></td>
-                                    <td>The application risk class.</td>
+                                    <td>La classe de la demande d’homologation.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>licence_name</strong></td>
-                                    <td>Le nom d'une licence.</td>
+                                    <td>Le nom de l'homologation.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>first_licence_status_dt</strong></td>
-                                    <td>The date of the first issued licence.</td>
+                                    <td>La date où la première homogolation a été émise.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>last_refresh_dt</strong></td>
-                                    <td>The refresh date of the mdall database.</td>
+                                    <td>La date où les données de MDALL ont été mises à jour.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>end_date</strong></td>
-                                    <td>The date of cancellation of the licence (if active then null).</td>
+                                    <td>La date où l’homologation a été annulée (si active ce champ est vide).</td>
                                 </tr>
                                 <tr>
                                     <td><strong>licence_type_cd</strong></td>
-                                    <td>The licence type code.</td>
+                                    <td>Le code d'un type de demande d'homologation.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>company_id</strong></td>
-                                    <td>Le numéro d'identification d'une entreprise.</td>
+                                    <td>Le numéro d'identification attribué à une entreprise.</td>
                                 </tr>
 
                                 <tr>
                                     <td><strong>licence_type_desc</strong></td>
-                                    <td>The licence type description.</td>
+                                    <td>La description du code d'un type de demande d'homologation.</td>
                                 </tr>
                                 <!--<tr>
                                     <td><strong>noc_location</strong></td>
@@ -333,12 +334,11 @@
                         </section>
                         <section>
                              <h3 id="a2.3">Exemple de résultat</h3>
-                             <pre class="prettify prettyprint linenums">[{"original_licence_no":1561,"licence_status":"I","application_id":15345,"appl_risk_class":2,"licence_name":"FLOOD PHANTOM","first_licence_status_dt":"1999-02-23","last_refresh_dt":"2013-01-29","end_date":null,"licence_type_cd":"F","company_id":101500,"licence_type_desc":"Device Family"},
-    {"original_licence_no":67624,"licence_status":"I","application_id":89957,"appl_risk_class":2,"licence_name":"FLOOD SOURCE","first_licence_status_dt":"2005-03-02","last_refresh_dt":"2013-01-29","end_date":null,"licence_type_cd":"F","company_id":117675,"licence_type_desc":"Device Family"}]</pre>
+                             <pre class="prettify prettyprint linenums">{"original_licence_no":1561,"licence_status":"I","appl_risk_class":2,"licence_name":"FLOOD PHANTOM","first_licence_status_dt":"1999-02-23","last_refresh_dt":"2013-01-29","end_date":null,"licence_type_cd":"F","company_id":101500,"licence_type_desc":"Device Family"}</pre>
                         </section>
                         <section>
                              <h3 id="a2.4">Exemple de jQuery</h3> 
-                             <p>Exemple d'une fonctionnalité qui recherche les licences selon le nom d'une licence et un état spécifique&nbsp;:</p>
+                             <p>Exemple d'une fonctionnalité qui recherche les homologations selon le nom d'une homologation et un état spécifique&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getAllLicence(status, licence_name) {
       var base = 'https://imsd.hres.ca';
       var uri = base + '/mdall/api-v1/licence/?status=' + status + '&licence_name=' + licenceName;
@@ -427,12 +427,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
-                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
                                 </tr>
                             </table>
                             <p>La liste des entreprises peut être accédée aux adresses URI suivantes&nbsp;:</p>
@@ -442,7 +441,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a3.2">Format du résultat</h3>
+                            <h3 id="a3.2">Contenu du résultat</h3>
                             <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
                             <p>Chaque objet&nbsp;<strong>entreprise</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
@@ -455,23 +454,23 @@
                                 </tr>
                                 <tr>
                                     <td><strong>company_id</strong></td>
-                                    <td>Le numéro d'identification d'une l'entreprise.</td>
+                                    <td>Le numéro d'identification attribué à une entreprise.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>company_name</strong></td>
-                                    <td>Le nom d'une l'entreprise.</td>
+                                    <td>Le nom de l’entreprise.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>addr_line_1</strong></td>
-                                    <td>La ligne d'adresse 1.</td>
+                                    <td>Ligne 1 de l’adresse.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>addr_line_2</strong></td>
-                                    <td>La ligne d'adresse 2.</td>
+                                    <td>Ligne 2 de l’adresse.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>addr_line_3</strong></td>
-                                    <td>La ligne d'adresse 3.</td>
+                                    <td>Ligne 3 de l’adresse.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>postal_code</strong></td>
@@ -488,10 +487,10 @@
                                 <tr>
                                     <td><strong>region_cd</strong></td>
                                     <td>Le code de la région (2 chiffres).</td>
-                                </tr>
+                                </tr> 
                                 <tr>
                                     <td><strong>company_status</strong></td>
-                                    <td>L'état de l'entreprise (active or inactive).</td>
+                                    <td>L'état de l'entreprise (active ou inactive).</td>
                                 </tr>
 
                                 <!--    consider removing
@@ -599,12 +598,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
-                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
                                 </tr>
 
                                 <!--           search-by-device will not return devices by licence number
@@ -630,7 +628,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a4.2">Format du résultat</h3>
+                            <h3 id="a4.2">Contenu du résultat</h3>
                             <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
                             <p>Chaque objet&nbsp;<strong>instrument médical</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
@@ -644,23 +642,23 @@
 
                                 <tr>
                                     <td><strong>original_licence_no</strong></td>
-                                    <td>Le numéro d'une licence.</td>
+                                    <td>Le numéro de l'homologation.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>device_id</strong></td>
-                                    <td>Le numéro d'identification d'un instrument médical.</td>
+                                    <td>Le numéro d'identification attribué à un instrument médical.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>first_licence_dt</strong></td>
-                                    <td>The date the device was added in the licence.</td>
+                                    <td>La date où l’homologation d’un instrument médical est acceptée.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>end_date</strong></td>
-                                    <td>The date of removal of the device (if active then null).</td>
+                                    <td>La date où l’homologation d’un instrument médical est supprimée (si active ce champ est vide).</td>
                                 </tr>
                                 <tr>
                                     <td><strong>trade_name</strong></td>
-                                    <td>Le nom d'un instrument médical.</td>
+                                    <td>Le nom de l’instrument médical.</td>
                                 </tr>
 
                                 <!-- consider removing
@@ -713,7 +711,7 @@
                     <!--Device Identifier-section-start--> 
                     <section>
                         <h2 id="a5">Identificateur de l'instrument</h2>
-                        <p>This is the list of all identifiers that uniquely identify a device (on the label).</p>
+                        <p>C’est la liste de tous les identificateurs qui identifient de façon unique un instrument médical (sur l’étiquette).</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a5.1">Paramètres</h3>
@@ -769,12 +767,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
-                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
                                 </tr>
                             </table>
                             <p>La liste des identificateurs de l'instrument peut être accédée aux adresses URI suivantes ::</p>
@@ -784,7 +781,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a5.2">Format du résultat</h3>
+                            <h3 id="a5.2">Contenu du résultat</h3>
                             <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
                             <p>Chaque objet&nbsp;<strong>identificateur de l'instrument</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
@@ -797,23 +794,23 @@
                                 </tr>
                                 <tr>
                                     <td><strong>original_licence_no</strong></td>
-                                    <td>Le numéro d'une licence.</td>
+                                    <td>Le numéro de l'homologation.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>device_id</strong></td>
-                                    <td>Le numéro d'identification d'un instrument médical.</td>
+                                    <td>Le numéro d'identification attribué à un instrument médical.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>first_licence_dt</strong></td>
-                                    <td>The date the identifier was added in the licence.</td>
+                                    <td>La date où l’identificateur de l’instrument médical a été ajouté à une homologation.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>end_date</strong></td>
-                                    <td>The date the identifier was removed from the licence.</td>
+                                    <td>La date où l’identificateur d’un instrument médical a été supprimé d’une homologation.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>device_identifier</strong></td>
-                                    <td>The identifier.</td>
+                                    <td>L’identificateur.</td>
                                 </tr>
                             </table>
                         </section>
@@ -855,8 +852,8 @@
                     <!--Device Identifier-section-end-->
                     <!--Licence Type-section-start--> 
                     <section>
-                        <h2 id="a6">Type de licence</h2>
-                        <p>This contains the list of all licence type codes and their definitions.</p>
+                        <h2 id="a6">Type de demande d'homologation</h2>
+                        <p>La liste des codes et leur définition des types de demande d'homologation.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a6.1">Paramètres</h3>
@@ -874,10 +871,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/licencetype/?code=D</span></td>
-                                    <td>Affiche un type de licence selon le code d'un type de licence spécifié dans la requête..</td>
+                                    <td>Affiche un type de demande d'homologation selon le code d'un type de demande d'homologation spécifié dans la requête..</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            #####&nbsp;- code d'un type de licence
+                                            #####&nbsp;- code d’un type de demande d'homologation
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -901,27 +898,26 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
-                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
                                 </tr>
                             </table>
-                            <p>La liste des types de licence peut être accédée aux adresses URI suivantes :</p>
+                            <p>La liste des types de demande d'homologation peut être accédée aux adresses URI suivantes :</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/mdall/api-v1/licencetype/?lang=en&type=json">https://api.hres.ca/mdall/api-v1/licencetype/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/mdall/api-v1/licencetype/?lang=fr&type=json">https://api.hres.ca/mdall/api-v1/licencetype/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a6.2">Format du résultat</h3>
+                            <h3 id="a6.2">Contenu du résultat</h3>
                             <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
-                            <p>Chaque objet&nbsp;<strong>type de licence</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
+                            <p>Chaque objet&nbsp;<strong>type de demande d'homologation</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
-                                    Valeurs de l'objet type de licence
+                                    Valeurs de l'objet type de demande d'homologation
                                 </caption>
                                 <tr>
                                     <th scope="col">Code</th>
@@ -929,11 +925,11 @@
                                 </tr>
                                 <tr>
                                     <td><strong>licence_type_cd</strong></td>
-                                    <td>Le code d'un type de licence.</td>
+                                    <td>Le code d’un type de demande d'homologation.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>licence_type_desc</strong></td>
-                                    <td>The definition of the code.</td>
+                                    <td>La définition du code d'un type de demande d'homologation.</td>
                                 </tr>
                             </table>
                         </section>
@@ -943,7 +939,7 @@
                         </section>
                         <section>
                              <h3 id="a6.4">Exemple de jQuery</h3>
-                             <p>Exemple d'une fonctionnalité qui recherche un type de licence selon le code d'un type de licence et la langue sélectionnée&nbsp;:</p>
+                             <p>Exemple d'une fonctionnalité qui recherche un type de demande d'homologation selon le code d'un type de demande d'homologation et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getLicenceType(code, lang) {
       var base = 'https://imsd.hres.ca';
       var uri = base + '/mdall/api-v1/licencetype/?lang=' + lang + '&id=' + id;
@@ -975,8 +971,8 @@
                     <!--Licence Type-section-end-->
                     <!--Summary Basis Decision -section-start-->
                     <section>
-                        <h2 id="a7">Summary Basis Decision Location</h2>
-                        <p>This contains the web site address of the summary basis of decisions.</p>
+                        <h2 id="a7">Sommaire des motifs de décision (emplacement)</h2>
+                        <p>Adresse des sites Web des sommaires des motifs de décision.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a7.1">Paramètres</h3>
@@ -994,10 +990,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">mdall/api-v1/sbdlocation/?id=</span></td>
-                                    <td>Affiche le Summary Basis Decision Location selon le numéro de licence spécifié dans la requête.</td>
+                                    <td>Affiche l'emplacement du Sommaire des motifs de décision selon le numéro d'homogolation spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- numéro d'une licence
+                                            #####&nbsp;- numéro d'une homologation
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -1010,26 +1006,25 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
-                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
                                 </tr>
                             </table>
-                            <p>La liste des (Summary Basis Decision Location) peut être accédée à l'adresse URI suivante&nbsp;:</p>
+                            <p>La liste des emplacements du Sommaire des motifs de décision peut être accédée à l'adresse URI suivante&nbsp;:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/mdall/api-v1/sbdlocation/?type=json">https://api.hres.ca/mdall/api-v1/sbdlocation/?type=json</a></li>                                
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a7.2">Format du résultat</h3>
+                            <h3 id="a7.2">Contenu du résultat</h3>
                             <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
-                            <p>Chaque objet&nbsp;<strong>(Summary Basis Decision Location)</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
+                            <p>Chaque objet&nbsp;<strong>emplacement du Sommaire des motifs de décision</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
-                                    Valeurs de l'objet (Summary Basis Decision Location)
+                                    Valeurs de l'objet emplacement du Sommaire des motifs de décision
                                 </caption>
                                 <tr>
                                     <th scope="col">Code</th>
@@ -1037,15 +1032,15 @@
                                 </tr>
                                 <tr>
                                     <td><strong>original_licence_no</strong></td>
-                                    <td>Le numéro d'une licence.</td>
+                                    <td>Le numéro de l'homologation.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>sbd_notice_web_loc</strong></td>
-                                    <td>The notice of decision web site address.</td>
+                                    <td>Adresse Web du sommaire des motifs de décision.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>sbd_web_loc</strong></td>
-                                    <td>The notice of decision web site address.</td>
+                                    <td>Adresse Web du rapport.</td>
                                 </tr>
 
                                 <!--        Consider removing

@@ -92,10 +92,10 @@
                         <ul>
                             <li><a href="#a1">Introduction</a></li>
                             <li>
-                                <a href="#a2">Brand</a>
+                                <a href="#a2">Drug Product</a>
                                 <ul>
                                     <li><a href="#a2.1">Parameters</a></li>
-                                    <li><a href="#a2.2">Response format</a></li>
+                                    <li><a href="#a2.2">Contents of the response</a></li>
                                     <li><a href="#a2.3">Sample response</a></li>
                                     <li><a href="#a2.4">jQuery example</a></li>
                                 </ul>
@@ -104,7 +104,7 @@
                                 <a href="#a3">Notice of Compliance</a>
                                 <ul>
                                     <li><a href="#a3.1">Parameters</a></li>
-                                    <li><a href="#a3.2">Response format</a></li>
+                                    <li><a href="#a3.2">Contents of the response</a></li>
                                     <li><a href="#a3.3">Sample response</a></li>
                                     <li><a href="#a3.4">jQuery example</a></li>
                                 </ul>
@@ -113,34 +113,34 @@
                                 <a href="#a4">Product</a>
                                 <ul>
                                     <li><a href="#a4.1">Parameters</a></li>
-                                    <li><a href="#a4.2">Response format</a></li>
+                                    <li><a href="#a4.2">Contents of the response</a></li>
                                     <li><a href="#a4.3">Sample response</a></li>
                                     <li><a href="#a4.4">jQuery example </a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a5">Product Form</a>
+                                <a href="#a5">Dosage Form</a>
                                 <ul>
                                     <li><a href="#a5.1">Parameters</a></li>
-                                    <li><a href="#a5.2">Response format</a></li>
+                                    <li><a href="#a5.2">Contents of the response</a></li>
                                     <li><a href="#a5.3">Sample response</a></li>
                                     <li><a href="#a5.4">jQuery example </a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a6">Product Ingredient</a>
+                                <a href="#a6">Medicinal Ingredient</a>
                                 <ul>
                                     <li><a href="#a6.1">Parameters</a></li>
-                                    <li><a href="#a6.2">Response format</a></li>
+                                    <li><a href="#a6.2">Contents of the response</a></li>
                                     <li><a href="#a6.3">Sample response</a></li>
                                     <li><a href="#a6.4">jQuery example </a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a7">Product Route</a>
+                                <a href="#a7">Route of Administration</a>
                                 <ul>
                                     <li><a href="#a7.1">Parameters</a></li>
-                                    <li><a href="#a7.2">Response format</a></li>
+                                    <li><a href="#a7.2">Contents of the response</a></li>
                                     <li><a href="#a7.3">Sample response</a></li>
                                     <li><a href="#a7.4">jQuery example </a></li>
                                 </ul>
@@ -149,7 +149,7 @@
                                 <a href="#a8">Veterinary Species</a>
                                 <ul>
                                     <li><a href="#a8.1">Parameters</a></li>
-                                    <li><a href="#a8.2">Response format</a></li>
+                                    <li><a href="#a8.2">Contents of the response</a></li>
                                     <li><a href="#a8.3">Sample response</a></li>
                                     <li><a href="#a8.4">jQuery example </a></li>
                                 </ul>
@@ -159,14 +159,13 @@
                     <section>
                         <h2 id="a1">Introduction</h2>
                         <p>A Notice of Compliance (NOC) is issued to a manufacturer following the satisfactory review of a submission for a new drug, and signifies compliance with the Food and Drug Regulations.</p>
-                        <p>The database is updated nightly and contains NOC information on human drugs from January 1, 1994 to date. It also contains NOC information on Veterinary drugs from September 19, 2000 to date. Through a phased in approach Health Canada will populate the remaining NOCs for Veterinary drugs from January 1, 1994 to September 18, 2000.</p>
                         <p>This Application Programming Interface (API) allows developers to access that information in JSON, XML and CSV format for reuse in their own applications.</p>
                         <p>The base URI for the Notice of Compliance Database &nbsp;<a href="https://api.hres.ca/noc/api/">https://api.hres.ca/noc/api/</a>. Any requests are made relative to this URI.</p>
                     </section>
                     <!--Brand-section-start-->  
                     <section>                        
-                        <h2 id="a2">Brand</h2>
-                        <p>The brand name is the unique name under which the manufacturer of a drug product advertises and sells it.</p>
+                        <h2 id="a2">Drug Product</h2>
+                        <p>Basic information about the product, such as brand name and Drug Identification Number. The brand name is the unique name under which the manufacturer of a drug product advertises and sells it.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a2.1">Parameters</h3>
@@ -184,10 +183,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">noc/api/brand/?id=</span></td>
-                                    <td>Returns brand according to the identification number of the brand specified in the request.</td>
+                                    <td>Returns drug product(s) according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identification number of the brand
+                                            #####&nbsp;- number of the Notice of Compliance
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -211,28 +210,27 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
-                            <p>Brands can be accessed via these URIs:</p>
+                            <p>Drug Products can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/noc/api/brand/?lang=en&type=json">https://api.hres.ca/noc/api/brand/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/noc/api/brand/?lang=fr&type=json">https://api.hres.ca/noc/api/brand/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a2.2">Response format</h3>
+                            <h3 id="a2.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
-                            <p>Each&nbsp;<strong>brand</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>drug product</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Brand object values
+                                    Drug Product object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
@@ -250,15 +248,24 @@
                                     <td><strong>noc_br_brandname</strong></td>
                                     <td>The brand name for the drug product.</td>
                                 </tr>
+                                <tr>
+                                    <td><strong>noc_br_product_id</strong></td>
+                                    <td>The identification number assigned to the DIN product.</td>
+                                </tr>                               
+                                <tr>
+                                    <td><strong>noc_br_din</strong></td>
+                                    <td>The Drug Identification Number.</td>
+                                </tr>
                             </table>
                         </section>
                         <section>
                              <h3 id="a2.3">Sample response</h3>
-                             <pre class="prettify prettyprint linenums">{"noc_number":8267,"noc_br_brand_id":8714,"noc_br_brandname":"AGRYLIN"}</pre>
+                             <pre class="prettify prettyprint linenums">[{"noc_number":3369,"noc_br_brand_id":3567,"noc_br_brandname":"NORINYL 1/50 21DAY"},
+    {"noc_number":3369,"noc_br_brand_id":3568,"noc_br_brandname":"NORINYL 1/50 28DAY"}]</pre>
                         </section>
                         <section>
                              <h3 id="a2.4">jQuery example</h3>
-                             <p>Example of a function that search for a brand given the identification number of a brand and language selection:</p>
+                             <p>Example of a function that search for a drug product given a Notice of Compliance number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getBrand(id, lang) {
       var base = 'https://imsd.hres.ca';
       var uri = base + '/dpd/api/brand/?lang=' + lang + '&id=' + id;
@@ -291,7 +298,7 @@
                     <!--Notice of Compliance section-start---->
                     <section>
                         <h2 id="a3">Notice of Compliance</h2>
-                        <p>An NOC/c is the authorization to market a drug ([such as (i.e.)] a Notice of Compliance (NOC)), with the condition that the manufacturer carries out more studies to verify the clinical benefit. The NOC, qualifying under the NOC/c policy (Notice of Compliance with Conditions: Revised Policy), is issued under section C.08.004 of the <i>Food and Drug Regulations</i>. </p>
+                        <p>A Notice of Compliance is a notification, issued pursuant to paragraph C.08.004(1)(a), indicating that a manufacturer has complied with sections C.08.002 or C.08.003 and C.08.005.1 of the <i>Food and Drug Regulations</i>. Notices of Compliance are issued to a manufacturer following the satisfactory review of a submission.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a3.1">Parameters</h3>
@@ -309,10 +316,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">noc/api/noticeofcompliancemain/?id=</span></td>
-                                    <td>Returns a notice of compliance according to the notice of compliance number specified in the request.</td>
+                                    <td>Returns a Notice of Compliance according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- number of the notice of compliance
+                                            #####&nbsp;- number of the Notice of Compliance
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -336,12 +343,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Notices of Compliance can be accessed via these URIs:</p>
@@ -351,7 +357,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a3.2">Response format</h3>
+                            <h3 id="a3.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>Notice of Compliance</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -438,7 +444,7 @@
                         </section>
                         <section>
                              <h3 id="a3.4">jQuery example</h3>
-                             <p>Example of a function that search for a notice of compliance given a notice of compliance number and language selection:</p>
+                             <p>Example of a function that search for a Notice of Compliance given a Notice of Compliance number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function GetNoticeOfComplianceMain(id, lang) {
       var base = 'https://imsd.hres.ca';
       var uri = base + '/dpd/api/noticeofcompliancemain/?lang=' + lang + '&id=' + id;
@@ -489,10 +495,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">noc/api/product/?id=</span></td>
-                                    <td>Returns product according to the identification number of the DIN product specified in the request..</td>
+                                    <td>Returns products according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identification number of the DIN product
+                                            #####&nbsp;- number of the Notice of Compliance
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -516,12 +522,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Products can be accessed via these URIs:</p>
@@ -531,7 +536,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a4.2">Response format</h3>
+                            <h3 id="a4.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>product</strong>&nbsp;object consists of the following values:</p>
@@ -563,11 +568,12 @@
                         </section>
                         <section>
                              <h3 id="a4.3">Sample response</h3>
-                             <pre class="prettify prettyprint linenums">{"noc_number":6475,"noc_br_product_id":12401,"noc_br_brand_id":6805,"noc_br_din":"02038358"}</pre>
+                             <pre class="prettify prettyprint linenums">[{"noc_number":3369,"noc_br_product_id":6363,"noc_br_brand_id":3567,"noc_br_din":"02188724"},
+    {"noc_number":3369,"noc_br_product_id":6364,"noc_br_brand_id":3568,"noc_br_din":"02188732"}]</pre>
                         </section>
                         <section>
                              <h3 id="a4.4">jQuery example</h3>
-                             <p>Example of a function that search for a product given the identification number of a DIN product and language selection:</p>
+                             <p>Example of a function that search for products given a Notice of Compliance number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getProduct(id, lang) {
      var base = 'https://imsd.hres.ca';
      var uri = base + '/dpd/api/product/?lang=' + lang + '&id=' + id;
@@ -599,8 +605,8 @@
                     <!--Product section-end---->
                     <!--Product Form section-start-->
                     <section>                        
-                        <h2 id="a5">Product Form</h2>
-                        <p>TODO put description of product form.....</p>
+                        <h2 id="a5">Dosage Form</h2>
+                        <p>The dosage form is the form in which the product is supplied. It is the combination of the form in which a product is presented [for example (e.g.)] in tablet, capsule or powder form, and the physical form in which it is administered, [for example, (e.g.)] in a powder to be administered in solution. </p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a5.1">Parameters</h3>
@@ -618,10 +624,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">noc/api/productform/?id=</span></td>
-                                    <td>Returns product form according to the identification number of the product form specified in the request.</td>
+                                    <td>Returns dosage forms according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identification number of the product form
+                                            #####&nbsp;- number of the Notice of Compliance
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -645,28 +651,27 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
-                            <p>Product Forms can be accessed via these URIs:</p>
+                            <p>Dosage Forms can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/noc/api/productform/?lang=en&type=json">https://api.hres.ca/noc/api/productform/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/noc/api/productform/?lang=fr&type=json">https://api.hres.ca/noc/api/productform/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a5.2">Response format</h3>
+                            <h3 id="a5.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
-                            <p>Each&nbsp;<strong>product form</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>dosage form</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Product Form object values
+                                    Dosage Form object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
@@ -688,11 +693,12 @@
                         </section>
                         <section>
                              <h3 id="a5.3">Sample response</h3>
-                             <pre class="prettify prettyprint linenums">{"noc_number":15761,"noc_pf_din_product_id":31036,"noc_pf_form_name":"Tablet For Suspension"}</pre>
+                             <pre class="prettify prettyprint linenums">[{"noc_number":3369,"noc_pf_din_product_id":6363,"noc_pf_form_name":"Tablet"},
+    {"noc_number":3369,"noc_pf_din_product_id":6364,"noc_pf_form_name":"Tablet"}]</pre>
                         </section>
                         <section>
                              <h3 id="a5.4">jQuery example</h3>
-                             <p>Example of a function that search for a product form given an identification number and language selection:</p>
+                             <p>Example of a function that search for a dosage forms given a Notice of Compliance number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getProductForm(id, lang) {
      var base = 'https://imsd.hres.ca';
      var uri = base + '/dpd/api/productform/?lang=' + lang + '&id=' + id;
@@ -724,8 +730,8 @@
                     <!--Product Form section-end-->
                     <!--Product Ingredient section-start-->    
                     <section>                        
-                        <h2 id="a6">Product Ingredient</h2>
-                        <p>TODO put description of product ingredient.....</p>
+                        <h2 id="a6">Medicinal Ingredient</h2>
+                        <p>A medicinal ingredient is any component that has medicinal properties, and supplies pharmacological activity or other direct effect in the diagnosis, cure, mitigation, treatment or prevention of disease, or to affect the structure or any function of the body of man or other animals.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a6.1">Parameters</h3>
@@ -743,10 +749,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">noc/api/productingredient/?id=</span></td>
-                                    <td>Returns product ingredient according to the identification number of the product ingredient specified in the request.</td>
+                                    <td>Returns medicinal ingredients according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identification number of the product ingredient
+                                            #####&nbsp;- number of the Notice of Compliance
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -770,28 +776,27 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
-                            <p>Product Ingredients can be accessed via these URIs:</p>
+                            <p>Medicinal Ingredients can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/noc/api/productingredient/?lang=en&type=json">https://api.hres.ca/noc/api/productingredient/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/noc/api/productingredient/?lang=fr&type=json">https://api.hres.ca/noc/api/productingredient/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a6.2">Response format</h3>
+                            <h3 id="a6.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
-                            <p>Each&nbsp;<strong>product ingredient</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>medicinal ingredient</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Product Ingredient object values
+                                    Medicinal Ingredient object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
@@ -825,11 +830,14 @@
                         </section>
                         <section>
                              <h3 id="a6.3">Sample response</h3>
-                             <pre class="prettify prettyprint linenums">{"noc_number":8558,"noc_pi_din_product_id":15903,"noc_pi_medic_ingr_name":"CILAZAPRIL MONOHYDRATE","noc_pi_strength":1,"noc_pi_unit":"MG","noc_pi_basic_unit":"TAB"}</pre>
+                            <pre class="prettify prettyprint linenums">[{"noc_number":3369,"noc_pi_din_product_id":6363,"noc_pi_medic_ingr_name":"NORETHINDRONE","noc_pi_strength":1,"noc_pi_unit":"MG","noc_pi_basic_unit":"TAB"},
+    {"noc_number":3369,"noc_pi_din_product_id":6363,"noc_pi_medic_ingr_name":"MESTRANOL","noc_pi_strength":0,"noc_pi_unit":"MG","noc_pi_basic_unit":"TAB"},
+    {"noc_number":3369,"noc_pi_din_product_id":6364,"noc_pi_medic_ingr_name":"NORETHINDRONE","noc_pi_strength":1,"noc_pi_unit":"MG","noc_pi_basic_unit":"TAB"},
+    {"noc_number":3369,"noc_pi_din_product_id":6364,"noc_pi_medic_ingr_name":"MESTRANOL","noc_pi_strength":0,"noc_pi_unit":"MG","noc_pi_basic_unit":"TAB"}]</pre>
                         </section>
                         <section>
                              <h3 id="a6.4">jQuery example</h3>
-                             <p>Example of a function that search for a product ingredient given the identification number of a product ingredient  and language selection:</p>
+                             <p>Example of a function that search for medicinal ingredients given a Notice of Compliance number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getProductIngredient(id, lang) {
       var base = 'https://imsd.hres.ca';
       var uri = base + '/dpd/api/productingredient/?lang=' + lang + '&id=' + id;
@@ -861,7 +869,7 @@
                     <!--Product Ingredient section-end-->
                     <!--Product Route section-start-->  
                     <section>                       
-                        <h2 id="a7">Product Route</h2>
+                        <h2 id="a7">Route of Administration</h2>
                         <p>This term indicates the part of the body on which, through which or into which the product is to be introduced. (e.g. oral, topical, intramuscular, rectal, etc.)</p>
                         <p>A product can have more than one route of administration (e.g. intravenous, intramuscular, intra-articular, etc.).</p>
                         <!--h3-section-start-->
@@ -881,10 +889,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">noc/api/productroute/?id=</span></td>
-                                    <td>Returns product route according to the identification number of the product route specified in the request.</td>
+                                    <td>Returns routes of administration according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identification number of the product route
+                                            #####&nbsp;- number of the Notice of Compliance
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -908,27 +916,26 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
-                            <p>Product Routes can be accessed via these URIs:</p>
+                            <p>Routes of Administration can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/noc/api/productroute/?lang=en&type=json">https://api.hres.ca/noc/api/productroute/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/noc/api/productroute/?lang=fr&type=json">https://api.hres.ca/noc/api/productroute/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a7.2">Response format</h3>
+                            <h3 id="a7.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
-                            <p>Each&nbsp;<strong>product route</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>route of administration</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Product Route object values
+                                    Route of Administration object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
@@ -950,12 +957,13 @@
                         </section>
                         <section>
                              <h3 id="a7.3">Sample response</h3>
-                             <pre class="prettify prettyprint linenums">{"noc_number":2963,"noc_pr_din_product_id":5634,"noc_pr_route":"Intramuscular"}</pre>
+                             <pre class="prettify prettyprint linenums">[{"noc_number":3369,"noc_pr_din_product_id":6363,"noc_pr_route":"Oral"},
+    {"noc_number":3369,"noc_pr_din_product_id":6364,"noc_pr_route":"Oral"}]</pre>
                        </section>
                        <section>
                              <h3 id="a7.4">jQuery example</h3>
-                             <p>Example of a function that search for a product route given the identification number of a product route and language selection:</p>
-                             <pre class="prettify prettyprint linenums">function getProductIngredient(id, lang) {
+                             <p>Example of a function that search for routes of administration given a Notice of Compliance number and language selection:</p>
+                             <pre class="prettify prettyprint linenums">function getRouteAdministration(id, lang) {
       var base = 'https://imsd.hres.ca';
       var uri = base + '/dpd/api/productroute/?lang=' + lang + '&id=' + id;
       $.ajax({
@@ -967,10 +975,10 @@
                            console.log(data.product_route_name);
                            var frag = document.createDocumentFragment();
                            var h2 = document.createElement(&quot;h2&quot;);
-                           var Ingredient = document.createTextNode(data.product_route_name);
+                           var RouteName = document.createTextNode(data.product_route_name);
                            var p = document.createElement(&quot;p&quot;);
                            var text = document.createTextNode(data.panels[0].text);
-                           h2.appendChild(ProductRoute);
+                           h2.appendChild(RouteName);
                            p.appendChild(text);
                            frag.appendChild(h2);
                            frag.appendChild(p);
@@ -987,7 +995,7 @@
                     <!--Veterinary Species section-start--> 
                     <section>                        
                         <h2 id="a8">Veterinary Species</h2>
-                        <p>TODO put description of veterinary species.....</p>
+                        <p>The type of species for a certain veterinary products (e.g. sheep, dog, cattle, and poultry).</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a8.1">Parameters</h3>
@@ -1005,10 +1013,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">noc/api/vetspecies/?id=</span></td>
-                                    <td>Returns veterinary species according to the identification number of the veterinary specie specified in the request.</td>
+                                    <td>Returns veterinary species according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identification number of the veterinary specie
+                                            #####&nbsp;- number of the Notice of Compliance
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -1032,12 +1040,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Veterinary Species can be accessed via these URIs:</p>
@@ -1047,7 +1054,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a8.2">Response format</h3>
+                            <h3 id="a8.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>veterinary species</strong>&nbsp;object consists of the following values:</p>
@@ -1071,12 +1078,16 @@
                         </section>
                         <section>
                              <h3 id="a8.3">Sample response</h3>
-                             <pre class="prettify prettyprint linenums">{"noc_number":12051,"vet_species_desc":"PASTURE CATTLE (NON-LACTATING)"}</pre>
+                             <pre class="prettify prettyprint linenums">[{"noc_number":6981,"vet_species_desc":"CATTLE"},
+    {"noc_number":6981,"vet_species_desc":"DOGS"},
+    {"noc_number":6981,"vet_species_desc":"HORSES"},
+    {"noc_number":6981,"vet_species_desc":"SWINE"},
+    {"noc_number":6981,"vet_species_desc":"TURKEYS"}]</pre>
                         </section>
                         <section>
                              <h3 id="a8.4">jQuery example</h3>
-                             <p>Example of a function that search for veterinary species given the identification number of a veterinary specie and language selection:</p>
-                             <pre class="prettify prettyprint linenums">function getProductIngredient(id, lang) {
+                             <p>Example of a function that search for veterinary species given a Notice of Compliance number and language selection:</p>
+                             <pre class="prettify prettyprint linenums">function getVeterinarySpecies(id, lang) {
       var base = 'https://imsd.hres.ca';
       var uri = base + '/dpd/api/vetspecies/?lang=' + lang + '&id=' + id;
       $.ajax({
@@ -1088,10 +1099,10 @@
                            console.log(data.veterinary_species_name);
                            var frag = document.createDocumentFragment();
                            var h2 = document.createElement(&quot;h2&quot;);
-                           var Species = document.createTextNode(data.veterinary_species_name);
+                           var SpeciesName = document.createTextNode(data.veterinary_species_name);
                            var p = document.createElement(&quot;p&quot;);
                            var text = document.createTextNode(data.panels[0].text);
-                           h2.appendChild(VeterinarySpecies);
+                           h2.appendChild(SpeciesName);
                            p.appendChild(text);
                            frag.appendChild(h2);
                            frag.appendChild(p);

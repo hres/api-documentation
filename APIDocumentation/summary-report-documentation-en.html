@@ -96,7 +96,7 @@
                                 <a href="#a2">Summary Basis of Decision</a>
                                 <ul>
                                     <li><a href="#a2.1">Parameters</a></li>
-                                    <li><a href="#a2.2">Response format</a></li>
+                                    <li><a href="#a2.2">Contents of the response</a></li>
                                     <li><a href="#a2.3">Sample response</a></li>
                                     <li><a href="#a2.4">jQuery example</a></li>
                                 </ul>
@@ -105,7 +105,7 @@
                                 <a href="#a3">Regulatory Decision</a>
                                 <ul>
                                     <li><a href="#a3.1">Parameters</a></li>
-                                    <li><a href="#a3.2">Response format</a></li>
+                                    <li><a href="#a3.2">Contents of the response</a></li>
                                     <li><a href="#a3.3">Sample response</a></li>
                                     <li><a href="#a3.4">jQuery example</a></li>
                                 </ul>
@@ -114,7 +114,7 @@
                                 <a href="#a4">Summary Safety Review</a>
                                 <ul>
                                     <li><a href="#a4.1">Parameters</a></li>
-                                    <li><a href="#a4.2">Response format</a></li>
+                                    <li><a href="#a4.2">Contents of the response</a></li>
                                     <li><a href="#a4.3">Sample response</a></li>
                                     <li><a href="#a4.4">jQuery example </a></li>
                                 </ul>
@@ -149,7 +149,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">regcontent/api/basisdecision?id=SBD00001</span></td>
-                                    <td>Returns summary basis of decision according to the format of the template specify in the request.</td>
+                                    <td>Returns summary basis of decision according to the format of the template specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- format of the template
@@ -176,12 +176,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Summary Basis of Decisions can be accessed via these URIs:</p>
@@ -191,7 +190,7 @@
                             </ul>
                         </section>                        
                         <section>
-                            <h3 id="a2.2">Response format</h3>
+                            <h3 id="a2.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>summary basis of decision</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -447,7 +446,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">regcontent/api/regulatorydecision?id=RDS00007</span></td>
-                                    <td>Returns regulatory decision according to the identification number specify in the request.</td>
+                                    <td>Returns regulatory decision according to the identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- identification number
@@ -474,12 +473,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Regulatory Decisions can be accessed via these URIs:</p>
@@ -489,7 +487,7 @@
                             </ul>
                         </section>                        
                         <section>
-                            <h3 id="a3.2">Response format</h3>
+                            <h3 id="a3.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -655,7 +653,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">regcontent/api/safetyreview?id=SSR00001</span></td>
-                                    <td>Returns summary safety reviews according to the format of the template specify in the request.</td>
+                                    <td>Returns summary safety reviews according to the format of the template specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;-  format of the template
@@ -682,12 +680,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Summary Safety Reviews can be accessed via these URIs:</p>
@@ -697,7 +694,7 @@
                             </ul>
                         </section>                        
                         <section>
-                            <h3 id="a4.2">Response format</h3>
+                            <h3 id="a4.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>summary safety reviews</strong>&nbsp;object consists of the following values:</p>
                             <table>

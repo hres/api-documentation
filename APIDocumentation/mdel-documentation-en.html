@@ -96,7 +96,7 @@
                                 <a href="#a2">Company</a>
                                 <ul>
                                     <li><a href="#a2.1">Parameters</a></li>
-                                    <li><a href="#a2.2">Response format</a></li>
+                                    <li><a href="#a2.2">Contents of the response</a></li>
                                     <li><a href="#a2.3">Sample response</a></li>
                                     <li><a href="#a2.4">jQuery example</a></li>
                                 </ul>
@@ -105,7 +105,7 @@
                                 <a href="#a3">Country</a>
                                 <ul>
                                     <li><a href="#a3.1">Parameters</a></li>
-                                    <li><a href="#a3.2">Response format</a></li>
+                                    <li><a href="#a3.2">Contents of the response</a></li>
                                     <li><a href="#a3.3">Sample response</a></li>
                                     <li><a href="#a3.4">jQuery example</a></li>
                                 </ul>
@@ -114,7 +114,7 @@
                                 <a href="#a4">Establishment</a>
                                 <ul>
                                     <li><a href="#a4.1">Parameters</a></li>
-                                    <li><a href="#a4.2">Response format</a></li>
+                                    <li><a href="#a4.2">Contents of the response</a></li>
                                     <li><a href="#a4.3">Sample response</a></li>
                                     <li><a href="#a4.4">jQuery example </a></li>
                                 </ul>
@@ -123,7 +123,7 @@
                                 <a href="#a5">Province</a>
                                 <ul>
                                     <li><a href="#a5.1">Parameters</a></li>
-                                    <li><a href="#a5.2">Response format</a></li>
+                                    <li><a href="#a5.2">Contents of the response</a></li>
                                     <li><a href="#a5.3">Sample response</a></li>
                                     <li><a href="#a5.4">jQuery example </a></li>
                                 </ul>
@@ -177,12 +177,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Licences can be accessed via these URIs:</p>
@@ -192,7 +191,7 @@
                         </section>
 
                         <section>
-                            <h3 id="a2.2">Response format</h3>
+                            <h3 id="a2.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>licence</strong>&nbsp;object consists of the following values:</p>
@@ -264,14 +263,7 @@
                             </section>
 
                             <section>
-                                <h3 id="a2.4">jQuery example</h3>
-                                <li><code>json</code>&nbsp;- JSON</li>
-                                <li><code>xml</code>&nbsp;- XML</li>
-                                <li><code>csv</code>&nbsp;- CSV</li>
-                                </ul>
-                                </td>
-                                <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                <h3 id="a2.4">jQuery example</h3>                                
                                 <p>Example of a function that search for company given a company name and a language selection:</p>                                
                                 <pre class="prettify prettyprint linenums">function getAllCompany(company_name) {
       var base = 'https://imsd.hres.ca';
@@ -338,12 +330,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Countries can be accessed via these URIs:</p>
@@ -354,7 +345,7 @@
                         </section>
 
                         <section>
-                            <h3 id="a3.2">Response format</h3>
+                            <h3 id="a3.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>country</strong>&nbsp;object consists of the following values:</p>
@@ -458,13 +449,13 @@
                                     <td><span class="nowrap">mdels/api-v1/establishment/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
-                                        <li><code>json</code>&nbsp;- JSON</li>
-                                        <li><code>xml</code>&nbsp;- XML</li>
-                                        <li><code>csv</code>&nbsp;- CSV</li>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Establishment can be accessed via these URIs:</p>
@@ -474,7 +465,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a4.2">Response format</h3>
+                            <h3 id="a4.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>device</strong>&nbsp;object consists of the following values:</p>
@@ -676,12 +667,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
-                                    <td>Determines whether the format of the result will be in JSON, XML or CSV.</td>
+                                    <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
                             <p>Provinces can be accessed via these URIs:</p>
@@ -691,7 +681,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a5.2">Response format</h3>
+                            <h3 id="a5.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>province</strong>&nbsp;object consists of the following values:</p>

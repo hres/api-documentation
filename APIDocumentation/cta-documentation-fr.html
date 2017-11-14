@@ -91,10 +91,10 @@
                         <ul>
                             <li><a href="#a1">Introduction</a></li>
                             <li>
-                                <a href="#a2">Fabricant</a>
+                                <a href="#a2">Promoteur</a>
                                 <ul>
                                     <li><a href="#a2.1">Paramètres</a></li>
-                                    <li><a href="#a2.2">Format du résultat</a></li>
+                                    <li><a href="#a2.2">Contenu du résultat</a></li>
                                     <li><a href="#a2.3">Exemple de résultat</a></li>
                                     <li><a href="#a2.4">Exemple de jQuery</a></li>
                                 </ul>
@@ -103,16 +103,16 @@
                                 <a href="#a3">Condition médicale</a>
                                 <ul>
                                     <li><a href="#a3.1">Paramètres</a></li>
-                                    <li><a href="#a3.2">Format du résultat</a></li>
+                                    <li><a href="#a3.2">Contenu du résultat</a></li>
                                     <li><a href="#a3.3">Exemple de résultat</a></li>
                                     <li><a href="#a3.4">Exemple de jQuery</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a4">Marque du produit</a>
+                                <a href="#a4">Produit pharmaceutique</a>
                                 <ul>
                                     <li><a href="#a4.1">Paramètres</a></li>
-                                    <li><a href="#a4.2">Format du résultat</a></li>
+                                    <li><a href="#a4.2">Contenu du résultat</a></li>
                                     <li><a href="#a4.3">Exemple de résultat</a></li>
                                     <li><a href="#a4.4">Exemple de jQuery</a></li>
                                 </ul>
@@ -121,7 +121,7 @@
                                 <a href="#a5">Protocole</a>
                                 <ul>
                                     <li><a href="#a5.1">Paramètres</a></li>
-                                    <li><a href="#a5.2">Format du résultat</a></li>
+                                    <li><a href="#a5.2">Contenu du résultat</a></li>
                                     <li><a href="#a5.3">Exemple de résultat</a></li>
                                     <li><a href="#a5.4">Exemple de jQuery</a></li>
                                 </ul>
@@ -130,7 +130,7 @@
                                 <a href="#a6">Statut de l'essai</a>
                                 <ul>
                                     <li><a href="#a6.1">Paramètres</a></li>
-                                    <li><a href="#a6.2">Format du résultat</a></li>
+                                    <li><a href="#a6.2">Contenu du résultat</a></li>
                                     <li><a href="#a6.3">Exemple de résultat</a></li>
                                     <li><a href="#a6.4">Exemple de jQuery</a></li>
                                 </ul>
@@ -139,7 +139,7 @@
                                 <a href="#a7">Population à l'étude</a>
                                 <ul>
                                     <li><a href="#a7.1">Paramètres</a></li>
-                                    <li><a href="#a7.2">Format du résultat</a></li>
+                                    <li><a href="#a7.2">Contenu du résultat</a></li>
                                     <li><a href="#a7.3">Exemple de résultat</a></li>
                                     <li><a href="#a7.4">Exemple de jQuery</a></li>
                                 </ul>
@@ -149,15 +149,16 @@
 
                     <section>
                         <h2 id="a1">Introduction</h2>
-                        <p>Santé Canada, grâce à sa base de données sur les essais cliniques, donne à la population une liste de renseignements précis sur les essais cliniques des phases I, II et III chez les patients. Gérée par Santé Canada, la base de données constitue une source d'information sur les essais cliniques effectués au Canada avec les médicaments pharmaceutiques et biologiques à usage humain.</p>
+                        <p>La base de données sur les essais cliniques donne à la population une liste de renseignements précis sur les essais cliniques des phases I, II et III chez les patients. Gérée par Santé Canada, la base de données constitue une source d'information sur les essais cliniques effectués au Canada avec les médicaments pharmaceutiques et biologiques à usage humain.</p>
                         <!-- The above line is copied from this published page.www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/base-donnees-essais-cliniques-sante-canada.html -->
                         <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON, XML et CSV afin de les utiliser dans leurs propres applications.</p>
                         <p>L'adresse URI de base sur les produits pharmaceutiques est &nbsp;<a href="https://api.hres.ca/cta/api/">https://api.hres.ca/cta/api/</a>. Toute requête est effectuée par l'entremise de cette adresse URI.</p>
                     </section>
                     <!--Manufacturer-section-start-->
                     <section>
-                        <h2 id="a2">Fabricant</h2>
-                        <p>TODO put description of manufacturer.....</p>
+                        <h2 id="a2">Promoteur</h2>
+                        <p>Un promoteur d'essai clinique est un particulier, une entreprise, une institution ou un organisme qui mène un essai clinique. Le promoteur est responsable de tous les aspects d'un essai clinique, dont celui de veiller à ce que l'essai soit mené selon les bonnes pratiques cliniques à chaque lieu d'essai clinique. 
+                        Il doit y avoir un chercheur qualifié, comme un médecin habilité ou un dentiste, à chacun des lieux d'essai choisis. Le chercheur qualifié est la personne responsable auprès du promoteur de la conduite de l'essai clinique à un lieu d'essai clinique.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a2.1">Paramètres</h3>
@@ -175,10 +176,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="wrap">cta/api/manufacturer/?id=</span></td>
-                                    <td>Affiche le fabricant selon le numéro d'identification du fabricant spécifié dans la requête.</td>
+                                    <td>Affiche le promoteur selon le numéro d'identification du promoteur spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- numéro d'identification du fabricant
+                                            #####&nbsp;- numéro d'identification du promoteur
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -202,15 +203,14 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
-                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
                                 </tr>
                             </table>                            
-                            <p>La liste des fabricants peut être accédée aux adresses URI suivantes&nbsp;:</p>
+                            <p>La liste des promoteurs peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cta/api/manufacturer/?lang=en&type=json">https://api.hres.ca/manufacturer/api/brand/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cta/api/manufacturer/?lang=fr&type=json">https://api.hres.ca/manufacturer/api/brand/?lang=fr&type=json</a></li>
@@ -218,13 +218,13 @@
                         </section>
 
                         <section>
-                            <h3 id="a2.2">Format du résultat</h3>
+                            <h3 id="a2.2">Contenu du résultat</h3>
                             <p>Le <strong>résultat</strong> contient un ou plusieurs objets.</p>
 
-                            <p>Chaque objet&nbsp;<strong>fabricant</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
+                            <p>Chaque objet&nbsp;<strong>promoteur</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
-                                    Valeurs de l'objet fabricant
+                                    Valeurs de l'objet promoteur
                                 </caption>
                                 <tr>
                                     <th scope="col">Code</th>
@@ -233,11 +233,11 @@
                                 <tr>
                                     <!-- Manufacturer -->
                                     <td><strong>manufacturer_id</strong></td>
-                                    <td>Le numéro d'identification attribué à un fabricant.</td>
+                                    <td>Le numéro d'identification attribué à un promoteur.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>manufacturer_name</strong></td>
-                                    <td>Le nom du fabricant.</td>
+                                    <td>Le nom du promoteur.</td>
                                 </tr>
                             </table>
                         </section>
@@ -248,7 +248,7 @@
 
                         <section>
                              <h3 id="a2.4">Exemple de jQuery</h3>
-                             <p>Exemple d'une fonctionnalité qui recherche un fabricant selon le numéro d'identification d'un fabricant et la langue sélectionnée&nbsp;:</p>
+                             <p>Exemple d'une fonctionnalité qui recherche un promoteur selon le numéro d'identification d'un promoteur et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getManufacturer(id, lang) {
      var base = 'https://imsd.hres.ca';
      var uri = base + '/dpd/api/manufacturer/?lang=' + lang + '&id=' + id;
@@ -326,12 +326,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
-                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
                                 </tr>
                             </table>
                             <p>La liste des conditions médicales peut être accédée aux adresses URI suivantes&nbsp;:</p>
@@ -342,7 +341,7 @@
                         </section>
 
                         <section>
-                            <h3 id="a3.2">Format du résultat</h3>
+                            <h3 id="a3.2">Contenu du résultat</h3>
                             <p>Le <strong>résultat</strong> contient un ou plusieurs objets.</p>
 
                             <p>Chaque objet&nbsp;<strong>condition médicale</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
@@ -381,10 +380,10 @@
               Accept:&quot;application/json&quot;,
               dataType: 'json',
               success:function(data){
-                           console.log(data.medcondition);
+                           console.log(data.med_condition);
                            var frag = document.createDocumentFragment();
                            var h2 = document.createElement(&quot;h2&quot;);
-                           var MedicalCondition = document.createTextNode(data.medcondition);
+                           var MedicalCondition = document.createTextNode(data.med_condition);
                            var p = document.createElement(&quot;p&quot;);
                            var text = document.createTextNode(data.panels[0].text);
                            h2.appendChild(MedicalCondition);
@@ -403,8 +402,9 @@
                     <!--Medical Condition - Section end-->
                     <!--Product Brand - Section start-->
                     <section>                        
-                        <h2 id="a4">Marque du produit</h2>
-                        <p>NEED DESCRIPTION </p>
+                        <h2 id="a4">Produit pharmaceutique</h2>
+                        <p>Information sur le produit pharmaceutique, telles que le nom donné au médicament utilisé dans le cadre de l'essai clinique. 
+                        Il peut s'agir d'un nom de code, du nom chimique de l'ingrédient actif, d'une dénomination commune ou d'une marque nominative. </p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a4.1">Paramètres</h3>
@@ -422,7 +422,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">cta/api/productbrand/?id=</span></td>
-                                    <td>Affiche le protocole et la marque du produit selon le numéro d'identification d'une marque spécifié dans la requête..</td>
+                                    <td>Affiche le protocole et le produit pharmaceutique selon le numéro d'identification d'une marque spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- numéro d'identification d'une marque
@@ -449,15 +449,14 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
-                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
                                 </tr>
                             </table>
-                            <p>La liste des marques de produit et protocole peut être accédée aux adresses URI suivantes&nbsp;:</p>
+                            <p>La liste des produits phamaceutiques peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
                                 <li><a href="https://api.hres.ca/cta/api/productbrand/?lang=en&type=json">https://api.hres.ca/cta/api/productbrand/?lang=en&type=json</a></li>
                                 <li><a href="https://api.hres.ca/cta/api/productbrand/?lang=fr&type=json">https://api.hres.ca/cta/api/productbrand/?lang=fr&type=json</a></li>
@@ -465,13 +464,13 @@
                         </section>
 
                         <section>
-                            <h3 id="a4.2">Format du résultat</h3>
+                            <h3 id="a4.2">Contenu du résultat</h3>
                             <p>Le <strong>résultat</strong> contient un ou plusieurs objets.</p>
 
-                            <p>Chaque objet&nbsp;<strong>médicament</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
+                            <p>Chaque objet&nbsp;<strong>produit phamaceutique</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
                                 <caption>
-                                    Valeurs de l'objet médicament
+                                    Valeurs de l'objet produit phamaceutique
                                 </caption>
                                 <tr>
                                     <th scope="col">Code</th>
@@ -491,11 +490,11 @@
                                 </tr>
                                 <tr>
                                     <td><strong>manufacturer_id</strong></td>
-                                    <td>Le numéro d'identification attribué à un fabricant.</td>
+                                    <td>Le numéro d'identification attribué à un promoteur.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>manufacturer_name</strong></td>
-                                    <td>Le nom du fabricant.</td>
+                                    <td>Le nom du promoteur.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>brand_name</strong></td>
@@ -510,7 +509,7 @@
                         </section>
                         <section>
                              <h3 id="a4.4">Exemple de jQuery</h3>
-                             <p>Exemple d'une fonctionnalité qui recherche une marque de produit selon le numéro d'identification d'une marque de produit et la langue sélectionnée&nbsp;:</p>
+                             <p>Exemple d'une fonctionnalité qui recherche un produit pharmaceutique selon le numéro d'identification d'une marque de produit et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getProductBrand(id, lang) {
       var base = 'https://imsd.hres.ca';
       var uri = base + '/dpd/api/productbrand/?lang=' + lang + '&id=' + id;
@@ -588,12 +587,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
-                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
                                 </tr>
                             </table>
                             <p>La liste des protocoles peut être accédée aux adresses URI suivantes&nbsp;:</p>
@@ -604,7 +602,7 @@
                         </section>
 
                         <section>
-                            <h3 id="a5.2">Format du résultat</h3>
+                            <h3 id="a5.2">Contenu du résultat</h3>
                             <p>Le <strong>résultat</strong> contient un ou plusieurs objets.</p>
 
                             <p>Chaque objet&nbsp;<strong>protocole</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
@@ -646,7 +644,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>medConditionList</strong></td>
-                                    <td>Liste des conditions médicales.</td>
+                                    <td>La liste des conditions médicales propres à un protocole.</td> 
                                 </tr>
                                 <tr>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>med_condition_id</strong></td>
@@ -658,7 +656,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>studyPopulationList</strong></td>
-                                    <td>La liste de la population à l'étude</td>
+                                    <td>La liste des populations à l'étude propres à un protocole.</td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>study_population_id</strong></td>
@@ -693,7 +691,7 @@
              Accept:&quot;application/json&quot;,
              dataType: 'json',
              success:function(data){
-                          console.log(data.rotocol_name);
+                          console.log(data.protocol_name);
                           var frag = document.createDocumentFragment();
                           var h2 = document.createElement(&quot;h2&quot;);
                           var Protocol = document.createTextNode(data.protocol_name);
@@ -761,12 +759,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
-                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
                                 </tr>
                             </table>
                             <p>La liste des statuts peut être accédée aux adresses URI suivantes&nbsp;:</p>
@@ -777,7 +774,7 @@
                         </section>
 
                         <section>
-                            <h3 id="a6.2">Format du résultat</h3>
+                            <h3 id="a6.2">Contenu du résultat</h3>
                             <p>Le <strong>résultat</strong> contient un ou plusieurs objets.</p>
                             <p>Chaque objet&nbsp;<strong>statut</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
@@ -883,12 +880,11 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>
-                                            <li><code>csv</code>&nbsp;- CSV</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
-                                    <td>Détermine si le résultat est en format JSON, XML ou CSV.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
                                 </tr>
                             </table>
                             <p>La liste des populations à l'étude peut être accédée aux adresses URI suivantes :</p>
@@ -898,7 +894,7 @@
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a7.2">Format du résultat</h3>
+                            <h3 id="a7.2">Contenu du résultat</h3>
                             <p>Le <strong>résultat</strong> contient un ou plusieurs objets.</p>
                             <p>Chaque objet&nbsp;<strong>population à l'étude</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
                             <table>
@@ -926,7 +922,8 @@
 
                         <section>
                              <h3 id="a7.4">Exemple de jQuery</h3>                                
-                             <p>Exemple d'une fonctionnalité qui recherche une population à l'étude selon le numéro d'identification d'une population à l'étude et la langue sélectionnée&nbsp;:</p>                                <pre class="prettify prettyprint linenums">function getStudyPopulation(id, lang) {
+                             <p>Exemple d'une fonctionnalité qui recherche une population à l'étude selon le numéro d'identification d'une population à l'étude et la langue sélectionnée&nbsp;:</p>                               
+                             <pre class="prettify prettyprint linenums">function getStudyPopulation(id, lang) {
       var base = 'https://imsd.hres.ca';
       var uri = base + '/dpd/api/studypopulation/?lang=' + lang + '&id=' + id;
       $.ajax({
@@ -938,10 +935,10 @@
                            console.log(data.study_population);
                            var frag = document.createDocumentFragment();
                            var h2 = document.createElement(&quot;h2&quot;);
-                           var Etudie la population = document.createTextNode(data.study_population);
+                           var StudyPopulation = document.createTextNode(data.study_population);
                            var p = document.createElement(&quot;p&quot;);
                            var text = document.createTextNode(data.panels[0].text);
-                           h2.appendChild(ProductRoute);
+                           h2.appendChild(StudyPopulation);
                            p.appendChild(text);
                            frag.appendChild(h2);
                            frag.appendChild(p);
