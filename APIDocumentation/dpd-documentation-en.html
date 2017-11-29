@@ -198,7 +198,7 @@
                         <p>The DPD contains product specific information on drugs approved for use in Canada. The database is managed by Health Canada and includes human pharmaceutical and biological drugs, veterinary drugs, radiopharmaceutical drugs and disinfectant products. It contains approximately 47,000 products that are currently approved, marketed, dormant or cancelled.</p>
                         <p>Human, veterinary, disinfectants and Schedule C drugs (e.g. radiopharmaceutical products) approved products will be available in the DPD online at the time of authorization, with the exception of three monographed product groups under Division 1, Part C of the Food and Drug Regulations: sunscreen (sunscreens, lipstick making a SPF claim, cosmetic-like products with sunscreen claims, etc.), anti-dandruff shampoo, and hard surface disinfectants.  For these products, applications filed after June 15, 2015, there may be a six month delay after approval for the inclusion in the DPD online.</p>
                         <p>Health Canada is the federal regulator of therapeutic products and does not provide medical advice on the use of the products identified in this database. For information related to treatment options, choices of medications and their uses, illnesses, side effects or drug interactions, please contact your health care professional. For information on where these products are sold, please contact the individual company directly.</p>
-                        <p>This Application Programming Interface (API) allows developers to access that information in JSON, XML and CSV format for reuse in their own applications.</p>
+                        <p>This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications.</p>
                         <p>The base URI for the Drug Product Database &nbsp;<a href="https://iis-dev.hres.ca/api-dpd/api/">https://iis-dev.hres.ca/api-dpd/api/</a>. Any requests are made relative to this URI.</p>
                     </section>
                     <section>
@@ -238,7 +238,7 @@
                                     <td>Returns a list of active ingredients with zinc in the ingredient name.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            <li><code>zinc</code>&nbsp;- %ZINC% - ingredient with zinc in the ingredient name </li>
+                                            <li><code>zinc</code>&nbsp;- %ZINC% - zinc in the ingredient name </li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but default to all if not specified.</td>
@@ -668,7 +668,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>company</strong></td>
-                                    <td>The company object with all its values.</td>
+                                    <td>The company information.</td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>city_name</strong></td>
@@ -930,10 +930,9 @@
                                     <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
-                            <p>Packaging can be accessed via these URIs:</p>
+                            <p>Packaging can be accessed via that URI:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/packaging/?lang=en&type=json">https://iis-dev.hres.ca/api-dpd/api/packaging/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/packaging/?lang=fr&type=json">https://iis-dev.hres.ca/api-dpd/api/packaging/?lang=fr&type=json</a></li>
+                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/packaging/?type=json">https://iis-dev.hres.ca/api-dpd/api/packaging/?type=json</a></li>                                
                             </ul>
                         </section>
                         <section>
@@ -1054,9 +1053,8 @@
                                     <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
-                            <p>Pharmaceutical Standard can be accessed via these URIs:</p>
-                            <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/pharmaceuticalstd/?type=json">https://iis-dev.hres.ca/api-dpd/api/pharmaceuticalstd/?type=json</a></li>
+                            <p>Pharmaceutical Standards can be accessed via that URI:</p>
+                            <ul>                                
                                 <li><a href="https://iis-dev.hres.ca/api-dpd/api/pharmaceuticalstd/?type=json">https://iis-dev.hres.ca/api-dpd/api/pharmaceuticalstd/?type=json</a></li>
                             </ul>
                         </section>
@@ -1089,7 +1087,7 @@
                         </section>
                         <section>
                              <h3 id="a7.4">jQuery example</h3>
-                             <p>Example of a function that search for pharmaceutical standard(s) given a drug product code:</p>
+                             <p>Example of a function that search for pharmaceutical standard given a drug product code:</p>
                              <pre class="prettify prettyprint linenums">function getPharmaceuticalStd(id) {
       var base = 'https://api.hres.ca';
       var uri = base + '/api-dpd/api/pharmaceuticalstd/?id=' + id;
@@ -1099,7 +1097,7 @@
               Accept:&quot;application/json&quot;,
               dataType: 'json',
               success:function(data){
-                           console.log(data.package_type);
+                           console.log(data.pharmaceutical_std);
                            var frag = document.createDocumentFragment();
                            var h2 = document.createElement(&quot;h2&quot;);
                            var PharmaceuticalStd = document.createTextNode(data.pharmaceutical_std);
@@ -1471,7 +1469,7 @@
                                     <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
-                            <p>Status can be accessed via these URIs:</p>
+                            <p>Product Statuses can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://iis-dev.hres.ca/api-dpd/api/status/?lang=en&type=json">https://iis-dev.hres.ca/api-dpd/api/status/?lang=en&type=json</a></li>
                                 <li><a href="https://iis-dev.hres.ca/api-dpd/api/status/?lang=fr&type=json">https://iis-dev.hres.ca/api-dpd/api/status/?lang=fr&type=json</a></li>
@@ -1481,10 +1479,10 @@
                             <h3 id="a10.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
-                            <p>Each&nbsp;<strong>status</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>product status</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Status object values
+                                    Product Status object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
@@ -1536,10 +1534,10 @@
               Accept:&quot;application/json&quot;,
               dataType: 'json',
               success:function(data){
-                           console.log(data.status_name);
+                           console.log(data.status);
                            var frag = document.createDocumentFragment();
                            var h2 = document.createElement(&quot;h2&quot;);
-                           var StatusName = document.createTextNode(data.status_name);
+                           var StatusName = document.createTextNode(data.status);
                            var p = document.createElement(&quot;p&quot;);
                            var text = document.createTextNode(data.panels[0].text);
                            h2.appendChild(StatusName);
@@ -1577,7 +1575,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api-dpd/api/therapeuticclass/?id=</span></td>
-                                    <td>Returns therapeutic class according to the drug product code specified in the request.</td>
+                                    <td>Returns therapeutic class(es) according to the drug product code specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- code of the drug product
@@ -1658,7 +1656,7 @@
                         </section>
                         <section>
                              <h3 id="a11.4">jQuery example</h3>
-                             <p>Example of a function that search for therapeutic class given a drug product code and language selection:</p>
+                             <p>Example of a function that search for therapeutic classes given a drug product code and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getTherapeuticClass(id, lang) {
       var base = 'https://imsd.hres.ca';
       var uri = base + '/api-dpd/api/therapeuticclass/?lang=' + lang + '&id=' + id;
@@ -1668,10 +1666,10 @@
               Accept:&quot;application/json&quot;,
               dataType: 'json',
               success:function(data){
-                           console.log(data.TcAtcDescName);
+                           console.log(data.tc_atc);
                            var frag = document.createDocumentFragment();
                            var h2 = document.createElement(&quot;h2&quot;);
-                           var TcAtcDescName = document.createTextNode(data.TcAtcDescName);
+                           var TcAtcDescName = document.createTextNode(data.tc_atc);
                            var p = document.createElement(&quot;p&quot;);
                            var text = document.createTextNode(data.panels[0].text);
                            h2.appendChild(TcAtcDescName);

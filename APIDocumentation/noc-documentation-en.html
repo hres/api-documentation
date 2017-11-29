@@ -109,6 +109,7 @@
                                     <li><a href="#a3.4">jQuery example</a></li>
                                 </ul>
                             </li>
+                            <!-- Remove that section November 2017 Requested by Valerie Tweedle
                             <li>
                                 <a href="#a4">Product</a>
                                 <ul>
@@ -118,8 +119,18 @@
                                     <li><a href="#a4.4">jQuery example </a></li>
                                 </ul>
                             </li>
+                            ----->
                             <li>
-                                <a href="#a5">Dosage Form</a>
+                                <a href="#a4">Dosage Form</a>
+                                <ul>
+                                    <li><a href="#a4.1">Parameters</a></li>
+                                    <li><a href="#a4.2">Contents of the response</a></li>
+                                    <li><a href="#a4.3">Sample response</a></li>
+                                    <li><a href="#a4.4">jQuery example </a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#a5">Medicinal Ingredient</a>
                                 <ul>
                                     <li><a href="#a5.1">Parameters</a></li>
                                     <li><a href="#a5.2">Contents of the response</a></li>
@@ -128,7 +139,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a6">Medicinal Ingredient</a>
+                                <a href="#a6">Route of Administration</a>
                                 <ul>
                                     <li><a href="#a6.1">Parameters</a></li>
                                     <li><a href="#a6.2">Contents of the response</a></li>
@@ -137,7 +148,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a7">Route of Administration</a>
+                                <a href="#a7">Veterinary Species</a>
                                 <ul>
                                     <li><a href="#a7.1">Parameters</a></li>
                                     <li><a href="#a7.2">Contents of the response</a></li>
@@ -145,24 +156,17 @@
                                     <li><a href="#a7.4">jQuery example </a></li>
                                 </ul>
                             </li>
-                            <li>
-                                <a href="#a8">Veterinary Species</a>
-                                <ul>
-                                    <li><a href="#a8.1">Parameters</a></li>
-                                    <li><a href="#a8.2">Contents of the response</a></li>
-                                    <li><a href="#a8.3">Sample response</a></li>
-                                    <li><a href="#a8.4">jQuery example </a></li>
-                                </ul>
-                            </li>
                         </ul>
                     </section>
                     <section>
                         <h2 id="a1">Introduction</h2>
                         <p>A Notice of Compliance (NOC) is issued to a manufacturer following the satisfactory review of a submission for a new drug, and signifies compliance with the Food and Drug Regulations.</p>
-                        <p>This Application Programming Interface (API) allows developers to access that information in JSON, XML and CSV format for reuse in their own applications.</p>
-                        <p>The base URI for the Notice of Compliance Database &nbsp;<a href="https://api.hres.ca/noc/api/">https://api.hres.ca/noc/api/</a>. Any requests are made relative to this URI.</p>
+                        <p>The database is updated nightly and contains NOC information on human drugs from January 1, 1994 to date. It also contains NOC information on Veterinary drugs from September 19, 2000 to date. 
+                        Through a phased in approach Health Canada will populate the remaining NOCs for Veterinary drugs from January 1, 1994 to September 18, 2000.</p>
+                        <p>This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications.</p>
+                        <p>The base URI for the Notice of Compliance Database &nbsp;<a href="https://iis-dev.hres.ca/api-noc/api/">https://iis-dev.hres.ca/api-noc/api/</a>. Any requests are made relative to this URI.</p>
                     </section>
-                    <!--Brand-section-start-->  
+                    <!--Drug Product-section-start-->  
                     <section>                        
                         <h2 id="a2">Drug Product</h2>
                         <p>Basic information about the product, such as brand name and Drug Identification Number. The brand name is the unique name under which the manufacturer of a drug product advertises and sells it.</p>
@@ -182,7 +186,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/brand/?id=</span></td>
+                                    <td><span class="nowrap">api-noc/api/drugproduct/?id=</span></td>
                                     <td>Returns drug product(s) according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -193,7 +197,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/brand/?lang=en</span></td>
+                                    <td><span class="nowrap">api-noc/api/drugproduct/?lang=en</span></td>
                                     <td>Changes language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -205,7 +209,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/brand/?type=json</span></td>
+                                    <td><span class="nowrap">api-noc/api/drugproduct/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -219,8 +223,8 @@
                             </table>
                             <p>Drug Products can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/noc/api/brand/?lang=en&type=json">https://api.hres.ca/noc/api/brand/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/noc/api/brand/?lang=fr&type=json">https://api.hres.ca/noc/api/brand/?lang=fr&type=json</a></li>
+                                <li><a href="https://iis-dev.hres.ca/api-noc/api/drugproduct/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/drugproduct/?lang=en&type=json</a></li>
+                                <li><a href="https://iis-dev.hres.ca/api-noc/api/drugproduct/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/drugproduct/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -260,28 +264,28 @@
                         </section>
                         <section>
                              <h3 id="a2.3">Sample response</h3>
-                             <pre class="prettify prettyprint linenums">[{"noc_number":3369,"noc_br_brand_id":3567,"noc_br_brandname":"NORINYL 1/50 21DAY"},
-    {"noc_number":3369,"noc_br_brand_id":3568,"noc_br_brandname":"NORINYL 1/50 28DAY"}]</pre>
+                             <pre class="prettify prettyprint linenums">[{"noc_number":3369,"noc_br_brand_id":3567,"noc_br_brandname":"NORINYL 1/50 21DAY","noc_br_din":"02188724","noc_br_product_id":6363},
+    {"noc_number":3369,"noc_br_brand_id":3568,"noc_br_brandname":"NORINYL 1/50 28DAY","noc_br_din":"02188732","noc_br_product_id":6364}]</pre>
                         </section>
                         <section>
                              <h3 id="a2.4">jQuery example</h3>
-                             <p>Example of a function that search for a drug product given a Notice of Compliance number and language selection:</p>
-                             <pre class="prettify prettyprint linenums">function getBrand(id, lang) {
+                             <p>Example of a function that search for drug products given a Notice of Compliance number and language selection:</p>
+                             <pre class="prettify prettyprint linenums">function getDrugProduct(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/dpd/api/brand/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api-noc/api/drugproduct/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
               Accept:&quot;application/json&quot;,
               dataType: 'json',
               success:function(data){
-                           console.log(data.brand_name);
+                           console.log(data.noc_br_brandname);
                            var frag = document.createDocumentFragment();
                            var h2 = document.createElement(&quot;h2&quot;);
-                           var Brand = document.createTextNode(data.brand_name);
+                           var DrugProduct = document.createTextNode(data.noc_br_brandname);
                            var p = document.createElement(&quot;p&quot;);
                            var text = document.createTextNode(data.panels[0].text);
-                           h2.appendChild(Brand);
+                           h2.appendChild(DrugProduct);
                            p.appendChild(text);
                            frag.appendChild(h2);
                            frag.appendChild(p);
@@ -299,6 +303,7 @@
                     <section>
                         <h2 id="a3">Notice of Compliance</h2>
                         <p>A Notice of Compliance is a notification, issued pursuant to paragraph C.08.004(1)(a), indicating that a manufacturer has complied with sections C.08.002 or C.08.003 and C.08.005.1 of the <i>Food and Drug Regulations</i>. Notices of Compliance are issued to a manufacturer following the satisfactory review of a submission.</p>
+                        <p>An NOC/c is the authorization to market a drug ([such as (i.e.)] a Notice of Compliance (NOC)), with the condition that the manufacturer carries out more studies to verify the clinical benefit. The NOC, qualifying under the NOC/c policy (Notice of Compliance with Conditions: Revised Policy), is issued under section C.08.004 of the <i>Food and Drug Regulations</i>.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a3.1">Parameters</h3>
@@ -315,7 +320,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/noticeofcompliancemain/?id=</span></td>
+                                    <td><span class="nowrap">api-noc/api/noticeofcompliancemain/?id=</span></td>
                                     <td>Returns a Notice of Compliance according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -326,7 +331,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/noticeofcompliancemain/?lang=en</span></td>
+                                    <td><span class="nowrap">api-noc/api/noticeofcompliancemain/?lang=en</span></td>
                                     <td>Changes language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -338,7 +343,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/noticeofcompliancemain/?type=json</span></td>
+                                    <td><span class="nowrap">api-noc/api/noticeofcompliancemain/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -352,8 +357,8 @@
                             </table>
                             <p>Notices of Compliance can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=en&type=json">https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=fr&type=json">https://api.hres.ca/noc/api/noticeofcompliancemain/?lang=fr&type=json</a></li>                                
+                                <li><a href="https://iis-dev.hres.ca/api-noc/api/noticeofcompliancemain/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/noticeofcompliancemain/?lang=en&type=json</a></li>
+                                <li><a href="https://iis-dev.hres.ca/api-noc/api/noticeofcompliancemain/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/noticeofcompliancemain/?lang=fr&type=json</a></li>                                
                             </ul>
                         </section>
                         <section>
@@ -440,24 +445,24 @@
                         </section>
                         <section>
                              <h3 id="a3.3">Sample response</h3>
-                             <pre class="prettify prettyprint linenums">{"noc_number":403,"noc_date":"2002-03-13","noc_submission_number":"N/A","noc_manufacturer_name":"AVENTIS PASTEUR LIMITED","noc_status_with_conditions":"N","noc_qn_fname":"","noc_dhcpl_fname":"","noc_factsheet_fname":"","noc_on_submission_type":"Supplement to a New Drug Submission (SNDS)","noc_is_suppliment":"Y","noc_submission_class":"Other","noc_is_admin":"N","noc_product_type":"Biologic","noc_file_number":"N/A","noc_crp_product_name":"","noc_crp_company_name":"","noc_crp_country_name":"","noc_active_status":"1","noc_scanned_page":"N/A","noc_reason_supplement":"NEW MANUFACTURING FACILITY","noc_reason_submission":"","noc_therapeutic_class":"ACTIVE IMMUNIZING AGENT","noc_notes":"","noc_notes_entry_date":"1111-11-11","noc_last_update_date":"1111-11-11","noc_entry_date":"1111-11-11","noc_sbd_fname":"","noc_nd_fname":"","noc_ci_part_iii_fname":"","noc_pm_fname":""}</pre>
+                             <pre class="prettify prettyprint linenums">{"noc_number":403,"noc_date":"2002-03-13","noc_manufacturer_name":"AVENTIS PASTEUR LIMITED","noc_status_with_conditions":"N","noc_on_submission_type":"Supplement to a New Drug Submission (SNDS)","noc_is_suppliment":"Y","noc_submission_class":"Other","noc_is_admin":"N","noc_product_type":"Biologic","noc_crp_product_name":"","noc_crp_company_name":"","noc_crp_country_name":"","noc_active_status":"1","noc_reason_supplement":"NEW MANUFACTURING FACILITY","noc_reason_submission":"","noc_therapeutic_class":"ACTIVE IMMUNIZING AGENT","noc_last_update_date":"1111-11-11"}</pre>
                         </section>
                         <section>
                              <h3 id="a3.4">jQuery example</h3>
                              <p>Example of a function that search for a Notice of Compliance given a Notice of Compliance number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function GetNoticeOfComplianceMain(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/dpd/api/noticeofcompliancemain/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api-noc/api/noticeofcompliancemain/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
               Accept:&quot;application/json&quot;,
               dataType: 'json',
                success:function(data){
-                            console.log(data.notice_of_compliance_name);
+                            console.log(data.noc_reason_submission);
                             var frag = document.createDocumentFragment();
                             var h2 = document.createElement(&quot;h2&quot;);
-                            var Brand = document.createTextNode(data.notice_of_compliance_name);
+                            var NoticeOfCompliance = document.createTextNode(data.noc_reason_submission);
                             var p = document.createElement(&quot;p&quot;);
                             var text = document.createTextNode(data.panels[0].text);
                             h2.appendChild(NoticeOfCompliance);
@@ -474,11 +479,11 @@
                         </section>
                     </section>
                     <!--Notice of Compliance section-end---->
-                    <!--Product section-start-->
+                    <!--Product section-remove
                     <section>                       
                         <h2 id="a4">Product</h2>
                         <p>TODO put description of product.....</p>
-                        <!--h3-section-start-->
+                        
                         <section>
                             <h3 id="a4.1">Parameters</h3>
                             <p>There are three parameters in the request: id, lang and type.</p>
@@ -494,7 +499,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/product/?id=</span></td>
+                                    <td><span class="nowrap">api-noc/api/product/?id=</span></td>
                                     <td>Returns products according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -505,7 +510,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/product/?lang=en</span></td>
+                                    <td><span class="nowrap">api-noc/api/product/?lang=en</span></td>
                                     <td>Changes language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -517,7 +522,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/product/?type=json</span></td>
+                                    <td><span class="nowrap">api-noc/api/product/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -531,8 +536,8 @@
                             </table>
                             <p>Products can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/noc/api/product/?lang=en&type=json">https://api.hres.ca/noc/api/product/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/noc/api/product/?lang=fr&type=json">https://api.hres.ca/noc/api/product/?lang=fr&type=json</a></li>
+                                <li><a href="https://iis-dev.hres.ca/api-noc/api/product/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/product/?lang=en&type=json</a></li>
+                                <li><a href="https://iis-dev.hres.ca/api-noc/api/product/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/product/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -576,7 +581,7 @@
                              <p>Example of a function that search for products given a Notice of Compliance number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getProduct(id, lang) {
      var base = 'https://imsd.hres.ca';
-     var uri = base + '/dpd/api/product/?lang=' + lang + '&id=' + id;
+     var uri = base + '/api-noc/api/product/?lang=' + lang + '&id=' + id;
      $.ajax({
              url:uri,
              type:'GET',
@@ -586,7 +591,7 @@
                           console.log(data.product_name);
                           var frag = document.createDocumentFragment();
                           var h2 = document.createElement(&quot;h2&quot;);
-                          var Ingredient = document.createTextNode(data.product_name);
+                          var Product = document.createTextNode(data.product_name);
                           var p = document.createElement(&quot;p&quot;);
                           var text = document.createTextNode(data.panels[0].text);
                           h2.appendChild(Product);
@@ -602,14 +607,14 @@
  };			</pre> 
                         </section>
                     </section>
-                    <!--Product section-end---->
-                    <!--Product Form section-start-->
+                    Product section-end---->
+                    <!--Dosage Form section-start-->
                     <section>                        
-                        <h2 id="a5">Dosage Form</h2>
+                        <h2 id="a4">Dosage Form</h2>
                         <p>The dosage form is the form in which the product is supplied. It is the combination of the form in which a product is presented [for example (e.g.)] in tablet, capsule or powder form, and the physical form in which it is administered, [for example, (e.g.)] in a powder to be administered in solution. </p>
                         <!--h3-section-start-->
                         <section>
-                            <h3 id="a5.1">Parameters</h3>
+                            <h3 id="a4.1">Parameters</h3>
                             <p>There are three parameters in the request: id, lang and type.</p>
                             <table>
                                 <caption>
@@ -623,7 +628,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/productform/?id=</span></td>
+                                    <td><span class="nowrap">api-noc/api/dosageform/?id=</span></td>
                                     <td>Returns dosage forms according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -634,7 +639,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/productform/?lang=en</span></td>
+                                    <td><span class="nowrap">api-noc/api/dosageform/?lang=en</span></td>
                                     <td>Changes language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -646,7 +651,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/productform/?type=json</span></td>
+                                    <td><span class="nowrap">api-noc/api/dosageform/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -660,12 +665,12 @@
                             </table>
                             <p>Dosage Forms can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/noc/api/productform/?lang=en&type=json">https://api.hres.ca/noc/api/productform/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/noc/api/productform/?lang=fr&type=json">https://api.hres.ca/noc/api/productform/?lang=fr&type=json</a></li>
+                                <li><a href="https://iis-dev.hres.ca/api-noc/api/dosageform/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/dosageform/?lang=en&type=json</a></li>
+                                <li><a href="https://iis-dev.hres.ca/api-noc/api/dosageform/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/dosageform/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a5.2">Contents of the response</h3>
+                            <h3 id="a4.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>dosage form</strong>&nbsp;object consists of the following values:</p>
@@ -687,34 +692,34 @@
                                 </tr>
                                 <tr>
                                     <td><strong>noc_pf_form_name</strong></td>
-                                    <td>The pharmaceutical form.</td>
+                                    <td>The dosage form.</td>
                                 </tr>
                             </table>
                         </section>
                         <section>
-                             <h3 id="a5.3">Sample response</h3>
+                             <h3 id="a4.3">Sample response</h3>
                              <pre class="prettify prettyprint linenums">[{"noc_number":3369,"noc_pf_din_product_id":6363,"noc_pf_form_name":"Tablet"},
     {"noc_number":3369,"noc_pf_din_product_id":6364,"noc_pf_form_name":"Tablet"}]</pre>
                         </section>
                         <section>
-                             <h3 id="a5.4">jQuery example</h3>
-                             <p>Example of a function that search for a dosage forms given a Notice of Compliance number and language selection:</p>
-                             <pre class="prettify prettyprint linenums">function getProductForm(id, lang) {
+                             <h3 id="a4.4">jQuery example</h3>
+                             <p>Example of a function that search for dosage forms given a Notice of Compliance number and language selection:</p>
+                             <pre class="prettify prettyprint linenums">function getDosageForm(id, lang) {
      var base = 'https://imsd.hres.ca';
-     var uri = base + '/dpd/api/productform/?lang=' + lang + '&id=' + id;
+     var uri = base + '/api-noc/api/dosageform/?lang=' + lang + '&id=' + id;
      $.ajax({
              url:uri,
              type:'GET',
              Accept:&quot;application/json&quot;,
              dataType: 'json',
              success:function(data){
-                          console.log(data.product_form_name);
+                          console.log(data.noc_pf_form_name);
                           var frag = document.createDocumentFragment();
                           var h2 = document.createElement(&quot;h2&quot;);
-                          var Ingredient = document.createTextNode(data.product_form_name);
+                          var DosageForm = document.createTextNode(data.noc_pf_form_name);
                           var p = document.createElement(&quot;p&quot;);
                           var text = document.createTextNode(data.panels[0].text);
-                          h2.appendChild(ProductForm);
+                          h2.appendChild(DosageForm);
                           p.appendChild(text);
                           frag.appendChild(h2);
                           frag.appendChild(p);
@@ -727,14 +732,14 @@
  };			</pre> 
                         </section>
                     </section>
-                    <!--Product Form section-end-->
-                    <!--Product Ingredient section-start-->    
+                    <!--Dosage Form section-end-->
+                    <!--Medicinal Ingredient section-start-->    
                     <section>                        
-                        <h2 id="a6">Medicinal Ingredient</h2>
+                        <h2 id="a5">Medicinal Ingredient</h2>
                         <p>A medicinal ingredient is any component that has medicinal properties, and supplies pharmacological activity or other direct effect in the diagnosis, cure, mitigation, treatment or prevention of disease, or to affect the structure or any function of the body of man or other animals.</p>
                         <!--h3-section-start-->
                         <section>
-                            <h3 id="a6.1">Parameters</h3>
+                            <h3 id="a5.1">Parameters</h3>
                             <p>There are three parameters in the request: id, lang and type.</p>
                             <table>
                                 <caption>
@@ -748,7 +753,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/productingredient/?id=</span></td>
+                                    <td><span class="nowrap">api-noc/api/medicinalingredient/?id=</span></td>
                                     <td>Returns medicinal ingredients according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -759,7 +764,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/productingredient/?lang=en</span></td>
+                                    <td><span class="nowrap">api-noc/api/medicinalingredient/?lang=en</span></td>
                                     <td>Changes language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -771,7 +776,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/productingredient/?type=json</span></td>
+                                    <td><span class="nowrap">api-noc/api/medicinalingredient/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -785,12 +790,12 @@
                             </table>
                             <p>Medicinal Ingredients can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/noc/api/productingredient/?lang=en&type=json">https://api.hres.ca/noc/api/productingredient/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/noc/api/productingredient/?lang=fr&type=json">https://api.hres.ca/noc/api/productingredient/?lang=fr&type=json</a></li>
+                                <li><a href="https://iis-dev.hres.ca/api-noc/api/medicinalingredient/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/medicinalingredient/?lang=en&type=json</a></li>
+                                <li><a href="https://iis-dev.hres.ca/api-noc/api/medicinalingredient/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/medicinalingredient/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a6.2">Contents of the response</h3>
+                            <h3 id="a5.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>medicinal ingredient</strong>&nbsp;object consists of the following values:</p>
@@ -829,31 +834,31 @@
                             </table>
                         </section>
                         <section>
-                             <h3 id="a6.3">Sample response</h3>
+                             <h3 id="a5.3">Sample response</h3>
                             <pre class="prettify prettyprint linenums">[{"noc_number":3369,"noc_pi_din_product_id":6363,"noc_pi_medic_ingr_name":"NORETHINDRONE","noc_pi_strength":1,"noc_pi_unit":"MG","noc_pi_basic_unit":"TAB"},
     {"noc_number":3369,"noc_pi_din_product_id":6363,"noc_pi_medic_ingr_name":"MESTRANOL","noc_pi_strength":0,"noc_pi_unit":"MG","noc_pi_basic_unit":"TAB"},
     {"noc_number":3369,"noc_pi_din_product_id":6364,"noc_pi_medic_ingr_name":"NORETHINDRONE","noc_pi_strength":1,"noc_pi_unit":"MG","noc_pi_basic_unit":"TAB"},
     {"noc_number":3369,"noc_pi_din_product_id":6364,"noc_pi_medic_ingr_name":"MESTRANOL","noc_pi_strength":0,"noc_pi_unit":"MG","noc_pi_basic_unit":"TAB"}]</pre>
                         </section>
                         <section>
-                             <h3 id="a6.4">jQuery example</h3>
+                             <h3 id="a5.4">jQuery example</h3>
                              <p>Example of a function that search for medicinal ingredients given a Notice of Compliance number and language selection:</p>
-                             <pre class="prettify prettyprint linenums">function getProductIngredient(id, lang) {
+                             <pre class="prettify prettyprint linenums">function getMedicinalIngredient(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/dpd/api/productingredient/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api-noc/api/medicinalingredient/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
               Accept:&quot;application/json&quot;,
               dataType: 'json',
               success:function(data){
-                           console.log(data.product_ingredient_name);
+                           console.log(data.noc_pi_medic_ingr_name);
                            var frag = document.createDocumentFragment();
                            var h2 = document.createElement(&quot;h2&quot;);
-                           var Ingredient = document.createTextNode(data.product_ingredient_name);
+                           var MedicinalIngredient = document.createTextNode(data.noc_pi_medic_ingr_name);
                            var p = document.createElement(&quot;p&quot;);
                            var text = document.createTextNode(data.panels[0].text);
-                           h2.appendChild(ProductIngredient);
+                           h2.appendChild(MedicinalIngredient);
                            p.appendChild(text);
                            frag.appendChild(h2);
                            frag.appendChild(p);
@@ -866,15 +871,15 @@
  };			</pre>
                         </section>
                     </section>
-                    <!--Product Ingredient section-end-->
+                    <!--Medicinal Ingredient section-end-->
                     <!--Product Route section-start-->  
                     <section>                       
-                        <h2 id="a7">Route of Administration</h2>
+                        <h2 id="a6">Route of Administration</h2>
                         <p>This term indicates the part of the body on which, through which or into which the product is to be introduced. (e.g. oral, topical, intramuscular, rectal, etc.)</p>
                         <p>A product can have more than one route of administration (e.g. intravenous, intramuscular, intra-articular, etc.).</p>
                         <!--h3-section-start-->
                         <section>
-                            <h3 id="a7.1">Parameters</h3>
+                            <h3 id="a6.1">Parameters</h3>
                             <p>There are three parameters in the request: id, lang and type.</p>
                             <table>
                                 <caption>
@@ -888,7 +893,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/productroute/?id=</span></td>
+                                    <td><span class="nowrap">api-noc/api/route/?id=</span></td>
                                     <td>Returns routes of administration according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -899,7 +904,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/productroute/?lang=en</span></td>
+                                    <td><span class="nowrap">api-noc/api/route/?lang=en</span></td>
                                     <td>Changes language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -911,7 +916,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/productroute/?type=json</span></td>
+                                    <td><span class="nowrap">api-noc/api/route/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -925,12 +930,12 @@
                             </table>
                             <p>Routes of Administration can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/noc/api/productroute/?lang=en&type=json">https://api.hres.ca/noc/api/productroute/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/noc/api/productroute/?lang=fr&type=json">https://api.hres.ca/noc/api/productroute/?lang=fr&type=json</a></li>
+                                <li><a href="https://iis-dev.hres.ca/api-noc/api/route/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/route/?lang=en&type=json</a></li>
+                                <li><a href="https://iis-dev.hres.ca/api-noc/api/route/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/route/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a7.2">Contents of the response</h3>
+                            <h3 id="a6.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
                             <p>Each&nbsp;<strong>route of administration</strong>&nbsp;object consists of the following values:</p>
                             <table>
@@ -956,29 +961,29 @@
                             </table>
                         </section>
                         <section>
-                             <h3 id="a7.3">Sample response</h3>
+                             <h3 id="a6.3">Sample response</h3>
                              <pre class="prettify prettyprint linenums">[{"noc_number":3369,"noc_pr_din_product_id":6363,"noc_pr_route":"Oral"},
     {"noc_number":3369,"noc_pr_din_product_id":6364,"noc_pr_route":"Oral"}]</pre>
                        </section>
                        <section>
-                             <h3 id="a7.4">jQuery example</h3>
+                             <h3 id="a6.4">jQuery example</h3>
                              <p>Example of a function that search for routes of administration given a Notice of Compliance number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getRouteAdministration(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/dpd/api/productroute/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api-noc/api/route/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
               Accept:&quot;application/json&quot;,
               dataType: 'json',
               success:function(data){
-                           console.log(data.product_route_name);
+                           console.log(data.noc_pr_route);
                            var frag = document.createDocumentFragment();
                            var h2 = document.createElement(&quot;h2&quot;);
-                           var RouteName = document.createTextNode(data.product_route_name);
+                           var Route = document.createTextNode(data.noc_pr_route);
                            var p = document.createElement(&quot;p&quot;);
                            var text = document.createTextNode(data.panels[0].text);
-                           h2.appendChild(RouteName);
+                           h2.appendChild(Route);
                            p.appendChild(text);
                            frag.appendChild(h2);
                            frag.appendChild(p);
@@ -994,11 +999,11 @@
                     <!--Product Route section-end-->
                     <!--Veterinary Species section-start--> 
                     <section>                        
-                        <h2 id="a8">Veterinary Species</h2>
+                        <h2 id="a7">Veterinary Species</h2>
                         <p>The type of species for a certain veterinary products (e.g. sheep, dog, cattle, and poultry).</p>
                         <!--h3-section-start-->
                         <section>
-                            <h3 id="a8.1">Parameters</h3>
+                            <h3 id="a7.1">Parameters</h3>
                             <p>There are three parameters in the request: id, lang and type.</p>
                             <table>
                                 <caption>
@@ -1012,7 +1017,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/vetspecies/?id=</span></td>
+                                    <td><span class="nowrap">api-noc/api/vetspecies/?id=</span></td>
                                     <td>Returns veterinary species according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1023,7 +1028,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/vetspecies/?lang=en</span></td>
+                                    <td><span class="nowrap">api-noc/api/vetspecies/?lang=en</span></td>
                                     <td>Changes language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1035,7 +1040,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">noc/api/vetspecies/?type=json</span></td>
+                                    <td><span class="nowrap">api-noc/api/vetspecies/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1049,12 +1054,12 @@
                             </table>
                             <p>Veterinary Species can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/noc/api/vetspecies/?lang=en&type=json">https://api.hres.ca/noc/api/vetspecies/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/noc/api/vetspecies/?lang=fr&type=json">https://api.hres.ca/noc/api/vetspecies/?lang=fr&type=json</a></li>
+                                <li><a href="https://iis-dev.hres.ca/api-noc/api/vetspecies/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/vetspecies/?lang=en&type=json</a></li>
+                                <li><a href="https://iis-dev.hres.ca/api-noc/api/vetspecies/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/vetspecies/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
-                            <h3 id="a8.2">Contents of the response</h3>
+                            <h3 id="a7.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
 
                             <p>Each&nbsp;<strong>veterinary species</strong>&nbsp;object consists of the following values:</p>
@@ -1077,7 +1082,7 @@
                             </table>
                         </section>
                         <section>
-                             <h3 id="a8.3">Sample response</h3>
+                             <h3 id="a7.3">Sample response</h3>
                              <pre class="prettify prettyprint linenums">[{"noc_number":6981,"vet_species_desc":"CATTLE"},
     {"noc_number":6981,"vet_species_desc":"DOGS"},
     {"noc_number":6981,"vet_species_desc":"HORSES"},
@@ -1085,21 +1090,21 @@
     {"noc_number":6981,"vet_species_desc":"TURKEYS"}]</pre>
                         </section>
                         <section>
-                             <h3 id="a8.4">jQuery example</h3>
+                             <h3 id="a7.4">jQuery example</h3>
                              <p>Example of a function that search for veterinary species given a Notice of Compliance number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getVeterinarySpecies(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/dpd/api/vetspecies/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api-noc/api/vetspecies/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
               Accept:&quot;application/json&quot;,
               dataType: 'json',
               success:function(data){
-                           console.log(data.veterinary_species_name);
+                           console.log(data.vet_species_desc);
                            var frag = document.createDocumentFragment();
                            var h2 = document.createElement(&quot;h2&quot;);
-                           var SpeciesName = document.createTextNode(data.veterinary_species_name);
+                           var SpeciesName = document.createTextNode(data.vet_species_desc);
                            var p = document.createElement(&quot;p&quot;);
                            var text = document.createTextNode(data.panels[0].text);
                            h2.appendChild(SpeciesName);
