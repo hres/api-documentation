@@ -151,8 +151,9 @@
                         <h2 id="a1">Introduction</h2>
                         <p>La base de données sur les essais cliniques donne à la population une liste de renseignements précis sur les essais cliniques des phases I, II et III chez les patients. Gérée par Santé Canada, la base de données constitue une source d'information sur les essais cliniques effectués au Canada avec les médicaments pharmaceutiques et biologiques à usage humain.</p>
                         <!-- The above line is copied from this published page.www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/base-donnees-essais-cliniques-sante-canada.html -->
-                        <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON et XML afin de les utiliser dans leurs propres applications.</p>
-                        <p>L'adresse URI de base sur les produits pharmaceutiques est &nbsp;<a href="https://iis-dev.hres.ca/api-ctweb/api/">https://iis-dev.hres.ca/api-ctweb/api/</a>. Toute requête est effectuée par l'entremise de cette adresse URI.</p>
+                        <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON et XML afin de les utiliser dans leurs propres applications.
+                        L'adresse URI de base sur les produits pharmaceutiques est &nbsp;<a href="https://produits-sante.canada.ca/api/essais-clinique/">https://produits-sante.canada.ca/api/essais-clinique/</a> et vous pouvez y ajouter des paramètres. Toute requête est effectuée par l'entremise de cette adresse URI.</p>
+                        <p>Ces renseignements sont aussi disponibles en format CSV pour voir les options disponibles vous devez utiliser l'adresse URI suivante&nbsp;<a href="https://lam-dev.hres.ca/api-documentation/APIDocumentation/cta-dataset-fr.html">https://lam-dev.hres.ca/api-documentation/APIDocumentation/cta-dataset-fr</a>.</p>
                     </section>
                     <!--Manufacturer-section-start-->
                     <section>
@@ -175,7 +176,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="wrap">api-ctweb/api/sponsor/?id=</span></td>
+                                    <td><span class="wrap">api/essais-clinique/sponsor/?id=</span></td>
                                     <td>Affiche le promoteur selon le numéro d'identification du promoteur spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -186,7 +187,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-ctweb/api/sponsor/?lang=fr</span></td>
+                                    <td><span class="nowrap">api/essais-clinique/sponsor/?lang=fr</span></td>
                                     <td>Modifie la langue du résultat affiché.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -198,7 +199,7 @@
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-ctweb/api/sponsor/?type=json</span></td>
+                                    <td><span class="nowrap">api/essais-clinique/sponsor/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -212,8 +213,8 @@
                             </table>                            
                             <p>La liste des promoteurs peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-ctweb/api/sponsor/?lang=en&type=json">https://iis-dev.hres.ca/api-ctweb/api/sponsor/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-ctweb/api/sponsor/?lang=fr&type=json">https://iis-dev.hres.ca/api-ctweb/api/sponsor/?lang=fr&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/essais-clinique/sponsor/?lang=en&type=json">https://produits-sante.canada.ca/api/essais-clinique/sponsor/?lang=en&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/essais-clinique/sponsor/?lang=fr&type=json">https://produits-sante.canada.ca/api/essais-clinique/sponsor/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
 
@@ -251,7 +252,7 @@
                              <p>Exemple d'une fonctionnalité qui recherche un promoteur selon le numéro d'identification d'un promoteur et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getSponsor(id, lang) {
      var base = 'https://imsd.hres.ca';
-     var uri = base + '/api-ctweb/api/sponsor/?lang=' + lang + '&id=' + id;
+     var uri = base + '/api/essais-clinique/sponsor/?lang=' + lang + '&id=' + id;
      $.ajax({
              url:uri,
              type:'GET',
@@ -298,7 +299,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-ctweb/api/medicalcondition/?id=</span></td>
+                                    <td><span class="nowrap">api/essais-clinique/medicalcondition/?id=</span></td>
                                     <td>Affiche la condition médicale selon le numéro d'identification de la condition médicale spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -309,7 +310,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-ctweb/api/medicalcondition/?lang=fr</span></td>
+                                    <td><span class="nowrap">api/essais-clinique/medicalcondition/?lang=fr</span></td>
                                     <td>Modifie la langue du résultat affiché.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -321,7 +322,7 @@
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-ctweb/api/medicalcondition/?type=json</span></td>
+                                    <td><span class="nowrap">api/essais-clinique/medicalcondition/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -335,8 +336,8 @@
                             </table>
                             <p>La liste des conditions médicales peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-ctweb/api/medicalcondition/?lang=en&type=json">https://iis-dev.hres.ca/api-ctweb/api/medicalcondition/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-ctweb/api/medicalcondition/?lang=fr&type=json">https://iis-dev.hres.ca/api-ctweb/api/medicalcondition/?lang=fr&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/essais-clinique/medicalcondition/?lang=en&type=json">https://produits-sante.canada.ca/api/essais-clinique/medicalcondition/?lang=en&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/essais-clinique/medicalcondition/?lang=fr&type=json">https://produits-sante.canada.ca/api/essais-clinique/medicalcondition/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
 
@@ -373,7 +374,7 @@
                              <p>Exemple d'une fonctionnalité qui recherche une condition médicale selon le numéro d'identification d'une condition médicale et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function GetAllMedicalCondition(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-ctweb/api/medicalcondition/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/essais-clinique/medicalcondition/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -421,7 +422,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-ctweb/api/drugproduct/?id=</span></td>
+                                    <td><span class="nowrap">api/essais-clinique/drugproduct/?id=</span></td>
                                     <td>Affiche le produit pharmaceutique selon le numéro d'identification d'une marque spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -432,7 +433,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-ctweb/api/drugproduct/?lang=fr</span></td>
+                                    <td><span class="nowrap">api/essais-clinique/drugproduct/?lang=fr</span></td>
                                     <td>Modifie la langue du résultat affiché.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -444,7 +445,7 @@
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-ctweb/api/drugproduct/?type=json</span></td>
+                                    <td><span class="nowrap">api/essais-clinique/drugproduct/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -458,8 +459,8 @@
                             </table>
                             <p>La liste des produits phamaceutiques peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-ctweb/api/drugproduct/?lang=en&type=json">https://iis-dev.hres.ca/api-ctweb/api/drugproduct/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-ctweb/api/drugproduct/?lang=fr&type=json">https://iis-dev.hres.ca/api-ctweb/api/drugproduct/?lang=fr&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/essais-clinique/drugproduct/?lang=en&type=json">https://produits-sante.canada.ca/api/essais-clinique/drugproduct/?lang=en&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/essais-clinique/drugproduct/?lang=fr&type=json">https://produits-sante.canada.ca/api/essais-clinique/drugproduct/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
 
@@ -512,7 +513,7 @@
                              <p>Exemple d'une fonctionnalité qui recherche un produit pharmaceutique selon le numéro d'identification d'une marque et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getDrugProduct(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-ctweb/api/drugproduct/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/essais-clinique/drugproduct/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -559,7 +560,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-ctweb/api/protocol/?id=</span></td>
+                                    <td><span class="nowrap">api/essais-clinique/protocol/?id=</span></td>
                                     <td>Affiche le protocole selon le numéro d'identification du protocole spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -570,7 +571,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-ctweb/api/protocol/?lang=fr</span></td>
+                                    <td><span class="nowrap">api/essais-clinique/protocol/?lang=fr</span></td>
                                     <td>Modifie la langue du résultat affiché.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -582,7 +583,7 @@
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-ctweb/api/protocol/?type=json</span></td>
+                                    <td><span class="nowrap">api/essais-clinique/protocol/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -596,8 +597,8 @@
                             </table>
                             <p>La liste des protocoles peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-ctweb/api/protocol/?lang=en&type=json">https://iis-dev.hres.ca/api-ctweb/api/protocol/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-ctweb/api/protocol/?lang=fr&type=json">https://iis-dev.hres.ca/api-ctweb/api/protocol/?lang=fr&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/essais-clinique/protocol/?lang=en&type=json">https://produits-sante.canada.ca/api/essais-clinique/protocol/?lang=en&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/essais-clinique/protocol/?lang=fr&type=json">https://produits-sante.canada.ca/api/essais-clinique/protocol/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
 
@@ -688,7 +689,7 @@
                              <p>Exemple d'une fonctionnalité qui recherche un protocole selon le numéro d'identification d'un protocole et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getProtocol(id, lang) {
      var base = 'https://imsd.hres.ca';
-     var uri = base + '/api-ctweb/api/protocol/?lang=' + lang + '&id=' + id;
+     var uri = base + '/api/essais-clinique/protocol/?lang=' + lang + '&id=' + id;
      $.ajax({
              url:uri,
              type:'GET',
@@ -735,7 +736,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-ctweb/api/status/?id=</span></td>
+                                    <td><span class="nowrap">api/essais-clinique/status/?id=</span></td>
                                     <td>Affiche le statut selon le numéro d'identification du statut spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -746,7 +747,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-ctweb/api/status/?lang=fr</span></td>
+                                    <td><span class="nowrap">api/essais-clinique/status/?lang=fr</span></td>
                                     <td>Modifie la langue du résultat affiché.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -758,7 +759,7 @@
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-ctweb/api/status/?type=json</span></td>
+                                    <td><span class="nowrap">api/essais-clinique/status/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -772,8 +773,8 @@
                             </table>
                             <p>La liste des statuts peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-ctweb/api/status/?lang=en&type=json">https://iis-dev.hres.ca/api-ctweb/api/status/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-ctweb/api/status/?lang=fr&type=json">https://iis-dev.hres.ca/api-ctweb/api/status/?lang=fr&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/essais-clinique/status/?lang=en&type=json">https://produits-sante.canada.ca/api/essais-clinique/status/?lang=en&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/essais-clinique/status/?lang=fr&type=json">https://produits-sante.canada.ca/api/essais-clinique/status/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
 
@@ -809,7 +810,7 @@
                              <p>Exemple d'une fonctionnalité qui recherche un statut d'essai selon le numéro d'identification d'un statut et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getStatus(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-ctweb/api/status/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/essais-clinique/status/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -856,7 +857,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-ctweb/api/studypopulation/?id=</span></td>
+                                    <td><span class="nowrap">api/essais-clinique/studypopulation/?id=</span></td>
                                     <td>Affiche la population à l'étude selon le numéro d'identification d'une population à l'étude spécifié dans la requête..</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -867,7 +868,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-ctweb/api/studypopulation/?lang=fr</span></td>
+                                    <td><span class="nowrap">api/essais-clinique/studypopulation/?lang=fr</span></td>
                                     <td>Modifie la langue du résultat affiché.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -879,7 +880,7 @@
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-ctweb/api/studypopulation/?type=json</span></td>
+                                    <td><span class="nowrap">api/essais-clinique/studypopulation/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -893,8 +894,8 @@
                             </table>
                             <p>La liste des populations à l'étude peut être accédée aux adresses URI suivantes :</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-ctweb/api/studypopulation/?lang=en&type=json">https://iis-dev.hres.ca/api-ctweb/api/studypopulation/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-ctweb/api/studypopulation/?lang=fr&type=json">https://iis-dev.hres.ca/api-ctweb/api/studypopulation/?lang=fr&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/essais-clinique/studypopulation/?lang=en&type=json">https://produits-sante.canada.ca/api/essais-clinique/studypopulation/?lang=en&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/essais-clinique/studypopulation/?lang=fr&type=json">https://produits-sante.canada.ca/api/essais-clinique/studypopulation/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -929,7 +930,7 @@
                              <p>Exemple d'une fonctionnalité qui recherche une population à l'étude selon le numéro d'identification d'une population à l'étude et la langue sélectionnée&nbsp;:</p>                               
                              <pre class="prettify prettyprint linenums">function getStudyPopulation(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-ctweb/api/studypopulation/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/essais-clinique/studypopulation/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',

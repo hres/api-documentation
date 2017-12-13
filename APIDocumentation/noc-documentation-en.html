@@ -163,8 +163,9 @@
                         <p>A Notice of Compliance (NOC) is issued to a manufacturer following the satisfactory review of a submission for a new drug, and signifies compliance with the Food and Drug Regulations.</p>
                         <p>The database is updated nightly and contains NOC information on human drugs from January 1, 1994 to date. It also contains NOC information on Veterinary drugs from September 19, 2000 to date. 
                         Through a phased in approach Health Canada will populate the remaining NOCs for Veterinary drugs from January 1, 1994 to September 18, 2000.</p>
-                        <p>This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications.</p>
-                        <p>The base URI for the Notice of Compliance Database &nbsp;<a href="https://iis-dev.hres.ca/api-noc/api/">https://iis-dev.hres.ca/api-noc/api/</a>. Any requests are made relative to this URI.</p>
+                        <p>This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications.
+                        The base URI for the Notice of Compliance Database is&nbsp;<a href="https://health-products.canada.ca/api/notice-of-compliance/">https://health-products.canada.ca/api/notice-of-compliance/</a> and you can add parameters to it. Any requests are made relative to this URI.</p>
+                        <p>Information is also available in CSV format, use that URI&nbsp;<a href="https://lam-dev.hres.ca/api-documentation/APIDocumentation/noc-dataset-en.html">https://lam-dev.hres.ca/api-documentation/APIDocumentation/noc-dataset-en</a> to see the available options.</p>
                     </section>
                     <!--Drug Product-section-start-->  
                     <section>                        
@@ -186,7 +187,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/drugproduct/?id=</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/drugproduct/?id=</span></td>
                                     <td>Returns drug product(s) according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -197,7 +198,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/drugproduct/?lang=en</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/drugproduct/?lang=en</span></td>
                                     <td>Changes language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -209,7 +210,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/drugproduct/?type=json</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/drugproduct/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -223,8 +224,8 @@
                             </table>
                             <p>Drug Products can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/drugproduct/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/drugproduct/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/drugproduct/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/drugproduct/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/notice-of-compliance/drugproduct/?lang=en&type=json">https://health-products.canada.ca/api/notice-of-compliance/drugproduct/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/notice-of-compliance/drugproduct/?lang=fr&type=json">https://health-products.canada.ca/api/notice-of-compliance/drugproduct/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -272,7 +273,7 @@
                              <p>Example of a function that search for drug products given a Notice of Compliance number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getDrugProduct(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-noc/api/drugproduct/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/notice-of-compliance/drugproduct/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -320,7 +321,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/noticeofcompliancemain/?id=</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/noticeofcompliancemain/?id=</span></td>
                                     <td>Returns a Notice of Compliance according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -331,7 +332,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/noticeofcompliancemain/?lang=en</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/noticeofcompliancemain/?lang=en</span></td>
                                     <td>Changes language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -343,7 +344,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/noticeofcompliancemain/?type=json</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/noticeofcompliancemain/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -357,8 +358,8 @@
                             </table>
                             <p>Notices of Compliance can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/noticeofcompliancemain/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/noticeofcompliancemain/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/noticeofcompliancemain/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/noticeofcompliancemain/?lang=fr&type=json</a></li>                                
+                                <li><a href="https://health-products.canada.ca/api/notice-of-compliance/noticeofcompliancemain/?lang=en&type=json">https://health-products.canada.ca/api/notice-of-compliance/noticeofcompliancemain/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/notice-of-compliance/noticeofcompliancemain/?lang=fr&type=json">https://health-products.canada.ca/api/notice-of-compliance/noticeofcompliancemain/?lang=fr&type=json</a></li>                                
                             </ul>
                         </section>
                         <section>
@@ -452,7 +453,7 @@
                              <p>Example of a function that search for a Notice of Compliance given a Notice of Compliance number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function GetNoticeOfComplianceMain(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-noc/api/noticeofcompliancemain/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/notice-of-compliance/noticeofcompliancemain/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -499,7 +500,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/product/?id=</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/product/?id=</span></td>
                                     <td>Returns products according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -510,7 +511,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/product/?lang=en</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/product/?lang=en</span></td>
                                     <td>Changes language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -522,7 +523,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/product/?type=json</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/product/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -536,8 +537,8 @@
                             </table>
                             <p>Products can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/product/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/product/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/product/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/product/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/notice-of-compliance/product/?lang=en&type=json">https://health-products.canada.ca/api/notice-of-compliance/product/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/notice-of-compliance/product/?lang=fr&type=json">https://health-products.canada.ca/api/notice-of-compliance/product/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -581,7 +582,7 @@
                              <p>Example of a function that search for products given a Notice of Compliance number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getProduct(id, lang) {
      var base = 'https://imsd.hres.ca';
-     var uri = base + '/api-noc/api/product/?lang=' + lang + '&id=' + id;
+     var uri = base + '/api/notice-of-compliance/product/?lang=' + lang + '&id=' + id;
      $.ajax({
              url:uri,
              type:'GET',
@@ -628,7 +629,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/dosageform/?id=</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/dosageform/?id=</span></td>
                                     <td>Returns dosage forms according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -639,7 +640,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/dosageform/?lang=en</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/dosageform/?lang=en</span></td>
                                     <td>Changes language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -651,7 +652,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/dosageform/?type=json</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/dosageform/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -665,8 +666,8 @@
                             </table>
                             <p>Dosage Forms can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/dosageform/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/dosageform/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/dosageform/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/dosageform/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/notice-of-compliance/dosageform/?lang=en&type=json">https://health-products.canada.ca/api/notice-of-compliance/dosageform/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/notice-of-compliance/dosageform/?lang=fr&type=json">https://health-products.canada.ca/api/notice-of-compliance/dosageform/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -706,7 +707,7 @@
                              <p>Example of a function that search for dosage forms given a Notice of Compliance number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getDosageForm(id, lang) {
      var base = 'https://imsd.hres.ca';
-     var uri = base + '/api-noc/api/dosageform/?lang=' + lang + '&id=' + id;
+     var uri = base + '/api/notice-of-compliance/dosageform/?lang=' + lang + '&id=' + id;
      $.ajax({
              url:uri,
              type:'GET',
@@ -753,7 +754,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/medicinalingredient/?id=</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/medicinalingredient/?id=</span></td>
                                     <td>Returns medicinal ingredients according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -764,7 +765,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/medicinalingredient/?lang=en</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/medicinalingredient/?lang=en</span></td>
                                     <td>Changes language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -776,7 +777,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/medicinalingredient/?type=json</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/medicinalingredient/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -790,8 +791,8 @@
                             </table>
                             <p>Medicinal Ingredients can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/medicinalingredient/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/medicinalingredient/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/medicinalingredient/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/medicinalingredient/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/notice-of-compliance/medicinalingredient/?lang=en&type=json">https://health-products.canada.ca/api/notice-of-compliance/medicinalingredient/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/notice-of-compliance/medicinalingredient/?lang=fr&type=json">https://health-products.canada.ca/api/notice-of-compliance/medicinalingredient/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -845,7 +846,7 @@
                              <p>Example of a function that search for medicinal ingredients given a Notice of Compliance number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getMedicinalIngredient(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-noc/api/medicinalingredient/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/notice-of-compliance/medicinalingredient/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -893,7 +894,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/route/?id=</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/route/?id=</span></td>
                                     <td>Returns routes of administration according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -904,7 +905,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/route/?lang=en</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/route/?lang=en</span></td>
                                     <td>Changes language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -916,7 +917,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/route/?type=json</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/route/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -930,8 +931,8 @@
                             </table>
                             <p>Routes of Administration can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/route/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/route/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/route/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/route/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/notice-of-compliance/route/?lang=en&type=json">https://health-products.canada.ca/api/notice-of-compliance/route/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/notice-of-compliance/route/?lang=fr&type=json">https://health-products.canada.ca/api/notice-of-compliance/route/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -970,7 +971,7 @@
                              <p>Example of a function that search for routes of administration given a Notice of Compliance number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getRouteAdministration(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-noc/api/route/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/notice-of-compliance/route/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -1017,7 +1018,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/vetspecies/?id=</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/vetspecies/?id=</span></td>
                                     <td>Returns veterinary species according to the Notice of Compliance number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1028,7 +1029,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/vetspecies/?lang=en</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/vetspecies/?lang=en</span></td>
                                     <td>Changes language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1040,7 +1041,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/vetspecies/?type=json</span></td>
+                                    <td><span class="nowrap">api/notice-of-compliance/vetspecies/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1054,8 +1055,8 @@
                             </table>
                             <p>Veterinary Species can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/vetspecies/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/vetspecies/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/vetspecies/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/vetspecies/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/notice-of-compliance/vetspecies/?lang=en&type=json">https://health-products.canada.ca/api/notice-of-compliance/vetspecies/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/notice-of-compliance/vetspecies/?lang=fr&type=json">https://health-products.canada.ca/api/notice-of-compliance/vetspecies/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1094,7 +1095,7 @@
                              <p>Example of a function that search for veterinary species given a Notice of Compliance number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getVeterinarySpecies(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-noc/api/vetspecies/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/notice-of-compliance/vetspecies/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',

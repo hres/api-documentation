@@ -161,8 +161,9 @@
                         <p>Un Avis de conformité (AC) est émis au fabricant si la présentation de drogue nouvelle est jugée conforme au <i>Règlement sur les aliments et drogues</i> après un examen complet.</p> 
                         <p>La base de données est mise à jour tous les soirs et elle comprend des renseignements sur les AC concernant les médicaments pour usage humain émis depuis le 1er janvier 1994 jusqu'à ce jour. 
                         Elle comprend également les renseignements sur les AC concernant les médicaments vétérinaires émis depuis le 19 septembre 2000 jusqu'à ce jour. Santé Canada ajoutera progressivement les AC concernant les médicaments vétérinaires émis entre le 1er janvier 1994 et le 18 septembre 2000.</p>
-                        <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON et XML afin de les utiliser dans leurs propres applications.</p>
-                        <p>L'adresse URI de base sur les avis de conformité est &nbsp;<a href="https://iis-dev.hres.ca/api-noc/api/">https://iis-dev.hres.ca/api-noc/api/</a>. Toute requête est effectuée par l'entremise de cette adresse URI.</p>
+                        <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON et XML afin de les utiliser dans leurs propres applications.
+                        L'adresse URI de base sur les avis de conformité est&nbsp;<a href="https://produits-sante.canada.ca/api/avis-de-conformite/">https://produits-sante.canada.ca/api/avis-de-conformite/</a> et vous pouvez y ajouter des paramètres. Toute requête est effectuée par l'entremise de cette adresse URI.</p>
+                        <p>Ces renseignements sont aussi disponibles en format CSV pour voir les options disponibles vous devez utiliser l'adresse URI suivante&nbsp;<a href="https://lam-dev.hres.ca/api-documentation/APIDocumentation/noc-dataset-fr.html">https://lam-dev.hres.ca/api-documentation/APIDocumentation/noc-dataset-fr</a>.</p>
                     </section> 
                     <!--Drug product-section-start-->                  
                     <section>                        
@@ -184,7 +185,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/drugproduct/?id=</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/drugproduct/?id=</span></td>
                                     <td>Affiche les produits pharmaceutiques selon le numéro d'un avis de conformité spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -195,7 +196,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/drugproduct/?lang=fr</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/drugproduct/?lang=fr</span></td>
                                     <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -207,7 +208,7 @@
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/drugproduct/?type=json</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/drugproduct/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -221,8 +222,8 @@
                             </table>
                             <p>La liste des produits pharmaceutiques peut être accédée aux adresses URI suivantes :</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/drugproduct/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/drugproduct/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/drugproduct/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/drugproduct/?lang=fr&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/avis-de-conformite/drugproduct/?lang=en&type=json">https://produits-sante.canada.ca/api/avis-de-conformite/drugproduct/?lang=en&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/avis-de-conformite/drugproduct/?lang=fr&type=json">https://produits-sante.canada.ca/api/avis-de-conformite/drugproduct/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -269,7 +270,7 @@
                             <p>Exemple d'une fonctionnalité qui recherche les produits pharmaceutiques selon le numéro d'un avis de conformité et la langue sélectionnée&nbsp;:</p>
                             <pre class="prettify prettyprint linenums">function getDrugProduct(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-noc/api/drugproduct/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/avis-de-conformite/drugproduct/?lang=' + lang + '&id=' + id;
       $.ajax({
                url:uri,
                type:'GET',
@@ -317,7 +318,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/noticeofcompliancemain/?id=</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/noticeofcompliancemain/?id=</span></td>
                                     <td>Affiche l'avis de conformité selon le numéro d'un avis de conformité spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -328,7 +329,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/noticeofcompliancemain/?lang=fr</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/noticeofcompliancemain/?lang=fr</span></td>
                                     <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -340,7 +341,7 @@
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/noticeofcompliancemain/?type=json</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/noticeofcompliancemain/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -354,8 +355,8 @@
                             </table>
                             <p>La liste des avis de conformité peut être accédée aux adresses URI suivantes:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/noticeofcompliancemain/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/noticeofcompliancemain/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/noticeofcompliancemain/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/noticeofcompliancemain/?lang=fr&type=json</a></li>       
+                                <li><a href="https://produits-sante.canada.ca/api/avis-de-conformite/noticeofcompliancemain/?lang=en&type=json">https://produits-sante.canada.ca/api/avis-de-conformite/noticeofcompliancemain/?lang=en&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/avis-de-conformite/noticeofcompliancemain/?lang=fr&type=json">https://produits-sante.canada.ca/api/avis-de-conformite/noticeofcompliancemain/?lang=fr&type=json</a></li>       
                             </ul>
                         </section>
                         <section>
@@ -449,7 +450,7 @@
                              <p>Exemple d'une fonctionnalité qui recherche un avis de conformité selon le numéro d'un avis de conformité et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function GetNoticeOfComplianceMain(id, lang) {
      var base = 'https://imsd.hres.ca';
-     var uri = base + '/api-noc/api/noticeofcompliancemain/?lang=' + lang + '&id=' + id;
+     var uri = base + '/api/avis-de-conformite/noticeofcompliancemain/?lang=' + lang + '&id=' + id;
      $.ajax({
              url:uri,
              type:'GET',
@@ -495,7 +496,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/product/?id=</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/product/?id=</span></td>
                                     <td>Affiche les produits pharmaceutiques selon le numéro d'un avis de conformité spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -506,7 +507,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/product/?lang=fr</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/product/?lang=fr</span></td>
                                     <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -518,7 +519,7 @@
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/product/?type=json</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/product/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -532,8 +533,8 @@
                             </table>
                             <p>La liste des produits pharmaceutiques peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/product/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/product/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/product/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/product/?lang=fr&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/avis-de-conformite/product/?lang=en&type=json">https://produits-sante.canada.ca/api/avis-de-conformite/product/?lang=en&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/avis-de-conformite/product/?lang=fr&type=json">https://produits-sante.canada.ca/api/avis-de-conformite/product/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -576,7 +577,7 @@
                              <p>Exemple d'une fonctionnalité qui recherche les produits pharmaceutiques selon le numéro d'un avis de conformité et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getProduct(id, lang) {
      var base = 'https://imsd.hres.ca';
-     var uri = base + '/api-noc/api/product/?lang=' + lang + '&id=' + id;
+     var uri = base + '/api/avis-de-conformite/product/?lang=' + lang + '&id=' + id;
      $.ajax({
               url:uri,
               type:'GET',
@@ -623,7 +624,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/dosageform/?id=</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/dosageform/?id=</span></td>
                                     <td>Affiche les formes posologiques selon le numéro d'un avis de conformité spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -634,7 +635,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/dosageform/?lang=fr</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/dosageform/?lang=fr</span></td>
                                     <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -646,7 +647,7 @@
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/dosageform/?type=json</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/dosageform/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -660,8 +661,8 @@
                             </table>
                             <p>La liste des formes posologiques peut être accédée aux adresses URI suivantes :</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/dosageform/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/dosageform/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/dosageform/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/dosageform/?lang=fr&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/avis-de-conformite/dosageform/?lang=en&type=json">https://produits-sante.canada.ca/api/avis-de-conformite/dosageform/?lang=en&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/avis-de-conformite/dosageform/?lang=fr&type=json">https://produits-sante.canada.ca/api/avis-de-conformite/dosageform/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -700,7 +701,7 @@
                                 <p>Exemple d'une fonctionnalité qui recherche les formes posologiques selon le numéro d'un avis de conformité et la langue sélectionnée&nbsp;:</p>
                                 <pre class="prettify prettyprint linenums">function getDosageForm(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-noc/api/dosageform/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/avis-de-conformite/dosageform/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -747,7 +748,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/medicinalingredient/?id=</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/medicinalingredient/?id=</span></td>
                                     <td>Affiche les ingrédients médicinaux selon le numéro d'un avis de conformité spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -758,7 +759,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/medicinalingredient/?lang=fr</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/medicinalingredient/?lang=fr</span></td>
                                     <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -770,7 +771,7 @@
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/medicinalingredient/?type=json</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/medicinalingredient/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -784,8 +785,8 @@
                             </table>
                             <p>La liste des ingrédients médicinaux peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/medicinalingredient/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/medicinalingredient/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/medicinalingredient/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/medicinalingredient/?lang=fr&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/avis-de-conformite/medicinalingredient/?lang=en&type=json">https://produits-sante.canada.ca/api/avis-de-conformite/medicinalingredient/?lang=en&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/avis-de-conformite/medicinalingredient/?lang=fr&type=json">https://produits-sante.canada.ca/api/avis-de-conformite/medicinalingredient/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -838,7 +839,7 @@
                             <p>Exemple d'une fonctionnalité qui recherche les ingrédients médicinaux selon le numéro d'un avis de conformité et la langue sélectionnée&nbsp;:</p>
                             <pre class="prettify prettyprint linenums">function getMedicinalIngredient(id, lang) {
      var base = 'https://imsd.hres.ca';
-     var uri = base + '/api-noc/api/medicinalingredient/?lang=' + lang + '&id=' + id;
+     var uri = base + '/api/avis-de-conformite/medicinalingredient/?lang=' + lang + '&id=' + id;
      $.ajax({
              url:uri,
              type:'GET',
@@ -886,7 +887,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/route/?id=</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/route/?id=</span></td>
                                     <td>Affiche les voies d'administration selon le numéro d'un avis de conformité spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -897,7 +898,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/route/?lang=fr</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/route/?lang=fr</span></td>
                                     <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -909,7 +910,7 @@
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/route/?type=json</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/route/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -923,8 +924,8 @@
                             </table>
                             <p>La liste des voies d'administration peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/route/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/route/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/route/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/route/?lang=fr&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/avis-de-conformite/route/?lang=en&type=json">https://produits-sante.canada.ca/api/avis-de-conformite/route/?lang=en&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/avis-de-conformite/route/?lang=fr&type=json">https://produits-sante.canada.ca/api/avis-de-conformite/route/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -963,7 +964,7 @@
                              <p>Exemple d'une fonctionnalité qui recherche les voies d'administration selon le numéro d'un avis de conformité et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getRouteAdministration(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-noc/api/route/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/avis-de-conformite/route/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -1010,7 +1011,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/vetspecies/?id=</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/vetspecies/?id=</span></td>
                                     <td>Affiche les espèces animales selon le numéro d'un avis de conformité spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1021,7 +1022,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/vetspecies/?lang=fr</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/vetspecies/?lang=fr</span></td>
                                     <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1033,7 +1034,7 @@
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-noc/api/vetspecies/?type=json</span></td>
+                                    <td><span class="nowrap">api/avis-de-conformite/vetspecies/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1047,8 +1048,8 @@
                             </table>
                             <p>La liste des espèces animales peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/vetspecies/?lang=en&type=json">https://iis-dev.hres.ca/api-noc/api/vetspecies/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-noc/api/vetspecies/?lang=fr&type=json">https://iis-dev.hres.ca/api-noc/api/vetspecies/?lang=fr&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/avis-de-conformite/vetspecies/?lang=en&type=json">https://produits-sante.canada.ca/api/avis-de-conformite/vetspecies/?lang=en&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/avis-de-conformite/vetspecies/?lang=fr&type=json">https://produits-sante.canada.ca/api/avis-de-conformite/vetspecies/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1086,7 +1087,7 @@
                              <p>Exemple d'une fonctionnalité qui recherche les espèces animales selon le numéro d'un avis de conformité et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getVeterinarySpecies(id, lang) {
      var base = 'https://imsd.hres.ca';
-     var uri = base + '/api-noc/api/vetspecies/?lang=' + lang + '&id=' + id;
+     var uri = base + '/api/avis-de-conformite/vetspecies/?lang=' + lang + '&id=' + id;
      $.ajax({
              url:uri,
              type:'GET',

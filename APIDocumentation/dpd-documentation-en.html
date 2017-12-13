@@ -198,8 +198,9 @@
                         <p>The DPD contains product specific information on drugs approved for use in Canada. The database is managed by Health Canada and includes human pharmaceutical and biological drugs, veterinary drugs, radiopharmaceutical drugs and disinfectant products. It contains approximately 47,000 products that are currently approved, marketed, dormant or cancelled.</p>
                         <p>Human, veterinary, disinfectants and Schedule C drugs (e.g. radiopharmaceutical products) approved products will be available in the DPD online at the time of authorization, with the exception of three monographed product groups under Division 1, Part C of the Food and Drug Regulations: sunscreen (sunscreens, lipstick making a SPF claim, cosmetic-like products with sunscreen claims, etc.), anti-dandruff shampoo, and hard surface disinfectants.  For these products, applications filed after June 15, 2015, there may be a six month delay after approval for the inclusion in the DPD online.</p>
                         <p>Health Canada is the federal regulator of therapeutic products and does not provide medical advice on the use of the products identified in this database. For information related to treatment options, choices of medications and their uses, illnesses, side effects or drug interactions, please contact your health care professional. For information on where these products are sold, please contact the individual company directly.</p>
-                        <p>This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications.</p>
-                        <p>The base URI for the Drug Product Database &nbsp;<a href="https://iis-dev.hres.ca/api-dpd/api/">https://iis-dev.hres.ca/api-dpd/api/</a>. Any requests are made relative to this URI.</p>
+                        <p>This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications.
+                            The base URI for the Drug Product Database is&nbsp;<a href="https://health-products.canada.ca/api/drug/">https://health-products.canada.ca/api/drug/</a> and you can add parameters to it. Any requests are made relative to this URI.</p>
+                        <p>Information is also available in CSV format, use that URI&nbsp;<a href="https://lam-dev.hres.ca/api-documentation/APIDocumentation/dpd-dataset-en.html">https://lam-dev.hres.ca/api-documentation/APIDocumentation/dpd-dataset-en</a> to see the available options.</p>
                     </section>
                     <section>
                         <!--Active Ingredient section-start-->
@@ -223,7 +224,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/activeingredient/?id=</span></td>
+                                    <td><span class="nowrap">api/drug/activeingredient/?id=</span></td>
                                     <td>Returns active ingredient(s) according to the drug product code specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -234,7 +235,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="wrap">api-dpd/api/activeingredient/?ingredientname=zinc</span></td>
+                                    <td><span class="wrap">api/drug/activeingredient/?ingredientname=zinc</span></td>
                                     <td>Returns a list of active ingredients with zinc in the ingredient name.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -245,7 +246,7 @@
                                     <td>Determines whether the response is for a specific ingredient name.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/activeingredient/?lang=en</span></td>
+                                    <td><span class="nowrap">api/drug/activeingredient/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -257,7 +258,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/activeingredient/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/activeingredient/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -271,8 +272,8 @@
                             </table>
                             <p>Active Ingredients can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/activeingredient/?lang=en&type=json">https://iis-dev.hres.ca/api-dpd/api/activeingredient/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/activeingredient/?lang=fr&type=json">https://iis-dev.hres.ca/api-dpd/api/activeingredient/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/activeingredient/?lang=en&type=json">https://health-products.canada.ca/api/drug/activeingredient/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/activeingredient/?lang=fr&type=json">https://health-products.canada.ca/api/drug/activeingredient/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
 
@@ -345,7 +346,7 @@
                              <p>Example of a function that search for active ingredient(s) given a drug product code and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getActiveIngredient(id, lang) {
       var base = 'https://api.hres.ca';
-      var uri = base + '/api-dpd/api/activeingredient/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/drug/activeingredient/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -392,7 +393,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/company/?id=</span></td>
+                                    <td><span class="nowrap">api/drug/company/?id=</span></td>
                                     <td>Returns the company according to the company code specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -403,7 +404,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/company/?lang=en</span></td>
+                                    <td><span class="nowrap">api/drug/company/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -415,7 +416,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/company/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/company/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -429,8 +430,8 @@
                             </table>
                             <p>Companies can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/company/?lang=en&type=json">https://iis-dev.hres.ca/api-dpd/api/company/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/company/?lang=fr&type=json">https://iis-dev.hres.ca/api-dpd/api/company/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/company/?lang=en&type=json">https://health-products.canada.ca/api/drug/company/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/company/?lang=fr&type=json">https://health-products.canada.ca/api/drug/company/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
 
@@ -498,7 +499,7 @@
                              <p>Example of a function that search for a company given a company code and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getCompany(id, lang) {
       var base = 'https://api.hres.ca';
-      var uri = base + '/api-dpd/api/company/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/drug/company/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -545,7 +546,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="wrap">api-dpd/api/drugproduct/?id=</span></td>
+                                    <td><span class="wrap">api/drug/drugproduct/?id=</span></td>
                                     <td>Returns the drug product according to the drug product code specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -556,7 +557,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="wrap">api-dpd/api/drugproduct/?din=</span></td>
+                                    <td><span class="wrap">api/drug/drugproduct/?din=</span></td>
                                     <td>Returns a drug product according to the Drug Identification Number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -567,7 +568,7 @@
                                     <td>Determines whether the response is for a specific Drug Identification Number.</td> 
                                 </tr>
                                 <tr>
-                                    <td><span class="wrap">api-dpd/api/drugproduct/?brandname=CIDYL</span></td>
+                                    <td><span class="wrap">api/drug/drugproduct/?brandname=CIDYL</span></td>
                                     <td>Returns a list of drug products with cidyl in the brand name.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -578,7 +579,7 @@
                                     <td>Determines whether the response is for a specific brand name.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/drugproduct/?status=1</span></td>
+                                    <td><span class="nowrap">api/drug/drugproduct/?status=1</span></td>
                                     <td>Returns drug products for a specific status.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -595,7 +596,7 @@
                                     <td>Determines whether the response is for a specific status.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/drugproduct/?lang=en</span></td>
+                                    <td><span class="nowrap">api/drug/drugproduct/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -607,7 +608,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>                                
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/drugproduct/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/drugproduct/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -621,8 +622,8 @@
                             </table>
                             <p>Drug Products can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/drugproduct/?lang=en&type=json">https://iis-dev.hres.ca/api-dpd/api/drugproduct/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/drugproduct/?lang=fr&type=json">https://iis-dev.hres.ca/api-dpd/api/drugproduct/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/drugproduct/?lang=en&type=json">https://health-products.canada.ca/api/drug/drugproduct/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/drugproduct/?lang=fr&type=json">https://health-products.canada.ca/api/drug/drugproduct/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -722,7 +723,7 @@
                              <p>Example of a function that search for a drug product given a drug product code and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getDrugProduct(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-dpd/api/drugproduct/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/drug/drugproduct/?lang=' + lang + '&id=' + id;
       $.ajax({
              url:uri,
              type:'GET',
@@ -770,7 +771,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="wrap">api-dpd/api/form/?id=</span></td>
+                                    <td><span class="wrap">api/drug/form/?id=</span></td>
                                     <td>Returns dosage form(s) according to the drug product code specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -781,7 +782,7 @@
                                     <td></td>
                                 </tr>                                
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/form/?active=yes</span></td>
+                                    <td><span class="nowrap">api/drug/form/?active=yes</span></td>
                                     <td>Returns dosage forms that are active.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -792,7 +793,7 @@
                                     <td>Determines whether the response is returning all the dosage form(s) or only the one with a date that is greater than today or no date identified.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/form/?lang=en</span></td>
+                                    <td><span class="nowrap">api/drug/form/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -804,7 +805,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/form/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/form/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -818,8 +819,8 @@
                             </table>
                             <p>Dosage Forms can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/form/?lang=en&type=json">https://iis-dev.hres.ca/api-dpd/api/form/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/form/?lang=fr&type=json">https://iis-dev.hres.ca/api-dpd/api/form/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/form/?lang=en&type=json">https://health-products.canada.ca/api/drug/form/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/form/?lang=fr&type=json">https://health-products.canada.ca/api/drug/form/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -860,7 +861,7 @@
                              <p>Example of a function that search for dosage form(s) given a drug product code and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getForm(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-dpd/api/form/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/drug/form/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -907,7 +908,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/packaging/?id=</span></td>
+                                    <td><span class="nowrap">api/drug/packaging/?id=</span></td>
                                     <td>Returns the package(s) according to the drug product code specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -918,7 +919,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/packaging/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/packaging/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -932,7 +933,7 @@
                             </table>
                             <p>Packaging can be accessed via that URI:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/packaging/?type=json">https://iis-dev.hres.ca/api-dpd/api/packaging/?type=json</a></li>                                
+                                <li><a href="https://health-products.canada.ca/api/drug/packaging/?type=json">https://health-products.canada.ca/api/drug/packaging/?type=json</a></li>                                
                             </ul>
                         </section>
                         <section>
@@ -982,7 +983,7 @@
                              <p>Example of a function that search for package(s) given a drug product code:</p>
                              <pre class="prettify prettyprint linenums">function getPackaging(id) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-dpd/api/packaging/?id=' + id;
+      var uri = base + '/api/drug/packaging/?id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -1029,7 +1030,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/pharmaceuticalstd/?id=</span></td>
+                                    <td><span class="nowrap">api/drug/pharmaceuticalstd/?id=</span></td>
                                     <td>Returns pharmaceutical standard according to the drug product code specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1041,7 +1042,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/pharmaceuticalstd/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/pharmaceuticalstd/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1055,7 +1056,7 @@
                             </table>
                             <p>Pharmaceutical Standards can be accessed via that URI:</p>
                             <ul>                                
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/pharmaceuticalstd/?type=json">https://iis-dev.hres.ca/api-dpd/api/pharmaceuticalstd/?type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/pharmaceuticalstd/?type=json">https://health-products.canada.ca/api/drug/pharmaceuticalstd/?type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1090,7 +1091,7 @@
                              <p>Example of a function that search for pharmaceutical standard given a drug product code:</p>
                              <pre class="prettify prettyprint linenums">function getPharmaceuticalStd(id) {
       var base = 'https://api.hres.ca';
-      var uri = base + '/api-dpd/api/pharmaceuticalstd/?id=' + id;
+      var uri = base + '/api/drug/pharmaceuticalstd/?id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -1138,7 +1139,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/route/?id=</span></td>
+                                    <td><span class="nowrap">api/drug/route/?id=</span></td>
                                     <td>Returns route(s) of administration according to the drug product code specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1149,7 +1150,7 @@
                                     <td></td>
                                 </tr>                               
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/route/?active=yes</span></td>
+                                    <td><span class="nowrap">api/drug/route/?active=yes</span></td>
                                     <td>Returns routes of administration that are active.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1161,7 +1162,7 @@
                                     <td>Determines whether the response is returning all the routes of administration or only the one with a date that is greater than today or no date identified.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/route/?lang=en</span></td>
+                                    <td><span class="nowrap">api/drug/route/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1173,7 +1174,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/route/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/route/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1187,8 +1188,8 @@
                             </table>
                             <p>Routes of administration can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/route/?lang=en&type=json">https://iis-dev.hres.ca/api-dpd/api/route/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/route/?lang=fr&type=json">https://iis-dev.hres.ca/api-dpd/api/route/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/route/?lang=en&type=json">https://health-products.canada.ca/api/drug/route/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/route/?lang=fr&type=json">https://health-products.canada.ca/api/drug/route/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1231,7 +1232,7 @@
                              <p>Example of a function that search for route(s) of administration given a drug product code and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getRoute(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-dpd/api/route/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/drug/route/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -1294,7 +1295,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/schedule/?id=</span></td>
+                                    <td><span class="nowrap">api/drug/schedule/?id=</span></td>
                                     <td>Returns schedule(s) according to the drug product code specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1305,7 +1306,7 @@
                                     <td></td>
                                 </tr>                                
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/schedule/?active=yes</span></td>
+                                    <td><span class="nowrap">api/drug/schedule/?active=yes</span></td>
                                     <td>Returns schedules that are active.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1316,7 +1317,7 @@
                                     <td>Determines whether the response is returning all the schedules or only the one with a date that is greater than today or no date identified.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/schedule/?lang=en</span></td>
+                                    <td><span class="nowrap">api/drug/schedule/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1328,7 +1329,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/schedule/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/schedule/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1342,8 +1343,8 @@
                             </table>
                             <p>Schedules can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/schedule/?lang=en&type=json">https://iis-dev.hres.ca/api-dpd/api/schedule/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/schedule/?lang=fr&type=json">https://iis-dev.hres.ca/api-dpd/api/schedule/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/schedule/?lang=en&type=json">https://health-products.canada.ca/api/drug/schedule/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/schedule/?lang=fr&type=json">https://health-products.canada.ca/api/drug/schedule/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1378,7 +1379,7 @@
                             <p>Example of a function that search for schedule(s) given a drug product code and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getSchedule(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-dpd/api/schedule/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/drug/schedule/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -1434,7 +1435,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/status/?id=</span></td>
+                                    <td><span class="nowrap">api/drug/status/?id=</span></td>
                                     <td>Returns product status according to the drug product code specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1445,7 +1446,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/status/?lang=en</span></td>
+                                    <td><span class="nowrap">api/drug/status/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1457,7 +1458,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/status/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/status/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1471,8 +1472,8 @@
                             </table>
                             <p>Product Statuses can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/status/?lang=en&type=json">https://iis-dev.hres.ca/api-dpd/api/status/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/status/?lang=fr&type=json">https://iis-dev.hres.ca/api-dpd/api/status/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/status/?lang=en&type=json">https://health-products.canada.ca/api/drug/status/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/status/?lang=fr&type=json">https://health-products.canada.ca/api/drug/status/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1527,7 +1528,7 @@
                              <p>Example of a function that search for a product status given a drug product code and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getStatus(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-dpd/api/status/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/drug/status/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -1574,7 +1575,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/therapeuticclass/?id=</span></td>
+                                    <td><span class="nowrap">api/drug/therapeuticclass/?id=</span></td>
                                     <td>Returns therapeutic class(es) according to the drug product code specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1585,7 +1586,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/therapeuticclass/?lang=en</span></td>
+                                    <td><span class="nowrap">api/drug/therapeuticclass/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1597,7 +1598,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/therapeuticclass/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/therapeuticclass/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1611,8 +1612,8 @@
                             </table>
                             <p>Therapeutic Classes can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/therapeuticclass/?lang=en&type=json">https://iis-dev.hres.ca/api-dpd/api/therapeuticclass/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/therapeuticclass/?lang=fr&type=json">https://iis-dev.hres.ca/api-dpd/api/therapeuticclass/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/therapeuticclass/?lang=en&type=json">https://health-products.canada.ca/api/drug/therapeuticclass/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/therapeuticclass/?lang=fr&type=json">https://health-products.canada.ca/api/drug/therapeuticclass/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1659,7 +1660,7 @@
                              <p>Example of a function that search for therapeutic classes given a drug product code and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getTherapeuticClass(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-dpd/api/therapeuticclass/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/drug/therapeuticclass/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -1706,7 +1707,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/veterinaryspecies/?id=</span></td>
+                                    <td><span class="nowrap">api/drug/veterinaryspecies/?id=</span></td>
                                     <td>Returns veterinary specie(s) according to the drug product code specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1717,7 +1718,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/veterinaryspecies/?lang=en</span></td>
+                                    <td><span class="nowrap">api/drug/veterinaryspecies/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1729,7 +1730,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api-dpd/api/veterinaryspecies/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/veterinaryspecies/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1743,8 +1744,8 @@
                             </table>
                             <p>Veterinary Species can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/veterinaryspecies/?lang=en&type=json">https://iis-dev.hres.ca/api-dpd/api/veterinaryspecies/?lang=en&type=json</a></li>
-                                <li><a href="https://iis-dev.hres.ca/api-dpd/api/veterinaryspecies/?lang=fr&type=json">https://iis-dev.hres.ca/api-dpd/api/veterinaryspecies/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/veterinaryspecies/?lang=en&type=json">https://health-products.canada.ca/api/drug/veterinaryspecies/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/drug/veterinaryspecies/?lang=fr&type=json">https://health-products.canada.ca/api/drug/veterinaryspecies/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1781,7 +1782,7 @@
                              <p>Example of a function that search for veterinary specie(s) given a drug product code and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getVeterinarySpecies(id, lang) {
       var base = 'https://imsd.hres.ca';
-      var uri = base + '/api-dpd/api/veterinaryspecies/?lang=' + lang + '&id=' + id;
+      var uri = base + '/api/drug/veterinaryspecies/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
