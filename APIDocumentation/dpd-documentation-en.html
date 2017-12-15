@@ -17,8 +17,8 @@
     <meta name="dcterms.contributor" content="" />
     <meta name="dcterms.type" title="gctype" content="" />
     <meta name="dcterms.audience" title="gcaudience" content="public" />
-    <meta name="dcterms.issued" title="W3CDTF" content="2017-11-30" />
-    <meta name="dcterms.modified" title="W3CDTF" content="2017-11-30" />
+    <meta name="dcterms.issued" title="W3CDTF" content="2017-12-15" />
+    <meta name="dcterms.modified" title="W3CDTF" content="2017-12-15" />
     <meta name="review_date" content="" />
     <meta name="meta_date" content="" />
  
@@ -200,7 +200,7 @@
                         <p>Health Canada is the federal regulator of therapeutic products and does not provide medical advice on the use of the products identified in this database. For information related to treatment options, choices of medications and their uses, illnesses, side effects or drug interactions, please contact your health care professional. For information on where these products are sold, please contact the individual company directly.</p>
                         <p>This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications.
                             The base URI for the Drug Product Database is&nbsp;<a href="https://health-products.canada.ca/api/drug/">https://health-products.canada.ca/api/drug/</a> and you can add parameters to it. Any requests are made relative to this URI.</p>
-                        <p>Information is also available in CSV format, use that URI&nbsp;<a href="https://lam-dev.hres.ca/api-documentation/APIDocumentation/dpd-dataset-en.html">https://lam-dev.hres.ca/api-documentation/APIDocumentation/dpd-dataset-en</a> to see the available options.</p>
+                        <p>Information is also available in CSV format, use that URI&nbsp;<a href="https://health-products.canada.ca/api/documentation/dpd-dataset-en.html">https://health-products.canada.ca/api/documentation/dpd-dataset-en</a> to see the available options.</p>
                     </section>
                     <section>
                         <!--Active Ingredient section-start-->
@@ -588,8 +588,7 @@
                                             <li><code>3</code>&nbsp;- Cancelled Pre Market</li>
                                             <li><code>4</code>&nbsp;- Cancelled Post Market</li>
                                             <li><code>6</code>&nbsp;- Dormant</li>
-                                            <li><code>9</code>&nbsp;- Cancelled (Unreturned Annual)</li>
-                                            <li><code>?</code>&nbsp;- Cancelled (Safety Issue)</li>                                           
+                                            <li><code>9</code>&nbsp;- Cancelled (Unreturned Annual)</li>                                                                                    
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to all if not specified.</td>
@@ -668,55 +667,14 @@
                                     <td>The number of Active Ingredients in a drug product.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>company</strong></td>
-                                    <td>The company information.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>city_name</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The city name.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>company_code</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The code assigned to a company.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>company_name</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The company name.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>company_type</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The company type.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>country_name</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The country name.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>post_office_box</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The P.O. box number (if applicable).</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>postal_code</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The postal code.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>province_name</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The province name.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>street_name</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The street name.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>suite_number</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The suite number.</td>
-                                </tr>
+                                    <td><strong>company_name</strong></td>
+                                    <td>The company name.</td>
+                                </tr>                               
                             </table>
                         </section>
                         <section>
                              <h3 id="a4.3">Sample response</h3>
-                             <pre class="prettify prettyprint linenums">{"drug_code":2049,"class_name":"Human","drug_identification_number":"00326925","brand_name":"SINEQUAN","descriptor":"","number_of_ais":"1","ai_group_no":"0107703005",
-    "company":{"city_name":"Concord","company_code":16419,"company_name":"ASPRI PHARMA CANADA INC","company_type":"DIN OWNER","country_name":"Canada","post_office_box":"","postal_code":"L4K 3T8","province_name":"Ontario","street_name":"665 Millway Avenue, Suite 31 B","suite_number":""}}</pre>
+                             <pre class="prettify prettyprint linenums">{"drug_code":2049,"class_name":"Human","drug_identification_number":"00326925","brand_name":"SINEQUAN","descriptor":"","number_of_ais":"1","ai_group_no":"0107703005","company_name":"ASPRI PHARMA CANADA INC"}</pre>
                         </section>
                         <section>
                              <h3 id="a4.4">jQuery example</h3>

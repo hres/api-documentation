@@ -17,8 +17,8 @@
     <meta name="dcterms.contributor" content="" />
     <meta name="dcterms.type" title="gctype" content="" />
     <meta name="dcterms.audience" title="gcaudience" content="" />
-    <meta name="dcterms.issued" title="W3CDTF" content="2017-11-30" />
-    <meta name="dcterms.modified" title="W3CDTF" content="2017-11-30" />
+    <meta name="dcterms.issued" title="W3CDTF" content="2017-12-15" />
+    <meta name="dcterms.modified" title="W3CDTF" content="2017-12-15" />
     <meta name="review_date" content="" />
     <meta name="meta_date" content="" />
 
@@ -199,7 +199,7 @@
                         <p>Santé Canada est l'organisme fédéral qui réglemente les produits thérapeutiques et nous ne donnons pas de conseils médicaux sur l'utilisation des produits dans cette base de données. Pour de plus amples informations sur les choix de traitement, les choix de médicament et leurs utilisations, maladies, effets secondaires et interactions médicamenteuses, veuillez contacter votre professionnel de la santé.</p>
                         <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON et XML afin de les utiliser dans leurs propres applications.
                         L'adresse URI de base sur les produits pharmaceutiques est &nbsp;<a href="https://produits-sante.canada.ca/api/medicament/">https://produits-sante.canada.ca/api/medicament/</a> et vous pouvez y ajouter des paramètres. Toute requête est effectuée par l'entremise de cette adresse URI.</p>
-                        </p>Ces renseignements sont aussi disponibles en format CSV pour voir les options disponibles vous devez utiliser l'adresse URI suivante&nbsp;<a href="https://lam-dev.hres.ca/api-documentation/APIDocumentation/dpd-dataset-fr.html">https://lam-dev.hres.ca/api-documentation/APIDocumentation/dpd-dataset-fr</a>.
+                        </p>Ces renseignements sont aussi disponibles en format CSV pour voir les options disponibles vous devez utiliser l'adresse URI suivante&nbsp;<a href="https://produits-sante.canada.ca/api/documentation/dpd-dataset-fr.html">https://produits-sante.canada.ca/api/documentation/dpd-dataset-fr</a>.
                     </section>
                     <section>
                         <!--Active ingredient-section-start-->
@@ -585,8 +585,7 @@
                                             <li><code>3</code>&nbsp;- Annulé avant commercialisation</li>
                                             <li><code>4</code>&nbsp;- Annulé après commercialisation</li>
                                             <li><code>6</code>&nbsp;- Dormant</li>
-                                            <li><code>9</code>&nbsp;- Annulé (notification annuelle omise)</li>
-                                            <li><code>?</code>&nbsp;- Annulé (problème d'innocuité)</li>
+                                            <li><code>9</code>&nbsp;- Annulé (notification annuelle omise)</li>                                            
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
@@ -665,55 +664,14 @@
                                     <td>Le nombre d'ingrédients actifs.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>company</strong></td>
-                                    <td>L'entreprise et ses renseignements.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>city_name</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le nom de la ville.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>company_code</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le code attribué à l'entreprise.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>company_name</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le nom de l'entreprise.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>company_type</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le type d'entreprise.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>country_name</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le nom du pays.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>post_office_box</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le numéro de la boîte postale (s'il y a lieu).</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>postal_code</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le code postal.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>province_name</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le nom de la province.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>street_name</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le nom de la rue.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>suite_number</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Le numéro de la pièce.</td>
-                                </tr>
+                                    <td><strong>company_name</strong></td>
+                                    <td>Le nom de l'entreprise.</td>
+                                </tr>                               
                             </table>
                         </section>
                         <section>
                              <h3 id="a4.3">Exemple de résultat</h3>
-                             <pre class="prettify prettyprint linenums">{"drug_code":225,"class_name":"Humain","drug_identification_number":"00000019","brand_name":"PLACIDYL CAP 200MG","descriptor":"","number_of_ais":"1","ai_group_no":"0107593001",
-    "company":{"city_name":"Saint-Laurent","company_code":3525,"company_name":"ABBOTT LABORATORIES, LIMITED","company_type":"DIN OWNER","country_name":"CANADA","post_office_box":"","postal_code":"H4S 1Z1","province_name":"QUÉBEC","street_name":"8401 Trans-Canada Highway","suite_number":""}}</pre>
+                             <pre class="prettify prettyprint linenums">{"drug_code":225,"class_name":"Humain","drug_identification_number":"00000019","brand_name":"PLACIDYL CAP 200MG","descriptor":"","number_of_ais":"1","ai_group_no":"0107593001","company_name":"ABBOTT LABORATORIES, LIMITED"}</pre>
                         </section>
                         <section>
                              <h3 id="a4.4">Exemple de jQuery</h3>
