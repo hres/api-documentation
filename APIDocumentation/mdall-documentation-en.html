@@ -17,8 +17,8 @@
     <meta name="dcterms.contributor" content="" />
     <meta name="dcterms.type" title="gctype" content="" />
     <meta name="dcterms.audience" title="gcaudience" content="public" />
-    <meta name="dcterms.issued" title="W3CDTF" content="2017-11-30" />
-    <meta name="dcterms.modified" title="W3CDTF" content="2017-11-30" />
+    <meta name="dcterms.issued" title="W3CDTF" content="2017-12-15" />
+    <meta name="dcterms.modified" title="W3CDTF" content="2017-12-15" />
     <meta name="review_date" content="" />
     <meta name="meta_date" content="" />
 
@@ -155,17 +155,19 @@
                         <p>The Medical Devices Bureau (Bureau) of the Therapeutic Products Directorate, Health Canada is the Canadian federal regulator responsible for licensing medical devices in accordance with the <i>Food and Drugs Act and Regulations</i> and the <i>Medical Devices Regulations</i>. </p>
                         <p>The Bureau maintains a database of all licensed Class II, III, and IV medical devices offered for sale in Canada. Class I medical devices do not require a medical device licence and are monitored by the Regulatory Operations and Regions Branch (Compliance and Enforcement) through Establishment Licensing.</p>
                         <p>Only products which appear in this database listing may be offered for general marketing purposes in Canada. Class I Devices, or devices which relate to Investigational Testing Authorization or Special Access do not appear in this listing.</p>
-                        <p>This Application Programming Interface (API) allows developers to access that information in JSON, XML and CSV format for reuse in their own applications.</p>
-                        <p>The base URI for the Medical Devices Active Licence Listing &nbsp;<a href="https://api.hres.ca/mall/api-v1/">https://api.hres.ca/mdall/api-v1/</a>. Any requests are made relative to this URI.</p>
-                    </section>
+                        <p>This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications.
+                        The base URI for the Medical Devices Active Licence Listing is&nbsp;<a href="https://health-products.canada.ca/api/medical-devices/">https://health-products.canada.ca/api/medical-devices/</a> and you can add parameters to it. Any requests are made relative to this URI.</p>
+                        <p>Information is also available in CSV format, use that URI&nbsp;<a href="https://health-products.canada.ca/api/documentation/mdall-dataset-en.html">https://health-products.canada.ca/api/documentation/mdall-dataset-en</a> to see the available options.</p>
+</section>
                     <section>
                         <!--Licence-section-start-->
                         <h2 id="a2">Licence</h2>
                         <p>This is the permit that is delivered for a device to a company.</p>
+                       
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a2.1">Parameters</h3>
-                            <p>There are seven parameters in the request: id, status, licence_name, licence_number, company_id, lang and type.</p>
+                            <p>There are seven parameters in the request: id, state, licence_name, licence_number, company_id, lang and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -178,7 +180,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/licence/?id=</span></td>
+                                    <td><span class="nowrap">api/medical-devices/licence/?id=</span></td>
                                     <td>Returns the licence according to the licence number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -189,19 +191,19 @@
                                     <td></td>
                                 </tr>                               
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/licence/?status=active</span></td>
-                                    <td>Returns a list of licences that have a specific status.</td>
+                                    <td><span class="nowrap">api/medical-devices/licence/?state=active</span></td>
+                                    <td>Returns a list of licences that have a specific state.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>active</code>&nbsp;- Active</li>
-                                            <li><code>archived</code>&nbsp;- Archived</li>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            <li><code>active</code>&nbsp;- Returns the licence(s) without a cancellation date.</li>
+                                            <li><code>archived</code>&nbsp;- Returns the licence(s) with a cancellation date.</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but default to all if not specified.</td>
-                                    <td>Determines whether the response is for a specific status.</td>
+                                    <td>Determines whether the response is for a specific state.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/licence/?licence_name=flood</span></td>
+                                    <td><span class="nowrap">api/medical-devices/licence/?licence_name=flood</span></td>
                                     <td>Returns a list of licences with flood in the licence name.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -210,32 +212,20 @@
                                     </td>
                                     <td><strong>No</strong>, but default to all if not specified.</td>
                                     <td>Determines whether the response is for a specific licence name.</td>
-                                </tr>
+                                </tr>                                
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/licence/?licence_number=64507</span></td>
-                                    <td>Returns a list of licences where the licence number have the number 64507.</td>
+                                    <td><span class="nowrap">api/medical-devices/licence/?company_id=133876</span></td>
+                                    <td>Returns a list of licences for the company identification number 133876.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            <li><code>64507</code>&nbsp;- %64507% - licence number that haves the number 64507</li>
+                                            <li><code>133876</code>&nbsp;- %133876% - company identification number 133876</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but default to all if not specified.</td>
-                                    <td>Determines whether the response is for a specific licence number.</td> 
-                                    
+                                    <td>Determines whether the response is for a specific company identification number.</td>                                    
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/licence/?company_id=133876</span></td>
-                                    <td>Returns a list of licences for the company id 133876.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            <li><code>133876</code>&nbsp;- %133876% - company id 133876</li>
-                                        </ul>
-                                    </td>
-                                    <td><strong>No</strong>, but default to all if not specified.</td>
-                                    <td>Determines whether the response is for a specific company id.</td>                                    
-                                </tr>
-                                <tr>
-                                    <td><span class="nowrap">mdall/api-v1/licence/?lang=en</span></td>
+                                    <td><span class="nowrap">api/medical-devices/licence/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -247,7 +237,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/licence/?type=json</span></td>
+                                    <td><span class="nowrap">api/medical-devices/licence/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -261,8 +251,8 @@
                             </table>
                             <p>Licences can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/licence/?status=active&type=json">https://api.hres.ca/mdall/api-v1/licence/?status=active&type=json</a></li>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/licence/?status=archived&type=json">https://api.hres.ca/mdall/api-v1/licence/?status=archived&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/medical-devices/licence/?state=active&type=json">https://health-products.canada.ca/api/medical-devices/licence/?state=active&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/medical-devices/licence/?state=archived&type=json">https://health-products.canada.ca/api/medical-devices/licence/?state=archived&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -284,7 +274,8 @@
                                 </tr>
                                 <tr>
                                     <td><strong>licence_status</strong></td>
-                                    <td>The licence status.</td>
+                                    <td>The licence status (C=Cancelled, D=Issued/Conditional, I=Issued/Active, M=Merge, O=Discontinued at Renewal, P=Pending signature, R=Cancelled Renowal No Response, S=Suspended, W=Withdrawn, Q=Suspended/Invalid QS Certification, X=Cancelled QS/2003).</td>
+                                    
                                 </tr>
                                 <!-- Remove from code October 2017 Request Sarah Chandler
                                 <tr>
@@ -344,10 +335,10 @@
                         </section>
                         <section>
                              <h3 id="a2.4">jQuery example</h3>                               
-                             <p>Example of a function that search for licences given a status and a licence name:</p>
-                             <pre class="prettify prettyprint linenums">function getAllLicence(status, licence_name) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/mdall/api-v1/licence/?status=' + status + '&licence_name=' + licenceName;
+                             <p>Example of a function that search for licences given a state and a licence name:</p>
+                             <pre class="prettify prettyprint linenums">function getAllLicence(state, licence_name) {
+      var base = 'https://health-products.canada.ca';
+      var uri = base + '/api/medical-devices/licence/?state=' + state + '&licence_name=' + licenceName;
       $.ajax({
               url:uri,
               type:'GET',
@@ -394,7 +385,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/company/?id=</span></td>
+                                    <td><span class="nowrap">api/medical-devices/company/?id=</span></td>
                                     <td>Returns the company according to the company identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -405,19 +396,19 @@
                                     <td></td>
                                 </tr>                                
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/company/?status=active</span></td>
+                                    <td><span class="nowrap">api/medical-devices/company/?status=A</span></td>
                                     <td>Returns a list of companies that have a specific status.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>active</code>&nbsp;- Active</li>
-                                            <li><code>archived</code>&nbsp;- Archived</li>
+                                            <li><code>A</code>&nbsp;- Active</li>
+                                            <li><code>I</code>&nbsp;- Inactive</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but default to all if not specified.</td>
                                     <td>Determines whether the response is for a specific status.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/company/?company_name=bayer</span></td>
+                                    <td><span class="nowrap">api/medical-devices/company/?company_name=bayer</span></td>
                                     <td>Returns a list of companies with bayer in the company name.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -428,7 +419,7 @@
                                     <td>Determines whether the response is for a specific company name </td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/company/?type=json</span></td>
+                                    <td><span class="nowrap">api/medical-devices/company/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -440,10 +431,9 @@
                                     <td>Determines whether the format of the result will be in JSON or XML. </td>
                                 </tr>
                             </table>
-                            <p>Companies can be accessed via these URIs:</p>
+                            <p>Companies can be accessed via that URI:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/company/?status=active&type=json">https://api.hres.ca/mdall/api-v1/company/?status=active&type=json</a></li>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/company/?status=archived&type=json">https://api.hres.ca/mdall/api-v1/company/?status=archived&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/medical-devices/company/?type=json">https://health-products.canada.ca/api/medical-devices/company/?type=json</a></li>                                
                             </ul>
                         </section>
 
@@ -498,7 +488,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>company_status</strong></td>
-                                    <td>The company status (active or inactive).</td>
+                                    <td>The company status. (A=Active, I=Inactive)</td>
                                 </tr>
                             </table>
                         </section>
@@ -510,8 +500,8 @@
                              <h3 id="a3.4">jQuery example</h3>
                              <p>Example of a function that search for a company given the identification number of a company :</p>
                              <pre class="prettify prettyprint linenums">function getCompany(id) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/mdall/api-v1/company/?&id=' + id;
+      var base = 'https://health-products.canada.ca';
+      var uri = base + '/api/medical-devices/company/?&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -545,7 +535,7 @@
 
                         <section>
                             <h3 id="a4.1">Parameters</h3>
-                            <p>There are four parameters in the request: id, status, device_name, and type.</p>
+                            <p>There are four parameters in the request: id, state, device_name, and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -558,7 +548,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/device/?id=</span></td>
+                                    <td><span class="nowrap">api/medical-devices/device/?id=</span></td>
                                     <td>Returns the device according to the device identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -569,19 +559,19 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/device/?status=active</span></td>
-                                    <td>Returns a list of devices that have a specific status.</td>
+                                    <td><span class="nowrap">api/medical-devices/device/?state=active</span></td>
+                                    <td>Returns a list of devices that have a specific state.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>active</code>&nbsp;- Active</li>
-                                            <li><code>archived</code>&nbsp;- Archived</li>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            <li><code>active</code>&nbsp;- Returns the device(s) without a removal date.</li>
+                                            <li><code>archived</code>&nbsp;- Returns the devices(s) with a removal date.</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but default to all if not specified.</td>
-                                    <td>Determines whether the response is for a specific status.</td>
+                                    <td>Determines whether the response is for a specific state.</td>
                                 </tr>                                
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/device/?device_name=red</span></td>
+                                    <td><span class="nowrap">api/medical-devices/device/?device_name=red</span></td>
                                     <td>Returns a list of devices with red in the device name.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -593,7 +583,7 @@
                                     <td>Determines whether the response is for a specific device name.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/device/?type=json</span></td>
+                                    <td><span class="nowrap">api/medical-devices/device/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -608,7 +598,7 @@
                                 <!--           search-by-device will not return devices by licence number
 
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/device/?licence_number=456</span></td>
+                                    <td><span class="nowrap">api/medical-devices/device/?licence_number=456</span></td>
                                     <td>Changes the result by licence number.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -624,7 +614,8 @@
                             </table>
                             <p>Devices can be accessed via that URI:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/device/?type=json">https://api.hres.ca/mdall/api-v1/device/?type=json</a></li>                                
+                                <li><a href="https://health-products.canada.ca/api/medical-devices/device/?type=json&state=active">https://health-products.canada.ca/api/medical-devices/device/?type=json&state=active</a></li> 
+                                <li><a href="https://health-products.canada.ca/api/medical-devices/device/?type=json&state=archived">https://health-products.canada.ca/api/medical-devices/device/?type=json&state=archived</a></li>                                                               
                             </ul>
                         </section>
                         <section>
@@ -664,14 +655,14 @@
                         </section>
                         <section>
                              <h3 id="a4.3">Sample response</h3>
-                             <pre class="prettify prettyprint linenums">{"original_licence_no":65113,"device_id":189995,"device_first_issue_dt":"2004-07-08","end_date":null,"trade_name":"'HOPKINS' TELE-OTOSCOPE"}</pre>
+                             <pre class="prettify prettyprint linenums">{"original_licence_no":65113,"device_id":189995,"first_licence_dt":"2004-07-08","end_date":null,"trade_name":"'HOPKINS' TELE-OTOSCOPE"}</pre>
                         </section>
                         <section>
                              <h3 id="a4.4">jQuery example</h3>
                              <p>Example of a function that search for devices given a device name:</p>
                              <pre class="prettify prettyprint linenums">function getDevice(deviceName) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/mdall/api-v1/device/?device_name=' + deviceName;
+      var base = 'https://health-products.canada.ca';
+      var uri = base + '/api/medical-devices/device/?device_name=' + deviceName;
       $.ajax({
               url:uri,
               type:'GET',
@@ -705,7 +696,7 @@
 
                         <section>
                             <h3 id="a5.1">Parameters</h3>
-                            <p>There are four parameters in the request: id, device identifier, lang and type.</p>
+                            <p>There are five parameters in the request: id, device identifier, state, lang and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -718,7 +709,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/deviceidentifier/?id=</span></td>
+                                    <td><span class="nowrap">api/medical-devices/deviceidentifier/?id=</span></td>
                                     <td>Returns a device identifier according to the device identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -729,7 +720,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="wrap">mdall/api-v1/deviceidentifier/?device_identifier=4017</span></td>
+                                    <td><span class="wrap">api/medical-devices/deviceidentifier/?device_identifier=4017</span></td>
                                     <td>Returns a list of device identifiers with 4017 in the device identifier.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -740,7 +731,7 @@
                                     <td>Determines whether the response is for a specific device identifier.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/deviceidentifier/?lang=en</span></td>
+                                    <td><span class="nowrap">api/medical-devices/deviceidentifier/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -752,7 +743,19 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/deviceidentifier/?type=json</span></td>
+                                    <td><span class="nowrap">api/medical-devices/deviceidentifier/?state=active</span></td>
+                                    <td>Returns a list of device identifiers that have a specific state.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            <li><code>active</code>&nbsp;- Returns the device identifier(s) without a removal date.</li>
+                                            <li><code>archived</code>&nbsp;- Returns the device identifier(s) with a removal date.</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but default to all if not specified.</td>
+                                    <td>Determines whether the response is for a specific state.</td>
+                                </tr>     
+                                <tr>
+                                    <td><span class="nowrap">api/medical-devices/deviceidentifier/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -766,8 +769,8 @@
                             </table>
                             <p>Device Identifiers can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/deviceidentifier/?lang=en&type=json">https://api.hres.ca/mdall/api-v1/deviceidentifier/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/deviceidentifier/?lang=fr&type=json">https://api.hres.ca/mdall/api-v1/deviceidentifier/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/medical-devices/deviceidentifier/?state=active&type=json">https://health-products.canada.ca/api/medical-devices/deviceidentifier/?state=active&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/medical-devices/deviceidentifier/?state=archived&type=json">https://health-products.canada.ca/api/medical-devices/deviceidentifier/?state=archived&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -806,14 +809,14 @@
                         </section>
                         <section>
                              <h3 id="a5.3">Sample response</h3>
-                             <pre class="prettify prettyprint linenums">{"original_licence_no":29756,"device_id":408838,"identifier_first_issue_dt":"2001-05-24","end_date":null,"device_identifier":"P02-14030"}</pre>
+                             <pre class="prettify prettyprint linenums">{"original_licence_no":29756,"device_id":408838,"first_licence_dt":"2001-05-24","end_date":null,"device_identifier":"P02-14030"}</pre>
                         </section>
                         <section>
                              <h3 id="a5.4">jQuery example</h3>
-                             <p>Example of a function that search for a device identifier given a device identification number:</p>                                
+                             <p>Example of a function that search for device identifiers given a device identification number:</p>                                
                              <pre class="prettify prettyprint linenums">function getDeviceIdentifier(id) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/mdall/api-v1/deviceidentifier/?id=' + id;
+      var base = 'https://health-products.canada.ca';
+      var uri = base + '/api/medical-devices/deviceidentifier/?id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -861,7 +864,7 @@
 
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/licencetype/?code=D</span></td>
+                                    <td><span class="nowrap">api/medical-devices/licencetype/?code=D</span></td>
                                     <td>Returns a licence type according to the licence type code specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -872,7 +875,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/licencetype/?lang=en</span></td>
+                                    <td><span class="nowrap">api/medical-devices/licencetype/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -884,7 +887,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/licencetype/?type=json</span></td>
+                                    <td><span class="nowrap">api/medical-devices/licencetype/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -898,8 +901,8 @@
                             </table>
                             <p>Licence Types can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/licencetype/?lang=en&type=json">https://api.hres.ca/mdall/api-v1/licencetype/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/licencetype/?lang=fr&type=json">https://api.hres.ca/mdall/api-v1/licencetype/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/medical-devices/licencetype/?lang=en&type=json">https://health-products.canada.ca/api/medical-devices/licencetype/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/medical-devices/licencetype/?lang=fr&type=json">https://health-products.canada.ca/api/medical-devices/licencetype/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -932,8 +935,8 @@
                              <h3 id="a6.4">jQuery example</h3>                                
                              <p>Example of a function that search for a licence type given a licence type code and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getLicenceType(code, lang) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/mdall/api-v1/licencetype/?lang=' + lang + '&code=' + code;
+      var base = 'https://health-products.canada.ca';
+      var uri = base + '/api/medical-devices/licencetype/?lang=' + lang + '&code=' + code;
       $.ajax({
               url:uri,
               type:'GET',
@@ -980,7 +983,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/sbdlocation/?id=</span></td>
+                                    <td><span class="nowrap">api/medical-devices/sbdlocation/?id=</span></td>
                                     <td>Returns summary basis decision location according to the licence number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -992,7 +995,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/sbdlocation/?type=json</span></td>
+                                    <td><span class="nowrap">api/medical-devices/sbdlocation/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1006,7 +1009,7 @@
                             </table>
                             <p>Summary Basis Decision Locations can be accessed via that URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/sbdlocation/?type=json">https://api.hres.ca/mdall/api-v1/sbdlocation/?type=json</a></li>                                
+                                <li><a href="https://health-products.canada.ca/api/medical-devices/sbdlocation/?type=json">https://health-products.canada.ca/api/medical-devices/sbdlocation/?type=json</a></li>                                
                             </ul>
                         </section>
                         <section>
@@ -1102,8 +1105,8 @@
                              <h3 id="a7.4">jQuery example</h3>
                              <p>Example of a function that search for a summary basis decision location given a licence number:</p>
                              <pre class="prettify prettyprint linenums">function getSbdLocation(id) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/mdall/api-v1/sbdlocation/?id=' + id ;
+      var base = 'https://health-products.canada.ca';
+      var uri = base + '/api/medical-devices/sbdlocation/?id=' + id ;
       $.ajax({
               url:uri,
               type:'GET',

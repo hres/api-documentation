@@ -17,8 +17,8 @@
     <meta name="dcterms.contributor" content="" />
     <meta name="dcterms.type" title="gctype" content="" />
     <meta name="dcterms.audience" title="gcaudience" content="" />
-    <meta name="dcterms.issued" title="W3CDTF" content="2017-11-30" />
-    <meta name="dcterms.modified" title="W3CDTF" content="2017-11-30" />
+    <meta name="dcterms.issued" title="W3CDTF" content="2017-12-15" />
+    <meta name="dcterms.modified" title="W3CDTF" content="2017-12-15" />
     <meta name="review_date" content="" />
     <meta name="meta_date" content="" />
 
@@ -150,17 +150,18 @@
                         <p>Le Bureau des matériels médicaux (Bureau) de la Direction des produits thérapeutiques, Santé Canada, est l'organe fédéral de réglementation responsable de l'homologation des instruments médicaux, conformément à la <i>Loi sur les aliments et drogues</i> et au <i>Réglement sur les instruments médicaux</i>. </p>
                         <p>Le Bureau maintient une base de données sur tous les instruments médicaux de classe II, III ou IV vendus au Canada. Les instruments médicaux de classe I ne requiert pas une homologation des intruments médicaux. Ils sont réglementés par la Direction générale des opérations réglementaires et des régions (Conformité et application de la loi) au moyen des licences d'établissement.</p>
                         <p>Seuls les produits figurant sur cette liste électronique peuvent être offerts pour la vente au Canada. Les instruments médicaux de classe 1 ou vendus aux fins d'essais expérimentaux et aux fins d'un accès spécial ne sont pas inclus.</p>
-                        <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON, XML et CSV afin de les utiliser dans leurs propres applications.</p>
-                        <p>L'adresse URI de base sur la Liste des instruments médicaux homologués en vigueur est &nbsp;<a href="" https//api.hres.ca/mall/api-v1/">https://api.hres.ca/mdall/api-v1/</a>. Toute requête est effectuée par l'entremise de cette adresse URI.</p>               
-                    </section>
+                        <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON et XML afin de les utiliser dans leurs propres applications.
+                         L'adresse URI de base sur la Liste des instruments médicaux homologués en vigueur est &nbsp;<a href="https//produits-sante.canada.ca/api/instruments-medicaux/">https://produits-sante.canada.ca/api/instruments-medicaux/</a> et vous pouvez y ajouter des paramètres. Toute requête est effectuée par l'entremise de cette adresse URI.</p>               
+                        <p>Ces renseignements sont aussi disponibles en format CSV pour voir les options disponibles vous devez utiliser l'adresse URI suivante&nbsp;<a href="https://produits-sante.canada.ca/api/documentation/mdall-dataset-fr.html">https://produits-sante.canada.ca/api/documentation/mdall-dataset-fr</a>.</p>
+                     </section>
                     <section>
                         <!--Licence-section-start-->
                         <h2 id="a2">Homologation</h2>
-                        <p>L'homogolation est une certification de conformité d'un instrument médical pour la vente au Canada détenu par un fabricant.</p>
+                        <p>L'homogolation est une certification de conformité d'un instrument médical pour la vente au Canada détenu par un fabricant.</p>                        
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a2.1">Paramètres</h3>
-                            <p>Il y a sept paramètres dans la requête: id, status, licence_name, licence_number, company_id, lang et type.</p>
+                            <p>Il y a sept paramètres dans la requête: id, state, licence_name, licence_number, company_id, lang et type.</p>
                             <table>
                                 <caption>
                                     Paramètres pour la requête
@@ -173,7 +174,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/licence/?id=</span></td>
+                                    <td><span class="nowrap">api/instruments-medicaux/licence/?id=</span></td>
                                     <td>Affiche l'homogolation selon le numéro d'homogolation spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -184,19 +185,19 @@
                                     <td></td>
                                 </tr>                                
                                 <tr>
-                                    <td><span class="wrap">mdall/api-v1/licence/?status=active</span></td>
+                                    <td><span class="wrap">api/instruments-medicaux/licence/?state=active</span></td>
                                     <td>Affiche les homogolations selon l'état spécifié dans la requête.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>active</code>&nbsp;- Actif</li>
-                                            <li><code>archived</code>&nbsp;- Archivé</li>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            <li><code>active</code>&nbsp;- Affiche les homologations qui n'ont pas de date d'annulation.</li>
+                                            <li><code>archived</code>&nbsp;- Affiche les homologations qui ont une date d'annulation.</li>
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
                                     <td>Détermine si le résultat est affiché selon un état spécifique.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="wrap">mdall/api-v1/licence/?licence_name=endo</span></td>
+                                    <td><span class="wrap">api/instruments-medicaux/licence/?licence_name=endo</span></td>
                                     <td>Affiche les homogolations qui contiennent flood dans leur nom.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -205,20 +206,9 @@
                                     </td>
                                     <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
                                     <td>Détermine si le résultat est affiché selon un nom de licence spécifique.</td>
-                                </tr>
+                                </tr>                                
                                 <tr>
-                                    <td><span class="wrap">mdall/api-v1/licence/?licence_number=64507</span></td>
-                                    <td>Affiche les homogolations qui ont 64507 dans leur numéro.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            <li><code>64507</code>&nbsp;- %64507% - homogolation avec 64507 dans le numéro</li>
-                                        </ul>
-                                    </td>
-                                    <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
-                                    <td>Détermine si le résultat est affiché selon un numéro de licence spécifique.</td>
-                                </tr>
-                                <tr>
-                                    <td><span class="wrap">mdall/api-v1/licence/?company_id=133876</span></td>
+                                    <td><span class="wrap">api/instruments-medicaux/licence/?company_id=133876</span></td>
                                     <td>Affiche les homogolations dont le numéro d'identification de l'entreprise est 133876.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -229,7 +219,7 @@
                                     <td>Détermine si le résultat est affiché selon un numéro d'identification d'entreprise spécifique.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/licence/?lang=fr</span></td>
+                                    <td><span class="nowrap">api/instruments-medicaux/licence/?lang=fr</span></td>
                                     <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -241,7 +231,7 @@
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/licence/?type=json</span></td>
+                                    <td><span class="nowrap">api/instruments-medicaux/licence/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -255,8 +245,8 @@
                             </table>
                             <p>La liste des homogolations peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/licence/?status=active&type=json">https://api.hres.ca/mdall/api-v1/licence/?status=active&type=json</a></li>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/licence/?status=archived&type=json">https://api.hres.ca/mdall/api-v1/licence/?status=archived&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/licence/?state=active&type=json">https://produits-sante.canada.ca/api/instruments-medicaux/licence/?state=active&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/licence/?state=archived&type=json">https://produits-sante.canada.ca/api/instruments-medicaux/licence/?state=archived&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -277,7 +267,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>licence_status</strong></td>
-                                    <td>L'état de l'homologation.</td>
+                                    <td>Le statut de l'homologation (C=Cancelled, D=Issued/Conditional, I=Issued/Active, M=Merge, O=Discontinued at Renewal, P=Pending signature, R=Cancelled Renowal No Response, S=Suspended, W=Withdrawn, Q=Suspended/Invalid QS Certification, X=Cancelled QS/2003).</td>
                                 </tr>
                                 <!-- Remove from code October 2017 Request Sarah Chandler
                                 <tr>
@@ -339,9 +329,9 @@
                         <section>
                              <h3 id="a2.4">Exemple de jQuery</h3> 
                              <p>Exemple d'une fonctionnalité qui recherche les homologations selon le nom d'une homologation et un état spécifique&nbsp;:</p>
-                             <pre class="prettify prettyprint linenums">function getAllLicence(status, licence_name) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/mdall/api-v1/licence/?status=' + status + '&licence_name=' + licenceName;
+                             <pre class="prettify prettyprint linenums">function getAllLicence(state, licence_name) {
+      var base = 'https://produits-sante.canada.ca';
+      var uri = base + '/api/instruments-medicaux/licence/?state=' + state + '&licence_name=' + licenceName;
       $.ajax({
               url:uri,
               type:'GET',
@@ -388,7 +378,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/company/?id=</span></td>
+                                    <td><span class="nowrap">api/instruments-medicaux/company/?id=</span></td>
                                     <td>Affiche l'entreprise selon le numéro d'identification de l'entreprise spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -399,19 +389,19 @@
                                     <td></td>
                                 </tr>                                
                                 <tr>
-                                    <td><span class="wrap">mdall/api-v1/company/?status=active</span></td>
-                                    <td>Affiche les entreprises selon l'état spécifié dans la requête.</td>
+                                    <td><span class="wrap">api/instruments-medicaux/company/?status=A</span></td>
+                                    <td>Affiche les entreprises selon le statut spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>active</code>&nbsp;- Actif</li>
-                                            <li><code>archived</code>&nbsp;- Archivé</li>
+                                            <li><code>A</code>&nbsp;- Active</li>
+                                            <li><code>I</code>&nbsp;- Inactive</li>
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
-                                    <td>Détermine si le résultat est affiché selon un état spécifique.</td>
+                                    <td>Détermine si le résultat est affiché selon un statut spécifique.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="wrap">mdall/api-v1/company/?company_name=bio</span></td>
+                                    <td><span class="wrap">api/instruments-medicaux/company/?company_name=bio</span></td>
                                     <td>Affiche les entreprises qui contiennent bayer dans leur nom.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -422,7 +412,7 @@
                                     <td>Détermine si le résultat est selon un nom d'entreprise spécifique.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/company/?type=json</span></td>
+                                    <td><span class="nowrap">api/instruments-medicaux/company/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -434,10 +424,9 @@
                                     <td>Détermine si le résultat est en format JSON ou XML.</td>
                                 </tr>
                             </table>
-                            <p>La liste des entreprises peut être accédée aux adresses URI suivantes&nbsp;:</p>
+                            <p>La liste des entreprises peut être accédée à l'adresse URI suivante&nbsp;:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/company/?status=active&type=json">https://api.hres.ca/mdall/api-v1/company/?status=active&type=json</a></li>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/company/?status=archived&type=json">https://api.hres.ca/mdall/api-v1/company/?status=archived&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/company/?type=json">https://produits-sante.canada.ca/api/instruments-medicaux/company/?type=json</a></li>                                
                             </ul>
                         </section>
                         <section>
@@ -490,7 +479,7 @@
                                 </tr> 
                                 <tr>
                                     <td><strong>company_status</strong></td>
-                                    <td>L'état de l'entreprise (active ou inactive).</td>
+                                    <td>Le statut de l'entreprise. (A=Active, I=Inactive)</td>
                                 </tr>
 
                                 <!--    consider removing
@@ -511,8 +500,8 @@
                              <h3 id="a3.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche une entreprise selon le numéro d'identification d'une entreprise&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getCompany(id) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/mdall/api-v1/company/?id=' + id;
+      var base = 'https://produits-sante.canada.ca';
+      var uri = base + '/api/instruments-medicaux/company/?id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -546,7 +535,7 @@
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a4.1">Paramètres</h3>
-                            <p>Il y a quatre paramètres dans la requête: id, status, device_name et type.</p>
+                            <p>Il y a quatre paramètres dans la requête: id, state, device_name et type.</p>
                             <table>
                                 <caption>
                                     Paramètres pour la requête
@@ -559,7 +548,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/device/?id=</span></td>
+                                    <td><span class="nowrap">api/instruments-medicaux/device/?id=</span></td>
                                     <td>Affiche l'instrument médical selon le numéro d'identification de l'instrument médical spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -570,19 +559,19 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="wrap">mdall/api-v1/device/?status=active</span></td>
+                                    <td><span class="wrap">api/instruments-medicaux/device/?state=active</span></td>
                                     <td>Affiche les instruments médicaux selon l'état spécifié dans la requête.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>active</code>&nbsp;- Actif</li>
-                                            <li><code>archived</code>&nbsp;- Archivé</li>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            <li><code>active</code>&nbsp;- Affiche les instruments médicaux qui n'ont pas de date de suppression.</li>
+                                            <li><code>archived</code>&nbsp;- Affiche les instruments médicaux qui ont une date de suppression.</li>
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
                                     <td>Détermine si le résultat est affiché selon un état spécifique.</td>
                                 </tr>                                
                                 <tr>
-                                    <td><span class="wrap">mdall/api-v1/device/?device_name=endo</span></td>
+                                    <td><span class="wrap">api/instruments-medicaux/device/?device_name=endo</span></td>
                                     <td>Affiche les instruments médicaux qui contiennent endo dans leur nom.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -593,7 +582,7 @@
                                     <td>Détermine si le résultat est affiché selon un nom d'instrument médical spécifique.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/device/?type=json</span></td>
+                                    <td><span class="nowrap">api/instruments-medicaux/device/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -608,7 +597,7 @@
                                 <!--           search-by-device will not return devices by licence number
 
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/device/?licence_number=456</span></td>
+                                    <td><span class="nowrap">api/instruments-medicaux/device/?licence_number=456</span></td>
                                     <td>Changes the result by licence number.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -624,7 +613,8 @@
                             </table>
                             <p>La liste des instruments médicaux peut être accédée à l'adresse URI suivante&nbsp;:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/device/?type=json">https://api.hres.ca/mdall/api-v1/device/?type=json</a></li>                                
+                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/device/?type=json&state=active">https://produits-sante.canada.ca/api/instruments-medicaux/device/?type=json&state=active</a></li>                                
+                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/device/?type=json&state=archived">https://produits-sante.canada.ca/api/instruments-medicaux/device/?type=json&state=archived</a></li>
                             </ul>
                         </section>
                         <section>
@@ -674,14 +664,14 @@
                         </section>
                         <section>
                              <h3 id="a4.3">Exemple de résultat</h3>
-                             <pre class="prettify prettyprint linenums">{"original_licence_no":65113,"device_id":189995,"device_first_issue_dt":"2004-07-08","end_date":null,"trade_name":"'HOPKINS' TELE-OTOSCOPE"}</pre>
+                             <pre class="prettify prettyprint linenums">{"original_licence_no":65113,"device_id":189995,"first_licence_dt":"2004-07-08","end_date":null,"trade_name":"'HOPKINS' TELE-OTOSCOPE"}</pre>
                         </section>
                         <section>
                              <h3 id="a4.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche des instruments médicaux selon le nom d'un instrument&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getDevice(deviceName) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/mdall/api-v1/device/?device_name=' + deviceName;
+      var base = 'https://produits-sante.canada.ca';
+      var uri = base + '/api/instruments-medicaux/device/?device_name=' + deviceName;
       $.ajax({
               url:uri,
               type:'GET',
@@ -715,7 +705,7 @@
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a5.1">Paramètres</h3>
-                            <p>Il y a quatre paramètres dans la requête: id, device identifier, lang et type.</p>
+                            <p>Il y a cinq paramètres dans la requête: id, device identifier, state, lang et type.</p>
                             <table>
                                 <caption>
                                     Paramètres pour la requête
@@ -728,7 +718,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/deviceidentifier/?id=</span></td>
+                                    <td><span class="nowrap">api/instruments-medicaux/deviceidentifier/?id=</span></td>
                                     <td>Affiche l'identificateur d'instrument selon le numéro d'identification de l'instrument spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -739,7 +729,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="wrap">mdall/api-v1/deviceidentifier/?device_identifier=4017</span></td>
+                                    <td><span class="wrap">api/instruments-medicaux/deviceidentifier/?device_identifier=4017</span></td>
                                     <td>Affiche les instruments qui contiennent 4017 dans leur identificateur de l'instrument.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -750,7 +740,19 @@
                                     <td>Détermine si le résultat est affiché selon un identificateur d'instrument spécifique.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/deviceidentifier/?lang=fr</span></td>
+                                    <td><span class="wrap">api/instruments-medicaux/deviceidentifier/?state=active</span></td>
+                                    <td>Affiche les identificateurs d'instrument selon l'état spécifié dans la requête.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            <li><code>active</code>&nbsp;- Affiche les identificateurs d'instrument qui n'ont pas de date de suppression.</li>
+                                            <li><code>archived</code>&nbsp;- Affiche les identificateurs d'instrument qui ont une date de suppression.</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
+                                    <td>Détermine si le résultat est affiché selon un état spécifique.</td>
+                                </tr>         
+                                <tr>
+                                    <td><span class="nowrap">api/instruments-medicaux/deviceidentifier/?lang=fr</span></td>
                                     <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -762,7 +764,7 @@
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/deviceidentifier/?type=json</span></td>
+                                    <td><span class="nowrap">api/instruments-medicaux/deviceidentifier/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -776,8 +778,8 @@
                             </table>
                             <p>La liste des identificateurs de l'instrument peut être accédée aux adresses URI suivantes ::</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/deviceidentifier/?lang=en&type=json">https://api.hres.ca/mdall/api-v1/deviceidentifier/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/deviceidentifier/?lang=fr&type=json">https://api.hres.ca/mdall/api-v1/deviceidentifier/?lang=fr&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/deviceidentifier/?state=active&type=json">https://produits-sante.canada.ca/api/instruments-medicaux/deviceidentifier/?state=active&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/deviceidentifier/?state=archived&type=json">https://produits-sante.canada.ca/api/instruments-medicaux/deviceidentifier/?state=archived&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -816,14 +818,14 @@
                         </section>
                         <section>
                              <h3 id="a5.3">Exemple de résultat</h3>
-                             <pre class="prettify prettyprint linenums">{"original_licence_no":29756,"device_id":408838,"identifier_first_issue_dt":"2001-05-24","end_date":null,"device_identifier":"P02-14030"}</pre>
+                             <pre class="prettify prettyprint linenums">{"original_licence_no":29756,"device_id":408838,"first_licence_dt":"2001-05-24","end_date":null,"device_identifier":"P02-14030"}</pre>
                         </section>
                         <section>
                              <h3 id="a5.4">Exemple de jQuery</h3>
-                             <p>Exemple d'une fonctionnalité qui recherche un identificateur d'instrument selon le numéro d'identification d'un instrument&nbsp;:</p>
+                             <p>Exemple d'une fonctionnalité qui recherche des identificateurs d'instrument selon le numéro d'identification d'un instrument&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getDeviceIdentifier(id) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/mdall/api-v1/deviceidentifier/?status=' + strStatus + 'id=' + id;
+      var base = 'https://produits-sante.canada.ca';
+      var uri = base + '/api/instruments-medicaux/deviceidentifier/?id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -870,10 +872,10 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/licencetype/?code=D</span></td>
+                                    <td><span class="nowrap">api/instruments-medicaux/licencetype/?code=D</span></td>
                                     <td>Affiche un type de demande d'homologation selon le code d'un type de demande d'homologation spécifié dans la requête..</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
                                             #####&nbsp;- code d’un type de demande d'homologation
                                         </ul>
                                     </td>
@@ -881,7 +883,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/licencetype/?lang=fr</span></td>
+                                    <td><span class="nowrap">api/instruments-medicaux/licencetype/?lang=fr</span></td>
                                     <td>Modifie la langue du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -893,7 +895,7 @@
                                     <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/licencetype/?type=json</span></td>
+                                    <td><span class="nowrap">api/instruments-medicaux/licencetype/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -907,8 +909,8 @@
                             </table>
                             <p>La liste des types de demande d'homologation peut être accédée aux adresses URI suivantes :</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/licencetype/?lang=en&type=json">https://api.hres.ca/mdall/api-v1/licencetype/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/licencetype/?lang=fr&type=json">https://api.hres.ca/mdall/api-v1/licencetype/?lang=fr&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/licencetype/?lang=en&type=json">https://produits-sante.canada.ca/api/instruments-medicaux/licencetype/?lang=en&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/licencetype/?lang=fr&type=json">https://produits-sante.canada.ca/api/instruments-medicaux/licencetype/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -941,8 +943,8 @@
                              <h3 id="a6.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche un type de demande d'homologation selon le code d'un type de demande d'homologation et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getLicenceType(code, lang) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/mdall/api-v1/licencetype/?lang=' + lang + '&id=' + id;
+      var base = 'https://produits-sante.canada.ca';
+      var uri = base + '/api/instruments-medicaux/licencetype/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -989,7 +991,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/sbdlocation/?id=</span></td>
+                                    <td><span class="nowrap">api/instruments-medicaux/sbdlocation/?id=</span></td>
                                     <td>Affiche l'emplacement du Sommaire des motifs de décision selon le numéro d'homogolation spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1001,7 +1003,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td><span class="nowrap">mdall/api-v1/sbdlocation/?type=json</span></td>
+                                    <td><span class="nowrap">api/instruments-medicaux/sbdlocation/?type=json</span></td>
                                     <td>Modifie le format du résultat.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1015,7 +1017,7 @@
                             </table>
                             <p>La liste des emplacements du Sommaire des motifs de décision peut être accédée à l'adresse URI suivante&nbsp;:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/mdall/api-v1/sbdlocation/?type=json">https://api.hres.ca/mdall/api-v1/sbdlocation/?type=json</a></li>                                
+                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/sbdlocation/?type=json">https://produits-sante.canada.ca/api/instruments-medicaux/sbdlocation/?type=json</a></li>                                
                             </ul>
                         </section>
                         <section>
@@ -1110,8 +1112,8 @@
                              <h3 id="a7.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche un Summary Basis Decision Location selon un numéro de licence&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getSbdLocation(id) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/mdall/api-v1/sbdlocation/?id=' + id ;
+      var base = 'https://produits-sante.canada.ca';
+      var uri = base + '/api/instruments-medicaux/sbdlocation/?id=' + id ;
       $.ajax({
               url:uri,
               type:'GET',
