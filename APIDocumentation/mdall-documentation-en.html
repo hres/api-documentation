@@ -17,8 +17,8 @@
     <meta name="dcterms.contributor" content="" />
     <meta name="dcterms.type" title="gctype" content="" />
     <meta name="dcterms.audience" title="gcaudience" content="public" />
-    <meta name="dcterms.issued" title="W3CDTF" content="2017-12-15" />
-    <meta name="dcterms.modified" title="W3CDTF" content="2017-12-15" />
+    <meta name="dcterms.issued" title="W3CDTF" content="2018-01-26" />
+    <meta name="dcterms.modified" title="W3CDTF" content="2018-01-26" />
     <meta name="review_date" content="" />
     <meta name="meta_date" content="" />
 
@@ -696,7 +696,7 @@
 
                         <section>
                             <h3 id="a5.1">Parameters</h3>
-                            <p>There are five parameters in the request: id, device identifier, state, lang and type.</p>
+                            <p>There are five parameters in the request: id, device_identifier, state, lang and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -731,18 +731,6 @@
                                     <td>Determines whether the response is for a specific device identifier.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/medical-devices/deviceidentifier/?lang=en</span></td>
-                                    <td>Changes the language of the response.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>en</code>&nbsp;- English</li>
-                                            <li><code>fr</code>&nbsp;- French</li>
-                                        </ul>
-                                    </td>
-                                    <td><strong>No</strong>, but defaults to English if not specified.</td>
-                                    <td>Determines whether the response is in English or French.</td>
-                                </tr>
-                                <tr>
                                     <td><span class="nowrap">api/medical-devices/deviceidentifier/?state=active</span></td>
                                     <td>Returns a list of device identifiers that have a specific state.</td>
                                     <td>
@@ -754,6 +742,18 @@
                                     <td><strong>No</strong>, but default to all if not specified.</td>
                                     <td>Determines whether the response is for a specific state.</td>
                                 </tr>     
+                                <tr>
+                                    <td><span class="nowrap">api/medical-devices/deviceidentifier/?lang=en</span></td>
+                                    <td>Changes the language of the response.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- English</li>
+                                            <li><code>fr</code>&nbsp;- French</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>No</strong>, but defaults to English if not specified.</td>
+                                    <td>Determines whether the response is in English or French.</td>
+                                </tr>                                
                                 <tr>
                                     <td><span class="nowrap">api/medical-devices/deviceidentifier/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
