@@ -195,8 +195,8 @@
                                     <td>Returns a list of licences that have a specific state.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            <li><code>active</code>&nbsp;- Returns the licence(s) without a cancellation date.</li>
-                                            <li><code>archived</code>&nbsp;- Returns the licence(s) with a cancellation date.</li>
+                                            <li><code>active</code>&nbsp;- Returns the licences without a cancellation date.</li>
+                                            <li><code>archived</code>&nbsp;- Returns the licences with a cancellation date.</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but default to all if not specified.</td>
@@ -249,10 +249,15 @@
                                     <td>Determines whether the format of the result will be in JSON or XML. </td>
                                 </tr>
                             </table>
-                            <p>Licences can be accessed via these URIs:</p>
+                            <p>Active Licences can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://health-products.canada.ca/api/medical-devices/licence/?state=active&type=json">https://health-products.canada.ca/api/medical-devices/licence/?state=active&type=json</a></li>
-                                <li><a href="https://health-products.canada.ca/api/medical-devices/licence/?state=archived&type=json">https://health-products.canada.ca/api/medical-devices/licence/?state=archived&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/medical-devices/licence/?state=active&lang=en&type=json">https://health-products.canada.ca/api/medical-devices/licence/?state=active&lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/medical-devices/licence/?state=active&lang=fr&type=json">https://health-products.canada.ca/api/medical-devices/licence/?state=active&lang=fr&type=json</a></li>                                
+                            </ul>
+                            <p>Archived Licences can be accessed via these URIs:</p>
+                            <ul>
+                                <li><a href="https://health-products.canada.ca/api/medical-devices/licence/?state=archived&lang=en&type=json">https://health-products.canada.ca/api/medical-devices/licence/?state=archived&lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/medical-devices/licence/?state=archived&lang=fr&type=json">https://health-products.canada.ca/api/medical-devices/licence/?state=archived&lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -563,8 +568,8 @@
                                     <td>Returns a list of devices that have a specific state.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            <li><code>active</code>&nbsp;- Returns the device(s) without a removal date.</li>
-                                            <li><code>archived</code>&nbsp;- Returns the devices(s) with a removal date.</li>
+                                            <li><code>active</code>&nbsp;- Returns the devices without a removal date.</li>
+                                            <li><code>archived</code>&nbsp;- Returns the devices with a removal date.</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but default to all if not specified.</td>
@@ -612,10 +617,13 @@
                                 -->
 
                             </table>
-                            <p>Devices can be accessed via that URI:</p>
+                            <p>Active Devices can be accessed via that URI:</p>
                             <ul>
-                                <li><a href="https://health-products.canada.ca/api/medical-devices/device/?type=json&state=active">https://health-products.canada.ca/api/medical-devices/device/?type=json&state=active</a></li> 
-                                <li><a href="https://health-products.canada.ca/api/medical-devices/device/?type=json&state=archived">https://health-products.canada.ca/api/medical-devices/device/?type=json&state=archived</a></li>                                                               
+                                <li><a href="https://health-products.canada.ca/api/medical-devices/device/?state=active&type=json">https://health-products.canada.ca/api/medical-devices/device/?state=active&type=json</a></li>                                
+                            </ul>
+                            <p>Archived Devices can be accessed via that URI:</p>
+                            <ul>                               
+                                <li><a href="https://health-products.canada.ca/api/medical-devices/device/?state=archived&type=json">https://health-products.canada.ca/api/medical-devices/device/?state=archived&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -696,7 +704,7 @@
 
                         <section>
                             <h3 id="a5.1">Parameters</h3>
-                            <p>There are five parameters in the request: id, device_identifier, state, lang and type.</p>
+                            <p>There are four parameters in the request: id, device_identifier, state and type.</p>
                             <table>
                                 <caption>
                                     Request parameters
@@ -735,25 +743,13 @@
                                     <td>Returns a list of device identifiers that have a specific state.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            <li><code>active</code>&nbsp;- Returns the device identifier(s) without a removal date.</li>
-                                            <li><code>archived</code>&nbsp;- Returns the device identifier(s) with a removal date.</li>
+                                            <li><code>active</code>&nbsp;- Returns the device identifiers without a removal date.</li>
+                                            <li><code>archived</code>&nbsp;- Returns the device identifiers with a removal date.</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but default to all if not specified.</td>
                                     <td>Determines whether the response is for a specific state.</td>
-                                </tr>     
-                                <tr>
-                                    <td><span class="nowrap">api/medical-devices/deviceidentifier/?lang=en</span></td>
-                                    <td>Changes the language of the response.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>en</code>&nbsp;- English</li>
-                                            <li><code>fr</code>&nbsp;- French</li>
-                                        </ul>
-                                    </td>
-                                    <td><strong>No</strong>, but defaults to English if not specified.</td>
-                                    <td>Determines whether the response is in English or French.</td>
-                                </tr>                                
+                                </tr>                     
                                 <tr>
                                     <td><span class="nowrap">api/medical-devices/deviceidentifier/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
@@ -767,9 +763,12 @@
                                     <td>Determines whether the format of the result will be in JSON or XML. </td>
                                 </tr>
                             </table>
-                            <p>Device Identifiers can be accessed via these URIs:</p>
+                            <p>Active Device Identifiers can be accessed via that URI:</p>
                             <ul>
-                                <li><a href="https://health-products.canada.ca/api/medical-devices/deviceidentifier/?state=active&type=json">https://health-products.canada.ca/api/medical-devices/deviceidentifier/?state=active&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/medical-devices/deviceidentifier/?state=active&type=json">https://health-products.canada.ca/api/medical-devices/deviceidentifier/?state=active&type=json</a></li>                                
+                            </ul>
+                            <p>Archived Device Identifiers can be accessed via that URI:</p>
+                            <ul>                                
                                 <li><a href="https://health-products.canada.ca/api/medical-devices/deviceidentifier/?state=archived&type=json">https://health-products.canada.ca/api/medical-devices/deviceidentifier/?state=archived&type=json</a></li>
                             </ul>
                         </section>
@@ -850,7 +849,7 @@
 
                         <section>
                             <h3 id="a6.1">Parameters</h3>
-                            <p>There are three parameters in the request: code, language and type.</p>
+                            <p>There are three parameters in the request: code, lang and type.</p>
                             <table>
                                 <caption>
                                     Request parameters

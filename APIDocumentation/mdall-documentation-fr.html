@@ -72,7 +72,7 @@
 	    search: true,
 		lngLinks: [{
 			lang: "fr",
-			href: "mdall-dataset-en.html",
+			href: "mdall-documentation-en.html",
 			text: "English",
 		}],
 		showPreContent: true,
@@ -189,8 +189,8 @@
                                     <td>Affiche les homogolations selon l'état spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            <li><code>active</code>&nbsp;- Affiche les homologations qui n'ont pas de date d'annulation.</li>
-                                            <li><code>archived</code>&nbsp;- Affiche les homologations qui ont une date d'annulation.</li>
+                                            <li><code>active</code>&nbsp;- Affiche les homologations en vigueur celles qui n'ont pas de date d'annulation.</li>
+                                            <li><code>archived</code>&nbsp;- Affiche les homologations archivées celles qui ont une date d'annulation.</li>
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
@@ -243,10 +243,15 @@
                                     <td>Détermine si le résultat est en format JSON ou XML.</td>
                                 </tr>
                             </table>
-                            <p>La liste des homogolations peut être accédée aux adresses URI suivantes&nbsp;:</p>
+                            <p>La liste des homogolations en vigueur peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
-                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/licence/?state=active&type=json">https://produits-sante.canada.ca/api/instruments-medicaux/licence/?state=active&type=json</a></li>
-                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/licence/?state=archived&type=json">https://produits-sante.canada.ca/api/instruments-medicaux/licence/?state=archived&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/licence/?state=active&lang=en&type=json">https://produits-sante.canada.ca/api/instruments-medicaux/licence/?state=active&lang=en&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/licence/?state=active&lang=fr&type=json">https://produits-sante.canada.ca/api/instruments-medicaux/licence/?state=active&lang=fr&type=json</a></li>                               
+                            </ul>
+                            <p>La liste des homogolations archivées peut être accédée aux adresses URI suivantes&nbsp;:</p>
+                            <ul>
+                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/licence/?state=archived&lang=en&type=json">https://produits-sante.canada.ca/api/instruments-medicaux/licence/?state=archived&lang=en&type=json</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/licence/?state=archived&lang=fr&type=json">https://produits-sante.canada.ca/api/instruments-medicaux/licence/?state=archived&lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -611,10 +616,13 @@
                                 -->
 
                             </table>
-                            <p>La liste des instruments médicaux peut être accédée à l'adresse URI suivante&nbsp;:</p>
+                            <p>La liste des instruments médicaux en vigueur peut être accédée à l'adresse URI suivante&nbsp;:</p>
                             <ul>
-                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/device/?type=json&state=active">https://produits-sante.canada.ca/api/instruments-medicaux/device/?type=json&state=active</a></li>                                
-                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/device/?type=json&state=archived">https://produits-sante.canada.ca/api/instruments-medicaux/device/?type=json&state=archived</a></li>
+                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/device/?state=active&type=json">https://produits-sante.canada.ca/api/instruments-medicaux/device/?state=active&type=json</a></li>
+                            </ul>
+                            <p>La liste des instruments médicaux archivés peut être accédée à l'adresse URI suivante&nbsp;:</p>
+                            <ul>                                
+                                <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/device/?state=archived&type=json">https://produits-sante.canada.ca/api/instruments-medicaux/device/?state=archived&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -705,7 +713,7 @@
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a5.1">Paramètres</h3>
-                            <p>Il y a cinq paramètres dans la requête: id, device_identifier, state, lang et type.</p>
+                            <p>Il y a quatre paramètres dans la requête: id, device_identifier, state et type.</p>
                             <table>
                                 <caption>
                                     Paramètres pour la requête
@@ -750,18 +758,6 @@
                                     </td>
                                     <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
                                     <td>Détermine si le résultat est affiché selon un état spécifique.</td>
-                                </tr>         
-                                <tr>
-                                    <td><span class="nowrap">api/instruments-medicaux/deviceidentifier/?lang=fr</span></td>
-                                    <td>Modifie la langue du résultat.</td>
-                                    <td>
-                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
-                                            <li><code>en</code>&nbsp;- Anglais</li>
-                                            <li><code>fr</code>&nbsp;- Fran&ccedil;ais</li>
-                                        </ul>
-                                    </td>
-                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
-                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/instruments-medicaux/deviceidentifier/?type=json</span></td>
@@ -776,9 +772,12 @@
                                     <td>Détermine si le résultat est en format JSON ou XML.</td>
                                 </tr>
                             </table>
-                            <p>La liste des identificateurs de l'instrument peut être accédée aux adresses URI suivantes ::</p>
+                            <p>La liste des identificateurs de l'instrument en vigueur peut être accédée à l'adresse URI suivante :</p>
                             <ul>
                                 <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/deviceidentifier/?state=active&type=json">https://produits-sante.canada.ca/api/instruments-medicaux/deviceidentifier/?state=active&type=json</a></li>
+                            </ul>
+                            <p>La liste des identificateurs de l'instrument archivés peut être accédée à l'adresse URI suivante :</p>
+                            <ul>                                
                                 <li><a href="https://produits-sante.canada.ca/api/instruments-medicaux/deviceidentifier/?state=archived&type=json">https://produits-sante.canada.ca/api/instruments-medicaux/deviceidentifier/?state=archived&type=json</a></li>
                             </ul>
                         </section>

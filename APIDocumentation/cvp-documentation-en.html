@@ -17,8 +17,8 @@
         <meta name="dcterms.contributor" content="" />
         <meta name="dcterms.type" title="gctype" content="" />
         <meta name="dcterms.audience" title="gcaudience" content="public" />
-        <meta name="dcterms.issued" title="W3CDTF" content="2017-11-30" />
-        <meta name="dcterms.modified" title="W3CDTF" content="2017-11-30" />
+        <meta name="dcterms.issued" title="W3CDTF" content="2017-12-15" />
+        <meta name="dcterms.modified" title="W3CDTF" content="2017-12-15" />
         <meta name="review_date" content="" />
         <meta name="meta_date" content="" />
 
@@ -196,8 +196,9 @@
                         <section>
                             <h2 id="a1">Introduction</h2>
                             <p>The Canada Vigilance Adverse Reaction Online Database contains information about suspected adverse reactions (also known as side effects) to health products.</p>
-                            <p>This Application Programming Interface (API) allows developers to access that information in JSON, XML and CSV format for reuse in their own applications.</p>
-                            <p>The base URI for the Canada Vigilance Product (CVP) &nbsp;<a href="https://api.hres.ca/cvp/api-v1/">https://api.hres.ca/cvp/api-v1/</a>. Any requests are made relative to this URI.</p>
+                            <p>This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications.
+                            The base URI for the Canada Vigilance Product (CVP) is&nbsp;<a href="https://health-products.canada.ca/api/canada-vigilance/">https://health-products.canada.ca/api/canada-vigilance/</a> and you can add parameters to it. Any requests are made relative to this URI.</p>
+                            <p>Information is also available in CSV format, use that URI&nbsp;<a href="https://health-products.canada.ca/api/documentation/cvp-dataset-en.html">https://health-products.canada.ca/api/documentation/cvp-dataset-en</a> to see the available options.</p>
                         </section>
 
                         <section>
@@ -220,7 +221,7 @@
                                         <th scope="col">Note</th>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/drugproductingredient/?id=</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/drugproductingredient/?id=</span></td>
                                         <td>Returns drug product ingredient according to the drug product active ingredient identifier specified in the request.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -231,7 +232,7 @@
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/drugproductingredient/?lang=en</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/drugproductingredient/?lang=en</span></td>
                                         <td>Changes the language of the response.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -243,7 +244,7 @@
                                         <td>Determines whether the response is in English or French.</td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/drugproductingredient/?type=json</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/drugproductingredient/?type=json</span></td>
                                         <td>Changes the format of the result.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -257,8 +258,8 @@
                                 </table>
                                 <p>Drug Product Ingredients can be accessed via these URIs:</p>
                                 <ul>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/drugproductingredient/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/drugproductingredient/?lang=en&type=json</a></li>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/drugproductingredient/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/drugproductingredient/?lang=fr&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/drugproductingredient/?lang=en&type=json">https://health-products.canada.ca/api/canada-vigilance/drugproductingredient/?lang=en&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/drugproductingredient/?lang=fr&type=json">https://health-products.canada.ca/api/canada-vigilance/drugproductingredient/?lang=fr&type=json</a></li>
                                 </ul>
                             </section>
                             <section>
@@ -309,8 +310,8 @@
                                 <h3 id="a2.4">jQuery example</h3>
                                 <p>Example of a function that search for drug product ingredient given a drug product active ingredient identifier and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getDrugProductIngredient(id, lang) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/cvp/api-v1/drugproductingredient/?lang=' + lang + '&id=' + id;
+      var base = 'https://health-products.canada.ca';
+      var uri = base + '/api/canada-vigilance/drugproductingredient/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -357,7 +358,7 @@
                                         <th scope="col">Note</th>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/drugproduct/?id=</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/drugproduct/?id=</span></td>
                                         <td>Returns drug product according to the drug product identifier specified in the request.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -368,7 +369,7 @@
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/drugproduct/?lang=en</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/drugproduct/?lang=en</span></td>
                                         <td>Changes the language of the response.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -380,7 +381,7 @@
                                         <td>Determines whether the response is in English or French.</td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/drugproduct/?type=json</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/drugproduct/?type=json</span></td>
                                         <td>Changes the format of the result.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -394,8 +395,8 @@
                                 </table>
                                 <p>Drug Products can be accessed via these URIs:</p>
                                 <ul>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/drugproduct/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/drugproduct/?lang=en&type=json</a></li>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/drugproduct/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/drugproduct/?lang=fr&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/drugproduct/?lang=en&type=json">https://health-products.canada.ca/api/canada-vigilance/drugproduct/?lang=en&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/drugproduct/?lang=fr&type=json">https://health-products.canada.ca/api/canada-vigilance/drugproduct/?lang=fr&type=json</a></li>
                                 </ul>
                             </section>
 
@@ -439,8 +440,8 @@
                                 <h3 id="a3.4">jQuery example</h3>
                                 <p>Example of a function that search for a drug product given a drug product identifier and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getDrugProduct(id, lang) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/cvp/api-v1/drugproduct/?lang=' + lang + '&id=' + id;
+      var base = 'https://health-products.canada.ca';
+      var uri = base + '/api/canada-vigilance/drugproduct/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -488,7 +489,7 @@
                                         <th scope="col">Note</th>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/gender/?id=</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/gender/?id=</span></td>
                                         <td>Returns gender according to the gender identifier specified in the request.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -499,7 +500,7 @@
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/gender/?lang=en</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/gender/?lang=en</span></td>
                                         <td>Changes the language of the response.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -511,7 +512,7 @@
                                         <td>Determines whether the response is in English or French.</td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/gender/?type=json</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/gender/?type=json</span></td>
                                         <td>Changes the format of the result.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -525,8 +526,8 @@
                                 </table>
                                 <p>Genders can be accessed via these URIs:</p>
                                 <ul>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/gender/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/gender/?lang=en&type=json</a></li>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/gender/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/gender/?lang=fr&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/gender/?lang=en&type=json">https://health-products.canada.ca/api/canada-vigilance/gender/?lang=en&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/gender/?lang=fr&type=json">https://health-products.canada.ca/api/canada-vigilance/gender/?lang=fr&type=json</a></li>
                                 </ul>
                             </section>
                             <section>
@@ -563,8 +564,8 @@
                                  <h3 id="a4.4">jQuery example</h3>
                                  <p>Example of a function that search for a gender given a gender identifier and language selection:</p>
                                  <pre class="prettify prettyprint linenums">function getGender(id, lang) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/cvp/api-v1/gender/?lang=' + lang + '&id=' + id;
+      var base = 'https://health-products.canada.ca';
+      var uri = base + '/api/canada-vigilance/gender/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -612,7 +613,7 @@
                                         <th scope="col">Note</th>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/outcome/?id=</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/outcome/?id=</span></td>
                                         <td>Returns outcome according to the outcome identifier specified in the request.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -623,7 +624,7 @@
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/outcome/?lang=en</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/outcome/?lang=en</span></td>
                                         <td>Changes the language of the response.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -635,7 +636,7 @@
                                         <td>Determines whether the response is in English or French.</td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/outcome/?type=json</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/outcome/?type=json</span></td>
                                         <td>Changes the format of the result.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -649,8 +650,8 @@
                                 </table>
                                 <p>Outcomes can be accessed via these URIs:</p>
                                 <ul>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/outcome/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/outcome/?lang=en&type=json</a></li>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/outcome/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/outcome/?lang=fr&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/outcome/?lang=en&type=json">https://health-products.canada.ca/api/canada-vigilance/outcome/?lang=en&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/outcome/?lang=fr&type=json">https://health-products.canada.ca/api/canada-vigilance/outcome/?lang=fr&type=json</a></li>
                                 </ul>
                             </section>
 
@@ -689,8 +690,8 @@
                                  <h3 id="a5.4">jQuery example</h3>
                                  <p>Example of a function that search for an outcome given an outcome identifier and language selection:</p>
                                  <pre class="prettify prettyprint linenums">function getOutcome(id, lang) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/cvp/api-v1/outcome/?lang=' + lang + '&id=' + id;
+      var base = 'https://health-products.canada.ca';
+      var uri = base + '/api/canada-vigilance/outcome/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -738,7 +739,7 @@
                                         <th scope="col">Note</th>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/reaction/?id=</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/reaction/?id=</span></td>
                                         <td>Returns reaction according to the reaction identifier specified in the request.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -749,7 +750,7 @@
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/reaction/?lang=en</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/reaction/?lang=en</span></td>
                                         <td>Changes the language of the response.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -761,7 +762,7 @@
                                         <td>Determines whether the response is in English or French.</td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/reaction/?type=json</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/reaction/?type=json</span></td>
                                         <td>Changes the format of the result.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -775,8 +776,8 @@
                                 </table>
                                 <p>Reactions can be accessed via these URIs:</p>
                                 <ul>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/reaction/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/reaction/?lang=en&type=json</a></li>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/reaction/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/reaction/?lang=fr&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/reaction/?lang=en&type=json">https://health-products.canada.ca/api/canada-vigilance/reaction/?lang=en&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/reaction/?lang=fr&type=json">https://health-products.canada.ca/api/canada-vigilance/reaction/?lang=fr&type=json</a></li>
                                 </ul>
                             </section>
                             <section>
@@ -831,8 +832,8 @@
                                  <h3 id="a6.4">jQuery example</h3>
                                  <p>Example of a function that search for a reaction given a reaction identifier and language selection:</p>
                                  <pre class="prettify prettyprint linenums">function getReaction(id, lang) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/cvp/api-v1/reaction/?lang=' + lang + '&id=' + id;
+      var base = 'https://health-products.canada.ca';
+      var uri = base + '/api/canada-vigilance/reaction/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -880,7 +881,7 @@
                                         <th scope="col">Note</th>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/reportdrug/?id=</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/reportdrug/?id=</span></td>
                                         <td>Returns report drug according to the adverse reaction report number specified in the request. </td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -891,7 +892,7 @@
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/reportdrug/?lang=en</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/reportdrug/?lang=en</span></td>
                                         <td>Changes the language of the response.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -903,7 +904,7 @@
                                         <td>Determines whether the response is in English or French.</td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/reportdrug/?type=json</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/reportdrug/?type=json</span></td>
                                         <td>Changes the format of the result.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -917,8 +918,8 @@
                                 </table>
                                 <p>Report Drugs can be accessed via these URIs:</p>
                                 <ul>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/reportdrug/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/reportdrug/?lang=en&type=json</a></li>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/reportdrug/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/reportdrug/?lang=fr&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/reportdrug/?lang=en&type=json">https://health-products.canada.ca/api/canada-vigilance/reportdrug/?lang=en&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/reportdrug/?lang=fr&type=json">https://health-products.canada.ca/api/canada-vigilance/reportdrug/?lang=fr&type=json</a></li>
                                 </ul>
                             </section>
                             <section>
@@ -1017,8 +1018,8 @@
                                  <h3 id="a7.4">jQuery example</h3>
                                  <p>Example of a function that search for a report drug given an adverse reaction report number and language selection:</p>
                                  <pre class="prettify prettyprint linenums">function getReportDrug(id, lang) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/cvp/api-v1/reportdrug/?lang=' + lang + '&id=' + id;
+      var base = 'https://health-products.canada.ca';
+      var uri = base + '/api/canada-vigilance/reportdrug/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -1066,7 +1067,7 @@
                                         <th scope="col">Note</th>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/reportlink/?id=</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/reportlink/?id=</span></td>
                                         <td>Returns report link according to the report link identifier specified in the request.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1077,7 +1078,7 @@
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/reportlink/?lang=en</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/reportlink/?lang=en</span></td>
                                         <td>Changes the language of the response.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1089,7 +1090,7 @@
                                         <td>Determines whether the response is in English or French.</td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/reportlink/?type=json</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/reportlink/?type=json</span></td>
                                         <td>Changes the format of the result.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1103,8 +1104,8 @@
                                 </table>
                                 <p>Report Links can be accessed via these URIs:</p>
                                 <ul>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/reportlink/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/reportlink/?lang=en&type=json</a></li>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/reportlink/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/reportlink/?lang=fr&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/reportlink/?lang=en&type=json">https://health-products.canada.ca/api/canada-vigilance/reportlink/?lang=en&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/reportlink/?lang=fr&type=json">https://health-products.canada.ca/api/canada-vigilance/reportlink/?lang=fr&type=json</a></li>
                                 </ul>
                             </section>
                             <section>
@@ -1146,8 +1147,8 @@
                                  <h3 id="a8.4">jQuery example</h3>
                                  <p>Example of a function that search for a report link given a report link identifier and language selection:</p>
                                  <pre class="prettify prettyprint linenums">function getReportLink(id, lang) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/cvp/api-v1/reportlink/?lang=' + lang + '&id=' + id;
+      var base = 'https://health-products.canada.ca';
+      var uri = base + '/api/canada-vigilance/reportlink/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -1195,7 +1196,7 @@
                                         <th scope="col">Note</th>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/reporttype/?id=</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/reporttype/?id=</span></td>
                                         <td>Returns report type according to the report type identifier specified in the request.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1206,7 +1207,7 @@
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/reporttype/?lang=en</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/reporttype/?lang=en</span></td>
                                         <td>Changes the language of the response.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1218,7 +1219,7 @@
                                         <td>Determines whether the response is in English or French.</td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/reporttype/?type=json</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/reporttype/?type=json</span></td>
                                         <td>Changes the format of the result.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1232,8 +1233,8 @@
                                 </table>
                                 <p>Report Types can be accessed via these URIs:</p>
                                 <ul>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/reporttype/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/reporttype/?lang=en&type=json</a></li>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/reporttype/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/reporttype/?lang=fr&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/reporttype/?lang=en&type=json">https://health-products.canada.ca/api/canada-vigilance/reporttype/?lang=en&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/reporttype/?lang=fr&type=json">https://health-products.canada.ca/api/canada-vigilance/reporttype/?lang=fr&type=json</a></li>
                                 </ul>
                             </section>
                             <section>
@@ -1272,8 +1273,8 @@
                                  <h3 id="a9.4">jQuery example</h3>
                                  <p>Example of a function that search for a report type given a report type identifier and language selection:</p>
                                  <pre class="prettify prettyprint linenums">function getReportType(id, lang) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/cvp/api-v1/reporttype/?lang=' + lang + '&id=' + id;
+      var base = 'https://health-products.canada.ca';
+      var uri = base + '/api/canada-vigilance/reporttype/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -1303,7 +1304,7 @@
                         <!-- Report - section-start-->
                         <section>                            
                             <h2 id="a10">Report</h2>
-                            <p>Provides the information about drugs associated with specific reports.</p>
+                            <p>Provides the information about reports and patients.</p>
 
                             <!--h3-section-start-->
                             <section>
@@ -1321,7 +1322,7 @@
                                         <th scope="col">Note</th>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/report/?id=</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/report/?id=</span></td>
                                         <td>Returns report according to the adverse reaction report number specified in the request.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1332,7 +1333,7 @@
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/report/?lang=en</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/report/?lang=en</span></td>
                                         <td>Changes the language of the response.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1344,7 +1345,7 @@
                                         <td>Determines whether the response is in English or French.</td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/report/?type=json</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/report/?type=json</span></td>
                                         <td>Changes the format of the result.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1358,8 +1359,8 @@
                                 </table>
                                 <p>Reports can be accessed via these URIs:</p>
                                 <ul>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/report/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/report/?lang=en&type=json</a></li>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/report/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/report/?lang=fr&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/report/?lang=en&type=json">https://health-products.canada.ca/api/canada-vigilance/report/?lang=en&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/report/?lang=fr&type=json">https://health-products.canada.ca/api/canada-vigilance/report/?lang=fr&type=json</a></li>
                                 </ul>
                             </section>
 
@@ -1558,8 +1559,8 @@
                                  <h3 id="a10.4">jQuery example</h3>
                                  <p>Example of a function that search for a report given an adverse reaction report number and language selection:</p>
                                  <pre class="prettify prettyprint linenums">function getReport(id, lang) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/cvp/api-v1/report/?lang=' + lang + '&id=' + id;
+      var base = 'https://health-products.canada.ca';
+      var uri = base + '/api/canada-vigilance/report/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
@@ -1607,7 +1608,7 @@
                                         <th scope="col">Note</th>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/seriousness/?id=</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/seriousness/?id=</span></td>
                                         <td>Returns seriousness according to the serious report identifier specified in the request.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1618,7 +1619,7 @@
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/seriousness/?lang=en</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/seriousness/?lang=en</span></td>
                                         <td>Changes the language of the response.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1630,7 +1631,7 @@
                                         <td>Determines whether the response is in English or French.</td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/seriousness/?type=json</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/seriousness/?type=json</span></td>
                                         <td>Changes the format of the result.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1644,8 +1645,8 @@
                                 </table>
                                 <p>Seriousness can be accessed via these URIs:</p>
                                 <ul>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/seriousness/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/seriousness/?lang=en&type=json</a></li>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/seriousness/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/seriousness/?lang=fr&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/seriousness/?lang=en&type=json">https://health-products.canada.ca/api/canada-vigilance/seriousness/?lang=en&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/seriousness/?lang=fr&type=json">https://health-products.canada.ca/api/canada-vigilance/seriousness/?lang=fr&type=json</a></li>
                                 </ul>
                             </section>
                             <section>
@@ -1683,15 +1684,15 @@
                                 <h3 id="a11.4">jQuery example</h3>
                                 <p>Example of a function that search for a seriousness given a serious report identifier and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getSeriousness(id, lang) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/cvp/api-v1/seriousness/?lang=' + lang + '&id=' + id;
+      var base = 'https://health-products.canada.ca';
+      var uri = base + '/api/canada-vigilance/seriousness/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
               Accept:&quot;application/json&quot;,
               dataType: 'json',
               success:function(data){
-                           console.log(data.Seriousness);
+                           console.log(data.seriousness);
                            var frag = document.createDocumentFragment();
                            var h2 = document.createElement(&quot;h2&quot;);
                            var Seriousness = document.createTextNode(data.seriousness);
@@ -1732,7 +1733,7 @@
                                         <th scope="col">Note</th>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/source/?id=</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/source/?id=</span></td>
                                         <td>Returns source of report according to the report source identifier specified in the request.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1743,7 +1744,7 @@
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/source/?lang=en</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/source/?lang=en</span></td>
                                         <td>Changes the language of the response.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1755,7 +1756,7 @@
                                         <td>Determines whether the response is in English or French.</td>
                                     </tr>
                                     <tr>
-                                        <td><span class="nowrap">cvp/api-v1/source/?type=json</span></td>
+                                        <td><span class="nowrap">api/canada-vigilance/source/?type=json</span></td>
                                         <td>Changes the format of the result.</td>
                                         <td>
                                             <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1769,8 +1770,8 @@
                                 </table>
                                 <p>Sources can be accessed via these URIs:</p>
                                 <ul>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/source/?lang=en&type=json">https://api.hres.ca/cvp/api-v1/source/?lang=en&type=json</a></li>
-                                    <li><a href="https://api.hres.ca/cvp/api-v1/source/?lang=fr&type=json">https://api.hres.ca/cvp/api-v1/source/?lang=fr&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/source/?lang=en&type=json">https://health-products.canada.ca/api/canada-vigilance/source/?lang=en&type=json</a></li>
+                                    <li><a href="https://health-products.canada.ca/api/canada-vigilance/source/?lang=fr&type=json">https://health-products.canada.ca/api/canada-vigilance/source/?lang=fr&type=json</a></li>
                                 </ul>
                             </section>
                             <section>
@@ -1808,8 +1809,8 @@
                                 <h3 id="a12.4">jQuery example</h3>
                                 <p>Example of a function that search for a source given a report source identifier and language selection:</p>
                                 <pre class="prettify prettyprint linenums">function getSource(id, lang) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/cvp/api-v1/source/?lang=' + lang + '&id=' + id;
+      var base = 'https://health-products.canada.ca';
+      var uri = base + '/api/canada-vigilance/source/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
               type:'GET',
