@@ -17,8 +17,8 @@
     <meta name="dcterms.contributor" content="" />
     <meta name="dcterms.type" title="gctype" content="" />
     <meta name="dcterms.audience" title="gcaudience" content="public" />
-    <meta name="dcterms.issued" title="W3CDTF" content="2017-11-30" />
-    <meta name="dcterms.modified" title="W3CDTF" content="2017-11-30" />
+    <meta name="dcterms.issued" title="W3CDTF" content="2018-03-30" />
+    <meta name="dcterms.modified" title="W3CDTF" content="2018-03-30" />
     <meta name="review_date" content="" />
     <meta name="meta_date" content="" />
 
@@ -91,7 +91,7 @@
                         <ul>
                             <li><a href="#a1">Introduction</a></li>
                             <li>
-                                <a href="#a2">Ingredient</a>
+                                <a href="#a2">Medicinal Ingredients</a>
                                 <ul>
                                     <li><a href="#a2.1">Parameters</a></li>
                                     <li><a href="#a2.2">Contents of the response</a></li>
@@ -100,7 +100,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a3">Ingredient Quantity</a>
+                                <a href="#a3">Non Medicinal Ingredients</a>
                                 <ul>
                                     <li><a href="#a3.1">Parameters</a></li>
                                     <li><a href="#a3.2">Contents of the response</a></li>
@@ -108,6 +108,7 @@
                                     <li><a href="#a3.4">jQuery example </a></li>
                                 </ul>
                             </li>
+                            <!-- took of for now
                             <li>
                                 <a href="#a4">Ingredient Source</a>
                                 <ul>
@@ -116,7 +117,7 @@
                                     <li><a href="#a4.3">Sample response</a></li>
                                     <li><a href="#a4.4">jQuery example </a></li>
                                 </ul>
-                            </li>
+                            </li>                            
                             <li>
                                 <a href="#a5">Ingredient Submission</a>
                                 <ul>
@@ -126,6 +127,7 @@
                                     <li><a href="#a5.4">jQuery example </a></li>
                                 </ul>
                             </li>
+                             -->
                             <li>
                                 <a href="#a6">Product Dose</a>
                                 <ul>
@@ -177,14 +179,15 @@
                     <section>
                         <h2 id="a1">Introduction</h2>
                         <p>The Licensed Natural Health Products (LNHPD) Database contains information about natural health products that have been issued a product licence by Health Canada.</p>
-                        <p>This Application Programming Interface (API) allows developers to access that information in JSON, XML and CSV format for reuse in their own applications.</p>
-                        <p>The base URI for the Licensed Natural Health Products Database &nbsp;<a href="https://api.hres.ca/lnhpd/api/">https://api.hres.ca/lnhpd/api/</a>. Any requests are made relative to this URI.</p>
+                        <p>This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications.
+                        The base URI for the Licensed Natural Health Products Database&nbsp;<a href="https://health-products.canada.ca/api/natural-licences/">https://health-products.canada.ca/api/natural-licences/</a> and you can add parameters to it. Any requests are made relative to this URI.</p>
+                        <p>Information is also available in CSV format, use that URI&nbsp;<a href="https://health-products.canada.ca/api/documentation/lnhpd-dataset-en.html">https://health-products.canada.ca/api/documentation/lnhpd-dataset-en</a> to see the available options.</p>
                     </section>
-                    <!-- Intoduction end -->
-                    <!-- INGREDIENT start -->
+                    <!-- Introduction end -->
+                    <!-- Medicinal INGREDIENT start -->
                     <section>
-                        <h2 id="a2">Ingredient</h2>
-                        <p>TODO put description of ingredient.....</p>
+                        <h2 id="a2">Medicinal Ingredients</h2>
+                        <p>Contributes to the therapeutic activity associated with the recommended use or purpose.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a2.1">Parameters</h3>
@@ -199,18 +202,18 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/ingredient/?id=</span></td>
-                                    <td>Returns active ingredient(s) according to the submission identification number specified in the request.</td>
+                                    <td><span class="nowrap">api/natural-licences/medicinalingredient/?id=</span></td>
+                                    <td>Returns active ingredient(s) according to the primary key value specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identification number of the submission
+                                            #####&nbsp;- primary key value
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/ingredient/?lang=en</span></td>
+                                    <td><span class="nowrap">api/natural-licences/medicinalingredient/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -222,7 +225,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/ingredient/?type=json</span></td>
+                                    <td><span class="nowrap">api/natural-licences/medicinalingredient/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -234,134 +237,103 @@
                                     <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
-                            <p>Ingredients can be accessed via these URIs:</p>
+                            <p>Medicinal Ingredients can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/lnhpd/api/ingredient/?lang=en&type=json">https://api.hres.ca/lnhpd/api/ingredient/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/lnhpd/api/ingredient/?lang=fr&type=json">https://api.hres.ca/lnhpd/api/ingredient/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/natural-licences/medicinalingredient/?lang=en&type=json">https://health-products.canada.ca/api/natural-licences/medicinalingredient/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/natural-licences/medicinalingredient/?lang=fr&type=json">https://health-products.canada.ca/api/natural-licences/medicinalingredient/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
                             <h3 id="a2.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
-                            <p>Each&nbsp;<strong>ingredient</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>medicinal ingredient</strong>&nbsp;object consists of the following values:</p>
                             <table>
-                                <caption>Ingredient object values</caption>
+                                <caption>Medicinal Ingredient object values</caption>
                                 <tr>
                                     <th scope="col">Key</th>
                                     <th scope="col">Value</th>
                                 </tr>
                                 <tr>
                                     <td><strong>submission_id</strong></td>
-                                    <td>The .....</td>
-                                </tr>
+                                    <td>Primary key value.</td>
+                                </tr>                       
                                 <tr>
                                     <td><strong>ingredient_name</strong></td>
-                                    <td>The .....</td>
+                                    <td>The Name of the MI.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>matrix_id</strong></td>
-                                    <td>The .....</td>
+                                    <td><strong>potency_amount</strong></td>
+                                    <td>The amount per dosage unit of the standardized component that further characterizes the quantity of the ingredient.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>matrix_type_code</strong></td>
-                                    <td>The .....</td>
+                                    <td><strong>potency_unit of_measure</strong></td>
+                                    <td>The UoM describing the potency-amount.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>quantity_list</strong></td>
-                                    <td>The .....</td>
+                                    <td><strong>potency_constituent</strong></td>
+                                    <td>The active component of the MI.</td>
+                                </tr>                                
+                                <tr>
+                                    <td><strong>quantity</strong></td>
+                                    <td>The quantity of MI/dosage unit.</td>
                                 </tr>
                                 <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ingredient_amount_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
+                                    <td><strong>quantity_minimum</strong></td>
+                                    <td>Minimum quantity if range.</td>
                                 </tr>
                                 <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ingredient_name</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
+                                    <td><strong>quantity_maximum</strong></td>
+                                    <td>Maximum quantity if range.</td>
                                 </tr>
                                 <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>matrix_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
+                                    <td><strong>quantity_unit_of_measure</strong></td>
+                                    <td>The UoM describing the quantity.</td>
+                                </tr>                                
+                                <tr>
+                                    <td><strong>ratio_numerator</strong></td>
+                                    <td>Extract ratio numerator.</td>
                                 </tr>
                                 <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
+                                    <td><strong>ratio_denominator</strong></td>
+                                    <td>Extract ratio denominator.</td>
                                 </tr>
                                 <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_minimum</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
+                                    <td><strong>dried_herb_equivalent</strong></td>
+                                    <td>The amount of crude ingredient used in an extract, expressed per dosage unit.</td>
                                 </tr>
                                 <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_maximum</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
+                                    <td><strong>dhe_unit of_measure</strong></td>
+                                    <td>The UoM describing quantity.</td>
                                 </tr>
                                 <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_uom_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
+                                    <td><strong>extract_type_desc</strong></td>
+                                    <td>The extract type.</td>
                                 </tr>
                                 <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_string</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
+                                    <td><strong>ingredient_source_list</strong></td>
+                                    <td>The list of medicinal ingredient sources.</td>
+                                </tr>   
                                 <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ratio_numerator</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ratio_denominator</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>dried_herb_equivalent</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>dried_herb_equivalent_uom_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>extract_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>extract_string</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>potency</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>potency_uom_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>potency_constituent</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>potency_string</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>source_material</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The substance from which the medicinal ingredient was derived. There may be multiple sources for a medicinal ingredient.</td>
+                                </tr>                                
                             </table>
                         </section>
                         <section>
                             <h3 id="a2.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">{"submission_id":100123,"ingredient_name":"Zinc","matrix_id":208144,"matrix_type_code":2,
-    "quantity_list":
-    [{"ingredient_amount_id":208145,"ingredient_name":"Zinc","matrix_id":208144,"quantity":7.5,"quantity_minimum":0.0,"quantity_maximum":0.0,
-    "quantity_uom_type_desc":"mg","quantity_string":"7.5&nbsp;mg&nbsp;","ratio_numerator":"","ratio_denominator":"","dried_herb_equivalent":"",
-    "dried_herb_equivalent_uom_type_desc":"","extract_type_desc":"",
-    "extract_string":" : <br />DHE:&nbsp;&nbsp;&nbsp;<br />","potency":0.0,"potency_uom_type_desc":"","potency_constituent":"","potency_string":""}
-     ]
-}
-</pre>
+                            <pre class="prettify prettyprint linenums">[{"submission_id":100124,"ingredient_name":"Calcium","potency_amount":0,"potency_constituent":"","potency_unit_of_measure":"",
+        "quantity":667,"quantity_minimum":0,"quantity_maximum":0,"quantity_unit_of_measure":"mg","ratio_numerator":"",
+        "ratio_denominator":"","dried_herb_equivalent":"","dhe_unit_of_measure":"","extract_type_desc":"","source_material":""},
+ {"submission_id":100124,"ingredient_name":"Vitamin D3","potency_amount":0,"potency_constituent":"","potency_unit_of_measure":"",
+        "quantity":7,"quantity_minimum":0,"quantity_maximum":0,"quantity_unit_of_measure":"mcg","ratio_numerator":"",
+        "ratio_denominator":"","dried_herb_equivalent":"","dhe_unit_of_measure":"","extract_type_desc":"","source_material":""}]</pre>
                         </section>
                         <section>
                             <h3 id="a2.4">jQuery example</h3>
-                            <p>Example of a function that search for ingredient(s) given a submission identification number and language selection:</p>
+                            <p>Example of a function that search for medicinal ingredient(s) given a primary key value and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getIngredient(id, lang) {
-	var base = 'https://imsd.hres.ca';
-	var uri = base + '/lnhpd/api/ingredient/?lang=' + lang + '&id=' + id;
+	var base = 'https://health-products.canada.ca';
+	var uri = base + '/api/natural-licences/medicinalingredient/?lang=' + lang + '&id=' + id;
 	$.ajax({
 		url: uri,
 		type: 'GET',
@@ -386,11 +358,11 @@
 };			</pre>
                         </section>
                     </section>
-                    <!-- INGREDIENTS end -->
-                    <!-- INGREDIENT QUANTITY start -->
+                    <!-- Medicinal INGREDIENTS end -->
+                    <!-- Non Medicinal INGREDIENT start -->
                     <section>
-                        <h2 id="a3">Ingredient Quantity</h2>
-                        <p>TODO put description of ingredient quantity.....</p>
+                        <h2 id="a3">Non Medicinal Ingredients</h2>
+                        <p>Any substance added to a NHP to confer suitable consistency or form to the medicinal ingredients.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a3.1">Parameters</h3>
@@ -405,18 +377,18 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/ingredientquantity/?id=</span></td>
-                                    <td>Returns ingredient quantity according to the ingredient amount identification number specified in the request.</td>
+                                    <td><span class="nowrap">api/natural-licences/nonmedicinalingredient/?id=</span></td>
+                                    <td>Returns ingredient quantity according to the primary key value specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identification number of an ingredient amount
+                                            #####&nbsp;- primary key value
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/ingredientquantity/?lang=en</span></td>
+                                    <td><span class="nowrap">api/natural-licences/nonmedicinalingredient/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -428,7 +400,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/ingredientquantity/?type=json</span></td>
+                                    <td><span class="nowrap">api/natural-licences/nonmedicinalingredient/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -440,122 +412,61 @@
                                     <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
-                            <p>Ingredient Quantities can be accessed via these URIs:</p>
+                            <p>Non Medicinal Ingredients can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/lnhpd/api/ingredientquantity/?lang=en&type=json">https://api.hres.ca/lnhpd/api/ingredientquantity/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/lnhpd/api/ingredientquantity/?lang=fr&type=json">https://api.hres.ca/lnhpd/api/ingredientquantity/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/natural-licences/nonmedicinalingredient/?lang=en&type=json">https://health-products.canada.ca/api/natural-licences/nonmedicinalingredient/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/natural-licences/nonmedicinalingredient/?lang=fr&type=json">https://health-products.canada.ca/api/natural-licences/nonmedicinalingredient/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
                             <h3 id="a3.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
-                            <p>Each&nbsp;<strong>ingredient quantity</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>non medicinal ingredient</strong>&nbsp;object consists of the following values:</p>
                             <table>
-                                <caption>Ingredient Quantity object values</caption>
+                                <caption>Non Medicinal Ingredient object values</caption>
                                 <tr>
                                     <th scope="col">Key</th>
                                     <th scope="col">Value</th>
                                 </tr>
                                 <tr>
-                                    <td><strong>ingredient_amount_id</strong></td>
-                                    <td>The .....</td>
+                                    <td><strong>submission_id</strong></td>
+                                    <td>Primary key value.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>ingredient_name</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>matrix_id</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>quantity</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>quantity_minimum</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>quantity_maximum</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>quantity_uom_type_desc</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>quantity_string</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>ratio_numerator</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>ratio_denominator</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>dried_herb_equivalent</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>dried_herb_equivalent_uom_type_desc</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>extract_type_desc</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>extract_string</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>potency</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>potency_uom_type_desc</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>potency_constituent</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>potency_string</strong></td>
-                                    <td>The .....</td>
-                                </tr>
+                                    <td>The name of the NMI.</td>
+                                </tr>                                
                             </table>
                         </section>
                         <section>
                             <h3 id="a3.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">{"ingredient_amount_id":89536,"ingredient_name":null,"matrix_id":89493,"quantity":100.0,"quantity_minimum":0.0,
-    "quantity_maximum":0.0,"quantity_uom_type_desc":"mg","quantity_string":null,"ratio_numerator":"","ratio_denominator":"",
-    "dried_herb_equivalent":"","dried_herb_equivalent_uom_type_desc":"","extract_type_desc":"","extract_string":null,
-    "potency":25.0,"potency_uom_type_desc":"mg AIE","potency_constituent":"","potency_string":null}</pre>
+                            <pre class="prettify prettyprint linenums">[{"submission_id":100124,"ingredient_name":"Annatto"},
+    {"submission_id":100124,"ingredient_name":"Artificial Orange Flavor"},
+    {"submission_id":100124,"ingredient_name":"Cellulose"},
+    {"submission_id":100124,"ingredient_name":"Dextrose"},
+    {"submission_id":100124,"ingredient_name":"Fructose"},
+    {"submission_id":100124,"ingredient_name":"Magnesium Stearate"},
+    {"submission_id":100124,"ingredient_name":"Stearic Acid"}]</pre>
                         </section>
                         <section>
                             <h3 id="a3.4">jQuery example</h3>
-                            <p>Example of a function that search for an ingredient quantity given an ingredient amount identification number and language selection:</p>
-                            <pre class="prettify prettyprint linenums">function getIngredientQuantity(id, lang) {
-	var base = 'https://imsd.hres.ca';
-	var uri = base + '/lnhpd/api/ingredientquantity/?lang=' + lang + '&id=' + id;
+                            <p>Example of a function that search for a non medicinal ingredient given a primary key value and language selection:</p>
+                            <pre class="prettify prettyprint linenums">function getNonIngredient(id, lang) {
+	var base = 'https://health-products.canada.ca';
+	var uri = base + '/api/natural-licences/nonmedicinalingredient/?lang=' + lang + '&id=' + id;
 	$.ajax({
 		url: uri,
 		type: 'GET',
 		Accept: &quot;application/json&quot;,
 		dataType: 'json',
 		success: function(data) {
-			console.log(data.ingredient_quantity_name);
+			console.log(data.ingredient_name);
 			var frag = document.createDocumentFragment();
 			var h2 = document.createElement(&quot;h2&quot;);
-			var IngredientQuantityName = document.createTextNode(data.ingredient_quantity_name);
+			var NonIngredientName = document.createTextNode(data.ingredient_name);
 			var p = document.createElement(&quot;p&quot;);
 			var text = document.createTextNode(data.panels[0].text);
-			h2.appendChild(IngredientQuantityName);
+			h2.appendChild(NonIngredientName);
 			p.appendChild(text);
 			frag.appendChild(h2);
 			frag.appendChild(p);
@@ -567,12 +478,11 @@
 };			</pre>
                         </section>
                     </section>
-                    <!-- INGREDIENT QUANTITIES end -->
-                    <!-- INGREDIENT SOURCE start -->
+                    <!-- NON MEDICINAL INGREDIENT end -->
+                    <!-- INGREDIENT SOURCE remove
                     <section>
                         <h2 id="a4">Ingredient Source</h2>
-                        <p>TODO put description of ingredient source.....</p>
-                        <!--h3-section-start-->
+                        <p>TODO put description of ingredient source.....</p>                        
                         <section>
                             <h3 id="a4.1">Parameters</h3>
                             <p>There are three parameters in the request: id, lang and type.</p>
@@ -586,7 +496,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/ingredientsource/?id=</span></td>
+                                    <td><span class="nowrap">api/natural-licences/ingredientsource/?id=</span></td>
                                     <td>Returns ingredient source according to the material identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -597,7 +507,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/ingredientsource/?lang=en</span></td>
+                                    <td><span class="nowrap">api/natural-licences/ingredientsource/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -609,7 +519,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/ingredientsource/?type=json</span></td>
+                                    <td><span class="nowrap">api/natural-licences/ingredientsource/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -623,8 +533,8 @@
                             </table>
                             <p>Ingredient Sources can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/lnhpd/api/ingredientsource/?lang=en&type=json">https://api.hres.ca/lnhpd/api/ingredientsource/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/lnhpd/api/ingredientsource/?lang=fr&type=json">https://api.hres.ca/lnhpd/api/ingredientsource/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/natural-licences/ingredientsource/?lang=en&type=json">https://health-products.canada.ca/api/natural-licences/ingredientsource/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/natural-licences/ingredientsource/?lang=fr&type=json">https://health-products.canada.ca/api/natural-licences/ingredientsource/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -659,8 +569,8 @@
                             <h3 id="a4.4">jQuery example</h3>
                             <p>Example of a function that search for an ingredient source given a material identification number and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getIngredientSource(id, lang) {
-	var base = 'https://imsd.hres.ca';
-	var uri = base + '/lnhpd/api/ingredientsource/?lang=' + lang + '&id=' + id;
+	var base = 'https://health-products.canada.ca';
+	var uri = base + '/api/natural-licences/ingredientsource/?lang=' + lang + '&id=' + id;
 	$.ajax({
 		url: uri,
 		type: 'GET',
@@ -685,12 +595,11 @@
 };			</pre>
                         </section>
                     </section>
-                    <!-- INGREDIENT SOURCES end -->
-                    <!-- INGREDIENT SUBMISSION start -->
+                    <!-- INGREDIENT SOURCES  remove end -->
+                    <!-- INGREDIENT SUBMISSION remove start 
                     <section>
                         <h2 id="a5">Ingredient Submission</h2>
-                        <p>TODO put description of ingredient submission.....</p>
-                        <!--h3-section-start-->
+                        <p>TODO put description of ingredient submission.....</p>                        
                         <section>
                             <h3 id="a5.1">Parameters</h3>
                             <p>There are three parameters in the request: id, lang and type.</p>
@@ -704,7 +613,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/ingredientsubmission/?id=</span></td>
+                                    <td><span class="nowrap">api/natural-licences/ingredientsubmission/?id=</span></td>
                                     <td>Returns ingredient(s) submission according to the submission identification number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -715,7 +624,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/ingredientsubmission/?lang=en</span></td>
+                                    <td><span class="nowrap">api/natural-licences/ingredientsubmission/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -727,7 +636,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/ingredientsubmission/?type=json</span></td>
+                                    <td><span class="nowrap">api/natural-licences/ingredientsubmission/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -741,8 +650,8 @@
                             </table>
                             <p>Ingredient Submissions can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/lnhpd/api/ingredientsubmission/?lang=en&type=json">https://api.hres.ca/lnhpd/api/ingredientsubmission/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/lnhpd/api/ingredientsubmission/?lang=fr&type=json">https://api.hres.ca/lnhpd/api/ingredientsubmission/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/natural-licences/ingredientsubmission/?lang=en&type=json">https://health-products.canada.ca/api/natural-licences/ingredientsubmission/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/natural-licences/ingredientsubmission/?lang=fr&type=json">https://health-products.canada.ca/api/natural-licences/ingredientsubmission/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -754,10 +663,6 @@
                                 <tr>
                                     <th scope="col">Key</th>
                                     <th scope="col">Value</th>
-                                </tr>
-                                <tr>
-                                    <td><strong>matrix_id</strong></td>
-                                    <td>The .....</td>
                                 </tr>
                                 <tr>
                                     <td><strong>submission_id</strong></td>
@@ -781,8 +686,8 @@
                             <h3 id="a5.4">jQuery example</h3>
                             <p>Example of a function that search for ingredient(s) submission given a submission identification number and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getIngredientSubmission(id, lang) {
-	var base = 'https://imsd.hres.ca';
-	var uri = base + '/lnhpd/api/ingredientsubmission/?lang=' + lang + '&id=' + id;
+	var base = 'https://health-products.canada.ca';
+	var uri = base + '/api/natural-licences/ingredientsubmission/?lang=' + lang + '&id=' + id;
 	$.ajax({
 		url: uri,
 		type: 'GET',
@@ -807,11 +712,11 @@
 };</pre>
                         </section>
                     </section>
-                    <!-- INGREDIENT SUBMISSIONS end -->
+                    <!-- INGREDIENT SUBMISSIONS remove end -->
                     <!-- PRODUCT DOSE start -->
                     <section>
                         <h2 id="a6">Product Dose</h2>
-                        <p>TODO put description of product dose.....</p>
+                        <p>The amount of finished product in dosage form used for the recommended purpose, including any directions of use. The dose is represented as the amount of dosage units, the frequency of use, and directions for use, if any, by a sub-population group.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a6.1">Parameters</h3>
@@ -826,18 +731,18 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/productdose/?id=</span></td>
-                                    <td>Returns product dose according to the product dose identification number specified in the request.</td>
+                                    <td><span class="nowrap">api/natural-licences/productdose/?id=</span></td>
+                                    <td>Returns product dose according to the unique identifier for dose specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identification number of the product dose
+                                            #####&nbsp;- unique identifier for Dose
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/productdose/?lang=en</span></td>
+                                    <td><span class="nowrap">api/natural-licences/productdose/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -849,7 +754,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/productdose/?type=json</span></td>
+                                    <td><span class="nowrap">api/natural-licences/productdose/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -863,8 +768,8 @@
                             </table>
                             <p>Product Doses can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/lnhpd/api/productdose/?lang=en&type=json">https://api.hres.ca/lnhpd/api/productdose/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/lnhpd/api/productdose/?lang=fr&type=json">https://api.hres.ca/lnhpd/api/productdose/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/natural-licences/productdose/?lang=en&type=json">https://health-products.canada.ca/api/natural-licences/productdose/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/natural-licences/productdose/?lang=fr&type=json">https://health-products.canada.ca/api/natural-licences/productdose/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -879,91 +784,91 @@
                                 </tr>
                                 <tr>
                                     <td><strong>submission_id</strong></td>
-                                    <td>The .....</td>
+                                    <td>Primary key value.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>dose_id</strong></td>
-                                    <td>The .....</td>
+                                    <td>The unique identifier for Dose.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>population_type_desc</strong></td>
-                                    <td>The .....</td>
+                                    <td>Sub-population The group to which the NHP is targeted (may be more than one) that may require different dosing from the standard.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>age</strong></td>
-                                    <td>The .....</td>
+                                    <td>Age recommended.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>age_minimum</strong></td>
-                                    <td>The .....</td>
+                                    <td>Minimum age if range.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>age_maximum</strong></td>
-                                    <td>The .....</td>
+                                    <td>Maximum age if range.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>age_uom_type_desc</strong></td>
-                                    <td>The .....</td>
+                                    <td><strong>uom_type_desc_age</strong></td>
+                                    <td>UoM for age.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>quantity_dose</strong></td>
-                                    <td>The .....</td>
+                                    <td>Quantity of MI/dosage unit.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>quantity_dose_minimum</strong></td>
-                                    <td>The .....</td>
+                                    <td>Min quantity of MI/dosage unit if range.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>quantity_dose_maximum</strong></td>
-                                    <td>The .....</td>
+                                    <td>Max quantity of MI/dosage unit if range.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>quantity_dose_uom_type_desc</strong></td>
-                                    <td>The .....</td>
+                                    <td><strong>uom_type_desc_quantity_dose</strong></td>
+                                    <td>UoM describing dose.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>frequency</strong></td>
-                                    <td>The .....</td>
+                                    <td>How often the product is to be taken in a given time or time interval.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>frequency_minimum</strong></td>
-                                    <td>The .....</td>
+                                    <td>Minimum frequency if range.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>frequency_maximum</strong></td>
-                                    <td>The .....</td>
+                                    <td>Maximum frequency if range.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>frequency_uom_type_desc</strong></td>
-                                    <td>The .....</td>
+                                    <td><strong>uom_type_desc_frequency</strong></td>
+                                    <td>UoM describing frequency.</td>
                                 </tr>
                             </table>
                         </section>
                         <section>
                             <h3 id="a6.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">{"submission_id":100464,"dose_id":526736,"population_type_desc":"Adults","age":0,"age_minimum":12,"age_maximum":0,"age_uom_type_desc":"year(s)",
-"quantity_dose":0,"quantity_dose_minimum":1,"quantity_dose_maximum":3,"quantity_dose_uom_type_desc":"capsule","frequency":1,"frequency_minimum":0,
-"frequency_maximum":0,"frequency_uom_type_desc":"daily"}</pre>
+                            <pre class="prettify prettyprint linenums">{"submission_id":100485,"dose_id":5884617,"population_type_desc":"Adults","age":0,"age_minimum":0,"age_maximum":0,"uom_type_desc_age":"",
+    "quantity_dose":2,"quantity_dose_minimum":0,"quantity_dose_maximum":0,"uom_type_desc_quantity_dose":"tablet","frequency":1,
+    "frequency_minimum":0,"frequency_maximum":0,"uom_type_desc_frequency":"daily"}</pre>
                         </section>
                         <section>
                             <h3 id="a6.4">jQuery example</h3>
-                            <p>Example of a function that search for a product dose given a dose identification number and language selection:</p>
+                            <p>Example of a function that search for a product dose given a unique identifier for dose and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getProductDose(id, lang) {
-	var base = 'https://imsd.hres.ca';
-	var uri = base + '/lnhpd/api/productdose/?lang=' + lang + '&id=' + id;
+	var base = 'https://health-products.canada.ca';
+	var uri = base + '/api/natural-licences/productdose/?lang=' + lang + '&id=' + id;
 	$.ajax({
 		url: uri,
 		type: 'GET',
 		Accept: &quot;application/json&quot;,
 		dataType: 'json',
 		success: function(data) {
-			console.log(data.product_dose_name);
+			console.log(data.quantity_dose);
 			var frag = document.createDocumentFragment();
 			var h2 = document.createElement(&quot;h2&quot;);
-			var ProductDoseName = document.createTextNode(data.product_dose_name);
+			var ProductDose = document.createTextNode(data.quantity_dose);
 			var p = document.createElement(&quot;p&quot;);
 			var text = document.createTextNode(data.panels[0].text);
-			h2.appendChild(ProductDoseName);
+			h2.appendChild(ProductDose);
 			p.appendChild(text);
 			frag.appendChild(h2);
 			frag.appendChild(p);
@@ -979,7 +884,7 @@
                     <!-- PRODUCT LICENCE start -->
                     <section>
                         <h2 id="a7">Product Licence</h2>
-                        <p>TODO put description of product licence.....</p>
+                        <p>An eight (8) digit numerical code assigned to each natural health product approved to be marketed under the NHPR.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a7.1">Parameters</h3>
@@ -994,7 +899,7 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/productlicence/?id=</span></td>
+                                    <td><span class="nowrap">api/natural-licences/productlicence/?id=</span></td>
                                     <td>Returns product licence according to the licence number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1005,7 +910,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/productlicence/?lang=en</span></td>
+                                    <td><span class="nowrap">api/natural-licences/productlicence/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1017,7 +922,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/productlicence/?type=json</span></td>
+                                    <td><span class="nowrap">api/natural-licences/productlicence/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1030,8 +935,8 @@
                             </table>
                             <p>Product Licences can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/lnhpd/api/productlicence/?lang=en&type=json">https://api.hres.ca/lnhpd/api/productlicence/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/lnhpd/api/productlicence/?lang=fr&type=json">https://api.hres.ca/lnhpd/api/productlicence/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/natural-licences/productlicence/?lang=en&type=json">https://health-products.canada.ca/api/natural-licences/productlicence/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/natural-licences/productlicence/?lang=fr&type=json">https://health-products.canada.ca/api/natural-licences/productlicence/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1043,475 +948,107 @@
                                 <tr>
                                     <th scope="col">Key</th>
                                     <th scope="col">Value</th>
-                                </tr>
-                                <tr>
-                                    <td><strong>file_number</strong></td>
-                                    <td>The .....</td>
-                                </tr>
+                                </tr>                               
                                 <tr>
                                     <td><strong>submission_id</strong></td>
-                                    <td>The .....</td>
+                                    <td>Primary key value.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>licence_number</strong></td>
-                                    <td>The .....</td>
+                                    <td>An eight (8) digit numerical code assigned to each natural health product approved to be marketed under the NHPR.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>licence_date</strong></td>
-                                    <td>The .....</td>
+                                    <td>Date of original issuance.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>revised_date</strong></td>
-                                    <td>The .....</td>
+                                    <td>Date last revised.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>time_receipt</strong></td>
-                                    <td>The .....</td>
+                                    <td>Date submission received at NNHPD.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>date_start</strong></td>
-                                    <td>The .....</td>
+                                    <td>Date processing begins.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>notes</strong></td>
-                                    <td>The .....</td>
+                                    <td>Free text.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>product_name_id</strong></td>
-                                    <td>The .....</td>
+                                    <td>Brand Name key value identifier.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>product_name</strong></td>
-                                    <td>The .....</td>
+                                    <td>Brand Name.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>dosage_form</strong></td>
-                                    <td>The .....</td>
+                                    <td>The final physical form of the natural health product which may be used by the consumer without requiring any further manufacturing.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>company_id</strong></td>
-                                    <td>The .....</td>
+                                    <td>Company key value identifier.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>company_name_id</strong></td>
-                                    <td>The .....</td>
+                                    <td>Company name key value identifier.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>company_name</strong></td>
-                                    <td>The .....</td>
+                                    <td>Licence holder.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>sub_submission_type_code</strong></td>
-                                    <td>The .....</td>
+                                    <td>Submission sub type identifier.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>sub_submission_type_desc</strong></td>
-                                    <td>The .....</td>
+                                    <td>Text value or the submission sub-type.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>flag_primary_name</strong></td>
-                                    <td>The .....</td>
+                                    <td>Flag on - primary brand name.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>flag_product_status</strong></td>
-                                    <td>The .....</td>
+                                    <td>Product active/non-active.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>flag_attested_monograph</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>secondary_brand_name_list</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>dose_list</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>submission_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>dose_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>population_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>age</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>age_minimum</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>age_maximum</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>age_uom_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_dose</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_dose_minimum</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_dose_maximum</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_dose_uom_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>frequency</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>frequency_minimum</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>frequency_maximum</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>frequency_uom_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>route_list</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>submission_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>route_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>route_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>purpose_list</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>text_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>submission_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>purpose</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>risk_list</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>submission_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>risk_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>risk_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>sub_risk_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>risk_text_list</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>text_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>risk_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>risk_text</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>medicinal_ingredient_list</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>submission_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ingredient_name</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>matrix_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>matrix_type_code</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_list</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ingredient_amount_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ingredient_name</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>matrix_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_minimum</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_maximum</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_uom_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_string</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ratio_numerator</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ratio_denominator</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>dried_herb_equivalent</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>dried_herb_equivalent_uom_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>extract_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>extract_string</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>potency</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>potency_uom_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>potency_constituent</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>potency_string</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>non_medicinal_ingredient_list</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>submission_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ingredient_name</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>matrix_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>matrix_type_code</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_list</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ingredient_amount_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ingredient_name</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>matrix_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_minimum</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_maximum</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_uom_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>quantity_string</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ratio_numerator</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>ratio_denominator</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>dried_herb_equivalent</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>dried_herb_equivalent_uom_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>extract_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>extract_string</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>potency</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>potency_uom_type_desc</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>potency_constituent</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>potency_string</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The .....</td>
-                                </tr>
+                                    <td>Attested to a monograph Yes/No.</td>
+                                </tr>                                
                             </table>
                         </section>
                         <section>
                             <h3 id="a7.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">{"file_number":100126,"submission_id":100126,"licence_number":"02096870","licence_date":"2004-10-15",
-"revised_date":null,"time_receipt":"2004-01-13","date_start":"2004-01-19","notes":"See file OF2-31-3-10152-1 Company general file for heavy metals testing. LC",
-"product_name_id":170030,"product_name":"Primanol","dosage_form":"Capsule","company_id":10152,"company_name_id":9141709,"company_name":"Jamieson Laboratories Ltd.",
-"sub_submission_type_code":5,"sub_submission_type_desc":"Transitional DIN","flag_primary_name":1,"flag_product_status":1,"flag_attested_monograph":0,
-"secondary_brand_name_list":null,
-"dose_list":
-[{"submission_id":100126,"dose_id":170061,"population_type_desc":"Adults","age":0,"age_minimum":0,"age_maximum":0,"age_uom_type_desc":"
-","quantity_dose":3,"quantity_dose_minimum":0,"quantity_dose_maximum":0,"quantity_dose_uom_type_desc":"capsule","frequency":0,
-"frequency_minimum":0,"frequency_maximum":0,"frequency_uom_type_desc":"daily"}],
-"route_list":
-[{"submission_id":100126,"route_id":170060,"route_type_desc":"Oral"}],
-"purpose_list":
-[{"text_id":170055,"submission_id":100126,"purpose":"Source of essential fatty acids important for the maintenance of good health."}],
-"risk_list":
-[{"submission_id":100126,"risk_id":170069,"risk_type_desc":"Cautions and Warnings","sub_risk_type_desc":"",
-"risk_text_list":
-[{"text_id":170070,"risk_id":170069,"risk_text":"Consult a qualified health care practitioner if you are pregnant or breastfeeding."}]},
-{"submission_id":100126,"risk_id":170073,"risk_type_desc":"Known Adverse Reactions","sub_risk_type_desc":"",
-"risk_text_list":[
-{"text_id":170074,"risk_id":170073,"risk_text":"May lead to nausea, soft stool, diarrhea or other gastrointestinal disturbance."}]}],
-"medicinal_ingredient_list":
-[{"submission_id":100126,"ingredient_name":"Borago officinalis","matrix_id":170042,"matrix_type_code":2,
-"quantity_list":
-[{"ingredient_amount_id":170043,"ingredient_name":"Borago officinalis","matrix_id":170042,"quantity":390.0,"quantity_minimum":0.0,"quantity_maximum":0.0,"quantity_uom_type_desc":"mg",
-"quantity_string":"390.0&nbsp;mg&nbsp;","ratio_numerator":"","ratio_denominator":"","dried_herb_equivalent":"","dried_herb_equivalent_uom_type_desc":"","extract_type_desc":"",
-"extract_string":" : <br />DHE:&nbsp;&nbsp;&nbsp;<br /><br /> : <br />DHE:&nbsp;&nbsp;&nbsp;<br />","potency":140.0,"potency_uom_type_desc":"mg",
-"potency_constituent":"Cis-Linoleic Acid","potency_string":"140.0&nbsp;mg<br />Cis-Linoleic Acid<br />90.0&nbsp;mg<br />Gamma Linoleic"}]},{"submission_id":100126,"ingredient_name":"Helianthus annuus",
-"matrix_id":170046,"matrix_type_code":2,"quantity_list":[{"ingredient_amount_id":170047,"ingredient_name":"Helianthus annuus","matrix_id":170046,
-"quantity":130.0,"quantity_minimum":0.0,"quantity_maximum":0.0,"quantity_uom_type_desc":"mg","quantity_string":"130.0&nbsp;mg&nbsp;",
-"ratio_numerator":"","ratio_denominator":"","dried_herb_equivalent":"","dried_herb_equivalent_uom_type_desc":"","extract_type_desc":"",
-"extract_string":" : <br />DHE:&nbsp;&nbsp;&nbsp;<br />","potency":75.6,"potency_uom_type_desc":"mg","potency_constituent":"Linoleic Acid",
-"potency_string":"75.6&nbsp;mg<br />Linoleic Acid"}]},{"submission_id":100126,"ingredient_name":"Vitamin E","matrix_id":170052,"matrix_type_code":2,
-"quantity_list":
-[{"ingredient_amount_id":170053,"ingredient_name":"Vitamin E","matrix_id":170052,"quantity":6.7,"quantity_minimum":0.0,"quantity_maximum":0.0,"quantity_uom_type_desc":"mg","quantity_string":"
-6.7&nbsp;mg&nbsp;","ratio_numerator":"","ratio_denominator":"","dried_herb_equivalent":"","dried_herb_equivalent_uom_type_desc":"","extract_type_desc":"",
-"extract_string":" : <br />DHE:&nbsp;&nbsp;&nbsp;<br />", "potency":10.0,"potency_uom_type_desc":"IU","potency_constituent":"Vitamin E","potency_string":"10.0&nbsp;IU<br />Vitamin E"}]}],
-"non_medicinal_ingredient_list":
-[{"submission_id":100126,"ingredient_name":"Gelatin","matrix_id":170077,"matrix_type_code":3,"quantity_list":null},
-{"submission_id":100126,"ingredient_name":"Glycerin","matrix_id":170079,"matrix_type_code":3,"quantity_list":null},
-{"submission_id":100126,"ingredient_name":"Purified water","matrix_id":170082,"matrix_type_code":3,"quantity_list":null}]}</pre>
+                            <pre class="prettify prettyprint linenums">{"submission_id":100126,"licence_number":"02096870","licence_date":"2004-10-15","revised_date":null,"time_receipt":"2004-01-13",
+    "date_start":"2004-01-19","notes":"See file OF2-31-3-10152-1 Company general file for heavy metals testing. LC","product_name_id":170030,
+    "product_name":"Primanol","dosage_form":"Capsule","company_id":10152,"company_name_id":9141709,"company_name":"Jamieson Laboratories Ltd.",
+    "sub_submission_type_code":5,"sub_submission_type_desc":"Transitional DIN","flag_primary_name":1,"flag_product_status":1,"flag_attested_monograph":0}</pre>
                         </section>
                         <section>
                             <h3 id="a7.4">jQuery example</h3>
                             <p>Example of a function that search for a product licence given a licence number and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getProductLicence(id, lang) {
-	var base = 'https://imsd.hres.ca';
-	var uri = base + '/lnhpd/api/productlicence/?lang=' + lang + '&id=' + id;
+	var base = 'https://health-products.canada.ca';
+	var uri = base + '/api/natural-licences/productlicence/?lang=' + lang + '&id=' + id;
 	$.ajax({
 		url: uri,
 		type: 'GET',
 		Accept: &quot;application/json&quot;,
 		dataType: 'json',
 		success: function(data) {
-			console.log(data.product_licence_name);
+			console.log(data.licence_number);
 			var frag = document.createDocumentFragment();
 			var h2 = document.createElement(&quot;h2&quot;);
-			var ProductLicenceName = document.createTextNode(data.product_licence_name);
+			var ProductLicence = document.createTextNode(data.licence_number);
 			var p = document.createElement(&quot;p&quot;);
 			var text = document.createTextNode(data.panels[0].text);
-			h2.appendChild(ProductLicenceName);
+			h2.appendChild(ProductLicence);
 			p.appendChild(text);
 			frag.appendChild(h2);
 			frag.appendChild(p);
@@ -1527,7 +1064,7 @@
                     <!-- PRODUCT PURPOSE start -->
                     <section>
                         <h2 id="a8">Product Purpose</h2>
-                        <p>TODO put description of product purpose.....</p>
+                        <p>Statement that indicates the intended beneficial effect of a NHP when used according to the recommended dose, duration of use and route of administration.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a8.1">Parameters</h3>
@@ -1542,18 +1079,18 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/productpurpose/?id=</span></td>
-                                    <td>Returns product purpose(s) according to the submission identification number specified in the request.</td>
+                                    <td><span class="nowrap">api/natural-licences/productpurpose/?id=</span></td>
+                                    <td>Returns product purpose(s) according to the primary key value specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identification number of the submission
+                                            #####&nbsp;- primary key value
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/productpurpose/?lang=en</span></td>
+                                    <td><span class="nowrap">api/natural-licences/productpurpose/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1565,7 +1102,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/productpurpose/?type=json</span></td>
+                                    <td><span class="nowrap">api/natural-licences/productpurpose/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1579,8 +1116,8 @@
                             </table>
                             <p>Product Purposes can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/lnhpd/api/productpurpose/?lang=en&type=json">https://api.hres.ca/lnhpd/api/productpurpose/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/lnhpd/api/productpurpose/?lang=fr&type=json">https://api.hres.ca/lnhpd/api/productpurpose/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/natural-licences/productpurpose/?lang=en&type=json">https://health-products.canada.ca/api/natural-licences/productpurpose/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/natural-licences/productpurpose/?lang=fr&type=json">https://health-products.canada.ca/api/natural-licences/productpurpose/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1595,15 +1132,15 @@
                                 </tr>
                                 <tr>
                                     <td><strong>text_id</strong></td>
-                                    <td>The .....</td>
+                                    <td>Unique identifier for purpose.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>submission_id</strong></td>
-                                    <td>The .....</td>
+                                    <td>Primary key value.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>purpose</strong></td>
-                                    <td>The .....</td>
+                                    <td>Purpose statement(s).</td>
                                 </tr>
                             </table>
                         </section>
@@ -1613,20 +1150,20 @@
                         </section>
                         <section>
                             <h3 id="a8.4">jQuery example</h3>
-                            <p>Example of a function that search for product purpose(s) given a submission identification number and language selection:</p>
+                            <p>Example of a function that search for product purpose(s) given a primary key value and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getProductPurpose(id, lang) {
-	var base = 'https://imsd.hres.ca';
-	var uri = base + '/lnhpd/api/productpurpose/?lang=' + lang + '&id=' + id;
+	var base = 'https://health-products.canada.ca';
+	var uri = base + '/api/natural-licences/productpurpose/?lang=' + lang + '&id=' + id;
 	$.ajax({
 		url: uri,
 		type: 'GET',
 		Accept: &quot;application/json&quot;,
 		dataType: 'json',
 		success: function(data) {
-			console.log(data.product_purpose_name);
+			console.log(data.purpose);
 			var frag = document.createDocumentFragment();
 			var h2 = document.createElement(&quot;h2&quot;);
-			var ProductPurposeName = document.createTextNode(data.product_purpose_name);
+			var ProductPurposeName = document.createTextNode(data.purpose);
 			var p = document.createElement(&quot;p&quot;);
 			var text = document.createTextNode(data.panels[0].text);
 			h2.appendChild(ProductPurposeName);
@@ -1645,7 +1182,7 @@
                     <!-- PRODUCT RISK start -->
                     <section>
                         <h2 id="a9">Product Risk</h2>
-                        <p>TODO put description of product risk.....</p>
+                        <p>Any cautions and warnings, adverse reactions and contraindications associated with the use of the NHP.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a9.1">Parameters</h3>
@@ -1660,18 +1197,18 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/productrisk/?id=</span></td>
-                                    <td>Returns product risk according to the product risk identification number specified in the request.</td>
+                                    <td><span class="nowrap">api/natural-licences/productrisk/?id=</span></td>
+                                    <td>Returns product risk according to the risk type key value identifier specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identification number of the product risk
+                                            #####&nbsp;- risk type key value identifier
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/productrisk/?lang=en</span></td>
+                                    <td><span class="nowrap">api/natural-licences/productrisk/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1683,7 +1220,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/productrisk/?type=json</span></td>
+                                    <td><span class="nowrap">api/natural-licences/productrisk/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1697,8 +1234,8 @@
                             </table>
                             <p>Product Risks can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/lnhpd/api/productrisk/?lang=en&type=json">https://api.hres.ca/lnhpd/api/productrisk/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/lnhpd/api/productrisk/?lang=fr&type=json">https://api.hres.ca/lnhpd/api/productrisk/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/natural-licences/productrisk/?lang=en&type=json">https://health-products.canada.ca/api/natural-licences/productrisk/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/natural-licences/productrisk/?lang=fr&type=json">https://health-products.canada.ca/api/natural-licences/productrisk/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1713,46 +1250,47 @@
                                 </tr>
                                 <tr>
                                     <td><strong>submission_id</strong></td>
-                                    <td>The .....</td>
+                                    <td>Primary key value.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>risk_id</strong></td>
-                                    <td>The .....</td>
+                                    <td>Risk type key value identifier.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>risk_type_desc</strong></td>
-                                    <td>The .....</td>
+                                    <td>Cautions and warnings; contraindications; known adverse reactions.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>sub_risk_type_desc</strong></td>
-                                    <td>The .....</td>
+                                    <td>risk sub-types if applicable.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>risk_text_list</strong></td>
-                                    <td>The .....</td>
+                                    <td><strong>risk_text</strong></td>
+                                    <td>Risk label statement.</td>
                                 </tr>
                             </table>
                         </section>
                         <section>
                             <h3 id="a9.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">{"submission_id":100494,"risk_id":3933447,"risk_type_desc":"Cautions and Warnings","sub_risk_type_desc":"","risk_text_list":null}</pre>
+                            <pre class="prettify prettyprint linenums">{"submission_id":100494,"risk_id":3933447,"risk_type_desc":"Cautions and Warnings","sub_risk_type_desc":"",
+    "risk_text":"Consult a health care practitioner prior to use if you are pregnant or breastfeeding. Consult a health care practitioner if symptoms worsen."}</pre>
                         </section>
                         <section>
                             <h3 id="a9.4">jQuery example</h3>
-                            <p>Example of a function that search for a product risk given a product risk identification number and language selection:</p>
+                            <p>Example of a function that search for a product risk given a risk type key value identifier and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getProductRisk(id, lang) {
-	var base = 'https://imsd.hres.ca';
-	var uri = base + '/lnhpd/api/productrisk/?lang=' + lang + '&id=' + id;
+	var base = 'https://health-products.canada.ca';
+	var uri = base + '/api/natural-licences/productrisk/?lang=' + lang + '&id=' + id;
 	$.ajax({
 		url: uri,
 		type: 'GET',
 		Accept: &quot;application/json&quot;,
 		dataType: 'json',
 		success: function(data) {
-			console.log(data.product_risk_name);
+			console.log(data.risk_type_desc);
 			var frag = document.createDocumentFragment();
 			var h2 = document.createElement(&quot;h2&quot;);
-			var ProductRiskName = document.createTextNode(data.product_risk_name);
+			var ProductRiskName = document.createTextNode(data.risk_type_desc);
 			var p = document.createElement(&quot;p&quot;);
 			var text = document.createTextNode(data.panels[0].text);
 			h2.appendChild(ProductRiskName);
@@ -1771,7 +1309,7 @@
                     <!-- PRODUCT ROUTE start -->
                     <section>
                         <h2 id="a10">Product Route</h2>
-                        <p>TODO put description of product route.....</p>
+                        <p>The method by which the NHP is to be delivered to the body.</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a10.1">Parameters</h3>
@@ -1786,18 +1324,18 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/productroute/?id=</span></td>
-                                    <td>Returns product route according to the product route identification number specified in the request.</td>
+                                    <td><span class="nowrap">api/natural-licences/productroute/?id=</span></td>
+                                    <td>Returns product route according to the route type key value identifier specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identification number of the product route
+                                            #####&nbsp;- route type key value identifier
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/productroute/?lang=en</span></td>
+                                    <td><span class="nowrap">api/natural-licences/productroute/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1809,7 +1347,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">lnhpd/api/productroute/?type=json</span></td>
+                                    <td><span class="nowrap">api/natural-licences/productroute/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1823,8 +1361,8 @@
                             </table>
                             <p>Product Routes can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://api.hres.ca/lnhpd/api/productroute/?lang=en&type=json">https://api.hres.ca/lnhpd/api/productroute/?lang=en&type=json</a></li>
-                                <li><a href="https://api.hres.ca/lnhpd/api/productroute/?lang=fr&type=json">https://api.hres.ca/lnhpd/api/productroute/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/natural-licences/productroute/?lang=en&type=json">https://health-products.canada.ca/api/natural-licences/productroute/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/natural-licences/productroute/?lang=fr&type=json">https://health-products.canada.ca/api/natural-licences/productroute/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1839,20 +1377,16 @@
                                 </tr>
                                 <tr>
                                     <td><strong>submission_id</strong></td>
-                                    <td>The .....</td>
+                                    <td>Primary key value.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>dose_id</strong></td>
-                                    <td>The .....</td>
+                                    <td><strong>route_id</strong></td>
+                                    <td>Route type key value identifier.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>population_type_desc</strong></td>
-                                    <td>The .....</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>population_type_desc</strong></td>
-                                    <td>The .....</td>
-                                </tr>
+                                    <td><strong>route_type_desc</strong></td>
+                                    <td>The method by which the NHP is to be delivered to the body.</td>
+                                </tr>                                
                             </table>
                         </section>
                         <section>
@@ -1861,20 +1395,20 @@
                         </section>
                         <section>
                             <h3 id="a10.4">jQuery example</h3>
-                            <p>Example of a function that search for a product route given a product route identification number and language selection:</p>
+                            <p>Example of a function that search for a product route given a route type key value identifier and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getProductRoute(id, lang) {
-	var base = 'https://imsd.hres.ca';
-	var uri = base + '/lnhpd/api/productroute/?lang=' + lang + '&id=' + id;
+	var base = 'https://health-products.canada.ca';
+	var uri = base + '/api/natural-licences/productroute/?lang=' + lang + '&id=' + id;
 	$.ajax({
 		url: uri,
 		type: 'GET',
 		Accept: &quot;application/json&quot;,
 		dataType: 'json',
 		success: function(data) {
-			console.log(data.product_route_name);
+			console.log(data.route_type_desc);
 			var frag = document.createDocumentFragment();
 			var h2 = document.createElement(&quot;h2&quot;);
-			var ProductRouteName = document.createTextNode(data.product_route_name);
+			var ProductRouteName = document.createTextNode(data.route_type_desc);
 			var p = document.createElement(&quot;p&quot;);
 			var text = document.createTextNode(data.panels[0].text);
 			h2.appendChild(ProductRouteName);
