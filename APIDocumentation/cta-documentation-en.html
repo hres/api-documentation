@@ -150,9 +150,10 @@
                     <section>
                         <h2 id="a1">Introduction</h2>
                         <p>The Clinical Trials Database provides to the public a listing of specific information relating to phase I, II and III clinical trials in patients. The database is managed by Health Canada and provides a source of information about Canadian clinical trials involving human pharmaceutical and biological drugs.</p>
-                        <p>This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications.
-                        The base URI for the Notice of Compliance Database is&nbsp;<a href="https://health-products.canada.ca/api/clinical-trial/">https://health-products.canada.ca/api/clinical-trial/</a> and you can add parameters to it. Any requests are made relative to this URI.
-                        <p>Information is also available in CSV format, use that URI&nbsp;<a href="https://health-products.canada.ca/api/documentation/cta-dataset-en.html">https://health-products.canada.ca/api/documentation/cta-dataset-en</a> to see the available options.</p>
+                        <p>
+                            This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications.
+                            The base URI for the Notice of Compliance Database is&nbsp;<a href="https://health-products.canada.ca/api/clinical-trial/">https://health-products.canada.ca/api/clinical-trial/</a> and you can add parameters to it. Any requests are made relative to this URI.
+                        </p>                        
                     </section>                    
                     <!--Sponsor-section-start-->
                     <section>
@@ -246,7 +247,7 @@
                              <h3 id="a2.4">jQuery example</h3>
                              <p>Example of a function that search for a sponsor given a sponsor identification number and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getSponsor(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://health-products.canada.ca';
       var uri = base + '/api/clinical-trial/sponsor/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
@@ -365,7 +366,7 @@
                              <h3 id="a3.4">jQuery example</h3>
                              <p>Example of a function that search for a medical condition given a medical condition identification number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function GetAllMedicalCondition(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://health-products.canada.ca';
       var uri = base + '/api/clinical-trial/medicalcondition/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
@@ -500,7 +501,7 @@
                              <h3 id="a4.4">jQuery example</h3>
                              <p>Example of a function that search for a drug product given a brand identification number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getDrugProduct(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://health-products.canada.ca';
       var uri = base + '/api/clinical-trial/drugproduct/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
@@ -673,7 +674,7 @@
                              <h3 id="a5.4">jQuery example</h3>
                              <p>Example of a function that search for a protocol given a protocol identification number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getProtocol(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://health-products.canada.ca';
       var uri = base + '/api/clinical-trial/protocol/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
@@ -793,7 +794,7 @@
                              <h3 id="a6.4">jQuery example</h3>
                              <p>Example of a function that search for a trial status given a status identification number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getStatus(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://health-products.canada.ca';
       var uri = base + '/api/clinical-trial/status/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
@@ -914,7 +915,7 @@
                              <h3 id="a7.4">jQuery example</h3>
                              <p>Example of a function that search for a study population given a study population identification number and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getStudyPopulation(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://health-products.canada.ca';
       var uri = base + '/api/clinical-trial/studypopulation/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,

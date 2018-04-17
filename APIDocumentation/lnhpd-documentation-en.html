@@ -91,7 +91,7 @@
                         <ul>
                             <li><a href="#a1">Introduction</a></li>
                             <li>
-                                <a href="#a2">Medicinal Ingredients</a>
+                                <a href="#a2">Medicinal Ingredient</a>
                                 <ul>
                                     <li><a href="#a2.1">Parameters</a></li>
                                     <li><a href="#a2.2">Contents of the response</a></li>
@@ -100,7 +100,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a3">Non Medicinal Ingredients</a>
+                                <a href="#a3">Non-Medicinal Ingredient</a>
                                 <ul>
                                     <li><a href="#a3.1">Parameters</a></li>
                                     <li><a href="#a3.2">Contents of the response</a></li>
@@ -178,15 +178,14 @@
                     <!-- Intoduction start -->
                     <section>
                         <h2 id="a1">Introduction</h2>
-                        <p>The Licensed Natural Health Products (LNHPD) Database contains information about natural health products that have been issued a product licence by Health Canada.</p>
+                        <p>The Licensed Natural Health Products Database (LNHPD) contains information about natural health products (NHPs) that have been issued a product licence by Health Canada.</p>
                         <p>This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications.
-                        The base URI for the Licensed Natural Health Products Database&nbsp;<a href="https://health-products.canada.ca/api/natural-licences/">https://health-products.canada.ca/api/natural-licences/</a> and you can add parameters to it. Any requests are made relative to this URI.</p>
-                        <p>Information is also available in CSV format, use that URI&nbsp;<a href="https://health-products.canada.ca/api/documentation/lnhpd-dataset-en.html">https://health-products.canada.ca/api/documentation/lnhpd-dataset-en</a> to see the available options.</p>
+                        The base URI for the Licensed Natural Health Products Database&nbsp;<a href="https://health-products.canada.ca/api/natural-licences/">https://health-products.canada.ca/api/natural-licences/</a> and you can add parameters to it. Any requests are made relative to this URI.</p>                        
                     </section>
                     <!-- Introduction end -->
                     <!-- Medicinal INGREDIENT start -->
                     <section>
-                        <h2 id="a2">Medicinal Ingredients</h2>
+                        <h2 id="a2">Medicinal Ingredient</h2>
                         <p>Contributes to the therapeutic activity associated with the recommended use or purpose.</p>
                         <!--h3-section-start-->
                         <section>
@@ -203,10 +202,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/natural-licences/medicinalingredient/?id=</span></td>
-                                    <td>Returns active ingredient(s) according to the primary key value specified in the request.</td>
+                                    <td>Returns medicinal ingredient(s) according to the unique product identifier specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- primary key value
+                                            #####&nbsp;- unique product identifier
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -254,12 +253,12 @@
                                     <th scope="col">Value</th>
                                 </tr>
                                 <tr>
-                                    <td><strong>submission_id</strong></td>
-                                    <td>Primary key value.</td>
+                                    <td><strong>lnhpd_id</strong></td>
+                                    <td>Unique product identifier.</td>
                                 </tr>                       
                                 <tr>
                                     <td><strong>ingredient_name</strong></td>
-                                    <td>The Name of the MI.</td>
+                                    <td>The name of the Medicinal Ingredient.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>potency_amount</strong></td>
@@ -267,15 +266,15 @@
                                 </tr>
                                 <tr>
                                     <td><strong>potency_unit of_measure</strong></td>
-                                    <td>The UoM describing the potency-amount.</td>
+                                    <td>Unit of measurement describing the potency-amount.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>potency_constituent</strong></td>
-                                    <td>The active component of the MI.</td>
+                                    <td>Active component of the Medicinal Ingredient.</td>
                                 </tr>                                
                                 <tr>
                                     <td><strong>quantity</strong></td>
-                                    <td>The quantity of MI/dosage unit.</td>
+                                    <td>Quantity of Medicinal Ingredient/dosage unit.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>quantity_minimum</strong></td>
@@ -287,7 +286,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>quantity_unit_of_measure</strong></td>
-                                    <td>The UoM describing the quantity.</td>
+                                    <td>Unit of measurement describing the quantity.</td>
                                 </tr>                                
                                 <tr>
                                     <td><strong>ratio_numerator</strong></td>
@@ -303,34 +302,30 @@
                                 </tr>
                                 <tr>
                                     <td><strong>dhe_unit of_measure</strong></td>
-                                    <td>The UoM describing quantity.</td>
+                                    <td>Unit of measurement describing quantity.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>extract_type_desc</strong></td>
-                                    <td>The extract type.</td>
-                                </tr>
+                                    <td>Extract type.</td>
+                                </tr>                                 
                                 <tr>
-                                    <td><strong>ingredient_source_list</strong></td>
-                                    <td>The list of medicinal ingredient sources.</td>
-                                </tr>   
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>source_material</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The substance from which the medicinal ingredient was derived. There may be multiple sources for a medicinal ingredient.</td>
+                                    <td><strong>source_material</strong></td>
+                                    <td>The substance from which the medicinal ingredient was derived. There may be multiple sources for a medicinal ingredient.</td>
                                 </tr>                                
                             </table>
                         </section>
                         <section>
                             <h3 id="a2.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">[{"submission_id":100124,"ingredient_name":"Calcium","potency_amount":0,"potency_constituent":"","potency_unit_of_measure":"",
+                            <pre class="prettify prettyprint linenums">[{"lnhpd_id":3894852,"ingredient_name":"Calcium","potency_amount":0,"potency_constituent":"","potency_unit_of_measure":"",
         "quantity":667,"quantity_minimum":0,"quantity_maximum":0,"quantity_unit_of_measure":"mg","ratio_numerator":"",
         "ratio_denominator":"","dried_herb_equivalent":"","dhe_unit_of_measure":"","extract_type_desc":"","source_material":""},
- {"submission_id":100124,"ingredient_name":"Vitamin D3","potency_amount":0,"potency_constituent":"","potency_unit_of_measure":"",
+ {"lnhpd_id":3894852,"ingredient_name":"Vitamin D3","potency_amount":0,"potency_constituent":"","potency_unit_of_measure":"",
         "quantity":7,"quantity_minimum":0,"quantity_maximum":0,"quantity_unit_of_measure":"mcg","ratio_numerator":"",
         "ratio_denominator":"","dried_herb_equivalent":"","dhe_unit_of_measure":"","extract_type_desc":"","source_material":""}]</pre>
                         </section>
                         <section>
                             <h3 id="a2.4">jQuery example</h3>
-                            <p>Example of a function that search for medicinal ingredient(s) given a primary key value and language selection:</p>
+                            <p>Example of a function that search for medicinal ingredient(s) given a unique product identifier and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getIngredient(id, lang) {
 	var base = 'https://health-products.canada.ca';
 	var uri = base + '/api/natural-licences/medicinalingredient/?lang=' + lang + '&id=' + id;
@@ -361,7 +356,7 @@
                     <!-- Medicinal INGREDIENTS end -->
                     <!-- Non Medicinal INGREDIENT start -->
                     <section>
-                        <h2 id="a3">Non Medicinal Ingredients</h2>
+                        <h2 id="a3">Non-Medicinal Ingredient</h2>
                         <p>Any substance added to a NHP to confer suitable consistency or form to the medicinal ingredients.</p>
                         <!--h3-section-start-->
                         <section>
@@ -378,10 +373,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/natural-licences/nonmedicinalingredient/?id=</span></td>
-                                    <td>Returns ingredient quantity according to the primary key value specified in the request.</td>
+                                    <td>Returns non-medicinal ingredient(s) according to the unique product identifier specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- primary key value
+                                            #####&nbsp;- unique product identifier
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -412,7 +407,7 @@
                                     <td>Determines whether the format of the result will be in JSON or XML.</td>
                                 </tr>
                             </table>
-                            <p>Non Medicinal Ingredients can be accessed via these URIs:</p>
+                            <p>Non-Medicinal Ingredients can be accessed via these URIs:</p>
                             <ul>
                                 <li><a href="https://health-products.canada.ca/api/natural-licences/nonmedicinalingredient/?lang=en&type=json">https://health-products.canada.ca/api/natural-licences/nonmedicinalingredient/?lang=en&type=json</a></li>
                                 <li><a href="https://health-products.canada.ca/api/natural-licences/nonmedicinalingredient/?lang=fr&type=json">https://health-products.canada.ca/api/natural-licences/nonmedicinalingredient/?lang=fr&type=json</a></li>
@@ -421,36 +416,36 @@
                         <section>
                             <h3 id="a3.2">Contents of the response</h3>
                             <p>The response consists of a&nbsp;<strong>result</strong>&nbsp;that contains one or multiple objects.</p>
-                            <p>Each&nbsp;<strong>non medicinal ingredient</strong>&nbsp;object consists of the following values:</p>
+                            <p>Each&nbsp;<strong>non-medicinal ingredient</strong>&nbsp;object consists of the following values:</p>
                             <table>
-                                <caption>Non Medicinal Ingredient object values</caption>
+                                <caption>Non-Medicinal Ingredient object values</caption>
                                 <tr>
                                     <th scope="col">Key</th>
                                     <th scope="col">Value</th>
                                 </tr>
                                 <tr>
-                                    <td><strong>submission_id</strong></td>
-                                    <td>Primary key value.</td>
+                                    <td><strong>lnhpd_id</strong></td>
+                                    <td>Unique product identifier.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>ingredient_name</strong></td>
-                                    <td>The name of the NMI.</td>
+                                    <td>The name of the Non-Medicinal Ingredient.</td>
                                 </tr>                                
                             </table>
                         </section>
                         <section>
                             <h3 id="a3.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">[{"submission_id":100124,"ingredient_name":"Annatto"},
-    {"submission_id":100124,"ingredient_name":"Artificial Orange Flavor"},
-    {"submission_id":100124,"ingredient_name":"Cellulose"},
-    {"submission_id":100124,"ingredient_name":"Dextrose"},
-    {"submission_id":100124,"ingredient_name":"Fructose"},
-    {"submission_id":100124,"ingredient_name":"Magnesium Stearate"},
-    {"submission_id":100124,"ingredient_name":"Stearic Acid"}]</pre>
+                            <pre class="prettify prettyprint linenums">[{"lnhpd_id":3894852,"ingredient_name":"Annatto"},
+    {"lnhpd_id":3894852,"ingredient_name":"Artificial Orange Flavor"},
+    {"lnhpd_id":3894852,"ingredient_name":"Cellulose"},
+    {"lnhpd_id":3894852,"ingredient_name":"Dextrose"},
+    {"lnhpd_id":3894852,"ingredient_name":"Fructose"},
+    {"lnhpd_id":3894852,"ingredient_name":"Magnesium Stearate"},
+    {"lnhpd_id":3894852,"ingredient_name":"Stearic Acid"}]</pre>
                         </section>
                         <section>
                             <h3 id="a3.4">jQuery example</h3>
-                            <p>Example of a function that search for a non medicinal ingredient given a primary key value and language selection:</p>
+                            <p>Example of a function that search for non-medicinal ingredient(s) given a unique product identifier and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getNonIngredient(id, lang) {
 	var base = 'https://health-products.canada.ca';
 	var uri = base + '/api/natural-licences/nonmedicinalingredient/?lang=' + lang + '&id=' + id;
@@ -665,7 +660,7 @@
                                     <th scope="col">Value</th>
                                 </tr>
                                 <tr>
-                                    <td><strong>submission_id</strong></td>
+                                    <td><strong>lnhpd_id</strong></td>
                                     <td>The .....</td>
                                 </tr>
                                 <tr>
@@ -680,7 +675,7 @@
                         </section>
                         <section>
                             <h3 id="a5.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">{"matrix_id":3098,"submission_id":100055,"ingredient_type_code":2,"brand_name":"2-Aminoethane Sulfonic Acid"}</pre>
+                            <pre class="prettify prettyprint linenums">{"matrix_id":3098,"lnhpd_id":100055,"ingredient_type_code":2,"brand_name":"2-Aminoethane Sulfonic Acid"}</pre>
                         </section>
                         <section>
                             <h3 id="a5.4">jQuery example</h3>
@@ -732,10 +727,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/natural-licences/productdose/?id=</span></td>
-                                    <td>Returns product dose according to the unique identifier for dose specified in the request.</td>
+                                    <td>Returns product dose according to the unique product identifier specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- unique identifier for Dose
+                                            #####&nbsp;- unique product identifier
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -783,12 +778,12 @@
                                     <th scope="col">Value</th>
                                 </tr>
                                 <tr>
-                                    <td><strong>submission_id</strong></td>
-                                    <td>Primary key value.</td>
+                                    <td><strong>lnhpd_id</strong></td>
+                                    <td>Unique product identifier.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>dose_id</strong></td>
-                                    <td>The unique identifier for Dose.</td>
+                                    <td>Unique identifier for Dose.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>population_type_desc</strong></td>
@@ -808,23 +803,23 @@
                                 </tr>
                                 <tr>
                                     <td><strong>uom_type_desc_age</strong></td>
-                                    <td>UoM for age.</td>
+                                    <td>Unit of measurement for age.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>quantity_dose</strong></td>
-                                    <td>Quantity of MI/dosage unit.</td>
+                                    <td>Quantity of Medicinal Ingredient/dosage unit.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>quantity_dose_minimum</strong></td>
-                                    <td>Min quantity of MI/dosage unit if range.</td>
+                                    <td>Minimum quantity of Medicinal Ingredient/dosage unit if range.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>quantity_dose_maximum</strong></td>
-                                    <td>Max quantity of MI/dosage unit if range.</td>
+                                    <td>Maximum quantity of Medicinal Ingredient/dosage unit if range.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>uom_type_desc_quantity_dose</strong></td>
-                                    <td>UoM describing dose.</td>
+                                    <td>Unit of measurement describing dose.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>frequency</strong></td>
@@ -840,19 +835,19 @@
                                 </tr>
                                 <tr>
                                     <td><strong>uom_type_desc_frequency</strong></td>
-                                    <td>UoM describing frequency.</td>
+                                    <td>Unit of measurement describing frequency.</td>
                                 </tr>
                             </table>
                         </section>
                         <section>
                             <h3 id="a6.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">{"submission_id":100485,"dose_id":5884617,"population_type_desc":"Adults","age":0,"age_minimum":0,"age_maximum":0,"uom_type_desc_age":"",
+                            <pre class="prettify prettyprint linenums">{"lnhpd_id":3908931,"dose_id":5884617,"population_type_desc":"Adults","age":0,"age_minimum":0,"age_maximum":0,"uom_type_desc_age":"",
     "quantity_dose":2,"quantity_dose_minimum":0,"quantity_dose_maximum":0,"uom_type_desc_quantity_dose":"tablet","frequency":1,
     "frequency_minimum":0,"frequency_maximum":0,"uom_type_desc_frequency":"daily"}</pre>
                         </section>
                         <section>
                             <h3 id="a6.4">jQuery example</h3>
-                            <p>Example of a function that search for a product dose given a unique identifier for dose and language selection:</p>
+                            <p>Example of a function that search for a product dose given a unique product identifier and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getProductDose(id, lang) {
 	var base = 'https://health-products.canada.ca';
 	var uri = base + '/api/natural-licences/productdose/?lang=' + lang + '&id=' + id;
@@ -884,7 +879,7 @@
                     <!-- PRODUCT LICENCE start -->
                     <section>
                         <h2 id="a7">Product Licence</h2>
-                        <p>An eight (8) digit numerical code assigned to each natural health product approved to be marketed under the NHPR.</p>
+                        <p>An eight (8) digit numerical code assigned to each natural health product approved to be marketed under the Natural Health Product Regulation (NHPR).</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a7.1">Parameters</h3>
@@ -950,8 +945,8 @@
                                     <th scope="col">Value</th>
                                 </tr>                               
                                 <tr>
-                                    <td><strong>submission_id</strong></td>
-                                    <td>Primary key value.</td>
+                                    <td><strong>lnhpd_id</strong></td>
+                                    <td>Unique product identifier.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>licence_number</strong></td>
@@ -967,7 +962,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>time_receipt</strong></td>
-                                    <td>Date submission received at NNHPD.</td>
+                                    <td>Date submission received at Natural and Non-prescription Health Products Directorate.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>date_start</strong></td>
@@ -1025,7 +1020,7 @@
                         </section>
                         <section>
                             <h3 id="a7.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">{"submission_id":100126,"licence_number":"02096870","licence_date":"2004-10-15","revised_date":null,"time_receipt":"2004-01-13",
+                            <pre class="prettify prettyprint linenums">{"lnhpd_id":3894930,"licence_number":"02096870","licence_date":"2004-10-15","revised_date":null,"time_receipt":"2004-01-13",
     "date_start":"2004-01-19","notes":"See file OF2-31-3-10152-1 Company general file for heavy metals testing. LC","product_name_id":170030,
     "product_name":"Primanol","dosage_form":"Capsule","company_id":10152,"company_name_id":9141709,"company_name":"Jamieson Laboratories Ltd.",
     "sub_submission_type_code":5,"sub_submission_type_desc":"Transitional DIN","flag_primary_name":1,"flag_product_status":1,"flag_attested_monograph":0}</pre>
@@ -1080,10 +1075,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/natural-licences/productpurpose/?id=</span></td>
-                                    <td>Returns product purpose(s) according to the primary key value specified in the request.</td>
+                                    <td>Returns product purpose(s) according to the unique product identifier specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- primary key value
+                                            #####&nbsp;- unique product identifier
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -1135,8 +1130,8 @@
                                     <td>Unique identifier for purpose.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>submission_id</strong></td>
-                                    <td>Primary key value.</td>
+                                    <td><strong>lnhpd_id</strong></td>
+                                    <td>Unique product identifier.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>purpose</strong></td>
@@ -1146,11 +1141,11 @@
                         </section>
                         <section>
                             <h3 id="a8.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">{"text_id":67880,"submission_id":101058,"purpose":"Helps to rebuild cartilage and aids to relieve osteoarthritic symptoms and joint pain."}</pre>
+                            <pre class="prettify prettyprint linenums">{"text_id":67880,"lnhpd_id":3931278,"purpose":"Helps to rebuild cartilage and aids to relieve osteoarthritic symptoms and joint pain."}</pre>
                         </section>
                         <section>
                             <h3 id="a8.4">jQuery example</h3>
-                            <p>Example of a function that search for product purpose(s) given a primary key value and language selection:</p>
+                            <p>Example of a function that search for product purpose(s) given a unique product identifier and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getProductPurpose(id, lang) {
 	var base = 'https://health-products.canada.ca';
 	var uri = base + '/api/natural-licences/productpurpose/?lang=' + lang + '&id=' + id;
@@ -1198,10 +1193,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/natural-licences/productrisk/?id=</span></td>
-                                    <td>Returns product risk according to the risk type key value identifier specified in the request.</td>
+                                    <td>Returns product risk according to the unique product identifier specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- risk type key value identifier
+                                            #####&nbsp;- unique product identifier
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -1249,8 +1244,8 @@
                                     <th scope="col">Value</th>
                                 </tr>
                                 <tr>
-                                    <td><strong>submission_id</strong></td>
-                                    <td>Primary key value.</td>
+                                    <td><strong>lnhpd_id</strong></td>
+                                    <td>Unique product identifier.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>risk_id</strong></td>
@@ -1262,7 +1257,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>sub_risk_type_desc</strong></td>
-                                    <td>risk sub-types if applicable.</td>
+                                    <td>Risk sub-types if applicable.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>risk_text</strong></td>
@@ -1272,12 +1267,12 @@
                         </section>
                         <section>
                             <h3 id="a9.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">{"submission_id":100494,"risk_id":3933447,"risk_type_desc":"Cautions and Warnings","sub_risk_type_desc":"",
+                            <pre class="prettify prettyprint linenums">{"lnhpd_id":3909282,"risk_id":3933447,"risk_type_desc":"Cautions and Warnings","sub_risk_type_desc":"",
     "risk_text":"Consult a health care practitioner prior to use if you are pregnant or breastfeeding. Consult a health care practitioner if symptoms worsen."}</pre>
                         </section>
                         <section>
                             <h3 id="a9.4">jQuery example</h3>
-                            <p>Example of a function that search for a product risk given a risk type key value identifier and language selection:</p>
+                            <p>Example of a function that search for a product risk given a unique product identifier and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getProductRisk(id, lang) {
 	var base = 'https://health-products.canada.ca';
 	var uri = base + '/api/natural-licences/productrisk/?lang=' + lang + '&id=' + id;
@@ -1325,10 +1320,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/natural-licences/productroute/?id=</span></td>
-                                    <td>Returns product route according to the route type key value identifier specified in the request.</td>
+                                    <td>Returns product route according to the unique product identifier specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- route type key value identifier
+                                            #####&nbsp;- unique product identifier
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
@@ -1376,8 +1371,8 @@
                                     <th scope="col">Value</th>
                                 </tr>
                                 <tr>
-                                    <td><strong>submission_id</strong></td>
-                                    <td>Primary key value.</td>
+                                    <td><strong>lnhpd_id</strong></td>
+                                    <td>Unique product identifier.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>route_id</strong></td>
@@ -1391,11 +1386,11 @@
                         </section>
                         <section>
                             <h3 id="a10.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">{"submission_id":100126,"route_id":170060,"route_type_desc":"Oral"}</pre>
+                            <pre class="prettify prettyprint linenums">{"lnhpd_id":3894930,"route_id":170060,"route_type_desc":"Oral"}</pre>
                         </section>
                         <section>
                             <h3 id="a10.4">jQuery example</h3>
-                            <p>Example of a function that search for a product route given a route type key value identifier and language selection:</p>
+                            <p>Example of a function that search for a product route given a unique product identifier and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getProductRoute(id, lang) {
 	var base = 'https://health-products.canada.ca';
 	var uri = base + '/api/natural-licences/productroute/?lang=' + lang + '&id=' + id;

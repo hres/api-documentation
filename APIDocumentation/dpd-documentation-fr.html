@@ -198,8 +198,7 @@
                         <p>Les produits à usage humain, vétérinaire, désinfectants et ceux faisant partie de l'Annexe C (produits radiopharmaceutiques) seront disponibles dans la BDPP en ligne dès leur approbation, à l'exception des produits appartenant aux trois groupes de monographies listées dans la Partie C, Titre 1, du Règlement sur les Aliments et Drogues. Ces produits sont : les produits solaires (crèmes solaires, baumes à lèvres revendiquant un FPS, produits cosmétiques contenant un agent de protection solaire, etc...), les shampoings antipelliculaires et les désinfectants pour surfaces dures. Pour ces produits, dont les applications ont été soumises après le 15 juin 2015, il peut y avoir un délai de 6 mois,  après la date d'approbation, avant qu'ils n'apparaissent dans la BDPP en ligne.</p>
                         <p>Santé Canada est l'organisme fédéral qui réglemente les produits thérapeutiques et nous ne donnons pas de conseils médicaux sur l'utilisation des produits dans cette base de données. Pour de plus amples informations sur les choix de traitement, les choix de médicament et leurs utilisations, maladies, effets secondaires et interactions médicamenteuses, veuillez contacter votre professionnel de la santé.</p>
                         <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON et XML afin de les utiliser dans leurs propres applications.
-                        L'adresse URI de base sur les produits pharmaceutiques est &nbsp;<a href="https://produits-sante.canada.ca/api/medicament/">https://produits-sante.canada.ca/api/medicament/</a> et vous pouvez y ajouter des paramètres. Toute requête est effectuée par l'entremise de cette adresse URI.</p>
-                        </p>Ces renseignements sont aussi disponibles en format CSV pour voir les options disponibles vous devez utiliser l'adresse URI suivante&nbsp;<a href="https://produits-sante.canada.ca/api/documentation/dpd-dataset-fr.html">https://produits-sante.canada.ca/api/documentation/dpd-dataset-fr</a>.
+                        L'adresse URI de base sur les produits pharmaceutiques est &nbsp;<a href="https://produits-sante.canada.ca/api/medicament/">https://produits-sante.canada.ca/api/medicament/</a> et vous pouvez y ajouter des paramètres. Toute requête est effectuée par l'entremise de cette adresse URI.</p>                        
                     </section>
                     <section>
                         <!--Active ingredient-section-start-->
@@ -343,7 +342,7 @@
                              <h3 id="a2.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche le ou les ingrédients actifs selon le code d'un produit pharmaceutique et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getActiveIngredient(id, lang) {
-      var base = 'https://api.hres.ca';
+      var base = 'https://produits-sante.canada.ca';
       var uri = base + '/api/medicament/activeingredient/?id=' + id + ' &lang =' + lang;
       $.ajax({
               url:uri,
@@ -495,7 +494,7 @@
                              <h3 id="a3.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche une entreprise selon le code d'une entreprise et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getCompany(id, lang) {
-      var base = 'https://api.hres.ca';
+      var base = 'https://produits-sante.canada.ca';
       var uri = base + '/api/medicament/company/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
@@ -677,7 +676,7 @@
                              <h3 id="a4.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche un produit pharmaceutique selon le code d'un produit pharmaceutique et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getDrugProduct(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://produits-sante.canada.ca';
       var uri = base + '/api/medicament/drugproduct/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
@@ -814,7 +813,7 @@
                              <h3 id="a5.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche la ou les formes posologiques d'un produit selon le code d'un produit pharmaceutique et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getForm(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://produits-sante.canada.ca';
       var uri = base + '/api/medicament/form/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
@@ -936,7 +935,7 @@
                              <h3 id="a6.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche les emballages selon le code d'un produit pharmaceutique&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getPackaging(id) {
-      var base = 'https://api.hres.ca';
+      var base = 'https://produits-sante.canada.ca';
       var uri = base + '/api/medicament/packaging/?id=' + id;
       $.ajax({
               url:uri,
@@ -1042,7 +1041,7 @@
                              <h3 id="a7.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche une norme pharmaceutique selon le code d'un produit pharmaceutique :</p>
                              <pre class="prettify prettyprint linenums">function getPharmaceuticalStd(id) {
-      var base = 'https://api.hres.ca';
+      var base = 'https://produits-sante.canada.ca';
       var uri = base + '/api/medicament/pharmaceuticalstd/?id=' + id;
       $.ajax({
               url:uri,
@@ -1182,7 +1181,7 @@
                              <h3 id="a8.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche les voies d'administration selon le code d'un produit pharmaceutique et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getRoute(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://produits-sante.canada.ca';
       var uri = base + '/api/medicament/route/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
@@ -1329,7 +1328,7 @@
                              <h3 id="a9.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche les annexes selon le code d'un produit pharmaceutique et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getSchedule(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://produits-sante.canada.ca';
       var uri = base + '/api/medicament/schedule/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
@@ -1477,7 +1476,7 @@
                              <h3 id="a10.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche l'état d'un produit selon le code d'un produit pharmaceutique et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getStatus(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://produits-sante.canada.ca';
       var uri = base + '/api/medicament/status/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
@@ -1609,7 +1608,7 @@
                             <h3 id="a11.4">Exemple de jQuery</h3>
                             <p>Exemple d'une fonctionnalité qui recherche une classe thérapeutique selon le code d'un produit pharmaceutique et la langue sélectionnée&nbsp;:</p>
                             <pre class="prettify prettyprint linenums">function getTherapeuticClass(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://produits-sante.canada.ca';
       var uri = base + '/api/medicament/therapeuticclass/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
@@ -1730,7 +1729,7 @@
                              <h3 id="a12.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche les espèces animales selon le code d'un produit pharmaceutique et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getVeterinarySpecies(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://produits-sante.canada.ca';
       var uri = base + '/api/medicament/veterinaryspecies/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,

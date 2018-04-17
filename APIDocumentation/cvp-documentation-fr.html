@@ -17,8 +17,8 @@
     <meta name="dcterms.contributor" content="" />
     <meta name="dcterms.type" title="gctype" content="" />
     <meta name="dcterms.audience" title="gcaudience" content="" />
-    <meta name="dcterms.issued" title="W3CDTF" content="2017-12-15" />
-    <meta name="dcterms.modified" title="W3CDTF" content="2017-12-15" />
+    <meta name="dcterms.issued" title="W3CDTF" content="2018-03-30" />
+    <meta name="dcterms.modified" title="W3CDTF" content="2018-03-30" />
     <meta name="review_date" content="" />
     <meta name="meta_date" content="" />
 
@@ -194,8 +194,7 @@
                         <h2 id="a1">Introduction</h2>
                         <p>La base de données en ligne des effets indésirables de Canada Vigilance renferme de l'information au sujet des effets indésirables soupçonnés (ou effets secondaires) associés à des produits de santé.</p>
                         <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON et XML afin de les utiliser dans leurs propres applications.
-                        L'adresse URI de base sur la Base de données en ligne des effets indésirables de Canada Vigilance (BDEI) est&nbsp;<a href="https://produits-sante.canada.ca/api/canada-vigilance/">https://produits-sante.canada.ca/api/canada-vigilance/</a> et vous pouvez y ajouter des paramètres. Toute requête est effectuée par l'entremise de cette adresse URI.</p>
-                        <p>Ces renseignements sont aussi disponibles en format CSV pour voir les options disponibles vous devez utiliser l'adresse URI suivante&nbsp;<a href="https://health-products.canada.ca/api/documentation/cvp-dataset-fr.html">https://health-products.canada.ca/api/documentation/cvp-dataset-fr</a>.</p>
+                        L'adresse URI de base sur la Base de données en ligne des effets indésirables de Canada Vigilance (BDEI) est&nbsp;<a href="https://produits-sante.canada.ca/api/canada-vigilance/">https://produits-sante.canada.ca/api/canada-vigilance/</a> et vous pouvez y ajouter des paramètres. Toute requête est effectuée par l'entremise de cette adresse URI.</p>                        
                     </section>
                     <section>
                         <!--Drug Product Ingredient - section-start-->
@@ -278,10 +277,12 @@
                                     <td><strong>drug_product_id</strong></td>
                                     <td>Identifiant du produit pharmaceutique.</td>
                                 </tr>
+                                <!--Remove March 2018
                                 <tr>
                                     <td><strong>product_id</strong></td>
-                                    <td>The .....</td>
+                                    <td>The ...</td>
                                 </tr>
+                                    -->
                                 <tr>
                                     <td><strong>drug_name</strong></td>
                                     <td>Nom commercial.</td>
@@ -409,20 +410,21 @@
                                 <tr>
                                     <td><strong>drug_product_id</strong></td>
                                     <td>Identifiant du produit pharmaceutique.</td>
+                                </tr>                                
+                                <tr>
+                                    <td><strong>drug_name</strong></td>
+                                    <td>Nom commercial.</td>
                                 </tr>
+                                <!--Remove March 2018
                                 <tr>
                                     <td><strong>product_id</strong></td>
                                     <td>The .....</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>drug_name</strong></td>
-                                    <td>Nom commercial.</td>
-                                </tr>
-                                <tr>
                                     <td><strong>cpd_flag</strong></td>
-                                    <td>The .....</td>
+                                    <td>The ....</td>
                                 </tr>
-
+                                --->
                             </table>
                         </section>
                         <section>
@@ -715,7 +717,7 @@
                     <section>
                         
                         <h2 id="a6">Réaction</h2>
-                        <p>Fournit des renseignements au sujet des réactions associés aux déclarations.</p>
+                        <p>Fournit des renseignements au sujet des réactions associées aux déclarations.</p>
 
                         <!--h3-section-start-->
                         <section>
@@ -945,11 +947,7 @@
                                 <tr>
                                     <td><strong>drug_involv_name</strong></td>
                                     <td>Rôle du produit de santé.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>route_admin</strong></td>
-                                    <td>The ...</td>
-                                </tr>
+                                </tr>                                
                                 <tr>
                                     <td><strong>route_admin_name</strong></td>
                                     <td>Voie d'administration.</td>
@@ -957,11 +955,7 @@
                                 <tr>
                                     <td><strong>unit_dose_qty</strong></td>
                                     <td>Dose.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>dose_unit</strong></td>
-                                    <td>The ...</td>
-                                </tr>
+                                </tr>                               
                                 <tr>
                                     <td><strong>dose_unit_name</strong></td>
                                     <td>Unité de dose.</td>
@@ -999,6 +993,16 @@
                                     <td><strong>indication_name</strong></td>
                                     <td>Indication.</td>
                                 </tr>
+                                <!--Remove March 2018
+                                <tr>
+                                    <td><strong>route_admin</strong></td>
+                                    <td>The ...</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>dose_unit</strong></td>
+                                    <td>The ...</td>
+                                </tr>
+                                 -->
                             </table>
                         </section>
                         <section>
@@ -1364,7 +1368,6 @@
                                     <th scope="col">Code</th>
                                     <th scope="col">Valeur</th>
                                 </tr>
-
                                 <tr>
                                     <td><strong>report_id</strong></td>
                                     <td>Numéro de la déclaration d'effet indésirable (DEI) (6chiffres).</td>
@@ -1414,21 +1417,9 @@
                                     <td>Âge en années.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>age_unit_code</strong></td>
-                                    <td>Code de l'unité de l'âge.</td>
-                                </tr>
-                                <tr>
                                     <td><strong>age_unit</strong></td>
                                     <td>Unité de l'âge.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>age_group_code</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>age_group_name</strong></td>
-                                    <td>The ...</td>
-                                </tr>
+                                </tr>                               
                                 <tr>
                                     <td><strong>outcome_code</strong></td>
                                     <td>Code du résultat de la déclaration.</td>
@@ -1509,15 +1500,7 @@
                                 <tr>
                                     <td><strong>source_name</strong></td>
                                     <td>Source de la déclaration.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>report_link_flg</strong></td>
-                                    <td>The ...</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>aer_id</strong></td>
-                                    <td>The ...</td>
-                                </tr>
+                                </tr>                                
                                 <tr>
                                     <td><strong>pt_name</strong></td>
                                     <td>Terme des effets indésirables.</td>
@@ -1538,6 +1521,36 @@
                                     <td><strong>drug_name</strong></td>
                                     <td>Nom commercial.</td>
                                 </tr>
+                                <!--Remove March 2018
+                                <tr>
+                                    <td><strong>age_unit_code</strong></td>
+                                    <td>The .....</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>age_group_code</strong></td>
+                                    <td>The ...</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>age_group_name</strong></td>
+                                    <td>The ...</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>weight_unit_code</strong></td>
+                                    <td>The ...</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>height_unit_code</strong></td>
+                                    <td>The ...</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>report_link_flg</strong></td>
+                                    <td>The ...</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>aer_id</strong></td>
+                                    <td>The ...</td>
+                                </tr>
+                                 -->
                             </table>
                         </section>
                         <section>

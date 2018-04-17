@@ -162,8 +162,7 @@
                         <p>La base de données est mise à jour tous les soirs et elle comprend des renseignements sur les AC concernant les médicaments pour usage humain émis depuis le 1er janvier 1994 jusqu'à ce jour. 
                         Elle comprend également les renseignements sur les AC concernant les médicaments vétérinaires émis depuis le 19 septembre 2000 jusqu'à ce jour. Santé Canada ajoutera progressivement les AC concernant les médicaments vétérinaires émis entre le 1er janvier 1994 et le 18 septembre 2000.</p>
                         <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON et XML afin de les utiliser dans leurs propres applications.
-                        L'adresse URI de base sur les avis de conformité est&nbsp;<a href="https://produits-sante.canada.ca/api/avis-de-conformite/">https://produits-sante.canada.ca/api/avis-de-conformite/</a> et vous pouvez y ajouter des paramètres. Toute requête est effectuée par l'entremise de cette adresse URI.</p>
-                        <p>Ces renseignements sont aussi disponibles en format CSV pour voir les options disponibles vous devez utiliser l'adresse URI suivante&nbsp;<a href="https://produits-sante.canada.ca/api/documentation/noc-dataset-fr.html">https://produits-sante.canada.ca/api/documentation/noc-dataset-fr</a>.</p>
+                        L'adresse URI de base sur les avis de conformité est&nbsp;<a href="https://produits-sante.canada.ca/api/avis-de-conformite/">https://produits-sante.canada.ca/api/avis-de-conformite/</a> et vous pouvez y ajouter des paramètres. Toute requête est effectuée par l'entremise de cette adresse URI.</p>                        
                     </section> 
                     <!--Drug product-section-start-->                  
                     <section>                        
@@ -269,7 +268,7 @@
                             <h3 id="a2.4">Exemple de jQuery</h3>
                             <p>Exemple d'une fonctionnalité qui recherche les produits pharmaceutiques selon le numéro d'un avis de conformité et la langue sélectionnée&nbsp;:</p>
                             <pre class="prettify prettyprint linenums">function getDrugProduct(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://produits-sante.canada.ca';
       var uri = base + '/api/avis-de-conformite/drugproduct/?lang=' + lang + '&id=' + id;
       $.ajax({
                url:uri,
@@ -449,7 +448,7 @@
                              <h3 id="a3.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche un avis de conformité selon le numéro d'un avis de conformité et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function GetNoticeOfComplianceMain(id, lang) {
-     var base = 'https://imsd.hres.ca';
+     var base = 'https://produits-sante.canada.ca';
      var uri = base + '/api/avis-de-conformite/noticeofcompliancemain/?lang=' + lang + '&id=' + id;
      $.ajax({
              url:uri,
@@ -576,7 +575,7 @@
                              <h3 id="a4.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche les produits pharmaceutiques selon le numéro d'un avis de conformité et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getProduct(id, lang) {
-     var base = 'https://imsd.hres.ca';
+     var base = 'https://produits-sante.canada.ca';
      var uri = base + '/api/avis-de-conformite/product/?lang=' + lang + '&id=' + id;
      $.ajax({
               url:uri,
@@ -700,7 +699,7 @@
                                 <h3 id="a4.4">Exemple de jQuery</h3>
                                 <p>Exemple d'une fonctionnalité qui recherche les formes posologiques selon le numéro d'un avis de conformité et la langue sélectionnée&nbsp;:</p>
                                 <pre class="prettify prettyprint linenums">function getDosageForm(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://produits-sante.canada.ca';
       var uri = base + '/api/avis-de-conformite/dosageform/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
@@ -838,7 +837,7 @@
                             <h3 id="a5.4">Exemple de jQuery</h3>
                             <p>Exemple d'une fonctionnalité qui recherche les ingrédients médicinaux selon le numéro d'un avis de conformité et la langue sélectionnée&nbsp;:</p>
                             <pre class="prettify prettyprint linenums">function getMedicinalIngredient(id, lang) {
-     var base = 'https://imsd.hres.ca';
+     var base = 'https://produits-sante.canada.ca';
      var uri = base + '/api/avis-de-conformite/medicinalingredient/?lang=' + lang + '&id=' + id;
      $.ajax({
              url:uri,
@@ -963,7 +962,7 @@
                              <h3 id="a6.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche les voies d'administration selon le numéro d'un avis de conformité et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getRouteAdministration(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://produits-sante.canada.ca';
       var uri = base + '/api/avis-de-conformite/route/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
@@ -1086,7 +1085,7 @@
                              <h3 id="a7.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche les espèces animales selon le numéro d'un avis de conformité et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getVeterinarySpecies(id, lang) {
-     var base = 'https://imsd.hres.ca';
+     var base = 'https://produits-sante.canada.ca';
      var uri = base + '/api/avis-de-conformite/vetspecies/?lang=' + lang + '&id=' + id;
      $.ajax({
              url:uri,

@@ -163,7 +163,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#a10">Voie d'administration du produit</a>
+                                <a href="#a10">Voie d'administration</a>
                                 <ul>
                                     <li><a href="#a10.1">Paramètres</a></li>
                                     <li><a href="#a10.2">Contenu du résultat</a></li>
@@ -176,10 +176,9 @@
                     <!-- Intoduction start -->
                     <section>
                         <h2 id="a1">Introduction</h2>
-                        <p>La Base de données des produits de santé naturels homologués (BDPSNH) contient des renseignements sur les produits de santé naturels ayant reçu une licence de mise en marché de Santé Canada.</p>
+                        <p>La Base de données des produits de santé naturels homologués (BDPSNH) contient des renseignements sur les produits de santé naturels (PSN) ayant reçu une licence de mise en marché de Santé Canada.</p>
                         <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON et XML afin de les utiliser dans leurs propres applications.
-                        L'adresse URI de base sur la Base de donnée de produits de santé naturels homologués (BDPSNH) est&nbsp;<a href="https://produits-sante.canada.ca/api/homologations-naturel/">https://produits-sante.canada.ca/api/homologations-naturel/</a> et vous pouvez y ajouter des paramètres. Toute requête est effectuée par l'entremise de cette adresse URI.</p>
-                        <p>Ces renseignements sont aussi disponibles en format CSV pour voir les options disponibles vous devez utiliser l'adresse URI suivante&nbsp;<a href="https://produits-sante.canada.ca/api/documentation/lnhpd-dataset-fr.html">https://produits-sante.canada.ca/api/documentation/lnhpd-dataset-fr</a>.</p>
+                        L'adresse URI de base sur la Base de donnée de produits de santé naturels homologués (BDPSNH) est&nbsp;<a href="https://produits-sante.canada.ca/api/homologations-naturel/">https://produits-sante.canada.ca/api/homologations-naturel/</a> et vous pouvez y ajouter des paramètres. Toute requête est effectuée par l'entremise de cette adresse URI.</p>                       
                     </section>
                     <!-- Intoduction end -->
                     <!-- INGREDIENT start -->
@@ -201,10 +200,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/homologations-naturel/medicinalingredient/?id=</span></td>
-                                    <td>Affiche les ingrédients médicinaux selon la valeur principale clé spécifiée dans la requête.</td>
+                                    <td>Affiche les ingrédients médicinaux selon l'identificateur unique de produit spécifiée dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- numéro d'identification d'une demande
+                                            #####&nbsp;- identificateur unique de produit
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -252,12 +251,12 @@
                                     <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
-                                    <td><strong>submission_id</strong></td>
-                                    <td>Valeur principale clé.</td>
+                                    <td><strong>lnhpd_id</strong></td>
+                                    <td>Identificateur unique de produit.</td>
                                 </tr>                                
                                 <tr>
                                     <td><strong>ingredient_name</strong></td>
-                                    <td>Nom de l'IM.</td>
+                                    <td>Le nom de l'ingrédient médicinal.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>potency_amount</strong></td>
@@ -269,11 +268,11 @@
                                 </tr>
                                 <tr>
                                     <td><strong>potency_constituent</strong></td>
-                                    <td>Composant actif de l'IM.</td>
+                                    <td>Composant actif de l'ingrédient médicinal.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>quantity</strong></td>
-                                    <td>Quantité de IM / unité de dose posologique.</td>
+                                    <td>Quantité d'ingrédient médicinal / unité de dose posologique.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>quantity_minimum</strong></td>
@@ -306,29 +305,25 @@
                                 <tr>
                                     <td><strong>extract_type_desc</strong></td>
                                     <td>Type d'extrait.</td>
-                                </tr>                                
-                                <tr>
-                                    <td><strong>ingredient_source_list</strong></td>
-                                    <td>La liste des sources de l'ingrédient médicinal.</td>
                                 </tr>
                                 <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>source_material</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;La substance à partir de laquelle l'ingrédient médicinal a été dérivé. Il peut y avoir plusieurs sources pour un seul ingrédient médicinal.</td>
+                                    <td><strong>source_material</strong></td>
+                                    <td>La substance à partir de laquelle l'ingrédient médicinal a été dérivé. Il peut y avoir plusieurs sources pour un seul ingrédient médicinal.</td>
                                 </tr>
                             </table>
                         </section>
                         <section>
                              <h3 id="a2.3">Exemple de résultat </h3>
-                             <pre class="prettify prettyprint linenums">[{"submission_id":100124,"ingredient_name":"Calcium","potency_amount":0,"potency_constituent":"","potency_unit_of_measure":"",
+                             <pre class="prettify prettyprint linenums">[{"lnhpd_id":3894852,"ingredient_name":"Calcium","potency_amount":0,"potency_constituent":"","potency_unit_of_measure":"",
     "quantity":667,"quantity_minimum":0,"quantity_maximum":0,"quantity_unit_of_measure":"mg","ratio_numerator":"","ratio_denominator":"",
     "dried_herb_equivalent":"","dhe_unit_of_measure":"","extract_type_desc":"","source_material":""},
-  {"submission_id":100124,"ingredient_name":"Vitamine D3","potency_amount":0,"potency_constituent":"","potency_unit_of_measure":"",
+  {"lnhpd_id":3894852,"ingredient_name":"Vitamine D3","potency_amount":0,"potency_constituent":"","potency_unit_of_measure":"",
     "quantity":7,"quantity_minimum":0,"quantity_maximum":0,"quantity_unit_of_measure":"mcg","ratio_numerator":"","ratio_denominator":"",
     "dried_herb_equivalent":"","dhe_unit_of_measure":"","extract_type_desc":"","source_material":""}]</pre>
                         </section>
                         <section>
                              <h3 id="a2.4">Exemple de jQuery</h3>
-                             Exemple d'une fonctionnalité qui recherche les ingrédients médicinaux selon la valeur principale clé et la langue sélectionnée&nbsp;:</p>
+                             Exemple d'une fonctionnalité qui recherche les ingrédients médicinaux selon l'identificateur unique de produit et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getIngredient(id, lang) {
 	var base = 'https://produits-sante.canada.ca';
 	var uri = base + '/api/homologations-naturel/medicinalingredient/?lang=' + lang + '&id=' + id;
@@ -376,10 +371,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/homologations-naturel/nonmedicinalingredient/?id=</span></td>
-                                    <td>Affiche les ingrédients non médicinaux selon la valeur principale clé spécifiée dans la requête.</td>
+                                    <td>Affiche les ingrédients non médicinaux selon l'identificateur unique de produit spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- valeur principale clé
+                                            #####&nbsp;- identificateur unique de produit
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -427,28 +422,28 @@
                                     <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
-                                    <td><strong>submission_id</strong></td>
-                                    <td>Valeur principale clé.</td>
+                                    <td><strong>lnhpd_id</strong></td>
+                                    <td>Identificateur unique de produit.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>ingredient_name</strong></td>
-                                    <td>Le nom de l'INM.</td>
+                                    <td>Le nom de l'ingrédient non médicinal.</td>
                                 </tr>                                
                             </table>
                         </section>
                         <section>
                              <h3 id="a3.3">Exemple de résultat </h3>
-                             <pre class="prettify prettyprint linenums">[{"submission_id":100124,"ingredient_name":"Rocou"},
-    {"submission_id":100124,"ingredient_name":"Artificial Orange Flavor"},
-    {"submission_id":100124,"ingredient_name":"cellulose"},
-    {"submission_id":100124,"ingredient_name":"Dextrose"},
-    {"submission_id":100124,"ingredient_name":"Fructose"},
-    {"submission_id":100124,"ingredient_name":"Stéarate de magnésium"},
-    {"submission_id":100124,"ingredient_name":"Acide stéarique"}]</pre>
+                             <pre class="prettify prettyprint linenums">[{"lnhpd_id":3894852,"ingredient_name":"Rocou"},
+    {"lnhpd_id":3894852,"ingredient_name":"Artificial Orange Flavor"},
+    {"lnhpd_id":3894852,"ingredient_name":"cellulose"},
+    {"lnhpd_id":3894852,"ingredient_name":"Dextrose"},
+    {"lnhpd_id":3894852,"ingredient_name":"Fructose"},
+    {"lnhpd_id":3894852,"ingredient_name":"Stéarate de magnésium"},
+    {"lnhpd_id":3894852,"ingredient_name":"Acide stéarique"}]</pre>
                         </section>
                         <section>
                              <h3 id="a3.4">Exemple de jQuery</h3>
-                             <p>Exemple d'une fonctionnalité qui recherche les ingrédients non médicinaux selon la valeur principale clé et la langue sélectionnée&nbsp;:</p>
+                             <p>Exemple d'une fonctionnalité qui recherche les ingrédients non médicinaux selon l'identificateur unique de produit et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getNonIngredient(id, lang) {
 	var base = 'https://produits-sante.canada.ca';
 	var uri = base + '/api/homologations-naturel/nonmedicinalingredient/?lang=' + lang + '&id=' + id;
@@ -668,7 +663,7 @@
                                     <td>The .....</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>submission_id</strong></td>
+                                    <td><strong>lnhpd_id</strong></td>
                                     <td>The .....</td>
                                 </tr>
                                 <tr>
@@ -683,7 +678,7 @@
                         </section>
                         <section>
                              <h3 id="a5.3">Exemple de résultat </h3>
-                             <pre class="prettify prettyprint linenums">{"matrix_id":3098,"submission_id":100055,"ingredient_type_code":2,"brand_name":"Acide 2-aminoéthanesulfonique"}</pre>
+                             <pre class="prettify prettyprint linenums">{"matrix_id":3098,"lnhpd_id":100055,"ingredient_type_code":2,"brand_name":"Acide 2-aminoéthanesulfonique"}</pre>
                         </section>
                         <section>
                              <h3 id="a5.4">Exemple de jQuery</h3>
@@ -735,10 +730,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/homologations-naturel/productdose/?id=</span></td>
-                                    <td>Affiche la dose recommandée selon l'identificateur unique de la dose spécifié dans la requête.</td>
+                                    <td>Affiche la dose recommandée selon l'identificateur unique de produit spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identificateur unique de la dose
+                                            #####&nbsp;- identificateur unique de produit
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -786,8 +781,8 @@
                                     <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
-                                    <td><strong>submission_id</strong></td>
-                                    <td>Valeur principale clé.</td>
+                                    <td><strong>lnhpd_id</strong></td>
+                                    <td>Identificateur unique de produit.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>dose_id</strong></td>
@@ -815,15 +810,15 @@
                                 </tr>
                                 <tr>
                                     <td><strong>quantity_dose</strong></td>
-                                    <td>Quantité de IM / unité de dose posologique.</td>
+                                    <td>Quantité de l'ingrédient médicinal / unité de dose posologique.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>quantity_dose_minimum</strong></td>
-                                    <td>Quantité minimale d'IM/unité posologique (si portée?????).</td>
+                                    <td>Quantité minimale d'ingrédient médicinal/unité posologique le cas échéant.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>quantity_dose_maximum</strong></td>
-                                    <td>Quantité maximale d'IM/unité posologique (si portée??????).</td>
+                                    <td>Quantité maximale d'ingrédient médicinal/unité posologique le cas échéant.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>uom_type_desc_quantity_dose</strong></td>
@@ -835,11 +830,11 @@
                                 </tr>
                                 <tr>
                                     <td><strong>frequency_minimum</strong></td>
-                                    <td>Fréquence minimale (si portée?????).</td>
+                                    <td>Fréquence minimale le cas échéant.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>frequency_maximum</strong></td>
-                                    <td>Fréquence maximale (si portée?????).</td>
+                                    <td>Fréquence maximale le cas échéant.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>uom_type_desc_frequency</strong></td>
@@ -849,13 +844,13 @@
                         </section>
                         <section>
                              <h3 id="a6.3">Exemple de résultat </h3>
-                             <pre class="prettify prettyprint linenums">{"submission_id":100502,"dose_id":36781,"population_type_desc":"Adultes","age":0,"age_minimum":0,"age_maximum":0,"uom_type_desc_age":"",
+                             <pre class="prettify prettyprint linenums">{"lnhpd_id":3909594,"dose_id":36781,"population_type_desc":"Adultes","age":0,"age_minimum":0,"age_maximum":0,"uom_type_desc_age":"",
     "quantity_dose":2,"quantity_dose_minimum":0,"quantity_dose_maximum":0,"uom_type_desc_quantity_dose":"Capsule",
     "frequency":2,"frequency_minimum":0,"frequency_maximum":0,"uom_type_desc_frequency":"Tous les jours"}</pre>
                         </section>
                         <section>
                              <h3 id="a6.4">Exemple de jQuery</h3>
-                             <p>Exemple d'une fonctionnalité qui recherche une dose selon le numéro d'identification d'une dose recommandée et la langue sélectionnée&nbsp;:</p>
+                             <p>Exemple d'une fonctionnalité qui recherche une dose selon l'identificateur unique de produit et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getProductDose(id, lang) {
 	var base = 'https://produits-sante.canada.ca';
 	var uri = base + '/api/homologations-naturel/productdose/?lang=' + lang + '&id=' + id;
@@ -887,7 +882,7 @@
                     <!-- PRODUCT LICENCE start -->
                     <section>
                         <h2 id="a7">Homologation du produit</h2>
-                        <p>Un code numérique de huit (8) chiffres assigné à chaque produit de santé naturel approuvé pour être commercialisé en vertu du RPSN.</p>
+                        <p>Un code numérique de huit (8) chiffres assigné à chaque produit de santé naturel approuvé pour être commercialisé en vertu du Règlement sur les produits de santé naturels (RPSN).</p>
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a7.1">Paramètres</h3>
@@ -903,10 +898,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/homologations-naturel/productlicence/?id=</span></td>
-                                    <td>Affiche l'homologation selon le numéro d'identification d'une homologation spécifié dans la requête.</td>
+                                    <td>Affiche l'homologation selon le code numérique du produit spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- numéro d'identification d'une homologation
+                                            #####&nbsp;- code numérique du produit
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -954,8 +949,8 @@
                                     <th scope="col">Valeur</th>
                                 </tr>                                
                                 <tr>
-                                    <td><strong>submission_id</strong></td>
-                                    <td>Valeur principale clé.</td>
+                                    <td><strong>lnhpd_id</strong></td>
+                                    <td>Identificateur unique de produit.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>licence_number</strong></td>
@@ -971,7 +966,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>time_receipt</strong></td>
-                                    <td>Date de soumission reçue à la DPSNSO.</td>
+                                    <td>Date de soumission reçue à la Direction des produits de santé naturels et sans ordonnance.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>date_start</strong></td>
@@ -1029,14 +1024,14 @@
                         </section>
                         <section>
                              <h3 id="a7.3">Exemple de résultat </h3>
-                             <pre class="prettify prettyprint linenums">{"submission_id":100126,"licence_number":"02096870","licence_date":"2004-10-15","revised_date":null,"time_receipt":"2004-01-13",
+                             <pre class="prettify prettyprint linenums">{"lnhpd_id":3894930,"licence_number":"02096870","licence_date":"2004-10-15","revised_date":null,"time_receipt":"2004-01-13",
     "date_start":"2004-01-19","notes":"See file OF2-31-3-10152-1 Company general file for heavy metals testing. LC","product_name_id":170030,
     "product_name":"Primanol","dosage_form":"Capsule","company_id":10152,"company_name_id":9141709,"company_name":"Jamieson Laboratories Ltd.",
     "sub_submission_type_code":5,"sub_submission_type_desc":"DIN de transition","flag_primary_name":1,"flag_product_status":1,"flag_attested_monograph":0}</pre>
                         </section>
                         <section>
                              <h3 id="a7.4">Exemple de jQuery</h3>
-                             <p>Exemple d'une fonctionnalité qui recherche une homologation selon le numéro d'identification d'une homologation et la langue sélectionnée :</p>
+                             <p>Exemple d'une fonctionnalité qui recherche une homologation selon le code numérique d'un produit et la langue sélectionnée :</p>
                              <pre class="prettify prettyprint linenums">function getProductLicence(id, lang) {
 	var base = 'https://produits-sante.canada.ca';
 	var uri = base + '/api/homologations-naturel/productlicence/?lang=' + lang + '&id=' + id;
@@ -1084,10 +1079,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/homologations-naturel/productpurpose/?id=</span></td>
-                                    <td>Affiche l'objectif du produit selon l'identificateur unique pour but spécifié dans la requête.</td>
+                                    <td>Affiche l'objectif du produit selon l'identificateur unique de produit spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identificateur unique pour but
+                                            #####&nbsp;- identificateur unique de produit
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -1139,8 +1134,8 @@
                                     <td>Identificateur unique pour but.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>submission_id</strong></td>
-                                    <td>Valeur principale clé.</td>
+                                    <td><strong>lnhpd_id</strong></td>
+                                    <td>Identificateur unique de produit.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>purpose</strong></td>
@@ -1150,11 +1145,11 @@
                         </section>
                         <section>
                              <h3 id="a8.3">Exemple de résultat </h3>
-                             <pre class="prettify prettyprint linenums">{"text_id":109294,"submission_id":100547,"purpose":"Pour la réduction des triglycérides et pour maintenir la santé cardiovasculaire."}</pre>
+                             <pre class="prettify prettyprint linenums">{"text_id":109294,"lnhpd_id":3911349,"purpose":"Pour la réduction des triglycérides et pour maintenir la santé cardiovasculaire."}</pre>
                         </section>
                         <section>
                              <h3 id="a8.4">Exemple de jQuery</h3>
-                             <p>Exemple d'une fonctionnalité qui recherche un objectif selon l'identificateur unique pour but et la langue sélectionnée&nbsp;:</p>
+                             <p>Exemple d'une fonctionnalité qui recherche un objectif selon l'identificateur unique de produit et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getProductPurpose(id, lang) {
 	var base = 'https://produits-sante.canada.ca';
 	var uri = base + '/api/homologations-naturel/productpurpose/?lang=' + lang + '&id=' + id;
@@ -1202,10 +1197,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/homologations-naturel/productrisk/?id=</span></td>
-                                    <td>Affiche le risque associé au produit selon l'identificateur de valeur de risque dans la requête.</td>
+                                    <td>Affiche le risque associé au produit selon l'identificateur unique de produit dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identificateur de valeur de risque
+                                            #####&nbsp;- identificateur unique de produit
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -1253,8 +1248,8 @@
                                     <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
-                                    <td><strong>submission_id</strong></td>
-                                    <td>Valeur principale clé.</td>
+                                    <td><strong>lnhpd_id</strong></td>
+                                    <td>Identificateur unique de produit.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>risk_id</strong></td>
@@ -1276,11 +1271,11 @@
                         </section>
                         <section>
                              <h3 id="a9.3">Exemple de résultat </h3>
-                             <pre class="prettify prettyprint linenums">{"submission_id":100494,"risk_id":3933447,"risk_type_desc":"Précautions et mises en garde","sub_risk_type_desc":"","risk_text":"S.O."}</pre>
+                             <pre class="prettify prettyprint linenums">{"lnhpd_id":3909282,"risk_id":3933447,"risk_type_desc":"Précautions et mises en garde","sub_risk_type_desc":"","risk_text":"S.O."}</pre>
                         </section>
                         <section>
                              <h3 id="a9.4">Exemple de jQuery</h3>
-                             <p>Exemple d'une fonctionnalité qui recherche un risque associé au produit selon l'identificateur de valeur de risque et la langue sélectionnée&nbsp;:</p>
+                             <p>Exemple d'une fonctionnalité qui recherche un risque associé au produit selon l'identificateur unique de produit et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getProductRisk(id, lang) {
 	var base = 'https://produits-sante.canada.ca';
 	var uri = base + '/api/homologations-naturel/productrisk/?lang=' + lang + '&id=' + id;
@@ -1328,10 +1323,10 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/homologations-naturel/productroute/?id=</span></td>
-                                    <td>Affiche la voie d'administration selon l'indicateur de voie d'administration spécifié dans la requête.</td>
+                                    <td>Affiche la voie d'administration selon l'identificateur unique de produit spécifié dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- indicateur de valeur-clés de type de voie d'administration
+                                            #####&nbsp;- identificateur unique de produit
                                         </ul>
                                     </td>
                                     <td><strong>Oui</strong></td>
@@ -1379,8 +1374,8 @@
                                     <th scope="col">Valeur</th>
                                 </tr>
                                 <tr>
-                                    <td><strong>submission_id</strong></td>
-                                    <td>Valeur principale clé.</td>
+                                    <td><strong>lnhpd_id</strong></td>
+                                    <td>Identificateur unique de produit.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>route_id</strong></td>
@@ -1394,11 +1389,11 @@
                         </section>
                         <section>
                              <h3 id="a10.3">Exemple de résultat </h3>
-                             <pre class="prettify prettyprint linenums">{"submission_id":100126,"route_id":170060,"route_type_desc":"Orale"}</pre>
+                             <pre class="prettify prettyprint linenums">{"lnhpd_id":3894930,"route_id":170060,"route_type_desc":"Orale"}</pre>
                         </section>
                         <section>
                              <h3 id="a10.4">Exemple de jQuery</h3>
-                             <p>Exemple d'une fonctionnalité qui recherche une voie d'administration selon l'indicateur de voie d'administration et la langue sélectionnée&nbsp;:</p>
+                             <p>Exemple d'une fonctionnalité qui recherche une voie d'administration selon l'identificateur unique de produit et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getProductRoute(id, lang) {
 	var base = 'https://produits-sante.canada.ca';
 	var uri = base + '/api/homologations-naturel/productroute/?lang=' + lang + '&id=' + id;

@@ -17,8 +17,8 @@
         <meta name="dcterms.contributor" content="" />
         <meta name="dcterms.type" title="gctype" content="" />
         <meta name="dcterms.audience" title="gcaudience" content="public" />
-        <meta name="dcterms.issued" title="W3CDTF" content="2017-12-15" />
-        <meta name="dcterms.modified" title="W3CDTF" content="2017-12-15" />
+        <meta name="dcterms.issued" title="W3CDTF" content="2018-03-30" />
+        <meta name="dcterms.modified" title="W3CDTF" content="2018-03-30" />
         <meta name="review_date" content="" />
         <meta name="meta_date" content="" />
 
@@ -197,8 +197,7 @@
                             <h2 id="a1">Introduction</h2>
                             <p>The Canada Vigilance Adverse Reaction Online Database contains information about suspected adverse reactions (also known as side effects) to health products.</p>
                             <p>This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications.
-                            The base URI for the Canada Vigilance Product (CVP) is&nbsp;<a href="https://health-products.canada.ca/api/canada-vigilance/">https://health-products.canada.ca/api/canada-vigilance/</a> and you can add parameters to it. Any requests are made relative to this URI.</p>
-                            <p>Information is also available in CSV format, use that URI&nbsp;<a href="https://health-products.canada.ca/api/documentation/cvp-dataset-en.html">https://health-products.canada.ca/api/documentation/cvp-dataset-en</a> to see the available options.</p>
+                            The base URI for the Canada Vigilance Product (CVP) is&nbsp;<a href="https://health-products.canada.ca/api/canada-vigilance/">https://health-products.canada.ca/api/canada-vigilance/</a> and you can add parameters to it. Any requests are made relative to this URI.</p>                            
                         </section>
 
                         <section>
@@ -283,10 +282,12 @@
                                         <td><strong>drug_product_id</strong></td>
                                         <td>Drug Product Identifier.</td>
                                     </tr>
+                                    <!--Remove March 2018 
                                     <tr>
                                         <td><strong>product_id</strong></td>
                                         <td>The ...</td>
                                     </tr>
+                                        -->
                                     <tr>
                                         <td><strong>drug_name</strong></td>
                                         <td>Brand Name.</td>
@@ -416,20 +417,21 @@
                                     <tr>
                                         <td><strong>drug_product_id</strong></td>
                                         <td>Drug Product Identifier.</td>
+                                    </tr>                                   
+                                    <tr>
+                                        <td><strong>drug_name</strong></td>
+                                        <td>Brand Name.</td>
                                     </tr>
+                                     <!--Remove March 2018
                                     <tr>
                                         <td><strong>product_id</strong></td>
                                         <td>The .....</td>
                                     </tr>
                                     <tr>
-                                        <td><strong>drug_name</strong></td>
-                                        <td>Brand Name.</td>
-                                    </tr>
-                                    <tr>
                                         <td><strong>cpd_flag</strong></td>
                                         <td>The ....</td>
                                     </tr>
-
+                                    --->
                                 </table>
                             </section>
                             <section>
@@ -954,11 +956,7 @@
                                     <tr>
                                         <td><strong>drug_involv_name</strong></td>
                                         <td>Health Product role.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>route_admin</strong></td>
-                                        <td>The ...</td>
-                                    </tr>
+                                    </tr>                                    
                                     <tr>
                                         <td><strong>route_admin_name</strong></td>
                                         <td>Route of Administration.</td>
@@ -966,11 +964,7 @@
                                     <tr>
                                         <td><strong>unit_dose_qty</strong></td>
                                         <td>Dose.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>dose_unit</strong></td>
-                                        <td>The ...</td>
-                                    </tr>
+                                    </tr>                                    
                                     <tr>
                                         <td><strong>dose_unit_name</strong></td>
                                         <td>Dose Unit.</td>
@@ -1008,6 +1002,16 @@
                                         <td><strong>indication_name</strong></td>
                                         <td>Indication.</td>
                                     </tr>
+                                    <!--Remove March 2018
+                                    <tr>
+                                        <td><strong>route_admin</strong></td>
+                                        <td>The ...</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>dose_unit</strong></td>
+                                        <td>The ...</td>
+                                    </tr>
+                                     -->
                                 </table>
                             </section>                                
                             <section>
@@ -1425,21 +1429,8 @@
                                         <td>Age in Years.</td>
                                     </tr>
                                     <tr>
-                                        <td><strong>age_unit_code</strong></td>
-                                        <td>The .....</td>
-                                    </tr>
-
-                                    <tr>
                                         <td><strong>age_unit</strong></td>
                                         <td>Age Unit.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>age_group_code</strong></td>
-                                        <td>The ...</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>age_group_name</strong></td>
-                                        <td>The ...</td>
                                     </tr>
                                     <tr>
                                         <td><strong>outcome_code</strong></td>
@@ -1454,21 +1445,13 @@
                                         <td>Weight.</td>
                                     </tr>
                                     <tr>
-                                        <td><strong>weight_unit_code</strong></td>
-                                        <td>The ...</td>
-                                    </tr>
-                                    <tr>
                                         <td><strong>weight_unit</strong></td>
                                         <td>Weight Unit.</td>
                                     </tr>
                                     <tr>
                                         <td><strong>height</strong></td>
                                         <td>Height.</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>height_unit_code</strong></td>
-                                        <td>The ...</td>
-                                    </tr>
+                                    </tr>                                    
                                     <tr>
                                         <td><strong>height_unit</strong></td>
                                         <td>Height Unit.</td>
@@ -1522,14 +1505,6 @@
                                         <td>Report Source.</td>
                                     </tr>
                                     <tr>
-                                        <td><strong>report_link_flg</strong></td>
-                                        <td>The ...</td>
-                                    </tr>
-                                    <tr>
-                                        <td><strong>aer_id</strong></td>
-                                        <td>The ...</td>
-                                    </tr>
-                                    <tr>
                                         <td><strong>pt_name</strong></td>
                                         <td>Adverse Reaction Term.</td>
                                     </tr>
@@ -1549,6 +1524,36 @@
                                         <td><strong>drug_name</strong></td>
                                         <td>Brand Name.</td>
                                     </tr>
+                                    <!--Remove March 2018
+                                    <tr>
+                                        <td><strong>age_unit_code</strong></td>
+                                        <td>The .....</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>age_group_code</strong></td>
+                                        <td>The ...</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>age_group_name</strong></td>
+                                        <td>The ...</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>weight_unit_code</strong></td>
+                                        <td>The ...</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>height_unit_code</strong></td>
+                                        <td>The ...</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>report_link_flg</strong></td>
+                                        <td>The ...</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>aer_id</strong></td>
+                                        <td>The ...</td>
+                                    </tr>
+                                     -->
                                 </table>
                             </section>                                
                             <section>
