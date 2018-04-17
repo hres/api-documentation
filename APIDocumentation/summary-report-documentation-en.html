@@ -17,8 +17,8 @@
     <meta name="dcterms.contributor" content="" />
     <meta name="dcterms.type" title="gctype" content="" />
     <meta name="dcterms.audience" title="gcaudience" content="public" />
-    <meta name="dcterms.issued" title="W3CDTF" content="2017-11-30" />
-    <meta name="dcterms.modified" title="W3CDTF" content="2017-11-30" />
+    <meta name="dcterms.issued" title="W3CDTF" content="2018-03-30" />
+    <meta name="dcterms.modified" title="W3CDTF" content="2018-03-30" />
     <meta name="review_date" content="" />
     <meta name="meta_date" content="" />
 
@@ -124,9 +124,11 @@
                     <section>
                         <h2 id="a1">Introduction</h2>
                         <p>The Drug and Health Product Register brings together Information on product licences, drug and health product inspections, buying and using products safely, and side effects, recalls and complaints.</p>
-                        <p>This Application Programming Interface (API) allows developers to access that information in JSON, XML and CSV format for reuse in their own applications.</p>
-                        <p>The base URI for the Summary Reports &nbsp;<a href="https://imsd.hres.ca/regcontent/api/">https://imsd.hres.ca/regcontent/api/</a>. Any requests are made relative to this URI.</p>
-                    </section>
+                        <p>
+                            This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications.
+                            The base URI for the Summary Reports is&nbsp;<a href="https://health-products.canada.ca/api/summary-report/api/">https://health-products.canada.ca/api/summary-report/api/</a> and you can add parameters to it. Any requests are made relative to this URI.
+                        </p>
+                     </section>
                     <!--h2-section-end-->
                     <section>
                         <!--Summary Basis of Decision-section-start-->
@@ -148,18 +150,18 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">regcontent/api/basisdecision?id=SBD00001</span></td>
-                                    <td>Returns summary basis of decision according to the format of the template specified in the request.</td>
+                                    <td><span class="wrap">api/summary-report/api/basisdecision?id=SBD00001</span></td>
+                                    <td>Returns summary basis of decision according to the variable, that is used to link all of the SBD data together, specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- format of the template
+                                            #####&nbsp;- variable that is used to link all of the SBD data together
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">regcontent/api/basisdecision/?lang=en</span></td>
+                                    <td><span class="nowrap">api/summary-report/api/basisdecision/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -171,7 +173,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">regcontent/api/basisdecision/?type=json</span></td>
+                                    <td><span class="nowrap">api/summary-report/api/basisdecision/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -185,8 +187,8 @@
                             </table>
                             <p>Summary Basis of Decisions can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://imsd.hres.ca/regcontent/api/basisdecision/?lang=en&type=json">https://imsd.hres.ca/regcontent/api/basisdecision/?lang=en&type=json</a></li>
-                                <li><a href="https://imsd.hres.ca/regcontent/api/basisdecision/?lang=fr&type=json">https://imsd.hres.ca/regcontent/api/basisdecision/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/summary-report/api/basisdecision/?lang=en&type=json">https://health-products.canada.ca/api/summary-report/api/basisdecision/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/summary-report/api/basisdecision/?lang=fr&type=json">https://health-products.canada.ca/api/summary-report/api/basisdecision/?lang=fr&type=json</a></li>
                             </ul>
                         </section>                        
                         <section>
@@ -195,7 +197,7 @@
                             <p>Each&nbsp;<strong>summary basis of decision</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Summary basis of decision object values
+                                    Summary Basis of Decision object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
@@ -271,22 +273,20 @@
                                 </tr>
                                 <tr>
                                     <td><strong>clin_basis2</strong></td>
-                                    <td>The Clinical Basis for decision continued.  This field is concatenated with ClinBasis if the character limit for that field is exceeded.</td>
+                                    <td>The Clinical Basis for decision continued. This field is concatenated with ClinBasis if the character limit for that field is exceeded.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>clin_basis3</strong></td>
-                                    <td>The clinical basis for decision continued.  This field is concatenated with ClinBasis2 if the character limit for that field is exceeded.</td>
+                                    <td>The clinical basis for decision continued. This field is concatenated with ClinBasis2 if the character limit for that field is exceeded.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>benefit_risk</strong></td>
                                     <td>The Benefit/Risk Assessment and Recommendation text.</td>
-                                </tr>
-                                <!--
+                                </tr>                               
                                 <tr>
                                     <td><strong>radioisotope</strong></td>
                                     <td>The radioisotope type.</td>
-                                </tr>
-                                -->
+                                </tr>                               
                                 <tr>
                                     <td><strong>summary</strong></td>
                                     <td>The “Summary Basis of Decision” introductory text.</td>
@@ -347,10 +347,26 @@
                                     <td><strong>b_quality_basis</strong></td>
                                     <td>The Quality Basis for Decision.</td>
                                 </tr>
-                                <!--<tr>
+                                <tr>
                                     <td><strong>contact</strong></td>
-                                    <td>The contact??????.</td>
-                                </tr>-->
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>paat_info</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>summary_drug</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>branch_info</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>trademark</strong></td>
+                                    <td></td>
+                                </tr>
                                 <tr>
                                     <td><strong>din</strong></td>
                                     <td>The Drug Identification number(s).</td>
@@ -360,8 +376,12 @@
                                     <td>The product licence number.</td>
                                 </tr>
                                 <tr>
+                                    <td><strong>ai_str_route_summary</strong></td>
+                                    <td></td>
+                                </tr>                               
+                                <tr>
                                     <td><strong>is_md</strong></td>
-                                    <td>The product is_md.</td>
+                                    <td>The product is_md (medical device).</td>
                                 </tr>
                                 <tr>
                                     <td><strong>din_list</strong></td>
@@ -376,29 +396,112 @@
                                     <td>The product milestone list.</td>
                                 </tr>
                                 <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>link_id</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This variable is used to link all of the SBD data together.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>num_order</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The order of the milestone.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>milestone</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The milestone description.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>completed_date</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The completed date of the milestone.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>completed_date2</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The completed date 2 of the milestone.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>separator</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                </tr>
+                                <tr>
                                     <td><strong>tombstone_list</strong></td>
                                     <td>The product tombstone list.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>link_id</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This variable is used to link all of the SBD data together.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>num_order</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The order of the active ingredients.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>med_ingredient</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The medicinal ingredient.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>nonprop_name</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The non-proprietary name given to an active ingredient.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>strength</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The quantitative value of the active ingredient strength.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>dosageform</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The final physical form of product.</td>
+                                </tr>                                
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>route_admin</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The route of administration.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>thera_class</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The therapeutic class.</td>
+                                </tr>
+                                <tr> 
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>nonmed_ingredient</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The non-medicinal ingredients.</td>
                                 </tr>
                             </table>
                         </section>                            
                         <section>
                              <h3 id="a2.3">Sample response</h3>
-                             <pre class="prettify prettyprint linenums">{"Template":1,"ControlNum":"120192","DateIssued":"2009-11-26","LinkId":"SBD00001","Brandname":"ABILIFY",
-    "Manufacturer":"Bristol-Myers Squibb Canada", "MedIngredient":"Aripiprazole","NonpropName":"Aripiprazole",
-    "Strength":"2 <abbr title=\"milligrams\">mg</abbr>, 5 <abbr title=\"milligrams\">mg</abbr>, 10 <abbr title=\"milligrams\">mg</abbr>, 15 <abbr title=\"milligrams\">mg</abbr>, 20 <abbr title=\"milligrams\">mg</abbr>, and 30 <abbr title=\"milligrams\">mg</abbr>",
-    "Dosageform":"Tablet","RouteAdmin":"Oral","BdDinList":1,"TheraClass":"Antipsychotic",
-    "NonmedIngredient":"Cornstarch, hydroxypropyl cellulose, lactose monohydrate, magnesium stearate, microcrystalline cellulose, and coloring agents (2 mg: FD&C Blue No. 2 Aluminum Lake and iron oxide Yellow; 5 mg: FD&C Blue Number 2 Aluminum Lake; 10 mg and 30 mg: iron oxide red; 15 mg: iron oxide yellow).",
-    "SubTypeNum":"New Drug Submission, Control Number: 120192","DateSubmission":"2008-02-22","DateAuthorization":"2009-07-09",
-    "NoticeDecision":"<p>On July 9, 2009, Health Canada issued a Notice of Compliance to Bristol-Myers Squibb Canada for the drug product Abilify.</p> <p>Abilify contains the medicinal ingredient aripiprazole which is a novel, atypical antipsychotic drug.</p> <p>Abilify is indicated for:</p> <ul class=\"data-spacing-bottom\"> 
-       <li>Schizophrenia - Abilify is indicated for the treatment of schizophrenia and related psychotic disorders.</li> <li>Bipolar Disorder - Abilify is indicated for the acute treatment of manic or mixed episodes in Bipolar I Disorder. Abilify may be used as acute monotherapy or cotherapy with lithium or divalproex sodium when 
-       there is an insufficient acute response to these agents alone.</li> </ul> <p>Schizophrenia is a severe and chronic psychotic disorder with fluctuating disturbances in thinking, behaviour, and perception, with potential for significant impairment of occupational and social functioning. Bipolar I Disorder is a lifelong episodic illness characterized by manic, depressive or mixed (symptoms of manic and depressive) episodes followed by symptom-free periods. Bipolar disorder is associated with severe impairment of social, occupational, and cognitive functioning. The mechanism of action of aripiprazole is unknown. It has been proposed that the efficacy of aripiprazole may be mediated through a combination of partial agonist activity at the dopamine D2 and serotonin 5-HT1A receptors, and antagonist activity at the serotonin 5-HT2A receptors; but, the clinical relevance of these interactions has not been established.</p> <p>The market authorization was based on quality, non-clinical, and clinical information submitted. The efficacy of Abilify for the acute treatment of schizophrenia was evaluated in five short-term (4- and 6-week), placebo-controlled studies of acutely relapsed inpatients who met the Diagnostic and Statistical Manual of Mental Disorders (DSM-III/IV) criteria for schizophrenia or schizoaffective disorder. In four of the five studies Abilify was superior to placebo for the primary efficacy endpoint. The short-term efficacy of the 10-<abbr>mg</abbr>, 15-<abbr>mg</abbr>, 20-<abbr>mg</abbr>, and 30-<abbr>mg</abbr> daily doses in schizophrenia was established in two studies for each dose. There was no evidence that the higher dose groups offered any advantage over the 10-<abbr>mg</abbr> dose group. Overall, in short-term studies, Abilify improved both positive and negative symptoms. In a longer-term study, time to relapse was evaluated in inpatients and outpatients meeting DSM-IV criteria for schizophrenia. In that study, Abilify was more effective than placebo in maintaining clinical improvement for up to 26 weeks.</p> <p>The efficacy of Abilify, used as monotherapy, for the acute treatment of Bipolar I Disorder was evaluated in four Phase III, 3-week, randomized, double-blind, placebo-controlled clinical studies of hospitalized patients who met the DSM-IV criteria for Bipolar I Disorder with manic or mixed episodes. Each study used flexible doses of Abilify (15 or 30 <abbr title=\"milligrams/day\">mg/day</abbr>, administered once daily (with a starting dose of 15 <abbr>mg/day</abbr> in two studies and 30 <abbr>mg/day</abbr> in two studies). The majority of patients that were treated with Abilify received 30 <abbr>mg/day</abbr>. In all four studies, Abilify was generally well-tolerated, and was superior to placebo in the reduction of manic symptoms. A separate Phase III, 6-week, randomized, double-blind, placebo-controlled study evaluated the efficacy of Abilify used as cotherapy with lithium or valproate in patients with manic or mixed episodes who had a partial response to lithium or valproate alone. This study demonstrated that Abilify (administered once daily as flexible doses of 15 or 30 <abbr>mg/day</abbr>, starting dose 15 <abbr>mg/day</abbr>) was superior to placebo, when each was administered concomitantly with lithium or valproate (at therapeutic serum levels) in the reduction of manic symptoms.</p> <p>Abilify (2 <abbr>mg</abbr>, 5 <abbr>mg</abbr>, 10 <abbr>mg</abbr>, 15 <abbr>mg</abbr>, 20 <abbr>mg</abbr>, and 30 <abbr>mg</abbr> aripiprazole) is presented as tablets. For patients with schizophrenia, the recommended starting and target dose for Abilify is 10 or 15 <abbr>mg/day</abbr> administered once daily. Dosage increases, if needed, should only be made after 2 weeks, the time needed to achieve steady-state. For patients with bipolar disorder, the recommended starting dose for Abilify as acute monotherapy or as cotherapy with lithium or valproate is 15 <abbr>mg</abbr> once daily. The dose can be increased to 30 <abbr>mg/day</abbr> based on clinical response. The maximum daily dose for both schizophrenia and bipolar patients should not exceed 30 <abbr>mg/day</abbr>, and for both indications, Abilify can be administered without regard to meals. Patients should be treated with the lowest effective dose that provides optimal clinical response and tolerability. Patients with schizophrenia should be periodically reassessed to determine the need for maintenance treatment. Dosing guidelines are available in the Product Monograph.</p> <p>Abilify is contraindicated for patients with a known hypersensitivity to this drug or the excipients of the product. Abilify should be administered under the conditions stated in the Product Monograph taking into consideration the potential risks associated with the administration of this drug product. Detailed conditions for the use of Abilify are described in the Product Monograph.</p> <p>Based on the Health Canada review of data on quality, safety, and efficacy, Health Canada considers that the benefit/risk profile of Abilify is favourable for the indications stated above.</p>","SciRegDecision":"The New Drug Submission (NDS) for Abilify was given a Notice of Non-Compliance (NON) on March 10, 2009 at the sponsor's request as they required additional time to evaluate and respond to clinical requirements in the Product Monograph and package labelling. The sponsor subsequently addressed all of the requirements in the NON and incorporated all revisions to the Product Monograph recommended by Health Canada. A Notice of Compliance (NOC) was issued for Abilify on July 9, 2009.","QualityBasis":"<p>The New Drug Submission (<abbr>NDS</abbr>) for Abilify was given a Notice of Non-Compliance (<abbr>NON</abbr>) on March 10, 2009 at the sponsor's request as they required additional time to evaluate and respond to clinical requirements in the Product Monograph and package labelling. The sponsor subsequently addressed all of the requirements in the <abbr>NON</abbr> and incorporated all revisions to the Product Monograph recommended by Health Canada. A Notice of Compliance (<abbr>NOC</abbr>) was issued for Abilify on July 9, 2009.</p> <h3 id=\"a31\">3.1 Quality Basis for Decision</h3> <h4 id=\"a311\">3.1.1 Drug Substance (Medicinal Ingredient)</h4> <h5><span class=\"strong\">General Information</span></h5> <p>Aripiprazole, the medicinal ingredient of Abilify, is an atypical antipsychotic drug. The mechanism of action of aripiprazole is unknown, however, its efficacy may be mediated through a combination of partial agonist activity at the dopamine D2 and serotonin 5-HT1A receptors and antagonist activity at the serotonin 5-HT2A receptor. The clinical relevance of these interactions has yet to be established.</p> <h5><span class=\"strong\">Manufacturing Process and Process Controls</span></h5> <p>The drug substance is synthetically derived. The manufacturing process is considered to be adequately controlled within justified limits.</p> <h5><span class=\"strong\">Characterization</span></h5> <p>The structure of aripiprazole has been adequately elucidated and the representative spectra have been provided. Physical and chemical properties have been described and are found to be satisfactory.</p> <p>Impurities and degradation products arising from manufacturing and/or storage were reported and characterized. These products were found to be within International Conference on Harmonisation (<abbr>ICH</abbr>)-established limits and are therefore considered to be acceptable. Appropriate tests are adequately controlling the levels of product- and process-related impurities.</p> <h5><span class=\"strong\">Control of Drug Substance</span></h5> <p>The drug substance specifications and analytical methods used for quality control of aripiprazole are considered acceptable. Data from the batch analyses were reviewed and are within the proposed acceptance criteria.</p> <p>The levels of product- and process-related impurities were adequately monitored throughout the manufacturing process. Results from process validation reports and in-process controls indicate that the impurities of the drug substance are adequately under control. The level of impurities reported for the drug substance was found to be within the established limits.</p> }]}</pre>
-                        </section>                           
+                             <pre class="prettify prettyprint linenums">{"template":1,"control_number":"120192","date_issued":"2009-11-26",
+"link_id":"SBD00001","brand_name":"Abilify","manufacturer":"Bristol-Myers Squibb Canada","med_ingredient":null,"bd_din_list":0,
+"sub_type_number":"New Drug Submission, Control Number: 120192","date_submission":"2008-02-22","date_authorization":"2009-07-09",
+"notice_decision":"<p>On July 9, 2009, Health Canada issued a Notice of Compliance to Bristol-Myers Squibb Canada for the drug product Abilify.</p> <p>Abilify contains the medicinal ingredient aripiprazole which is a novel, atypical antipsychotic drug.</p> <p>Abilify is indicated for:</p> <ul class=\"data-spacing-bottom\"> <li>Schizophrenia - Abilify is indicated for the treatment of schizophrenia and related psychotic disorders.</li> <li>Bipolar Disorder - Abilify is indicated for the acute treatment of manic or mixed episodes in Bipolar I Disorder. Abilify may be used as acute monotherapy or cotherapy with lithium or divalproex sodium when there is an insufficient acute response to these agents alone.</li> </ul> <p>Schizophrenia is a severe and chronic psychotic disorder with fluctuating disturbances in thinking, behaviour, and perception, with potential for significant impairment of occupational and social functioning. Bipolar I Disorder is a lifelong episodic illness characterized by manic, depressive or mixed (symptoms of manic and depressive) episodes followed by symptom-free periods. Bipolar disorder is associated with severe impairment of social, occupational, and cognitive functioning. The mechanism of action of aripiprazole is unknown. It has been proposed that the efficacy of aripiprazole may be mediated through a combination of partial agonist activity at the dopamine D2 and serotonin 5-HT1A receptors, and antagonist activity at the serotonin 5-HT2A receptors; but, the clinical relevance of these interactions has not been established.</p> <p>The market authorization was based on quality, non-clinical, and clinical information submitted. The efficacy of Abilify for the acute treatment of schizophrenia was evaluated in five short-term (4- and 6-week), placebo-controlled studies of acutely relapsed inpatients who met the Diagnostic and Statistical Manual of Mental Disorders (DSM-III/IV) criteria for schizophrenia or schizoaffective disorder. In four of the five studies Abilify was superior to placebo for the primary efficacy endpoint. The short-term efficacy of the 10-<abbr>mg</abbr>, 15-<abbr>mg</abbr>, 20-<abbr>mg</abbr>, and 30-<abbr>mg</abbr> daily doses in schizophrenia was established in two studies for each dose. There was no evidence that the higher dose groups offered any advantage over the 10-<abbr>mg</abbr> dose group. Overall, in short-term studies, Abilify improved both positive and negative symptoms. In a longer-term study, time to relapse was evaluated in inpatients and outpatients meeting DSM-IV criteria for schizophrenia. In that study, Abilify was more effective than placebo in maintaining clinical improvement for up to 26 weeks.</p> <p>The efficacy of Abilify, used as monotherapy, for the acute treatment of Bipolar I Disorder was evaluated in four Phase III, 3-week, randomized, double-blind, placebo-controlled clinical studies of hospitalized patients who met the DSM-IV criteria for Bipolar I Disorder with manic or mixed episodes. Each study used flexible doses of Abilify (15 or 30 <abbr title=\"milligrams/day\">mg/day</abbr>, administered once daily (with a starting dose of 15 <abbr>mg/day</abbr> in two studies and 30 <abbr>mg/day</abbr> in two studies). The majority of patients that were treated with Abilify received 30 <abbr>mg/day</abbr>. In all four studies, Abilify was generally well-tolerated, and was superior to placebo in the reduction of manic symptoms. A separate Phase III, 6-week, randomized, double-blind, placebo-controlled study evaluated the efficacy of Abilify used as cotherapy with lithium or valproate in patients with manic or mixed episodes who had a partial response to lithium or valproate alone. This study demonstrated that Abilify (administered once daily as flexible doses of 15 or 30 <abbr>mg/day</abbr>, starting dose 15 <abbr>mg/day</abbr>) was superior to placebo, when each was administered concomitantly with lithium or valproate (at therapeutic serum levels) in the reduction of manic symptoms.</p> <p>Abilify (2 <abbr>mg</abbr>, 5 <abbr>mg</abbr>, 10 <abbr>mg</abbr>, 15 <abbr>mg</abbr>, 20 <abbr>mg</abbr>, and 30 <abbr>mg</abbr> aripiprazole) is presented as tablets. For patients with schizophrenia, the recommended starting and target dose for Abilify is 10 or 15 <abbr>mg/day</abbr> administered once daily. Dosage increases, if needed, should only be made after 2 weeks, the time needed to achieve steady-state. For patients with bipolar disorder, the recommended starting dose for Abilify as acute monotherapy or as cotherapy with lithium or valproate is 15 <abbr>mg</abbr> once daily. The dose can be increased to 30 <abbr>mg/day</abbr> based on clinical response. The maximum daily dose for both schizophrenia and bipolar patients should not exceed 30 <abbr>mg/day</abbr>, and for both indications, Abilify can be administered without regard to meals. Patients should be treated with the lowest effective dose that provides optimal clinical response and tolerability. Patients with schizophrenia should be periodically reassessed to determine the need for maintenance treatment. Dosing guidelines are available in the Product Monograph.</p> <p>Abilify is contraindicated for patients with a known hypersensitivity to this drug or the excipients of the product. Abilify should be administered under the conditions stated in the Product Monograph taking into consideration the potential risks associated with the administration of this drug product. Detailed conditions for the use of Abilify are described in the Product Monograph.</p> <p>Based on the Health Canada review of data on quality, safety, and efficacy, Health Canada considers that the benefit/risk profile of Abilify is favourable for the indications stated above.</p>",
+"sci_reg_decision":"The New Drug Submission (NDS) for Abilify was given a Notice of Non-Compliance (NON) on March 10, 2009 at the sponsor's request as they required additional time to evaluate and respond to clinical requirements in the Product Monograph and package labelling. The sponsor subsequently addressed all of the requirements in the NON and incorporated all revisions to the Product Monograph recommended by Health Canada. A Notice of Compliance (NOC) was issued for Abilify on July 9, 2009.",
+"quality_basis":"<h4 id=\"a311\">3.1.1 Drug Substance (Medicinal Ingredient)</h4> <h5><span class=\"strong\">General Information</span></h5> <p>Aripiprazole, the medicinal ingredient of Abilify, is an atypical antipsychotic drug. The mechanism of action of aripiprazole is unknown, however, its efficacy may be mediated through a combination of partial agonist activity at the dopamine D2 and serotonin 5-HT1A receptors and antagonist activity at the serotonin 5-HT2A receptor. The clinical relevance of these interactions has yet to be established.</p> <h5><span class=\"strong\">Manufacturing Process and Process Controls</span></h5> <p>The drug substance is synthetically derived. The manufacturing process is considered to be adequately controlled within justified limits.</p> <h5><span class=\"strong\">Characterization</span></h5> <p>The structure of aripiprazole has been adequately elucidated and the representative spectra have been provided. Physical and chemical properties have been described and are found to be satisfactory.</p> <p>Impurities and degradation products arising from manufacturing and/or storage were reported and characterized. These products were found to be within International Conference on Harmonisation (<abbr>ICH</abbr>)-established limits and are therefore considered to be acceptable. Appropriate tests are adequately controlling the levels of product- and process-related impurities.</p> <h5><span class=\"strong\">Control of Drug Substance</span></h5> <p>The drug substance specifications and analytical methods used for quality control of aripiprazole are considered acceptable. Data from the batch analyses were reviewed and are within the proposed acceptance criteria.</p> <p>The levels of product- and process-related impurities were adequately monitored throughout the manufacturing process. Results from process validation reports and in-process controls indicate that the impurities of the drug substance are adequately under control. The level of impurities reported for the drug substance was found to be within the established limits.</p> <p>Data from the batch chosen to serve as a suitable reference standard and from three consistency batches are considered acceptable according to the specifications of the drug substance.</p> <p>The drug substance packaging is considered acceptable.</p> <h5><span class=\"strong\">Stability</span></h5> <p>Stability study results based on accelerated, long-term, and stress testing show that aripiprazole is a stable compound when packaged as proposed over the proposed storage period. The bulk drug is also stable under the proposed storage conditions.</p>  <h4 id=\"a312\">3.1.2 Drug Product</h4> <h5><span class=\"strong\">Description and Composition</span></h5> <p>Abilify is available in tablet form in six strengths. Each tablet contains aripiprazole (2 <abbr>mg</abbr>, 5 <abbr>mg</abbr>, 10 <abbr>mg</abbr>, 15 <abbr>mg</abbr>, 20 <abbr>mg</abbr>, or 30 <abbr>mg</abbr>) and the following excipients: cornstarch, hydroxypropyl cellulose, lactose monohydrate, magnesium stearate, and microcrystalline cellulose. The product strengths are packaged in bottles of 30 to 500 tablets or in unit dose blisters placed in carton sizes of 14, 28, 49, 56, and 98 tablets. Further description and information on the composition is provided in the table below.</p> <table class=\"table\"> <caption> Description and Composition </caption> <tr> <th scope=\"col\">Tablet Strength</th> <th scope=\"col\">Description</th> <th scope=\"col\">Colouring Agent</th> </tr> <tr> <td>2 <abbr>mg</abbr></td> <td>green, modified rectangular tablets, imprinted on one side with &quot;A-006&quot; and &quot;2&quot;</td> <td>FD&amp;C Blue No. 2 Aluminum Lake and Iron Oxide Yellow</td> </tr> <tr> <td>5 <abbr>mg</abbr></td> <td>blue, modified rectangular tablets, imprinted on one side with &quot;A-007&quot; and &quot;5&quot;</td> <td>FD&amp;C Blue No. 2 Aluminum Lake</td> </tr> <tr> <td>10 <abbr>mg</abbr></td> <td>pink, modified rectangular tablets, imprinted on one side with &quot;A-008&quot; and &quot;10&quot;</td> <td>Iron Oxide Red</td> </tr> <tr> <td>15 <abbr>mg</abbr></td> <td>yellow, round tablets, imprinted on one side with &quot;A-009&quot; and &quot;15&quot;</td> <td>Iron Oxide Yellow</td> </tr> <tr> <td>20 <abbr>mg</abbr></td> <td>white to pale yellowish, round tablets, imprinted on one side with &quot;A-010&quot; and &quot;20&quot;</td> <td>Not applicable</td> </tr> <tr> <td>30 <abbr>mg</abbr></td> <td>pink, round tablets, imprinted on one side with &quot;A-011&quot; and &quot;30&quot;</td> <td>Iron Oxide Red</td> </tr> </table> <p><br />All non-medicinal ingredients (excipients) found in the drug product are acceptable for use in drugs according to the <em>Food and Drug Regulations</em>. The compatibility of aripiprazole with the excipients is demonstrated by the stability data presented on the proposed commercial formulation.</p> <h5><span class=\"strong\">Pharmaceutical Development</span></h5> <p>Changes to the formulation made throughout the pharmaceutical development are considered acceptable upon review.</p> <h5><span class=\"strong\">Manufacturing Process and Process Controls</span></h5> <p>The manufacturing process is identical for all strengths of aripiprazole. The drug product is formulated, granulated, dried, sized, blended, lubricated, compressed, and packaged using conventional pharmaceutical equipment and facilities.</p> <p>The validated process is capable of consistently generating product that meets release specifications. The method of manufacturing is considered acceptable and the process is considered adequately controlled within justified limits.</p> <p>The specifications for all of the ingredients are approved in accordance with United States Pharmacopeia/National Formulary (<abbr>USP</abbr>/<abbr>NF</abbr>) standards.</p> <h5><span class=\"strong\">Control of Drug Product</span></h5> <p>Abilify is tested to verify that its identity, appearance, content uniformity, assay, dissolution, levels of degradation products, and drug-related impurities are within acceptance criteria.</p> <p>Validation results of the analytical method used for the determination of aripiprazole and the drug-related impurities are considered acceptable.</p> <p>Data from final batch analyses were reviewed and are considered to be acceptable according to the specifications of the drug product.</p> <h5><span class=\"strong\">Stability</span></h5> <p>Based on the long-term and accelerated stability data submitted, the proposed 36-month shelf-life at 25&deg;C for Abilify is considered acceptable. Excursions are permitted between 15&deg;C and 30&deg;C.</p> <p>The compatibility of the drug product with the container closure system was demonstrated through compendial testing and stability studies. The container closure system met all validation test acceptance criteria.</p>  <h4 id=\"a313\">3.1.3 Facilities and Equipment</h4> <p>The design, operations and controls of the facilities and equipment that are involved in the production of Abilify are considered suitable for the activities and products manufactured. All sites are compliant with Good Manufacturing Practices.</p> <h4 id=\"a314\">3.1.4 Adventitious Agents Safety Evaluation</h4> <p>Not applicable. The excipients used in the drug product formulation are not from animal or human origin with the exception of lactose which is derived from milk classed as suitable for human consumption.</p> <h4 id=\"a315\">3.1.5 Conclusion</h4> <p>The Chemistry and Manufacturing information submitted for Abilify has demonstrated that the drug substance and drug product can be consistently manufactured to meet the approved specifications. Proper development and validation studies were conducted, and adequate controls are in place for the commercial processes.</p>",
+"non_clin_basis":"<p>Aripiprazole has been marketed internationally for approximately 7 years. As of July, 2008, the estimated cumulative human exposure to this drug was 4,804,767 patients or 2,402,384 patient years. As a result, non-clinical studies were not reviewed for this <abbr>NDS</abbr>. The United States (<abbr>US</abbr>) Food and Drug Administration (<abbr>FDA</abbr>) review of non-clinical studies (from the original <abbr>FDA</abbr> review, 2002) and the European Medicines Agency (<abbr>EMEA</abbr>) Scientific Discussion for Abilify (2005) were consulted throughout the review of this <abbr>NDS</abbr> to validate text in the proposed labelling related to non-clinical data.</p> <p>According to the <abbr>EMEA</abbr>'s Scientific Discussion for Abilify, non-clinical safety data revealed no special hazard for humans based on conventional studies of safety pharmacology, repeat-dose toxicity, genotoxicity, carcinogenicity, and reproductive toxicity. Toxicologically significant effects were observed only at doses or exposures that were sufficiently in excess of the maximum recommended human dose (<abbr>MRHD</abbr>) or exposure, indicating that these effects were limited or of no relevance to clinical use.</p> <h4 id=\"a321\">3.2.1 Summary and Conclusion</h4> <p>The non-clinical pharmacology and toxicology data consulted in <abbr>FDA</abbr> and <abbr>EMEA</abbr> review reports support the use of Abilify for the proposed indication.</p>",
+"non_clin_basis2":"","clin_basis":"<h4 id=\"a331\">3.3.1 Human Pharmacology</h4> <p>There were several clinical pharmacology studies, which included safety pharmacology, pharmacokinetics and drug interaction studies. The majority of these studies were conducted prior to and during the clinical development of Abilify. The clinical pharmacology studies were not reviewed, however, the <abbr>FDA</abbr> review of clinical pharmacology, the approved United States labelling for Abilify, and the sponsor's Summary of Clinical Pharmacology were consulted. These documents indicated that the clinical pharmacology data submitted in the <abbr>NDS</abbr> were similar to those reviewed in 2002 by the <abbr>FDA</abbr> in the original new drug application, and that the proposed Canadian labelling was consistent with the most current United States labelling in this regard. In addition, post-marketing safety data based on an estimated cumulative human exposure to this drug of 4,804,767 patients or 2,402,384 patient years, requested by Health Canada during review of the <abbr>NDS</abbr>, did not identify new safety concerns related to clinical pharmacology.</p> <h4 id=\"a332\">3.3.2 Clinical Efficacy</h4> <h5><span class=\"strong\">Schizophrenia</span></h5> <h6 class=\"subjectColour strong\">Acute treatment</h6> <p>The efficacy of Abilify for the acute treatment of schizophrenia was evaluated in five short-term (4- and 6-week), pivotal, multicentre, randomized, placebo-controlled studies of acutely relapsed inpatients who met Diagnostic and Statistical Manual of Mental Disorders (DSM-III/IV) criteria for schizophrenia or schizoaffective disorder. Four of the five studies were able to distinguish Abilify from placebo, but one, the smallest study, did not. Each of the positive studies had approximately 300 to 500 patients. There were at least two studies for each of the following doses: 10 <abbr>mg</abbr>, 15 <abbr>mg</abbr>, 20 <abbr>mg</abbr>, and 30 <abbr>mg</abbr>.</p> <p>In the four positive studies for acute treatment with Abilify, a combination of the following primary efficacy measures (of mean change from baseline to Weeks 4 to 6) were used for assessing psychiatric signs and symptoms: The Positive and Negative Syndrome Scale (<abbr>PANSS</abbr>) total score, the <abbr>PANSS</abbr> positive subscale score, the PANSS negative subscale score and the Clinical Global Impression (<abbr>CGI</abbr>) scale Severity of Illness score. The <abbr>PANSS</abbr> is a multi-item inventory of general psychopathology used to evaluate the effects of drug treatment in schizophrenia. The <abbr>PANSS</abbr> positive subscale is a subset of items in the <abbr>PANSS</abbr> that rates seven positive symptoms of schizophrenia (delusions, conceptual disorganization, hallucinatory behaviour, excitement, grandiosity, suspiciousness/persecution, and hostility). The <abbr>PANSS</abbr> negative subscale rates seven negative symptoms of schizophrenia (blunted affect, emotional withdrawal, poor rapport, passive apathetic withdrawal, difficulty in abstract thinking, lack of spontaneity/flow of conversation, and stereotyped thinking). The <abbr>CGI</abbr> assessment reflects the impression of a skilled observer, fully familiar with the manifestations of schizophrenia, about the overall state of the patient. </p><p>The 10-<abbr>mg</abbr> dose was studied in three studies. Clear evidence in two of these studies demonstrated that Abilify was superior to placebo for acute treatment of schizophrenia. The 10-<abbr>mg</abbr> Abilify dose appeared to be the lowest efficacious dose in the acute treatment of schizophrenia. The 15-<abbr>mg</abbr>, 20-<abbr>mg</abbr> and 30-<abbr>mg</abbr> doses were studied in several studies which also demonstrated that Abilify was superior to placebo in the acute treatment of schizophrenia; however, among all doses, there was no evidence that higher dose groups offered any advantage over the lowest dose group. As a result, the labelling reflects that doses in the range of 10 to 30 <abbr>mg/day</abbr> have been established as effective in clinical studies; however, greater efficacy has not been demonstrated at doses higher than 10 <abbr>mg/day</abbr>. Additionally, it was decided that the recommended starting and target dose for Abilify is 10 or 15 <abbr>mg/day</abbr> administered on a once-a-day schedule without regard to meals.</p> <p>No evidence of efficacy was found for the 2 <abbr>mg</abbr> or 5 <abbr>mg</abbr> doses from the data submitted. Furthermore, there was no evidence that dose titration starting from 2 <abbr>mg</abbr> or 5 <abbr>mg</abbr> could be of benefit to any population for which data was submitted. Nevertheless, the possibility of some patients benefiting from a dose titration strategy by the prescriber cannot be excluded.</p> <p><b>Maintenance treatment</b></p> <p>A longer-term, time to relapse study enrolled 310 inpatients or outpatients meeting DSM-IV criteria for schizophrenia who were, by history, symptomatically stable on other antipsychotic medications for periods of 3 months or longer. These patients were discontinued from their antipsychotic medications and randomized to receive Abilify 15 <abbr>mg</abbr> or placebo for up to 26 weeks of observation for relapse (pre-defined criteria). Relapse was defined as one or more of the following: a <abbr>CGI</abbr>-Score of &ge;5 (minimally worse), or a PANSS Total Score of &ge;5 (moderately severe) on the items of hostility or uncooperativeness on 2 successive days, or a &ge;20% increase in the <abbr>PANSS</abbr> total score. Patients receiving Abilify experienced a significantly longer time to relapse over the subsequent 26 weeks compared to those receiving placebo.</p> <h5><span class=\"strong\">Bipolar I Disorder</span></h5> <h6 class=\"subjectColour strong\">Monotherapy</h6> <p>The efficacy of Abilify, used as a monotherapy for the acute treatment of Bipolar I Disorder was evaluated in four Phase III, 3-week, multicentre, randomized, double-blind, placebo-controlled clinical studies of hospitalized patients who met the DSM-IV criteria for Bipolar I Disorder with manic or mixed episodes. In these four studies a total of 582 patients received Abilify and 577 patients received placebo. Each study used flexible doses of Abilify (15 or 30 <abbr>mg/day</abbr> Abilify); however, in all studies most patients received the 30 <abbr>mg/day</abbr> dose.</p> <p><b>Study Design</b></p> <p>Patients in all four studies were &ge;18 years of age with Bipolar I Disorder diagnosed according to the DSM-IV criteria. Patients had a current manic or mixed episode, with or without psychotic features and required hospitalization for the current episode. Baseline scores (at randomization) for the Young Mania Rating Scale (<abbr>YMRS</abbr>) had to be &ge;20. In two of the studies, patients with rapid cycling were excluded (placebo and active controlled studies). Rapid cycling is a condition associated with bipolar disorder that involves multiple episodes of depression and mania in a given year.</p> <h6 class=\"subjectColour\">Placebo-controlled studies</h6> <p>Patients were randomized to receive placebo or Abilify at a starting dose of 30 <abbr>mg/day</abbr>, with the option for a dose reduction to 15 <abbr>mg/day</abbr> if 30 <abbr>mg/day</abbr> was not tolerated. The treatment duration was 3 weeks and patients were to remain hospitalized for a minimum of 2 weeks.</p> <h6 class=\"subjectColour\">Placebo- and active-controlled studies</h6> <p>Patients were randomized to double-blind treatment with placebo, Abilify or an active control (haloperidol in one study or lithium in the other study) in a 1:1:1 ratio for 3 weeks. Double-blind treatment continued with either Abilify or active control for an additional 9 weeks. Patients remained hospitalized for a minimum of 2 weeks. At the end of Week 3, patients on placebo were blindly switched to Abilify treatment. Patients who required further hospitalization at the end of Week 3 were discontinued from the study. The starting dose for Abilify for both studies was 15 <abbr>mg/day</abbr> and from Day 4 onward the dose was flexible (15 or 30 <abbr>mg/day</abbr>) based on clinical response and tolerability. The starting dose for haloperidol was 5 <abbr>mg/day</abbr> for the first 3 days. From Day 4 onward the dose was flexible within the range of 5 to 10 <abbr>mg/day</abbr> and from Day 7 onward the dose was flexible within the range of 5 to 15 <abbr>mg/day</abbr> depending on clinical response and tolerability. The starting dose for lithium was 900 <abbr>mg</abbr> three times daily (<abbr>TID</abbr>) for the first 3 days, 900-1200 <abbr>mg</abbr> <abbr>TID</abbr> for Days 4 to 6, and 900, 1200 or 1500 mg <abbr>TID</abbr> as required to maintain therapeutic plasma concentrations from Day 7 onward.</p> <p>In all four studies the primary efficacy variable was the mean change in <abbr>YMRS</abbr> total score from baseline to Week 3, the Last Observation Carried Forward (<abbr>LOCF</abbr>). A key secondary efficacy endpoint was the mean change in <abbr>CGI</abbr>-Bipolar (<abbr>BP</abbr>) Severity of Illness (Mania) Score from baseline to <abbr>LOCF</abbr>.</p> <p><b>Monotherapy Efficacy Results</b></p> <p>Results from all four acute monotherapy studies showed that Abilify was an effective monotherapy for the acute treatment of mania in patients with moderate to severe symptoms. There were statistically significant improvements in manic symptoms with Abilify treatment as compared to placebo as measured by the primary efficacy variable of mean change in <abbr>YMRS</abbr> total score and by the key secondary efficacy variable, the mean change in <abbr>CGI-BP</abbr> Severity of Illness (Mania) Score from baseline to Week 3 <abbr>LOCF</abbr>. The results of these studies suggest that the 15 <abbr>mg/day</abbr> dose and the 30 <abbr>mg/day</abbr> dose are effective in the acute treatment of manic symptoms.</p> <p>The Product Monograph states the recommended starting dose for Abilify treatment of Bipolar Disorder I as acute monotherapy or cotherapy with lithium or valproate as 15 <abbr>mg/day</abbr> as this is consistent with the practice of initiating treatment with the lowest dose that has been shown to provide optimal clinical response and tolerability.</p> <p><b>Adjunctive Therapy</b></p> <p>One 6-week, multicentre, multinational, double-blind, placebo-controlled study was conducted to evaluate the efficacy and safety of Abilify when used as an adjunctive therapy with mood stabilizers (lithium or valproate) for the acute treatment of patients with manic or mixed episodes. Patients had to be partial non-responders to acute treatment with either mood stabilizer when used as a monotherapy. The majority of patients were treated with 15 <abbr>mg/day</abbr> Abilify. Participants in the study were inpatients and outpatients &ge;18 years of age with Bipolar I Disorder as diagnosed according to DSM-IV criteria. At study entry, patients either had ongoing treatment with lithium or valproate, or were not receiving any mood stabilizer therapy. Partial non-responsiveness was defined as a <abbr>YMRS</abbr> total score &ge;16 after a minimum of 2 weeks of open-label treatment with lithium or valproate monotherapy at therapeutic plasma concentrations. Rapid cycling patients and patients who were considered treatment-refractory [that is to say (i.e.) failed &ge;2 antimanic treatments exclusive of current episode] were excluded.</p> <p>Patients who were partial non-responders were randomized 2:1 to receive either adjunctive Abilify or adjunctive placebo in combination with lithium or valproate for 6 weeks. Dosing with Abilify was initiated at 15 <abbr>mg/day</abbr> with the option to increase to 30 <abbr>mg/day</abbr> at Day 7 or beyond depending on clinical response and tolerability. Mood stabilizer dose adjustments were only permitted to maintain therapeutic plasma concentrations or for tolerability as long as concentrations remained in the therapeutic range.</p> <p>The primary efficacy variable was the mean change in the total <abbr>YMRS</abbr> score from baseline to Week 6 <abbr>LOCF</abbr>. The key secondary efficacy variable was the mean change for the <abbr>CGI-BP</abbr> Severity of Illness (Mania) Score from baseline to Week 6 <abbr>LOCF</abbr>.</p> <p>Results from the adjunctive therapy study showed that Abilify was statistically significantly superior to placebo when used adjunctively with these mood stabilizers, as measured by the primary and key secondary efficacy variables. Although there was a greater treatment effect with adjunctive therapy compared to mood stabilizer monotherapy, it is not known how the treatment effect with adjunctive therapy compares to Abilify monotherapy. This is due to the lack of an Abilify monotherapy arm in the study and the different patient population included in this study (partial non-responders to mood stabilizers) compared to the acute monotherapy studies. Pre-specified, exploratory analyses in the mood stabilizer subgroups suggested that there was heterogeneity in the subgroups with regard to efficacy. Although the study did not have the statistical power to compare the treatment effects between mood stabilizer subgroups, the treatment effect when Abilify was given concomitantly with lithium was numerically smaller than when given with valproate.</p>  <h4 id=\"a333\">3.3.3 Clinical Safety</h4> <p>The safety of Abilify was evaluated in the studies described in section <em>3.3.2 Clinical Efficacy</em>. A total of 13,543 patients were exposed to Abilify across the various clinical studies.</p> <h5><span class=\"strong\">Schizophrenia</span></h5> <p>A total of 8,215 schizophrenic patients received Abilify treatment at various doses. In the short-term schizophrenia studies, the most common adverse events (<abbr>AE</abbr>s) experienced by patients treated with Abilify (which represent &gt;2% incidence of <abbr>AE</abbr>s than those experienced by placebo-treated patients) were: headache [31% versus (vs.) placebo: 24%], insomnia (24% vs. placebo: 19%), nausea (14% vs. placebo: 9%), vomiting (13% vs. placebo: 7%), dizziness (11% vs. placebo: 6%), constipation (10% vs. placebo: 8%), and akathisia (8% vs. placebo: 4%).</p> <p>The frequency of <abbr>AE</abbr>s did not increase with higher doses and showed no trends of dose-response. The incidence of treatment-emergent <abbr>AE</abbr>s that led to discontinuation of study therapy was similar between the treatment groups (Abilify: 7.2% vs. placebo: 9.4%). The most frequently reported <abbr>AE</abbr> that led to discontinuation in both treatment groups was psychotic disorder (Abilify: 3.5% vs. placebo: 5.6%). There was no pattern of increased incidences of discontinuation as the dose of Abilify increased for any event.</p> <p>In the long-term placebo-controlled study, the most common <abbr>AE</abbr>s experienced by patients treated with Abilify (which represent &gt;2% incidence than those experienced by placebo-treated patients) were tremor (8% vs. placebo: 2%) and vomiting (6% vs. placebo: 3%).</p> <p>Two Abilify-treated patients died, however their deaths did not appear to be related to the study medication. One was due to a motor accident while the other occurred 15 days after the patient discontinued 10-<abbr>mg</abbr> Abilify treatment due to abdominal pain (resolved 2 days after the discontinuation of the drug).</p> <h5><span class=\"strong\">Bipolar I Disorder</span></h5> <h6 class=\"subjectColour strong\">Monotherapy</h6> <p>Safety analyses were based on all patients who took at least 1 dose of study medication. The findings below came from the evaluation of 917 patients treated with Abilify and 753 patients treated with placebo in the 3-week double-blind monotherapy clinical studies. Abilify was generally well-tolerated. The <abbr>AE</abbr> profile in the short-term bipolar mania studies appeared to be similar to that of the schizophrenia short-term studies. The most frequently reported adverse events (<abbr>AE</abbr>s) experienced by patients treated with Abilify (which represent &gt;2% incidence than those experienced by placebo-treated patients) were related to the Central Nervous System [akathisia (13% vs. placebo: 4%), sedation (8% vs. placebo: 3%), tremor (6% vs. placebo: 3%), and extrapyramidal disorder (5% vs. placebo: 2%)], psychiatric [restlessness (6% vs. placebo: 2%)], and gastrointestinal [nausea (17% vs. placebo: 12%), constipation (11% vs. placebo: 6%), vomiting (8% vs. placebo: 5%), and dyspepsia (8% vs. placebo: 5%)] in nature.</p> <p>Although akathisia <abbr>AE</abbr>s were common, these <abbr>AE</abbr>s were not typically coupled with behavioural changes such as severe agitation, aggression, harm to others, self harm, or suicide-related <abbr>AE</abbr>s.</p> <p>For the two studies that had 9-week active treatment, double-blind continuation phases the safety/<abbr>AE</abbr> profile during 12 weeks of Abilify treatment was similar to that of 3 weeks of treatment.</p> <p><b>Extrapyramidal Symptoms</b></p> <p>The overall incidence of extrapyramidal symptom (<abbr>EPS</abbr>)-related <abbr>AE</abbr>s was 27% for Abilify and 11% for placebo. The most frequently reported <abbr>EPS</abbr>-related <abbr>AE</abbr>s (&gt;5% of patients on Abilify and at a higher rate than with placebo) were akathisia (Abilify: 13% vs. placebo: 4%), tremor (Abilify: 6% vs. placebo: 3%), and extrapyramidal disorder (Abilify: 5% vs. placebo: 2%). The Barnes Akathisia Global Clinical Assessment and Simpson Angus Scale Total Score showed statistically significant worsening with Abilify from baseline to endpoint. The Abnormal Involuntary Movement Scale (<abbr>AIMS</abbr>) showed negligible change from baseline to endpoint in either group.</p> <p>The consistently higher incidence of akathisia associated with Abilify is a noted safety finding that has been incorporated in the labelling for this drug.</p> <p><b>Suicide-related Adverse Events</b></p> <p>Suicide-related <abbr>AE</abbr>s were reported for 2% of patients treated with Abilify and 1% of patients treated with placebo. Suicidal ideation was the most frequently reported suicide-related <abbr>AE</abbr> (Abilify: 1.4% vs. placebo: 0.8%). There were five suicide attempts in the Abilify group (0.54%) and one in the placebo group (0.13%).</p> <p>The class precaution regarding the inherent possibility of suicide attempt in psychotic illness and bipolar disorder has been incorporated in the Product Monograph Warnings and Precautions (Psychiatric).</p> <p><b>Clinical Lab Parameters</b></p> <p>For fasting metabolic lab parameters, potentially clinically significant values occurred at similar frequencies with placebo and Abilify. Among other serum chemistry parameters evaluated, creatine phosphokinase (<abbr>CPK</abbr>) and prolactin were the only parameters for which &gt;1% of patients treated with Abilify had potentially clinically significant abnormalities: <abbr>CPK</abbr> (Abilify: 3.2% vs. placebo:1.6%), and prolactin (Abilify: 4.4% vs. placebo: 10.3%). Median percent changes from baseline to endpoint for <abbr>CPK</abbr> were 15.7% for Abilify and 8.5% for placebo; for prolactin they were -50% for Abilify and -14.3% for placebo (i.e. prolactin levels decreased in both treatment groups). The reported <abbr>CPK</abbr> elevation is a noted safety finding in the Abilify Product Monograph.</p> <p><b>Electrocardiogram Abnormalities/<abbr>QT</abbr> Prolongation</b></p> <p>The 3-week bipolar mania clinical studies did not reveal any safety issues related to electrocardiogram (<abbr>ECG</abbr>) abnormalities and <abbr>QT</abbr> prolongation.</p> <p><b>Adjunctive Therapy</b></p> <p>The Safety Sample included 253 patients in the Abilify group and 130 patients in the placebo group. With the exception of a notably higher rate of akathisia, <abbr>AE</abbr>s associated with Abilify in this study were comparable to the 3-week studies (including those studies with the additional 9 weeks of double-blind active treatment). Although the <abbr>AE</abbr>/overall safety profile of Abilify did not appear to differ markedly when used adjunctively with lithium or valproate compared to its use as a monotherapy, conclusions about the relative safety profiles of Abilify monotherapy vs. Abilify co-therapy cannot be made from a comparison of safety data across different studies. In this study, akathisia <abbr>AE</abbr>s were reported for 19% of patients treated with Abilify vs. 5% of the patients on placebo. The analysis of <abbr>AE</abbr>s by mood stabilizer subgroup showed the overall higher rate of akathisia may have been due to the much higher rate of these <abbr>AE</abbr>s when Abilify was used with lithium (akathisia <abbr>AE</abbr>s in lithium subgroup: 28% Abilify vs. 4% placebo; akathisia <abbr>AE</abbr>s in valproate subgroup: 12% Abilify vs. 6% placebo).</p> <h4 id=\"a334\">3.3.4 Additional Issues</h4> <p>The sponsor has committed to providing an assessment of updated Abilify post-marketing data with respect to <abbr>QT</abbr> prolongation, other serious cardiac events and sudden death, and an assessment of the adequacy of the Canadian Product Monograph language concerning such events. These results are to be submitted within 3 months of the <abbr>NOC</abbr> for Abilify.</p>",
+"clin_basis2":"","clin_basis3":"","benefit_risk":"<h4 id=\"a341\">3.4.1 Benefit/Risk Assessment</h4> <p>The benefit/risk profile for Abilify for acute and maintenance treatment of schizophrenia is favourable. The above mentioned studies provide convincing evidence that Abilify in the 10 to 30 <abbr>mg</abbr> dose range is efficacious in the acute and maintenance (up to 26 weeks) treatment of schizophrenia. There is no evidence to support any inference that a higher dose provides any additional efficacy benefit to the patient populations studied. The safety of the 30 <abbr>mg</abbr> dose also did not vary appreciably from the 10 <abbr>mg</abbr> dose. A clear clinical dose-response relationship was not established for the treatment of schizophrenia in the submitted data for Abilify.</p> <p>The results of the placebo-controlled clinical studies indicate that the benefit/risk profile for Abilify monotherapy for the acute treatment of manic or mixed episodes in Bipolar I Disorder is considered favourable. In addition, the benefit/risk profile for Abilify when used as adjunctive therapy with lithium or valproate in patients with an inadequate acute response to either of these mood stabilizing agents alone is considered favourable.</p> <h4 id=\"a342\">3.4.2 Recommendation</h4> <p>Based on the Health Canada review of data on quality, safety and efficacy, Health Canada considers that the benefit/risk profile of Abilify is favourable in the treatment of:</p> <ul class=\"data-spacing-bottom\"> <li>Schizophrenia - Abilify is indicated for the treatment of schizophrenia and related psychotic disorders.</li> <li>Bipolar Disorder - Abilify is indicated for the acute treatment of manic or mixed episodes in Bipolar I Disorder. Abilify may be used as acute monotherapy or cotherapy with lithium or divalproex sodium when there is an insufficient acute response to these agents alone.</li> </ul> <p>The <abbr>NDS</abbr> complies with the requirements of sections C.08.002 and C.08.005.1 and therefore Health Canada has granted the <abbr>NOC</abbr> pursuant to section C.08.004 of the <em>Food and Drug Regulations</em>.</p>",
+"radioisotope":"","summary":"","what_approved":"","why_approved":"","steps_approval":"","assess_basis":"","followup_measures":"","post_auth":"",
+"other_info":"","a_sci_reg_dcision":"","science_rationale":"","a_clin_basis":"","a_clin_basis2":"","a_non_clin_basis":"","a_non_clin_basis2":"",
+"b_quality_basis":"","contact":"<a href=\"http://www.hc-sc.gc.ca/dhp-mps/contact/tpd-dpt/contact_bcans_bcasn-eng.php\">Bureau of Cardiology, Allergy and Neurological Sciences</a>",
+"paat_info":"","summary_drug":"Aripiprazole, 2 <abbr title=\"milligrams\">mg</abbr>, 5 <abbr title=\"milligrams\">mg</abbr>, 10 <abbr title=\"milligrams\">mg</abbr>, 15 <abbr title=\"milligrams\">mg</abbr>, 20 <abbr title=\"milligrams\">mg</abbr>, and 30 <abbr title=\"milligrams\">mg</abbr>, Tablet, Oral","branch_info":"","trademark":"<sup>*</sup> <abbr title=\"trade mark\">TM</abbr> of Otsuka Pharmaceutical <abbr title=\"corporation\">Co</abbr>., <abbr title=\"limited\">Ltd</abbr>. Used under licence by Bristol-Myers Squibb Canada.",
+"din":null,"licence_number":null,"ai_str_route_summary":"","is_md":false,"din_list":["02322374 - 2 mg/tablet","02322382 - 5 mg/tablet","02322390 - 10 mg/tablet","02322404 - 15 mg/tablet","02322412 - 20 mg/tablet","02322455 - 30 mg/tablet"],"post_activity_list":[],
+"milestone_list":[{"link_id":"SBD00001","num_order":1,"milestone":"Submission filed:","completed_date":"2008-02-22","completed_date2":null,"separator":""},
+    {"link_id":"SBD00001","num_order":2,"milestone":"<strong>Screening 1</strong>","completed_date":null,"completed_date2":null,"separator":""},
+    {"link_id":"SBD00001","num_order":3,"milestone":"Screening Acceptance Letter issued:","completed_date":"2008-04-11","completed_date2":null,"separator":""},
+    {"link_id":"SBD00001","num_order":4,"milestone":"<strong>Review 1</strong>","completed_date":null,"completed_date2":null,"separator":""},
+    {"link_id":"SBD00001","num_order":5,"milestone":"Biopharmaceutics Evaluation complete:","completed_date":"2009-01-19","completed_date2":null,"separator":""},
+    {"link_id":"SBD00001","num_order":6,"milestone":"Clinical Evaluation complete:","completed_date":"2009-01-30","completed_date2":null,"separator":""},
+    {"link_id":"SBD00001","num_order":7,"milestone":"Quality Evaluation complete:","completed_date":"2009-02-16","completed_date2":null,"separator":""},
+    {"link_id":"SBD00001","num_order":8,"milestone":"Biostatistics Evaluation complete:","completed_date":"2009-02-03","completed_date2":null,"separator":""},
+    {"link_id":"SBD00001","num_order":9,"milestone":"Notice of Non Compliance issued by Director General (clinical and labelling):","completed_date":"2009-03-10","completed_date2":null,"separator":""},
+    {"link_id":"SBD00001","num_order":10,"milestone":"Response filed:","completed_date":"2009-05-05","completed_date2":null,"separator":""},
+    {"link_id":"SBD00001","num_order":11,"milestone":"<strong>Screening 2</strong>","completed_date":null,"completed_date2":null,"separator":""},
+    {"link_id":"SBD00001","num_order":12,"milestone":"Screening Acceptance Letter issued:","completed_date":"2009-06-03","completed_date2":null,"separator":""},
+    {"link_id":"SBD00001","num_order":13,"milestone":"<strong>Review 2</strong>","completed_date":null,"completed_date2":null,"separator":""},
+    {"link_id":"SBD00001","num_order":14,"milestone":"Clinical Evaluation complete:","completed_date":"2009-06-29","completed_date2":null,"separator":""},
+    {"link_id":"SBD00001","num_order":15,"milestone":"Labelling Review complete:","completed_date":"2009-06-25","completed_date2":null,"separator":""},
+    {"link_id":"SBD00001","num_order":16,"milestone":"Notice of Compliance issued by Director General:","completed_date":"2009-07-09","completed_date2":null,"separator":""}],
+"tombstone_list":[{"link_id":"SBD00001","num_order":1,"med_ingredient":"Aripiprazole","nonprop_name":"Aripiprazole","strength":"2 <abbr title=\"milligrams\">mg</abbr>, 5 <abbr title=\"milligrams\">mg</abbr>, 10 <abbr title=\"milligrams\">mg</abbr>, 15 <abbr title=\"milligrams\">mg</abbr>, 20 <abbr title=\"milligrams\">mg</abbr>, and 30 <abbr title=\"milligrams\">mg</abbr>",
+    "dosageform":"Tablet","route_admin":"Oral","thera_class":"Antipsychotic","nonmed_ingredient":"Cornstarch, hydroxypropyl cellulose, lactose monohydrate, magnesium stearate, microcrystalline cellulose, and coloring agents (2 mg: FD&C Blue No. 2 Aluminum Lake and iron oxide Yellow; 5 mg: FD&C Blue Number 2 Aluminum Lake; 10 mg and 30 mg: iron oxide red; 15 mg: iron oxide yellow)."}]}</pre>
+ </section>                           
                         <section>
                              <h3 id="a2.4">jQuery example</h3>
-                             <p>Example of a function that search for a summary basis of decision given the format of a template and language selection:</p>
+                             <p>Example of a function that search for a summary basis of decision given a variable that is used to link all of the SBD data together and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getSummaryBasisOfDecision(id, lang) {
-     var base = 'https://imsd.hres.ca';
-     var uri = base + '/regcontent/api/basisdecision/?lang=' + lang + '&id=' + id;
+     var base = 'https://health-products.canada.ca';
+     var uri = base + '/api/summary-report/api/basisdecision/?lang=' + lang + '&id=' + id;
      $.ajax({
            url:uri,
            type:'GET',
@@ -445,18 +548,18 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">regcontent/api/regulatorydecision?id=RDS00007</span></td>
-                                    <td>Returns regulatory decision according to the identification number specified in the request.</td>
+                                    <td><span class="wrap">api/summary-report/api/regulatorydecision?id=RDS00007</span></td>
+                                    <td>Returns regulatory decision according to the variable, that is used to link all of the RDS data together, specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identification number
+                                            #####&nbsp;- variable that is used to link all of the RDS data together
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">regcontent/api/regulatorydecision/?lang=en</span></td>
+                                    <td><span class="nowrap">api/summary-report/api/regulatorydecision/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -468,7 +571,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">regcontent/api/regulatorydecision/?type=json</span></td>
+                                    <td><span class="nowrap">api/summary-report/api/regulatorydecision/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -482,8 +585,8 @@
                             </table>
                             <p>Regulatory Decisions can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://imsd.hres.ca/regcontent/api/regulatorydecision/?lang=en&type=json">https://imsd.hres.ca/regcontent/api/regulatorydecision/?lang=en&type=json</a></li>
-                                <li><a href="https://imsd.hres.ca/regcontent/api/regulatorydecision/?lang=fr&type=json">https://imsd.hres.ca/regcontent/api/regulatorydecision/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/summary-report/api/regulatorydecision/?lang=en&type=json">https://health-products.canada.ca/api/summary-report/api/regulatorydecision/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/summary-report/api/regulatorydecision/?lang=fr&type=json">https://health-products.canada.ca/api/summary-report/api/regulatorydecision/?lang=fr&type=json</a></li>
                             </ul>
                         </section>                        
                         <section>
@@ -492,7 +595,7 @@
                             <p>Each&nbsp;<strong>regulatory decision</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Regulatory decision object values
+                                    Regulatory Decision object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
@@ -563,49 +666,89 @@
                                     <td>The control number for the submission.</td>
                                 </tr>
                                 <tr>
+                                    <td><strong>application_number</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>application_type</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>licence_num</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>device_class</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
                                     <td><strong>created_date</strong></td>
                                     <td>The created date.</td>
                                 </tr>
-
-                                <!--
                                 <tr>
                                     <td><strong>modified_date</strong></td>
-                                    <td>The modified date. ????? yellow comment
-                                    </td>
+                                    <td>The modified date.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>footnotes</strong></td>
                                     <td>A reference number to the footnotes text.</td>
                                 </tr>
-                                -->
-                                                    <!--<tr>
+                                <tr>
+                                    <td><strong>summary_title</strong></td>
+                                    <td>Summary title.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>summary_subtitle</strong></td>
+                                    <td>Summary subtitle.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>summary_text1</strong></td>
+                                    <td>Summary text 1.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>summary_text2</strong></td>
+                                    <td>Summary text 2.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>summary_text3</strong></td>
+                                    <td>Summary text 3.</td>
+                                </tr>
+                                <tr>
                                     <td><strong>din</strong></td>
                                     <td>The product din.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>is_md</strong></td>
-                                    <td>The product is_md.</td>
+                                    <td>The product is_md (medical device).</td>
                                 </tr>
                                 <tr>
                                     <td><strong>din_list</strong></td>
-                                    <td>The product din_list.</td>
+                                    <td>The list of Drug Identification number(s).</td>
                                 </tr>
                                 <tr>
                                     <td><strong>bullet_list</strong></td>
-                                    <td>The product bull_list.</td>
-                                </tr>-->
+                                    <td>The product bullet list.</td>
+                                </tr>                               
                             </table>
                         </section>
                         <section>
                              <h3 id="a3.3">Sample response</h3>
-                             <pre class="prettify prettyprint linenums">{"LinkId":"RDS00007","Drugname":"AVASTIN","ContactName":"Office of Regulatory Affairs, Biologics and Genetic Therapies Directorate","ContactUrl":"http://www.hc-sc.gc.ca/contact/dhp-mps/hpfb-dgpsa/bgtd-pbtg-ora-bar-eng.php","MedicalIngredient":"Bevacizumab","TherapeuticArea":"Anti-neoplastic agent","Purpose":"This SNDS (control # 171255) was submitted to support the extension of the use of Avastin in combination with paclitaxel, topotecan or pegylated liposomal doxorubicin for the treatment of patients with recurrent, platinum-resistantepithelial ovarian (EOC), fallopian tube (FTC), or primary peritoneal cancer (PPC) who received no more than two prior chemotherapy regimens.","ReasonDecision":"<p>The pivotal trial submitted in support of this proposed indication demonstrated a statistically significant and clinically relevant improvement in progression free survival &nbsp;(PFS) of AVASTIN in combination with paclitaxel, topotecan or pegylated liposomal doxorubicin over paclitaxel, topotecan or pegylated liposomal doxorubicin alone (absolute gain of 3.4 months in median PFS). These results were supported by an improvement in objective response rate (ORR) (partial responses) in the AVASTIN with chemotherapy treatment arm. The overall survival benefit was numerically in favour of the AVASTIN with chemotherapy treatment arm but the results were not statistically significant.</p><p>As expected, patients treated with AVASTIN resulted in increased safety findings compared to patients who received chemotherapy alone. However, the overall safety profile of AVASTIN in this population of patients appears to be consistent with the known safety profile of AVASTIN and is consistent with the experience of AVASTIN across indications. All safety concerns were adequately captured in the Product Monograph (PM).</p><p><strong>In view of the clinically meaningful PFS benefit associated with an ORR improvement in the context of this recurrent disease and a serious but identified safety profile, the overall risk benefit profile of AVASTIN appears to be favourable for the treatment of recurrent platinum-resistant ovarian cancer in combination with paclitaxel, topotecan or pegylated liposomal doxorubicin in patients that have received no more than two prior chemotherapy regimens.</strong></p>","Decision":"Approved","DecisionDescr":"; issued Notice of Compliance in accordance with the &nbsp;<a href=\"http://laws-lois.justice.gc.ca/eng/regulations/C.R.C.%2C_c._870/?showtoc =&amp;instrumentnumber =C.R.C.,_c._870\" title=\"external link\"><em>Food and Drug Regulations</em></a>.","DateDecision":"2015-09-28","Manufacture":"Hoffmann-La Roche Limited","PrescriptionStatus":"AVASTIN is available by prescription only.","TypeSubmission":"SNDS","DateFiled":"2014-01-08","ControlNumber":171255,"CreatedDate":null,"ModifiedDate":"2015-10-14","Footnotes":0,"Din":"N/A","DinList":["N/A"],"BulletList":[]}</pre>
+                             <pre class="prettify prettyprint linenums">{"link_id":"RDS00001","drug_name":"Amitiza",
+"contact_name":"Bureau of Gastroenterology Infection and Viral Diseases (BGIVD)","contact_url":"http://www.hc-sc.gc.ca/contact/dhp-mps/hpfb-dgpsa/bgivd-bgmiv-eng.php","medical_ingredient":"lubiprostone","therapeutic_area":"Selective ClC-2 chloride channel activator","purpose":"This submission was filed to seek marketing authorisation for Amitiza (lubiprostone) as a novel pharmaceutical intervention for the treatment of chronic idiopathic constipation (CIC) and opioid-induced constipation (OIC) in adults.","reason_decision":"<p>Amitiza was associated with a greater proportion of patient responders compared to placebo that experienced a clinically relevant increase in stool frequency. A pooled analysis of three pivotal clinical studies resulted in a 17.1% difference in responders in favour of Amitiza. Additionally, Amitiza was associated with a greater proportion of patient responders compared to placebo that experienced a clinically relevant softening of stool and reduction in degree of straining. A pooled analysis of the pivotal studies resulted in a 21.3% and 14.3% difference in responders in favour of Amitiza with respect to stool consistency and degree of straining, respectively. Additional efficacy outcomes including weekly stool frequency, time to first stool, and event of rescue medication use, were all favourable towards Amitiza compared to placebo. These data, however, are limited to 4-weeks duration. The efficacy of Amitiza beyond 4 weeks has not been established in well-designed, placebo-controlled clinical studies.</p> <p>Amitiza was generally well-tolerated, with a majority of reported adverse drug reactions (ADRs) being mild to moderate in intensity. The most commonly observed ADRs in Amitiza-treated CIC patients from placebo-controlled studies were consistent with the pharmacodynamics of the drug. These events included nausea (23.6 %), diarrhea (8.3%), abdominal pain (6.3%), headache (8.0%), and dizziness (4.7%). Additional less frequent AEs of interest included chest discomfort/pain, dyspnea, and palpitations. There was no marked evidence of a drug-drug interaction in the context of treatment of patients with CIC. There is no anticipated risk of abuse or misuse with Amitiza. Amitiza has been marketed in the United States since 2006 for the indication of CIC with nearly 10 million prescriptions worldwide and 1,000,000 subject years of exposure. Post-market data give reassurance of a favourable benefit/risk profile of Amitiza in clinical practice. The potential cardiovascular risks of prolonged Amitiza treatment may be considered uncertain. </p> <p>With respect to the OIC indication, the submission included three multicentre, randomized, double-blind, and placebo-controlled studies (OBD-0631, OBD-0632, and OBD-1033). The pivotal study (OBD-1033) was designed to show a difference between Amitiza and placebo of 16% in overall spontaneous bowel movement (SBM) response rate (primary endpoint). The results showed only a difference of 8.3%. This difference, although statistically significant was not clinically meaningful.</p> <p>Supportive studies (OBD-0631 and OBD-0632) were designed to show a difference between Amitiza and placebo of 1.5 in mean change from baseline in frequency of SBMs (primary efficacy endpoint). These studies showed a difference of 0.8 for OBD-0631 and 0.2 for OBD-0632.</p> <p>One of the supportive studies (OBD-0631) showed a statistically significant difference between Amitiza and placebo at Week 8 but the difference was not clinically meaningful. In addition, when results were analysed at the end of the study (Week 12), the results were not statistically or clinically significant. The other supportive study showed no statistically or clinically relevant difference between Amitiza and placebo at Week 8 or Week 12 (end of study). In terms of safety, Amitiza was associated with a higher number of drug-related AEs than placebo. No serious AEs or deaths assessed as drug-related were reported in these studies.</p> <p>In conclusion, the efficacy of Amitiza has not been established for the treatment of OIC as evidence from the submitted studies did not show a clinically meaningful difference between Amitiza and placebo in this indication. Based on the data submitted, the anticipated benefits of Amitiza are considered to outweigh the potential harms and uncertainties in patients with CIC only.</p><p>For more information on Health Canada's decision, please view the <a href=\"/reg-content/summary-basis-decision-detailTwo.php?lang =en&linkID =SBD00337\">Summary Basis of Decision</a>.</p>","decision":"Approved","decision_descr":"; issued Notice of Compliance in accordance with the &nbsp;<a href=\"http://laws-lois.justice.gc.ca/eng/regulations/C.R.C.%2C_c._870/?showtoc =&amp; instrumentnumber=C.R.C.,_c._870\" title=\"Food and Drug Regulations (external link)\"><em>Food and Drug Regulations</em></a>.",
+"date_decision":"2015-10-14","manufacturer":"Sucampo Pharma Americas LLC","prescription_status":"Amitiza is available by prescription only.",
+"type_submission":"New Drug Submission (New Active Substance)","date_filed":"2014-10-31","control_number":"179333","application_number":"","application_type":"",
+"licence_num":"","device_class":"","created_date":null,"modified_date":"2016-01-07","footnotes":0,"summary_title":"",
+"summary_subtitle":"","summary_text1":"","summary_text2":"","summary_text3":"","din":null,"is_md":false,
+"din_list":["02447363"],
+"bullet_list":[]}
+        </pre>
                         </section>                            
                         <section>
                              <h3 id="a3.4">jQuery example</h3>
-                             <p>Example of a function that search for a regulatory decision given an identification number and language selection:</p>
+                             <p>Example of a function that search for a regulatory decision given a variable that is used to link all of the RDS data together and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getRegulatoryDecision(id, lang) {
-      var base = 'https://imsd.hres.ca';
-      var uri = base + '/regcontent/api/regulatorydecision/?lang=' + lang + '&id=' + id;
+      var base = 'https://health-products.canada.ca';
+      var uri = base + '/api/summary-report/api/regulatorydecision/?lang=' + lang + '&id=' + id;
       $.ajax({
            url:uri,
            type:'GET',
@@ -634,7 +777,7 @@
                     <!--Regulatory Decision-section-end-->
                     <!--Summary Safety Review-section-start-->  
                     <section>
-                        <h2 id="a4">Summary Safety Review</h2>
+                        <h2 id="a4">Summary Safety Review (SSR)</h2>
                         <p>Each health product authorized for sale in Canada has terms of approval and labeling that reflects Health Canada's understanding of the benefits and harms of the product at the time of approval. Once on the Canadian market, Health Canada continues to monitor safety of health products to identify and assess potential harms. This monitoring, known as surveillance, includes the scanning of multiple sources of information (reports of adverse reactions, new safety information from foreign regulators, and medical and scientific literature) to identify potential health product-related safety issues.</p>
                         <!--h3-section-start-->
                         <section>
@@ -652,18 +795,18 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">regcontent/api/safetyreview?id=SSR00001</span></td>
-                                    <td>Returns summary safety reviews according to the format of the template specified in the request.</td>
+                                    <td><span class="wrap">api/summary-report/api/safetyreview?id=SSR00001</span></td>
+                                    <td>Returns summary safety reviews according to the variable, that is used to link all of the SSR data together, specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;-  format of the template
+                                            #####&nbsp;-  variable that is used to link all of the SSR data together
                                         </ul>
                                     </td>
                                     <td><strong>Yes</strong></td>
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">regcontent/api/safetyreview/?lang=en</span></td>
+                                    <td><span class="nowrap">api/summary-report/api/safetyreview/?lang=en</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -675,7 +818,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">regcontent/api/safetyreview/?type=json</span></td>
+                                    <td><span class="nowrap">api/summary-report/api/safetyreview/?type=json</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -689,8 +832,8 @@
                             </table>
                             <p>Summary Safety Reviews can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://imsd.hres.ca/regcontent/api/safetyreview/?lang=en&type=json">https://imsd.hres.ca/regcontent/api/safetyreview/?lang=en&type=json</a></li>
-                                <li><a href="https://imsd.hres.ca/regcontent/api/safetyreview/?lang=fr&type=json">https://imsd.hres.ca/regcontent/api/safetyreview/?lang=fr&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/summary-report/api/safetyreview/?lang=en&type=json">https://health-products.canada.ca/api/summary-report/api/safetyreview/?lang=en&type=json</a></li>
+                                <li><a href="https://health-products.canada.ca/api/summary-report/api/safetyreview/?lang=fr&type=json">https://health-products.canada.ca/api/summary-report/api/safetyreview/?lang=fr&type=json</a></li>
                             </ul>
                         </section>                        
                         <section>
@@ -699,7 +842,7 @@
                             <p>Each&nbsp;<strong>summary safety reviews</strong>&nbsp;object consists of the following values:</p>
                             <table>
                                 <caption>
-                                    Summary safety review object values
+                                    Summary Safety Review object values
                                 </caption>
                                 <tr>
                                     <th scope="col">Key</th>
@@ -707,19 +850,16 @@
                                 </tr>
                                 <tr>
                                     <td><strong>template</strong></td>
-                                    <td>There are two different formats for the SSRs.  This variable defines which template is used.  Possible values are 1 or 2.</td>
+                                    <td>There are two different formats for the SSRs. This variable defines which template is used.  Possible values are 1 or 2.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>link_id</strong></td>
                                     <td>This variable is used to link all of the SSR data together.</td>
                                 </tr>
-
-                                <!--
                                 <tr>
-                                    <td><strong>review_date </strong></td>
-                                    <td>Unused data element ????.</td>
-                                </tr>
-                                -->
+                                    <td><strong>review_date</strong></td>
+                                    <td></td>
+                                </tr>                                
                                 <tr>
                                     <td><strong>drug_name </strong></td>
                                     <td>The name of the drug, Class, or active ingredient.</td>
@@ -727,6 +867,14 @@
                                 <tr>
                                     <td><strong>safety_issue</strong></td>
                                     <td>The safety issue text (in template #2).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>safetyissue_title</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>findings_title</strong></td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <td><strong>issue</strong></td>
@@ -781,6 +929,10 @@
                                     <td>A reference number to the text for the Footnotes list.</td>
                                 </tr>
                                 <tr>
+                                    <td><strong>title</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
                                     <td><strong>created_date</strong></td>
                                     <td>The date the SSR was created.</td>
                                 </tr>
@@ -789,7 +941,7 @@
                                     <td>The date the SSR was modified.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>KeyMessageList</strong></td>
+                                    <td><strong>key_message_list</strong></td>
                                     <td>The product key message list.</td>
                                 </tr>
                                 <tr>
@@ -797,15 +949,15 @@
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The reference number linked to from the main table.</td>
                                 </tr>                                
                                 <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>num_order</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>order_no</strong></td>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The ordering number for the bulleted lists.</td>
                                 </tr>                                
                                 <tr>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>bullet</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The text of the bullet points in English.</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The text of the bullet points.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>FootnotesList</strong></td>
+                                    <td><strong>footnotes_list</strong></td>
                                     <td>The product footnotes list.</td>
                                 </tr>
                                 <tr>
@@ -813,15 +965,15 @@
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The reference number linked to from the main table.</td>
                                 </tr>
                                 <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>num_order</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>order_no</strong></td>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The ordering number for the bulleted lists.</td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>bullet</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The text of the bullet points in English.</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The text of the bullet points.</td>
                                 </tr>                                
                                 <tr>
-                                    <td><strong>ReferenceList</strong></td>
+                                    <td><strong>reference_list</strong></td>
                                     <td>The product reference list.</td>
                                 </tr>
                                 <tr>
@@ -829,39 +981,7 @@
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The reference number linked to from the main table.</td>
                                 </tr>
                                 <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>num_order</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The ordering number for the bulleted lists.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>bullet</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The text of the bullet points in English.</td>
-                                </tr>    
-                                <tr>
-                                    <td><strong>UseCanadaList</strong></td>
-                                    <td>The list of?????.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>field_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The reference number linked to from the main table.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>num_order</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The ordering number for the bulleted lists.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>bullet</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The text of the bullet points in English.</td>
-                                </tr>    
-                                <tr>
-                                    <td><strong>FindingList</strong></td>
-                                    <td>The product finding list.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>field_id</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The reference number linked to from the main table.</td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>num_order</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>order_no</strong></td>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The ordering number for the bulleted lists.</td>
                                 </tr>
                                 <tr>
@@ -869,7 +989,39 @@
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The text of the bullet points.</td>
                                 </tr>    
                                 <tr>
-                                    <td><strong>ConclusionList</strong></td>
+                                    <td><strong>use_canada_list</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>field_id</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The reference number linked to from the main table.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>order_no</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The ordering number for the bulleted lists.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>bullet</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The text of the bullet points.</td>
+                                </tr>    
+                                <tr>
+                                    <td><strong>finding_list</strong></td>
+                                    <td>The product finding list.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>field_id</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The reference number linked to from the main table.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>order_no</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The ordering number for the bulleted lists.</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>bullet</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The text of the bullet points.</td>
+                                </tr>    
+                                <tr>
+                                    <td><strong>conclusion_list</strong></td>
                                     <td>The product conclusion list.</td>
                                 </tr>
                                 <tr>
@@ -877,25 +1029,43 @@
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The reference number linked to from the main table.</td>
                                 </tr>
                                 <tr>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>num_order</strong></td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>order_no</strong></td>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The ordering number for the bulleted lists.</td>
                                 </tr>
                                 <tr>
                                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>bullet</strong></td>
-                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The text of the bullet points in English.</td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The text of the bullet points.</td>
                                 </tr>
                             </table>
                         </section>         
                         <section>
                              <h3 id="a4.3">Sample response</h3>
-                             <pre class="prettify prettyprint linenums">{"Template":2,"LinkId":"SSR00001","ReviewDate":null,"DrugName":"Galexos (simeprevir)","Safetyissue":"Severe liver problems","Issue":"","Background":"","Objective":"","KeyFindings":"","KeyMessages":1,"Overview":"Health Canada carried out a safety review after Japan published a risk communication on severe liver problems and related death with the use of simeprevir. In patients with liver damage due to advanced chronic hepatitis C, increased levels of bilirubin in the blood can be a sign that the liver is not functioning properly. The use of simeprevir can further increase bilirubin levels in the blood; this risk is already included in the prescribing information.","UseCanada":2,"Findings":3,"Conclusion":4,"Additional":"<p>The analysis that contributed to this safety review included scientific and medical literature, Canadian and international adverse reaction reports and what is known about the use of this drug both in Canada and internationally.</p><p>For additional information, <a href=\"http://www.hc-sc.gc.ca/contact/dhp-mps/hpfb-dgpsa/mhp-psc-eng.php\">contact the Marketed Health Products Directorate</a>.<u> </u></p>","FullReview":"","References":0,"Footnotes":0,"CreatedDate":"2016-01-27","ModifiedDate":"2016-01-27","KeyMessageList":[{"FieldId":1,"OrderNo":1,"Bullet":"Galexos (simeprevir) is a drug used to treat chronic hepatitis C."},{"FieldId":1,"OrderNo":2,"Bullet":"A safety review was carried out by Health Canada after Japan published a risk communication on severe liver problems and related death with simeprevir use."},{"FieldId":1,"OrderNo":3,"Bullet":"The prescribing information for Galexos has been updated with warnings about the risk of severe liver problems and related death. It also reminds healthcare professionals to frequently monitor patients for liver problems when using this drug."}],"FootnotesList":[],"ReferenceList":[],"UseCanadaList":[{"FieldId":2,"OrderNo":1,"Bullet":"Simeprevir has been marketed in Canada under the brand name of Galexos since 2013."},{"FieldId":2,"OrderNo":2,"Bullet":"Simeprevir is a drug used for the treatment of chronic hepatitis C. It is taken as an oral tablet for 12 weeks in combination with other medicinal products such as peginterferon alfa and ribavirin or with sofosbuvir."},{"FieldId":2,"OrderNo":3,"Bullet":"Recently, the number of prescriptions in Canada for simeprevir has gone from 1700 prescriptions between July and September 2014, to 16 prescriptions between July and September 2015."}],"FindingList":[{"FieldId":3,"OrderNo":1,"Bullet":"At the time of the review, Health Canada had received 11 Canadian reports of severe liver problems, including 2 deaths, suspected of being linked with simeprevir. Upon review of these cases, no conclusions could be made regarding what role, if any, the drug may have played, due to limited information from these cases."},{"FieldId":3,"OrderNo":2,"Bullet":"In Japan, 8 cases of severe blood bilirubin levels and 3 deaths had been reported in association with simeprevir. Ethnic differences in susceptibility to liver problems exist, therefore the information from these cases needs to be interpreted with caution when considering the risk of simeprevir for other populations."},{"FieldId":3,"OrderNo":3,"Bullet":"Information was also received from the manufacturer about cases of severely abnormal bilirubin levels suspected of being linked with simeprevir. In some of these cases, the contribution of simeprivir to the side effect could not be ruled out."}],"ConclusionList":[{"FieldId":4,"OrderNo":1,"Bullet":"Based on all the information reviewed, Health Canada concluded that the prescribing information should be updated to reflect the level of evidence related to the risk of severe liver problems."},{"FieldId":4,"OrderNo":2,"Bullet":"The manufacturer of Galexos (simeprevir) has updated the prescribing information to: <ul><li>Warn about the risk of severe liver problems and related death,</li><li>Advise healthcare professionals to do blood tests to check for liver function before and during treatment, and</li><li>Not use Galexos (simeprevir) in patients who have moderate or severe liver damage.</li></ul>"},{"FieldId":4,"OrderNo":3,"Bullet":"Health Canada will publish a labelling update notice in the January 2016 issue of the Health Product InfoWatch to raise awareness of the labelling update for simeprevir."},{"FieldId":4,"OrderNo":4,"Bullet":"Health Canada will continue to monitor side effect information involving simeprevir, as it does for all health products on the Canadian market, to identify and assess potential harms. Health Canada will take appropriate and timely action if and when any new health risks are identified."}]}</pre>
+                             <pre class="prettify prettyprint linenums">{"Template":2,"LinkId":"SSR00001","ReviewDate":null,"DrugName":"Galexos (simeprevir)","Safetyissue":"Severe liver problems","Issue":"","Background":"","Objective":"","KeyFindings":"","KeyMessages":1,
+"Overview":"Health Canada carried out a safety review after Japan published a risk communication on severe liver problems and related death with the use of simeprevir. In patients with liver damage due to advanced chronic hepatitis C, increased levels of bilirubin in the blood can be a sign that the liver is not functioning properly. The use of simeprevir can further increase bilirubin levels in the blood; this risk is already included in the prescribing information.",
+"UseCanada":2,"Findings":3,"Conclusion":4,"Additional":"<p>The analysis that contributed to this safety review included scientific and medical literature, Canadian and international adverse reaction reports and what is known about the use of this drug both in Canada and internationally.</p><p>For additional information, <a href=\"http://www.hc-sc.gc.ca/contact/dhp-mps/hpfb-dgpsa/mhp-psc-eng.php\">contact the Marketed Health Products Directorate</a>.<u> </u></p>",
+"FullReview":"","References":0,"Footnotes":0,"CreatedDate":"2016-01-27","ModifiedDate":"2016-01-27",
+"KeyMessageList":[{"FieldId":1,"OrderNo":1,"Bullet":"Galexos (simeprevir) is a drug used to treat chronic hepatitis C."},
+    {"FieldId":1,"OrderNo":2,"Bullet":"A safety review was carried out by Health Canada after Japan published a risk communication on severe liver problems and related death with simeprevir use."},
+    {"FieldId":1,"OrderNo":3,"Bullet":"The prescribing information for Galexos has been updated with warnings about the risk of severe liver problems and related death. It also reminds healthcare professionals to frequently monitor patients for liver problems when using this drug."}],
+"FootnotesList":[],
+"ReferenceList":[],
+"UseCanadaList":[{"FieldId":2,"OrderNo":1,"Bullet":"Simeprevir has been marketed in Canada under the brand name of Galexos since 2013."},
+    {"FieldId":2,"OrderNo":2,"Bullet":"Simeprevir is a drug used for the treatment of chronic hepatitis C. It is taken as an oral tablet for 12 weeks in combination with other medicinal products such as peginterferon alfa and ribavirin or with sofosbuvir."},
+    {"FieldId":2,"OrderNo":3,"Bullet":"Recently, the number of prescriptions in Canada for simeprevir has gone from 1700 prescriptions between July and September 2014, to 16 prescriptions between July and September 2015."}],
+"FindingList":[{"FieldId":3,"OrderNo":1,"Bullet":"At the time of the review, Health Canada had received 11 Canadian reports of severe liver problems, including 2 deaths, suspected of being linked with simeprevir. Upon review of these cases, no conclusions could be made regarding what role, if any, the drug may have played, due to limited information from these cases."},
+    {"FieldId":3,"OrderNo":2,"Bullet":"In Japan, 8 cases of severe blood bilirubin levels and 3 deaths had been reported in association with simeprevir. Ethnic differences in susceptibility to liver problems exist, therefore the information from these cases needs to be interpreted with caution when considering the risk of simeprevir for other populations."},
+    {"FieldId":3,"OrderNo":3,"Bullet":"Information was also received from the manufacturer about cases of severely abnormal bilirubin levels suspected of being linked with simeprevir. In some of these cases, the contribution of simeprivir to the side effect could not be ruled out."}],
+"ConclusionList":[{"FieldId":4,"OrderNo":1,"Bullet":"Based on all the information reviewed, Health Canada concluded that the prescribing information should be updated to reflect the level of evidence related to the risk of severe liver problems."},
+    {"FieldId":4,"OrderNo":2,"Bullet":"The manufacturer of Galexos (simeprevir) has updated the prescribing information to: <ul><li>Warn about the risk of severe liver problems and related death,</li><li>Advise healthcare professionals to do blood tests to check for liver function before and during treatment, and</li><li>Not use Galexos (simeprevir) in patients who have moderate or severe liver damage.</li></ul>"},
+    {"FieldId":4,"OrderNo":3,"Bullet":"Health Canada will publish a labelling update notice in the January 2016 issue of the Health Product InfoWatch to raise awareness of the labelling update for simeprevir."},
+    {"FieldId":4,"OrderNo":4,"Bullet":"Health Canada will continue to monitor side effect information involving simeprevir, as it does for all health products on the Canadian market, to identify and assess potential harms. Health Canada will take appropriate and timely action if and when any new health risks are identified."}]}</pre>
                         </section>                            
                         <section>
                              <h3 id="a4.4">jQuery example</h3>
-                             <p>Example of a function that search for a summary safety review given the format of a template and language selection:</p>
+                             <p>Example of a function that search for a summary safety review given a variable that is used to link all of the SSR data together and language selection:</p>
                              <pre class="prettify prettyprint linenums">function getSummarySafetyReview(id, lang) {
-     var base = 'https://imsd.hres.ca';
-     var uri = base + '/regcontent/api/safetyreview/?lang=' + lang + '&id=' + id;
+     var base = 'https://health-products.canada.ca';
+     var uri = base + '/api/summary-report/api/safetyreview/?lang=' + lang + '&id=' + id;
      $.ajax({
              url:uri,
              type:'GET',
@@ -908,7 +1078,7 @@
                           var DrugName = document.createTextNode(data.drug_name);
                           var p = document.createElement(&quot;p&quot;);
                           var text = document.createTextNode(data.panels[0].text);
-                          h2.appendChild(Brandname);
+                          h2.appendChild(DrugName);
                           p.appendChild(text);
                           frag.appendChild(h2);
                           frag.appendChild(p);

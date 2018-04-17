@@ -152,8 +152,7 @@
                         <p>La base de données sur les essais cliniques donne à la population une liste de renseignements précis sur les essais cliniques des phases I, II et III chez les patients. Gérée par Santé Canada, la base de données constitue une source d'information sur les essais cliniques effectués au Canada avec les médicaments pharmaceutiques et biologiques à usage humain.</p>
                         <!-- The above line is copied from this published page.www.canada.ca/fr/sante-canada/services/medicaments-produits-sante/medicaments/base-donnees-essais-cliniques-sante-canada.html -->
                         <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON et XML afin de les utiliser dans leurs propres applications.
-                        L'adresse URI de base sur les produits pharmaceutiques est &nbsp;<a href="https://produits-sante.canada.ca/api/essais-clinique/">https://produits-sante.canada.ca/api/essais-clinique/</a> et vous pouvez y ajouter des paramètres. Toute requête est effectuée par l'entremise de cette adresse URI.</p>
-                        <p>Ces renseignements sont aussi disponibles en format CSV pour voir les options disponibles vous devez utiliser l'adresse URI suivante&nbsp;<a href="https://produits-sante.canada.ca/api/documentation/cta-dataset-fr.html">https://produits-sante.canada.ca/api/documentation/cta-dataset-fr</a>.</p>
+                        L'adresse URI de base sur les produits pharmaceutiques est &nbsp;<a href="https://produits-sante.canada.ca/api/essais-clinique/">https://produits-sante.canada.ca/api/essais-clinique/</a> et vous pouvez y ajouter des paramètres. Toute requête est effectuée par l'entremise de cette adresse URI.</p>                        
                     </section>
                     <!--Manufacturer-section-start-->
                     <section>
@@ -251,7 +250,7 @@
                              <h3 id="a2.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche un promoteur selon le numéro d'identification d'un promoteur et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getSponsor(id, lang) {
-     var base = 'https://imsd.hres.ca';
+     var base = 'https://produits-sante.canada.ca';
      var uri = base + '/api/essais-clinique/sponsor/?lang=' + lang + '&id=' + id;
      $.ajax({
              url:uri,
@@ -373,7 +372,7 @@
                              <h3 id="a3.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche une condition médicale selon le numéro d'identification d'une condition médicale et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function GetAllMedicalCondition(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://produits-sante.canada.ca';
       var uri = base + '/api/essais-clinique/medicalcondition/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
@@ -512,7 +511,7 @@
                              <h3 id="a4.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche un produit pharmaceutique selon le numéro d'identification d'une marque et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getDrugProduct(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://produits-sante.canada.ca';
       var uri = base + '/api/essais-clinique/drugproduct/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
@@ -688,7 +687,7 @@
                              <h3 id="a5.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche un protocole selon le numéro d'identification d'un protocole et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getProtocol(id, lang) {
-     var base = 'https://imsd.hres.ca';
+     var base = 'https://produits-sante.canada.ca';
      var uri = base + '/api/essais-clinique/protocol/?lang=' + lang + '&id=' + id;
      $.ajax({
              url:uri,
@@ -809,7 +808,7 @@
                              <h3 id="a6.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche un statut d'essai selon le numéro d'identification d'un statut et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getStatus(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://produits-sante.canada.ca';
       var uri = base + '/api/essais-clinique/status/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
@@ -929,7 +928,7 @@
                              <h3 id="a7.4">Exemple de jQuery</h3>                                
                              <p>Exemple d'une fonctionnalité qui recherche une population à l'étude selon le numéro d'identification d'une population à l'étude et la langue sélectionnée&nbsp;:</p>                               
                              <pre class="prettify prettyprint linenums">function getStudyPopulation(id, lang) {
-      var base = 'https://imsd.hres.ca';
+      var base = 'https://produits-sante.canada.ca';
       var uri = base + '/api/essais-clinique/studypopulation/?lang=' + lang + '&id=' + id;
       $.ajax({
               url:uri,
