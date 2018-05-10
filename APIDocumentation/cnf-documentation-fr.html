@@ -1,0 +1,1509 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="fr" dir="ltr">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+        wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+    <title>Guide API - Base de données sur le Fichier canadien sur les éléments nutritifs (FCÉN)</title>
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <!-- Meta data -->
+    <meta name="dcterms.language" title="ISO639-2" content="fra" />
+    <meta name="dcterms.title" content="Guide API - Base de données sur le Fichier canadien sur les éléments nutritifs (FCÉN)" />
+    <meta name="description" content="Documentation pour API - Base de données sur le Fichier canadien sur les éléments nutritifs (FCÉN)." />
+    <meta name="dcterms.subject" title="scheme" content="" />
+    <meta name="dcterms.creator" content="Gouvernement du Canada, Santé Canada et l'Agence de la santé publique du Canada" />
+    <meta name="dcterms.contributor" content="" />
+    <meta name="dcterms.type" title="gctype" content="" />
+    <meta name="dcterms.audience" title="gcaudience" content="" />
+    <meta name="dcterms.issued" title="W3CDTF" content="2018-03-30" />
+    <meta name="dcterms.modified" title="W3CDTF" content="2018-03-30" />
+    <meta name="review_date" content="" />
+    <meta name="meta_date" content="" />
+
+    <!-- Load closure template scripts -->
+    <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/soyutils.js"></script>
+    <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/wet-fr.js"></script>
+    <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/plugins-fr.js"></script>
+    <!-- Load closure template scripts -->
+    <noscript>
+        <link rel="import" href="./StaticFallbackFiles/gcweb/refTop.html">
+    </noscript>
+    <!-- Write closure template -->
+    <script type="text/javascript">
+            document.write(wet.builder.refTop({
+                cdnEnv: "prod"
+            }));
+    </script>
+
+    <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
+    <script>dataLayer1 = [];</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body vocab="http://schema.org/" typeof="WebPage">
+    <!-- Google Tag Manager DO NOT REMOVE OR MODIFY - NE PAS SUPPRIMER OU MODIFIER -->
+    <noscript>
+        <iframe title="Google Tag Manager" src="//www.googletagmanager.com/ns.html?id=GTM-TLGQ9K" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0], j=d.createElement
+
+(s),dl=l!='dataLayer1'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})
+
+(window,document,'script','dataLayer1','GTM-TLGQ9K');
+    </script>
+    <!-- End Google Tag Manager -->
+    <div id="def-top">
+        <!-- top-en.html-Start-->
+        <link rel="import" href="./StaticFallbackFiles/gcweb/top-fr.html">
+        <!-- top-en.html-End-->
+    </div>
+    <!-- Write closure template -->
+    <script type="text/javascript">
+	var defTop = document.getElementById("def-top");
+	var jsonbread = [];
+
+	//console.log(jsonbread);
+	defTop.outerHTML = wet.builder.top({
+	    cdnEnv: "prod",
+	    search: true,
+		lngLinks: [{
+			lang: "fr",
+			href: "cnf-documentation-en.html",
+			text: "English",
+		}],
+		showPreContent: true,
+		breadcrumbs:jsonbread,
+	});
+    </script>
+
+    <div class="container">
+        <main role="main" property="mainContentOfPage" class="container">
+            <div class="wb-frmvld">
+                <section>
+                    <h1 id="wb-cont">Guide API - Base de données sur le Fichier canadien sur les éléments nutritifs (FCÉN)</h1>
+
+                    <section>
+                        <h2 id="a">Table des matières</h2>
+                        <ul>
+                            <li><a href="#a1">Introduction</a></li>
+                            <!-- Remove Food Group section Jan 25
+                            <li>
+                                <a href="#a2">Groupe d'aliments</a>
+                                <ul>
+                                    <li><a href="#a2.1">Paramètres</a></li>
+                                    <li><a href="#a2.2">Contenu du résultat</a></li>
+                                    <li><a href="#a2.3">Exemple de résultat</a></li>
+                                    <li><a href="#a2.4">Exemple de jQuery</a></li>
+                                </ul>
+                            </li>
+                               Remove Food group end -->
+                            <li>
+                                <a href="#a3">Aliment</a>
+                                <ul>
+                                    <li><a href="#a3.1">Paramètres</a></li>
+                                    <li><a href="#a3.2">Contenu du résultat</a></li>
+                                    <li><a href="#a3.3">Exemple de résultat</a></li>
+                                    <li><a href="#a3.4">Exemple de jQuery</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#a4">Nom des éléments nutritifs</a>
+                                <ul>
+                                    <li><a href="#a4.1">Paramètres</a></li>
+                                    <li><a href="#a4.2">Contenu du résultat</a></li>
+                                    <li><a href="#a4.3">Exemple de résultat</a></li>
+                                    <li><a href="#a4.4">Exemple de jQuery</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#a5">Groupe d'éléments nutritifs</a>
+                                <ul>
+                                    <li><a href="#a5.1">Paramètres</a></li>
+                                    <li><a href="#a5.2">Contenu du résultat</a></li>
+                                    <li><a href="#a5.3">Exemple de résultat</a></li>
+                                    <li><a href="#a5.4">Exemple de jQuery</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#a6">Source d'éléments nutritifs</a>
+                                <ul>
+                                    <li><a href="#a6.1">Paramètres</a></li>
+                                    <li><a href="#a6.2">Contenu du résultat</a></li>
+                                    <li><a href="#a6.3">Exemple de résultat</a></li>
+                                    <li><a href="#a6.4">Exemple de jQuery</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#a7">Teneur en élément nutritif</a>
+                                <ul>
+                                    <li><a href="#a7.1">Paramètres</a></li>
+                                    <li><a href="#a7.2">Contenu du résultat</a></li>
+                                    <li><a href="#a7.3">Exemple de résultat</a></li>
+                                    <li><a href="#a7.4">Exemple de jQuery</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#a8">Portion comestible</a>
+                                <ul>
+                                    <li><a href="#a8.1">Paramètres</a></li>
+                                    <li><a href="#a8.2">Contenu du résultat</a></li>
+                                    <li><a href="#a8.3">Exemple de résultat</a></li>
+                                    <li><a href="#a8.4">Exemple de jQuery</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#a9">Portion non comestible</a>
+                                <ul>
+                                    <li><a href="#a9.1">Paramètres</a></li>
+                                    <li><a href="#a9.2">Contenu du résultat</a></li>
+                                    <li><a href="#a9.3">Exemple de résultat</a></li>
+                                    <li><a href="#a9.4">Exemple de jQuery</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#a10">Rendement</a>
+                                <ul>
+                                    <li><a href="#a10.1">Paramètres</a></li>
+                                    <li><a href="#a10.2">Contenu du résultat</a></li>
+                                    <li><a href="#a10.3">Exemple de résultat</a></li>
+                                    <li><a href="#a10.4">Exemple de jQuery</a></li>
+                                </ul>
+                            </li>                           
+                        </ul>
+                    </section>
+                    <section>
+                        <h2 id="a1">Introduction</h2>
+                        <p>Le Fichier canadien sur les éléments nutritifs (FCÉN) est la base de données de référence sur la composition des aliments qui nous informe de la quantité des éléments nutritifs dans les aliments couramment consommés au Canada.</p>                        
+                        <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON et XML afin de les utiliser dans leurs propres applications.
+                        L'adresse URI de base sur le Fichier canadien sur les éléments nutritifs est &nbsp;<a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/</a> et vous pouvez y ajouter des paramètres. Toute requête est effectuée par l'entremise de cette adresse URI.</p>                        
+                    </section>
+                    <section>
+                        <!--Food Group-section-remove Jan 25 no food group link data 
+                        <h2 id="a2">Groupe d'aliments</h2>
+                        <p>La liste des groupes d'aliments basés sur les similarités des aliments.</p>                        
+                        
+                        <section>
+                            <h3 id="a2.1">Paramètres</h3>
+                            <p>Il y a trois paramètres dans la requête : id, lang et type.</p>
+                            <table>
+                                <caption>
+                                    Paramètres pour la requête
+                                </caption>
+                                <tr>
+                                    <th scope="col">Paramètre</th>
+                                    <th scope="col">Définition</th>
+                                    <th scope="col">Valeur</th>
+                                    <th scope="col">Requis?</th>
+                                    <th scope="col">Note</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/foodgroup/?id=</span></td>
+                                    <td>Affiche le groupe selon le numéro d'identification du groupe d'aliments spécifié dans la requête.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- numéro d'identification du groupe d'aliments
+                                        </ul>
+                                    </td>
+                                    <td><strong>Oui</strong></td>
+                                    <td></td>
+                                </tr>                               
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/foodgroup/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- Anglais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/foodgroup/?type=json</span></td>
+                                    <td>Modifie le format du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
+                                </tr>
+                            </table>
+                            <p>La liste des groupes d'aliments peut être accédée aux adresses URI suivantes&nbsp;:</p>
+                            <ul>
+                                <li><a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/foodgroup/?lang=en&type=json">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/foodgroup/?lang=en&type=json</a></li>
+                                <li><a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/foodgroup/?lang=fr&type=json">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/foodgroup/?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a2.2">Contenu du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>groupe d'aliments</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
+                            <table>
+                                <caption>
+                                    Valeurs de l'objet groupe d'aliments
+                                </caption>
+                                <tr>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>food_group_id</strong></td>
+                                    <td>Le numéro d'identification attribué à un groupe d'aliments.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>food_group_description</strong></td>
+                                    <td>La description d'un groupe d'aliments.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>food_group_code</strong></td>
+                                    <td>Le code attribué à un groupe d'aliments.</td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section>
+                             <h3 id="a2.3">Exemple de résultat </h3>
+                             <pre class="prettify prettyprint linenums">{"group_id":1,"group_desc":"Produits laitiers et d'oeufs","group_code":"1"}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a2.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche un groupe d'aliments selon le numéro d'identification d'un groupe et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getFoodGroup(id, lang) {
+      var base = 'https://aliments-nutrition.canada.ca';
+      var uri = base + '/api/fichier-canadien-elements-nutritifs/foodgroup/?id=' + id + ' &lang =' + lang;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.group_desc);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var FoodGroup = document.createTextNode(data.group_desc);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(FoodGroup);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>
+                        </section>
+                    </section>
+                    end Food Group -->
+                    <!--Food-section-start-->
+                    <section>                       
+                        <h2 id="a3">Aliment</h2>
+                        <p>Contient la description et le code de chaque aliment. Un aliment ne peut être davantage décomposé en ingrédients.</p>
+                        
+                        <!--h3-section-start-->
+                        <section>
+                            <h3 id="a3.1">Paramètres</h3>
+                            <p>Il y a trois paramètres dans la requête : id, lang et type.</p>
+                            <table>
+                                <caption>
+                                    Paramètres pour la requête
+                                </caption>
+                                <tr>
+                                    <th scope="col">Paramètre</th>
+                                    <th scope="col">Définition</th>
+                                    <th scope="col">Valeur</th>
+                                    <th scope="col">Requis?</th>
+                                    <th scope="col">Note</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/food/?id=</span></td>
+                                    <td>Affiche les détails de l'aliment selon le code de l'aliment spécifié dans la requête.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- code de l'aliment
+                                        </ul>
+                                    </td>
+                                    <td><strong>Oui</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/food/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- Anglais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/food/?type=json</span></td>
+                                    <td>Modifie le format du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
+                                </tr>
+                            </table>
+                            <p>La liste des aliments peut être accédée aux adresses URI suivantes :</p>
+                            <ul>
+                                <li><a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/food/?lang=en&type=json">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/food/?lang=en&type=json</a></li>
+                                <li><a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/food/?lang=fr&type=json">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/food/?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a3.2">Contenu du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>aliment</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
+                            <table>
+                                <caption>
+                                    Valeurs de l'objet aliment
+                                </caption>
+                                <tr>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>food_code</strong></td>
+                                    <td>Le code attribué à un aliment.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>food_description</strong></td>
+                                    <td>Le nom complet de l'aliment.</td>
+                                </tr>  
+                            </table>
+                        </section>
+                        <section>
+                             <h3 id="a3.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">{"food_code":112,"food_description":"Lait, concentré, écrémé, conserve, non dilué, 0.2% M.G."}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a3.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche un aliment selon le code d'un aliment et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getFood(id, lang) {
+      var base = 'https://aliments-nutrition.canada.ca';
+      var uri = base + '/api/fichier-canadien-elements-nutritifs/food/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.food_description);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var FoodName = document.createTextNode(data.food_description);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(FoodName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>
+                        </section>
+                    </section>
+                    <!--Food-section-end-->
+                    <!--Nutrient -section-start-->
+                    <section>                       
+                        <h2 id="a4">Nom des éléments nutritifs</h2>
+                        <p>La liste des éléments nutritifs.</p>
+                        <!--h3-section-start-->
+                        <section>
+                            <h3 id="a4.1">Paramètres</h3>
+                            <p>Il y a trois paramètres dans la requête : id, lang et type.</p>
+                            <table>
+                                <caption>
+                                    Paramètres pour la requête
+                                </caption>
+                                <tr>
+                                    <th scope="col">Paramètre</th>
+                                    <th scope="col">Définition</th>
+                                    <th scope="col">Valeur</th>
+                                    <th scope="col">Requis?</th>
+                                    <th scope="col">Note</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/nutrientname/?id=</span></td>
+                                    <td>Affiche l'élément nutritif selon le numéro d'identification de l'élément nutritif spécifié dans la requête.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- numéro d'identification de l'élément nutritif
+                                        </ul>
+                                    </td>
+                                    <td><strong>Oui</strong></td>
+                                    <td></td>
+                                </tr>                               
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/nutrientname/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- Anglais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/nutrientname/?type=json</span></td>
+                                    <td>Modifie le format du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
+                                </tr>
+                            </table>
+                            <p>La liste des éléments nutritifs peut être accédée aux adresses URI suivantes :</p>
+                            <ul>
+                                <li><a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/nutrientname/?lang=en&type=json">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/nutrientname/?lang=en&type=json</a></li>
+                                <li><a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/nutrientname/?lang=fr&type=json">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/nutrientname/?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a4.2">Contenu du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+
+                            <p>Chaque objet&nbsp;<strong>élément nutritif</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
+                            <table>
+                                <caption>
+                                    Valeurs de l'objet élément nutritif
+                                </caption>
+                                <tr>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_name_id</strong></td>
+                                    <td>Le numéro d'identification attribué à un élément nutritif.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_code</strong></td>
+                                    <td>Le code attribué à un élément nutritif.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_symbol</strong></td>
+                                    <td>Le symbole ou l'abréviation des éléments nutritifs. Ces symboles peuvent être différents de la nomenclature internationale.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>unit</strong></td>
+                                    <td>L'unité de mesure  (ex: mg, g, mcg).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_name</strong></td>
+                                    <td>Le nom de l'élément nutritif.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>tagname</strong></td>
+                                    <td>Un système d'abréviation des constituants alimentaires développé par le réseau international des systèmes de données sur l'alimentation (INFOODS) pour faciliter l'échange d'information au niveau international.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_decimals</strong></td>
+                                    <td>Le nombre de décimales utilisées pour arrondir la valeur des éléments nutritifs.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_web_order</strong></td>
+                                    <td>L'ordre d'affichage des éléments nutritifs.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_web_name</strong></td>
+                                    <td>Le nom de l'élément nutritif pour le WEB.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_group_id</strong></td>
+                                    <td>Le numéro d'identification d'un groupe d'éléments nutritifs.</td>
+                                </tr>                                                                 
+                            </table>
+                        </section>
+                        <section>
+                             <h3 id="a4.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">{"nutrient_name_id":837,"nutrient_symbol":"LUT+ZEA","nutrient_name":"LUTÉINE ET ZÉAXANTHINE","unit":"µg","nutrient_code":338,"tagname":"LUT+ZEA","nutrient_decimals":0,"nutrient_web_order":20,"nutrient_web_name":"Lutéine et zéaxanthine","nutrient_group_id":7}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a4.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche un élément nutritif selon le numéro d'identification d'un élément nutritif et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getNutrientName(id, lang) {
+      var base = 'https://aliments-nutrition.canada.ca';
+      var uri = base + '/api/fichier-canadien-elements-nutritifs/nutrientname/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.nutrient_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var NutrientName = document.createTextNode(data.nutrient_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(NutrientName);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
+                        </section>
+                    </section>
+                    <!--Nutrient Name-section-end-->
+                    <!--Nutrient Group-section-start-->
+                    <section>
+                        <h2 id="a5">Groupe d'éléments nutritifs</h2>
+                        <p>La liste des groupes d'éléments nutritifs basés sur les similarités des éléments nutritifs.</p>
+                        <!--h3-section-start-->
+                        <section>
+                            <h3 id="a5.1">Paramètres</h3>
+                            <p>Il y a trois paramètres dans la requête : id, lang et type.</p>
+                            <table>
+                                <caption>
+                                    Paramètres pour la requête
+                                </caption>
+                                <tr>
+                                    <th scope="col">Paramètre</th>
+                                    <th scope="col">Définition</th>
+                                    <th scope="col">Valeur</th>
+                                    <th scope="col">Requis?</th>
+                                    <th scope="col">Note</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/nutrientgroup/?id=</span></td>
+                                    <td>Affiche le groupe d'éléments nutritifs selon le numéro d'identification du groupe d'éléments nutritifs spécifié dans la requête.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- numéro d'identification du groupe d'éléments nutritifs
+                                        </ul>
+                                    </td>
+                                    <td><strong>Oui</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/nutrientgroup/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- Anglais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/nutrientgroup/?type=json</span></td>
+                                    <td>Modifie le format du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
+                                </tr>
+                            </table>
+                            <p>La liste des groupes d'éléments nutritifs peut être accédée aux adresses URI suivantes :</p>
+                            <ul>
+                                <li><a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/nutrientgroup/?lang=en&type=json">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/nutrientgroup/?lang=en&type=json</a></li>
+                                <li><a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/nutrientgroup/?lang=fr&type=json">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/nutrientgroup/?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a5.2">Contenu du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+
+                            <p>Chaque objet&nbsp;<strong>groupe d'éléments nutritifs</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
+                            <table>
+                                <caption>
+                                    Valeurs de l'objet groupe d'éléments nutritifs
+                                </caption>
+                                <tr>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_group_id</strong></td>
+                                    <td>Le numéro d'identification attribué à un groupe d'éléments nutritifs.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_group_name</strong></td>
+                                    <td>Le nom d'un groupe d'éléments nutritifs.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_group_order</strong></td>
+                                    <td>L'ordre d'affichage des groupes d'éléments nutritifs.</td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section>
+                            <h3 id="a5.3">Exemple de résultat</h3>
+                            <pre class="prettify prettyprint linenums">{"nutrient_group_id":2,"nutrient_group_name":"Autres glucides","nutrient_group_order":2}</pre>
+                        </section>
+                        <section>
+                            <h3 id="a5.4">Exemple de jQuery</h3>
+                            <p>Exemple d'une fonctionnalité qui recherche un groupe d'éléments nutritifs selon le numéro d'identification d'un groupe d'éléments nutritifs et la langue sélectionnée&nbsp;:</p>
+                            <pre class="prettify prettyprint linenums">function getNutrientGroup(id, lang) {
+      var base = 'https://aliments-nutrition.canada.ca';
+      var uri = base + '/api/fichier-canadien-elements-nutritifs/nutrientgroup/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.nutrient_group_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var NutrientGroup = document.createTextNode(data.nutrient_group_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(NutrientGroup);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>
+                        </section>
+                    </section>
+                    <!--Nutrient Group-section-end-->
+                    <!--Nutrient Source-section-start-->
+                    <section>                        
+                        <h2 id="a6">Source d'éléments nutritifs</h2>
+                        <p>La liste des sources et/ou types d'éléments nutritifs.</p>                        
+                        <!--h3-section-start-->
+                        <section>
+                            <h3 id="a6.1">Paramètres</h3>
+                            <p>Il y a trois paramètres dans la requête : id, lang et type.</p>
+                            <table>
+                                <caption>
+                                    Paramètres pour la requête
+                                </caption>
+                                <tr>
+                                    <th scope="col">Paramètre</th>
+                                    <th scope="col">Définition</th>
+                                    <th scope="col">Valeur</th>
+                                    <th scope="col">Requis?</th>
+                                    <th scope="col">Note</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="wrap">api/fichier-canadien-elements-nutritifs/nutrientsource/?id=</span></td>
+                                    <td>Affiche la source d'éléments nutritifs selon le numéro d'identification de la source d'éléments nutritifs spécifié dans la requête.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- numéro d'identification de la source d'éléments nutritifs
+                                        </ul>
+                                    </td>
+                                    <td><strong>Oui</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/nutrientsource/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- Anglais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/nutrientsource/?type=json</span></td>
+                                    <td>Modifie le format du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
+                                </tr>
+                            </table>
+                            <p>La liste des sources d'éléments nutritifs peut être accédée aux adresses URI suivantes :</p>
+                            <ul>
+                                <li><a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/nutrientsource/?lang=en&type=json">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/nutrientsource/?lang=en&type=json</a></li>
+                                <li><a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/nutrientsource/?lang=fr&type=json">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/nutrientsource/?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a6.2">Contenu du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>source d'éléments nutritifs</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
+                            <table>
+                                <caption>
+                                    Valeurs de l'objet source d'éléments nutritifs
+                                </caption>
+                                <tr>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_source_id</strong></td>
+                                    <td>Le numéro d'identification attribué à une source d'éléments nutritifs.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_source_description</strong></td>
+                                    <td>La description d'une source d'éléments nutritifs.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_source_code</strong></td>
+                                    <td>Le code qui identifie une source d'éléments nutritifs au Canada.</td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section>
+                             <h3 id="a6.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">{"nutrient_source_id":5,"nutrient_source_description":"Nutriment imputé d'un aliment semblable du USDA","nutrient_source_code":5}</pre>
+                        </section>
+                        <section>
+                             <h3 id="a6.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche la source d'éléments nutritifs selon le code d'une source d'éléments nutritifs et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getNutrientSource(id, lang) {
+      var base = 'https://aliments-nutrition.canada.ca';
+      var uri = base + '/api/fichier-canadien-elements-nutritifs/nutrientsource/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.nutrient_source_description);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var NutrientSource = document.createTextNode(data.nutrient_source_description);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(NutrientSource);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>        
+                        </section>
+                    </section>
+                    <!--Nutrient Source-section-end-->
+                    <!--Nutrient amount-section-start-->
+                    <section>                        
+                        <h2 id="a7">Teneur en élément nutritif</h2>
+                        <p>Les quantités des éléments nutritifs pour 100 g de portion comestible, pour chaque aliment.</p>
+                        <!--h3-section-start-->
+                        <section>
+                            <h3 id="a7.1">Paramètres</h3>
+                            <p>Il y a trois paramètres dans la requête : id, lang et type.</p>
+                            <table>
+                                <caption>
+                                    Paramètres pour la requête
+                                </caption>
+                                <tr>
+                                    <th scope="col">Paramètre</th>
+                                    <th scope="col">Définition</th>
+                                    <th scope="col">Valeur</th>
+                                    <th scope="col">Requis?</th>
+                                    <th scope="col">Note</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="wrap">api/fichier-canadien-elements-nutritifs/nutrientamount/?id=</span></td>
+                                    <td>Affiche les teneurs en élément nutritif selon le code de l'aliment spécifié dans la requête.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- code de l'aliment
+                                        </ul>
+                                    </td>
+                                    <td><strong>Oui</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/nutrientamount/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- Anglais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/nutrientamount/?type=json</span></td>
+                                    <td>Modifie le format du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
+                                </tr>
+                            </table>
+                            <p>La liste des teneurs en éléments nutritifs peut être accédée aux adresses URI suivantes :</p>
+                            <ul>
+                                <li><a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/nutrientamount/?lang=en&type=json">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/nutrientamount/?lang=en&type=json</a></li>
+                                <li><a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/nutrientamount/?lang=fr&type=json">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/nutrientamount/?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a7.2">Contenu du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>teneur en élément nutritif</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
+                            <table>
+                                <caption>
+                                    Valeurs de l'objet teneur en élément nutritif
+                                </caption>
+                                <tr>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>food_code</strong></td>
+                                    <td>Le code attribué à chaque aliment.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_value</strong></td>
+                                    <td>Valeur moyenne dans une portion de 100g de portion comestible (le nombre de décimale ne reflète pas l'exactitude des données).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>standard_error</strong></td>
+                                    <td>L'écart-type de la moyenne.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>number_observation</strong></td>
+                                    <td>Le nombre d'échantillons utilisés pour une étude.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_name_id</strong></td>
+                                    <td>Le numéro d'identification d'un élément nutritif.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_web_name</strong></td>
+                                    <td>Le nom de l'élément nutritif pour le WEB.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>unit</strong></td>
+                                    <td>L'unité de mesure (ex: mg, g, mcg).</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_decimals</strong></td>
+                                    <td>Le nombre de décimales utilisées pour arrondir la valeur des éléments nutritifs.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_web_order</strong></td>
+                                    <td>L'ordre d'affichage des éléments nutritifs.</td>
+                                </tr>                                
+                                <tr>
+                                    <td><strong>nutrient_source_id</strong></td>
+                                    <td>Le numéro d'identification d'une source d'éléments nutritifs.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_source_code</strong></td>
+                                    <td>Le code qui identifie une source d'éléments nutritifs au Canada.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>nutrient_source_description</strong></td>
+                                    <td>La description d'une source d'éléments nutritifs.</td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section>
+                             <h3 id="a7.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">[{"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":221,"nutrient_web_name":"Alcool","nutrient_source_id":12},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":262,"nutrient_web_name":"Caféine","nutrient_source_id":12},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":263,"nutrient_web_name":"Théobromine","nutrient_source_id":12},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":621,"nutrient_web_name":"22:6n-6","nutrient_source_id":12},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":631,"nutrient_web_name":"22:5n-3","nutrient_source_id":12},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":827,"nutrient_web_name":"20:3","nutrient_source_id":12},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":832,"nutrient_web_name":"18:3n6cccn-6","nutrient_source_id":12},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":854,"nutrient_web_name":"20:3n-6","nutrient_source_id":12},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":861,"nutrient_web_name":"20:3n-3","nutrient_source_id":12},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":607,"nutrient_web_name":"4:0","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":608,"nutrient_web_name":"6:0","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":609,"nutrient_web_name":"8:0","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":610,"nutrient_web_name":"10:0","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":620,"nutrient_web_name":"20:4","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":627,"nutrient_web_name":"18:4","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":629,"nutrient_web_name":"20:5n-3","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":630,"nutrient_web_name":"22:1","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":823,"nutrient_web_name":"20:2cc","nutrient_source_id":12},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":836,"nutrient_web_name":"Lycopène","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":840,"nutrient_web_name":"22:1c","nutrient_source_id":12},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":841,"nutrient_web_name":"18:3i","nutrient_source_id":12},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":852,"nutrient_web_name":"22:1t","nutrient_source_id":12},
+    {"food_code":5,"nutrient_value":0.0,"standard_error":0,"number_observation":0,"nutrient_name_id":855,"nutrient_web_name":"20:4n-6","nutrient_source_id":12},
+    {"food_code":5,"nutrient_value":0.001,"standard_error":0,"number_observation":0,"nutrient_name_id":611,"nutrient_web_name":"12:0","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.005,"standard_error":0,"number_observation":0,"nutrient_name_id":612,"nutrient_web_name":"14:0","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.01465,"standard_error":0,"number_observation":0,"nutrient_name_id":339,"nutrient_web_name":"Vitamine D","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.024,"standard_error":0,"number_observation":0,"nutrient_name_id":626,"nutrient_web_name":"16:1","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.0269,"standard_error":0,"number_observation":0,"nutrient_name_id":501,"nutrient_web_name":"Tryptophane","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.0275,"standard_error":0,"number_observation":0,"nutrient_name_id":628,"nutrient_web_name":"20:1","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.0345,"standard_error":0,"number_observation":0,"nutrient_name_id":507,"nutrient_web_name":"Cystine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.0358,"standard_error":0,"number_observation":0,"nutrient_name_id":418,"nutrient_web_name":"Vitamine B-12","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.038,"standard_error":0,"number_observation":0,"nutrient_name_id":506,"nutrient_web_name":"Méthionine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.055,"standard_error":0,"number_observation":0,"nutrient_name_id":509,"nutrient_web_name":"Tyrosine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.056,"standard_error":0,"number_observation":0,"nutrient_name_id":512,"nutrient_web_name":"Histidine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.0679,"standard_error":0,"number_observation":0,"nutrient_name_id":415,"nutrient_web_name":"Vitamine B-6","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.07236,"standard_error":0,"number_observation":0,"nutrient_name_id":502,"nutrient_web_name":"Thréonine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.074,"standard_error":0,"number_observation":0,"nutrient_name_id":518,"nutrient_web_name":"Sérine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.076,"standard_error":0,"number_observation":0,"nutrient_name_id":516,"nutrient_web_name":"Glycine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.085,"standard_error":0,"number_observation":0,"nutrient_name_id":404,"nutrient_web_name":"Thiamine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.0879,"standard_error":0,"number_observation":0,"nutrient_name_id":605,"nutrient_web_name":"Acides gras trans totaux","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.091,"standard_error":0,"number_observation":0,"nutrient_name_id":513,"nutrient_web_name":"Alanine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.0939,"standard_error":0,"number_observation":0,"nutrient_name_id":312,"nutrient_web_name":"Cuivre, Cu","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.0974,"standard_error":0,"number_observation":0,"nutrient_name_id":405,"nutrient_web_name":"Riboflavine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.098,"standard_error":0,"number_observation":0,"nutrient_name_id":508,"nutrient_web_name":"Phénylalanine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.0999,"standard_error":0,"number_observation":0,"nutrient_name_id":503,"nutrient_web_name":"Isoleucine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.1064,"standard_error":0,"number_observation":0,"nutrient_name_id":510,"nutrient_web_name":"Valine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.117,"standard_error":0,"number_observation":0,"nutrient_name_id":505,"nutrient_web_name":"Lysine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.119,"standard_error":0,"number_observation":0,"nutrient_name_id":517,"nutrient_web_name":"Proline","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.128,"standard_error":0,"number_observation":0,"nutrient_name_id":511,"nutrient_web_name":"Arginine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.156,"standard_error":0,"number_observation":0,"nutrient_name_id":504,"nutrient_web_name":"Leucine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.156,"standard_error":0,"number_observation":0,"nutrient_name_id":614,"nutrient_web_name":"18:0","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.24,"standard_error":0,"number_observation":0,"nutrient_name_id":514,"nutrient_web_name":"Acide aspartique","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.2453,"standard_error":0,"number_observation":0,"nutrient_name_id":315,"nutrient_web_name":"Manganèse, Mn","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.26,"standard_error":0,"number_observation":0,"nutrient_name_id":410,"nutrient_web_name":"Acide pantothénique","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.333,"standard_error":0,"number_observation":0,"nutrient_name_id":619,"nutrient_web_name":"18:3","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.333,"standard_error":0,"number_observation":0,"nutrient_name_id":831,"nutrient_web_name":"18:3n3cccn-3","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.337,"standard_error":0,"number_observation":0,"nutrient_name_id":319,"nutrient_web_name":"Rétinol","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.4451,"standard_error":0,"number_observation":0,"nutrient_name_id":309,"nutrient_web_name":"Zinc, Zn","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.448,"standard_error":0,"number_observation":0,"nutrient_name_id":613,"nutrient_web_name":"16:0","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.474,"standard_error":0,"number_observation":0,"nutrient_name_id":515,"nutrient_web_name":"Acide glutamique","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.632,"standard_error":0,"number_observation":0,"nutrient_name_id":606,"nutrient_web_name":"Acides gras saturés totaux","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.68391,"standard_error":0,"number_observation":0,"nutrient_name_id":323,"nutrient_web_name":"Tocophérol, alpha","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":0.8868,"standard_error":0,"number_observation":0,"nutrient_name_id":303,"nutrient_web_name":"Fer, Fe","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":1.22,"standard_error":0,"number_observation":0,"nutrient_name_id":291,"nutrient_web_name":"Fibres alimentaires totales","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":1.35165,"standard_error":0,"number_observation":0,"nutrient_name_id":834,"nutrient_web_name":"Alpha-carotène","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":1.3517,"standard_error":0,"number_observation":0,"nutrient_name_id":835,"nutrient_web_name":"Bêta-cryptozanthine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":1.5464,"standard_error":0,"number_observation":0,"nutrient_name_id":207,"nutrient_web_name":"Cendres","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":1.557,"standard_error":0,"number_observation":0,"nutrient_name_id":406,"nutrient_web_name":"Niacine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":1.786,"standard_error":0,"number_observation":0,"nutrient_name_id":617,"nutrient_web_name":"18:1","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":1.815,"standard_error":0,"number_observation":0,"nutrient_name_id":618,"nutrient_web_name":"18:2","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":1.841,"standard_error":0,"number_observation":0,"nutrient_name_id":645,"nutrient_web_name":"Acides gras monoinsaturés totaux","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":2.00533,"standard_error":0,"number_observation":0,"nutrient_name_id":409,"nutrient_web_name":"Niacine, équivalents","nutrient_source_id":4},
+    {"food_code":5,"nutrient_value":2.018,"standard_error":0,"number_observation":0,"nutrient_name_id":601,"nutrient_web_name":"Cholestérol","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":2.156,"standard_error":0,"number_observation":0,"nutrient_name_id":646,"nutrient_web_name":"Acides gras polyinsaturés totaux","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":2.839,"standard_error":0,"number_observation":0,"nutrient_name_id":269,"nutrient_web_name":"Sucres totaux","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":3.118,"standard_error":0,"number_observation":0,"nutrient_name_id":203,"nutrient_web_name":"Protéines","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":4.833,"standard_error":0,"number_observation":0,"nutrient_name_id":204,"nutrient_web_name":"Lipides totaux","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":4.91,"standard_error":0,"number_observation":0,"nutrient_name_id":401,"nutrient_web_name":"Vitamine C","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":4.99,"standard_error":0,"number_observation":0,"nutrient_name_id":814,"nutrient_web_name":"Équivalents d'activité du rétinol (EAR)","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":5.486,"standard_error":0,"number_observation":0,"nutrient_name_id":317,"nutrient_web_name":"Sélénium, Se","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":6.712,"standard_error":0,"number_observation":0,"nutrient_name_id":431,"nutrient_web_name":"Acide folique, forme synthétique","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":9.846,"standard_error":0,"number_observation":0,"nutrient_name_id":205,"nutrient_web_name":"Glucides","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":14.469,"standard_error":0,"number_observation":0,"nutrient_name_id":304,"nutrient_web_name":"Magnésium, Mg","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":15.247,"standard_error":0,"number_observation":0,"nutrient_name_id":430,"nutrient_web_name":"Vitamine K","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":18.151,"standard_error":0,"number_observation":0,"nutrient_name_id":301,"nutrient_web_name":"Calcium, Ca","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":20.688,"standard_error":0,"number_observation":0,"nutrient_name_id":806,"nutrient_web_name":"Folates présents naturellement","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":27.4,"standard_error":0,"number_observation":0,"nutrient_name_id":417,"nutrient_web_name":"Folacine, totale","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":32.0984,"standard_error":0,"number_observation":0,"nutrient_name_id":815,"nutrient_web_name":"Équivalents de folate alimentaire (EFA)","nutrient_source_id":2},
+    {"food_code":5,"nutrient_value":49.817,"standard_error":0,"number_observation":0,"nutrient_name_id":305,"nutrient_web_name":"Phosphore, P","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":51.851,"standard_error":0,"number_observation":0,"nutrient_name_id":321,"nutrient_web_name":"Bêta-carotène","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":61.149,"standard_error":0,"number_observation":0,"nutrient_name_id":837,"nutrient_web_name":"Lutéine et zéaxanthine","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":80.683,"standard_error":0,"number_observation":0,"nutrient_name_id":255,"nutrient_web_name":"Eau","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":92.0,"standard_error":0,"number_observation":0,"nutrient_name_id":208,"nutrient_web_name":"Énergie (kcal)","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":148.319,"standard_error":0,"number_observation":0,"nutrient_name_id":306,"nutrient_web_name":"Potassium, K","nutrient_source_id":102},
+    {"food_code":5,"nutrient_value":385.0,"standard_error":0,"number_observation":0,"nutrient_name_id":268,"nutrient_web_name":"Énergie (kJ)","nutrient_source_id":2},
+    {"food_code":5,"nutrient_value":428.349,"standard_error":0,"number_observation":0,"nutrient_name_id":307,"nutrient_web_name":"Sodium, Na","nutrient_source_id":102}]</pre>
+                        </section>
+                        <section>
+                             <h3 id="a7.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche les teneurs en éléments nutritifs selon le code d'un aliment et la langue spécifiée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getNutrientAmount(id, lang) {
+      var base = 'https://aliments-nutrition.canada.ca';
+      var uri = base + '/api/fichier-canadien-elements-nutritifs/nutrientamount/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.nutrient_value);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var NutrientValue = document.createTextNode(data.nutrient_value);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(NutrientValue);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
+                        </section>
+                    </section>
+                    <!--Nutrient amount-section-end-->
+                    <!--Portion size -section-start-->
+                    <section>                        
+                        <h2 id="a8">Portion comestible</h2>
+                        <p>Mesures et facteurs de conversion par aliment. Les facteurs sont utilisés (multiplier avec la valeur pour 100g) pour obtenir la valeur de l'élément nutritif pour la mesure donnée.</p>
+                        <!--h3-section-start-->
+                        <section>
+                            <h3 id="a8.1">Paramètres</h3>
+                            <p>Il y a trois paramètres dans la requête : id, lang et type.</p>
+                            <table>
+                                <caption>
+                                    Paramètres pour la requête
+                                </caption>
+                                <tr>
+                                    <th scope="col">Paramètre</th>
+                                    <th scope="col">Définition</th>
+                                    <th scope="col">Valeur</th>
+                                    <th scope="col">Requis?</th>
+                                    <th scope="col">Note</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="wrap">api/fichier-canadien-elements-nutritifs/servingsize/?id=</span></td>
+                                    <td>Affiche les portions comestibles selon le code de l'aliment spécifié dans la requête.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- code de l'aliment
+                                        </ul>
+                                    </td>
+                                    <td><strong>Oui</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/servingsize/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- Anglais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="wrap">api/fichier-canadien-elements-nutritifs/servingsize/?type=json</span></td>
+                                    <td>Modifie le format du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
+                                </tr>
+                            </table>
+                            <p>La liste des portions comestibles peut être accédée aux adresses URI suivantes :</p>
+                            <ul>
+                                <li><a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/servingsize/?lang=en&type=json">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/servingsize/?lang=en&type=json</a></li>
+                                <li><a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/servingsize/?lang=fr&type=json">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/servingsize/?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a8.2">Contenu du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>portion comestible</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
+                            <table>
+                                <caption>
+                                    Valeurs de l'objet portion comestible
+                                </caption>
+                                <tr>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>food_code</strong></td>
+                                    <td>Le code attribué à chaque aliment.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>food_description</strong></td>
+                                    <td>Le nom complet de l'aliment.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>conversion_factor_value</strong></td>
+                                    <td>Le facteur utilisé (multiplier avec la valeur pour 100g) afin d'obtenir la valeur de l'élément nutritif pour la mesure donnée.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>measure_name</strong></td>
+                                    <td>La description de la mesure.</td>
+                                </tr>                                
+                            </table>
+                        </section>
+                        <section>
+                             <h3 id="a8.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">[{"conversion_factor_value":1.0397,"food_code":21,"food_description":"Fromage camembert","measure_name":"100ml"},
+    {"conversion_factor_value":2.59932,"food_code":21,"food_description":"Fromage camembert","measure_name":"250ml"},
+    {"conversion_factor_value":0.5,"food_code":21,"food_description":"Fromage camembert","measure_name":"50g"}]</pre>
+                        </section>
+                        <section>
+                             <h3 id="a8.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche les portions comestibles selon le code d'un aliment et la langue spécifiée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getServingSize(id, lang) {
+      var base = 'https://aliments-nutrition.canada.ca';
+      var uri = base + '/api/fichier-canadien-elements-nutritifs/servingsize/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.conversion_factor_value);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var Serving = document.createTextNode(data.conversion_factor_value);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(Serving);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
+                        </section>
+                    </section>
+                    <!--Portion size-section-end-->
+                    <!--Refuse-section-start-->
+                    <section>                        
+                        <h2 id="a9">Portion non comestible</h2>                       
+                        <p>Désigne la partie non comestible d'une portion, pour chaque aliment.</p>                        
+                        <!--h3-section-start-->
+                        <section>
+                            <h3 id="a9.1">Paramètres</h3>
+                            <p>Il y a quatre paramètres dans la requête : id, lang et type.</p>
+                            <table>
+                                <caption>
+                                    Paramètres pour la requête
+                                </caption>
+                                <tr>
+                                    <th scope="col">Paramètre</th>
+                                    <th scope="col">Définition</th>
+                                    <th scope="col">Valeur      
+                                    <th scope="col">Requis?</th>
+                                    <th scope="col">Note</th>                      
+                                </tr>    
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/refuseamount//?id=</span></td>
+                                    <td>Affiche la ou les portions non comestibles selon le code de l'aliment spécifié dans la requête.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- code de l'aliment
+                                        </ul>
+                                    </td>
+                                    <td><strong>Oui</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/refuseamount//?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- Anglais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/refuseamount//?type=json</span></td>
+                                    <td>Modifie le format du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
+                                </tr>
+                            </table>
+                            <p>La liste des portions non comestibles peut être accédée aux adresses URI suivantes :</p>
+                            <ul>
+                                <li><a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/refuseamount//?lang=en&type=json">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/refuseamount//?lang=en&type=json</a></li>
+                                <li><a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/refuseamount//?lang=fr&type=json">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/refuseamount//?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a9.2">Contenu du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+
+                            <p>Chaque objet&nbsp;<strong>portion non comestible</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
+                            <table>
+                                <caption>
+                                    Valeurs de l'objet portion non comestible
+                                </caption>
+                                <tr>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>food_code</strong></td>
+                                    <td>Le code attribué à chaque aliment.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>food_description</strong></td>
+                                    <td>Le nom complet de l'aliment.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>refuse_amount</strong></td>
+                                    <td>Pourcentage des portions non comestibles.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>refuse_name</strong></td>
+                                    <td>La description de la portion non comestible.</td>
+                                </tr>                               
+                            </table>
+                        </section>   
+                        <section>
+                             <h3 id="a9.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">[{"refuse_amount":0.0,"food_code":20,"food_description":"Fromage brie","refuse_name":"portion non comestible totale"}]</pre>
+                        </section>
+                        <section>
+                             <h3 id="a9.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche les portions non comestibles selon le code d'un aliment et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getRefuse(id, lang) {
+      var base = 'https://aliments-nutrition.canada.ca';
+      var uri = base + '/api/fichier-canadien-elements-nutritifs/refuseamount/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.refuse_name);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var Refuse = document.createTextNode(data.refuse_name);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(Refuse);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                            
+                        </section>
+                    </section>
+                    <!--Refuse-section-end-->
+                    <!--Yield-section-start-->
+                    <section>                        
+                        <h2 id="a10">Rendement</h2>
+                        <p>Contient les rendements provenant des portions non comestibles et/ou des pertes de cuisson de certains aliments.  Ces rendements sont souvent consultés à des fins d'inventaires alimentaires.</p>
+                        
+                        <!--h3-section-start-->
+                        <section>
+                            <h3 id="a10.1">Paramètres</h3>
+                            <p>Il y a trois paramètres dans la requête : id, lang et type.</p>
+                            <table>
+                                <caption>
+                                    Paramètres pour la requête
+                                </caption>
+                                <tr>
+                                    <th scope="col">Paramètre</th>
+                                    <th scope="col">Définition</th>
+                                    <th scope="col">Valeur</th>
+                                    <th scope="col">Requis?</th>
+                                    <th scope="col">Note</th>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/yieldamount/?id=</span></td>
+                                    <td>Affiche le ou les rendements selon le code de l'aliment spécifié dans la requête.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">
+                                            #####&nbsp;- code de l'aliment
+                                        </ul>
+                                    </td>
+                                    <td><strong>Oui</strong></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/yieldamount/?lang=fr</span></td>
+                                    <td>Modifie la langue du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>en</code>&nbsp;- Anglais</li>
+                                            <li><code>fr</code>&nbsp;- Français</li>
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais l'anglais est la langue par défaut si elle n'est pas spécifiée.</td>
+                                    <td>Détermine si le résultat est affiché en anglais ou en français.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/fichier-canadien-elements-nutritifs/yieldamount/?type=json</span></td>
+                                    <td>Modifie le format du résultat.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 nowrap">
+                                            <li><code>json</code>&nbsp;- JSON</li>
+                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                        </ul>
+                                    </td>
+                                    <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
+                                    <td>Détermine si le résultat est en format JSON ou XML.</td>
+                                </tr>
+                            </table>
+                            <p>La liste des rendements peut être accédée aux adresses URI suivantes :</p>
+                            <ul>
+                                <li><a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/yieldamount/?lang=en&type=json">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/yieldamount/?lang=en&type=json</a></li>
+                                <li><a href="https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/yieldamount/?lang=fr&type=json">https://aliments-nutrition.canada.ca/api/fichier-canadien-elements-nutritifs/yieldamount/?lang=fr&type=json</a></li>
+                            </ul>
+                        </section>
+                        <section>
+                            <h3 id="a10.2">Contenu du résultat</h3>
+                            <p>Le&nbsp;<strong>résultat</strong>&nbsp;contient un ou plusieurs objets.</p>
+                            <p>Chaque objet&nbsp;<strong>rendement</strong>&nbsp;contient les valeurs suivantes&nbsp;:</p>
+                            <table>
+                                <caption>
+                                    Valeurs de l'objet rendement
+                                </caption>
+                                <tr>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Valeur</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>food_code</strong></td>
+                                    <td>Le code attribué à chaque aliment.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>food_description</strong></td>
+                                    <td>Le nom complet de l'aliment.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>yield_amount</strong></td>
+                                    <td>Le rendement provenant des portions non comestibles et pertes de cuisson.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>yield_name</strong></td>
+                                    <td>La description du rendement.</td>
+                                </tr>                               
+                            </table>
+                        </section>
+                        <section>
+                             <h3 id="a10.3">Exemple de résultat</h3>
+                             <pre class="prettify prettyprint linenums">[{"yield_amount":1.318,"food_code":57,"food_description":"Garniture à dessert (non laitière), poudre","yield_name":"quantité requise pour préparer 15ml"},
+    {"yield_amount":21.959,"food_code":57,"food_description":"Garniture à dessert (non laitière), poudre","yield_name":"quantité requise pour préparer 250ml"}]</pre>
+                        </section>
+                        <section>
+                             <h3 id="a10.4">Exemple de jQuery</h3>
+                             <p>Exemple d'une fonctionnalité qui recherche les rendements selon le code d'un aliment et la langue sélectionnée&nbsp;:</p>
+                             <pre class="prettify prettyprint linenums">function getYield(id, lang) {
+      var base = 'https://aliments-nutrition.canada.ca';
+      var uri = base + '/api/fichier-canadien-elements-nutritifs/yieldamount/?lang=' + lang + '&id=' + id;
+      $.ajax({
+              url:uri,
+              type:'GET',
+              Accept:&quot;application/json&quot;,
+              dataType: 'json',
+              success:function(data){
+                           console.log(data.yield_amount);
+                           var frag = document.createDocumentFragment();
+                           var h2 = document.createElement(&quot;h2&quot;);
+                           var Yield = document.createTextNode(data.yield_amount);
+                           var p = document.createElement(&quot;p&quot;);
+                           var text = document.createTextNode(data.panels[0].text);
+                           h2.appendChild(Yield);
+                           p.appendChild(text);
+                           frag.appendChild(h2);
+                           frag.appendChild(p);
+                           $(&quot;#responses&quot;)[0].appendChild(frag);
+              },
+              error:function(error){
+              },
+      });
+      return;
+ };			</pre>                           
+                        </section>
+                    </section>
+                    <!--Yield-section-end-->                    
+                </section><!--END Entire Doc Section-->
+            </div>
+            <!-- prefooter-fr.html-Start-->
+            <div id="def-preFooter">
+                <link rel="import" href="./StaticFallbackFiles/gcweb/prefooter-fr.html">
+            </div>
+            <!-- prefooter-fr.html-End-->
+            <!-- Write closure template -->
+            <script type="text/javascript">
+                var defPreFooter = document.getElementById("def-preFooter");
+                defPreFooter.outerHTML = wet.builder.preFooter({
+                    cdnEnv: "prod",
+                    dateModified: "2017-08-02",
+                    showPostContent: true,
+                    showShare: true,
+                });
+            </script>
+        </main>
+    </div>
+
+    <!-- footer-fr.html-Start-->
+    <div id="def-footer">
+        <link rel="import" href="./StaticFallbackFiles/gcweb/footer-fr.html">
+    </div>
+    <!-- footer-fr.html-End-->
+    <!-- Write closure template -->
+    <script type="text/javascript">
+            var defFooter = document.getElementById("def-footer");
+            defFooter.outerHTML = wet.builder.footer({
+                cdnEnv: "prod",
+                showFeatures: true,
+            });
+    </script>
+    <!-- Write closure template -->
+    <script type="text/javascript">
+                document.write(wet.builder.refFooter({
+                    cdnEnv: "prod"
+                }));
+    </script>
+    <!--[if lt IE 10 | !IE ]><!-->
+    <script src="./js/jquery.xdomainrequest.min.js"></script>
+    <!--<![endif]-->
+</body>
+</html>            
