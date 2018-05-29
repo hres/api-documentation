@@ -234,18 +234,18 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="wrap">api/drug/activeingredient/?ingredientname=zinc</span></td>
+                                    <td><span class="wrap">api/drug/activeingredient/?ingredientname=</span></td>
                                     <td>Returns a list of active ingredients with zinc in the ingredient name.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            <li><code>zinc</code>&nbsp;- %ZINC% - zinc in the ingredient name </li>
+                                            <li><code>e.g. zinc</code>&nbsp;- %ZINC% - zinc in the ingredient name </li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but default to all if not specified.</td>
                                     <td>Determines whether the response is for a specific ingredient name.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/activeingredient/?lang=en</span></td>
+                                    <td><span class="nowrap">api/drug/activeingredient/?lang=</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -257,7 +257,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/activeingredient/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/activeingredient/?type=</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -403,7 +403,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/company/?lang=en</span></td>
+                                    <td><span class="nowrap">api/drug/company/?lang=</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -415,7 +415,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/company/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/company/?type=</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -560,25 +560,25 @@
                                     <td>Returns a drug product according to the Drug Identification Number specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            <li><code>00326925</code>&nbsp;- %00326925% - the Drug Identification Number 00326925</li>
+                                            <li><code>e.g. 00326925</code>&nbsp;- %00326925% - the Drug Identification Number 00326925</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but default to all if not specified.</td>
                                     <td>Determines whether the response is for a specific Drug Identification Number.</td> 
                                 </tr>
                                 <tr>
-                                    <td><span class="wrap">api/drug/drugproduct/?brandname=CIDYL</span></td>
+                                    <td><span class="wrap">api/drug/drugproduct/?brandname=</span></td>
                                     <td>Returns a list of drug products with cidyl in the brand name.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            <li><code>cidyl</code>&nbsp;- %CIDYL% - word cidyl in the brand name </li>
+                                            <li><code>e.g. cidyl</code>&nbsp;- %CIDYL% - word cidyl in the brand name </li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but default to all if not specified.</td>
                                     <td>Determines whether the response is for a specific brand name.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/drugproduct/?status=1</span></td>
+                                    <td><span class="nowrap">api/drug/drugproduct/?status=</span></td>
                                     <td>Returns drug products for a specific status.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -587,14 +587,15 @@
                                             <li><code>3</code>&nbsp;- Cancelled Pre Market</li>
                                             <li><code>4</code>&nbsp;- Cancelled Post Market</li>
                                             <li><code>6</code>&nbsp;- Dormant</li>
-                                            <li><code>9</code>&nbsp;- Cancelled (Unreturned Annual)</li>                                                                                    
+                                            <li><code>9</code>&nbsp;- Cancelled (Unreturned Annual)</li>
+                                            <li><code>10</code>&nbsp;- Cancelled (Safety Issue)</li>                                                                                    
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to all if not specified.</td>
                                     <td>Determines whether the response is for a specific status.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/drugproduct/?lang=en</span></td>
+                                    <td><span class="nowrap">api/drug/drugproduct/?lang=</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -606,7 +607,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>                                
                                 <tr>
-                                    <td><span class="nowrap">api/drug/drugproduct/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/drugproduct/?type=</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -739,7 +740,7 @@
                                     <td></td>
                                 </tr>                                
                                 <tr>
-                                    <td><span class="nowrap">api/drug/form/?active=yes</span></td>
+                                    <td><span class="nowrap">api/drug/form/?active=</span></td>
                                     <td>Returns dosage forms that are active.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -750,7 +751,7 @@
                                     <td>Determines whether the response is returning all the dosage form(s) or only the one with a date that is greater than today or no date identified.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/form/?lang=en</span></td>
+                                    <td><span class="nowrap">api/drug/form/?lang=</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -762,7 +763,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/form/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/form/?type=</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -876,7 +877,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/packaging/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/packaging/?type=</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -999,7 +1000,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td><span class="nowrap">api/drug/pharmaceuticalstd/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/pharmaceuticalstd/?type=</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1107,11 +1108,11 @@
                                     <td></td>
                                 </tr>                               
                                 <tr>
-                                    <td><span class="nowrap">api/drug/route/?active=yes</span></td>
+                                    <td><span class="nowrap">api/drug/route/?active=</span></td>
                                     <td>Returns routes of administration that are active.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            <li><code>yes</code>&nbsp;- Returns the routes of administration that have a date that is greater than today or no date.</li>
+                                            <li><code>Yes</code>&nbsp;- Returns the routes of administration that have a date that is greater than today or no date.</li>
 
                                         </ul>
                                     </td>
@@ -1119,7 +1120,7 @@
                                     <td>Determines whether the response is returning all the routes of administration or only the one with a date that is greater than today or no date identified.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/route/?lang=en</span></td>
+                                    <td><span class="nowrap">api/drug/route/?lang=</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1131,7 +1132,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/route/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/route/?type=</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1263,7 +1264,7 @@
                                     <td></td>
                                 </tr>                                
                                 <tr>
-                                    <td><span class="nowrap">api/drug/schedule/?active=yes</span></td>
+                                    <td><span class="nowrap">api/drug/schedule/?active=</span></td>
                                     <td>Returns schedules that are active.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
@@ -1274,7 +1275,7 @@
                                     <td>Determines whether the response is returning all the schedules or only the one with a date that is greater than today or no date identified.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/schedule/?lang=en</span></td>
+                                    <td><span class="nowrap">api/drug/schedule/?lang=</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1286,7 +1287,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/schedule/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/schedule/?type=</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1403,7 +1404,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/status/?lang=en</span></td>
+                                    <td><span class="nowrap">api/drug/status/?lang=</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1415,7 +1416,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/status/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/status/?type=</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1543,7 +1544,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/therapeuticclass/?lang=en</span></td>
+                                    <td><span class="nowrap">api/drug/therapeuticclass/?lang=</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1555,7 +1556,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/therapeuticclass/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/therapeuticclass/?type=</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1675,7 +1676,7 @@
                                     <td></td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/veterinaryspecies/?lang=en</span></td>
+                                    <td><span class="nowrap">api/drug/veterinaryspecies/?lang=</span></td>
                                     <td>Changes the language of the response.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
@@ -1687,7 +1688,7 @@
                                     <td>Determines whether the response is in English or French.</td>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/drug/veterinaryspecies/?type=json</span></td>
+                                    <td><span class="nowrap">api/drug/veterinaryspecies/?type=</span></td>
                                     <td>Changes the format of the result.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
