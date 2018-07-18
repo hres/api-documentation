@@ -235,7 +235,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="wrap">api/drug/activeingredient/?ingredientname=</span></td>
-                                    <td>Returns a list of active ingredients with zinc in the ingredient name.</td>
+                                    <td>Returns a list of active ingredients according to the text string specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             <li><code>e.g. zinc</code>&nbsp;- %ZINC% - zinc in the ingredient name </li>
@@ -528,7 +528,7 @@
                         <!--Drug Product section-start-->
                         <h2 id="a4">Drug Product</h2>
                         <p>Basic information about the product, such as brand name and Drug Identification Number.</p>
-
+                       
                         <!--h3-section-start-->
                         <section>
                             <h3 id="a4.1">Parameters</h3>
@@ -568,7 +568,7 @@
                                 </tr>
                                 <tr>
                                     <td><span class="wrap">api/drug/drugproduct/?brandname=</span></td>
-                                    <td>Returns a list of drug products with cidyl in the brand name.</td>
+                                    <td>Returns a list of drug products according to the text string specified in the request.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
                                             <li><code>e.g. cidyl</code>&nbsp;- %CIDYL% - word cidyl in the brand name </li>
@@ -924,7 +924,7 @@
                                 </tr>
                                 <tr>
                                     <td><strong>product_information</strong></td>
-                                    <td>The quantity of the drug contained in its package.</td>
+                                    <td>Additional product information.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>upc</strong></td>
@@ -1600,11 +1600,11 @@
                                 </tr>
                                 <tr>
                                     <td><strong>tc_atc</strong></td>
-                                    <td>The Anatomical Therapeutic Chemical Code.</td>
+                                    <td>The description of the Anatomical Therapeutic Chemical Code.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>tc_atc_number</strong></td>
-                                    <td>The description of the Anatomical Therapeutic Chemical Code.</td>
+                                    <td>The Anatomical Therapeutic Chemical Code.</td>
                                 </tr>
 
                             </table>
