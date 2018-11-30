@@ -81,7 +81,7 @@
     </script>
     <div class="container">
         <main role="main" property="mainContentOfPage" class="container">
-            <div class="wb-frmvld">                
+            <div class="wb-frmvld">
                 <section>
                     <h1 id="wb-cont">Guide API - Base de donnée de produits de santé naturels homologués (BDPSNH)</h1>
                     <section>
@@ -106,7 +106,7 @@
                                     <li><a href="#a3.4">Exemple de jQuery </a></li>
                                 </ul>
                             </li>
-                            <!-- Remove those sections 
+                            <!-- Remove those sections
                             <li>
                                 <a href="#a4">Ingredient Source</a>
                                 <ul>
@@ -178,7 +178,7 @@
                         <h2 id="a1">Introduction</h2>
                         <p>La Base de données des produits de santé naturels homologués (BDPSNH) contient des renseignements sur les produits de santé naturels (PSN) ayant reçu une licence de mise en marché de Santé Canada.</p>
                         <p>Cette interface de programmation d'applications (API) permet aux concepteurs d'accéder à ces renseignements en format JSON et XML afin de les utiliser dans leurs propres applications.
-                        L'adresse URI de base sur la Base de donnée de produits de santé naturels homologués (BDPSNH) est&nbsp;<a href="https://produits-sante.canada.ca/api/homologations-naturel/">https://produits-sante.canada.ca/api/homologations-naturel/</a> et vous pouvez y ajouter des paramètres. Toute requête est effectuée par l'entremise de cette adresse URI.</p>                       
+                        L'adresse URI de base sur la Base de donnée de produits de santé naturels homologués (BDPSNH) est&nbsp;<a href="https://produits-sante.canada.ca/api/homologations-naturel/">https://produits-sante.canada.ca/api/homologations-naturel/</a> et vous pouvez y ajouter des paramètres. Toute requête est effectuée par l'entremise de cette adresse URI.</p>
                     </section>
                     <!-- Intoduction end -->
                     <!-- INGREDIENT start -->
@@ -206,8 +206,17 @@
                                             #####&nbsp;- identificateur unique de produit
                                         </ul>
                                     </td>
-                                    <td><strong>Oui</strong></td>
-                                    <td></td>
+                                    <td><strong>Non</strong></td>
+                                    <td>[FR]If no ID is provided, a paginated response of all medicinal ingredients is returned beginning at page 1.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/natural-licences/medicinalingredient/?page=</span></td>
+                                    <td>[FR]Returns a given page of the paginated results.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">1-n</ul>
+                                    </td>
+                                    <td><strong>[FR]No</strong></td>
+                                    <td>[FR]Parameter can only be used if not searching by ID.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/homologations-naturel/medicinalingredient/?lang=fr</span></td>
@@ -227,7 +236,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
@@ -253,7 +262,7 @@
                                 <tr>
                                     <td><strong>lnhpd_id</strong></td>
                                     <td>Identificateur unique de produit.</td>
-                                </tr>                                
+                                </tr>
                                 <tr>
                                     <td><strong>ingredient_name</strong></td>
                                     <td>Le nom de l'ingrédient médicinal.</td>
@@ -313,13 +322,80 @@
                             </table>
                         </section>
                         <section>
-                             <h3 id="a2.3">Exemple de résultat </h3>
-                             <pre class="prettify prettyprint linenums">[{"lnhpd_id":3894852,"ingredient_name":"Calcium","potency_amount":0,"potency_constituent":"","potency_unit_of_measure":"",
+                            <h3 id="a2.3">Exemple de résultat </h3>
+                            <ul>
+                                <li>
+                                    <a href='https://produits-sante.canada.ca/api/homologations-naturel/medicinalingredient?lang=fr&type=json'>https://produits-sante.canada.ca/api/homologations-naturel/medicinalingredient?lang=fr&type=json</a>
+    <pre class='prettify prettyprint linenums'>{
+    "metadata": {
+        "pagination": {
+            "limit": 100,
+            "page": 1,
+            "total": 467758,
+            "next": "/api/lnhpd/medicinalingredient/?page=2&lang=fr&type=json",
+            "previous": null
+        },
+        "dateCreated": "2018-11-30"
+    },
+    "data": [
+        {
+            "lnhpd_id": 3894657,
+            "ingredient_name": "Valériane officinale",
+            "ingredient_Text": null,
+            "potency_amount": 0,
+            "potency_constituent": "",
+            "potency_unit_of_measure": "",
+            "quantity": 80,
+            "quantity_minimum": 0,
+            "quantity_maximum": 0,
+            "quantity_unit_of_measure": "mg",
+            "ratio_numerator": "5",
+            "ratio_denominator": "1",
+            "dried_herb_equivalent": "400",
+            "dhe_unit_of_measure": "mg",
+            "extract_type_desc": "",
+            "source_material": "Racine"
+        },
+        ...
+    ]
+}</pre>
+                                </li>
+                                <li>
+                                    <a href='https://produits-sante.canada.ca/api/homologations-naturel/medicinalingredient?lang=fr&type=json&id=3894657'>https://produits-sante.canada.ca/api/homologations-naturel/medicinalingredient?lang=fr&type=json&id=3894657</a>
+    <pre class='prettify prettyprint linenums'>{
+    "metadata": {
+        "pagination": null,
+        "dateCreated": "2018-11-28"
+    },
+    "data": [
+        {
+            "lnhpd_id": 3894657,
+            "ingredient_name": "Valériane officinale",
+            "ingredient_Text": null,
+            "potency_amount": 0,
+            "potency_constituent": "",
+            "potency_unit_of_measure": "",
+            "quantity": 80,
+            "quantity_minimum": 0,
+            "quantity_maximum": 0,
+            "quantity_unit_of_measure": "mg",
+            "ratio_numerator": "5",
+            "ratio_denominator": "1",
+            "dried_herb_equivalent": "400",
+            "dhe_unit_of_measure": "mg",
+            "extract_type_desc": "",
+            "source_material": "Racine"
+        }
+    ]
+}</pre>
+                                </li>
+                            </ul>
+                             <!-- <pre class="prettify prettyprint linenums">[{"lnhpd_id":3894852,"ingredient_name":"Calcium","potency_amount":0,"potency_constituent":"","potency_unit_of_measure":"",
     "quantity":667,"quantity_minimum":0,"quantity_maximum":0,"quantity_unit_of_measure":"mg","ratio_numerator":"","ratio_denominator":"",
     "dried_herb_equivalent":"","dhe_unit_of_measure":"","extract_type_desc":"","source_material":""},
   {"lnhpd_id":3894852,"ingredient_name":"Vitamine D3","potency_amount":0,"potency_constituent":"","potency_unit_of_measure":"",
     "quantity":7,"quantity_minimum":0,"quantity_maximum":0,"quantity_unit_of_measure":"mcg","ratio_numerator":"","ratio_denominator":"",
-    "dried_herb_equivalent":"","dhe_unit_of_measure":"","extract_type_desc":"","source_material":""}]</pre>
+    "dried_herb_equivalent":"","dhe_unit_of_measure":"","extract_type_desc":"","source_material":""}]</pre> -->
                         </section>
                         <section>
                              <h3 id="a2.4">Exemple de jQuery</h3>
@@ -348,7 +424,7 @@
 		error: function(error) {},
 	});
 	return;
-};			</pre>                            
+};			</pre>
                         </section>
                     </section>
                     <!-- INGREDIENTS end -->
@@ -365,7 +441,7 @@
                                 <tr>
                                     <th scope="col">Paramètre</th>
                                     <th scope="col">Définition</th>
-                                    <th scope="col">Valeur</th> 
+                                    <th scope="col">Valeur</th>
                                     <th scope="col">Requis?</th>
                                     <th scope="col">Note</th>
                                 </tr>
@@ -398,7 +474,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
@@ -428,7 +504,7 @@
                                 <tr>
                                     <td><strong>ingredient_name</strong></td>
                                     <td>Le nom de l'ingrédient non médicinal.</td>
-                                </tr>                                
+                                </tr>
                             </table>
                         </section>
                         <section>
@@ -468,15 +544,15 @@
 		error: function(error) {},
 	});
 	return;
-};			</pre>                            
+};			</pre>
                         </section>
                     </section>
                     <!-- NON INGREDIENT end -->
-                    <!-- INGREDIENT SOURCE remove start 
+                    <!-- INGREDIENT SOURCE remove start
                     <section>
                         <h2 id="a4">Ingredient Source</h2>
                         <p>TODO put description of ingredient source.....</p>
-                        
+
                         <section>
                             <h3 id="a4.1">Paramètres</h3>
                             <p>Il y a trois paramètres dans la requête : id, lang et type.</p>
@@ -518,7 +594,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
@@ -586,14 +662,14 @@
 		error: function(error) {},
 	});
 	return;
-};			</pre>                            
+};			</pre>
                         </section>
                     </section>
                     <!-- INGREDIENT SOURCES  remove end -->
                     <!-- INGREDIENT SUBMISSION  remove start
                     <section>
                         <h2 id="a5">Ingredient Submission</h2>
-                        <p>TODO put description of ingredient submission.....</p>                        
+                        <p>TODO put description of ingredient submission.....</p>
                         <section>
                             <h3 id="a5.1">Paramètres</h3>
                             <p>Il y a trois paramètres dans la requête : id, lang et type.</p>
@@ -635,7 +711,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
@@ -707,7 +783,7 @@
 		error: function(error) {},
 	});
 	return;
-};</pre>                           
+};</pre>
                         </section>
                     </section>
                     <!-- INGREDIENT SUBMISSIONS  remove end -->
@@ -757,7 +833,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
@@ -875,7 +951,7 @@
 		error: function(error) {},
 	});
 	return;
-};			</pre>                            
+};			</pre>
                         </section>
                     </section>
                     <!-- PRODUCT DOSES end -->
@@ -925,7 +1001,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
@@ -947,7 +1023,7 @@
                                 <tr>
                                     <th scope="col">Code</th>
                                     <th scope="col">Valeur</th>
-                                </tr>                                
+                                </tr>
                                 <tr>
                                     <td><strong>lnhpd_id</strong></td>
                                     <td>Identificateur unique de produit.</td>
@@ -1021,7 +1097,7 @@
                                 <tr>
                                     <td><strong>flag_attested_monograph</strong></td>
                                     <td>Attesté à une monographie Oui / Non.</td>
-                                </tr>                                
+                                </tr>
                             </table>
                         </section>
                         <section>
@@ -1057,7 +1133,7 @@
 		error: function(error) {},
 	});
 	return;
-};			</pre>                            
+};			</pre>
                         </section>
                     </section>
                     <!-- PRODUCT LICENCES end -->
@@ -1107,7 +1183,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
@@ -1175,7 +1251,7 @@
 		error: function(error) {},
 	});
 	return;
-};			</pre>                           
+};			</pre>
                         </section>
                     </section>
                     <!-- PRODUCT PURPOSES end -->
@@ -1208,6 +1284,15 @@
                                     <td></td>
                                 </tr>
                                 <tr>
+                                    <td><span class="nowrap">api/natural-licences/productrisk/?page=</span></td>
+                                    <td>[FR]Returns a given page of the paginated results.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">1-n</ul>
+                                    </td>
+                                    <td><strong>[FR]No</strong></td>
+                                    <td>[FR]Parameter can only be used if not searching by ID.</td>
+                                </tr>
+                                <tr>
                                     <td><span class="nowrap">api/homologations-naturel/productrisk/?lang=fr</span></td>
                                     <td>Modifie la langue du résultat.</td>
                                     <td>
@@ -1225,7 +1310,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
@@ -1272,7 +1357,56 @@
                         </section>
                         <section>
                              <h3 id="a9.3">Exemple de résultat </h3>
-                             <pre class="prettify prettyprint linenums">{"lnhpd_id":3909282,"risk_id":3933447,"risk_type_desc":"Précautions et mises en garde","sub_risk_type_desc":"","risk_text":"S.O."}</pre>
+                            <ul>
+                                <li>
+                                    <a href='https://produits-sante.canada.ca/api/homologations-naturel/productrisk?lang=fr&type=json'>https://produits-sante.canada.ca/api/homologations-naturel/productrisk?lang=fr&type=json</a>
+<pre class='prettify prettyprint linenums'>{
+    "metadata": {
+        "pagination": {
+            "limit": 100,
+            "page": 1,
+            "total": 130334,
+            "next": "/api/lnhpd/productrisk/?page=2&lang=fr&type=json",
+            "previous": null
+        },
+        "dateCreated": "2018-11-30"
+    },
+    "data": [
+        {
+            "lnhpd_id": 3898401,
+            "risk_id": 12855,
+            "risk_type_desc": "Précautions et mises en garde",
+            "sub_risk_type_desc": "",
+            "risk_text": "Consult a health care provider prior to use if: you have clotting disorders and/or you are taking blood thinners.  Consult a health care provider prior to use if you are taking any oral medication.  Consult a health care provider if symptoms persist."
+        },
+        ...
+    ]
+}</pre>
+                                </li>
+                                <li>
+                                    <a href='https://produits-sante.canada.ca/api/homologations-naturel/productrisk?lang=fr&type=json&id=3894657'>https://produits-sante.canada.ca/api/homologations-naturel/productrisk?lang=fr&type=json&id=3894657</a>
+<pre class='prettify prettyprint linenums'>{
+    "metadata": null,
+    "data": [
+        {
+            "lnhpd_id": 3898401,
+            "risk_id": 12855,
+            "risk_type_desc": "Précautions et mises en garde",
+            "sub_risk_type_desc": "",
+            "risk_text": "Consult a health care provider prior to use if: you have clotting disorders and/or you are taking blood thinners.  Consult a health care provider prior to use if you are taking any oral medication.  Consult a health care provider if symptoms persist."
+        },
+        {
+            "lnhpd_id": 3898401,
+            "risk_id": 12861,
+            "risk_type_desc": "Contre-indications",
+            "sub_risk_type_desc": "",
+            "risk_text": "Do not use if pregnant or breastfeeding.  Do not use if you have acute abdominal pain and/or intestinal obstruction."
+        }
+    ]
+}</pre>
+                                </li>
+                            </ul>
+                             <!-- <pre class="prettify prettyprint linenums">{"lnhpd_id":3909282,"risk_id":3933447,"risk_type_desc":"Précautions et mises en garde","sub_risk_type_desc":"","risk_text":"S.O."}</pre> -->
                         </section>
                         <section>
                              <h3 id="a9.4">Exemple de jQuery</h3>
@@ -1301,7 +1435,7 @@
 		error: function(error) {},
 	});
 	return;
-};			</pre>                            
+};			</pre>
                         </section>
                     </section>
                     <!-- PRODUCT RISKS end -->
@@ -1351,7 +1485,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais JSON est le format par défaut s'il n'est pas spécifié.</td>
@@ -1419,7 +1553,7 @@
 		error: function(error) {},
 	});
 	return;
-};			</pre>                            
+};			</pre>
                         </section>
                     </section>
                     <!-- PRODUCT ROUTES end -->
