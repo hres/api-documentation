@@ -335,7 +335,7 @@
                 "next":"/api/lnhpd/medicinalingredient?page=2&lang=en&type=json",
                 "previous":null
             },
-            "dateCreated":"2018-11-28"
+            "dateReceived":"2018-11-28"
         },
         "data":[
             {
@@ -364,7 +364,7 @@
     <pre class='prettify prettyprint linenums'>{
         "metadata":{
             "pagination": null,
-            "dateCreated":"2018-11-28"
+            "dateReceived":"2018-11-28"
         },
         "data":[
             {
@@ -1148,15 +1148,22 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/natural-licences/productpurpose/?id=</span></td>
-                                    <td>Returns product purpose(s) according to the unique product identifier specified in the request.</td>
+                                    <td><span class="nowrap">api/natural-licences/medicinalingredient/?id=</span></td>
+                                    <td>Returns purpose(s) according to the unique product identifier specified in the request.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- unique product identifier
-                                        </ul>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">Product identifier</ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
-                                    <td></td>
+                                    <td><strong>No</strong></td>
+                                    <td>If no ID is provided, a paginated response of all product purposes is returned beginning at page 1.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/natural-licences/productpurpose/?page=</span></td>
+                                    <td>Returns a given page of the paginated results.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">1-n</ul>
+                                    </td>
+                                    <td><strong>No</strong></td>
+                                    <td>Parameter can only be used if not searching by ID.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/natural-licences/productpurpose/?lang=en</span></td>
@@ -1215,9 +1222,49 @@
                         </section>
                         <section>
                             <h3 id="a8.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">{"text_id":67880,"lnhpd_id":3931278,"purpose":"Helps to rebuild cartilage and aids to relieve osteoarthritic symptoms and joint pain."}</pre>
+<ul>
+                                <li>
+                                    <a href='https://health-products.canada.ca/api/natural-licences/productpurpose?lang=en&type=json'>https://health-products.hres.ca/api/natural-licences/productpurpose?lang=en&type=json</a>
+    <pre class='prettify prettyprint linenums'>{
+    "metadata": {
+        "pagination": {
+            "limit": 100,
+            "page": 1,
+            "total": 84787,
+            "next": "/api/lnhpd/productpurpose?page=2&lang=en&type=json",
+            "previous": null
+        },
+        "dateReceived": "2018-12-05T19:10:32.8134292Z"
+    },
+    "data": [
+        {
+            "text_id": 67880,
+            "lnhpd_id": 3931278,
+            "purpose": "Helps to rebuild cartilage and aids to relieve osteoarthritic symptoms and joint pain."
+        },
+        ...
+    ]
+}</pre>
+                                </li>
+                                <li>
+                                    <a href='https://health-products.canada.ca/api/natural-licences/productpurpose?lang=en&type=json&id=3931278'>https://health-products.hres.ca/api/natural-licences/productpurpose?lang=en&type=json&id=3931278</a>
+    <pre class='prettify prettyprint linenums'>{
+    "metadata": {
+        "pagination": null,
+        "dateReceived": "2018-12-05T19:13:19.6093062Z"
+    },
+    "data": [
+        {
+            "text_id": 67880,
+            "lnhpd_id": 3931278,
+            "purpose": "Helps to rebuild cartilage and aids to relieve osteoarthritic symptoms and joint pain."
+        }
+    ]
+}</pre>
+                                </li>
+                            </ul>
                         </section>
-                        <section>
+                        <!-- <section>
                             <h3 id="a8.4">jQuery example</h3>
                             <p>Example of a function that search for product purpose(s) given a unique product identifier and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getProductPurpose(id, lang) {
@@ -1245,7 +1292,7 @@
 	});
 	return;
 };			</pre>
-                        </section>
+                        </section> -->
                     </section>
                     <!-- PRODUCT PURPOSES end -->
                     <!-- PRODUCT RISK start -->
@@ -1360,7 +1407,7 @@
             "next": "/api/lnhpd/productrisk?page=2&lang=en&type=json",
             "previous": null
         },
-        "dateCreated": "2018-11-28"
+        "dateReceived": "2018-11-28"
     },
     "data": [
         {
@@ -1379,7 +1426,7 @@
     <pre class='prettify prettyprint linenums'>{
     "metadata": {
         "pagination": null,
-        "dateCreated": "2018-11-28"
+        "dateReceived": "2018-11-28"
     },
     "data": [
         {
