@@ -203,7 +203,7 @@
                                     <td>Affiche les ingrédients médicinaux selon l'identificateur unique de produit spécifiée dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identificateur unique de produit
+                                            Identificateur unique de produit
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong></td>
@@ -335,7 +335,7 @@
             "next": "/api/lnhpd/medicinalingredient/?page=2&lang=fr&type=json",
             "previous": null
         },
-        "dateCreated": "2018-11-30"
+        "dateReceived": "2018-11-30"
     },
     "data": [
         {
@@ -365,7 +365,7 @@
     <pre class='prettify prettyprint linenums'>{
     "metadata": {
         "pagination": null,
-        "dateCreated": "2018-11-28"
+        "dateReceived": "2018-11-28"
     },
     "data": [
         {
@@ -1156,14 +1156,23 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/homologations-naturel/productpurpose/?id=</span></td>
-                                    <td>Affiche l'objectif du produit selon l'identificateur unique de produit spécifié dans la requête.</td>
+                                    <td>Affiche les objectif du produit selon l'identificateur unique de produit spécifiée dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identificateur unique de produit
+                                            Identificateur unique de produit
                                         </ul>
                                     </td>
-                                    <td><strong>Oui</strong></td>
-                                    <td></td>
+                                    <td><strong>Non</strong></td>
+                                    <td>[FR]If no ID is provided, a paginated response of all medicinal ingredients is returned beginning at page 1.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/natural-licences/productpurpose/?page=</span></td>
+                                    <td>[FR]Returns a given page of the paginated results.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">1-n</ul>
+                                    </td>
+                                    <td><strong>[FR]No</strong></td>
+                                    <td>[FR]Parameter can only be used if not searching by ID.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/homologations-naturel/productpurpose/?lang=fr</span></td>
@@ -1222,9 +1231,49 @@
                         </section>
                         <section>
                              <h3 id="a8.3">Exemple de résultat </h3>
-                             <pre class="prettify prettyprint linenums">{"text_id":109294,"lnhpd_id":3911349,"purpose":"Pour la réduction des triglycérides et pour maintenir la santé cardiovasculaire."}</pre>
+<ul>
+                                <li>
+                                    <a href='https://produits-sante.canada.ca/api/homologations-naturel/productpurpose?lang=fr&type=json'>https://produits-sante.canada.ca/api/homologations-naturel/productpurpose?lang=fr&type=json</a>
+<pre class='prettify prettyprint linenums'>{
+    "metadata": {
+        "pagination": {
+            "limit": 100,
+            "page": 1,
+            "total": 84787,
+            "next": "/api/lnhpd/productpurpose?page=2&lang=fr&type=json",
+            "previous": null
+        },
+        "dateReceived": "2018-12-05T19:19:01.1094580Z"
+    },
+    "data": [
+        {
+            "text_id": 67880,
+            "lnhpd_id": 3931278,
+            "purpose": "Helps to rebuild cartilage and aids to relieve osteoarthritic symptoms and joint pain."
+        },
+        ...
+    ]
+}</pre>
+                                </li>
+                                <li>
+                                    <a href='https://produits-sante.canada.ca/api/homologations-naturel/productpurpose?lang=fr&type=json&id=3931278'>https://produits-sante.canada.ca/api/homologations-naturel/productpurpose?lang=fr&type=json&id=3931278</a>
+<pre class='prettify prettyprint linenums'>{
+    "metadata": {
+        "pagination": null,
+        "dateReceived": "2018-12-05T19:16:16.0624846Z"
+    },
+    "data": [
+        {
+            "text_id": 67880,
+            "lnhpd_id": 3931278,
+            "purpose": "Helps to rebuild cartilage and aids to relieve osteoarthritic symptoms and joint pain."
+        }
+    ]
+}</pre>
+                                </li>
+                            </ul>
                         </section>
-                        <section>
+                        <!-- <section>
                              <h3 id="a8.4">Exemple de jQuery</h3>
                              <p>Exemple d'une fonctionnalité qui recherche un objectif selon l'identificateur unique de produit et la langue sélectionnée&nbsp;:</p>
                              <pre class="prettify prettyprint linenums">function getProductPurpose(id, lang) {
@@ -1252,7 +1301,7 @@
 	});
 	return;
 };			</pre>
-                        </section>
+                        </section> -->
                     </section>
                     <!-- PRODUCT PURPOSES end -->
                     <!-- PRODUCT RISK start -->
@@ -1274,14 +1323,14 @@
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/homologations-naturel/productrisk/?id=</span></td>
-                                    <td>Affiche le risque associé au produit selon l'identificateur unique de produit dans la requête.</td>
+                                    <td>Affiche les risque du produit selon l'identificateur unique de produit spécifiée dans la requête.</td>
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- identificateur unique de produit
+                                            Identificateur unique de produit
                                         </ul>
                                     </td>
-                                    <td><strong>Oui</strong></td>
-                                    <td></td>
+                                    <td><strong>Non</strong></td>
+                                    <td>[FR]If no ID is provided, a paginated response of all medicinal ingredients is returned beginning at page 1.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/natural-licences/productrisk/?page=</span></td>
@@ -1369,7 +1418,7 @@
             "next": "/api/lnhpd/productrisk/?page=2&lang=fr&type=json",
             "previous": null
         },
-        "dateCreated": "2018-11-30"
+        "dateReceived": "2018-11-30"
     },
     "data": [
         {
