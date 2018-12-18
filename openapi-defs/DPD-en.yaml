@@ -1,4 +1,4 @@
-swagger: "2.0"
+swagger: '2.0'
 x-api-store-tags:
   - goods
   - services
@@ -19,7 +19,7 @@ info:
     Health Canada is the federal regulator of therapeutic products and does not provide medical advice on the use of the products identified in this database. For information related to treatment options, choices of medications and their uses, illnesses, side effects or drug interactions, please contact your health care professional. For information on where these products are sold, please contact the individual company directly.
 
     This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications. The base URI for the Drug Product Database is https://health-products.canada.ca/api/drug/ and you can add parameters to it. Any requests are made relative to this URI.
-  version: "0.1"
+  version: '0.1'
 
 schemes:
   - https
@@ -28,8 +28,7 @@ basePath: /api/drug/
 produces:
   - application/json
   - application/xml
-security:
-  - UserKeys: []
+
 paths:
   /activeingredients:
     get:
@@ -37,28 +36,28 @@ paths:
         - Active Ingredients
       description: Returns all active ingredients.
       parameters:
-        - $ref: "#/securityDefinitions/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryDrugProductCode"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryDrugProductCode'
         - name: ingredientname
           in: query
           type: string
           description: Limit results to those with matching ingredient name
       responses:
-        "200":
+        '200':
           description: Returns a list of all active ingredients, or if an ID is provided, the list of all active ingredients that correspond to the given drug product code
           schema:
             type: array
             items:
-              $ref: "#/definitions/ActiveIngredient"
+              $ref: '#/definitions/ActiveIngredient'
             xml:
               name: ActiveIngredients
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /company:
     get:
@@ -66,27 +65,27 @@ paths:
         - Company
       description: Returns all companies.
       parameters:
-        - $ref: "#/securityDefinitions/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
         - name: id
           in: query
           type: string
           description: Limit results to those with matching company code
       responses:
-        "200":
+        '200':
           description: Returns a list of all companies, or if an ID is provided, the list of all companies that correspond to the given company code
           schema:
             type: array
             items:
-              $ref: "#/definitions/Company"
+              $ref: '#/definitions/Company'
             xml:
               name: Companies
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /drugproduct:
     get:
@@ -94,10 +93,10 @@ paths:
         - Drug Product
       description: Returns all drug products.
       parameters:
-        - $ref: "#/securityDefinitions/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryDrugProductCode"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryDrugProductCode'
         - name: din
           in: query
           type: string
@@ -111,19 +110,19 @@ paths:
           type: string
           description: Limit results to those with matching status
       responses:
-        "200":
+        '200':
           description: Returns a list of all drug products, or if an ID is provided, the list of all drug products that correspond to the given drug product code
           schema:
             type: array
             items:
-              $ref: "#/definitions/DrugProduct"
+              $ref: '#/definitions/DrugProduct'
             xml:
               name: DrugProducts
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /form:
     get:
@@ -131,10 +130,10 @@ paths:
         - Dosage Form
       description: Returns all dosage forms.
       parameters:
-        - $ref: "#/securityDefinitions/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryDrugProductCode"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryDrugProductCode'
         - name: active
           in: query
           type: string
@@ -142,19 +141,19 @@ paths:
             - yes
           description: Limit results to those dosage forms that are active, meaning they have a date that is greater than today or no date
       responses:
-        "200":
+        '200':
           description: Returns a list of all dosage forms, or if an ID is provided, the list of all dosage forms that correspond to the given drug product code
           schema:
             type: array
             items:
-              $ref: "#/definitions/DosageForm"
+              $ref: '#/definitions/DosageForm'
             xml:
               name: DosageForms
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /packaging:
     get:
@@ -162,23 +161,23 @@ paths:
         - Packaging
       description: Returns all packaging information for drug products.
       parameters:
-        - $ref: "#/securityDefinitions/UserKeys"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryDrugProductCode"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryDrugProductCode'
       responses:
-        "200":
+        '200':
           description: Returns a list of all packaging information, or if an ID is provided, the list of all packaging information that corresponds to the given drug product code
           schema:
             type: array
             items:
-              $ref: "#/definitions/Packaging"
+              $ref: '#/definitions/Packaging'
             xml:
               name: Packaging
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /pharmaceuticalstd:
     get:
@@ -186,23 +185,23 @@ paths:
         - Pharmaceutical Standards
       description: Returns all dosage forms.
       parameters:
-        - $ref: "#/securityDefinitions/UserKeys"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryDrugProductCode"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryDrugProductCode'
       responses:
-        "200":
+        '200':
           description: Returns a list of all pharmaceutical standards, or if an ID is provided, the list of all pharmaceutical standards that correspond to the given drug product code
           schema:
             type: array
             items:
-              $ref: "#/definitions/PharmaceuticalStandard"
+              $ref: '#/definitions/PharmaceuticalStandard'
             xml:
               name: PharmaceuticalStandards
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /route:
     get:
@@ -210,10 +209,10 @@ paths:
         - Route of Administration
       description: Returns all routes of administration.
       parameters:
-        - $ref: "#/securityDefinitions/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryDrugProductCode"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryDrugProductCode'
         - name: active
           in: query
           type: string
@@ -221,19 +220,19 @@ paths:
             - yes
           description: Limit results to those routes of administration that are active, meaning they have a date that is greater than today or no date
       responses:
-        "200":
+        '200':
           description: Returns a list of all routes of administration, or if an ID is provided, the list of all routes of administration that correspond to the given drug product code
           schema:
             type: array
             items:
-              $ref: "#/definitions/RouteOfAdministration"
+              $ref: '#/definitions/RouteOfAdministration'
             xml:
               name: RoutesOfAdministration
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /schedule:
     get:
@@ -241,10 +240,10 @@ paths:
         - Schedule
       description: Returns all schedules.
       parameters:
-        - $ref: "#/securityDefinitions/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryDrugProductCode"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryDrugProductCode'
         - name: active
           in: query
           type: string
@@ -252,19 +251,19 @@ paths:
             - yes
           description: Limit results to those schedules that are active, meaning they have a date that is greater than today or no date
       responses:
-        "200":
+        '200':
           description: Returns a list of all schedules, or if an ID is provided, the list of all schedules that correspond to the given drug product code
           schema:
             type: array
             items:
-              $ref: "#/definitions/Schedule"
+              $ref: '#/definitions/Schedule'
             xml:
               name: Schedules
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /status:
     get:
@@ -272,24 +271,24 @@ paths:
         - Product Status
       description: Returns all product statuses.
       parameters:
-        - $ref: "#/securityDefinitions/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryDrugProductCode"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryDrugProductCode'
       responses:
-        "200":
+        '200':
           description: Returns a list of all product statuses, or if an ID is provided, the list of all product statuses that correspond to the given drug product code
           schema:
             type: array
             items:
-              $ref: "#/definitions/ProductStatus"
+              $ref: '#/definitions/ProductStatus'
             xml:
               name: ProductStatuses
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /therapeuticclass:
     get:
@@ -297,24 +296,24 @@ paths:
         - Therapeutic Class
       description: Returns all therapeutic classes.
       parameters:
-        - $ref: "#/securityDefinitions/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryDrugProductCode"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryDrugProductCode'
       responses:
-        "200":
+        '200':
           description: Returns a list of all therapeutic classes, or if an ID is provided, the list of all therapeutic classes that correspond to the given drug product code
           schema:
             type: array
             items:
-              $ref: "#/definitions/TherapeuticClass"
+              $ref: '#/definitions/TherapeuticClass'
             xml:
               name: TherapeuticClasses
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /veterinaryspecies:
     get:
@@ -322,29 +321,29 @@ paths:
         - Veterinary Species
       description: Returns all veterinary species.
       parameters:
-        - $ref: "#/securityDefinitions/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryDrugProductCode"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryDrugProductCode'
       responses:
-        "200":
+        '200':
           description: Returns a list of all veterinary species, or if an ID is provided, the list of all veterinary species that correspond to the given drug product code
           schema:
             type: array
             items:
-              $ref: "#/definitions/VeterinarySpecies"
+              $ref: '#/definitions/VeterinarySpecies'
             xml:
               name: VeterinarySpeciesList
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
 definitions:
-  "204":
+  '204':
     type: string
-  "404":
+  '404':
     type: string
   ActiveIngredient:
     type: object
@@ -362,7 +361,7 @@ definitions:
         type: string
         description: The quantitative value of the active ingredient dosage
       drug_code:
-        $ref: "#/definitions/DrugCode"
+        $ref: '#/definitions/DrugCode'
       ingredient_name:
         type: string
         description: The Active Ingredient name
@@ -432,7 +431,7 @@ definitions:
         type: string
         description: Additional details or descriptions for a product, if applicable
       drug_code:
-        $ref: "#/definitions/DrugCode"
+        $ref: '#/definitions/DrugCode'
       drug_identification_number:
         type: string
         description: The Drug Identification Number
@@ -453,7 +452,7 @@ definitions:
       A product can have more than one dosage form when it is a kit (e.g. tablet, capsule).
     properties:
       drug_code:
-        $ref: "#/definitions/DrugCode"
+        $ref: '#/definitions/DrugCode'
       pharmaceutical_form_code:
         type: string
         description: The code assigned to a dosage form
@@ -497,7 +496,7 @@ definitions:
     description: The standard to which a drug product is manufactured and represented
     properties:
       drug_code:
-        $ref: "#/definitions/DrugCode"
+        $ref: '#/definitions/DrugCode'
       pharmaceutical_std:
         type: string
         description: The pharmaceutical standard
@@ -512,7 +511,7 @@ definitions:
       A product can have more than one route of administration (e.g. intravenous, intramuscular, intra articular).
     properties:
       drug_code:
-        $ref: "#/definitions/DrugCode"
+        $ref: '#/definitions/DrugCode'
       route_of_administration_code:
         type: string
         description: The code assigned to a route of administration
@@ -542,7 +541,7 @@ definitions:
       - Ethical - a drug that, in accordance with Federal Legislation, does not require a prescription, but that is generally prescribed by a medical practitioner. Ethical products are unscheduled non-prescription professional use products (e.g. MRI contrast agents, hemodialysis solutions) and a few emergency use products (e.g. nitroglycerine)
     properties:
       drug_code:
-        $ref: "#/definitions/DrugCode"
+        $ref: '#/definitions/DrugCode'
       schedule_name:
         type: string
         description: The drug schedule according to the Food and Drug Regulations and the Controlled Drugs and Substances Act.
@@ -562,7 +561,7 @@ definitions:
       - Marketed - refers to an active DIN that is currently being sold in Canada.
     properties:
       drug_code:
-        $ref: "#/definitions/DrugCode"
+        $ref: '#/definitions/DrugCode'
       expiration_date:
         type: string
         description: The latest expiry date of a product distributed in Canada, where the product has since been discontinued by the company
@@ -589,7 +588,7 @@ definitions:
     description: A drug's Therapeutic Classification (Class) is assigned according to its main therapeutic use
     properties:
       drug_code:
-        $ref: "#/definitions/DrugCode"
+        $ref: '#/definitions/DrugCode'
       tc_ahfs:
         type: string
         description: The description of the American Hospital Formulary Service
@@ -610,20 +609,12 @@ definitions:
     description: The type of species for a certain veterinary product (e.g. sheep, dog, cattle, and poultry)
     properties:
       drug_code:
-        $ref: "#/definitions/DrugCode"
+        $ref: '#/definitions/DrugCode'
       vet_species_name:
         type: string
         description: The animal species
     xml:
       name: VeterinarySpecies
-
-securityDefinitions:
-  UserKeys:
-    type: apiKey
-    name: "user_keys"
-    in: query
-    description: The identifier assigned to your account for accessing the API
-    x-data-threescale-name: user_keys
 
 parameters:
   QueryLang:

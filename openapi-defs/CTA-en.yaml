@@ -1,1 +1,353 @@
 # third
+swagger: '2.0'
+x-api-store-tags:
+  - goods
+  - services
+x-api-store-plans:
+  public:
+    name: Public Plan
+    description: All other users should subscribe to the Public Plan.
+  internal:
+    name: Internal Plan
+    description: The Internal Plan is for internal government use only.
+info:
+  title: Clinical Trial Database (CTA)
+  description: |
+    The Clinical Trials Database provides to the public a listing of specific information relating to phase I, II and III clinical trials in patients. The database is managed by Health Canada and provides a source of information about Canadian clinical trials involving human pharmaceutical and biological drugs.
+
+    This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications. The base URI for the Notice of Compliance Database is https://health-products.canada.ca/api/clinical-trial/ and you can add parameters to it. Any requests are made relative to this URI.
+  version: '0.1'
+
+schemes:
+  - https
+host: health-products.canada.ca
+basePath: /api/clinical-trial/
+produces:
+  - application/json
+  - application/xml
+
+paths:
+  /sponsor:
+    get:
+      tags:
+        - Sponsor
+      description: Returns all sponsors.
+      parameters:
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - name: id
+          in: query
+          type: string
+          description: Limit results to those with matching sponsor ID
+      responses:
+        '200':
+          description: Returns a list of all sponsors, or if an ID is provided, the list of all sponsors that correspond to the given sponsor ID
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Sponsor'
+            xml:
+              name: Sponsors
+              wrapped: true
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
+
+  /medicalcondition:
+    get:
+      tags:
+        - Medical Condition
+      description: Returns all medical conditions.
+      parameters:
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - name: id
+          in: query
+          type: string
+          description: Limit results to those with matching sponsor ID
+      responses:
+        '200':
+          description: Returns a list of all medical conditions, or if an ID is provided, the list of all medical conditions that correspond to the given medical condition ID
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MedicalCondition'
+            xml:
+              name: MedicalConditions
+              wrapped: true
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
+
+  /drugproduct:
+    get:
+      tags:
+        - Drug Product
+      description: Returns all drug products.
+      parameters:
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - name: id
+          in: query
+          type: string
+          description: Limit results to those with matching brand ID
+      responses:
+        '200':
+          description: Returns a list of all drug products, or if an ID is provided, the list of all protocols that correspond to the given brand ID
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DrugProduct'
+            xml:
+              name: DrugProducts
+              wrapped: true
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
+
+  /protocol:
+    get:
+      tags:
+        - Protocol
+      description: Returns all protocols.
+      parameters:
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - name: id
+          in: query
+          type: string
+          description: Limit results to those with matching protocol ID
+      responses:
+        '200':
+          description: Returns a list of all protocols, or if an ID is provided, the list of all protocols that correspond to the given protocol ID
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Protocol'
+            xml:
+              name: Protocols
+              wrapped: true
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
+
+  /status:
+    get:
+      tags:
+        - Trial Status
+      description: Returns all trial statuses.
+      parameters:
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - name: id
+          in: query
+          type: string
+          description: Limit results to those with matching status ID
+      responses:
+        '200':
+          description: Returns a list of all statuses, or if an ID is provided, the list of all stasuses that correspond to the given status ID
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TrialStatus'
+            xml:
+              name: TrialStatuses
+              wrapped: true
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
+
+  /studypopulation:
+    get:
+      tags:
+        - Study Population
+      description: Returns all study populations.
+      parameters:
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - name: id
+          in: query
+          type: string
+          description: Limit results to those with matching study population ID
+      responses:
+        '200':
+          description: Returns a list of all study populations, or if an ID is provided, the list of all study populations that correspond to the given study population ID
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/StudyPopulation'
+            xml:
+              name: StudyPopulations
+              wrapped: true
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
+
+definitions:
+  '204':
+    type: string
+  '404':
+    type: string
+
+  DrugProduct:
+    type: object
+    description: Basic information about the drug product, such as the name given to the drug used in the clinical trial. This may be a code name, the chemical name of the active ingredient, the non-proprietary name, or a brand name.
+    properties:
+      protocol_id:
+        type: string
+        description: The identification number assigned to the protocol
+      submission_no:
+        type: string
+        description: The control number
+      brand_id:
+        type: string
+        description: The identification number assigned to a brand
+      manufacturer_id:
+        type: string
+        description: The identification number assigned to a sponsor
+      manufacturer_name:
+        type: string
+        description: The name of the sponsor
+      brand_name:
+        type: string
+        description: The brand name for the drug product
+
+  MedicalCondition:
+    type: object
+    description: The disease or a description of the intended indication that is being investigated in the clinical trial.
+    properties:
+      med_condition_id:
+        type: string
+        description: The identification number assigned to a medical condition
+      med_condition:
+        type: string
+        description: The medical condition
+
+  Protocol:
+    type: object
+    description: A document that describes the objective(s), design, methodology, statistical considerations and organization of a trial.
+    properties:
+      protocol_id:
+        type: string
+        description: The identification number assigned to a protocol
+      protocol_no:
+        type: string
+        description: The protocol number
+      submission_no:
+        type: string
+        description: The control number
+      status_id:
+        type: string
+        description: The identification number assigned to a status
+      start_date:
+        type: string
+        description: The study start date
+      end_date:
+        type: string
+        description: The study end date
+      nol_date:
+        type: string
+        description: The date of the No Objection Letter
+      protocol_title:
+        type: string
+        description: The protocol title
+      medConditionList:
+        type: array
+        items:
+          type: object
+          description: The consolidated list of medical conditions for a clinical trial protocol
+          properties:
+            med_condition_id:
+              type: string
+              description: The identification number assigned to a medical condition
+            med_condition:
+              type: string
+              description: The medical condition
+      studyPopulationList:
+        type: array
+        items:
+          type: object
+          description: The consolidated list of study populations for a clinical trial protocol
+          properties:
+            study_population_id:
+              type: string
+              description: The identification number assigned to a study population
+            study_population:
+              type: string
+              description: The study population
+
+  Sponsor:
+    type: object
+    description: |
+      A clinical trial sponsor is an individual, corporate body, institution or organization that conducts a clinical trial. The sponsor is responsible for every aspect of a clinical trial, including ensuring that the trial is carried out under good clinical practices at each clinical trial site.
+
+      Each clinical trial site must have a Qualified Investigator, i.e., a licensed physician or dentist. The Qualified Investigator is the person responsible to the sponsor for the conduct of the clinical trial at the clinical trial site.
+    properties:
+      manufacturer_id:
+        type: string
+        description: The identification number assigned to a sponsor
+      manufacturer_name:
+        type: string
+        description: The name of the sponsor
+
+  TrialStatus:
+    type: object
+    description: |
+      A "PENDING" status means Health Canada is pending the receipt of information from the sponsor indicating that the trial started. An "ONGOING" status means Health Canada has received information from the sponsor indicating the proposed study start date, and an "ENDED" status means Health Canada has received information from the sponsor indicating that the clinical trial has ended.
+    properties:
+      status_id:
+        type: string
+        description: The identification number assigned to a status
+      status:
+        type: string
+        description: The status of the trial
+
+  StudyPopulation:
+    type: object
+    description: Characteristics of subjects that are eligible to participate in the clinical trial, e.g., adult males and females, children, etc.
+    properties:
+      study_population_id:
+        type: string
+        description: The identification number assigned to a study population
+      study_population:
+        type: string
+        description: The study population
+
+parameters:
+  QueryLang:
+    name: lang
+    type: string
+    in: query
+    enum:
+      - en
+      - fr
+    default: en
+    description: Define which language you would like the response to be in
+  QueryType:
+    name: type
+    type: string
+    in: query
+    enum:
+      - json
+      - xml
+    default: json
+    description: Define which media type you would like the content to be in
+  UserKeys:
+    name: 'user_keys'
+    type: string
+    in: query
+    required: true
+    description: The identifier assigned to your account for accessing the API
+    x-data-threescale-name: user_keys
