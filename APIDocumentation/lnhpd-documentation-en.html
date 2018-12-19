@@ -83,7 +83,7 @@
     </script>
     <div class="container">
         <main role="main" property="mainContentOfPage" class="container">
-            <div class="wb-frmvld">               
+            <div class="wb-frmvld">
                 <section>
                     <h1 id="wb-cont">Licensed Natural Health Products Database (LNHPD) API Guide</h1>
                     <section>
@@ -117,7 +117,7 @@
                                     <li><a href="#a4.3">Sample response</a></li>
                                     <li><a href="#a4.4">jQuery example </a></li>
                                 </ul>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="#a5">Ingredient Submission</a>
                                 <ul>
@@ -180,7 +180,7 @@
                         <h2 id="a1">Introduction</h2>
                         <p>The Licensed Natural Health Products Database (LNHPD) contains information about natural health products (NHPs) that have been issued a product licence by Health Canada.</p>
                         <p>This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications.
-                        The base URI for the Licensed Natural Health Products Database&nbsp;<a href="https://health-products.canada.ca/api/natural-licences/">https://health-products.canada.ca/api/natural-licences/</a> and you can add parameters to it. Any requests are made relative to this URI.</p>                        
+                        The base URI for the Licensed Natural Health Products Database&nbsp;<a href="https://health-products.canada.ca/api/natural-licences/">https://health-products.canada.ca/api/natural-licences/</a> and you can add parameters to it. Any requests are made relative to this URI.</p>
                     </section>
                     <!-- Introduction end -->
                     <!-- Medicinal INGREDIENT start -->
@@ -204,12 +204,19 @@
                                     <td><span class="nowrap">api/natural-licences/medicinalingredient/?id=</span></td>
                                     <td>Returns medicinal ingredient(s) according to the unique product identifier specified in the request.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- unique product identifier
-                                        </ul>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">Product identifier</ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
-                                    <td></td>
+                                    <td><strong>No</strong></td>
+                                    <td>If no ID is provided, a paginated response of all medicinal ingredients is returned beginning at page 1.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/natural-licences/medicinalingredient/?page=</span></td>
+                                    <td>Returns a given page of the paginated results.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">1-n</ul>
+                                    </td>
+                                    <td><strong>No</strong></td>
+                                    <td>Parameter can only be used if not searching by ID.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/natural-licences/medicinalingredient/?lang=en</span></td>
@@ -229,7 +236,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
@@ -255,7 +262,7 @@
                                 <tr>
                                     <td><strong>lnhpd_id</strong></td>
                                     <td>Unique product identifier.</td>
-                                </tr>                       
+                                </tr>
                                 <tr>
                                     <td><strong>ingredient_name</strong></td>
                                     <td>The name of the Medicinal Ingredient.</td>
@@ -271,7 +278,7 @@
                                 <tr>
                                     <td><strong>potency_constituent</strong></td>
                                     <td>Active component of the Medicinal Ingredient.</td>
-                                </tr>                                
+                                </tr>
                                 <tr>
                                     <td><strong>quantity</strong></td>
                                     <td>Quantity of Medicinal Ingredient/dosage unit.</td>
@@ -287,7 +294,7 @@
                                 <tr>
                                     <td><strong>quantity_unit_of_measure</strong></td>
                                     <td>Unit of measurement describing the quantity.</td>
-                                </tr>                                
+                                </tr>
                                 <tr>
                                     <td><strong>ratio_numerator</strong></td>
                                     <td>Extract ratio numerator.</td>
@@ -307,23 +314,89 @@
                                 <tr>
                                     <td><strong>extract_type_desc</strong></td>
                                     <td>Extract type.</td>
-                                </tr>                                 
+                                </tr>
                                 <tr>
                                     <td><strong>source_material</strong></td>
                                     <td>The substance from which the medicinal ingredient was derived. There may be multiple sources for a medicinal ingredient.</td>
-                                </tr>                                
+                                </tr>
                             </table>
                         </section>
                         <section>
-                            <h3 id="a2.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">[{"lnhpd_id":3894852,"ingredient_name":"Calcium","potency_amount":0,"potency_constituent":"","potency_unit_of_measure":"",
+                            <h3 id="a2.3">Sample responses</h3>
+                            <ul>
+                                <li>
+                                    <a href='https://health-products.canada.ca/api/natural-licences/medicinalingredient?lang=en&type=json'>https://health-products.hres.ca/api/natural-licences/medicinalingredient?lang=en&type=json</a>
+    <pre class='prettify prettyprint linenums'>{
+        "metadata":{
+            "pagination":{
+                "limit":100,
+                "page":1,
+                "total":467758,
+                "next":"/api/lnhpd/medicinalingredient?page=2&lang=en&type=json",
+                "previous":null
+            },
+            "dateReceived":"2018-11-28"
+        },
+        "data":[
+            {
+                "lnhpd_id":3894657,
+                "ingredient_name":"Valeriana officinalis","ingredient_Text":null,
+                "potency_amount":0,
+                "potency_constituent":"",
+                "potency_unit_of_measure":"",
+                "quantity":80,"quantity_minimum":0,
+                "quantity_maximum":0,
+                "quantity_unit_of_measure":"mg",
+                "ratio_numerator":"5",
+                "ratio_denominator":"1",
+                "dried_herb_equivalent":"400",
+                "dhe_unit_of_measure":"mg",
+                "extract_type_desc":"",
+                "source_material":"Root"
+            },
+            ...
+        }
+    ]
+}</pre>
+                                </li>
+                                <li>
+                                    <a href='https://health-products.canada.ca/api/natural-licences/medicinalingredient?lang=en&type=json&id=3894657'>https://health-products.hres.ca/api/natural-licences/medicinalingredient?lang=en&type=json&id=3894657</a>
+    <pre class='prettify prettyprint linenums'>{
+        "metadata":{
+            "pagination": null,
+            "dateReceived":"2018-11-28"
+        },
+        "data":[
+            {
+                "lnhpd_id":3894657,
+                "ingredient_name":"Valeriana officinalis","ingredient_Text":null,
+                "potency_amount":0,
+                "potency_constituent":"",
+                "potency_unit_of_measure":"",
+                "quantity":80,"quantity_minimum":0,
+                "quantity_maximum":0,
+                "quantity_unit_of_measure":"mg",
+                "ratio_numerator":"5",
+                "ratio_denominator":"1",
+                "dried_herb_equivalent":"400",
+                "dhe_unit_of_measure":"mg",
+                "extract_type_desc":"",
+                "source_material":"Root"
+            },
+            ...
+        }
+    ]
+}</pre>
+                                </li>
+                            </ul>
+                            <!-- <pre class="prettify prettyprint linenums">[{"lnhpd_id":3894852,"ingredient_name":"Calcium","potency_amount":0,"potency_constituent":"","potency_unit_of_measure":"",
         "quantity":667,"quantity_minimum":0,"quantity_maximum":0,"quantity_unit_of_measure":"mg","ratio_numerator":"",
         "ratio_denominator":"","dried_herb_equivalent":"","dhe_unit_of_measure":"","extract_type_desc":"","source_material":""},
  {"lnhpd_id":3894852,"ingredient_name":"Vitamin D3","potency_amount":0,"potency_constituent":"","potency_unit_of_measure":"",
         "quantity":7,"quantity_minimum":0,"quantity_maximum":0,"quantity_unit_of_measure":"mcg","ratio_numerator":"",
-        "ratio_denominator":"","dried_herb_equivalent":"","dhe_unit_of_measure":"","extract_type_desc":"","source_material":""}]</pre>
+        "ratio_denominator":"","dried_herb_equivalent":"","dhe_unit_of_measure":"","extract_type_desc":"","source_material":""}]</pre> -->
                         </section>
-                        <section>
+                        <!-- <section>
                             <h3 id="a2.4">jQuery example</h3>
                             <p>Example of a function that search for medicinal ingredient(s) given a unique product identifier and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getIngredient(id, lang) {
@@ -351,7 +424,7 @@
 	});
 	return;
 };			</pre>
-                        </section>
+                        </section> -->
                     </section>
                     <!-- Medicinal INGREDIENTS end -->
                     <!-- Non Medicinal INGREDIENT start -->
@@ -400,7 +473,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
@@ -430,7 +503,7 @@
                                 <tr>
                                     <td><strong>ingredient_name</strong></td>
                                     <td>The name of the Non-Medicinal Ingredient.</td>
-                                </tr>                                
+                                </tr>
                             </table>
                         </section>
                         <section>
@@ -477,7 +550,7 @@
                     <!-- INGREDIENT SOURCE remove
                     <section>
                         <h2 id="a4">Ingredient Source</h2>
-                        <p>TODO put description of ingredient source.....</p>                        
+                        <p>TODO put description of ingredient source.....</p>
                         <section>
                             <h3 id="a4.1">Parameters</h3>
                             <p>There are three parameters in the request: id, lang and type.</p>
@@ -519,7 +592,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
@@ -591,10 +664,10 @@
                         </section>
                     </section>
                     <!-- INGREDIENT SOURCES  remove end -->
-                    <!-- INGREDIENT SUBMISSION remove start 
+                    <!-- INGREDIENT SUBMISSION remove start
                     <section>
                         <h2 id="a5">Ingredient Submission</h2>
-                        <p>TODO put description of ingredient submission.....</p>                        
+                        <p>TODO put description of ingredient submission.....</p>
                         <section>
                             <h3 id="a5.1">Parameters</h3>
                             <p>There are three parameters in the request: id, lang and type.</p>
@@ -636,7 +709,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
@@ -754,7 +827,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
@@ -922,7 +995,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
@@ -943,7 +1016,7 @@
                                 <tr>
                                     <th scope="col">Key</th>
                                     <th scope="col">Value</th>
-                                </tr>                               
+                                </tr>
                                 <tr>
                                     <td><strong>lnhpd_id</strong></td>
                                     <td>Unique product identifier.</td>
@@ -1017,7 +1090,7 @@
                                 <tr>
                                     <td><strong>flag_attested_monograph</strong></td>
                                     <td>Attested to a monograph Yes/No.</td>
-                                </tr>                                
+                                </tr>
                             </table>
                         </section>
                         <section>
@@ -1075,15 +1148,22 @@
                                     <th scope="col">Note</th>
                                 </tr>
                                 <tr>
-                                    <td><span class="nowrap">api/natural-licences/productpurpose/?id=</span></td>
-                                    <td>Returns product purpose(s) according to the unique product identifier specified in the request.</td>
+                                    <td><span class="nowrap">api/natural-licences/medicinalingredient/?id=</span></td>
+                                    <td>Returns purpose(s) according to the unique product identifier specified in the request.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- unique product identifier
-                                        </ul>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">Product identifier</ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
-                                    <td></td>
+                                    <td><strong>No</strong></td>
+                                    <td>If no ID is provided, a paginated response of all product purposes is returned beginning at page 1.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/natural-licences/productpurpose/?page=</span></td>
+                                    <td>Returns a given page of the paginated results.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">1-n</ul>
+                                    </td>
+                                    <td><strong>No</strong></td>
+                                    <td>Parameter can only be used if not searching by ID.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/natural-licences/productpurpose/?lang=en</span></td>
@@ -1103,7 +1183,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
@@ -1142,9 +1222,49 @@
                         </section>
                         <section>
                             <h3 id="a8.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">{"text_id":67880,"lnhpd_id":3931278,"purpose":"Helps to rebuild cartilage and aids to relieve osteoarthritic symptoms and joint pain."}</pre>
+<ul>
+                                <li>
+                                    <a href='https://health-products.canada.ca/api/natural-licences/productpurpose?lang=en&type=json'>https://health-products.hres.ca/api/natural-licences/productpurpose?lang=en&type=json</a>
+    <pre class='prettify prettyprint linenums'>{
+    "metadata": {
+        "pagination": {
+            "limit": 100,
+            "page": 1,
+            "total": 84787,
+            "next": "/api/lnhpd/productpurpose?page=2&lang=en&type=json",
+            "previous": null
+        },
+        "dateReceived": "2018-12-05T19:10:32.8134292Z"
+    },
+    "data": [
+        {
+            "text_id": 67880,
+            "lnhpd_id": 3931278,
+            "purpose": "Helps to rebuild cartilage and aids to relieve osteoarthritic symptoms and joint pain."
+        },
+        ...
+    ]
+}</pre>
+                                </li>
+                                <li>
+                                    <a href='https://health-products.canada.ca/api/natural-licences/productpurpose?lang=en&type=json&id=3931278'>https://health-products.hres.ca/api/natural-licences/productpurpose?lang=en&type=json&id=3931278</a>
+    <pre class='prettify prettyprint linenums'>{
+    "metadata": {
+        "pagination": null,
+        "dateReceived": "2018-12-05T19:13:19.6093062Z"
+    },
+    "data": [
+        {
+            "text_id": 67880,
+            "lnhpd_id": 3931278,
+            "purpose": "Helps to rebuild cartilage and aids to relieve osteoarthritic symptoms and joint pain."
+        }
+    ]
+}</pre>
+                                </li>
+                            </ul>
                         </section>
-                        <section>
+                        <!-- <section>
                             <h3 id="a8.4">jQuery example</h3>
                             <p>Example of a function that search for product purpose(s) given a unique product identifier and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getProductPurpose(id, lang) {
@@ -1172,7 +1292,7 @@
 	});
 	return;
 };			</pre>
-                        </section>
+                        </section> -->
                     </section>
                     <!-- PRODUCT PURPOSES end -->
                     <!-- PRODUCT RISK start -->
@@ -1196,12 +1316,19 @@
                                     <td><span class="nowrap">api/natural-licences/productrisk/?id=</span></td>
                                     <td>Returns product risk according to the unique product identifier specified in the request.</td>
                                     <td>
-                                        <ul class="list-unstyled mrgn-lft-0 wrap">
-                                            #####&nbsp;- unique product identifier
-                                        </ul>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">Product identifier</ul>
                                     </td>
-                                    <td><strong>Yes</strong></td>
-                                    <td></td>
+                                    <td><strong>No</strong></td>
+                                    <td>If no ID is provided, a paginated response of all product risks is returned beginning at page 1.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="nowrap">api/natural-licences/productrisk/?page=</span></td>
+                                    <td>Returns a given page of the paginated results.</td>
+                                    <td>
+                                        <ul class="list-unstyled mrgn-lft-0 wrap">1-n</ul>
+                                    </td>
+                                    <td><strong>No</strong></td>
+                                    <td>Parameter can only be used if not searching by ID.</td>
                                 </tr>
                                 <tr>
                                     <td><span class="nowrap">api/natural-licences/productrisk/?lang=en</span></td>
@@ -1221,7 +1348,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
@@ -1268,10 +1395,60 @@
                         </section>
                         <section>
                             <h3 id="a9.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">{"lnhpd_id":3909282,"risk_id":3933447,"risk_type_desc":"Cautions and Warnings","sub_risk_type_desc":"",
-    "risk_text":"Consult a health care practitioner prior to use if you are pregnant or breastfeeding. Consult a health care practitioner if symptoms worsen."}</pre>
+                            <ul>
+                                <li>
+                                    <a href='https://health-products.canada.ca/api/natural-licences/productrisk?lang=en&type=json'>https://health-products.hres.ca/api/natural-licences/productrisk?lang=en&type=json</a>
+    <pre class='prettify prettyprint linenums'>{
+    "metadata": {
+        "pagination": {
+            "limit": 100,
+            "page": 1,
+            "total": 130334,
+            "next": "/api/lnhpd/productrisk?page=2&lang=en&type=json",
+            "previous": null
+        },
+        "dateReceived": "2018-11-28"
+    },
+    "data": [
+        {
+            "lnhpd_id": 3898401,
+            "risk_id": 12855,
+            "risk_type_desc": "Cautions and Warnings",
+            "sub_risk_type_desc": "",
+            "risk_text": "Consult a health care provider prior to use if: you ..."
+        },
+        ...
+    ]
+}</pre>
+                                </li>
+                                <li>
+                                    <a href='https://health-products.canada.ca/api/natural-licences/productrisk?lang=en&type=json&id=3894657'>https://health-products.hres.ca/api/natural-licences/productrisk?lang=en&type=json&id=3894657</a>
+    <pre class='prettify prettyprint linenums'>{
+    "metadata": {
+        "pagination": null,
+        "dateReceived": "2018-11-28"
+    },
+    "data": [
+        {
+            "lnhpd_id": 3898401,
+            "risk_id": 12855,
+            "risk_type_desc": "Cautions and Warnings",
+            "sub_risk_type_desc": "",
+            "risk_text": "Consult a health care provider prior to use if: you ..."
+        },
+        {
+            "lnhpd_id": 3898401,
+            "risk_id": 12861,
+            "risk_type_desc": "Contra-Indications",
+            "sub_risk_type_desc": "",
+            "risk_text": "Do not use if pregnant or breastfeeding.  Do not ..."
+        }
+    ]
+}</pre>
+                                </li>
+                            </ul>
                         </section>
-                        <section>
+                        <!-- <section>
                             <h3 id="a9.4">jQuery example</h3>
                             <p>Example of a function that search for a product risk given a unique product identifier and language selection:</p>
                             <pre class="prettify prettyprint linenums">function getProductRisk(id, lang) {
@@ -1299,7 +1476,7 @@
 	});
 	return;
 };			</pre>
-                        </section>
+                        </section> -->
                     </section>
                     <!-- PRODUCT RISKS end -->
                     <!-- PRODUCT ROUTE start -->
@@ -1348,7 +1525,7 @@
                                     <td>
                                         <ul class="list-unstyled mrgn-lft-0 nowrap">
                                             <li><code>json</code>&nbsp;- JSON</li>
-                                            <li><code>xml</code>&nbsp;- XML</li>                                            
+                                            <li><code>xml</code>&nbsp;- XML</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to JSON if not specified.</td>
@@ -1382,7 +1559,7 @@
                                 <tr>
                                     <td><strong>route_type_desc</strong></td>
                                     <td>The method by which the NHP is to be delivered to the body.</td>
-                                </tr>                                
+                                </tr>
                             </table>
                         </section>
                         <section>
