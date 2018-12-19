@@ -646,3 +646,10 @@ parameters:
     description: Limit results to those with matching drug product code
     in: query
     type: string
+  UserKeys:
+    name: 'user_keys'
+    type: string
+    in: query
+    required: true
+    description: The identifier assigned to your account for accessing the API
+    x-data-threescale-name: user_keys
