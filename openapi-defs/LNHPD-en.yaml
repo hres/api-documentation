@@ -1,0 +1,485 @@
+swagger: '2.0'
+x-api-store-tags:
+  - goods
+  - services
+x-api-store-plans:
+  public:
+    name: Public Plan
+    description: All other users should subscribe to the Public Plan.
+  internal:
+    name: Internal Plan
+    description: The Internal Plan is for internal government use only.
+info:
+  title: Canadian Nutrient File (CNF)
+  description: The Canadian Nutrient File (CNF) is the standard reference food composition database reporting the amount of nutrients in foods commonly consumed in Canada.
+  version: '0.1'
+
+schemes:
+  - https
+host: lnhpd-hc-sc-apicast-staging.dev.api.canada.ca
+basePath: /api/natural-licences/
+produces:
+  - application/json
+  - application/xml
+
+paths:
+  /medicinalingredient:
+    get:
+      tags:
+        - Medicinal Ingredient
+      description: Returns all medicinal ingredients.
+      parameters:
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryPage'
+        - $ref: '#/parameters/QueryProductID'
+      responses:
+        '200':
+          description: Returns a list of all medicinal ingredients, or if an ID is provided, the list of all medicinal ingredients that correspond to the given product identifier
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MedicinalIngredient'
+            xml:
+              name: MedicinalIngredients
+              wrapped: true
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
+
+  /nonmedicinalingredient:
+    get:
+      tags:
+        - Non Medicinal Ingredient
+      description: Returns all non-medicinal ingredients.
+      parameters:
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryProductID'
+      responses:
+        '200':
+          description: Returns a list of all non-medicinal ingredients, or if an ID is provided, the list of all non-medicinal ingredients that correspond to the given product identifier
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NonMedicinalIngredient'
+            xml:
+              name: NonMedicinalIngredients
+              wrapped: true
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
+
+  /productdose:
+    get:
+      tags:
+        - Product
+      description: Returns all product doses.
+      parameters:
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryProductID'
+      responses:
+        '200':
+          description: Returns a list of all product doses, or if an ID is provided, the list of all product doses that correspond to the given product identifier
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ProductDose'
+            xml:
+              name: ProductDoses
+              wrapped: true
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
+
+  /productlicence:
+    get:
+      tags:
+        - Product
+      description: Returns all product licences.
+      parameters:
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - name: id
+          type: string
+          in: query
+          description: Limit the results to those with matching licence number
+      responses:
+        '200':
+          description: Returns a list of all product licences, or if an ID is provided, the list of all product licences that correspond to the given licence number
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ProductLicence'
+            xml:
+              name: ProductLicence
+              wrapped: true
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
+
+  /productpurpose:
+    get:
+      tags:
+        - Product
+      description: Returns all product purposes.
+      parameters:
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryPage'
+        - $ref: '#/parameters/QueryProductID'
+      responses:
+        '200':
+          description: Returns a list of all product purposes, or if an ID is provided, the list of all product purposes that correspond to the given product identifier
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ProductPurpose'
+            xml:
+              name: ProductPurposes
+              wrapped: true
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
+
+  /productrisk:
+    get:
+      tags:
+        - Product
+      description: Returns all product risks.
+      parameters:
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryPage'
+        - $ref: '#/parameters/QueryProductID'
+      responses:
+        '200':
+          description: Returns a list of all product risks, or if an ID is provided, the list of all product risks that correspond to the given product identifier
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ProductRisk'
+            xml:
+              name: ProductRisk
+              wrapped: true
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
+
+  /productroute:
+    get:
+      tags:
+        - Product
+      description: Returns all product routes.
+      parameters:
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryPage'
+        - $ref: '#/parameters/QueryProductID'
+      responses:
+        '200':
+          description: Returns a list of all product routes, or if an ID is provided, the list of all product routes that correspond to the given product identifier
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ProductRoute'
+            xml:
+              name: ProductRoute
+              wrapped: true
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
+
+definitions:
+  '204':
+    type: string
+  '404':
+    type: string
+
+  MedicinalIngredient:
+    type: object
+    description: Contributes to the therapeutic activity associated with the recommended use or purpose.
+    properties:
+      lnhpd_id:
+        type: string
+        description: Unique product identifier.
+      ingredient_name:
+        type: string
+        description: The name of the Medicinal Ingredient.
+      potency_amount:
+        type: string
+        description: The amount per dosage unit of the standardized component that further characterizes the quantity of the ingredient.
+      potency_unit of_measure:
+        type: string
+        description: Unit of measurement describing the potency-amount.
+      potency_constituent:
+        type: string
+        description: Active component of the Medicinal Ingredient.
+      quantity:
+        type: string
+        description: Quantity of Medicinal Ingredient/dosage unit.
+      quantity_minimum:
+        type: string
+        description: Minimum quantity if range.
+      quantity_maximum:
+        type: string
+        description: Maximum quantity if range.
+      quantity_unit_of_measure:
+        type: string
+        description: Unit of measurement describing the quantity.
+      ratio_numerator:
+        type: string
+        description: Extract ratio numerator.
+      ratio_denominator:
+        type: string
+        description: Extract ratio denominator.
+      dried_herb_equivalent:
+        type: string
+        description: The amount of crude ingredient used in an extract, expressed per dosage unit.
+      dhe_unit_of_measure:
+        type: string
+        description: Unit of measurement describing quantity.
+      extract_type_desc:
+        type: string
+        description: Extract type.
+      source_material:
+        type: string
+        description: The substance from which the medicinal ingredient was derived. There may be multiple sources for a medicinal ingredient.
+    xml:
+      name: MedicinalIngredient
+
+  NonMedicinalIngredient:
+    type: object
+    description: Any substance added to a NHP to confer suitable consistency or form to the medicinal ingredients.
+    properties:
+      lnhpd_id:
+        type: string
+        description: Unique product identifier.
+      ingredient_name:
+        type: string
+        description: The name of the Non-Medicinal Ingredient.
+    xml:
+      name: NonMedicinalIngredient
+
+  ProductDose:
+    type: object
+    description: The amount of finished product in dosage form used for the recommended purpose, including any directions of use. The dose is represented as the amount of dosage units, the frequency of use, and directions for use, if any, by a sub-population group.
+    properties:
+      lnhpd_id:
+        type: string
+        description: Unique product identifier.
+      dose_id:
+        type: string
+        description: Unique identifier for Dose.
+      population_type_desc:
+        type: string
+        description: Sub-population The group to which the NHP is targeted (may be more than one) that may require different dosing from the standard.
+      age:
+        type: string
+        description: Age recommended.
+      age_minimum:
+        type: string
+        description: Minimum age if range.
+      age_maximum:
+        type: string
+        description: Maximum age if range.
+      uom_type_desc_age:
+        type: string
+        description: Unit of measurement for age.
+      quantity_dose:
+        type: string
+        description: Quantity of Medicinal Ingredient/dosage unit.
+      quantity_dose_minimum:
+        type: string
+        description: Minimum quantity of Medicinal Ingredient/dosage unit if range.
+      quantity_dose_maximum:
+        type: string
+        description: Maximum quantity of Medicinal Ingredient/dosage unit if range.
+      uom_type_desc_quantity_dose:
+        type: string
+        description: Unit of measurement describing dose.
+      frequency:
+        type: string
+        description: How often the product is to be taken in a given time or time interval.
+      frequency_minimum:
+        type: string
+        description: Minimum frequency if range.
+      frequency_maximum:
+        type: string
+        description: Maximum frequency if range.
+      uom_type_desc_frequency:
+        type: string
+        description: Unit of measurement describing frequency.
+    xml:
+      name: ProductDose
+
+  ProductLicence:
+    type: object
+    description: An eight (8) digit numerical code assigned to each natural health product approved to be marketed under the Natural Health Product Regulation (NHPR).
+    properties:
+      nhpd_id:
+        type: string
+        description: Unique product identifier.
+      licence_number:
+        type: string
+        description: An eight (8) digit numerical code assigned to each natural health product approved to be marketed under the NHPR.
+      licence_date:
+        type: string
+        description: Date of original issuance.
+      revised_date:
+        type: string
+        description: Date last revised.
+      time_receipt:
+        type: string
+        description: Date submission received at Natural and Non-prescription Health Products Directorate.
+      date_start:
+        type: string
+        description: Date processing begins.
+      product_name_id:
+        type: string
+        description: Brand Name key value identifier.
+      product_name:
+        type: string
+        description: Brand Name.
+      dosage_form:
+        type: string
+        description: The final physical form of the natural health product which may be used by the consumer without requiring any further manufacturing.
+      company_id:
+        type: string
+        description: Company key value identifier.
+      company_name_id:
+        type: string
+        description: Company name key value identifier.
+      company_name:
+        type: string
+        description: Licence holder.
+      sub_submission_type_code:
+        type: string
+        description: Submission sub type identifier.
+      sub_submission_type_desc:
+        type: string
+        description: Text value or the submission sub-type.
+      flag_primary_name:
+        type: string
+        description: Flag on - primary brand name.
+      flag_product_status:
+        type: string
+        description: Product active/non-active.
+      flag_attested_monograph:
+        type: string
+        description: Attested to a monograph Yes/No.
+    xml:
+      name: ProductLicence
+
+  ProductPurpose:
+    type: object
+    description: Statement that indicates the intended beneficial effect of a NHP when used according to the recommended dose, duration of use and route of administration.
+    properties:
+      text_id:
+        type: string
+        description: Unique identifier for purpose.
+      lnhpd_id:
+        type: string
+        description: Unique product identifier.
+      purpose:
+        type: string
+        description: Purpose statement(s).
+    xml:
+      name: ProductPurpose
+
+  ProductRisk:
+    type: object
+    description: Any cautions and warnings, adverse reactions and contraindications associated with the use of the NHP.
+    properties:
+      lnhpd_id:
+        type: string
+        description: Unique product identifier.
+      risk_id:
+        type: string
+        description: Risk type key value identifier.
+      risk_type_desc:
+        type: string
+        description: Cautions and warnings; contraindications; known adverse reactions.
+      sub_risk_type_desc:
+        type: string
+        description: Risk sub-types if applicable.
+      risk_text:
+        type: string
+        description: Risk label statement.
+    xml:
+      name: ProductRisk
+
+  ProductRoute:
+    type: object
+    description: The method by which the NHP is to be delivered to the body.
+    properties:
+      lnhpd_id:
+        type: string
+        description: Unique product identifier.
+      route_id:
+        type: string
+        description: Route type key value identifier.
+      route_type_desc:
+        type: string
+        description: The method by which the NHP is to be delivered to the body.
+    xml:
+      name: ProductRoute
+
+parameters:
+  QueryLang:
+    name: lang
+    type: string
+    in: query
+    enum:
+      - en
+      - fr
+    default: en
+    description: Define which language you would like the response to be in
+  QueryType:
+    name: type
+    type: string
+    in: query
+    enum:
+      - json
+      - xml
+    default: json
+    description: Define which media type you would like the content to be in
+  QueryPage:
+    name: page
+    type: string
+    in: query
+    default: 1
+    description: Define which page of the paginated results to return
+  QueryProductID:
+    name: id
+    type: string
+    in: query
+    description: Limit results to those with matching product identifier
+  PathID:
+    name: id
+    description: The drug product code identifier
+    in: path
+    type: string
+    required: true
+  UserKeys:
+    name: 'user_keys'
+    type: string
+    in: query
+    required: true
+    description: The identifier assigned to your account for accessing the API
+    x-data-threescale-name: user_keys
