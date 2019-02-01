@@ -1,0 +1,339 @@
+{
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/api/canada-vigilance/",
+  "host": "cvp-hc-sc-apicast-staging.dev.api.canada.ca",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/drugproductingredient",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/drugproduct",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/gender",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/outcome",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/reaction",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/reportdrug",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/reportlink",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/reporttype",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/report",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/seriousness",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/source",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    }
+  ]
+}

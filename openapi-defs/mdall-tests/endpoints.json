@@ -1,0 +1,225 @@
+{
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/api/medical-devices/",
+  "host": "mdall-hc-sc-apicast-staging.dev.api.canada.ca",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/licence",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        },
+        {
+          "name": "state",
+          "in": "query",
+          "required": false,
+          "value": ""
+        },
+        {
+          "name": "licence_name",
+          "in": "query",
+          "required": false,
+          "value": ""
+        },
+        {
+          "name": "company_id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/company",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "value": ""
+        },
+        {
+          "name": "company_name",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/device",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        },
+        {
+          "name": "state",
+          "in": "query",
+          "required": false,
+          "value": ""
+        },
+        {
+          "name": "device_name",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/deviceidentifier",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        },
+        {
+          "name": "state",
+          "in": "query",
+          "required": false,
+          "value": ""
+        },
+        {
+          "name": "device_identifier",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/licencetype",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "code",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sbdlocation",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    }
+  ]
+}

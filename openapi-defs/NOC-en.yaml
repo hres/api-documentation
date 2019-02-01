@@ -20,7 +20,7 @@ info:
 schemes:
   - https
 host: noc-hc-sc-apicast-staging.dev.api.canada.ca
-basePath: /api/drug/
+basePath: /api/notice-of-compliance/
 produces:
   - application/json
   - application/xml
@@ -369,7 +369,7 @@ parameters:
     type: string
     required: true
   UserKeys:
-    name: 'user_keys'
+    name: 'user_key'
     type: string
     in: query
     required: true

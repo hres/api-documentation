@@ -1,0 +1,189 @@
+{
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/api/notice-of-compliance/",
+  "host": "noc-hc-sc-apicast-staging.dev.api.canada.ca",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/drugproduct",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/noticeofcompliancemain",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/dosageform",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/medicinalingredient",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/route",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/vetspecies",
+      "parameters": [
+        {
+          "name": "user_key",
+          "in": "query",
+          "required": true,
+          "value": "${user_key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": false,
+          "value": ""
+        }
+      ]
+    }
+  ]
+}
