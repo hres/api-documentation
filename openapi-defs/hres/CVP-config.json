@@ -1,0 +1,329 @@
+{
+  "schemes": ["https"],
+  "basePath": "/api/canada-vigilance",
+  "host": "health-products.canada.ca",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/drugproduct",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/drugproduct",
+      "filename": "GET-drugproduct-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/drugproductingredient",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/drugproductingredient",
+      "filename": "GET-drugproductingredient-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "242002322"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/gender",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/outcome",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/outcome",
+      "filename": "GET-outcome-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "1906"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/reaction",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/reaction",
+      "filename": "GET-react-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "5801"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/report",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/report",
+      "filename": "GET-report-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "195"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/reportdrug",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/reportdrug",
+      "filename": "GET-reportdrug-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "1106349"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/reportlink",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/reportlink",
+      "filename": "GET-reportlink-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "1531151"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/reporttype",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/reporttype",
+      "filename": "GET-reporttype-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "70095007"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/seriousness",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/seriousness",
+      "filename": "GET-seriousness-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "2001"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/source",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/source",
+      "filename": "GET-source-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "1001"
+        }
+      ]
+    }
+  ]
+}
