@@ -1,0 +1,588 @@
+{
+  "swagger": "2.0",
+  "x-api-store-tags": [
+    "medical",
+    "devices",
+    "services"
+  ],
+  "x-api-store-plans": {
+    "public": {
+      "name": "Public Plan",
+      "description": "All users should subscribe to the Public Plan."
+    }
+  },
+  "info": {
+    "title": "Medical Devices Active Licence Listing (MDALL)",
+    "description": "Health Canada is the federal regulator of therapeutic products, including medical devices. We do not provide medical advice on the use of the products identified in this listing.\n\nThe Medical Devices Bureau (Bureau) of the Therapeutic Products Directorate, Health Canada is the Canadian federal regulator responsible for licensing medical devices in accordance with the Food and Drugs Act and Regulations and the Medical Devices Regulations.\n\nThe Bureau maintains a database of all licensed Class II, III, and IV medical devices offered for sale in Canada. Class I medical devices do not require a medical device licence and are monitored by the Regulatory Operations and Regions Branch (Compliance and Enforcement) through Establishment Licensing.\n\nOnly products which appear in this database listing may be offered for general marketing purposes in Canada. Class I Devices, or devices which relate to Investigational Testing Authorization or Special Access do not appear in this listing.\n",
+    "version": "0.1"
+  },
+  "schemes": [
+    "https"
+  ],
+  "host": "mdall-hc-sc-apicast-staging.beta.api.canada.ca",
+  "basePath": "/api/medical-devices/",
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "paths": {
+    "/licence": {
+      "get": {
+        "tags": [
+          "Licence"
+        ],
+        "description": "Returns all licences.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching licence number"
+          },
+          {
+            "$ref": "#/parameters/QueryState"
+          },
+          {
+            "name": "licence_name",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with a matching licence name"
+          },
+          {
+            "name": "company_id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with a matching company ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all licences, or if an ID is provided, the list of all licences that correspond to the given licence number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Licence"
+              },
+              "xml": {
+                "name": "Licences",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/company": {
+      "get": {
+        "tags": [
+          "Company"
+        ],
+        "description": "Returns all companies.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching company ID"
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "type": "string",
+            "enum": [
+              "A",
+              "I"
+            ],
+            "description": "Limit results to those with a specific status"
+          },
+          {
+            "name": "company_name",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with a matching company name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all companies, or if an ID is provided, the list of all companies that correspond to the given company ID",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Licence"
+              },
+              "xml": {
+                "name": "Licences",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/device": {
+      "get": {
+        "tags": [
+          "Device"
+        ],
+        "description": "Returns all devices.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching device identification number"
+          },
+          {
+            "$ref": "#/parameters/QueryState"
+          },
+          {
+            "name": "device_name",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with a matching device name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all devices, or if an ID is provided, the list of all devices that correspond to the given device identification number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Device"
+              },
+              "xml": {
+                "name": "Devices",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/deviceidentifier": {
+      "get": {
+        "tags": [
+          "Device"
+        ],
+        "description": "Returns all device identifiers.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching device identification number"
+          },
+          {
+            "$ref": "#/parameters/QueryState"
+          },
+          {
+            "name": "device_identifier",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with a matching device identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all device identifiers, or if an ID is provided, the list of all device identifiers that correspond to the given device identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DeviceIdentifier"
+              },
+              "xml": {
+                "name": "DeviceIdentifiers",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/licencetype": {
+      "get": {
+        "tags": [
+          "Licence"
+        ],
+        "description": "Returns all licence types.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching licence type code"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all licence types, or if a code is provided, the list of all licence types that correspond to the given code",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LicenceType"
+              },
+              "xml": {
+                "name": "LicenceTypes",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/sbdlocation": {
+      "get": {
+        "tags": [
+          "Summary Basis Decision Location"
+        ],
+        "description": "Returns all summary basis decision locations.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching licence number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all locations, or if an ID is provided, the list of all locations that correspond to the given licence number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SummaryBasisDecisionLocation"
+              },
+              "xml": {
+                "name": "SummaryBasisDecisionLocations",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "204": {
+      "type": "string"
+    },
+    "404": {
+      "type": "string"
+    },
+    "DeviceIdentifier": {
+      "type": "string"
+    },
+    "CompanyIdentifier": {
+      "type": "string"
+    },
+    "LicenceNumber": {
+      "type": "string"
+    },
+    "Licence": {
+      "type": "object",
+      "description": "This is the permit that is delivered for a device to a company",
+      "properties": {
+        "original_licence_no": {
+          "type": "string",
+          "description": "The licence number."
+        },
+        "licence_status": {
+          "type": "string",
+          "description": "The licence status (C=Cancelled, D=Issued/Conditional, I=Issued/Active, M=Merge, O=Discontinued at Renewal, P=Pending signature, R=Cancelled Renowal No Response, S=Suspended, W=Withdrawn, Q=Suspended/Invalid QS Certification, X=Cancelled QS/2003).\n"
+        },
+        "appl_risk_class": {
+          "type": "string",
+          "description": "The application risk class."
+        },
+        "licence_name": {
+          "type": "string",
+          "description": "The licence name."
+        },
+        "first_licence_status_dt": {
+          "type": "string",
+          "description": "The date of the first issued licence."
+        },
+        "last_refresh_dt": {
+          "type": "string",
+          "description": "The refresh date of the mdall database."
+        },
+        "end_date": {
+          "type": "string",
+          "description": "The date of cancellation of the licence (if active then null)."
+        },
+        "licence_type_cd": {
+          "type": "string",
+          "description": "The licence type code."
+        },
+        "company_id": {
+          "type": "string",
+          "description": "The company identification number."
+        },
+        "licence_type_desc": {
+          "type": "string",
+          "description": "The licence type description"
+        }
+      }
+    },
+    "Company": {
+      "type": "object",
+      "description": "This contains the company name and address",
+      "properties": {
+        "company_id": {
+          "type": "string",
+          "description": "The company identification number."
+        },
+        "company_name": {
+          "type": "string",
+          "description": "The company name."
+        },
+        "addr_line_1": {
+          "type": "string",
+          "description": "The address line 1."
+        },
+        "addr_line_2": {
+          "type": "string",
+          "description": "The address line 2."
+        },
+        "addr_line_3": {
+          "type": "string",
+          "description": "The address line 3."
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "The postal code."
+        },
+        "city": {
+          "type": "string",
+          "description": "The city in the address."
+        },
+        "country_cd": {
+          "type": "string",
+          "description": "The country code (2 digit)."
+        },
+        "region_cd": {
+          "type": "string",
+          "description": "The region code (2 digit)."
+        },
+        "company_status": {
+          "type": "string",
+          "description": "The company status. (A=Active, I=Inactive)"
+        }
+      }
+    },
+    "Device": {
+      "type": "object",
+      "description": "This is the device information",
+      "properties": {
+        "original_licence_no": {
+          "type": "string",
+          "description": "The licence number."
+        },
+        "device_id": {
+          "type": "string",
+          "description": "The device identification number."
+        },
+        "first_licence_dt": {
+          "type": "string",
+          "description": "The date the device was added in the licence."
+        },
+        "end_date": {
+          "type": "string",
+          "description": "The date of removal of the device (if active then null)."
+        },
+        "trade_name": {
+          "type": "string",
+          "description": "The name of the device."
+        }
+      }
+    },
+    "DeviceIndentifier": {
+      "type": "object",
+      "description": "This is the list of all identifiers that uniquely identify a device (on the label).",
+      "properties": {
+        "original_licence_no": {
+          "type": "string",
+          "description": "The licence number."
+        },
+        "device_id": {
+          "type": "string",
+          "description": "The device identification number."
+        },
+        "first_licence_dt": {
+          "type": "string",
+          "description": "The date the identifier was added in the licence."
+        },
+        "end_date": {
+          "type": "string",
+          "description": "The date the identifier was removed from the licence."
+        },
+        "device_identifier": {
+          "type": "string",
+          "description": "The identifier."
+        }
+      }
+    },
+    "LicenceType": {
+      "type": "object",
+      "description": "This contains the list of all licence type codes and their definitions",
+      "properties": {
+        "licence_type_cd": {
+          "type": "string",
+          "description": "The licence type code."
+        },
+        "licence_type_desc": {
+          "type": "string",
+          "description": "The definition of the code."
+        }
+      }
+    },
+    "SummaryBasisDecisionLocation": {
+      "type": "object",
+      "description": "This contains the web site address of the summary basis of decisions",
+      "properties": {
+        "original_licence_no": {
+          "type": "string",
+          "description": "The licence number."
+        },
+        "sbd_notice_web_loc": {
+          "type": "string",
+          "description": "The notice of decision web site address."
+        },
+        "sbd_web_loc": {
+          "type": "string",
+          "description": "The notice of decision web site address."
+        }
+      }
+    }
+  },
+  "parameters": {
+    "QueryLang": {
+      "name": "lang",
+      "type": "string",
+      "in": "query",
+      "enum": [
+        "en",
+        "fr"
+      ],
+      "default": "en",
+      "description": "Define which language you would like the response to be in"
+    },
+    "QueryType": {
+      "name": "type",
+      "type": "string",
+      "in": "query",
+      "enum": [
+        "json",
+        "xml"
+      ],
+      "default": "json",
+      "description": "Define which media type you would like the content to be in"
+    },
+    "QueryState": {
+      "name": "state",
+      "in": "query",
+      "type": "string",
+      "enum": [
+        "active",
+        "archived"
+      ],
+      "description": "Limit results to those with a specific state"
+    },
+    "PathID": {
+      "name": "id",
+      "description": "The drug product code identifier",
+      "in": "path",
+      "type": "string",
+      "required": true
+    },
+    "UserKeys": {
+      "name": "user-key",
+      "type": "string",
+      "in": "header",
+      "required": true,
+      "description": "The identifier assigned to your account for accessing the API",
+      "x-data-threescale-name": "user_keys"
+    }
+  }
+}

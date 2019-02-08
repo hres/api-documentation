@@ -1,0 +1,447 @@
+{
+  "schemes": ["https"],
+  "basePath": "/api/canadian-nutrient-file",
+  "host": "food-nutrition.canada.ca",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/food",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/food",
+      "filename": "GET-food-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "571"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/nutrientname",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/nutrientname",
+      "filename": "GET-nutrientname-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "830"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/nutrientgroup",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/nutrientgroup",
+      "filename": "GET-nutrientgroup-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/nutrientsource",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/nutrientsource",
+      "filename": "GET-nutrientsource-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/nutrientamount",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/nutrientamount",
+      "filename": "GET-nutrientamount-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "109"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/servingsize",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/servingsize",
+      "filename": "GET-servingsize-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "20"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/refuseamount",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/refuseamount",
+      "filename": "GET-refuseamount-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "20"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/yieldamount",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/yieldamount",
+      "filename": "GET-yieldamount-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "57"
+        }
+      ]
+    }
+  ]
+}

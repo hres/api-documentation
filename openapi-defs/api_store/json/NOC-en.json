@@ -1,0 +1,540 @@
+{
+  "swagger": "2.0",
+  "x-api-store-tags": [
+    "compliance",
+    "food",
+    "drugs",
+    "veterinary"
+  ],
+  "x-api-store-plans": {
+    "public": {
+      "name": "Public Plan",
+      "description": "All users should subscribe to the Public Plan."
+    }
+  },
+  "info": {
+    "title": "Notice of Compliance (NOC)",
+    "description": "A Notice of Compliance (NOC) is issued to a manufacturer following the satisfactory review of a submission for a new drug, and signifies compliance with the Food and Drug Regulations.\n\nThe database is updated nightly and contains NOC information on human drugs from January 1, 1994 to date. It also contains NOC information on Veterinary drugs from September 19, 2000 to date. Through a phased in approach Health Canada will populate the remaining NOCs for Veterinary drugs from January 1, 1994 to September 18, 2000.\n",
+    "version": "0.1"
+  },
+  "schemes": [
+    "https"
+  ],
+  "host": "noc-hc-sc-apicast-staging.beta.api.canada.ca",
+  "basePath": "/api/notice-of-compliance/",
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "paths": {
+    "/drugproduct": {
+      "get": {
+        "tags": [
+          "Drug Product"
+        ],
+        "description": "Returns all drug products.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "$ref": "#/parameters/QueryNoticeOfComplianceNumber"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all drug products, or if an ID is provided, the list of all drug products that correspond to the given Notice of Compliance number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DrugProduct"
+              },
+              "xml": {
+                "name": "DrugProducts",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/noticeofcompliancemain": {
+      "get": {
+        "tags": [
+          "Notice of Compliance"
+        ],
+        "description": "Returns all compliance notifications",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "$ref": "#/parameters/QueryNoticeOfComplianceNumber"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all compliance notices, or if an ID is provided, the list of all notices of compliance that correspond to the given Notice of Compliance number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NoticeOfCompliance"
+              },
+              "xml": {
+                "name": "NoticesOfCompliance",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/dosageform": {
+      "get": {
+        "tags": [
+          "Dosage Form"
+        ],
+        "description": "Returns all dosage forms",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "$ref": "#/parameters/QueryNoticeOfComplianceNumber"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all dosage forms, or if an ID is provided, the list of all dosage forms that correspond to the given Notice of Compliance number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DosageForm"
+              },
+              "xml": {
+                "name": "DosageForms",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/medicinalingredient": {
+      "get": {
+        "tags": [
+          "Medicinal Ingredient"
+        ],
+        "description": "Returns all medicinal ingredients",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "$ref": "#/parameters/QueryNoticeOfComplianceNumber"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all medicinal ingredients, or if an ID is provided, the list of all medicinal ingredients that correspond to the given Notice of Compliance number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MedicinalIngredient"
+              },
+              "xml": {
+                "name": "MedicinalIngredients",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/route": {
+      "get": {
+        "tags": [
+          "Route of Administration"
+        ],
+        "description": "Returns all administration routes",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "$ref": "#/parameters/QueryNoticeOfComplianceNumber"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all administration routes, or if an ID is provided, the list of all routes that correspond to the given Notice of Compliance number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RouteOfAdministration"
+              },
+              "xml": {
+                "name": "RouteOfAdministration",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/vetspecies": {
+      "get": {
+        "tags": [
+          "Veterinary Species"
+        ],
+        "description": "Returns all veterinary species",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "$ref": "#/parameters/QueryNoticeOfComplianceNumber"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all veterinary species, or if an ID is provided, the list of all species that correspond to the given Notice of Compliance number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RouteOfAdministration"
+              },
+              "xml": {
+                "name": "RouteOfAdministration",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "204": {
+      "type": "string"
+    },
+    "404": {
+      "type": "string"
+    },
+    "DosageForm": {
+      "type": "object",
+      "description": "The dosage form is the form in which the product is supplied. It is the combination of the form in which a product is presented [for example (e.g.)] in tablet, capsule or powder form, and the physical form in which it is administered, [for example, (e.g.)] in a powder to be administered in solution.",
+      "properties": {
+        "noc_number": {
+          "type": "string",
+          "description": "The number assigned to the Notice of Compliance."
+        },
+        "noc_pf_din_product_id": {
+          "type": "string",
+          "description": "The identification number assigned to the DIN product."
+        },
+        "noc_pf_form_name": {
+          "type": "string",
+          "description": "The dosage form."
+        }
+      },
+      "xml": {
+        "name": "DosageForm"
+      }
+    },
+    "DrugProduct": {
+      "type": "object",
+      "description": "Basic information about the product, such as brand name and Drug Identification Number. The brand name is the unique name under which the manufacturer of a drug product advertises and sells it",
+      "properties": {
+        "noc_number": {
+          "type": "string",
+          "description": "The number assigned to the Notice of Compliance."
+        },
+        "noc_br_brand_id": {
+          "type": "string",
+          "description": "The identification number assigned to the brand."
+        },
+        "noc_br_brandname": {
+          "type": "string",
+          "description": "The brand name for the drug product."
+        },
+        "noc_br_product_id": {
+          "type": "string",
+          "description": "The identification number assigned to the DIN product."
+        },
+        "noc_br_din": {
+          "type": "string",
+          "description": "The Drug Identification Number."
+        }
+      },
+      "xml": {
+        "name": "DrugProduct"
+      }
+    },
+    "MedicinalIngredient": {
+      "type": "object",
+      "description": "A medicinal ingredient is any component that has medicinal properties, and supplies pharmacological activity or other direct effect in the diagnosis, cure, mitigation, treatment or prevention of disease, or to affect the structure or any function of the body of man or other animals.",
+      "properties": {
+        "noc_number": {
+          "type": "string",
+          "description": "The number assigned to the Notice of Compliance."
+        },
+        "noc_pi_din_product_id": {
+          "type": "string",
+          "description": "The identification number assigned to the DIN product."
+        },
+        "noc_pi_medic_ingr_name": {
+          "type": "string",
+          "description": "The medicinal ingredient name."
+        },
+        "noc_pi_strength": {
+          "type": "string",
+          "description": "The strength of the medicinal ingredient."
+        },
+        "noc_pi_unit": {
+          "type": "string",
+          "description": "The medicinal ingredient unit."
+        },
+        "noc_pi_basic_unit": {
+          "type": "string",
+          "description": "The medicinal ingredient dosage unit."
+        }
+      },
+      "xml": {
+        "name": "MedicinalIngredient"
+      }
+    },
+    "NoticeOfCompliance": {
+      "type": "object",
+      "description": "A Notice of Compliance is a notification, issued pursuant to paragraph C.08.004(1)(a), indicating that a manufacturer has complied with sections C.08.002 or C.08.003 and C.08.005.1 of the Food and Drug Regulations. Notices of Compliance are issued to a manufacturer following the satisfactory review of a submission.\n\nAn NOC/c is the authorization to market a drug ([such as (i.e.)] a Notice of Compliance (NOC)), with the condition that the manufacturer carries out more studies to verify the clinical benefit. The NOC, qualifying under the NOC/c policy (Notice of Compliance with Conditions: Revised Policy), is issued under section C.08.004 of the Food and Drug Regulations.\n",
+      "properties": {
+        "noc_number": {
+          "type": "string",
+          "description": "The number assigned to the Notice of Compliance."
+        },
+        "noc_date": {
+          "type": "string",
+          "description": "The date the Notice of Compliance was issued."
+        },
+        "noc_manufacturer_name": {
+          "type": "string",
+          "description": "The name of the manufacturer."
+        },
+        "noc_status_with_conditions": {
+          "type": "string",
+          "description": "Whether the product was authorized under the Notice of Compliance with Conditions Policy."
+        },
+        "noc_on_submission_type": {
+          "type": "string",
+          "description": "The submission type."
+        },
+        "noc_is_suppliment": {
+          "type": "string",
+          "description": "Whether the submission is a supplement."
+        },
+        "noc_submission_class": {
+          "type": "string",
+          "description": "The submission class."
+        },
+        "noc_is_admin": {
+          "type": "string",
+          "description": "Whether the submission was filed administratively."
+        },
+        "noc_product_type": {
+          "type": "string",
+          "description": "The type of drug product."
+        },
+        "noc_crp_product_name": {
+          "type": "string",
+          "description": "The name of the Canadian Reference Product."
+        },
+        "noc_crp_company_name": {
+          "type": "string",
+          "description": "The company name for the Canadian Reference Product."
+        },
+        "noc_crp_country_name": {
+          "type": "string",
+          "description": "The country name for the Canadian Reference Product."
+        },
+        "noc_active_status": {
+          "type": "string",
+          "description": "Whether or not the Notice of Compliance is active or suspended."
+        },
+        "noc_reason_supplement": {
+          "type": "string",
+          "description": "If the submission is a supplement, the reason for the supplement."
+        },
+        "noc_reason_submission": {
+          "type": "string",
+          "description": "The reason for the submission."
+        },
+        "noc_therapeutic_class": {
+          "type": "string",
+          "description": "The therapeutic class of a drug product."
+        },
+        "noc_last_update_date": {
+          "type": "string",
+          "description": "The date that the Notice of Compliance was last updated."
+        }
+      },
+      "xml": {
+        "name": "NoticeOfCompliance"
+      }
+    },
+    "RouteOfAdministration": {
+      "type": "object",
+      "description": "This term indicates the part of the body on which, through which or into which the product is to be introduced. (e.g. oral, topical, intramuscular, rectal, etc.)\n\nA product can have more than one route of administration (e.g. intravenous, intramuscular, intra-articular, etc.).\n",
+      "properties": {
+        "noc_number": {
+          "type": "string",
+          "description": "The number assigned to the Notice of Compliance."
+        },
+        "noc_pr_din_product_id": {
+          "type": "string",
+          "description": "The identification number assigned to the DIN product."
+        },
+        "noc_pr_route": {
+          "type": "string",
+          "description": "The route of administration."
+        }
+      },
+      "xml": {
+        "name": "RouteOfAdministration"
+      }
+    },
+    "VeterinarySpecies": {
+      "type": "object",
+      "description": "The type of species for a certain veterinary products (e.g. sheep, dog, cattle, and poultry).",
+      "properties": {
+        "noc_number": {
+          "type": "string",
+          "description": "The number assigned to the Notice of Compliance."
+        },
+        "vet_species_desc": {
+          "type": "string",
+          "description": "The animal species description."
+        }
+      },
+      "xml": {
+        "name": "VeterinarySpecies"
+      }
+    }
+  },
+  "parameters": {
+    "QueryLang": {
+      "name": "lang",
+      "type": "string",
+      "in": "query",
+      "enum": [
+        "en",
+        "fr"
+      ],
+      "default": "en",
+      "description": "Define which language you would like the response to be in"
+    },
+    "QueryType": {
+      "name": "type",
+      "type": "string",
+      "in": "query",
+      "enum": [
+        "json",
+        "xml"
+      ],
+      "default": "json",
+      "description": "Define which media type you would like the content to be in"
+    },
+    "QueryNoticeOfComplianceNumber": {
+      "name": "id",
+      "type": "string",
+      "in": "query",
+      "description": "Limit results to those with a matching Notice of Compliance number"
+    },
+    "PathID": {
+      "name": "id",
+      "description": "The drug product code identifier",
+      "in": "path",
+      "type": "string",
+      "required": true
+    },
+    "UserKeys": {
+      "name": "user-key",
+      "type": "string",
+      "in": "header",
+      "required": true,
+      "description": "The identifier assigned to your account for accessing the API",
+      "x-data-threescale-name": "user_keys"
+    }
+  }
+}

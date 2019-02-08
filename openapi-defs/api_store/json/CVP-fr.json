@@ -1,0 +1,1021 @@
+{
+  "swagger": "2.0",
+  "x-api-store-tags": [
+    "medical reactions",
+    "health products"
+  ],
+  "x-api-store-plans": {
+    "public": {
+      "name": "Public Plan",
+      "description": "All users should subscribe to the Public Plan."
+    }
+  },
+  "info": {
+    "title": "Canada Vigilance Product (CVP)",
+    "description": "The Canada Vigilance Adverse Reaction Online Database contains information about suspected adverse reactions (also known as side effects) to health products.",
+    "version": "0.1"
+  },
+  "schemes": [
+    "https"
+  ],
+  "host": "cvp-hc-sc-apicast-staging.beta.api.canada.ca",
+  "basePath": "/api/canada-vigilance/",
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "paths": {
+    "/drugproductingredient": {
+      "get": {
+        "tags": [
+          "Drug Product Ingredient"
+        ],
+        "description": "Returns all drug product ingredients.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching active ingredient identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all drug product ingredients, or if an ID is provided, the list of all ingredients that correspond to the given active ingredient identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DrugProductIngredient"
+              },
+              "xml": {
+                "name": "DrugProductIngredients",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/drugproduct": {
+      "get": {
+        "tags": [
+          "Drug Product"
+        ],
+        "description": "Returns all drug products.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching drug product identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all drug products, or if an ID is provided, the list of all drug products that correspond to the given drug product identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DrugProduct"
+              },
+              "xml": {
+                "name": "DrugProducts",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/gender": {
+      "get": {
+        "tags": [
+          "Gender"
+        ],
+        "description": "Returns all genders.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching gender identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all genderes, or if an ID is provided, the list of all genders that correspond to the given gender identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Gender"
+              },
+              "xml": {
+                "name": "Genders",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/outcome": {
+      "get": {
+        "tags": [
+          "Outcome"
+        ],
+        "description": "Returns all outcomes.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching outcome identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all outcomes, or if an ID is provided, the list of all outcomes that correspond to the given outcome identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Outcome"
+              },
+              "xml": {
+                "name": "Outcomes",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/reaction": {
+      "get": {
+        "tags": [
+          "Reaction"
+        ],
+        "description": "Returns all reactions.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching reaction identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all reactions, or if an ID is provided, the list of all reactions that correspond to the given reaction identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Reaction"
+              },
+              "xml": {
+                "name": "Reactions",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/reportdrug": {
+      "get": {
+        "tags": [
+          "Report"
+        ],
+        "description": "Returns all drug reports.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching adverse reaction report number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all drug reports, or if an ID is provided, the list of all drug reports that correspond to the given adverse reaction report number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ReportDrug"
+              },
+              "xml": {
+                "name": "ReportDrugs",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/reportlink": {
+      "get": {
+        "tags": [
+          "Report"
+        ],
+        "description": "Returns all report links.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching report link identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all report links, or if an ID is provided, the list of all reports links that correspond to the given report link identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ReportLink"
+              },
+              "xml": {
+                "name": "ReportLink",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/reporttype": {
+      "get": {
+        "tags": [
+          "Report"
+        ],
+        "description": "Returns all report types.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching report type identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all report types, or if an ID is provided, the list of all report types that correspond to the given report type identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ReportType"
+              },
+              "xml": {
+                "name": "ReportType",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/report": {
+      "get": {
+        "tags": [
+          "Report"
+        ],
+        "description": "Returns all reports.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching adverse reaction report number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all reports, or if an ID is provided, the list of all reports that correspond to the given adverse reaction report number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Report"
+              },
+              "xml": {
+                "name": "Reports",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/seriousness": {
+      "get": {
+        "tags": [
+          "Seriousness"
+        ],
+        "description": "Returns all seriousness presentation texts.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching serious report identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all seriousness presentation texts, or if an ID is provided, the list of all texts that correspond to the given serious report identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Seriousness"
+              },
+              "xml": {
+                "name": "Seriousness",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/source": {
+      "get": {
+        "tags": [
+          "Source"
+        ],
+        "description": "Returns all sources.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching source identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all sources, or if an ID is provided, the list of all sources that correspond to the given source identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Source"
+              },
+              "xml": {
+                "name": "Sources",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "204": {
+      "type": "string"
+    },
+    "404": {
+      "type": "string"
+    },
+    "DrugProductIngredient": {
+      "type": "object",
+      "description": "Provides the information about the active ingredients associated with all drugs.",
+      "properties": {
+        "drug_product_ingredient_id": {
+          "type": "string",
+          "description": "Drug Product - Active Ingredient Identifier."
+        },
+        "drug_product_id": {
+          "type": "string",
+          "description": "Drug Product Identifier."
+        },
+        "drug_name": {
+          "type": "string",
+          "description": "Brand Name."
+        },
+        "active_ingredient_id": {
+          "type": "string",
+          "description": "Active Ingredient Identifier."
+        },
+        "active_ingredient_name": {
+          "type": "string",
+          "description": "Active Ingredient Name."
+        }
+      },
+      "xml": {
+        "name": "DrugProductIngredient"
+      }
+    },
+    "DrugProduct": {
+      "type": "object",
+      "description": "Provides the information about all drug names and their codes.",
+      "properties": {
+        "drug_product_id": {
+          "type": "string",
+          "description": "Drug Product Identifier."
+        },
+        "drug_name": {
+          "type": "string",
+          "description": "Brand Name."
+        }
+      },
+      "xml": {
+        "name": "DrugProduct"
+      }
+    },
+    "Gender": {
+      "type": "object",
+      "description": "Provides the information about the gender presentation text associated with the gender code.",
+      "properties": {
+        "gender_id": {
+          "type": "string",
+          "description": "Gender Identifier."
+        },
+        "gender_code": {
+          "type": "string",
+          "description": "Gender Code."
+        },
+        "gender_name": {
+          "type": "string",
+          "description": "Gender."
+        }
+      },
+      "xml": {
+        "name": "Gender"
+      }
+    },
+    "Outcome": {
+      "type": "object",
+      "description": "Provides the information about the outcome presentation text associated with the outcome code.",
+      "properties": {
+        "outcome_id": {
+          "type": "string",
+          "description": "Outcome Identifier."
+        },
+        "outcome_code": {
+          "type": "string",
+          "description": "Report Outcome Code."
+        },
+        "outcome_name": {
+          "type": "string",
+          "description": "Report Outcome."
+        }
+      },
+      "xml": {
+        "name": "Outcome"
+      }
+    },
+    "Reaction": {
+      "type": "object",
+      "description": "Provides the information about the reaction terms associated with report.",
+      "properties": {
+        "reaction_id": {
+          "type": "string",
+          "description": "Reaction Identifier."
+        },
+        "report_id": {
+          "type": "string",
+          "description": "Adverse Reaction Report (AER) Number (6 digits)."
+        },
+        "duration": {
+          "type": "string",
+          "description": "Reaction Duration."
+        },
+        "duration_unit": {
+          "type": "string",
+          "description": "Reaction Duration Unit."
+        },
+        "pt_name": {
+          "type": "string",
+          "description": "Adverse Reaction Term."
+        },
+        "soc_name": {
+          "type": "string",
+          "description": "System Organ Class."
+        },
+        "meddra_version": {
+          "type": "string",
+          "description": "MedDRA Version."
+        }
+      },
+      "xml": {
+        "name": "Reaction"
+      }
+    },
+    "ReportDrug": {
+      "type": "object",
+      "description": "There are three parameters in the request: id, lang and type.",
+      "properties": {
+        "report_drug_id": {
+          "type": "string",
+          "description": "Report Drug Identifier."
+        },
+        "report_id": {
+          "type": "string",
+          "description": "Adverse Reaction Report (AER) Number (6 digits)."
+        },
+        "drug_product_id": {
+          "type": "string",
+          "description": "Drug Product Identifier."
+        },
+        "drug_name": {
+          "type": "string",
+          "description": "Brand Name."
+        },
+        "drug_involv_name": {
+          "type": "string",
+          "description": "Health Product role."
+        },
+        "route_admin_name": {
+          "type": "string",
+          "description": "Route of Administration."
+        },
+        "unit_dose_qty": {
+          "type": "string",
+          "description": "Dose."
+        },
+        "dose_unit_name": {
+          "type": "string",
+          "description": "Dose Unit."
+        },
+        "frequency": {
+          "type": "string",
+          "description": "Frequency."
+        },
+        "freq_time": {
+          "type": "string",
+          "description": "Frequency Time."
+        },
+        "frequency_time": {
+          "type": "string",
+          "description": "Frequency Time."
+        },
+        "freq_time_unit": {
+          "type": "string",
+          "description": "Frequency Unit."
+        },
+        "therapy_duration": {
+          "type": "string",
+          "description": "Therapy Duration."
+        },
+        "therapy_duration_unit": {
+          "type": "string",
+          "description": "Therapy Duration Unit."
+        },
+        "dosage_form": {
+          "type": "string",
+          "description": "Dosage Form."
+        },
+        "indication_name": {
+          "type": "string",
+          "description": "Indication."
+        }
+      },
+      "xml": {
+        "name": "ReportDrug"
+      }
+    },
+    "ReportLink": {
+      "type": "object",
+      "description": "Provides the information about the linked/duplicate reports presentation text associated with the code.",
+      "properties": {
+        "report_link_id": {
+          "type": "string",
+          "description": "Report Link Identifier."
+        },
+        "report_id": {
+          "type": "string",
+          "description": "Adverse Reaction Report (AER) Number (6 digits)."
+        },
+        "record_type": {
+          "type": "string",
+          "description": "Record Type."
+        },
+        "report_link_no": {
+          "type": "string",
+          "description": "Duplicate or Linked Adverse Reaction Report (AER) Number."
+        }
+      },
+      "xml": {
+        "name": "ReportLink"
+      }
+    },
+    "ReportType": {
+      "type": "object",
+      "description": "Provides the information about the report type presentation text associated with the report type code.",
+      "properties": {
+        "report_type_id": {
+          "type": "string",
+          "description": "Report Type Identifier."
+        },
+        "report_type_code": {
+          "type": "string",
+          "description": "Report Type Code."
+        },
+        "report_type": {
+          "type": "string",
+          "description": "Report Type."
+        }
+      },
+      "xml": {
+        "name": "ReportType"
+      }
+    },
+    "Report": {
+      "type": "object",
+      "description": "Provides the information about reports and patients.",
+      "properties": {
+        "report_id": {
+          "type": "string",
+          "description": "Adverse Reaction Report (AER) Number (6 digits)."
+        },
+        "report_no": {
+          "type": "string",
+          "description": "Adverse Reaction Report (AER) Number (9 digits)."
+        },
+        "version_no": {
+          "type": "string",
+          "description": "Adverse Reaction Report (AER) Version Number."
+        },
+        "date_received": {
+          "type": "string",
+          "description": "Latest Received Date."
+        },
+        "date_int_received": {
+          "type": "string",
+          "description": "Initial Received Date."
+        },
+        "mah_no": {
+          "type": "string",
+          "description": "Market Authorisation Holder (MAH) Adverse Reaction Report (AER) Number."
+        },
+        "report_type_code": {
+          "type": "string",
+          "description": "Type of Report Code."
+        },
+        "report_type_name": {
+          "type": "string",
+          "description": "Type of Report."
+        },
+        "gender_code": {
+          "type": "string",
+          "description": "Gender Code."
+        },
+        "gender_name": {
+          "type": "string",
+          "description": "Gender."
+        },
+        "age": {
+          "type": "string",
+          "description": "Age."
+        },
+        "age_y": {
+          "type": "string",
+          "description": "Age in Years."
+        },
+        "age_unit": {
+          "type": "string",
+          "description": "Age Unit."
+        },
+        "outcome_code": {
+          "type": "string",
+          "description": "Report Outcome Code."
+        },
+        "outcome": {
+          "type": "string",
+          "description": "Report Outcome."
+        },
+        "weight": {
+          "type": "string",
+          "description": "Weight."
+        },
+        "weight_unit": {
+          "type": "string",
+          "description": "Weight Unit."
+        },
+        "height": {
+          "type": "string",
+          "description": "Height."
+        },
+        "height_unit": {
+          "type": "string",
+          "description": "Height Unit."
+        },
+        "seriousness_code": {
+          "type": "string",
+          "description": "Serious Adverse Reaction Code."
+        },
+        "seriousness": {
+          "type": "string",
+          "description": "Serious Adverse Reaction."
+        },
+        "death": {
+          "type": "string",
+          "description": "Death."
+        },
+        "disability": {
+          "type": "string",
+          "description": "Disability."
+        },
+        "congenital_anomaly": {
+          "type": "string",
+          "description": "Congenital Anomaly."
+        },
+        "life_threatening": {
+          "type": "string",
+          "description": "Life Threatening."
+        },
+        "hosp_required": {
+          "type": "string",
+          "description": "Hospitalization Required."
+        },
+        "other_medically_imp_cond": {
+          "type": "string",
+          "description": "Other Medically Important Condition."
+        },
+        "reporter_type_code": {
+          "type": "string",
+          "description": "Reporter Type Code."
+        },
+        "reporter_type": {
+          "type": "string",
+          "description": "Reporter Type."
+        },
+        "source_code": {
+          "type": "string",
+          "description": "Report Source Code."
+        },
+        "source_name": {
+          "type": "string",
+          "description": "Report Source."
+        },
+        "pt_name": {
+          "type": "string",
+          "description": "Adverse Reaction Term."
+        },
+        "soc_name": {
+          "type": "string",
+          "description": "System Organ Class."
+        },
+        "duration": {
+          "type": "string",
+          "description": "Reaction Duration."
+        },
+        "duration_unit": {
+          "type": "string",
+          "description": "Reaction Duration Unit."
+        },
+        "drug_name": {
+          "type": "string",
+          "description": "Brand Name."
+        }
+      },
+      "xml": {
+        "name": "Report"
+      }
+    },
+    "Seriousness": {
+      "type": "object",
+      "description": "Provides the information about the report seriousness presentation text associated with the report seriousness code.",
+      "properties": {
+        "seriousness_id": {
+          "type": "string",
+          "description": "Serious Report Identifier."
+        },
+        "seriousness_code": {
+          "type": "string",
+          "description": "Serious Adverse Reaction Code."
+        },
+        "seriousness": {
+          "type": "string",
+          "description": "Serious Adverse Reaction."
+        }
+      },
+      "xml": {
+        "name": "Seriousness"
+      }
+    },
+    "Source": {
+      "type": "object",
+      "description": "Provides the information about the report source presentation text associated with the report source code.",
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "description": "Report Source Identifier."
+        },
+        "source_code": {
+          "type": "string",
+          "description": "Report Source Code."
+        },
+        "source": {
+          "type": "string",
+          "description": "Report Source."
+        }
+      },
+      "xml": {
+        "name": "Source"
+      }
+    }
+  },
+  "parameters": {
+    "QueryLang": {
+      "name": "lang",
+      "type": "string",
+      "in": "query",
+      "enum": [
+        "en",
+        "fr"
+      ],
+      "default": "en",
+      "description": "Define which language you would like the response to be in"
+    },
+    "QueryType": {
+      "name": "type",
+      "type": "string",
+      "in": "query",
+      "enum": [
+        "json",
+        "xml"
+      ],
+      "default": "json",
+      "description": "Define which media type you would like the content to be in"
+    },
+    "PathID": {
+      "name": "id",
+      "description": "The drug product code identifier",
+      "in": "path",
+      "type": "string",
+      "required": true
+    },
+    "UserKeys": {
+      "name": "user-key",
+      "type": "string",
+      "in": "header",
+      "required": true,
+      "description": "The identifier assigned to your account for accessing the API",
+      "x-data-threescale-name": "user_keys"
+    }
+  }
+}

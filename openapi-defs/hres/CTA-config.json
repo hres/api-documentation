@@ -1,0 +1,337 @@
+{
+  "schemes": ["https"],
+  "basePath": "/api/clinical-trial",
+  "host": "health-products.canada.ca",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/drugproduct",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/drugproduct",
+      "filename": "GET-drugproduct-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "35778"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/medicalcondition",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/medicalcondition",
+      "filename": "GET-medicalcondition-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "154"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/protocol",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/protocol",
+      "filename": "GET-protocol-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "27351"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sponsor",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/sponsor",
+      "filename": "GET-sponsor-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "1118"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/status",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/status",
+      "filename": "GET-status-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/studypopulation",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/studypopulation",
+      "filename": "GET-studypopulation-{id}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "lang",
+          "in": "query",
+          "required": false,
+          "value": "en"
+        },
+        {
+          "name": "type",
+          "in": "query",
+          "required": false,
+          "value": "json"
+        },
+        {
+          "name": "id",
+          "in": "query",
+          "required": true,
+          "value": "3"
+        }
+      ]
+    }
+  ]
+}
