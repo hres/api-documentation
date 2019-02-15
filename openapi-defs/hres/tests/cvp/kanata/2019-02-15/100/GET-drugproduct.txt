@@ -1,0 +1,35 @@
+
+          /\      |‾‾|  /‾‾/  /‾/   
+     /\  /  \     |  |_/  /  / /    
+    /  \/    \    |      |  /  ‾‾\  
+   /          \   |  |‾\  \ | (_) | 
+  / __________ \  |__|  \__\ \___/ .io
+
+    init [----------------------------------------------------------] runner    init [----------------------------------------------------------] options    init [----------------------------------------------------------] executor    init [----------------------------------------------------------]   engine    init [----------------------------------------------------------]   collector    init [----------------------------------------------------------]   server  execution: local
+     output: -
+     script: /home/alex/dev/api-documentation/openapi-defs/hres/tests/cvp/GET-drugproduct.test.js
+
+    duration: 30s, iterations: -
+         vus: 100, max: 100
+
+    init [----------------------------------------------------------] starting
+    ✗ status 200
+     ↳  16% — ✓ 9 / ✗ 45
+
+    checks.....................: 16.66% ✓ 9     ✗ 45   
+    data_received..............: 435 kB 27 kB/s
+    data_sent..................: 37 kB  2.3 kB/s
+  ✗ failed requests............: 83.33% ✓ 45    ✗ 9    
+    http_req_blocked...........: avg=364.54ms min=340.03ms med=359.54ms max=434.49ms p(90)=388.4ms  p(95)=398.28ms
+    http_req_connecting........: avg=77.34ms  min=62.37ms  med=74.5ms   max=121.24ms p(90)=102.66ms p(95)=115.63ms
+    http_req_duration..........: avg=15.19s   min=15.14s   med=15.19s   max=15.25s   p(90)=15.23s   p(95)=15.24s  
+    http_req_receiving.........: avg=58.58µs  min=18.43µs  med=48.25µs  max=243.06µs p(90)=103.48µs p(95)=126.82µs
+    http_req_sending...........: avg=258.15µs min=73.15µs  med=190.27µs max=1.75ms   p(90)=379.49µs p(95)=453.69µs
+    http_req_tls_handshaking...: avg=201.48ms min=180.02ms med=199.33ms max=229.63ms p(90)=216.78ms p(95)=220.95ms
+    http_req_waiting...........: avg=15.19s   min=15.14s   med=15.19s   max=15.25s   p(90)=15.23s   p(95)=15.24s  
+    http_reqs..................: 54     3.385656/s
+    iteration_duration.........: avg=15.55s   min=15.48s   med=15.57s   max=15.6s    p(90)=15.59s   p(95)=15.6s   
+    iterations.................: 54     3.385656/s
+    vus........................: 100    min=100 max=100
+    vus_max....................: 100    min=100 max=100
+

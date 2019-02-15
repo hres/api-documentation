@@ -1,0 +1,55 @@
+{
+  "schemes": ["https"],
+  "basePath": "/api/summary-report/api",
+  "host": "health-products.canada.ca",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/basisdecision",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "path": "/basisdecision?id=SBD00001",
+      "filename": "GET-basisdecision-{id}"
+    },
+    {
+      "method": "GET",
+      "path": "/regulatorydecision",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "path": "/regulatorydecision?id=RDS00007",
+      "filename": "GET-regulatorydecision-{id}"
+    },
+    {
+      "method": "GET",
+      "path": "/safetyreview",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "path": "/safetyreview?id=SSR00001",
+      "filename": "GET-safetyreview-{id}"
+    }
+  ]
+}

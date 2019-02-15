@@ -1,0 +1,109 @@
+{
+  "schemes": ["https"],
+  "basePath": "/api/notice-of-compliance/",
+  "host": "health-products.canada.ca",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/dosageform",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/dosageform?id=3369",
+      "filename": "GET-dosageform-{id}"
+    },
+    {
+      "method": "GET",
+      "path": "/drugproduct",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/drugproduct?id=3369",
+      "filename": "GET-drugproduct-{id}"
+    },
+    {
+      "method": "GET",
+      "path": "/medicinalingredient",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/medicinalingredient?id=3369",
+      "filename": "GET-medicinalingredient-{id}"
+    },
+    {
+      "method": "GET",
+      "path": "/noticeofcompliancemain",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/noticeofcompliancemain?id=403",
+      "filename": "GET-noticeofcompliancemain-{id}"
+    },
+    {
+      "method": "GET",
+      "path": "/route",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/route?id=3369",
+      "filename": "GET-route-{id}"
+    },
+    {
+      "method": "GET",
+      "path": "/vetspecies",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/vetspecies?id=6981",
+      "filename": "GET-vetspecies-{id}"
+    }
+  ]
+}

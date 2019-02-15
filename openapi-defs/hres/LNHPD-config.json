@@ -1,0 +1,93 @@
+{
+  "schemes": [
+    "https"
+  ],
+  "basePath": "/api/natural-licences/",
+  "host": "lnhpd-hc-sc-apicast-staging.beta.api.canada.ca",
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/medicinalingredient",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/nonmedicinalingredient",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/productdose",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/productlicence",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/productpurpose",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/productrisk",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/productroute",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        }
+      ]
+    }
+  ]
+}

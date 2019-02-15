@@ -1,11 +1,11 @@
 {
   "schemes": ["https"],
-  "basePath": "/api/canada-vigilance",
+  "basePath": "/api/medical-devices",
   "host": "health-products.canada.ca",
   "endpoints": [
     {
       "method": "GET",
-      "path": "/drugproduct",
+      "path": "/company",
       "parameters": [
         {
           "name": "user-key",
@@ -17,8 +17,8 @@
     },
     {
       "method": "GET",
-      "path": "/drugproduct",
-      "filename": "GET-drugproduct-{id}",
+      "path": "/company",
+      "filename": "GET-company-{id}",
       "parameters": [
         {
           "name": "user-key",
@@ -30,13 +30,51 @@
           "name": "id",
           "in": "query",
           "required": true,
-          "value": "1"
+          "value": "112453"
         }
       ]
     },
     {
       "method": "GET",
-      "path": "/drugproductingredient",
+      "path": "/company",
+      "filename": "GET-company-{status}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": true,
+          "value": "A"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/company",
+      "filename": "GET-company-{companyname}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "company_name",
+          "in": "query",
+          "required": true,
+          "value": "bayer"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/device",
       "parameters": [
         {
           "name": "user-key",
@@ -48,8 +86,8 @@
     },
     {
       "method": "GET",
-      "path": "/drugproductingredient",
-      "filename": "GET-drugproductingredient-{id}",
+      "path": "/device",
+      "filename": "GET-device-{id}",
       "parameters": [
         {
           "name": "user-key",
@@ -61,13 +99,51 @@
           "name": "id",
           "in": "query",
           "required": true,
-          "value": "242002322"
+          "value": "189995"
         }
       ]
     },
     {
       "method": "GET",
-      "path": "/gender",
+      "path": "/device",
+      "filename": "GET-device-{state}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "state",
+          "in": "query",
+          "required": true,
+          "value": "active"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/device",
+      "filename": "GET-device-{devicename}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "device_name",
+          "in": "query",
+          "required": true,
+          "value": "red"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/deviceidentifier",
       "parameters": [
         {
           "name": "user-key",
@@ -79,20 +155,8 @@
     },
     {
       "method": "GET",
-      "path": "/outcome",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        }
-      ]
-    },
-    {
-      "method": "GET",
-      "path": "/outcome",
-      "filename": "GET-outcome-{id}",
+      "path": "/deviceidentifier",
+      "filename": "GET-deviceidentifier-{id}",
       "parameters": [
         {
           "name": "user-key",
@@ -104,13 +168,51 @@
           "name": "id",
           "in": "query",
           "required": true,
-          "value": "1906"
+          "value": "408838"
         }
       ]
     },
     {
       "method": "GET",
-      "path": "/reaction",
+      "path": "/device",
+      "filename": "GET-deviceidentifier-{state}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "state",
+          "in": "query",
+          "required": true,
+          "value": "active"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/device",
+      "filename": "GET-deviceidentifier-{deviceidentifier}",
+      "parameters": [
+        {
+          "name": "user-key",
+          "in": "header",
+          "required": true,
+          "value": "${key}"
+        },
+        {
+          "name": "device_identifier",
+          "in": "query",
+          "required": true,
+          "value": "4017"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/licence",
       "parameters": [
         {
           "name": "user-key",
@@ -122,8 +224,8 @@
     },
     {
       "method": "GET",
-      "path": "/reaction",
-      "filename": "GET-reaction-{id}",
+      "path": "/licence",
+      "filename": "GET-licence-{id}",
       "parameters": [
         {
           "name": "user-key",
@@ -135,26 +237,14 @@
           "name": "id",
           "in": "query",
           "required": true,
-          "value": "5801"
+          "value": "1561"
         }
       ]
     },
     {
       "method": "GET",
-      "path": "/report",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        }
-      ]
-    },
-    {
-      "method": "GET",
-      "path": "/report",
-      "filename": "GET-report-{id}",
+      "path": "/licence",
+      "filename": "GET-licence-{state}",
       "parameters": [
         {
           "name": "user-key",
@@ -163,29 +253,17 @@
           "value": "${key}"
         },
         {
-          "name": "id",
+          "name": "state",
           "in": "query",
           "required": true,
-          "value": "195"
+          "value": "active"
         }
       ]
     },
     {
       "method": "GET",
-      "path": "/reportdrug",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        }
-      ]
-    },
-    {
-      "method": "GET",
-      "path": "/reportdrug",
-      "filename": "GET-reportdrug-{id}",
+      "path": "/licence",
+      "filename": "GET-licence-{licencename}",
       "parameters": [
         {
           "name": "user-key",
@@ -194,29 +272,17 @@
           "value": "${key}"
         },
         {
-          "name": "id",
+          "name": "licence_name",
           "in": "query",
           "required": true,
-          "value": "1106349"
+          "value": "flood"
         }
       ]
     },
     {
       "method": "GET",
-      "path": "/reportlink",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        }
-      ]
-    },
-    {
-      "method": "GET",
-      "path": "/reportlink",
-      "filename": "GET-reportlink-{id}",
+      "path": "/licence",
+      "filename": "GET-licence-{companyid}",
       "parameters": [
         {
           "name": "user-key",
@@ -225,16 +291,16 @@
           "value": "${key}"
         },
         {
-          "name": "id",
+          "name": "company_id",
           "in": "query",
           "required": true,
-          "value": "1531151"
+          "value": "133876"
         }
       ]
     },
     {
       "method": "GET",
-      "path": "/reporttype",
+      "path": "/licencetype",
       "parameters": [
         {
           "name": "user-key",
@@ -246,84 +312,17 @@
     },
     {
       "method": "GET",
-      "path": "/reporttype",
-      "filename": "GET-reporttype-{id}",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "id",
-          "in": "query",
-          "required": true,
-          "value": "70095007"
-        }
-      ]
+      "path": "/licencetype?code=D",
+      "filename": "GET-licencetype-{code}"
     },
     {
       "method": "GET",
-      "path": "/seriousness",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        }
-      ]
+      "path": "/sbdlocation"
     },
     {
       "method": "GET",
-      "path": "/seriousness",
-      "filename": "GET-seriousness-{id}",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "id",
-          "in": "query",
-          "required": true,
-          "value": "2001"
-        }
-      ]
-    },
-    {
-      "method": "GET",
-      "path": "/source",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        }
-      ]
-    },
-    {
-      "method": "GET",
-      "path": "/source",
-      "filename": "GET-source-{id}",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "id",
-          "in": "query",
-          "required": true,
-          "value": "1001"
-        }
-      ]
+      "path": "/sbdlocation?id=75574",
+      "filename": "GET-sbdlocation-{id}"
     }
   ]
 }

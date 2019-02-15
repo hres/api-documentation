@@ -1,0 +1,28 @@
+
+          /\      |‾‾|  /‾‾/  /‾/   
+     /\  /  \     |  |_/  /  / /    
+    /  \/    \    |      |  /  ‾‾\  
+   /          \   |  |‾\  \ | (_) | 
+  / __________ \  |__|  \__\ \___/ .io
+
+    init [----------------------------------------------------------] runner    init [----------------------------------------------------------] options    init [----------------------------------------------------------] executor    init [----------------------------------------------------------]   engine    init [----------------------------------------------------------]   collector    init [----------------------------------------------------------]   server  execution: local
+     output: -
+     script: /home/alex/dev/api-documentation/openapi-defs/hres/tests/dpd/GET-form.test.js
+
+    duration: 30s, iterations: -
+         vus: 50,  max: 50
+
+    init [----------------------------------------------------------] starting
+    ✓ status 200
+
+    http_req_blocked...........: avg=124.42ms min=111.13ms med=121.86ms max=159.43ms p(90)=132.57ms p(95)=147.8ms 
+    http_req_connecting........: avg=19.18ms  min=9.76ms   med=20.8ms   max=23.28ms  p(90)=21.44ms  p(95)=21.83ms 
+    http_req_duration..........: avg=15s      min=13.42s   med=15.01s   max=17.8s    p(90)=16.1s    p(95)=16.28s  
+    http_req_receiving.........: avg=99.81µs  min=41.52µs  med=101.45µs max=199.07µs p(90)=159.4µs  p(95)=167.68µs
+    http_req_sending...........: avg=377.88µs min=83.06µs  med=290.12µs max=1.92ms   p(90)=644.53µs p(95)=878.51µs
+    http_req_tls_handshaking...: avg=95.42ms  min=85.02ms  med=94.56ms  max=108.75ms p(90)=102.61ms p(95)=104.07ms
+    http_req_waiting...........: avg=15s      min=13.42s   med=15.01s   max=17.8s    p(90)=16.1s    p(95)=16.28s  
+    http_reqs..................: 50 1.666629/s
+    vus........................: 50 min=50 max=50
+    vus_max....................: 50 min=50 max=50
+

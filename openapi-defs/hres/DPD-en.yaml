@@ -19,14 +19,14 @@ info:
 
 schemes:
   - https
-host: dpd-hc-sc-apicast-staging.beta.api.canada.ca
-basePath: /api/drug/
+host: health-products.canada.ca
+basePath: /api/drug
 produces:
   - application/json
   - application/xml
 
 paths:
-  /activeingredients:
+  /activeingredient:
     get:
       tags:
         - Active Ingredients
@@ -40,6 +40,7 @@ paths:
           in: query
           type: string
           description: Limit results to those with matching ingredient name
+          example: 'zinc'
       responses:
         '200':
           description: Returns a list of all active ingredients, or if an ID is provided, the list of all active ingredients that correspond to the given drug product code
@@ -68,6 +69,7 @@ paths:
           in: query
           type: string
           description: Limit results to those with matching company code
+          example: 10825
       responses:
         '200':
           description: Returns a list of all companies, or if an ID is provided, the list of all companies that correspond to the given company code
@@ -97,14 +99,25 @@ paths:
           in: query
           type: string
           description: Limit results to those with matching drug identification number
+          example: 00326925
         - name: brandname
           in: query
           type: string
           description: Limit results to those with matching brand name
+          example: cidyl
         - name: status
           in: query
           type: string
           description: Limit results to those with matching status
+          enum:
+            - 1
+            - 2
+            - 3
+            - 4
+            - 6
+            - 9
+            - 10
+          example: 1
       responses:
         '200':
           description: Returns a list of all drug products, or if an ID is provided, the list of all drug products that correspond to the given drug product code
@@ -642,6 +655,7 @@ parameters:
     description: Limit results to those with matching drug product code
     in: query
     type: string
+    example: 48905
   UserKeys:
     name: 'user-key'
     type: string
