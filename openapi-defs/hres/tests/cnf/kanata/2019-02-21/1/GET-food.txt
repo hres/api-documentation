@@ -1,0 +1,34 @@
+
+          /\      |‾‾|  /‾‾/  /‾/   
+     /\  /  \     |  |_/  /  / /    
+    /  \/    \    |      |  /  ‾‾\  
+   /          \   |  |‾\  \ | (_) | 
+  / __________ \  |__|  \__\ \___/ .io
+
+    init [----------------------------------------------------------] runner    init [----------------------------------------------------------] options    init [----------------------------------------------------------] executor    init [----------------------------------------------------------]   engine    init [----------------------------------------------------------]   collector    init [----------------------------------------------------------]   server  execution: local
+     output: -
+     script: /home/alex/dev/api-documentation/openapi-defs/hres/tests/cnf/GET-food.test.js
+
+    duration: 1m0s, iterations: -
+         vus: 1,    max: 1
+
+    init [----------------------------------------------------------] starting
+    ✓ status 200
+
+    checks.....................: 100.00% ✓ 131 ✗ 0  
+    data_received..............: 62 MB   1.0 MB/s
+    data_sent..................: 254 kB  4.2 kB/s
+  ✓ failed requests............: 0.00%   ✓ 0   ✗ 131
+    http_req_blocked...........: avg=799.65µs min=258ns    med=351ns    max=105.47ms p(90)=494ns    p(95)=693ns   
+    http_req_connecting........: avg=41.94µs  min=0s       med=0s       max=5.53ms   p(90)=0s       p(95)=0s      
+    http_req_duration..........: avg=240.26ms min=156.71ms med=225.91ms max=726.57ms p(90)=291.97ms p(95)=410.49ms
+    http_req_receiving.........: avg=105.54µs min=31.89µs  med=70.58µs  max=834.32µs p(90)=189.17µs p(95)=232.81µs
+    http_req_sending...........: avg=219.97µs min=50.44µs  med=190.8µs  max=1.85ms   p(90)=326.68µs p(95)=399.42µs
+    http_req_tls_handshaking...: avg=671.65µs min=0s       med=0s       max=88.65ms  p(90)=0s       p(95)=0s      
+    http_req_waiting...........: avg=239.93ms min=156.47ms med=225.58ms max=726.4ms  p(90)=291.63ms p(95)=410.23ms
+    http_reqs..................: 132     2.199993/s
+    iteration_duration.........: avg=455.54ms min=255.68ms med=410.57ms max=950.99ms p(90)=656.07ms p(95)=803.88ms
+    iterations.................: 131     2.183326/s
+    vus........................: 1       min=1 max=1
+    vus_max....................: 1       min=1 max=1
+

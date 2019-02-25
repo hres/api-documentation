@@ -5,7 +5,7 @@ import {Rate} from 'k6/metrics';
 
 const key = __ENV.USER_KEY;
 const method = __ENV.METHOD || 'GET';
-const url = `https://health-products.canada.ca/api/medical-devices/device?id=189995`;
+const url = __ENV.URL || `https://health-products.canada.ca/api/medical-devices/device?id=189995`;
 const payload = JSON.parse(`{}`);
 const parameters = JSON.parse(`{"headers":{"user-key":"${key}"}}`);
 

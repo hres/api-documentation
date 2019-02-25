@@ -1,0 +1,34 @@
+
+          /\      |‾‾|  /‾‾/  /‾/   
+     /\  /  \     |  |_/  /  / /    
+    /  \/    \    |      |  /  ‾‾\  
+   /          \   |  |‾\  \ | (_) | 
+  / __________ \  |__|  \__\ \___/ .io
+
+    init [----------------------------------------------------------] runner    init [----------------------------------------------------------] options    init [----------------------------------------------------------] executor    init [----------------------------------------------------------]   engine    init [----------------------------------------------------------]   collector    init [----------------------------------------------------------]   server  execution: local
+     output: -
+     script: /home/alex/dev/api-documentation/openapi-defs/hres/tests/cta/GET-medicalcondition-{id}.test.js
+
+    duration: 1m0s, iterations: -
+         vus: 50,   max: 50
+
+    init [----------------------------------------------------------] starting
+    ✓ status 200
+
+    checks.....................: 100.00% ✓ 64097 ✗ 0    
+    data_received..............: 30 MB   495 kB/s
+    data_sent..................: 5.4 MB  90 kB/s
+  ✓ failed requests............: 0.00%   ✓ 0     ✗ 64097
+    http_req_blocked...........: avg=276.5µs  min=196ns   med=299ns   max=1.75s    p(90)=393ns    p(95)=444ns   
+    http_req_connecting........: avg=42.6µs   min=0s      med=0s      max=1.03s    p(90)=0s       p(95)=0s      
+    http_req_duration..........: avg=46.13ms  min=11.71ms med=30.95ms max=1.83s    p(90)=63.86ms  p(95)=147.42ms
+    http_req_receiving.........: avg=87.93µs  min=12.38µs med=40.79µs max=181.02ms p(90)=91.89µs  p(95)=124.53µs
+    http_req_sending...........: avg=122.95µs min=22.77µs med=90.23µs max=24.66ms  p(90)=232.08µs p(95)=302.43µs
+    http_req_tls_handshaking...: avg=224.9µs  min=0s      med=0s      max=1.71s    p(90)=0s       p(95)=0s      
+    http_req_waiting...........: avg=45.92ms  min=11.46ms med=30.77ms max=1.83s    p(90)=63.66ms  p(95)=140.01ms
+    http_reqs..................: 64097   1068.27897/s
+    iteration_duration.........: avg=46.67ms  min=11.84ms med=31.15ms max=2.85s    p(90)=64.49ms  p(95)=174.41ms
+    iterations.................: 64097   1068.27897/s
+    vus........................: 50      min=50  max=50 
+    vus_max....................: 50      min=50  max=50 
+

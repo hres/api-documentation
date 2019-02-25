@@ -1,0 +1,29 @@
+
+          /\      |‾‾|  /‾‾/  /‾/   
+     /\  /  \     |  |_/  /  / /    
+    /  \/    \    |      |  /  ‾‾\  
+   /          \   |  |‾\  \ | (_) | 
+  / __________ \  |__|  \__\ \___/ .io
+
+    init [----------------------------------------------------------] runner    init [----------------------------------------------------------] options    init [----------------------------------------------------------] executor    init [----------------------------------------------------------]   engine    init [----------------------------------------------------------]   collector    init [----------------------------------------------------------]   server  execution: local
+     output: -
+     script: /home/alex/dev/api-documentation/openapi-defs/hres/tests/dpd/GET-therapeuticclass.test.js
+
+    duration: 1m0s, iterations: -
+         vus: 50,   max: 50
+
+    init [----------------------------------------------------------] starting
+    ✗ status 200
+     ↳  0% — ✓ 0 / ✗ 50
+
+    http_req_blocked...........: avg=208.66ms min=119.87ms med=185.03ms max=1.79s   p(90)=203.12ms p(95)=207.65ms
+    http_req_connecting........: avg=21.21ms  min=16.57ms  med=20.22ms  max=26.61ms p(90)=24.53ms  p(95)=24.66ms 
+    http_req_duration..........: avg=33.85s   min=31.77s   med=33.89s   max=37.06s  p(90)=35.03s   p(95)=35.53s  
+    http_req_receiving.........: avg=111.85µs min=38.74µs  med=98.58µs  max=302.3µs p(90)=204.67µs p(95)=233.81µs
+    http_req_sending...........: avg=311.85µs min=81.91µs  med=240.4µs  max=1.11ms  p(90)=694.8µs  p(95)=830.37µs
+    http_req_tls_handshaking...: avg=133.44ms min=91.01ms  med=99.29ms  max=1.7s    p(90)=114.22ms p(95)=115.12ms
+    http_req_waiting...........: avg=33.85s   min=31.77s   med=33.88s   max=37.06s  p(90)=35.03s   p(95)=35.53s  
+    http_reqs..................: 50 0.833329/s
+    vus........................: 50 min=50 max=50
+    vus_max....................: 50 min=50 max=50
+

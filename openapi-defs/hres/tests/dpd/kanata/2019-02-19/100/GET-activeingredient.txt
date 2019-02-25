@@ -1,0 +1,29 @@
+
+          /\      |‾‾|  /‾‾/  /‾/   
+     /\  /  \     |  |_/  /  / /    
+    /  \/    \    |      |  /  ‾‾\  
+   /          \   |  |‾\  \ | (_) | 
+  / __________ \  |__|  \__\ \___/ .io
+
+    init [----------------------------------------------------------] runner    init [----------------------------------------------------------] options    init [----------------------------------------------------------] executor    init [----------------------------------------------------------]   engine    init [----------------------------------------------------------]   collector    init [----------------------------------------------------------]   server  execution: local
+     output: -
+     script: /home/alex/dev/api-documentation/openapi-defs/hres/tests/dpd/GET-activeingredient.test.js
+
+    duration: 1m0s, iterations: -
+         vus: 100,  max: 100
+
+    init [----------------------------------------------------------] starting
+    ✗ status 200
+     ↳  0% — ✓ 0 / ✗ 100
+
+    http_req_blocked...........: avg=163.63ms min=163.63ms med=163.63ms max=163.63ms p(90)=163.63ms p(95)=163.63ms
+    http_req_connecting........: avg=40.66ms  min=40.66ms  med=40.66ms  max=40.66ms  p(90)=40.66ms  p(95)=40.66ms 
+    http_req_duration..........: avg=59.58s   min=59.58s   med=59.58s   max=59.58s   p(90)=59.58s   p(95)=59.58s  
+    http_req_receiving.........: avg=122.34µs min=122.34µs med=122.34µs max=122.34µs p(90)=122.34µs p(95)=122.34µs
+    http_req_sending...........: avg=131.56µs min=131.56µs med=131.56µs max=131.56µs p(90)=131.56µs p(95)=131.56µs
+    http_req_tls_handshaking...: avg=113.12ms min=113.12ms med=113.12ms max=113.12ms p(90)=113.12ms p(95)=113.12ms
+    http_req_waiting...........: avg=59.58s   min=59.58s   med=59.58s   max=59.58s   p(90)=59.58s   p(95)=59.58s  
+    http_reqs..................: 1   0.016667/s
+    vus........................: 100 min=100 max=100
+    vus_max....................: 100 min=100 max=100
+

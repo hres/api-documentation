@@ -1,0 +1,29 @@
+
+          /\      |‾‾|  /‾‾/  /‾/   
+     /\  /  \     |  |_/  /  / /    
+    /  \/    \    |      |  /  ‾‾\  
+   /          \   |  |‾\  \ | (_) | 
+  / __________ \  |__|  \__\ \___/ .io
+
+    init [----------------------------------------------------------] runner    init [----------------------------------------------------------] options    init [----------------------------------------------------------] executor    init [----------------------------------------------------------]   engine    init [----------------------------------------------------------]   collector    init [----------------------------------------------------------]   server  execution: local
+     output: -
+     script: /home/alex/dev/api-documentation/openapi-defs/hres/tests/noc/GET-noticeofcompliancemain.test.js
+
+    duration: 1m0s, iterations: -
+         vus: 200,  max: 200
+
+    init [----------------------------------------------------------] starting
+    ✗ status 200
+     ↳  0% — ✓ 0 / ✗ 200
+
+    http_req_blocked...........: avg=159.57ms min=143.44ms med=155.5ms  max=188.27ms p(90)=180.75ms p(95)=185.3ms 
+    http_req_connecting........: avg=28.77ms  min=19.76ms  med=30.82ms  max=48.94ms  p(90)=32.13ms  p(95)=32.46ms 
+    http_req_duration..........: avg=33.83s   min=23.4s    med=25.87s   max=59.31s   p(90)=56.78s   p(95)=57.43s  
+    http_req_receiving.........: avg=115.99µs min=30.21µs  med=74.14µs  max=1.63ms   p(90)=115.53µs p(95)=215.58µs
+    http_req_sending...........: avg=271.46µs min=85.18µs  med=221.28µs max=1.89ms   p(90)=446.68µs p(95)=464.98µs
+    http_req_tls_handshaking...: avg=113.51ms min=91.84ms  med=112.76ms max=130.12ms p(90)=126.42ms p(95)=128.24ms
+    http_req_waiting...........: avg=33.83s   min=23.4s    med=25.87s   max=59.31s   p(90)=56.78s   p(95)=57.43s  
+    http_reqs..................: 55  0.916659/s
+    vus........................: 200 min=200 max=200
+    vus_max....................: 200 min=200 max=200
+

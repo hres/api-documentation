@@ -1,0 +1,35 @@
+
+          /\      |‾‾|  /‾‾/  /‾/   
+     /\  /  \     |  |_/  /  / /    
+    /  \/    \    |      |  /  ‾‾\  
+   /          \   |  |‾\  \ | (_) | 
+  / __________ \  |__|  \__\ \___/ .io
+
+    init [----------------------------------------------------------] runner    init [----------------------------------------------------------] options    init [----------------------------------------------------------] executor    init [----------------------------------------------------------]   engine    init [----------------------------------------------------------]   collector    init [----------------------------------------------------------]   server  execution: local
+     output: -
+     script: /home/alex/dev/api-documentation/openapi-defs/hres/tests/cnf/GET-yieldamount-{id}.test.js
+
+    duration: 1m0s, iterations: -
+         vus: 100,  max: 100
+
+    init [----------------------------------------------------------] starting
+    ✗ status 200
+     ↳  73% — ✓ 966 / ✗ 353
+
+    checks.....................: 73.23% ✓ 966   ✗ 353  
+    data_received..............: 2.7 MB 223 kB/s
+    data_sent..................: 181 kB 15 kB/s
+  ✗ failed requests............: 26.76% ✓ 353   ✗ 966  
+    http_req_blocked...........: avg=39.19ms  min=248ns    med=307ns    max=2.67s    p(90)=761ns    p(95)=399.24ms
+    http_req_connecting........: avg=9.13ms   min=0s       med=0s       max=136.46ms p(90)=0s       p(95)=116.88ms
+    http_req_duration..........: avg=852.63ms min=110.79ms med=615.87ms max=4.47s    p(90)=1.94s    p(95)=2.51s   
+    http_req_receiving.........: avg=604.61µs min=17.25µs  med=73.11µs  max=113.53ms p(90)=299.59µs p(95)=713.19µs
+    http_req_sending...........: avg=305.44µs min=23.39µs  med=187.04µs max=22.4ms   p(90)=412.95µs p(95)=647.68µs
+    http_req_tls_handshaking...: avg=28.81ms  min=0s       med=0s       max=2.53s    p(90)=0s       p(95)=271.26ms
+    http_req_waiting...........: avg=851.72ms min=110.24ms med=615.75ms max=4.47s    p(90)=1.94s    p(95)=2.51s   
+    http_reqs..................: 1319   110.311364/s
+    iteration_duration.........: avg=893.92ms min=112.56ms med=625.36ms max=5.02s    p(90)=2.11s    p(95)=2.66s   
+    iterations.................: 1319   110.311364/s
+    vus........................: 100    min=100 max=100
+    vus_max....................: 100    min=100 max=100
+

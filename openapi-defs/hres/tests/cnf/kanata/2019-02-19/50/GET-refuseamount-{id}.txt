@@ -1,0 +1,35 @@
+
+          /\      |‾‾|  /‾‾/  /‾/   
+     /\  /  \     |  |_/  /  / /    
+    /  \/    \    |      |  /  ‾‾\  
+   /          \   |  |‾\  \ | (_) | 
+  / __________ \  |__|  \__\ \___/ .io
+
+    init [----------------------------------------------------------] runner    init [----------------------------------------------------------] options    init [----------------------------------------------------------] executor    init [----------------------------------------------------------]   engine    init [----------------------------------------------------------]   collector    init [----------------------------------------------------------]   server  execution: local
+     output: -
+     script: /home/alex/dev/api-documentation/openapi-defs/hres/tests/cnf/GET-refuseamount-{id}.test.js
+
+    duration: 1m0s, iterations: -
+         vus: 50,   max: 50
+
+    init [----------------------------------------------------------] starting
+    ✗ status 200
+     ↳  47% — ✓ 319 / ✗ 359
+
+    checks.....................: 47.05% ✓ 319  ✗ 359 
+    data_received..............: 2.0 MB 168 kB/s
+    data_sent..................: 100 kB 8.4 kB/s
+  ✗ failed requests............: 52.94% ✓ 359  ✗ 319 
+    http_req_blocked...........: avg=32.34ms  min=253ns    med=324ns    max=486.39ms p(90)=831ns    p(95)=414ms   
+    http_req_connecting........: avg=8.1ms    min=0s       med=0s       max=131.31ms p(90)=0s       p(95)=87.14ms 
+    http_req_duration..........: avg=801.61ms min=147.16ms med=753.19ms max=4.09s    p(90)=1.22s    p(95)=1.37s   
+    http_req_receiving.........: avg=87.08µs  min=19.45µs  med=68µs     max=727.37µs p(90)=138.47µs p(95)=194.38µs
+    http_req_sending...........: avg=235.47µs min=43.27µs  med=176.58µs max=2.66ms   p(90)=407.46µs p(95)=542.18µs
+    http_req_tls_handshaking...: avg=19.74ms  min=0s       med=0s       max=291.8ms  p(90)=0s       p(95)=263.7ms 
+    http_req_waiting...........: avg=801.29ms min=146.9ms  med=752.92ms max=4.09s    p(90)=1.22s    p(95)=1.37s   
+    http_reqs..................: 678    56.749285/s
+    iteration_duration.........: avg=840.43ms min=147.42ms med=784.4ms  max=4.09s    p(90)=1.24s    p(95)=1.43s   
+    iterations.................: 678    56.749285/s
+    vus........................: 50     min=50 max=50
+    vus_max....................: 50     min=50 max=50
+

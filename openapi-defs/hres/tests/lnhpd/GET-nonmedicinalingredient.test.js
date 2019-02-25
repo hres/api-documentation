@@ -5,7 +5,7 @@ import {Rate} from 'k6/metrics';
 
 const key = __ENV.USER_KEY;
 const method = __ENV.METHOD || 'GET';
-const url = `https://lnhpd-hc-sc-apicast-staging.beta.api.canada.ca/api/natural-licences//nonmedicinalingredient`;
+const url = __ENV.URL || `https://health-products.canada.ca/api/natural-licences/nonmedicinalingredient`;
 const payload = JSON.parse(`{}`);
 const parameters = JSON.parse(`{"headers":{"user-key":"${key}"}}`);
 

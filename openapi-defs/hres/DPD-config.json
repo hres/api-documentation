@@ -175,137 +175,27 @@
       ]
     },
     {
-      "method": "GET",
-      "path": "/drugproduct",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "lang",
-          "in": "query",
-          "required": false,
-          "value": "en"
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "required": false,
-          "value": "json"
-        },
-        {
-          "name": "id",
-          "in": "query",
-          "required": false,
-          "value": 48905
-        },
-        {
-          "name": "din",
-          "in": "query",
-          "required": false,
-          "value": "00326925"
-        },
-        {
-          "name": "brandname",
-          "in": "query",
-          "required": false,
-          "value": "cidyl"
-        },
-        {
-          "name": "status",
-          "in": "query",
-          "required": false,
-          "value": 1
-        }
-      ]
+      "path": "/drugproduct"
+    },
+    {
+      "path": "/drugproduct?id=48905",
+      "filename": "GET-drugproduct-{id}"
+    },
+    {
+      "path": "/drugproduct?din=00326925",
+      "filename": "GET-drugproduct-{din}"
+    },
+    {
+      "path": "/drugproduct?brandname=cidyl",
+      "filename": "GET-drugproduct-{brandname}"
+    },
+    {
+      "path": "/drugproduct?status=1",
+      "filename": "GET-drugproduct-{status}"
     },
     {
       "method": "GET",
-      "path": "/drugproduct",
-      "filename": "GET-drugproduct-{id}",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "lang",
-          "in": "query",
-          "required": false,
-          "value": "en"
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "required": false,
-          "value": "json"
-        },
-        {
-          "name": "id",
-          "in": "query",
-          "required": true,
-          "value": 48905
-        },
-        {
-          "name": "din",
-          "in": "query",
-          "required": false,
-          "value": "00326925"
-        },
-        {
-          "name": "brandname",
-          "in": "query",
-          "required": false,
-          "value": "cidyl"
-        },
-        {
-          "name": "status",
-          "in": "query",
-          "required": false,
-          "value": 1
-        }
-      ]
-    },
-    {
-      "method": "GET",
-      "path": "/form",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "lang",
-          "in": "query",
-          "required": false,
-          "value": "en"
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "required": false,
-          "value": "json"
-        },
-        {
-          "name": "id",
-          "in": "query",
-          "required": false,
-          "value": 48905
-        },
-        {
-          "name": "active",
-          "in": "query",
-          "required": false,
-          "value": "yes"
-        }
-      ]
+      "path": "/form"
     },
     {
       "method": "GET",
@@ -313,60 +203,29 @@
       "filename": "GET-form-{id}",
       "parameters": [
         {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "lang",
-          "in": "query",
-          "required": false,
-          "value": "en"
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "required": false,
-          "value": "json"
-        },
-        {
           "name": "id",
           "in": "query",
           "required": true,
           "value": 48905
-        },
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/form",
+      "filename": "GET-form-{active}",
+      "parameters": [
         {
           "name": "active",
           "in": "query",
-          "required": false,
+          "required": true,
           "value": "yes"
         }
       ]
     },
     {
       "method": "GET",
-      "path": "/packaging",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "required": false,
-          "value": "json"
-        },
-        {
-          "name": "id",
-          "in": "query",
-          "required": false,
-          "value": 48905
-        }
-      ]
+      "path": "/packaging"
     },
     {
       "method": "GET",
@@ -374,18 +233,6 @@
       "filename": "GET-packaging-{id}",
       "parameters": [
         {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "required": false,
-          "value": "json"
-        },
-        {
           "name": "id",
           "in": "query",
           "required": true,
@@ -395,27 +242,7 @@
     },
     {
       "method": "GET",
-      "path": "/pharmaceuticalstd",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "required": false,
-          "value": "json"
-        },
-        {
-          "name": "id",
-          "in": "query",
-          "required": false,
-          "value": 48905
-        }
-      ]
+      "path": "/pharmaceuticalstd"
     },
     {
       "method": "GET",
@@ -423,18 +250,6 @@
       "filename": "GET-pharmaceuticalstd-{id}",
       "parameters": [
         {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "required": false,
-          "value": "json"
-        },
-        {
           "name": "id",
           "in": "query",
           "required": true,
@@ -444,39 +259,7 @@
     },
     {
       "method": "GET",
-      "path": "/route",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "lang",
-          "in": "query",
-          "required": false,
-          "value": "en"
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "required": false,
-          "value": "json"
-        },
-        {
-          "name": "id",
-          "in": "query",
-          "required": false,
-          "value": 48905
-        },
-        {
-          "name": "active",
-          "in": "query",
-          "required": false,
-          "value": "yes"
-        }
-      ]
+      "path": "/route"
     },
     {
       "method": "GET",
@@ -484,72 +267,29 @@
       "filename": "GET-route-{id}",
       "parameters": [
         {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "lang",
-          "in": "query",
-          "required": false,
-          "value": "en"
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "required": false,
-          "value": "json"
-        },
-        {
           "name": "id",
           "in": "query",
           "required": true,
           "value": 48905
-        },
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/route",
+      "filename": "GET-route-{active}",
+      "parameters": [
         {
           "name": "active",
           "in": "query",
-          "required": false,
+          "required": true,
           "value": "yes"
         }
       ]
     },
     {
       "method": "GET",
-      "path": "/schedule",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "lang",
-          "in": "query",
-          "required": false,
-          "value": "en"
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "required": false,
-          "value": "json"
-        },
-        {
-          "name": "id",
-          "in": "query",
-          "required": false,
-          "value": 48905
-        },
-        {
-          "name": "active",
-          "in": "query",
-          "required": false,
-          "value": "yes"
-        }
-      ]
+      "path": "/schedule"
     },
     {
       "method": "GET",
@@ -557,66 +297,29 @@
       "filename": "GET-schedule-{id}",
       "parameters": [
         {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "lang",
-          "in": "query",
-          "required": false,
-          "value": "en"
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "required": false,
-          "value": "json"
-        },
-        {
           "name": "id",
           "in": "query",
           "required": true,
           "value": 48905
-        },
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/schedule",
+      "filename": "GET-schedule-{active}",
+      "parameters": [
         {
           "name": "active",
           "in": "query",
-          "required": false,
+          "required": true,
           "value": "yes"
         }
       ]
     },
     {
       "method": "GET",
-      "path": "/status",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "lang",
-          "in": "query",
-          "required": false,
-          "value": "en"
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "required": false,
-          "value": "json"
-        },
-        {
-          "name": "id",
-          "in": "query",
-          "required": false,
-          "value": 48905
-        }
-      ]
+      "path": "/status"
     },
     {
       "method": "GET",
@@ -624,24 +327,6 @@
       "filename": "GET-status-{id}",
       "parameters": [
         {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "lang",
-          "in": "query",
-          "required": false,
-          "value": "en"
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "required": false,
-          "value": "json"
-        },
-        {
           "name": "id",
           "in": "query",
           "required": true,
@@ -651,33 +336,7 @@
     },
     {
       "method": "GET",
-      "path": "/therapeuticclass",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "lang",
-          "in": "query",
-          "required": false,
-          "value": "en"
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "required": false,
-          "value": "json"
-        },
-        {
-          "name": "id",
-          "in": "query",
-          "required": false,
-          "value": 48905
-        }
-      ]
+      "path": "/therapeuticclass"
     },
     {
       "method": "GET",
@@ -685,84 +344,22 @@
       "filename": "GET-therapeuticclass-{id}",
       "parameters": [
         {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "lang",
-          "in": "query",
-          "required": false,
-          "value": "en"
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "required": false,
-          "value": "json"
-        },
-        {
           "name": "id",
           "in": "query",
           "required": true,
-          "value": 48905
+          "value": 48906
         }
       ]
     },
     {
       "method": "GET",
-      "path": "/veterinaryspecies",
-      "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "lang",
-          "in": "query",
-          "required": false,
-          "value": "en"
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "required": false,
-          "value": "json"
-        },
-        {
-          "name": "id",
-          "in": "query",
-          "required": false,
-          "value": 48905
-        }
-      ]
+      "path": "/veterinaryspecies"
     },
     {
       "method": "GET",
       "path": "/veterinaryspecies",
       "filename": "GET-veterinaryspecies-{id}",
       "parameters": [
-        {
-          "name": "user-key",
-          "in": "header",
-          "required": true,
-          "value": "${key}"
-        },
-        {
-          "name": "lang",
-          "in": "query",
-          "required": false,
-          "value": "en"
-        },
-        {
-          "name": "type",
-          "in": "query",
-          "required": false,
-          "value": "json"
-        },
         {
           "name": "id",
           "in": "query",
