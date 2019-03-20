@@ -1,0 +1,29 @@
+
+          /\      |‾‾|  /‾‾/  /‾/   
+     /\  /  \     |  |_/  /  / /    
+    /  \/    \    |      |  /  ‾‾\  
+   /          \   |  |‾\  \ | (_) | 
+  / __________ \  |__|  \__\ \___/ .io
+
+    init [----------------------------------------------------------] runner    init [----------------------------------------------------------] options    init [----------------------------------------------------------] executor    init [----------------------------------------------------------]   engine    init [----------------------------------------------------------]   collector    init [----------------------------------------------------------]   server  execution: local
+     output: -
+     script: /home/alex/dev/api-documentation/openapi-defs/hres/tests/dpd/GET-drugproduct.test.js
+
+    duration: 1m0s, iterations: -
+         vus: 50,   max: 50
+
+    init [----------------------------------------------------------] starting
+    ✗ status 200
+     ↳  0% — ✓ 0 / ✗ 12
+
+    http_req_blocked...........: avg=143.14ms min=107.66ms med=121.89ms max=239.56ms p(90)=230.21ms p(95)=232.49ms
+    http_req_connecting........: avg=17.96ms  min=14.77ms  med=17.51ms  max=23.79ms  p(90)=21.5ms   p(95)=22.08ms 
+    http_req_duration..........: avg=45.9s    min=43.42s   med=46.31s   max=47.85s   p(90)=47.27s   p(95)=47.4s   
+    http_req_receiving.........: avg=79.72µs  min=29.5µs   med=67.74µs  max=249.49µs p(90)=124.91µs p(95)=174.94µs
+    http_req_sending...........: avg=272.41µs min=77.17µs  med=215.63µs max=789.79µs p(90)=490.96µs p(95)=621.3µs 
+    http_req_tls_handshaking...: avg=97.02ms  min=83.22ms  med=95.67ms  max=123.02ms p(90)=115.44ms p(95)=117.36ms
+    http_req_waiting...........: avg=45.9s    min=43.42s   med=46.31s   max=47.85s   p(90)=47.27s   p(95)=47.4s   
+    http_reqs..................: 50 0.833319/s
+    vus........................: 50 min=50 max=50
+    vus_max....................: 50 min=50 max=50
+

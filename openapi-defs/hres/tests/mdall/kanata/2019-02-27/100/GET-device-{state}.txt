@@ -1,0 +1,29 @@
+
+          /\      |‾‾|  /‾‾/  /‾/   
+     /\  /  \     |  |_/  /  / /    
+    /  \/    \    |      |  /  ‾‾\  
+   /          \   |  |‾\  \ | (_) | 
+  / __________ \  |__|  \__\ \___/ .io
+
+    init [----------------------------------------------------------] runner    init [----------------------------------------------------------] options    init [----------------------------------------------------------] executor    init [----------------------------------------------------------]   engine    init [----------------------------------------------------------]   collector    init [----------------------------------------------------------]   server  execution: local
+     output: -
+     script: /home/alex/dev/api-documentation/openapi-defs/hres/tests/mdall/GET-device-{state}.test.js
+
+    duration: 1m0s, iterations: -
+         vus: 10,   max: 10
+
+    init [----------------------------------------------------------] starting
+    ✗ status 200
+     ↳  0% — ✓ 0 / ✗ 10
+
+    http_req_blocked...........: avg=81.66ms  min=79.57ms med=81.58ms  max=84.17ms  p(90)=82.94ms  p(95)=83.55ms 
+    http_req_connecting........: avg=5.53ms   min=4.34ms  med=5.6ms    max=6.93ms   p(90)=6.15ms   p(95)=6.54ms  
+    http_req_duration..........: avg=53.01s   min=47.02s  med=53.34s   max=56.7s    p(90)=56.12s   p(95)=56.41s  
+    http_req_receiving.........: avg=107.01µs min=43.19µs med=82.38µs  max=251.78µs p(90)=223.74µs p(95)=237.76µs
+    http_req_sending...........: avg=423.87µs min=98.58µs med=331.59µs max=1.04ms   p(90)=711.21µs p(95)=878.22µs
+    http_req_tls_handshaking...: avg=62.04ms  min=61.27ms med=61.82ms  max=62.82ms  p(90)=62.72ms  p(95)=62.77ms 
+    http_req_waiting...........: avg=53.01s   min=47.02s  med=53.34s   max=56.7s    p(90)=56.12s   p(95)=56.41s  
+    http_reqs..................: 10 0.166665/s
+    vus........................: 10 min=10 max=10
+    vus_max....................: 10 min=10 max=10
+

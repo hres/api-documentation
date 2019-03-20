@@ -1,0 +1,35 @@
+
+          /\      |‾‾|  /‾‾/  /‾/   
+     /\  /  \     |  |_/  /  / /    
+    /  \/    \    |      |  /  ‾‾\  
+   /          \   |  |‾\  \ | (_) | 
+  / __________ \  |__|  \__\ \___/ .io
+
+    init [----------------------------------------------------------] runner    init [----------------------------------------------------------] options    init [----------------------------------------------------------] executor    init [----------------------------------------------------------]   engine    init [----------------------------------------------------------]   collector    init [----------------------------------------------------------]   server  execution: local
+     output: -
+     script: /home/alex/dev/api-documentation/openapi-defs/hres/tests/mdall/GET-licencetype.test.js
+
+    duration: 1m0s, iterations: -
+         vus: 50,   max: 50
+
+    init [----------------------------------------------------------] starting
+    ✗ status 200
+     ↳  41% — ✓ 25 / ✗ 35
+
+    checks.....................: 41.66% ✓ 25   ✗ 35  
+    data_received..............: 377 kB 32 kB/s
+    data_sent..................: 36 kB  3.0 kB/s
+  ✗ failed requests............: 58.33% ✓ 35   ✗ 25  
+    http_req_blocked...........: avg=1.69s    min=271ns   med=1.96s    max=2.11s    p(90)=2.11s    p(95)=2.11s   
+    http_req_connecting........: avg=505.75ms min=0s      med=606.88ms max=614.24ms p(90)=613.93ms p(95)=614.1ms 
+    http_req_duration..........: avg=5.61s    min=1.82s   med=5.98s    max=8.32s    p(90)=7.84s    p(95)=8.22s   
+    http_req_receiving.........: avg=81.32µs  min=27.9µs  med=68.04µs  max=472.83µs p(90)=111.27µs p(95)=134.56µs
+    http_req_sending...........: avg=31.14ms  min=58.54µs med=332.61µs max=195.03ms p(90)=144.3ms  p(95)=147.15ms
+    http_req_tls_handshaking...: avg=1.16s    min=0s      med=1.35s    max=1.5s     p(90)=1.49s    p(95)=1.5s    
+    http_req_waiting...........: avg=5.57s    min=1.8s    med=5.98s    max=8.32s    p(90)=7.8s     p(95)=8.22s   
+    http_reqs..................: 60     5.018326/s
+    iteration_duration.........: avg=7.29s    min=3.74s   med=7.11s    max=10.44s   p(90)=9.92s    p(95)=10.33s  
+    iterations.................: 60     5.018326/s
+    vus........................: 50     min=50 max=50
+    vus_max....................: 50     min=50 max=50
+

@@ -1,0 +1,29 @@
+
+          /\      |‾‾|  /‾‾/  /‾/   
+     /\  /  \     |  |_/  /  / /    
+    /  \/    \    |      |  /  ‾‾\  
+   /          \   |  |‾\  \ | (_) | 
+  / __________ \  |__|  \__\ \___/ .io
+
+    init [----------------------------------------------------------] runner    init [----------------------------------------------------------] options    init [----------------------------------------------------------] executor    init [----------------------------------------------------------]   engine    init [----------------------------------------------------------]   collector    init [----------------------------------------------------------]   server  execution: local
+     output: -
+     script: /home/alex/dev/api-documentation/openapi-defs/hres/tests/lnhpd/GET-nonmedicinalingredient.test.js
+
+    duration: 1m0s, iterations: -
+         vus: 10,   max: 10
+
+    init [----------------------------------------------------------] starting
+    ✗ status 200
+     ↳  0% — ✓ 0 / ✗ 10
+
+    http_req_blocked...........: avg=81.03ms  min=79.39ms  med=81.12ms  max=82.75ms  p(90)=81.72ms  p(95)=82.23ms
+    http_req_connecting........: avg=5.42ms   min=4.19ms   med=5.25ms   max=6.31ms   p(90)=6.14ms   p(95)=6.22ms 
+    http_req_duration..........: avg=36.02s   min=35.09s   med=36.05s   max=36.73s   p(90)=36.67s   p(95)=36.7s  
+    http_req_receiving.........: avg=174.48µs min=29.28µs  med=138.81µs max=563.29µs p(90)=289.72µs p(95)=426.5µs
+    http_req_sending...........: avg=985.53µs min=155.13µs med=548.25µs max=3.85ms   p(90)=2.19ms   p(95)=3.02ms 
+    http_req_tls_handshaking...: avg=65.01ms  min=63.87ms  med=65.19ms  max=66ms     p(90)=65.77ms  p(95)=65.88ms
+    http_req_waiting...........: avg=36.02s   min=35.09s   med=36.05s   max=36.73s   p(90)=36.66s   p(95)=36.7s  
+    http_reqs..................: 10 0.166665/s
+    vus........................: 10 min=10 max=10
+    vus_max....................: 10 min=10 max=10
+

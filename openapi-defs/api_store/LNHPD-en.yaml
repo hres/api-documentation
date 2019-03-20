@@ -36,9 +36,7 @@ paths:
         '200':
           description: Returns a list of all medicinal ingredients, or if an ID is provided, the list of all medicinal ingredients that correspond to the given product identifier
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/MedicinalIngredient'
+            $ref: '#/definitions/MedicinalIngredientResponse'
             xml:
               name: MedicinalIngredients
               wrapped: true
@@ -260,6 +258,22 @@ definitions:
         description: The substance from which the medicinal ingredient was derived. There may be multiple sources for a medicinal ingredient.
     xml:
       name: MedicinalIngredient
+
+  MedicinalIngredientResponse:
+    type: object
+    properties:
+      metadata:
+        $ref: "#/definitions/Metadata"
+      data:
+        type: array
+        items:
+          $ref: "#definitions/MedicinalIngredient"
+
+  Metadata:
+    type: object
+    properties:
+      dateReceived:
+        type: string
 
   NonMedicinalIngredient:
     type: object

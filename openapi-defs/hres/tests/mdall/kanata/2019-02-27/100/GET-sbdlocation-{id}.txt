@@ -1,0 +1,34 @@
+
+          /\      |‾‾|  /‾‾/  /‾/   
+     /\  /  \     |  |_/  /  / /    
+    /  \/    \    |      |  /  ‾‾\  
+   /          \   |  |‾\  \ | (_) | 
+  / __________ \  |__|  \__\ \___/ .io
+
+    init [----------------------------------------------------------] runner    init [----------------------------------------------------------] options    init [----------------------------------------------------------] executor    init [----------------------------------------------------------]   engine    init [----------------------------------------------------------]   collector    init [----------------------------------------------------------]   server  execution: local
+     output: -
+     script: /home/alex/dev/api-documentation/openapi-defs/hres/tests/mdall/GET-sbdlocation-{id}.test.js
+
+    duration: 1m0s, iterations: -
+         vus: 10,   max: 10
+
+    init [----------------------------------------------------------] starting
+    ✓ status 200
+
+    checks.....................: 100.00% ✓ 36286 ✗ 0    
+    data_received..............: 17 MB   290 kB/s
+    data_sent..................: 3.0 MB  50 kB/s
+  ✓ failed requests............: 0.00%   ✓ 0     ✗ 36286
+    http_req_blocked...........: avg=40.04µs  min=206ns    med=304ns    max=84.04ms  p(90)=351ns    p(95)=405ns   
+    http_req_connecting........: avg=5.22µs   min=0s       med=0s       max=6.76ms   p(90)=0s       p(95)=0s      
+    http_req_duration..........: avg=16.24ms  min=9.8ms    med=14.09ms  max=547.57ms p(90)=21.68ms  p(95)=26.09ms 
+    http_req_receiving.........: avg=90.22µs  min=13.42µs  med=40.54µs  max=123.26ms p(90)=88.94µs  p(95)=113.64µs
+    http_req_sending...........: avg=140.27µs min=25.28µs  med=116.19µs max=47.23ms  p(90)=238.35µs p(95)=291.75µs
+    http_req_tls_handshaking...: avg=31.39µs  min=0s       med=0s       max=67.93ms  p(90)=0s       p(95)=0s      
+    http_req_waiting...........: avg=16.01ms  min=208.95µs med=13.91ms  max=547.21ms p(90)=21.47ms  p(95)=25.87ms 
+    http_reqs..................: 36286   604.765209/s
+    iteration_duration.........: avg=16.48ms  min=9.89ms   med=14.24ms  max=549.38ms p(90)=21.89ms  p(95)=26.43ms 
+    iterations.................: 36286   604.765209/s
+    vus........................: 10      min=10  max=10 
+    vus_max....................: 10      min=10  max=10 
+
