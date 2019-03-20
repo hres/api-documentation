@@ -8,13 +8,14 @@ x-api-store-plans:
     name: Public Plan
     description: All users should subscribe to the Public Plan.
 info:
-  title: Drug Product Database (DPD)
+  title: Base de données sur les produits pharmaceutiques (BDPP)
   description: |
-    The DPD contains product specific information on drugs approved for use in Canada. The database is managed by Health Canada and includes human pharmaceutical and biological drugs, veterinary drugs, radiopharmaceutical drugs and disinfectant products. It contains approximately 47,000 products that are currently approved, marketed, dormant or cancelled.
+    La BDPP contient des informations spécifiques sur les médicaments commercialisés au Canada. Cette base de données, administrée par la Direction des produits thérapeutiques, porte sur les produits à usages humains et vétérinaires, radio pharmaceutiques et désinfectants. Elle renferme environ 47 000 produits qui sont présentement approuvés, commercialisés, dormants ou annulés.
 
-    Human, veterinary, disinfectants and Schedule C drugs (e.g. radiopharmaceutical products) approved products will be available in the DPD online at the time of authorization, with the exception of three monographed product groups under Division 1, Part C of the Food and Drug Regulations: sunscreen (sunscreens, lipstick making a SPF claim, cosmetic-like products with sunscreen claims, etc.), anti-dandruff shampoo, and hard surface disinfectants. For these products, applications filed after June 15, 2015, there may be a six month delay after approval for the inclusion in the DPD online.
+    Les produits à usage humain, vétérinaire, désinfectants et ceux faisant partie de l'Annexe C (produits radiopharmaceutiques) seront disponibles dans la BDPP en ligne dès leur approbation, à l'exception des produits appartenant aux trois groupes de monographies listées dans la Partie C, Titre 1, du Règlement sur les Aliments et Drogues. Ces produits sont : les produits solaires (crèmes solaires, baumes à lèvres revendiquant un FPS, produits cosmétiques contenant un agent de protection solaire, etc...), les shampoings antipelliculaires et les désinfectants pour surfaces dures. Pour ces produits, dont les applications ont été soumises après le 15 juin 2015, il peut y avoir un délai de 6 mois, après la date d'approbation, avant qu'ils n'apparaissent dans la BDPP en ligne.
 
-    Health Canada is the federal regulator of therapeutic products and does not provide medical advice on the use of the products identified in this database. For information related to treatment options, choices of medications and their uses, illnesses, side effects or drug interactions, please contact your health care professional. For information on where these products are sold, please contact the individual company directly.
+    Santé Canada est l'organisme fédéral qui réglemente les produits thérapeutiques et nous ne donnons pas de conseils médicaux sur l'utilisation des produits dans cette base de données. Pour de plus amples informations sur les choix de traitement, les choix de médicament et leurs utilisations, maladies, effets secondaires et interactions médicamenteuses, veuillez contacter votre professionnel de la santé.
+
   version: "0.1"
 
 schemes:
@@ -29,7 +30,7 @@ paths:
   /activeingredient:
     get:
       tags:
-        - Active Ingredients
+        - Ingrédient actif
       description: Returns all active ingredients.
       parameters:
         - $ref: "#/parameters/UserKeys"
@@ -39,7 +40,7 @@ paths:
         - name: ingredientname
           in: query
           type: string
-          description: Limit results to those with matching ingredient name
+          description: Affiche les ingrédients actifs selon le texte spécifié dans la requête.
       responses:
         "200":
           description: Returns a list of all active ingredients, or if an ID is provided, the list of all active ingredients that correspond to the given drug product code
@@ -58,7 +59,7 @@ paths:
   /company:
     get:
       tags:
-        - Company
+        - Entreprise
       description: Returns all companies.
       parameters:
         - $ref: "#/parameters/UserKeys"
@@ -67,7 +68,7 @@ paths:
         - name: id
           in: query
           type: string
-          description: Limit results to those with matching company code
+          description: Affiche les détails de l'entreprise selon le code de l'entreprise spécifié dans la requête.
       responses:
         "200":
           description: Returns a list of all companies, or if an ID is provided, the list of all companies that correspond to the given company code
@@ -86,7 +87,7 @@ paths:
   /drugproduct:
     get:
       tags:
-        - Drug Product
+        - Produit pharmaceutique
       description: Returns all drug products.
       parameters:
         - $ref: "#/parameters/UserKeys"
@@ -96,15 +97,32 @@ paths:
         - name: din
           in: query
           type: string
-          description: Limit results to those with matching drug identification number
+          description: Affiche le produit pharmaceutique selon l'Identification numérique de la drogue spécifiée dans la requête.
         - name: brandname
           in: query
           type: string
-          description: Limit results to those with matching brand name
+          description: Affiche les produit pharmaceutiques selon le texte spécifié dans la requête.
         - name: status
           in: query
-          type: string
-          description: Limit results to those with matching status
+          type: integer
+          description: |
+            Affiche les produits pharmaceutiques selon l'état spécifié dans la requête.
+
+              1 - Approuvé
+              2 - Commercialisé
+              3 - Annulé avant commercialisation
+              4 - Annulé après commercialisation
+              6 - Dormant
+              9 - Annulé (notification annuelle omise)
+              10 - Annulé (problème d'innocuité)
+          enum:
+            - 1
+            - 2
+            - 3
+            - 4
+            - 6
+            - 9
+            - 10
       responses:
         "200":
           description: Returns a list of all drug products, or if an ID is provided, the list of all drug products that correspond to the given drug product code
@@ -123,7 +141,7 @@ paths:
   /form:
     get:
       tags:
-        - Dosage Form
+        - Forme posologique
       description: Returns all dosage forms.
       parameters:
         - $ref: "#/parameters/UserKeys"
@@ -135,7 +153,7 @@ paths:
           type: string
           enum:
             - yes
-          description: Limit results to those dosage forms that are active, meaning they have a date that is greater than today or no date
+          description: Affiche les formes posologiques qui sont actives.
       responses:
         "200":
           description: Returns a list of all dosage forms, or if an ID is provided, the list of all dosage forms that correspond to the given drug product code
@@ -154,7 +172,7 @@ paths:
   /packaging:
     get:
       tags:
-        - Packaging
+        - Emballage
       description: Returns all packaging information for drug products.
       parameters:
         - $ref: "#/parameters/UserKeys"
@@ -178,7 +196,7 @@ paths:
   /pharmaceuticalstd:
     get:
       tags:
-        - Pharmaceutical Standards
+        - Norme pharmaceutique
       description: Returns all dosage forms.
       parameters:
         - $ref: "#/parameters/UserKeys"
@@ -202,7 +220,7 @@ paths:
   /route:
     get:
       tags:
-        - Route of Administration
+        - Voie d'administration
       description: Returns all routes of administration.
       parameters:
         - $ref: "#/parameters/UserKeys"
@@ -214,7 +232,7 @@ paths:
           type: string
           enum:
             - yes
-          description: Limit results to those routes of administration that are active, meaning they have a date that is greater than today or no date
+          description: Affiche les voies d'administration qui sont actives.
       responses:
         "200":
           description: Returns a list of all routes of administration, or if an ID is provided, the list of all routes of administration that correspond to the given drug product code
@@ -233,7 +251,7 @@ paths:
   /schedule:
     get:
       tags:
-        - Schedule
+        - Annexe
       description: Returns all schedules.
       parameters:
         - $ref: "#/parameters/UserKeys"
@@ -245,7 +263,7 @@ paths:
           type: string
           enum:
             - yes
-          description: Limit results to those schedules that are active, meaning they have a date that is greater than today or no date
+          description: Affiche les annexes qui sont actives.
       responses:
         "200":
           description: Returns a list of all schedules, or if an ID is provided, the list of all schedules that correspond to the given drug product code
@@ -264,7 +282,7 @@ paths:
   /status:
     get:
       tags:
-        - Product Status
+        - État
       description: Returns all product statuses.
       parameters:
         - $ref: "#/parameters/UserKeys"
@@ -289,7 +307,7 @@ paths:
   /therapeuticclass:
     get:
       tags:
-        - Therapeutic Class
+        - Classe thérapeutique
       description: Returns all therapeutic classes.
       parameters:
         - $ref: "#/parameters/UserKeys"
@@ -314,7 +332,7 @@ paths:
   /veterinaryspecies:
     get:
       tags:
-        - Veterinary Species
+        - Espèces animales
       description: Returns all veterinary species.
       parameters:
         - $ref: "#/parameters/UserKeys"
@@ -344,117 +362,118 @@ definitions:
   ActiveIngredient:
     type: object
     description: |
-      An Active Ingredient is any component that has medicinal properties, and supplies pharmacological activity or other direct effect in the diagnosis, cure, mitigation, treatment or prevention of disease, or to affect the structure or any function of the body of a human or an animal.
+      Le terme « ingrédient actif » désigne toute composante qui possède des propriétés médicinales, une action pharmacologique ou qui a des effets directs sur le diagnostic, la guérison, l'atténuation, le traitement ou la prévention des maladies, ou qui agit sur la structure ou toute fonction du corps de l'être humain ou de l'animal.
 
-      The name and strength of each active ingredient contained in the product is listed. Information enclosed within brackets represents the salt and identifies how the ingredient is supplied. This information is only included for some ingredients. The number in the strength field refers to the active portion of the drug. For example, for calcium (calcium carbonate) 200 milligram (mg) - 200 mg is the strength of elemental calcium, not calcium carbonate.
+      La base de données précise le nom et la concentration de chaque ingrédient actif contenu dans un produit. On précise entre parenthèses la forme (le type de sel) sous laquelle l'ingrédient est fourni; cette information n'est disponible que pour certains ingrédients. Le nombre indiqué dans le champ « Concentration » fait référence à la portion active du médicament. Par exemple (p. ex.), dans « Calcium (carbonate de calcium) 200 milligrammes [mg] », 200 mg fait référence à la concentration de calcium élémentaire et non à la quantité de carbonate de calcium.
 
-      Health Canada has a reference text hierarchy for ingredient nomenclature. The International Non Proprietary Names (INN) is used as Health Canada's standard to assign the preferred name to ingredients. There are other standards such as the United States Adopted Names (USAN), Martindale, Merck Index, etc., that are used to code ingredients if they are not listed in the INN.
+      Pour la nomenclature liée aux ingrédients, Santé Canada utilise divers documents de référence selon une hiérarchie précise. La dénomination commune internationale (DCI) est la norme utilisée par Santé Canada pour déterminer le nom qui est privilégié pour les ingrédients. D'autres normes, par exemple l' United States Adopted Names (USAN), le code de Martindale, le Merck Index, etc., sont utilisées pour coder les ingrédients qui ne figurent pas dans la DCI.
     properties:
       dosage_unit:
         type: string
-        description: The active ingredient dosage unit
+        description: |
+          L'unité posologique de l'ingrédient actif.
       dosage_value:
         type: string
-        description: The quantitative value of the active ingredient dosage
+        description: La valeur pour une unité posologique.
       drug_code:
         $ref: "#/definitions/DrugCode"
       ingredient_name:
         type: string
-        description: The Active Ingredient name
+        description: Le nom de l'ingrédient.
       strength:
         type: string
-        description: The quantitative value of the Active Ingredient strength
+        description: La concentration de l'ingrédient actif contenu dans un produit pharmaceutique.
       strength_unit:
         type: string
-        description: The Active Ingredient strength unit
+        description: L'unité de concentration de l'ingrédient actif.
     xml:
       name: ActiveIngredient
 
   Company:
     type: object
     description: |
-      In the DPD, a product may have several companies associated with them. Each product will have a DIN Owner associated with it. If a DIN Owner has designated another company to receive their mailing, their name and address will also be included and can be identified with a 'Y' flag in the ADDRESS_MAILING_FLAG field.
+      Dans la BDPP, plusieurs entreprises peuvent être associées à un produit. À chaque produit est rattaché un détenteur de DIN. Si un détenteur de DIN a chargé une autre entreprise de recevoir sa correspondance, le nom et l'adresse de cette entreprise seront aussi inclus et peuvent être repérés au symbole « Y » dans le champ ADDRESS_MAILING_FLAG.
 
-      The company contact information is not included in the API (ATTENTION_TO, LANGUAGE, TELEPHONE_NUMBER, FAX_NUMBER, EMAIL_ADDRESS). The contact information in the database is generally a representative from the Regulatory Affairs department. It has come to our attention that some users are contacting these individuals to make general inquiries, we would like to recommend not doing so.
+      Les renseignements sur la personne-ressource ne sont pas inclus dans l'API (ATTENTION_TO, LANGUAGE, TELEPHONE_NUMBER, FAX_NUMBER, EMAIL_ADDRESS). Dans la base de données, il s'agit généralement d'un représentant du département des Affaires réglementaires. Il semble que certains utilisateurs communiquent avec ces personnes pour obtenir des renseignements généraux.
     properties:
       city_name:
         type: string
-        description: The city name
+        description: Le nom de la ville.
       company_code:
         type: string
-        description: The code assigned to a company
+        description: Le code attribué à l'entreprise.
       company_name:
         type: string
-        description: The company name
+        description: Le nom de l'entreprise.
       company_type:
         type: string
-        description: The company type
+        description: Le type d'entreprise.
       country_name:
         type: string
-        description: The country name
+        description: Le nom du pays.
       post_office_box:
         type: string
-        description: The P.O. box number (if applicable)
+        description: Le numéro de la boîte postale (s'il y a lieu).
       postal_code:
         type: string
-        description: The postal code
+        description: Le code postal.
       province_name:
         type: string
-        description: The province name
+        description: Le nom de la province.
       street_number:
         type: string
-        description: The street name
+        description: Le nom de la rue.
       suite_number:
         type: string
-        description: The suite number
+        description: Le numéro de la pièce.
     xml:
       name: Company
 
   DrugProduct:
     type: object
-    description: Basic information about the product, such as brand name and Drug Identification Number
+    description: Information sur le produit pharmaceutique, telles que le nom commercial et l'identification numérique de drogue.
     properties:
       ai_group_no:
         type: string
-        description: The Active Ingredient Group Number
+        description: Le numéro de groupe d'ingrédients actifs.
       brand_name:
         type: string
-        description: The brand name for the drug product
+        description: Le nom commercial du produit pharmaceutique.
       class_name:
         type: string
-        description: The therapeutic class of a drug product
+        description: La classe thérapeutique attribuée à un produit pharmaceutique.
       descriptor:
         type: string
-        description: Additional details or descriptions for a product, if applicable
+        description: Des détails supplémentaires ou des descriptions pour un produit, s'il y a lieu.
       drug_code:
         $ref: "#/definitions/DrugCode"
       drug_identification_number:
         type: string
-        description: The Drug Identification Number
+        description: L'Identification numérique de la drogue.
       number_of_ais:
         type: string
-        description: The number of Active Ingredients in a drug product
+        description: Le nombre d'ingrédients actifs.
       company_name:
         type: string
-        description: The company name
+        description: Le nom de l'entreprise.
     xml:
       name: DrugProduct
 
   DosageForm:
     type: object
     description: |
-      The dosage form is the form of presentation in which the product is supplied, for example, tablet, capsule, powder, etc.
+      La forme posologique est la forme sous laquelle le produit est vendu, par exemple comprimée, gélule, poudre, etc.
 
-      A product can have more than one dosage form when it is a kit (e.g. tablet, capsule).
+      Un produit peut avoir plus d'une forme posologique (p. ex. comprimé, gélule) dans le cas d'une trousse.
     properties:
       drug_code:
         $ref: "#/definitions/DrugCode"
       pharmaceutical_form_code:
         type: string
-        description: The code assigned to a dosage form
+        description: Le code attribué à une forme posologique.
       pharmaceutical_form_name:
         type: string
-        description: The dosage form
+        description: La forme posologique.
     xml:
       name: DosageForm
 
@@ -464,151 +483,170 @@ definitions:
 
   Packaging:
     type: object
-    description: Information about available packages sizes for each drug product
+    description: Informations sur les capacités d'emballage disponible pour chaque produit pharmaceutique.
     properties:
       drug_code:
         type: string
-        description: The code assigned to each drug product
+        description: Le code attribué à chaque produit pharmaceutique.
+
       package_size:
         type: string
-        description: The size of the package
+        description: La capacité de l'emballage.
+
       package_size_unit:
         type: string
-        description: The unit for package size
+        description: L'unité de la capacité de l'emballage.
+
       package_type:
         type: string
-        description: The type of package
+        description: Le type d'emballage.
+
       product_information:
         type: string
-        description: Additional product information
+        description: Renseignements supplémentaires sur le produit.
+
       upc:
         type: string
-        description: The Universal Product Code
+        description: Le code universel des produits.
     xml:
       name: PackageInformation
 
   PharmaceuticalStandard:
     type: object
-    description: The standard to which a drug product is manufactured and represented
+    description: La norme qui régit la fabrication et la représentation d'un produit pharmaceutique.
     properties:
       drug_code:
         $ref: "#/definitions/DrugCode"
       pharmaceutical_std:
         type: string
-        description: The pharmaceutical standard
+        description: La norme pharmaceutique.
     xml:
       name: PharmaceuticalStandard
 
   RouteOfAdministration:
     type: object
     description: |
-      Indicates the part of the body on which, through which or into which the product is to be introduced (e.g. oral, topical, intramuscular, rectal).
+      Désigne la partie du corps sur laquelle, par laquelle ou dans laquelle le produit est administré (par exemple voie orale, topique, intramusculaire, rectale, etc.).
 
-      A product can have more than one route of administration (e.g. intravenous, intramuscular, intra articular).
+      Un produit peut avoir plus d'une voie d'administration (p. ex. voie intraveineuse, intramusculaire, intra-articulaire, etc.).
     properties:
       drug_code:
         $ref: "#/definitions/DrugCode"
       route_of_administration_code:
         type: string
-        description: The code assigned to a route of administration
+        description: Le code attribué à une voie d'administration.
       route_of_administration_name:
         type: string
-        description: The route of administration
+        description: La voie d'administration.
     xml:
       name: RouteOfAdministration
 
   Schedule:
     type: object
     description: |
-      Each drug is assigned one or more schedules, according to the Food and Drug Regulations, and the Controlled Drugs and Substances Act.
-      - Prescription (prescription drugs included in the Prescription Drug List)
-      - Prescription Recommended (drugs that are recommended to be listed on the Prescription Drug List)
-      - Schedule G (control drugs)
-      - Schedule G (Controlled Drugs and Substances Act [CDSA] III)
-      - Schedule G (CDSA IV)
-      - Schedule C (drugs listed in Schedule C of the Food and Drugs Act, for example, radiopharmaceutical drugs)
-      - Schedule D (drugs listed in Schedule D of the Food and Drugs Act, ie. biological products)
-      - Narcotic (Narcotic Control Act)
-      - Narcotic (CDSA I)S
-      - Narcotic (CDSA II)
-      - Targeted (CDSA IV)
-      - CDSA Recommended- Undergoing Regulatory Amendment to add this new substance to Controlled Drugs Substances Act
-      - OTC (over the counter drugs that do not appear on a schedule or are not recommended to appear on any schedule)
-      - Ethical - a drug that, in accordance with Federal Legislation, does not require a prescription, but that is generally prescribed by a medical practitioner. Ethical products are unscheduled non-prescription professional use products (e.g. MRI contrast agents, hemodialysis solutions) and a few emergency use products (e.g. nitroglycerine)
+      Chaque médicament est classé dans une ou plusieurs annexes, conformément au Règlement sur les aliments et drogues et à la Loi réglementant certaines drogues et autres substances.
+
+        - Médicaments sur ordonnance (médicaments inclus sur la Liste des drogues sur ordonnance)
+        - Médicaments sur ordonnance recommandés (médicaments recommandés pour être inclus sur la Liste des drogues sur ordonnance)
+        - Annexe G (médicaments témoins)
+        - Annexe G ( Loi réglementant certaines drogues et autres substances [LRCDAS] III)
+        - Annexe G (LRCDAS IV)
+        - Annexe C (drogues de l'annexe C du Règlement sur les aliments et drogues, par exemple les produits pharmaceutiques radioactifs)
+        - Annexe D (drogues de l'annexe D du Règlement sur les aliments et drogues, par exemple, produits biologiques)
+        - Stupéfiant (Loi sur les stupéfiants)
+        - Stupéfiant (LRCDAS I)
+        - Stupéfiant (LRCDAS II)
+        - Ciblés (LRCDAS IV)
+        - LRCDAS recommandé (Modification réglementaire en cours pour ajouter cette nouvelle substance à la Loi réglementant certaines drogues et autres substances.)
+        - Médicaments en vente libre (OTC - Les médicaments qui ne font pas partie d'une annexe, ou qui n'ont pas été recommandés pour ajout à une annexe)
+        - Spécialité médicale: médicament qui peut être vendu sans ordonnance en vertu des lois fédérales, mais qui est habituellement prescrit par un praticien. Les produits de spécialité médicale sont des médicaments sans ordonnance, qui ne font pas partie d'une annexe, à usage professionnel (par exemple, les agents de contraste pour imagerie par résonance magnétique (IRM) et les solutions pour l'hémodialyse) et quelques médicaments pour cas d'urgence (par exemple, la nitroglycérine).
     properties:
       drug_code:
         $ref: "#/definitions/DrugCode"
       schedule_name:
         type: string
-        description: The drug schedule according to the Food and Drug Regulations and the Controlled Drugs and Substances Act.
+        description: L'annexe conformément au Règlement sur les aliments et drogues et à la Loi réglementant certaines drogues et autres substances.
+
     xml:
       name: Schedule
 
   ProductStatus:
     type: object
     description: |
-      The statuses listed below are a direct representation of the status available in DPD Online Query and the description of each status is summarized below.
-      - Approved - refers to an active DIN that has been reviewed and authorized for sale in Canada but has not yet been marketed in Canada.
-      - Cancelled Post-Market - refers to a DIN that is cancelled further to the discontinuation of the sale by the manufacturer pursuant to Section C.01.014.6 (1) (a) of the Regulations.
-      - Cancelled Pre-Market - refers to a DIN that is cancelled before it was ever marketed in Canada.
-      - Cancelled (Safety Issue): refers to a DIN that is cancelled following the suspension of a Notice of Compliance pursuant to Section C.01.014.6 (1) (b) of the Regulations or to Section C.01.014.6 (2) (b) of the Regulations due to failure to provide evidence regarding the safety and effectiveness of a drug, pursuant to Section C.01.013 of the Regulations.
-      - Cancelled (Unreturned Annual): refers to a DIN that is cancelled due to failure to provide the Annual Notification pursuant to Section C.01.014.6 (2) (a) of the Regulations.
-      - Dormant - refers to an active DIN that was previously marketed in Canada but for which the manufacturer has suspended sale for period of at least 12 months.
-      - Marketed - refers to an active DIN that is currently being sold in Canada.
+      Les états énumérés ci-dessous sont une représentation directe des états qui apparaissent dans l'outil de Recherche de produits pharmaceutiques en ligne de la BDPP et la description de chaque état est présenté ci-dessous:
+
+      - Approuvé : fait référence à un DIN actif pour une drogue qui a été examinée et autorisée à la vente au Canada, mais qui n'est pas encore commercialisée au Canada.
+      - Annulé après commercialisation : fait référence à un DIN qui est annulé suite à la cessation de la vente de la drogue par le fabricant conformément à l'alinéa C.01.014.6(1)a) du Règlement.
+      - Annulé avant commercialisation : fait référence à un DIN qui est annulé avant sa mise sur le marché au Canada.
+      - Annulé (notification annuelle omise) : fait référence à un DIN qui a été annulé en raison de l'omission de la notification annuelle de drogue conformément à l'alinéa C.01.014.6(2)a) du Règlement.
+      - Annulé (problème d'innocuité) : fait référence à un DIN qui a été annulé suite à la suspension d'un avis de conformité en vertu de l'alinéa C.01.014.6(1)b) du Règlement ou en vertu de l'alinéa C.01.014.6(2)b) du Règlement en raison de la non-présentation des données et des preuves relatives à l'innocuité et l'efficacité de la drogue, conformément à l'article C.01.013 du Règlement.
+      - Commercialisé : fait référence à un DIN actif pour une drogue actuellement vendue au Canada.
+      - Dormant : fait référence à un DIN actif pour une drogue qui était commercialisée au Canada dont le fabricant a suspendu la vente pendant au moins 12 mois.
     properties:
       drug_code:
         $ref: "#/definitions/DrugCode"
       expiration_date:
         type: string
-        description: The latest expiry date of a product distributed in Canada, where the product has since been discontinued by the company
+        description: La date limite d'utilisation la plus tardive attribuée à la drogue distribuée au Canada, où la vente du produit est cessée par le fabricant.
+
       external_status_code:
         type: string
-        description: The code assigned to an external drug status
+        description: Le code attribué à un état externe.
+
       history_number:
         type: string
-        description: The historical date associated with a drug's status
+        description: La date historique associée à l'état du produit pharmaceutique.
+
       lot_number:
         type: string
-        description: The latest lot number of a product distributed in Canada, where the product has since been discontinued by the company
+        description: Le numéro de lot la plus tardive attribuée à la drogue distribuée au Canada, où la vente du produit est cessée par le fabricant.
+
       original_market_date:
         type: string
-        description: The original market date of a product
+        description: La date d'origine de commercialisation pour un produit pharmaceutique.
+
       status:
         type: string
-        description: The status name
+        description: Le nom de l'état.
+
     xml:
       name: ProductStatus
 
   TherapeuticClass:
     type: object
-    description: A drug's Therapeutic Classification (Class) is assigned according to its main therapeutic use
+    description: Classe attribuée à un médicament en fonction du principal usage thérapeutique.
     properties:
       drug_code:
         $ref: "#/definitions/DrugCode"
       tc_ahfs:
         type: string
-        description: The description of the American Hospital Formulary Service
+        description: La description du code American Hospital Formulary Service.
+
       tc_ahfs_number:
         type: string
-        description: The American Hospital Formulary Service code
+        description: Le code American Hospital Formulary Service.
+
       tc_atc:
         type: string
-        description: The description of the Anatomical Therapeutic Chemical Code
+        description: La description du code anatomique, thérapeutique, chimique.
+
       tc_atc_number:
         type: string
-        description: The Anatomical Therapeutic Chemical Code
+        description: Le code anatomique, thérapeutique, chimique.
+
     xml:
       name: TherapeuticClass
 
   VeterinarySpecies:
     type: object
-    description: The type of species for a certain veterinary product (e.g. sheep, dog, cattle, and poultry)
+    description: Les espèces auxquelles les produits vétérinaires sont destinés (p. ex. mouton, chien, bovin et volaille).
     properties:
       drug_code:
         $ref: "#/definitions/DrugCode"
       vet_species_name:
         type: string
-        description: The animal species
+        description: L'espèce animale.
+
     xml:
       name: VeterinarySpecies
 
@@ -621,7 +659,7 @@ parameters:
       - en
       - fr
     default: en
-    description: Define which language you would like the response to be in
+    description: Modifie la langue du résultat.
   QueryType:
     name: type
     type: string
@@ -630,15 +668,10 @@ parameters:
       - json
       - xml
     default: json
-    description: Define which media type you would like the content to be in
-  PathID:
-    name: id
-    description: The drug product code identifier
-    in: path
-    type: string
+    description: Modifie le format du résultat.
   QueryDrugProductCode:
     name: id
-    description: Limit results to those with matching drug product code
+    description: Affiche le ou les ingrédients actifs selon le code du produit pharmaceutique spécifié dans la requête.
     in: query
     type: string
   UserKeys:
