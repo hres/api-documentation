@@ -8,21 +8,21 @@ x-api-store-plans:
     name: Public Plan
     description: All users should subscribe to the Public Plan.
 info:
-  title: Medical Devices Active Licence Listing (MDALL)
+  title: Liste des instruments médicaux homologués en vigueur (MDALL)
   description: |
-    Health Canada is the federal regulator of therapeutic products, including medical devices. We do not provide medical advice on the use of the products identified in this listing.
+    Santé Canada est l'organe fédéral de réglementation des produits thérapeutiques, notamment des instruments médicaux. Il ne formule pas de conseils médicaux sur l'utilisation des produits figurant sur cette liste.
 
-    The Medical Devices Bureau (Bureau) of the Therapeutic Products Directorate, Health Canada is the Canadian federal regulator responsible for licensing medical devices in accordance with the Food and Drugs Act and Regulations and the Medical Devices Regulations.
+    Le Bureau des matériels médicaux (Bureau) de la Direction des produits thérapeutiques, Santé Canada, est l'organe fédéral de réglementation responsable de l'homologation des instruments médicaux, conformément à la Loi sur les aliments et drogues et au Réglement sur les instruments médicaux.
 
-    The Bureau maintains a database of all licensed Class II, III, and IV medical devices offered for sale in Canada. Class I medical devices do not require a medical device licence and are monitored by the Regulatory Operations and Regions Branch (Compliance and Enforcement) through Establishment Licensing.
+    Le Bureau maintient une base de données sur tous les instruments médicaux de classe II, III ou IV vendus au Canada. Les instruments médicaux de classe I ne requiert pas une homologation des intruments médicaux. Ils sont réglementés par la Direction générale des opérations réglementaires et des régions (Conformité et application de la loi) au moyen des licences d'établissement.
 
-    Only products which appear in this database listing may be offered for general marketing purposes in Canada. Class I Devices, or devices which relate to Investigational Testing Authorization or Special Access do not appear in this listing.
+    Seuls les produits figurant sur cette liste électronique peuvent être offerts pour la vente au Canada. Les instruments médicaux de classe 1 ou vendus aux fins d'essais expérimentaux et aux fins d'un accès spécial ne sont pas inclus.
   version: "0.1"
 
 schemes:
   - https
 host: mdall-hc-sc-apicast-staging.beta.api.canada.ca
-basePath: /api/medical-devices/
+basePath: /api/instrument-medicaux/
 produces:
   - application/json
   - application/xml
@@ -31,7 +31,7 @@ paths:
   /licence:
     get:
       tags:
-        - Licence
+        - Homologation
       description: Returns all licences.
       parameters:
         - $ref: "#/parameters/UserKeys"
@@ -40,16 +40,16 @@ paths:
         - name: id
           in: query
           type: string
-          description: Limit results to those with matching licence number
+          description: Affiche l'homogolation selon le numéro d'homogolation spécifié dans la requête.
         - $ref: "#/parameters/QueryState"
         - name: licence_name
           in: query
           type: string
-          description: Limit results to those with a matching licence name
+          description: Affiche les homogolations qui contiennent flood dans leur nom.
         - name: company_id
           in: query
           type: string
-          description: Limit results to those with a matching company ID
+          description: Affiche les homogolations dont le numéro d'identification de l'entreprise.
       responses:
         "200":
           description: Returns a list of all licences, or if an ID is provided, the list of all licences that correspond to the given licence number
@@ -68,7 +68,7 @@ paths:
   /company:
     get:
       tags:
-        - Company
+        - Entreprise
       description: Returns all companies.
       parameters:
         - $ref: "#/parameters/UserKeys"
@@ -77,18 +77,22 @@ paths:
         - name: id
           in: query
           type: string
-          description: Limit results to those with matching company ID
+          description: Affiche l'entreprise selon le numéro d'identification de l'entreprise spécifié dans la requête.
         - name: status
           in: query
           type: string
           enum:
             - A
             - I
-          description: Limit results to those with a specific status
+          description: |
+            Affiche les entreprises selon le statut spécifié dans la requête.
+
+            - A=Active
+            - I=Inactive
         - name: company_name
           in: query
           type: string
-          description: Limit results to those with a matching company name
+          description: Affiche les entreprises qui contiennent bayer dans leur nom.
       responses:
         "200":
           description: Returns a list of all companies, or if an ID is provided, the list of all companies that correspond to the given company ID
@@ -107,7 +111,7 @@ paths:
   /device:
     get:
       tags:
-        - Device
+        - Instrument médical
       description: Returns all devices.
       parameters:
         - $ref: "#/parameters/UserKeys"
@@ -116,12 +120,12 @@ paths:
         - name: id
           in: query
           type: string
-          description: Limit results to those with matching device identification number
+          description: Affiche l'instrument médical selon le numéro d'identification de l'instrument médical spécifié dans la requête.
         - $ref: "#/parameters/QueryState"
         - name: device_name
           in: query
           type: string
-          description: Limit results to those with a matching device name
+          description: Affiche les instruments médicaux qui contiennent le nom.
       responses:
         "200":
           description: Returns a list of all devices, or if an ID is provided, the list of all devices that correspond to the given device identification number
@@ -140,7 +144,7 @@ paths:
   /deviceidentifier:
     get:
       tags:
-        - Device
+        - Instrument médical
       description: Returns all device identifiers.
       parameters:
         - $ref: "#/parameters/UserKeys"
@@ -149,12 +153,12 @@ paths:
         - name: id
           in: query
           type: string
-          description: Limit results to those with matching device identification number
+          description: Affiche l'identificateur d'instrument selon le numéro d'identification de l'instrument spécifié dans la requête.
         - $ref: "#/parameters/QueryState"
         - name: device_identifier
           in: query
           type: string
-          description: Limit results to those with a matching device identifier
+          description: Affiche les instruments qui contiennent le donné dans leur identificateur de l'instrument.
       responses:
         "200":
           description: Returns a list of all device identifiers, or if an ID is provided, the list of all device identifiers that correspond to the given device identifier
@@ -173,7 +177,7 @@ paths:
   /licencetype:
     get:
       tags:
-        - Licence
+        - Homologation
       description: Returns all licence types.
       parameters:
         - $ref: "#/parameters/UserKeys"
@@ -182,7 +186,7 @@ paths:
         - name: code
           in: query
           type: string
-          description: Limit results to those with matching licence type code
+          description: Affiche un type de demande d'homologation selon le code d'un type de demande d'homologation spécifié dans la requête.
       responses:
         "200":
           description: Returns a list of all licence types, or if a code is provided, the list of all licence types that correspond to the given code
@@ -201,7 +205,7 @@ paths:
   /sbdlocation:
     get:
       tags:
-        - Summary Basis Decision Location
+        - Sommaire des motifs de décision (emplacement)
       description: Returns all summary basis decision locations.
       parameters:
         - $ref: "#/parameters/UserKeys"
@@ -210,7 +214,8 @@ paths:
         - name: id
           in: query
           type: string
-          description: Limit results to those with matching licence number
+          description: Affiche l'emplacement du Sommaire des motifs de décision selon le numéro d'homogolation spécifié dans la requête.
+
       responses:
         "200":
           description: Returns a list of all locations, or if an ID is provided, the list of all locations that correspond to the given licence number
@@ -243,15 +248,17 @@ definitions:
 
   Licence:
     type: object
-    description: This is the permit that is delivered for a device to a company
+    description: L'homogolation est une certification de conformité d'un instrument médical pour la vente au Canada détenu par un fabricant.
+
     properties:
       original_licence_no:
         type: string
-        description: The licence number.
+        description: Le numéro de l'homologation.
+
       licence_status:
         type: string
         description: |
-          The licence status
+          Le statut de l'homologation
 
           - C=Cancelled
           - D=Issued/Conditional
@@ -264,130 +271,160 @@ definitions:
           - W=Withdrawn
           - Q=Suspended/Invalid QS Certification
           - X=Cancelled QS/2003
+
       appl_risk_class:
         type: string
-        description: The application risk class.
+        description: La classe de la demande d’homologation.
+
       licence_name:
         type: string
-        description: The licence name.
+        description: Le nom de l'homologation.
+
       first_licence_status_dt:
         type: string
-        description: The date of the first issued licence.
+        description: La date où la première homogolation a été émise.
+
       last_refresh_dt:
         type: string
-        description: The refresh date of the mdall database.
+        description: La date où les données de MDALL ont été mises à jour.
+
       end_date:
         type: string
-        description: The date of cancellation of the licence (if active then null).
+        description: La date où l’homologation a été annulée (si active ce champ est vide).
+
       licence_type_cd:
         type: string
-        description: The licence type code.
+        description: Le code d'un type de demande d'homologation.
+
       company_id:
         type: string
-        description: The company identification number.
+        description: Le numéro d'identification attribué à une entreprise.
+
       licence_type_desc:
         type: string
-        description: The licence type description
+        description: La description du code d'un type de demande d'homologation.
 
   Company:
     type: object
-    description: This contains the company name and address
+    description: Contient le nom et l'adresse de l'entreprise.
+
     properties:
       company_id:
         type: string
-        description: The company identification number.
+        description: Le numéro d'identification attribué à une entreprise.
+
       company_name:
         type: string
-        description: The company name.
+        description: Le nom de l’entreprise.
+
       addr_line_1:
         type: string
-        description: The address line 1.
+        description: Ligne 1 de l’adresse.
+
       addr_line_2:
         type: string
-        description: The address line 2.
+        description: Ligne 2 de l’adresse.
+
       addr_line_3:
         type: string
-        description: The address line 3.
+        description: Ligne 3 de l’adresse.
+
       postal_code:
         type: string
-        description: The postal code.
+        description: Le code postal.
+
       city:
         type: string
-        description: The city in the address.
+        description: La ville.
+
       country_cd:
         type: string
-        description: The country code (2 digit).
+        description: Le code du pays (2 chiffres).
+
       region_cd:
         type: string
-        description: The region code (2 digit).
+        description: Le code de la région (2 chiffres).
+
       company_status:
         type: string
-        description: The company status. (A=Active, I=Inactive)
+        description: Le statut de l'entreprise. (A=Active, I=Inactive)
 
   Device:
     type: object
-    description: This is the device information
+    description: Information sur l'instrument médical.
     properties:
       original_licence_no:
         type: string
-        description: The licence number.
+        description: Le numéro de l'homologation.
+
       device_id:
         type: string
-        description: The device identification number.
+        description: Le numéro d'identification attribué à un instrument médical.
+
       first_licence_dt:
         type: string
-        description: The date the device was added in the licence.
+        description: La date où l’homologation d’un instrument médical est acceptée.
+
       end_date:
         type: string
-        description: The date of removal of the device (if active then null).
+        description: La date où l’homologation d’un instrument médical est supprimée (si active ce champ est vide).
+
       trade_name:
         type: string
-        description: The name of the device.
+        description: Le nom de l’instrument médical.
 
   DeviceIndentifier:
     type: object
-    description: This is the list of all identifiers that uniquely identify a device (on the label).
+    description: C’est la liste de tous les identificateurs qui identifient de façon unique un instrument médical (sur l’étiquette).
     properties:
       original_licence_no:
         type: string
-        description: The licence number.
+        description: Le numéro de l'homologation.
+
       device_id:
         type: string
-        description: The device identification number.
+        description: Le numéro d'identification attribué à un instrument médical.
+
       first_licence_dt:
         type: string
-        description: The date the identifier was added in the licence.
+        description: La date où l’identificateur de l’instrument médical a été ajouté à une homologation.
+
       end_date:
         type: string
-        description: The date the identifier was removed from the licence.
+        description: La date où l’identificateur d’un instrument médical a été supprimé d’une homologation.
+
       device_identifier:
         type: string
-        description: The identifier.
+        description: L’identificateur.
 
   LicenceType:
     type: object
-    description: This contains the list of all licence type codes and their definitions
+    description: La liste des codes et leur définition des types de demande d'homologation.
+
     properties:
       licence_type_cd:
         type: string
-        description: The licence type code.
+        description: Le code d’un type de demande d'homologation.
+
       licence_type_desc:
         type: string
-        description: The definition of the code.
+        description: La définition du code d'un type de demande d'homologation.
 
   SummaryBasisDecisionLocation:
     type: object
-    description: This contains the web site address of the summary basis of decisions
+    description: Adresse des sites Web des sommaires des motifs de décision.
     properties:
       original_licence_no:
         type: string
-        description: The licence number.
+        description: Le numéro de l'homologation.
+
       sbd_notice_web_loc:
         type: string
-        description: The notice of decision web site address.
+        description: Adresse Web du sommaire des motifs de décision.
+
       sbd_web_loc:
         type: string
-        description: The notice of decision web site address.
+        description: Adresse Web du rapport.
 
 parameters:
   QueryLang:
@@ -398,7 +435,7 @@ parameters:
       - en
       - fr
     default: en
-    description: Define which language you would like the response to be in
+    description: Modifie la langue du résultat.
   QueryType:
     name: type
     type: string
@@ -407,7 +444,7 @@ parameters:
       - json
       - xml
     default: json
-    description: Define which media type you would like the content to be in
+    description: Modifie le format du résultat.
   QueryState:
     name: state
     in: query
@@ -415,13 +452,7 @@ parameters:
     enum:
       - active
       - archived
-    description: Limit results to those with a specific state
-  PathID:
-    name: id
-    description: The drug product code identifier
-    in: path
-    type: string
-    required: true
+    description: Affiche les homogolations selon l'état spécifié dans la requête.
   UserKeys:
     name: "user-key"
     type: string
