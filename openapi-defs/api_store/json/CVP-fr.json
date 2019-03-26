@@ -11,8 +11,8 @@
     }
   },
   "info": {
-    "title": "Canada Vigilance Product (CVP)",
-    "description": "The Canada Vigilance Adverse Reaction Online Database contains information about suspected adverse reactions (also known as side effects) to health products.",
+    "title": "Base de données en ligne des effets indésirables de Canada Vigilance (BDEI)",
+    "description": "La base de données en ligne des effets indésirables de Canada Vigilance renferme de l'information au sujet des effets indésirables soupçonnés (ou effets secondaires) associés à des produits de santé.",
     "version": "0.1"
   },
   "schemes": [
@@ -28,9 +28,9 @@
     "/drugproductingredient": {
       "get": {
         "tags": [
-          "Drug Product Ingredient"
+          "Ingrédient actif et produit pharmaceutique"
         ],
-        "description": "Returns all drug product ingredients.",
+        "description": "Fournit des renseignements sur les ingrédients actifs de tous les médicaments.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -45,7 +45,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching active ingredient identifier"
+            "description": "Affiche l'ingrédient actif du produit selon l'identifiant de l'ingrédient actif d'un produit pharmaceutique spécifié dans la requête.\n"
           }
         ],
         "responses": {
@@ -74,9 +74,9 @@
     "/drugproduct": {
       "get": {
         "tags": [
-          "Drug Product"
+          "Produit pharmaceutique"
         ],
-        "description": "Returns all drug products.",
+        "description": "Fournit le nom de tous les médicaments et leurs codes.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -91,7 +91,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching drug product identifier"
+            "description": "Affiche le produit pharmaceutique selon l'identifiant du produit spécifié dans la requête."
           }
         ],
         "responses": {
@@ -120,9 +120,9 @@
     "/gender": {
       "get": {
         "tags": [
-          "Gender"
+          "Sexe"
         ],
-        "description": "Returns all genders.",
+        "description": "Fournit des renseignements sur le sexe, accompagnés du code du sexe.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -137,7 +137,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching gender identifier"
+            "description": "Affiche le sexe selon l'identifiant du sexe spécifié dans la requête."
           }
         ],
         "responses": {
@@ -166,9 +166,9 @@
     "/outcome": {
       "get": {
         "tags": [
-          "Outcome"
+          "Résultat"
         ],
-        "description": "Returns all outcomes.",
+        "description": "Fournit des renseignements sur le résultat, accompagnés du code du résultat.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -183,7 +183,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching outcome identifier"
+            "description": "Affiche le résultat selon l'identifiant du résultat de la déclaration spécifié dans la requête."
           }
         ],
         "responses": {
@@ -212,9 +212,9 @@
     "/reaction": {
       "get": {
         "tags": [
-          "Reaction"
+          "Réaction"
         ],
-        "description": "Returns all reactions.",
+        "description": "Fournit des renseignements au sujet des réactions associées aux déclarations.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -229,7 +229,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching reaction identifier"
+            "description": "Affiche la réaction selon l'identifiant de la réaction spécifié dans la requête."
           }
         ],
         "responses": {
@@ -258,9 +258,9 @@
     "/reportdrug": {
       "get": {
         "tags": [
-          "Report"
+          "Médicaments associés aux déclarations"
         ],
-        "description": "Returns all drug reports.",
+        "description": "Fournit des renseignements sur les médicaments associés aux déclarations.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -275,7 +275,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching adverse reaction report number"
+            "description": "Affiche les médicaments selon l'identifiant de la déclaration d'un produit spécifié dans la requête.\n"
           }
         ],
         "responses": {
@@ -304,9 +304,9 @@
     "/reportlink": {
       "get": {
         "tags": [
-          "Report"
+          "Déclarations liées"
         ],
-        "description": "Returns all report links.",
+        "description": "Fournit des renseignements sur les déclarations liées ou en double, accompagnés du code des déclarations.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -321,7 +321,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching report link identifier"
+            "description": "Affiche la déclaration liée selon l'identifiant d'un numéro de déclaration spécifié dans la requête.\n"
           }
         ],
         "responses": {
@@ -350,9 +350,9 @@
     "/reporttype": {
       "get": {
         "tags": [
-          "Report"
+          "Type de déclaration"
         ],
-        "description": "Returns all report types.",
+        "description": "Fournit des renseignements sur le type de déclaration, accompagnés du code du type de déclaration.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -367,7 +367,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching report type identifier"
+            "description": "Affiche le type de déclaration selon l'identifiant d'un type de déclaration spécifié dans la requête.\n"
           }
         ],
         "responses": {
@@ -396,9 +396,9 @@
     "/report": {
       "get": {
         "tags": [
-          "Report"
+          "Déclaration"
         ],
-        "description": "Returns all reports.",
+        "description": "Fournit des renseignements au sujet des déclarations et des patients.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -413,7 +413,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching adverse reaction report number"
+            "description": "Affiche la déclaration selon le numéro d'une déclaration d'effet indésirable spécifié dans la requête.\n"
           }
         ],
         "responses": {
@@ -442,9 +442,9 @@
     "/seriousness": {
       "get": {
         "tags": [
-          "Seriousness"
+          "Gravité de la réaction indésirable"
         ],
-        "description": "Returns all seriousness presentation texts.",
+        "description": "Fournit des renseignements sur la gravité de la réaction, accompagnés du code de gravité.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -459,7 +459,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching serious report identifier"
+            "description": "Affiche la gravité d'une réaction selon l'identifiant de la gravité de la déclaration spécifié dans la requête.\n"
           }
         ],
         "responses": {
@@ -488,9 +488,9 @@
     "/source": {
       "get": {
         "tags": [
-          "Source"
+          "Source de déclaration"
         ],
-        "description": "Returns all sources.",
+        "description": "Fournit des renseignements sur la source de déclaration, accompagnés du code de la source.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -505,7 +505,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching source identifier"
+            "description": "Affiche la source d'une déclaration selon l'identifiant de la source de la déclaration spécifié dans la requête.\n"
           }
         ],
         "responses": {
@@ -541,27 +541,27 @@
     },
     "DrugProductIngredient": {
       "type": "object",
-      "description": "Provides the information about the active ingredients associated with all drugs.",
+      "description": "Fournit des renseignements sur les ingrédients actifs de tous les médicaments.",
       "properties": {
         "drug_product_ingredient_id": {
           "type": "string",
-          "description": "Drug Product - Active Ingredient Identifier."
+          "description": "Identifiant du produit pharmaceutique – Ingrédient actif."
         },
         "drug_product_id": {
           "type": "string",
-          "description": "Drug Product Identifier."
+          "description": "Identifiant du produit pharmaceutique."
         },
         "drug_name": {
           "type": "string",
-          "description": "Brand Name."
+          "description": "Nom commercial."
         },
         "active_ingredient_id": {
           "type": "string",
-          "description": "Active Ingredient Identifier."
+          "description": "Identifiant de l'ingrédient actif."
         },
         "active_ingredient_name": {
           "type": "string",
-          "description": "Active Ingredient Name."
+          "description": "Nom de l'ingrédient actif."
         }
       },
       "xml": {
@@ -570,15 +570,15 @@
     },
     "DrugProduct": {
       "type": "object",
-      "description": "Provides the information about all drug names and their codes.",
+      "description": "Fournit le nom de tous les médicaments et leurs codes.",
       "properties": {
         "drug_product_id": {
           "type": "string",
-          "description": "Drug Product Identifier."
+          "description": "Identifiant du produit pharmaceutique."
         },
         "drug_name": {
           "type": "string",
-          "description": "Brand Name."
+          "description": "Nom commercial."
         }
       },
       "xml": {
@@ -587,19 +587,19 @@
     },
     "Gender": {
       "type": "object",
-      "description": "Provides the information about the gender presentation text associated with the gender code.",
+      "description": "Fournit des renseignements sur le sexe, accompagnés du code du sexe.",
       "properties": {
         "gender_id": {
           "type": "string",
-          "description": "Gender Identifier."
+          "description": "Identifiant du sexe."
         },
         "gender_code": {
           "type": "string",
-          "description": "Gender Code."
+          "description": "Code du sexe."
         },
         "gender_name": {
           "type": "string",
-          "description": "Gender."
+          "description": "Sexe."
         }
       },
       "xml": {
@@ -608,19 +608,19 @@
     },
     "Outcome": {
       "type": "object",
-      "description": "Provides the information about the outcome presentation text associated with the outcome code.",
+      "description": "Fournit des renseignements sur le résultat, accompagnés du code du résultat.",
       "properties": {
         "outcome_id": {
           "type": "string",
-          "description": "Outcome Identifier."
+          "description": "Identifiant du résultat de la déclaration."
         },
         "outcome_code": {
           "type": "string",
-          "description": "Report Outcome Code."
+          "description": "Code du résultat de la déclaration."
         },
         "outcome_name": {
           "type": "string",
-          "description": "Report Outcome."
+          "description": "Résultat de la déclaration."
         }
       },
       "xml": {
@@ -629,35 +629,35 @@
     },
     "Reaction": {
       "type": "object",
-      "description": "Provides the information about the reaction terms associated with report.",
+      "description": "Fournit des renseignements au sujet des réactions associées aux déclarations.",
       "properties": {
         "reaction_id": {
           "type": "string",
-          "description": "Reaction Identifier."
+          "description": "Identifiant de la réaction."
         },
         "report_id": {
           "type": "string",
-          "description": "Adverse Reaction Report (AER) Number (6 digits)."
+          "description": "Numéro de la déclaration d'effet indésirable (DEI) (6 chiffres)."
         },
         "duration": {
           "type": "string",
-          "description": "Reaction Duration."
+          "description": "Durée de la réaction."
         },
         "duration_unit": {
           "type": "string",
-          "description": "Reaction Duration Unit."
+          "description": "Unité de durée de la réaction."
         },
         "pt_name": {
           "type": "string",
-          "description": "Adverse Reaction Term."
+          "description": "Terme des effets indésirables."
         },
         "soc_name": {
           "type": "string",
-          "description": "System Organ Class."
+          "description": "Classe par système et organe."
         },
         "meddra_version": {
           "type": "string",
-          "description": "MedDRA Version."
+          "description": "Version de MedDRA."
         }
       },
       "xml": {
@@ -666,31 +666,31 @@
     },
     "ReportDrug": {
       "type": "object",
-      "description": "There are three parameters in the request: id, lang and type.",
+      "description": "Fournit des renseignements sur les médicaments associés aux déclarations.",
       "properties": {
         "report_drug_id": {
           "type": "string",
-          "description": "Report Drug Identifier."
+          "description": "Identifiant de la déclaration - Produit pharmaceutique."
         },
         "report_id": {
           "type": "string",
-          "description": "Adverse Reaction Report (AER) Number (6 digits)."
+          "description": "Numéro de la déclaration d'effet indésirable (DEI) (6 chiffres)."
         },
         "drug_product_id": {
           "type": "string",
-          "description": "Drug Product Identifier."
+          "description": "Identifiant du produit pharmaceutique."
         },
         "drug_name": {
           "type": "string",
-          "description": "Brand Name."
+          "description": "Nom commercial."
         },
         "drug_involv_name": {
           "type": "string",
-          "description": "Health Product role."
+          "description": "Rôle du produit de santé."
         },
         "route_admin_name": {
           "type": "string",
-          "description": "Route of Administration."
+          "description": "Voie d'administration."
         },
         "unit_dose_qty": {
           "type": "string",
@@ -698,35 +698,35 @@
         },
         "dose_unit_name": {
           "type": "string",
-          "description": "Dose Unit."
+          "description": "Unité de dose."
         },
         "frequency": {
           "type": "string",
-          "description": "Frequency."
+          "description": "Fréquence."
         },
         "freq_time": {
           "type": "string",
-          "description": "Frequency Time."
+          "description": "Temps fréquence."
         },
         "frequency_time": {
           "type": "string",
-          "description": "Frequency Time."
+          "description": "Temps fréquence."
         },
         "freq_time_unit": {
           "type": "string",
-          "description": "Frequency Unit."
+          "description": "Unité de fréquence."
         },
         "therapy_duration": {
           "type": "string",
-          "description": "Therapy Duration."
+          "description": "Durée de la thérapie."
         },
         "therapy_duration_unit": {
           "type": "string",
-          "description": "Therapy Duration Unit."
+          "description": "Unité de durée de la thérapie."
         },
         "dosage_form": {
           "type": "string",
-          "description": "Dosage Form."
+          "description": "Forme posologique."
         },
         "indication_name": {
           "type": "string",
@@ -739,23 +739,23 @@
     },
     "ReportLink": {
       "type": "object",
-      "description": "Provides the information about the linked/duplicate reports presentation text associated with the code.",
+      "description": "Fournit des renseignements sur les déclarations liées ou en double, accompagnés du code des déclarations.",
       "properties": {
         "report_link_id": {
           "type": "string",
-          "description": "Report Link Identifier."
+          "description": "Identifiant du numéro de la déclaration."
         },
         "report_id": {
           "type": "string",
-          "description": "Adverse Reaction Report (AER) Number (6 digits)."
+          "description": "Numéro de la déclaration d'effet indésirable (DEI) (6 chiffres)."
         },
         "record_type": {
           "type": "string",
-          "description": "Record Type."
+          "description": "Type d'enregistrement."
         },
         "report_link_no": {
           "type": "string",
-          "description": "Duplicate or Linked Adverse Reaction Report (AER) Number."
+          "description": "Numéro de la déclaration d'effet indésirable (DEI) en double ou de la déclaration liée."
         }
       },
       "xml": {
@@ -764,19 +764,19 @@
     },
     "ReportType": {
       "type": "object",
-      "description": "Provides the information about the report type presentation text associated with the report type code.",
+      "description": "Fournit des renseignements sur le type de déclaration, accompagnés du code du type de déclaration.",
       "properties": {
         "report_type_id": {
           "type": "string",
-          "description": "Report Type Identifier."
+          "description": "Identifiant du type de déclaration."
         },
         "report_type_code": {
           "type": "string",
-          "description": "Report Type Code."
+          "description": "Code du type de déclaration."
         },
         "report_type": {
           "type": "string",
-          "description": "Report Type."
+          "description": "Type de déclaration."
         }
       },
       "xml": {
@@ -785,151 +785,151 @@
     },
     "Report": {
       "type": "object",
-      "description": "Provides the information about reports and patients.",
+      "description": "Fournit des renseignements au sujet des déclarations et des patients.",
       "properties": {
         "report_id": {
           "type": "string",
-          "description": "Adverse Reaction Report (AER) Number (6 digits)."
+          "description": "Numéro de la déclaration d'effet indésirable (DEI) (6 chiffres)."
         },
         "report_no": {
           "type": "string",
-          "description": "Adverse Reaction Report (AER) Number (9 digits)."
+          "description": "Numéro de la déclaration d'effet indésirable (DEI) (9 chiffres)."
         },
         "version_no": {
           "type": "string",
-          "description": "Adverse Reaction Report (AER) Version Number."
+          "description": "Numéro de version de la déclaration d'effet indésirable (DEI)."
         },
         "date_received": {
           "type": "string",
-          "description": "Latest Received Date."
+          "description": "Date de la dernière réception."
         },
         "date_int_received": {
           "type": "string",
-          "description": "Initial Received Date."
+          "description": "Date de la réception initiale."
         },
         "mah_no": {
           "type": "string",
-          "description": "Market Authorisation Holder (MAH) Adverse Reaction Report (AER) Number."
+          "description": "Numéro de la déclaration d'effet indésirable (DEI) du détenteur d'autorisation de mise en marché.\n"
         },
         "report_type_code": {
           "type": "string",
-          "description": "Type of Report Code."
+          "description": "Code du type de déclaration."
         },
         "report_type_name": {
           "type": "string",
-          "description": "Type of Report."
+          "description": "Type de déclaration."
         },
         "gender_code": {
           "type": "string",
-          "description": "Gender Code."
+          "description": "Code du sexe."
         },
         "gender_name": {
           "type": "string",
-          "description": "Gender."
+          "description": "Sexe."
         },
         "age": {
           "type": "string",
-          "description": "Age."
+          "description": "Âge."
         },
         "age_y": {
           "type": "string",
-          "description": "Age in Years."
+          "description": "Âge en années."
         },
         "age_unit": {
           "type": "string",
-          "description": "Age Unit."
+          "description": "Unité de l'âge."
         },
         "outcome_code": {
           "type": "string",
-          "description": "Report Outcome Code."
+          "description": "Code du résultat de la déclaration."
         },
         "outcome": {
           "type": "string",
-          "description": "Report Outcome."
+          "description": "Résultat de la déclaration."
         },
         "weight": {
           "type": "string",
-          "description": "Weight."
+          "description": "Poids."
         },
         "weight_unit": {
           "type": "string",
-          "description": "Weight Unit."
+          "description": "Unité de poids."
         },
         "height": {
           "type": "string",
-          "description": "Height."
+          "description": "Taille."
         },
         "height_unit": {
           "type": "string",
-          "description": "Height Unit."
+          "description": "Unité de taille."
         },
         "seriousness_code": {
           "type": "string",
-          "description": "Serious Adverse Reaction Code."
+          "description": "Code de la gravité de la réaction indésirable."
         },
         "seriousness": {
           "type": "string",
-          "description": "Serious Adverse Reaction."
+          "description": "Gravité de la réaction indésirable."
         },
         "death": {
           "type": "string",
-          "description": "Death."
+          "description": "Décès."
         },
         "disability": {
           "type": "string",
-          "description": "Disability."
+          "description": "Invalidité."
         },
         "congenital_anomaly": {
           "type": "string",
-          "description": "Congenital Anomaly."
+          "description": "Anomalie congénitale."
         },
         "life_threatening": {
           "type": "string",
-          "description": "Life Threatening."
+          "description": "Vie en danger."
         },
         "hosp_required": {
           "type": "string",
-          "description": "Hospitalization Required."
+          "description": "Hospitalisation."
         },
         "other_medically_imp_cond": {
           "type": "string",
-          "description": "Other Medically Important Condition."
+          "description": "Autre affection importante."
         },
         "reporter_type_code": {
           "type": "string",
-          "description": "Reporter Type Code."
+          "description": "Code du type de déclarant."
         },
         "reporter_type": {
           "type": "string",
-          "description": "Reporter Type."
+          "description": "Type de déclarant."
         },
         "source_code": {
           "type": "string",
-          "description": "Report Source Code."
+          "description": "Code de la source de la déclaration."
         },
         "source_name": {
           "type": "string",
-          "description": "Report Source."
+          "description": "Source de la déclaration."
         },
         "pt_name": {
           "type": "string",
-          "description": "Adverse Reaction Term."
+          "description": "Terme des effets indésirables."
         },
         "soc_name": {
           "type": "string",
-          "description": "System Organ Class."
+          "description": "Classe par système et organe."
         },
         "duration": {
           "type": "string",
-          "description": "Reaction Duration."
+          "description": "Durée de la réaction."
         },
         "duration_unit": {
           "type": "string",
-          "description": "Reaction Duration Unit."
+          "description": "Unité de durée de la réaction."
         },
         "drug_name": {
           "type": "string",
-          "description": "Brand Name."
+          "description": "Nom commercial."
         }
       },
       "xml": {
@@ -938,19 +938,19 @@
     },
     "Seriousness": {
       "type": "object",
-      "description": "Provides the information about the report seriousness presentation text associated with the report seriousness code.",
+      "description": "Fournit des renseignements sur la gravité de la réaction, accompagnés du code de gravité.",
       "properties": {
         "seriousness_id": {
           "type": "string",
-          "description": "Serious Report Identifier."
+          "description": "Identifiant de la gravité de la déclaration."
         },
         "seriousness_code": {
           "type": "string",
-          "description": "Serious Adverse Reaction Code."
+          "description": "Code de la gravité de la réaction indésirable."
         },
         "seriousness": {
           "type": "string",
-          "description": "Serious Adverse Reaction."
+          "description": "Gravité de la réaction indésirable."
         }
       },
       "xml": {
@@ -959,19 +959,19 @@
     },
     "Source": {
       "type": "object",
-      "description": "Provides the information about the report source presentation text associated with the report source code.",
+      "description": "Fournit des renseignements sur la source de déclaration, accompagnés du code de la source.",
       "properties": {
         "source_id": {
           "type": "string",
-          "description": "Report Source Identifier."
+          "description": "Identifiant de la source de la déclaration."
         },
         "source_code": {
           "type": "string",
-          "description": "Report Source Code."
+          "description": "Code de la source de la déclaration."
         },
         "source": {
           "type": "string",
-          "description": "Report Source."
+          "description": "Source de la déclaration."
         }
       },
       "xml": {
@@ -989,7 +989,7 @@
         "fr"
       ],
       "default": "en",
-      "description": "Define which language you would like the response to be in"
+      "description": "Modifie la langue du résultat."
     },
     "QueryType": {
       "name": "type",
@@ -1000,11 +1000,11 @@
         "xml"
       ],
       "default": "json",
-      "description": "Define which media type you would like the content to be in"
+      "description": "Modifie le format du résultat."
     },
     "PathID": {
       "name": "id",
-      "description": "The drug product code identifier",
+      "description": "Identifiant du produit pharmaceutique",
       "in": "path",
       "type": "string",
       "required": true

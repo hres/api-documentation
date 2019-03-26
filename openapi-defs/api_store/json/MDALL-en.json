@@ -132,7 +132,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/Licence"
+                "$ref": "#/definitions/Company"
               },
               "xml": {
                 "name": "Licences",
@@ -369,7 +369,7 @@
         },
         "licence_status": {
           "type": "string",
-          "description": "The licence status (C=Cancelled, D=Issued/Conditional, I=Issued/Active, M=Merge, O=Discontinued at Renewal, P=Pending signature, R=Cancelled Renowal No Response, S=Suspended, W=Withdrawn, Q=Suspended/Invalid QS Certification, X=Cancelled QS/2003).\n"
+          "description": "The licence status\n\n- C=Cancelled\n- D=Issued/Conditional\n- I=Issued/Active\n- M=Merge\n- O=Discontinued at Renewal\n- P=Pending signature\n- R=Cancelled Renowal No Response\n- S=Suspended\n- W=Withdrawn\n- Q=Suspended/Invalid QS Certification\n- X=Cancelled QS/2003\n"
         },
         "appl_risk_class": {
           "type": "string",

@@ -38,7 +38,7 @@ paths:
           description: Limit results to those with matching link ID
       responses:
         "200":
-          description: >-
+          description: |
             Returns a list of all summaries of basis of decisions, or if an ID
             is provided, the list of all summaries that correspond to the given
             link ID
@@ -68,7 +68,7 @@ paths:
           description: Limit results to those with matching link ID
       responses:
         "200":
-          description: >-
+          description: |
             Returns a list of all regulatory decisions, or if an ID is provided,
             the list of all decisions that correspond to the given link ID
           schema:
@@ -97,7 +97,7 @@ paths:
           description: Limit results to those with matching link ID
       responses:
         "200":
-          description: >-
+          description: |
             Returns a list of all summary safety reviews, or if an ID is
             provided, the list of all summaries that correspond to the given
             link ID
@@ -119,7 +119,7 @@ definitions:
     type: string
   SummaryBasisOfDecision:
     type: object
-    description: >-
+    description: |
       Les documents de sommaire des motifs de décision (SMD) expliquent pourquoi Santé Canada a autorisé la vente de certains médicaments et instruments médicaux au Canada. Les aspects pris en compte sont la réglementation, l'innocuité, l'efficacité et la qualité (sur le plan de la chimie et de la fabrication).
     properties:
       template:
@@ -595,6 +595,7 @@ definitions:
               description: Le texte relatif aux listes à puces.
     xml:
       name: SummarySafetyReview
+
 parameters:
   QueryLang:
     name: lang

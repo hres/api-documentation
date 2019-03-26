@@ -12,8 +12,8 @@
     }
   },
   "info": {
-    "title": "Clinical Trial Database (CTA)",
-    "description": "The Clinical Trials Database provides to the public a listing of specific information relating to phase I, II and III clinical trials in patients. The database is managed by Health Canada and provides a source of information about Canadian clinical trials involving human pharmaceutical and biological drugs.\n",
+    "title": "Base de données des essais cliniques (BDEC)",
+    "description": "La base de données sur les essais cliniques donne à la population une liste de renseignements précis sur les essais cliniques des phases I, II et III chez les patients. Gérée par Santé Canada, la base de données constitue une source d'information sur les essais cliniques effectués au Canada avec les médicaments pharmaceutiques et biologiques à usage humain.\n",
     "version": "0.1"
   },
   "schemes": [
@@ -29,7 +29,7 @@
     "/sponsor": {
       "get": {
         "tags": [
-          "Sponsor"
+          "Promoteur"
         ],
         "description": "Returns all sponsors.",
         "parameters": [
@@ -46,7 +46,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching sponsor ID"
+            "description": "Affiche le promoteur selon le numéro d'identification du promoteur spécifié dans la requête"
           }
         ],
         "responses": {
@@ -75,7 +75,7 @@
     "/medicalcondition": {
       "get": {
         "tags": [
-          "Medical Condition"
+          "Condition médicale"
         ],
         "description": "Returns all medical conditions.",
         "parameters": [
@@ -92,7 +92,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching sponsor ID"
+            "description": "Affiche la condition médicale selon le numéro d'identification de la condition médicale spécifié dans la requête."
           }
         ],
         "responses": {
@@ -121,7 +121,7 @@
     "/drugproduct": {
       "get": {
         "tags": [
-          "Drug Product"
+          "Produit pharmaceutique"
         ],
         "description": "Returns all drug products.",
         "parameters": [
@@ -167,7 +167,7 @@
     "/protocol": {
       "get": {
         "tags": [
-          "Protocol"
+          "Protocole"
         ],
         "description": "Returns all protocols.",
         "parameters": [
@@ -184,7 +184,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching protocol ID"
+            "description": "Affiche le protocole selon le numéro d'identification du protocole spécifié dans la requête"
           }
         ],
         "responses": {
@@ -213,7 +213,7 @@
     "/status": {
       "get": {
         "tags": [
-          "Trial Status"
+          "Statut de l'essai"
         ],
         "description": "Returns all trial statuses.",
         "parameters": [
@@ -230,7 +230,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching status ID"
+            "description": "Affiche le statut selon le numéro d'identification du statut spécifié dans la requête"
           }
         ],
         "responses": {
@@ -259,7 +259,7 @@
     "/studypopulation": {
       "get": {
         "tags": [
-          "Study Population"
+          "Population à l'étude"
         ],
         "description": "Returns all study populations.",
         "parameters": [
@@ -276,7 +276,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching study population ID"
+            "description": "Affiche la population à l'étude selon le numéro d'identification d'une population à l'étude spécifié dans la requête"
           }
         ],
         "responses": {
@@ -312,97 +312,97 @@
     },
     "DrugProduct": {
       "type": "object",
-      "description": "Basic information about the drug product, such as the name given to the drug used in the clinical trial. This may be a code name, the chemical name of the active ingredient, the non-proprietary name, or a brand name.",
+      "description": "Information sur le produit pharmaceutique, telles que le nom donné au médicament utilisé dans le cadre de l'essai clinique. Il peut s'agir d'un nom de code, du nom chimique de l'ingrédient actif, d'une dénomination commune ou d'une marque nominative.",
       "properties": {
         "protocol_id": {
           "type": "string",
-          "description": "The identification number assigned to the protocol"
+          "description": "Le numéro d'identification attribué à un protocole"
         },
         "submission_no": {
           "type": "string",
-          "description": "The control number"
+          "description": "Le numéro de contrôle"
         },
         "brand_id": {
           "type": "string",
-          "description": "The identification number assigned to a brand"
+          "description": "Le numéro d'identification attribué à une marque"
         },
         "manufacturer_id": {
           "type": "string",
-          "description": "The identification number assigned to a sponsor"
+          "description": "Le numéro d'identification attribué à un promoteur"
         },
         "manufacturer_name": {
           "type": "string",
-          "description": "The name of the sponsor"
+          "description": "Le nom du promoteur"
         },
         "brand_name": {
           "type": "string",
-          "description": "The brand name for the drug product"
+          "description": "Le nom commercial du produit pharmaceutique"
         }
       }
     },
     "MedicalCondition": {
       "type": "object",
-      "description": "The disease or a description of the intended indication that is being investigated in the clinical trial.",
+      "description": "La maladie ou une description de l'indication recherchée qui est à l'étude dans le cadre de l'essai clinique.",
       "properties": {
         "med_condition_id": {
           "type": "string",
-          "description": "The identification number assigned to a medical condition"
+          "description": "Le numéro d'identification attribué à une condition médicale"
         },
         "med_condition": {
           "type": "string",
-          "description": "The medical condition"
+          "description": "La condition médicale"
         }
       }
     },
     "Protocol": {
       "type": "object",
-      "description": "A document that describes the objective(s), design, methodology, statistical considerations and organization of a trial.",
+      "description": "Document qui décrit le ou les objectifs, la conception, la méthodologie, les considérations d'ordre statistique et l'organisation d'un essai clinique.",
       "properties": {
         "protocol_id": {
           "type": "string",
-          "description": "The identification number assigned to a protocol"
+          "description": "Le numéro d'identification attribué à un protocole"
         },
         "protocol_no": {
           "type": "string",
-          "description": "The protocol number"
+          "description": "Le numéro du protocole"
         },
         "submission_no": {
           "type": "string",
-          "description": "The control number"
+          "description": "Le numéro de contrôle"
         },
         "status_id": {
           "type": "string",
-          "description": "The identification number assigned to a status"
+          "description": "Le numéro d'identification attribué à un statut"
         },
         "start_date": {
           "type": "string",
-          "description": "The study start date"
+          "description": "La date de début de l'étude"
         },
         "end_date": {
           "type": "string",
-          "description": "The study end date"
+          "description": "La date de fin de l'étude"
         },
         "nol_date": {
           "type": "string",
-          "description": "The date of the No Objection Letter"
+          "description": "La date de la lettre de non-objection"
         },
         "protocol_title": {
           "type": "string",
-          "description": "The protocol title"
+          "description": "Titre du protocole"
         },
         "medConditionList": {
           "type": "array",
           "items": {
             "type": "object",
-            "description": "The consolidated list of medical conditions for a clinical trial protocol",
+            "description": "La liste des conditions médicales propres à un protocole.",
             "properties": {
               "med_condition_id": {
                 "type": "string",
-                "description": "The identification number assigned to a medical condition"
+                "description": "Le numéro d'identification attribué à une condition médicale"
               },
               "med_condition": {
                 "type": "string",
-                "description": "The medical condition"
+                "description": "La condition médicale"
               }
             }
           }
@@ -411,15 +411,15 @@
           "type": "array",
           "items": {
             "type": "object",
-            "description": "The consolidated list of study populations for a clinical trial protocol",
+            "description": "La liste des populations à l'étude propres à un protocole",
             "properties": {
               "study_population_id": {
                 "type": "string",
-                "description": "The identification number assigned to a study population"
+                "description": "Le numéro d'identification attribué à une population de l'étude"
               },
               "study_population": {
                 "type": "string",
-                "description": "The study population"
+                "description": "La population de l'étude"
               }
             }
           }
@@ -428,43 +428,43 @@
     },
     "Sponsor": {
       "type": "object",
-      "description": "A clinical trial sponsor is an individual, corporate body, institution or organization that conducts a clinical trial. The sponsor is responsible for every aspect of a clinical trial, including ensuring that the trial is carried out under good clinical practices at each clinical trial site.\n\nEach clinical trial site must have a Qualified Investigator, i.e., a licensed physician or dentist. The Qualified Investigator is the person responsible to the sponsor for the conduct of the clinical trial at the clinical trial site.\n",
+      "description": "Un promoteur d'essai clinique est un particulier, une entreprise, une institution ou un organisme qui mène un essai clinique. Le promoteur est responsable de tous les aspects d'un essai clinique, dont celui de veiller à ce que l'essai soit mené selon les bonnes pratiques cliniques à chaque lieu d'essai clinique. Il doit y avoir un chercheur qualifié, comme un médecin habilité ou un dentiste, à chacun des lieux d'essai choisis. Le chercheur qualifié est la personne responsable auprès du promoteur de la conduite de l'essai clinique à un lieu d'essai clinique.\n",
       "properties": {
         "manufacturer_id": {
           "type": "string",
-          "description": "The identification number assigned to a sponsor"
+          "description": "Le numéro d'identification attribué à un promoteur"
         },
         "manufacturer_name": {
           "type": "string",
-          "description": "The name of the sponsor"
+          "description": "Le nom du promoteur"
         }
       }
     },
     "TrialStatus": {
       "type": "object",
-      "description": "A \"PENDING\" status means Health Canada is pending the receipt of information from the sponsor indicating that the trial started. An \"ONGOING\" status means Health Canada has received information from the sponsor indicating the proposed study start date, and an \"ENDED\" status means Health Canada has received information from the sponsor indicating that the clinical trial has ended.\n",
+      "description": "« EN ATTENTE » signifie que Santé Canada attend de recevoir du promoteur l'information selon laquelle l'essai est commencé. « EN COURS » signifie que Santé Canada a reçu du promoteur l'information indiquant la date proposée pour le début de l'essai, et « TERMINÉ » signifie que Santé Canada a reçu du promoteur l'information selon laquelle l'essai clinique est terminé.\n",
       "properties": {
         "status_id": {
           "type": "string",
-          "description": "The identification number assigned to a status"
+          "description": "Le numéro d'identification attribué à un statut"
         },
         "status": {
           "type": "string",
-          "description": "The status of the trial"
+          "description": "Le statut de l'essai"
         }
       }
     },
     "StudyPopulation": {
       "type": "object",
-      "description": "Characteristics of subjects that are eligible to participate in the clinical trial, e.g., adult males and females, children, etc.",
+      "description": "Caractéristiques des sujets admissibles à l'essai clinique, p. ex. hommes et femmes adultes, enfants, etc.",
       "properties": {
         "study_population_id": {
           "type": "string",
-          "description": "The identification number assigned to a study population"
+          "description": "Le numéro d'identification attribué à une population à l'étude"
         },
         "study_population": {
           "type": "string",
-          "description": "The study population"
+          "description": "La population à l'étude"
         }
       }
     }
@@ -479,7 +479,7 @@
         "fr"
       ],
       "default": "en",
-      "description": "Define which language you would like the response to be in"
+      "description": "Détermine si le résultat est affiché en anglais ou en français"
     },
     "QueryType": {
       "name": "type",
@@ -490,7 +490,7 @@
         "xml"
       ],
       "default": "json",
-      "description": "Define which media type you would like the content to be in"
+      "description": "Détermine si le résultat est en format JSON ou XML"
     },
     "UserKeys": {
       "name": "user-key",

@@ -12,8 +12,8 @@
     }
   },
   "info": {
-    "title": "Canadian Nutrient File (CNF)",
-    "description": "The Canadian Nutrient File (CNF) is the standard reference food composition database reporting the amount of nutrients in foods commonly consumed in Canada.",
+    "title": "Fichier canadien sur les éléments nutritifs (FCÉN)",
+    "description": "Le Fichier canadien sur les éléments nutritifs (FCÉN) est la base de données de référence sur la composition des aliments qui nous informe de la quantité des éléments nutritifs dans les aliments couramment consommés au Canada.",
     "version": "0.1"
   },
   "schemes": [
@@ -29,7 +29,7 @@
     "/food": {
       "get": {
         "tags": [
-          "Food"
+          "Aliment"
         ],
         "description": "Returns all foods.",
         "parameters": [
@@ -46,7 +46,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching food code"
+            "description": "Affiche les détails de l'aliment selon le code de l'aliment spécifié dans la requête."
           }
         ],
         "responses": {
@@ -75,7 +75,7 @@
     "/nutrientname": {
       "get": {
         "tags": [
-          "Nutrient"
+          "Nom des éléments nutritifs"
         ],
         "description": "Returns all nutrient names.",
         "parameters": [
@@ -92,7 +92,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching nutrient name identification number"
+            "description": "Affiche l'élément nutritif selon le numéro d'identification de l'élément nutritif spécifié dans la requête."
           }
         ],
         "responses": {
@@ -121,7 +121,7 @@
     "/nutrientgroup": {
       "get": {
         "tags": [
-          "Nutrient"
+          "Groupe d'éléments nutritifs"
         ],
         "description": "Returns all nutrient groups.",
         "parameters": [
@@ -138,7 +138,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching nutrient group identification number"
+            "description": "Affiche le groupe d'éléments nutritifs selon le numéro d'identification du groupe d'éléments nutritifs spécifié dans la requête."
           }
         ],
         "responses": {
@@ -167,7 +167,7 @@
     "/nutrientsource": {
       "get": {
         "tags": [
-          "Nutrient"
+          "Source d'éléments nutritifs"
         ],
         "description": "Returns all nutrient sources.",
         "parameters": [
@@ -184,7 +184,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching nutrient source identification number"
+            "description": "Affiche la source d'éléments nutritifs selon le numéro d'identification de la source d'éléments nutritifs spécifié dans la requête."
           }
         ],
         "responses": {
@@ -213,7 +213,7 @@
     "/nutrientamount": {
       "get": {
         "tags": [
-          "Nutrient"
+          "Teneur en élément nutritif"
         ],
         "description": "Returns all nutrient amounts.",
         "parameters": [
@@ -230,7 +230,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching food code"
+            "description": "Affiche les teneurs en élément nutritif selon le code de l'aliment spécifié dans la requête."
           }
         ],
         "responses": {
@@ -259,7 +259,7 @@
     "/servingsize": {
       "get": {
         "tags": [
-          "Serving Size"
+          "Portion comestible"
         ],
         "description": "Returns all measures and conversion factors.",
         "parameters": [
@@ -276,7 +276,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching food code"
+            "description": "Affiche les portions comestibles selon le code de l'aliment spécifié dans la requête."
           }
         ],
         "responses": {
@@ -305,7 +305,7 @@
     "/refuseamount": {
       "get": {
         "tags": [
-          "Serving Size"
+          "Portion non comestible"
         ],
         "description": "Returns all refuse amounts.",
         "parameters": [
@@ -322,7 +322,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching food code"
+            "description": "Affiche la ou les portions non comestibles selon le code de l'aliment spécifié dans la requête."
           }
         ],
         "responses": {
@@ -351,7 +351,7 @@
     "/yieldamount": {
       "get": {
         "tags": [
-          "Yield Amount"
+          "Rendement"
         ],
         "description": "Returns all yield amounts.",
         "parameters": [
@@ -368,7 +368,7 @@
             "name": "id",
             "in": "query",
             "type": "string",
-            "description": "Limit results to those with matching food code"
+            "description": "Affiche le ou les rendements selon le code de l'aliment spécifié dans la requête."
           }
         ],
         "responses": {
@@ -404,15 +404,15 @@
     },
     "Food": {
       "type": "object",
-      "description": "It contains a description and the code of each food. A food cannot be further decomposed into ingredients.",
+      "description": "Contient la description et le code de chaque aliment. Un aliment ne peut être davantage décomposé en ingrédients.",
       "properties": {
         "food_code": {
           "type": "string",
-          "description": "The code assigned to a food."
+          "description": "Le code attribué à un aliment."
         },
         "food_description": {
           "type": "string",
-          "description": "The complete food name."
+          "description": "Le nom complet de l'aliment."
         }
       },
       "xml": {
@@ -421,47 +421,47 @@
     },
     "NutrientName": {
       "type": "object",
-      "description": "It contains a list of different nutrients.",
+      "description": "La liste des éléments nutritifs.",
       "properties": {
         "nutrient_name_id": {
           "type": "string",
-          "description": "The identification number assigned to a nutrient."
+          "description": "Le numéro d'identification attribué à un élément nutritif."
         },
         "nutrient_code": {
           "type": "string",
-          "description": "The code assigned to a nutrient."
+          "description": "Le code attribué à un élément nutritif."
         },
         "nutrient_symbol": {
           "type": "string",
-          "description": "The nutrient symbol or abbreviation of the nutrients. They may differ from international nomenclature."
+          "description": "Le symbole ou l'abréviation des éléments nutritifs. Ces symboles peuvent être différents de la nomenclature internationale."
         },
         "unit": {
           "type": "string",
-          "description": "The unit of measure (e.g., mg, g, mcg)."
+          "description": "L'unité de mesure."
         },
         "nutrient_name": {
           "type": "string",
-          "description": "The name of the nutrient."
+          "description": "Le nom de l'élément nutritif."
         },
         "tagname": {
           "type": "string",
-          "description": "A unique Abbreviation for a food component developed by International Network of Food Data Systems (INFOODS) to aid in the interchange of data."
+          "description": "Un système d'abréviation des constituants alimentaires développé par le réseau international des systèmes de données sur l'alimentation (INFOODS) pour faciliter l'échange d'information au niveau international."
         },
         "nutrient_decimals": {
           "type": "string",
-          "description": "The number of decimal places used in the rounding of the nutrient value."
+          "description": "Le nombre de décimales utilisées pour arrondir la valeur des éléments nutritifs."
         },
         "nutrient_web_order": {
           "type": "string",
-          "description": "The order to display the nutrient."
+          "description": "L'ordre d'affichage des éléments nutritifs."
         },
         "nutrient_web_name": {
           "type": "string",
-          "description": "The name of the nutrient for the WEB."
+          "description": "Le nom de l'élément nutritif pour le WEB."
         },
         "nutrient_group_id": {
           "type": "string",
-          "description": "The identification number of the nutrient group."
+          "description": "Le numéro d'identification d'un groupe d'éléments nutritifs."
         }
       },
       "xml": {
@@ -470,19 +470,19 @@
     },
     "NutrientGroup": {
       "type": "object",
-      "description": "It contains a list of different nutrient group headings based on similar characteristics of the nutrients.",
+      "description": "La liste des groupes d'éléments nutritifs basés sur les similarités des éléments nutritifs.",
       "properties": {
         "nutrient_group_id": {
           "type": "string",
-          "description": "The identification number assigned to a nutrient group."
+          "description": "Le numéro d'identification attribué à un groupe d'éléments nutritifs."
         },
         "nutrient_group_name": {
           "type": "string",
-          "description": "The name of the nutrient group."
+          "description": "Le nom d'un groupe d'éléments nutritifs."
         },
         "nutrient_group_order": {
           "type": "string",
-          "description": "The order to display the nutrient group."
+          "description": "L'ordre d'affichage des groupes d'éléments nutritifs."
         }
       },
       "xml": {
@@ -491,19 +491,19 @@
     },
     "NutrientSource": {
       "type": "object",
-      "description": "It contains a list of several sources and/or types of nutrient data.",
+      "description": "La liste des sources et/ou types d'éléments nutritifs.",
       "properties": {
         "nutrient_source_id": {
           "type": "string",
-          "description": "The identification number assigned to a nutrient source."
+          "description": "Le numéro d'identification attribué à une source d'éléments nutritifs."
         },
         "nutrient_source_description": {
           "type": "string",
-          "description": "The description of the nutrient source."
+          "description": "La description d'une source d'éléments nutritifs."
         },
         "nutrient_source_code": {
           "type": "string",
-          "description": "The code that identifies a nutrient source in Canada."
+          "description": "Le code qui identifie une source d'éléments nutritifs au Canada."
         }
       },
       "xml": {
@@ -512,35 +512,35 @@
     },
     "NutrientAmount": {
       "type": "object",
-      "description": "Identify the nutrient amount per 100 grams for a food.",
+      "description": "Les quantités des éléments nutritifs pour 100 g de portion comestible, pour chaque aliment.",
       "properties": {
         "food_code": {
           "type": "string",
-          "description": "The code assigned to each food."
+          "description": "Le code attribué à chaque aliment."
         },
         "nutrient_value": {
           "type": "string",
-          "description": "The mean value in 100g, edible portion. (The number of decimal places does not reflect the accuracy of the data)."
+          "description": "Valeur moyenne dans une portion de 100g de portion comestible (le nombre de décimale ne reflète pas l'exactitude des données)."
         },
         "standard_error": {
           "type": "string",
-          "description": "The standard error of the mean."
+          "description": "L'écart-type de la moyenne."
         },
         "number_observation": {
           "type": "string",
-          "description": "The number of samples observed for the study."
+          "description": "Le nombre d'échantillons utilisés pour une étude."
         },
         "nutrient_name_id": {
           "type": "string",
-          "description": "The identification number of the nutrient."
+          "description": "Le numéro d'identification d'un élément nutritif."
         },
         "nutrient_web_name": {
           "type": "string",
-          "description": "The name of the nutrient for the WEB."
+          "description": "Le nom de l'élément nutritif pour le WEB."
         },
         "nutrient_source_id": {
           "type": "string",
-          "description": "The identification number of the nutrient source."
+          "description": "Le numéro d'identification d'une source d'éléments nutritifs."
         }
       },
       "xml": {
@@ -549,23 +549,23 @@
     },
     "ServingSize": {
       "type": "object",
-      "description": "Measures and conversion factors per food. The conversion factors are food specific multipliers by which the nutrient values for each food may be multiplied to give the nutrients in described portions.",
+      "description": "Mesures et facteurs de conversion par aliment. Les facteurs sont utilisés (multiplier avec la valeur pour 100g) pour obtenir la valeur de l'élément nutritif pour la mesure donnée.",
       "properties": {
         "food_code": {
           "type": "string",
-          "description": "The code assigned to each food."
+          "description": "Le code attribué à chaque aliment."
         },
         "food_description": {
           "type": "string",
-          "description": "The complete food name."
+          "description": "Le nom complet de l'aliment."
         },
         "conversion_factor_value": {
           "type": "string",
-          "description": "The factor by which one would multiply the nutrient per 100g to obtain nutrient amounts per the measure described."
+          "description": "Le facteur utilisé (multiplier avec la valeur pour 100g) afin d'obtenir la valeur de l'élément nutritif pour la mesure donnée."
         },
         "measure_name": {
           "type": "string",
-          "description": "The measure description."
+          "description": "La description de la mesure."
         }
       },
       "xml": {
@@ -574,23 +574,23 @@
     },
     "RefuseAmount": {
       "type": "object",
-      "description": "Refuse amount is the percent of refuse, or inedible portion, for each food.",
+      "description": "Désigne la partie non comestible d'une portion, pour chaque aliment.",
       "properties": {
         "food_code": {
           "type": "string",
-          "description": "The code assigned to each food."
+          "description": "Le code attribué à chaque aliment."
         },
         "food_description": {
           "type": "string",
-          "description": "The complete food name."
+          "description": "Le nom complet de l'aliment."
         },
         "refuse_amount": {
           "type": "string",
-          "description": "The percent refuse."
+          "description": "Pourcentage des portions non comestibles."
         },
         "refuse_name": {
           "type": "string",
-          "description": "The refuse description."
+          "description": "La description de la portion non comestible."
         }
       },
       "xml": {
@@ -599,23 +599,23 @@
     },
     "YieldAmount": {
       "type": "object",
-      "description": "Contains the yield from refuse and/or cooking losses assigned to certain foods. These yields are most often used for food inventory purposes.",
+      "description": "Contient les rendements provenant des portions non comestibles et/ou des pertes de cuisson de certains aliments. Ces rendements sont souvent consultés à des fins d'inventaires alimentaires.",
       "properties": {
         "food_code": {
           "type": "string",
-          "description": "The code assigned to each food."
+          "description": "Le code attribué à chaque aliment."
         },
         "food_description": {
           "type": "string",
-          "description": "The complete food name."
+          "description": "Le nom complet de l'aliment."
         },
         "yield_amount": {
           "type": "string",
-          "description": "The yield from refuse and/or cooking losses."
+          "description": "Le rendement provenant des portions non comestibles et pertes de cuisson."
         },
         "yield_name": {
           "type": "string",
-          "description": "The yield description."
+          "description": "La description du rendement."
         }
       },
       "xml": {
@@ -633,7 +633,7 @@
         "fr"
       ],
       "default": "en",
-      "description": "Define which language you would like the response to be in"
+      "description": "Détermine si le résultat est affiché en anglais ou en français."
     },
     "QueryType": {
       "name": "type",
@@ -644,7 +644,7 @@
         "xml"
       ],
       "default": "json",
-      "description": "Define which media type you would like the content to be in"
+      "description": "Détermine si le résultat est en format JSON ou XML."
     },
     "PathID": {
       "name": "id",

@@ -12,8 +12,8 @@
     }
   },
   "info": {
-    "title": "Summary Reports",
-    "description": "The Drug and Health Product Register brings together Information on product licences, drug and health product inspections, buying and using products safely, and side effects, recalls and complaints.",
+    "title": "Les rapports sommaires",
+    "description": "Le site internet, Registre des médicaments et des produits de santé, regroupe l’information au sujet des licences de produit, des inspections, de l’achat et de l’utilisation sécuritaire des produits, des effets secondaires, des rappels et des plaintes.",
     "version": "0.1"
   },
   "schemes": [
@@ -51,7 +51,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all summaries of basis of decisions, or if an ID is provided, the list of all summaries that correspond to the given link ID",
+            "description": "Returns a list of all summaries of basis of decisions, or if an ID\nis provided, the list of all summaries that correspond to the given\nlink ID\n",
             "schema": {
               "type": "array",
               "items": {
@@ -97,7 +97,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all regulatory decisions, or if an ID is provided, the list of all decisions that correspond to the given link ID",
+            "description": "Returns a list of all regulatory decisions, or if an ID is provided,\nthe list of all decisions that correspond to the given link ID\n",
             "schema": {
               "type": "array",
               "items": {
@@ -143,7 +143,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all summary safety reviews, or if an ID is provided, the list of all summaries that correspond to the given link ID",
+            "description": "Returns a list of all summary safety reviews, or if an ID is\nprovided, the list of all summaries that correspond to the given\nlink ID\n",
             "schema": {
               "type": "array",
               "items": {
@@ -174,151 +174,151 @@
     },
     "SummaryBasisOfDecision": {
       "type": "object",
-      "description": "Summary Basis of Decision (SBD) documents explain why Health Canada authorized certain drugs and medical devices for sale in Canada. The documents include regulatory, safety, effectiveness and quality (chemistry and manufacturing) considerations.",
+      "description": "Les documents de sommaire des motifs de décision (SMD) expliquent pourquoi Santé Canada a autorisé la vente de certains médicaments et instruments médicaux au Canada. Les aspects pris en compte sont la réglementation, l'innocuité, l'efficacité et la qualité (sur le plan de la chimie et de la fabrication).\n",
       "properties": {
         "template": {
           "type": "string",
-          "description": "There are two different formats for the SBDs. This variable defines which template is used. Possible values are1 or 2."
+          "description": "Il existe deux différents modèles de SMD. Cette variable détermine quel modèle est utilisé. Les valeurs possibles sont 1 ou 2."
         },
         "control_number": {
           "type": "string",
-          "description": "The control number (for the new drug submission)."
+          "description": "Le numéro de contrôle (pour la présentation de drogue nouvelle)."
         },
         "date_issued": {
           "type": "string",
-          "description": "The date the SBD was issued."
+          "description": "La date de publication du SMD."
         },
         "link_id": {
           "type": "string",
-          "description": "This variable is used to link all of the SBD data together."
+          "description": "Cette variable est utilisée pour créer des liens entre toutes les données du SMD."
         },
         "brand_name": {
           "type": "string",
-          "description": "The brand name."
+          "description": "La marque nominative."
         },
         "manufacturer": {
           "type": "string",
-          "description": "The manufacturer."
+          "description": "Le fabricant."
         },
         "med_ingredient": {
           "type": "string",
-          "description": "The medicinal ingredient."
+          "description": "L'ingrédient médicinal."
         },
         "bd_din_list": {
           "type": "string",
-          "description": "Reference number that links the SBD information together."
+          "description": "Le numéro de référence qui crée des liens entre les informations du SMD."
         },
         "sub_type_number": {
           "type": "string",
-          "description": "The submission type and its number."
+          "description": "Le type de présentation et son numéro."
         },
         "date_submission": {
           "type": "string",
-          "description": "The date of the submission."
+          "description": "La date de la présentation."
         },
         "date_authorization": {
           "type": "string",
-          "description": "The date it was authorized."
+          "description": "La date à laquelle elle a été autorisée."
         },
         "notice_decision": {
           "type": "string",
-          "description": "The notice of decision text."
+          "description": "Le texte relatif à l’avis de décision."
         },
         "sci_reg_decision": {
           "type": "string",
-          "description": "The scientific and regulatory basis for decision text."
+          "description": "Le texte relatif aux motifs de décision scientifiques et réglementaires."
         },
         "quality_basis": {
           "type": "string",
-          "description": "The quality basis for decision text."
+          "description": "Le texte relatif aux motifs de décision d’ordre qualitatif."
         },
         "non_clin_basis": {
           "type": "string",
-          "description": "The Non-Clinical basis for decision text."
+          "description": "Le texte relatif aux motifs de décision non cliniques."
         },
         "non_clin_basis2": {
           "type": "string",
-          "description": "The Non-Clinical basis for decision text continued. This field is concatenated with NonclinBasis if the character limit for that field is exceeded."
+          "description": "La suite du texte relatif aux motifs de décision non cliniques. Ce champ est concaténé avec les motifs de décision non cliniques si sa limite de caractère est dépassée."
         },
         "clin_basis": {
           "type": "string",
-          "description": "The Clinical Basis for decision."
+          "description": "Les motifs de décision cliniques."
         },
         "clin_basis2": {
           "type": "string",
-          "description": "The Clinical Basis for decision continued. This field is concatenated with ClinBasis if the character limit for that field is exceeded."
+          "description": "La suite des motifs de décision cliniques. Ce champ est concaténé avec les motifs cliniques si sa limite de caractère est dépassée."
         },
         "clin_basis3": {
           "type": "string",
-          "description": "The clinical basis for decision continued. This field is concatenated with ClinBasis2 if the character limit for that field is exceeded."
+          "description": "La suite des motifs de décision cliniques. Ce champ est concaténé avec les motifs cliniques 2 si sa limite de caractère est dépassée."
         },
         "benefit_risk": {
           "type": "string",
-          "description": "The Benefit/Risk Assessment and Recommendation text."
+          "description": "Le texte relatif à l’évaluation des avantages/risques et recommandations."
         },
         "radioisotope": {
           "type": "string",
-          "description": "The radioisotope type."
+          "description": "Le type de radio-isotopes."
         },
         "summary": {
           "type": "string",
-          "description": "The “Summary Basis of Decision” introductory text."
+          "description": "Le texte d’introduction du « Sommaire des motifs de décision »."
         },
         "what_approved": {
           "type": "string",
-          "description": "The “What was approved?” text."
+          "description": "Le texte « Quel produit a été approuvé? »."
         },
         "why_approved": {
           "type": "string",
-          "description": "The reason why the product was approved."
+          "description": "La raison pour laquelle le produit a été approuvé."
         },
         "steps_approval": {
           "type": "string",
-          "description": "The steps for approval."
+          "description": "Les étapes de l’approbation."
         },
         "assess_basis": {
           "type": "string",
-          "description": "The concluding text in section 3 \"What led to the approval\"."
+          "description": "Le texte de conclusion de la section 3 « Ce qui a mené à l’approbation »."
         },
         "followup_measures": {
           "type": "string",
-          "description": "The follow-up measures that the company will take."
+          "description": "Les mesures de suivi que l’entreprise devra prendre."
         },
         "post_auth": {
           "type": "string",
-          "description": "The post-authorization activity that has taken place for the drug."
+          "description": "Les activités mises en place après l’autorisation pour le médicament."
         },
         "other_info": {
           "type": "string",
-          "description": "The other information available about drugs."
+          "description": "Les autres informations disponibles à propos des médicaments."
         },
         "a_sci_reg_decision": {
           "type": "string",
-          "description": "The scientific rationale for Health Canada’s decision introductory text."
+          "description": "Le texte d’introduction relatif au fondement scientifique sur lequel repose la décision de Santé Canada."
         },
         "science_rationale": {
           "type": "string",
-          "description": "The scientific rationale for Health Canada’s decision."
+          "description": "Le fondement scientifique sur lequel repose la décision de Santé Canada."
         },
         "a_clin_basis": {
           "type": "string",
-          "description": "The Clinical Basis for Decision."
+          "description": "Les motifs de décision cliniques."
         },
         "a_clin_basis2": {
           "type": "string",
-          "description": "The Clinical Basis for Decision continued. This field is concatenated with AClinBasis if the character limit for that field is exceeded."
+          "description": "La suite des motifs de décision cliniques. Ce champ est concaténé avec les motifs cliniques A si sa limite de caractère est dépassée."
         },
         "a_non_clin_basis": {
           "type": "string",
-          "description": "The Non-Clinical Basis for Decision."
+          "description": "Les motifs de décision non cliniques."
         },
         "a_non_clin_basis2": {
           "type": "string",
-          "description": "The Non-Clinical Basis for Decision continued. This field is concatenated with ANonClinBasis if the character limit for that field is exceeded."
+          "description": "La suite des motifs de décision non cliniques. Ce champ est concaténé avec les motifs non cliniques A si sa limite de caractère est dépassée."
         },
         "b_quality_basis": {
           "type": "string",
-          "description": "The Quality Basis for Decision."
+          "description": "Les motifs de décision d’ordre qualitatif."
         },
         "contact": {
           "type": "string",
@@ -342,11 +342,11 @@
         },
         "din": {
           "type": "string",
-          "description": "The Drug Identification number(s)."
+          "description": "Le ou les numéros d’identification d’un médicament."
         },
         "licence_number": {
           "type": "string",
-          "description": "The product licence number."
+          "description": "Le numéro de licence du produit."
         },
         "ai_str_route_summary": {
           "type": "string",
@@ -354,26 +354,26 @@
         },
         "is_md": {
           "type": "string",
-          "description": "The product is_md (medical device)."
+          "description": "Le produit est_md (instrument médical)."
         },
         "din_list": {
           "type": "string",
-          "description": "The list of Drug Identification number(s)."
+          "description": "La liste du ou des numéros d’identification d’un médicament."
         },
         "post_activity_list": {
           "type": "string",
-          "description": "The product post activity list"
+          "description": "La liste des activités mises en place après l’autorisation pour le produit."
         },
         "milestone_list": {
           "type": "array",
-          "description": "The product milestone list.",
+          "description": "La liste des jalons du produit.",
           "items": {
             "$ref": "#/definitions/MilestoneList"
           }
         },
         "tombstone_list": {
           "type": "array",
-          "description": "The product tombstone list.",
+          "description": "La liste de base du produit.",
           "items": {
             "$ref": "#/definitions/TombstoneList"
           }
@@ -385,27 +385,27 @@
     },
     "MilestoneList": {
       "type": "object",
-      "description": "The product milestone.",
+      "description": "Les jalons du produit.",
       "properties": {
         "link_id": {
           "type": "string",
-          "description": "This variable is used to link all of the SBD data together."
+          "description": "Cette variable est utilisée pour créer des liens entre toutes les données du SMD."
         },
         "num_order": {
           "type": "string",
-          "description": "The order of the milestone."
+          "description": "L'ordre des jalons."
         },
         "milestone": {
           "type": "string",
-          "description": "The milestone description."
+          "description": "La description du jalon (étape importante)."
         },
         "completed_date": {
           "type": "string",
-          "description": "The completed date of the milestone."
+          "description": "La date de la fin de l'étape."
         },
         "completed_date2": {
           "type": "string",
-          "description": "The completed date 2 of the milestone."
+          "description": "La date 2 de la fin de l'étape."
         },
         "separator": {
           "type": "string",
@@ -415,113 +415,113 @@
     },
     "TombstoneList": {
       "type": "object",
-      "description": "The product tombstone",
+      "description": "Le base du produit.",
       "properties": {
         "link_id": {
           "type": "string",
-          "description": "This variable is used to link all of the SBD data together."
+          "description": "Cette variable est utilisée pour créer des liens entre toutes les données du SMD."
         },
         "num_order": {
           "type": "string",
-          "description": "The order of the active ingredients."
+          "description": "L'ordre des ingrédients contenus dans un produit."
         },
         "med_ingredient": {
           "type": "string",
-          "description": "The medicinal ingredient."
+          "description": "L'ingrédient actif."
         },
         "nonprop_name": {
           "type": "string",
-          "description": "The non-proprietary name given to an active ingredient."
+          "description": "La dénomination commune internationale d'un ingrédient actif."
         },
         "strength": {
           "type": "string",
-          "description": "The quantitative value of the active ingredient strength."
+          "description": "La concentration de l'ingrédient actif contenu dans un produit pharmaceutique."
         },
         "dosageform": {
           "type": "string",
-          "description": "The final physical form of product."
+          "description": "La forme finale du produit."
         },
         "route_admin": {
           "type": "string",
-          "description": "The route of administration."
+          "description": "La voie d'administration."
         },
         "thera_class": {
           "type": "string",
-          "description": "The therapeutic class."
+          "description": "La classe thérapeutique."
         },
         "nonmed_ingredient": {
           "type": "string",
-          "description": "The non-medicinal ingredients."
+          "description": "Les ingrédients non-médicinaux."
         }
       }
     },
     "RegulatoryDecision": {
       "type": "object",
-      "description": "Regulatory Decision Summaries (RDSs) explain Health Canada's decision for certain health products seeking market authorization.",
+      "description": "Les sommaires des décisions réglementaires (SDR) expliquent les décisions de Santé Canada relativement à certains produits de santé pour lesquels une autorisation de mise en marché est demandée.",
       "properties": {
         "link_id": {
           "type": "string",
-          "description": "This variable is used to link all of the RDS data together."
+          "description": "Cette variable est utilisée pour créer des liens entre toutes les données des SDR."
         },
         "drug_name": {
           "type": "string",
-          "description": "The brand name of the drug."
+          "description": "La marque nominative du médicament."
         },
         "contact_name": {
           "type": "string",
-          "description": "The name of Health Canada the contact."
+          "description": "Le nom de la personne-ressource de Santé Canada."
         },
         "contact_url": {
           "type": "string",
-          "description": "The URL of the Health Canada contact."
+          "description": "L’adresse URL de la personne-ressource de Santé Canada."
         },
         "medical_ingredient": {
           "type": "string",
-          "description": "The active ingredient."
+          "description": "L'ingrédient actif."
         },
         "therapeutic_area": {
           "type": "string",
-          "description": "The Therapeutic area."
+          "description": "Le domaine thérapeutique."
         },
         "purpose": {
           "type": "string",
-          "description": "The purpose of the submission."
+          "description": "L’objectif de la présentation."
         },
         "reason_decision": {
           "type": "string",
-          "description": "Why was the decision issued."
+          "description": "La raison pour laquelle la décision a été rendue."
         },
         "decision": {
           "type": "string",
-          "description": "The Decision issued."
+          "description": "La décision rendue."
         },
         "decision_descr": {
           "type": "string",
-          "description": "The explanatory text of the decision."
+          "description": "Le texte justificatif de la décision."
         },
         "date_decision": {
           "type": "string",
-          "description": "The date of decision."
+          "description": "La date de la décision."
         },
         "manufacturer": {
           "type": "string",
-          "description": "The manufacturer."
+          "description": "Le fabricant."
         },
         "prescription_status": {
           "type": "string",
-          "description": "The prescription status."
+          "description": "Le statut de l’ordonnance."
         },
         "type_submission": {
           "type": "string",
-          "description": "The type of submission."
+          "description": "Le type de présentation."
         },
         "date_filed": {
           "type": "string",
-          "description": "The date the submission was filed."
+          "description": "La date à laquelle la présentation a été déposée."
         },
         "control_number": {
           "type": "string",
-          "description": "The control number for the submission."
+          "description": "Le numéro de contrôle de la présentation."
         },
         "application_number": {
           "type": "string",
@@ -541,35 +541,35 @@
         },
         "created_date": {
           "type": "string",
-          "description": "The created date."
+          "description": "La date de création"
         },
         "modified_date": {
           "type": "string",
-          "description": "The modified date."
+          "description": "La date de modification."
         },
         "footnotes": {
           "type": "string",
-          "description": "A reference number to the footnotes text."
+          "description": "Un numéro de référence pour le texte des notes en bas de page."
         },
         "summary_title": {
           "type": "string",
-          "description": "Summary title."
+          "description": "Le titre sommaire."
         },
         "summary_subtitle": {
           "type": "string",
-          "description": "Summary subtitle."
+          "description": "Le sous-titre sommmaire."
         },
         "summary_text1": {
           "type": "string",
-          "description": "Summary text 1."
+          "description": "Le texte sommaire 1."
         },
         "summary_text2": {
           "type": "string",
-          "description": "Summary text 2."
+          "description": "Le texte sommaire 2."
         },
         "summary_text3": {
           "type": "string",
-          "description": "Summary text 3."
+          "description": "Le texte sommaire 3."
         },
         "din": {
           "type": "string",
@@ -577,15 +577,15 @@
         },
         "is_md": {
           "type": "string",
-          "description": "The product is_md (medical device)."
+          "description": "c"
         },
         "din_list": {
           "type": "string",
-          "description": "The list of Drug Identification number(s)."
+          "description": "La liste du ou des numéros d’identification d’un médicament."
         },
         "bullet_list": {
           "type": "string",
-          "description": "The product bullet list."
+          "description": "La liste des points clés du produit."
         }
       },
       "xml": {
@@ -594,15 +594,15 @@
     },
     "SummarySafetyReview": {
       "type": "object",
-      "description": "Each health product authorized for sale in Canada has terms of approval and labeling that reflects Health Canada's understanding of the benefits and harms of the product at the time of approval. Once on the Canadian market, Health Canada continues to monitor safety of health products to identify and assess potential harms. This monitoring, known as surveillance, includes the scanning of multiple sources of information (reports of adverse reactions, new safety information from foreign regulators, and medical and scientific literature) to identify potential health product-related safety issues.",
+      "description": "Chaque produit de santé autorisé pour la vente au Canada a des conditions d'approbation et d'étiquetage qui reflètent la compréhension des bénéfices et des effets nocifs du produit par Santé Canada au moment de l'approbation. Une fois sur le marché canadien, Santé Canada continue de surveiller l'innocuité des produits de santé pour identifier et évaluer les dangers potentiels. Cette surveillance comprend l'analyse de diverses sources d'information (déclarations d'effets indésirables, nouvelles informations sur l'innocuité provenant d'organismes de réglementation étrangers, littérature médicale et scientifique) pour identifier des problèmes d'innocuité potentiels liés aux produits de santé.",
       "properties": {
         "template": {
           "type": "string",
-          "description": "There are two different formats for the SSRs. This variable defines which template is used. Possible values are 1 or 2."
+          "description": "Il existe deux différents formats de REI. Cette variable détermine quel modèle est utilisé. Les valeurs possibles sont 1 ou 2."
         },
         "link_id": {
           "type": "string",
-          "description": "This variable is used to link all of the SSR data together."
+          "description": "Cette variable est utilisée pour créer des liens entre toutes les données du REI."
         },
         "review_date": {
           "type": "string",
@@ -610,11 +610,11 @@
         },
         "drug_name": {
           "type": "string",
-          "description": "The name of the drug, Class, or active ingredient."
+          "description": "Le nom du médicament, sa classe ou ses ingrédients actifs."
         },
         "safety_issue": {
           "type": "string",
-          "description": "The safety issue text (in template"
+          "description": "Le texte relatif à la question d’innocuité (dans le modèle no 2)."
         },
         "safetyissue_title": {
           "type": "string",
@@ -626,55 +626,55 @@
         },
         "issue": {
           "type": "string",
-          "description": "The safety issue text (in template #1)."
+          "description": "Le texte relatif à la question d’innocuité (dans le modèle no 1)."
         },
         "background": {
           "type": "string",
-          "description": "The background information text (in template #1)."
+          "description": "Le texte relatif aux antécédents (dans le modèle no 1)."
         },
         "objective": {
           "type": "string",
-          "description": "The objective text (in template #1)."
+          "description": "Le texte relatif à l’objectif (dans le modèle no 1)."
         },
         "key_findings": {
           "type": "string",
-          "description": "A reference number to the text for the key findings (in template #1)."
+          "description": "Un numéro de référence pour le texte relatif aux principales constatations (dans le modèle no 1)."
         },
         "key_messages": {
           "type": "string",
-          "description": "A reference number to the text for the key messages (in template #2)."
+          "description": "Un numéro de référence pour le texte relatif aux messages clés (dans le modèle no 2)."
         },
         "overview": {
           "type": "string",
-          "description": "The overview text (in template #2)."
+          "description": "Le texte relatif à l’aperçu (dans le modèle no 2)."
         },
         "use_canada": {
           "type": "string",
-          "description": "A reference number to the text for the Use in Canada (in template #2)."
+          "description": "Un numéro de référence pour le texte relatif à l’utilisation au Canada (dans le modèle no 2)."
         },
         "findings": {
           "type": "string",
-          "description": "The Safety Review Findings (in template #2)."
+          "description": "Les principales constatations sur l’innocuité (dans le modèle no 2)."
         },
         "conclusion": {
           "type": "string",
-          "description": "A reference number to the text for Conclusions and Actions."
+          "description": "Un numéro de référence pour le texte relatif aux conclusions et actions."
         },
         "additional": {
           "type": "string",
-          "description": "The Additional Information text."
+          "description": "Le texte relatif aux informations supplémentaires."
         },
         "full_review": {
           "type": "string",
-          "description": "The Full review reports text."
+          "description": "Le texte relatif aux rapports d’examens complets."
         },
         "references": {
           "type": "string",
-          "description": "A reference number to the text for the References list."
+          "description": "Un numéro de référence pour le texte relatif à la liste des références."
         },
         "footnotes": {
           "type": "string",
-          "description": "A reference number to the text for the Footnotes list."
+          "description": "Un numéro de référence pour le texte relatif à la liste des notes en bas de page."
         },
         "title": {
           "type": "string",
@@ -682,134 +682,134 @@
         },
         "created_date": {
           "type": "string",
-          "description": "The date the SSR was created."
+          "description": "La date à laquelle le REI a été créé."
         },
         "modified_date": {
           "type": "string",
-          "description": "The date the SSR was modified."
+          "description": "La date à laquelle le REI a été modifié."
         },
         "key_message_list": {
           "type": "array",
-          "description": "The product key message list.",
+          "description": "La liste des messages clés du produit.",
           "items": {
             "type": "object",
             "properties": {
               "field_id": {
                 "type": "string",
-                "description": "The reference number linked to from the main table."
+                "description": "Le numéro de référence lié au tableau principal."
               },
               "order_no": {
                 "type": "string",
-                "description": "The ordering number for the bulleted lists."
+                "description": "Le numéro de commande pour les listes à puces."
               },
               "bullet": {
                 "type": "string",
-                "description": "The text of the bullet points."
+                "description": "Le texte relatif aux listes à puces."
               }
             }
           }
         },
         "footnotes_list": {
           "type": "array",
-          "description": "The product footnotes list.",
+          "description": "La liste des notes en bas de page du produit.",
           "items": {
             "type": "object",
             "properties": {
               "field_id": {
                 "type": "string",
-                "description": "The reference number linked to from the main table."
+                "description": "Le numéro de référence lié au tableau principal."
               },
               "order_no": {
                 "type": "string",
-                "description": "The ordering number for the bulleted lists."
+                "description": "Le numéro de commande pour les listes à puces. lists."
               },
               "bullet": {
                 "type": "string",
-                "description": "The text of the bullet points."
+                "description": "Le texte relatif aux listes à puces."
               }
             }
           }
         },
         "reference_list": {
           "type": "array",
-          "description": "The product reference list.",
+          "description": "La liste des produits de référence.",
           "items": {
             "type": "object",
             "properties": {
               "field_id": {
                 "type": "string",
-                "description": "The reference number linked to from the main table."
+                "description": "Le numéro de référence lié au tableau principal."
               },
               "order_no": {
                 "type": "string",
-                "description": "The ordering number for the bulleted lists."
+                "description": "Le numéro de commande pour les listes à puces."
               },
               "bullet": {
                 "type": "string",
-                "description": "The text of the bullet points."
+                "description": "Le texte relatif aux listes à puces."
               }
             }
           }
         },
         "use_canada_list": {
           "type": "array",
-          "description": "",
+          "description": "Liste des produits utilisés au Canada",
           "items": {
             "type": "object",
             "properties": {
               "field_id": {
                 "type": "string",
-                "description": "The reference number linked to from the main table."
+                "description": "Le numéro de référence lié au tableau principal."
               },
               "order_no": {
                 "type": "string",
-                "description": "The ordering number for the bulleted lists."
+                "description": "Le numéro de commande pour les listes à puces."
               },
               "bullet": {
                 "type": "string",
-                "description": "The text of the bullet points."
+                "description": "Le texte relatif aux listes à puces."
               }
             }
           }
         },
         "finding_list": {
           "type": "array",
-          "description": "The product finding list.",
+          "description": "La liste des constatations relatives au produit.",
           "items": {
             "type": "object",
             "properties": {
               "field_id": {
                 "type": "string",
-                "description": "The reference number linked to from the main table."
+                "description": "Le numéro de référence lié au tableau principal."
               },
               "order_no": {
                 "type": "string",
-                "description": "The ordering number for the bulleted lists."
+                "description": "Le numéro de commande pour les listes à puces."
               },
               "bullet": {
                 "type": "string",
-                "description": "The text of the bullet points."
+                "description": "Le texte relatif aux listes à puces."
               }
             }
           }
         },
         "conclusion_list": {
           "type": "array",
-          "description": "The product conclusion list.",
+          "description": "La liste de conclusion du produit.",
           "items": {
             "type": "object",
             "properties": {
               "field_id": {
                 "type": "string",
-                "description": "The reference number linked to from the main table."
+                "description": "Le numéro de référence lié au tableau principal."
               },
               "order_no": {
                 "type": "string",
-                "description": "The ordering number for the bulleted lists."
+                "description": "Le numéro de commande pour les listes à puces."
               },
               "bullet": {
                 "type": "string",
-                "description": "The text of the bullet points."
+                "description": "Le texte relatif aux listes à puces."
               }
             }
           }
@@ -830,7 +830,7 @@
         "fr"
       ],
       "default": "en",
-      "description": "Define which language you would like the response to be in"
+      "description": "Détermine si le résultat est affiché en anglais ou en français."
     },
     "QueryType": {
       "name": "type",
@@ -841,7 +841,7 @@
         "xml"
       ],
       "default": "json",
-      "description": "Define which media type you would like the content to be in"
+      "description": "Détermine si le résultat est en format JSON ou XML."
     },
     "PathID": {
       "name": "id",

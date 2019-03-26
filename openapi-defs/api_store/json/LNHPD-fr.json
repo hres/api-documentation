@@ -12,15 +12,15 @@
     }
   },
   "info": {
-    "title": "Licensed Natural Health Products Database (LNHPD)",
-    "description": "The Licensed Natural Health Products Database (LNHPD) contains information about natural health products (NHPs) that have been issued a product licence by Health Canada.",
+    "title": "Base de donnée de produits de santé naturels homologués (BDPSNH)",
+    "description": "La Base de données des produits de santé naturels homologués (BDPSNH) contient des renseignements sur les produits de santé naturels (PSN) ayant reçu une licence de mise en marché de Santé Canada.",
     "version": "0.1"
   },
   "schemes": [
     "https"
   ],
   "host": "lnhpd-hc-sc-apicast-staging.beta.api.canada.ca",
-  "basePath": "/api/natural-licences/",
+  "basePath": "/api/homologation-naturel/",
   "produces": [
     "application/json",
     "application/xml"
@@ -29,7 +29,7 @@
     "/medicinalingredient": {
       "get": {
         "tags": [
-          "Medicinal Ingredient"
+          "Ingredient médicinal"
         ],
         "description": "Returns all medicinal ingredients.",
         "parameters": [
@@ -53,14 +53,7 @@
           "200": {
             "description": "Returns a list of all medicinal ingredients, or if an ID is provided, the list of all medicinal ingredients that correspond to the given product identifier",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/MedicinalIngredient"
-              },
-              "xml": {
-                "name": "MedicinalIngredients",
-                "wrapped": true
-              }
+              "$ref": "#/definitions/MedicinalIngredientResponse"
             }
           },
           "204": {
@@ -75,7 +68,7 @@
     "/nonmedicinalingredient": {
       "get": {
         "tags": [
-          "Non Medicinal Ingredient"
+          "Ingrédient non médicinal"
         ],
         "description": "Returns all non-medicinal ingredients.",
         "parameters": [
@@ -118,7 +111,7 @@
     "/productdose": {
       "get": {
         "tags": [
-          "Product"
+          "Produit"
         ],
         "description": "Returns all product doses.",
         "parameters": [
@@ -161,7 +154,7 @@
     "/productlicence": {
       "get": {
         "tags": [
-          "Product"
+          "Produit"
         ],
         "description": "Returns all product licences.",
         "parameters": [
@@ -178,7 +171,7 @@
             "name": "id",
             "type": "string",
             "in": "query",
-            "description": "Limit the results to those with matching licence number"
+            "description": "Affiche l'homologation selon le code numérique du produit spécifié dans la requête."
           }
         ],
         "responses": {
@@ -207,7 +200,7 @@
     "/productpurpose": {
       "get": {
         "tags": [
-          "Product"
+          "Produit"
         ],
         "description": "Returns all product purposes.",
         "parameters": [
@@ -231,14 +224,7 @@
           "200": {
             "description": "Returns a list of all product purposes, or if an ID is provided, the list of all product purposes that correspond to the given product identifier",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ProductPurpose"
-              },
-              "xml": {
-                "name": "ProductPurposes",
-                "wrapped": true
-              }
+              "$ref": "#/definitions/ProductPurposeResponse"
             }
           },
           "204": {
@@ -253,7 +239,7 @@
     "/productrisk": {
       "get": {
         "tags": [
-          "Product"
+          "Produit"
         ],
         "description": "Returns all product risks.",
         "parameters": [
@@ -277,14 +263,7 @@
           "200": {
             "description": "Returns a list of all product risks, or if an ID is provided, the list of all product risks that correspond to the given product identifier",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/ProductRisk"
-              },
-              "xml": {
-                "name": "ProductRisk",
-                "wrapped": true
-              }
+              "$ref": "#/definitions/ProductRiskResponse"
             }
           },
           "204": {
@@ -299,7 +278,7 @@
     "/productroute": {
       "get": {
         "tags": [
-          "Product"
+          "Produit"
         ],
         "description": "Returns all product routes.",
         "parameters": [
@@ -311,9 +290,6 @@
           },
           {
             "$ref": "#/parameters/QueryType"
-          },
-          {
-            "$ref": "#/parameters/QueryPage"
           },
           {
             "$ref": "#/parameters/QueryProductID"
@@ -352,84 +328,116 @@
     },
     "MedicinalIngredient": {
       "type": "object",
-      "description": "Contributes to the therapeutic activity associated with the recommended use or purpose.",
+      "description": "Contribue à l'activité thérapeutique associée à l'utilisation ou au but recommandé.",
       "properties": {
         "lnhpd_id": {
           "type": "string",
-          "description": "Unique product identifier."
+          "description": "Identificateur unique de produit."
         },
         "ingredient_name": {
           "type": "string",
-          "description": "The name of the Medicinal Ingredient."
+          "description": "Le nom de l'ingrédient médicinal."
         },
         "potency_amount": {
           "type": "string",
-          "description": "The amount per dosage unit of the standardized component that further characterizes the quantity of the ingredient."
+          "description": "La quantité par unité de dose posologique du composant standardisé qui caractérise la quantité de l'ingrédient."
         },
         "potency_unit of_measure": {
           "type": "string",
-          "description": "Unit of measurement describing the potency-amount."
+          "description": "Unité de mesure décrivant la puissance."
         },
         "potency_constituent": {
           "type": "string",
-          "description": "Active component of the Medicinal Ingredient."
+          "description": "Composant actif de l'ingrédient médicinal."
         },
         "quantity": {
           "type": "string",
-          "description": "Quantity of Medicinal Ingredient/dosage unit."
+          "description": "Quantité d'ingrédient médicinal / unité de dose posologique."
         },
         "quantity_minimum": {
           "type": "string",
-          "description": "Minimum quantity if range."
+          "description": "Quantité minimum le cas échéant."
         },
         "quantity_maximum": {
           "type": "string",
-          "description": "Maximum quantity if range."
+          "description": "Quantité maximale le cas échéant."
         },
         "quantity_unit_of_measure": {
           "type": "string",
-          "description": "Unit of measurement describing the quantity."
+          "description": "Unité de mesure décrivant la quantité."
         },
         "ratio_numerator": {
           "type": "string",
-          "description": "Extract ratio numerator."
+          "description": "Numérateur de rapport d'extrait."
         },
         "ratio_denominator": {
           "type": "string",
-          "description": "Extract ratio denominator."
+          "description": "Dénominateur de rapport d'extrait."
         },
         "dried_herb_equivalent": {
           "type": "string",
-          "description": "The amount of crude ingredient used in an extract, expressed per dosage unit."
+          "description": "La quantité d'ingrédient brut utilisée dans un extrait, exprimée par unité de dosage."
         },
         "dhe_unit_of_measure": {
           "type": "string",
-          "description": "Unit of measurement describing quantity."
+          "description": "Unité de mesure décrivant la quantité."
         },
         "extract_type_desc": {
           "type": "string",
-          "description": "Extract type."
+          "description": "Type d'extrait."
         },
         "source_material": {
           "type": "string",
-          "description": "The substance from which the medicinal ingredient was derived. There may be multiple sources for a medicinal ingredient."
+          "description": "La substance à partir de laquelle l'ingrédient médicinal a été dérivé. Il peut y avoir plusieurs sources pour un seul ingrédient médicinal."
         }
       },
       "xml": {
         "name": "MedicinalIngredient"
       }
     },
+    "MedicinalIngredientResponse": {
+      "type": "object",
+      "xml": {
+        "name": "Response"
+      },
+      "properties": {
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MedicinalIngredient"
+          },
+          "xml": {
+            "name": "Data",
+            "wrapped": true
+          }
+        }
+      }
+    },
+    "Metadata": {
+      "type": "object",
+      "xml": {
+        "name": "Metadata"
+      },
+      "properties": {
+        "dateReceived": {
+          "type": "string"
+        }
+      }
+    },
     "NonMedicinalIngredient": {
       "type": "object",
-      "description": "Any substance added to a NHP to confer suitable consistency or form to the medicinal ingredients.",
+      "description": "Toute substance ajoutée à un PSN pour conférer une consistance ou une forme appropriée aux ingrédients médicinaux.",
       "properties": {
         "lnhpd_id": {
           "type": "string",
-          "description": "Unique product identifier."
+          "description": "Identificateur unique de produit."
         },
         "ingredient_name": {
           "type": "string",
-          "description": "The name of the Non-Medicinal Ingredient."
+          "description": "Le nom de l'ingrédient non médicinal."
         }
       },
       "xml": {
@@ -438,67 +446,67 @@
     },
     "ProductDose": {
       "type": "object",
-      "description": "The amount of finished product in dosage form used for the recommended purpose, including any directions of use. The dose is represented as the amount of dosage units, the frequency of use, and directions for use, if any, by a sub-population group.",
+      "description": "La quantité de produit fini sous forme posologique utilisée aux fins recommandées, y compris les instructions d'utilisation. La dose est représentée par la quantité d'unités posologiques, la fréquence d'utilisation et les directives d'utilisation, le cas échéant, par un sous-groupe de population.",
       "properties": {
         "lnhpd_id": {
           "type": "string",
-          "description": "Unique product identifier."
+          "description": "Identificateur unique de produit."
         },
         "dose_id": {
           "type": "string",
-          "description": "Unique identifier for Dose."
+          "description": "Identificateur unique de la dose."
         },
         "population_type_desc": {
           "type": "string",
-          "description": "Sub-population The group to which the NHP is targeted (may be more than one) that may require different dosing from the standard."
+          "description": "Sous-population, le groupe ciblé par le PSN (un ou plusieurs) qui peut nécessiter une posologie différente de la norme."
         },
         "age": {
           "type": "string",
-          "description": "Age recommended."
+          "description": "Âge recommandé."
         },
         "age_minimum": {
           "type": "string",
-          "description": "Minimum age if range."
+          "description": "Âge minimum le cas échéant."
         },
         "age_maximum": {
           "type": "string",
-          "description": "Maximum age if range."
+          "description": "Âge maximum le cas échéant."
         },
         "uom_type_desc_age": {
           "type": "string",
-          "description": "Unit of measurement for age."
+          "description": "Unité de mesure pour l'âge."
         },
         "quantity_dose": {
           "type": "string",
-          "description": "Quantity of Medicinal Ingredient/dosage unit."
+          "description": "Quantité de l'ingrédient médicinal / unité de dose posologique."
         },
         "quantity_dose_minimum": {
           "type": "string",
-          "description": "Minimum quantity of Medicinal Ingredient/dosage unit if range."
+          "description": "Quantité minimale d'ingrédient médicinal/unité posologique le cas échéant."
         },
         "quantity_dose_maximum": {
           "type": "string",
-          "description": "Maximum quantity of Medicinal Ingredient/dosage unit if range."
+          "description": "Quantité maximale d'ingrédient médicinal/unité posologique le cas échéant."
         },
         "uom_type_desc_quantity_dose": {
           "type": "string",
-          "description": "Unit of measurement describing dose."
+          "description": "Unité de mesure décrivant le dosage."
         },
         "frequency": {
           "type": "string",
-          "description": "How often the product is to be taken in a given time or time interval."
+          "description": "Fréquence à laquelle le produit doit être pris dans un intervalle de temps ou un temps donné."
         },
         "frequency_minimum": {
           "type": "string",
-          "description": "Minimum frequency if range."
+          "description": "Fréquence minimale le cas échéant."
         },
         "frequency_maximum": {
           "type": "string",
-          "description": "Maximum frequency if range."
+          "description": "Fréquence maximale le cas échéant."
         },
         "uom_type_desc_frequency": {
           "type": "string",
-          "description": "Unit of measurement describing frequency."
+          "description": "Unité de mesure décrivant la fréquence."
         }
       },
       "xml": {
@@ -507,75 +515,75 @@
     },
     "ProductLicence": {
       "type": "object",
-      "description": "An eight (8) digit numerical code assigned to each natural health product approved to be marketed under the Natural Health Product Regulation (NHPR).",
+      "description": "Un code numérique de huit (8) chiffres assigné à chaque produit de santé naturel approuvé pour être commercialisé en vertu du Règlement sur les produits de santé naturels (RPSN).",
       "properties": {
         "nhpd_id": {
           "type": "string",
-          "description": "Unique product identifier."
+          "description": "Identificateur unique de produit."
         },
         "licence_number": {
           "type": "string",
-          "description": "An eight (8) digit numerical code assigned to each natural health product approved to be marketed under the NHPR."
+          "description": "Un code numérique de huit (8) chiffres assigné à chaque produit de santé naturel approuvé pour être commercialisé en vertu du RPSN."
         },
         "licence_date": {
           "type": "string",
-          "description": "Date of original issuance."
+          "description": "Date d'émission initiale."
         },
         "revised_date": {
           "type": "string",
-          "description": "Date last revised."
+          "description": "Date de la dernière révision."
         },
         "time_receipt": {
           "type": "string",
-          "description": "Date submission received at Natural and Non-prescription Health Products Directorate."
+          "description": "Date de soumission reçue à la Direction des produits de santé naturels et sans ordonnance."
         },
         "date_start": {
           "type": "string",
-          "description": "Date processing begins."
+          "description": "Date à laquelle le processus a débuté."
         },
         "product_name_id": {
           "type": "string",
-          "description": "Brand Name key value identifier."
+          "description": "Identificateur de valeur clé pour nom de marque."
         },
         "product_name": {
           "type": "string",
-          "description": "Brand Name."
+          "description": "Nom de marque."
         },
         "dosage_form": {
           "type": "string",
-          "description": "The final physical form of the natural health product which may be used by the consumer without requiring any further manufacturing."
+          "description": "La forme finale du produit de santé naturel pouvant être utilisé par le consommateur sans nécessiter de modifications supplémentaires."
         },
         "company_id": {
           "type": "string",
-          "description": "Company key value identifier."
+          "description": "Identificateur de valeur clé de compagnie."
         },
         "company_name_id": {
           "type": "string",
-          "description": "Company name key value identifier."
+          "description": "Identificateur de valeur clé de nom de compagnie."
         },
         "company_name": {
           "type": "string",
-          "description": "Licence holder."
+          "description": "Titulaire de licence."
         },
         "sub_submission_type_code": {
           "type": "string",
-          "description": "Submission sub type identifier."
+          "description": "Identificateur sous-type de présentations."
         },
         "sub_submission_type_desc": {
           "type": "string",
-          "description": "Text value or the submission sub-type."
+          "description": "Valeur de texte ou le sous-type de présentations."
         },
         "flag_primary_name": {
           "type": "string",
-          "description": "Flag on - primary brand name."
+          "description": "Signal activé - nom de marque primaire."
         },
         "flag_product_status": {
           "type": "string",
-          "description": "Product active/non-active."
+          "description": "Produit actif / non actif."
         },
         "flag_attested_monograph": {
           "type": "string",
-          "description": "Attested to a monograph Yes/No."
+          "description": "Attesté à une monographie Oui / Non."
         }
       },
       "xml": {
@@ -584,69 +592,111 @@
     },
     "ProductPurpose": {
       "type": "object",
-      "description": "Statement that indicates the intended beneficial effect of a NHP when used according to the recommended dose, duration of use and route of administration.",
+      "description": "Déclaration indiquant l'effet bénéfique prévu d'un PSN lorsqu'il est utilisé selon la dose recommandée, la durée d'utilisation et la voie d'administration.",
       "properties": {
         "text_id": {
           "type": "string",
-          "description": "Unique identifier for purpose."
+          "description": "Identificateur unique pour but."
         },
         "lnhpd_id": {
           "type": "string",
-          "description": "Unique product identifier."
+          "description": "Identificateur unique de produit."
         },
         "purpose": {
           "type": "string",
-          "description": "Purpose statement(s)."
+          "description": "Déclaration de but."
         }
       },
       "xml": {
         "name": "ProductPurpose"
       }
     },
+    "ProductPurposeResponse": {
+      "type": "object",
+      "xml": {
+        "name": "Response"
+      },
+      "properties": {
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductPurpose"
+          },
+          "xml": {
+            "name": "Data",
+            "wrapped": true
+          }
+        }
+      }
+    },
     "ProductRisk": {
       "type": "object",
-      "description": "Any cautions and warnings, adverse reactions and contraindications associated with the use of the NHP.",
+      "description": "Toutes mises en garde, réactions indésirables et information contradictoire associées à l'utilisation du PSN.",
       "properties": {
         "lnhpd_id": {
           "type": "string",
-          "description": "Unique product identifier."
+          "description": "Identificateur unique de produit."
         },
         "risk_id": {
           "type": "string",
-          "description": "Risk type key value identifier."
+          "description": "Identificateur de valeur de risques principaux."
         },
         "risk_type_desc": {
           "type": "string",
-          "description": "Cautions and warnings; contraindications; known adverse reactions."
+          "description": "Mises en garde, contre-indications, réactions indésirables connues."
         },
         "sub_risk_type_desc": {
           "type": "string",
-          "description": "Risk sub-types if applicable."
+          "description": "Sous-types de risques s'il y a lieu."
         },
         "risk_text": {
           "type": "string",
-          "description": "Risk label statement."
+          "description": "Énoncé de l'étiquette de risque."
         }
       },
       "xml": {
         "name": "ProductRisk"
       }
     },
+    "ProductRiskResponse": {
+      "type": "object",
+      "xml": {
+        "name": "Response"
+      },
+      "properties": {
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductRisk"
+          },
+          "xml": {
+            "name": "Data",
+            "wrapped": true
+          }
+        }
+      }
+    },
     "ProductRoute": {
       "type": "object",
-      "description": "The method by which the NHP is to be delivered to the body.",
+      "description": "La méthode par laquelle le PSN doit être livré à l'organisme.",
       "properties": {
         "lnhpd_id": {
           "type": "string",
-          "description": "Unique product identifier."
+          "description": "Identificateur unique de produit."
         },
         "route_id": {
           "type": "string",
-          "description": "Route type key value identifier."
+          "description": "Indicateur de valeur-clés de type de voie d'administration."
         },
         "route_type_desc": {
           "type": "string",
-          "description": "The method by which the NHP is to be delivered to the body."
+          "description": "La méthode par laquelle le PSN doit être livré à l'organisme."
         }
       },
       "xml": {
@@ -664,7 +714,7 @@
         "fr"
       ],
       "default": "en",
-      "description": "Define which language you would like the response to be in"
+      "description": "Modifie la langue du résultat."
     },
     "QueryType": {
       "name": "type",
@@ -675,27 +725,20 @@
         "xml"
       ],
       "default": "json",
-      "description": "Define which media type you would like the content to be in"
+      "description": "Modifie le format du résultat."
     },
     "QueryPage": {
       "name": "page",
       "type": "string",
       "in": "query",
       "default": 1,
-      "description": "Define which page of the paginated results to return"
+      "description": "Retourne un résultat donné des résultats paginés."
     },
     "QueryProductID": {
       "name": "id",
       "type": "string",
       "in": "query",
-      "description": "Limit results to those with matching product identifier"
-    },
-    "PathID": {
-      "name": "id",
-      "description": "The drug product code identifier",
-      "in": "path",
-      "type": "string",
-      "required": true
+      "description": "Affiche les ingrédients médicinaux selon l'identificateur unique de produit spécifiée dans la requête."
     },
     "UserKeys": {
       "name": "user-key",

@@ -53,10 +53,7 @@
           "200": {
             "description": "Returns a list of all medicinal ingredients, or if an ID is provided, the list of all medicinal ingredients that correspond to the given product identifier",
             "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/MedicinalIngredient"
-              },
+              "$ref": "#/definitions/MedicinalIngredientResponse",
               "xml": {
                 "name": "MedicinalIngredients",
                 "wrapped": true
@@ -233,7 +230,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ProductPurpose"
+                "$ref": "#/definitions/ProductPurposeResponse"
               },
               "xml": {
                 "name": "ProductPurposes",
@@ -279,7 +276,7 @@
             "schema": {
               "type": "array",
               "items": {
-                "$ref": "#/definitions/ProductRisk"
+                "$ref": "#/definitions/ProductRiskResponse"
               },
               "xml": {
                 "name": "ProductRisk",
@@ -311,9 +308,6 @@
           },
           {
             "$ref": "#/parameters/QueryType"
-          },
-          {
-            "$ref": "#/parameters/QueryPage"
           },
           {
             "$ref": "#/parameters/QueryProductID"
@@ -417,6 +411,28 @@
       },
       "xml": {
         "name": "MedicinalIngredient"
+      }
+    },
+    "MedicinalIngredientResponse": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MedicinalIngredient"
+          }
+        }
+      }
+    },
+    "Metadata": {
+      "type": "object",
+      "properties": {
+        "dateReceived": {
+          "type": "string"
+        }
       }
     },
     "NonMedicinalIngredient": {
@@ -603,6 +619,27 @@
         "name": "ProductPurpose"
       }
     },
+    "ProductPurposeResponse": {
+      "type": "object",
+      "xml": {
+        "name": "Response"
+      },
+      "properties": {
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductPurpose"
+          },
+          "xml": {
+            "name": "Data",
+            "wrapped": true
+          }
+        }
+      }
+    },
     "ProductRisk": {
       "type": "object",
       "description": "Any cautions and warnings, adverse reactions and contraindications associated with the use of the NHP.",
@@ -630,6 +667,27 @@
       },
       "xml": {
         "name": "ProductRisk"
+      }
+    },
+    "ProductRiskResponse": {
+      "type": "object",
+      "xml": {
+        "name": "Response"
+      },
+      "properties": {
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductRisk"
+          },
+          "xml": {
+            "name": "Data",
+            "wrapped": true
+          }
+        }
       }
     },
     "ProductRoute": {
