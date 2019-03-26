@@ -1,4 +1,4 @@
-swagger: '2.0'
+swagger: "2.0"
 x-api-store-tags:
   - summary
   - health products
@@ -9,8 +9,8 @@ x-api-store-plans:
     description: All users should subscribe to the Public Plan.
 info:
   title: Summary Reports
-  description: The Drug and Health Product Register brings together Information on product licences, drug and health product inspections, buying and using products safely, and side effects, recalls and complaints.
-  version: '0.1'
+  description: The Drug and Health Product Register brings together information on product licences, drug and health product inspections, buying and using products safely, and side effects, recalls and complaints.
+  version: "0.1"
 
 schemes:
   - https
@@ -27,27 +27,27 @@ paths:
         - Summary Basis of Decision
       description: Returns all summaries of basis of decisions.
       parameters:
-        - $ref: '#/parameters/UserKeys'
-        - $ref: '#/parameters/QueryLang'
-        - $ref: '#/parameters/QueryType'
+        - $ref: "#/parameters/UserKeys"
+        - $ref: "#/parameters/QueryLang"
+        - $ref: "#/parameters/QueryType"
         - name: id
           in: query
           type: string
           description: Limit results to those with matching link ID
       responses:
-        '200':
+        "200":
           description: Returns a list of all summaries of basis of decisions, or if an ID is provided, the list of all summaries that correspond to the given link ID
           schema:
             type: array
             items:
-              $ref: '#/definitions/SummaryBasisOfDecision'
+              $ref: "#/definitions/SummaryBasisOfDecision"
             xml:
               name: SummaryBasisOfDecisions
               wrapped: true
-        '204':
-          $ref: '#/definitions/204'
-        '404':
-          $ref: '#/definitions/404'
+        "204":
+          $ref: "#/definitions/204"
+        "404":
+          $ref: "#/definitions/404"
 
   /regulatorydecision:
     get:
@@ -55,27 +55,27 @@ paths:
         - Regulatory Decision
       description: Returns all regulatory decisions.
       parameters:
-        - $ref: '#/parameters/UserKeys'
-        - $ref: '#/parameters/QueryLang'
-        - $ref: '#/parameters/QueryType'
+        - $ref: "#/parameters/UserKeys"
+        - $ref: "#/parameters/QueryLang"
+        - $ref: "#/parameters/QueryType"
         - name: id
           in: query
           type: string
           description: Limit results to those with matching link ID
       responses:
-        '200':
+        "200":
           description: Returns a list of all regulatory decisions, or if an ID is provided, the list of all decisions that correspond to the given link ID
           schema:
             type: array
             items:
-              $ref: '#/definitions/RegulatoryDecision'
+              $ref: "#/definitions/RegulatoryDecision"
             xml:
               name: RegulatoryDecisions
               wrapped: true
-        '204':
-          $ref: '#/definitions/204'
-        '404':
-          $ref: '#/definitions/404'
+        "204":
+          $ref: "#/definitions/204"
+        "404":
+          $ref: "#/definitions/404"
 
   /safetyreview:
     get:
@@ -83,32 +83,32 @@ paths:
         - Summary Safety Review (SSR)
       description: Returns all summary safety reviews.
       parameters:
-        - $ref: '#/parameters/UserKeys'
-        - $ref: '#/parameters/QueryLang'
-        - $ref: '#/parameters/QueryType'
+        - $ref: "#/parameters/UserKeys"
+        - $ref: "#/parameters/QueryLang"
+        - $ref: "#/parameters/QueryType"
         - name: id
           in: query
           type: string
           description: Limit results to those with matching link ID
       responses:
-        '200':
+        "200":
           description: Returns a list of all summary safety reviews, or if an ID is provided, the list of all summaries that correspond to the given link ID
           schema:
             type: array
             items:
-              $ref: '#/definitions/SummarySafetyReview'
+              $ref: "#/definitions/SummarySafetyReview"
             xml:
               name: SummarySafetyReview
               wrapped: true
-        '204':
-          $ref: '#/definitions/204'
-        '404':
-          $ref: '#/definitions/404'
+        "204":
+          $ref: "#/definitions/204"
+        "404":
+          $ref: "#/definitions/404"
 
 definitions:
-  '204':
+  "204":
     type: string
-  '404':
+  "404":
     type: string
 
   SummaryBasisOfDecision:
@@ -225,19 +225,19 @@ definitions:
         description: The Quality Basis for Decision.
       contact:
         type: string
-        description: ''
+        description: ""
       paat_info:
         type: string
-        description: ''
+        description: ""
       summary_drug:
         type: string
-        description: ''
+        description: ""
       branch_info:
         type: string
-        description: ''
+        description: ""
       trademark:
         type: string
-        description: ''
+        description: ""
       din:
         type: string
         description: The Drug Identification number(s).
@@ -246,7 +246,7 @@ definitions:
         description: The product licence number.
       ai_str_route_summary:
         type: string
-        description: ''
+        description: ""
       is_md:
         type: string
         description: The product is_md (medical device).
@@ -260,12 +260,12 @@ definitions:
         type: array
         description: The product milestone list.
         items:
-          $ref: '#/definitions/MilestoneList'
+          $ref: "#/definitions/MilestoneList"
       tombstone_list:
         type: array
         description: The product tombstone list.
         items:
-          $ref: '#/definitions/TombstoneList'
+          $ref: "#/definitions/TombstoneList"
     xml:
       name: SummaryBasisOfDecision
 
@@ -290,7 +290,7 @@ definitions:
         description: The completed date 2 of the milestone.
       separator:
         type: string
-        description: ''
+        description: ""
 
   TombstoneList:
     type: object
@@ -378,16 +378,16 @@ definitions:
         description: The control number for the submission.
       application_number:
         type: string
-        description: ''
+        description: ""
       application_type:
         type: string
-        description: ''
+        description: ""
       licence_num:
         type: string
-        description: ''
+        description: ""
       device_class:
         type: string
-        description: ''
+        description: ""
       created_date:
         type: string
         description: The created date.
@@ -439,7 +439,7 @@ definitions:
         description: This variable is used to link all of the SSR data together.
       review_date:
         type: string
-        description: ''
+        description: ""
       drug_name:
         type: string
         description: The name of the drug, Class, or active ingredient.
@@ -448,34 +448,34 @@ definitions:
         description: The safety issue text (in template #2).
       safetyissue_title:
         type: string
-        description: ''
+        description: ""
       findings_title:
         type: string
-        description: ''
+        description: ""
       issue:
         type: string
-        description: 'The safety issue text (in template #1).'
+        description: "The safety issue text (in template #1)."
       background:
         type: string
-        description: 'The background information text (in template #1).'
+        description: "The background information text (in template #1)."
       objective:
         type: string
-        description: 'The objective text (in template #1).'
+        description: "The objective text (in template #1)."
       key_findings:
         type: string
-        description: 'A reference number to the text for the key findings (in template #1).'
+        description: "A reference number to the text for the key findings (in template #1)."
       key_messages:
         type: string
-        description: 'A reference number to the text for the key messages (in template #2).'
+        description: "A reference number to the text for the key messages (in template #2)."
       overview:
         type: string
-        description: 'The overview text (in template #2).'
+        description: "The overview text (in template #2)."
       use_canada:
         type: string
-        description: 'A reference number to the text for the Use in Canada (in template #2).'
+        description: "A reference number to the text for the Use in Canada (in template #2)."
       findings:
         type: string
-        description: 'The Safety Review Findings (in template #2).'
+        description: "The Safety Review Findings (in template #2)."
       conclusion:
         type: string
         description: A reference number to the text for Conclusions and Actions.
@@ -493,7 +493,7 @@ definitions:
         description: A reference number to the text for the Footnotes list.
       title:
         type: string
-        description: ''
+        description: ""
       created_date:
         type: string
         description: The date the SSR was created.
@@ -547,7 +547,7 @@ definitions:
               description: The text of the bullet points.
       use_canada_list:
         type: array
-        description: ''
+        description: ""
         items:
           type: object
           properties:
@@ -619,7 +619,7 @@ parameters:
     type: string
     required: true
   UserKeys:
-    name: 'user-key'
+    name: "user-key"
     type: string
     in: header
     required: true
