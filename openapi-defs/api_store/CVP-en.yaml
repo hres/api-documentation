@@ -187,6 +187,7 @@ paths:
           $ref: '#/definitions/204'
         '404':
           $ref: '#/definitions/404'
+
   /reportlink:
     get:
       tags:
@@ -339,19 +340,19 @@ definitions:
     properties:
       drug_product_ingredient_id:
         type: string
-        description: Drug Product - Active Ingredient Identifier.
+        description: Drug product - active ingredient identifier.
       drug_product_id:
         type: string
-        description: Drug Product Identifier.
+        description: Drug product identifier.
       drug_name:
         type: string
-        description: Brand Name.
+        description: Brand name.
       active_ingredient_id:
         type: string
-        description: Active Ingredient Identifier.
+        description: Active Ingredient identifier.
       active_ingredient_name:
         type: string
-        description: Active Ingredient Name.
+        description: Active Ingredient name.
     xml:
       name: DrugProductIngredient
 
@@ -361,10 +362,10 @@ definitions:
     properties:
       drug_product_id:
         type: string
-        description: Drug Product Identifier.
+        description: Drug product identifier.
       drug_name:
         type: string
-        description: Brand Name.
+        description: Brand name.
     xml:
       name: DrugProduct
 
@@ -374,10 +375,10 @@ definitions:
     properties:
       gender_id:
         type: string
-        description: Gender Identifier.
+        description: Gender identifier.
       gender_code:
         type: string
-        description: Gender Code.
+        description: Gender code.
       gender_name:
         type: string
         description: Gender.
@@ -390,13 +391,13 @@ definitions:
     properties:
       outcome_id:
         type: string
-        description: Outcome Identifier.
+        description: Outcome identifier.
       outcome_code:
         type: string
-        description: Report Outcome Code.
+        description: Report outcome code.
       outcome_name:
         type: string
-        description: Report Outcome.
+        description: Report outcome.
     xml:
       name: Outcome
 
@@ -406,25 +407,25 @@ definitions:
     properties:
       reaction_id:
         type: string
-        description: Reaction Identifier.
+        description: Reaction identifier.
       report_id:
         type: string
-        description: Adverse Reaction Report (AER) Number (6 digits).
+        description: Adverse Reaction Report (AER) number (6 digits).
       duration:
         type: string
-        description: Reaction Duration.
+        description: Reaction duration.
       duration_unit:
         type: string
-        description: Reaction Duration Unit.
+        description: Reaction duration unit.
       pt_name:
         type: string
-        description: Adverse Reaction Term.
+        description: Adverse reaction term.
       soc_name:
         type: string
-        description: System Organ Class.
+        description: System organ class.
       meddra_version:
         type: string
-        description: MedDRA Version.
+        description: MedDRA version.
     xml:
       name: Reaction
 
@@ -434,49 +435,49 @@ definitions:
     properties:
       report_drug_id:
         type: string
-        description: Report Drug Identifier.
+        description: Report drug identifier.
       report_id:
         type: string
-        description: Adverse Reaction Report (AER) Number (6 digits).
+        description: Adverse Reaction Report (AER) number (6 digits).
       drug_product_id:
         type: string
-        description: Drug Product Identifier.
+        description: Drug product identifier.
       drug_name:
         type: string
-        description: Brand Name.
+        description: Brand name.
       drug_involv_name:
         type: string
-        description: Health Product role.
+        description: Health product role.
       route_admin_name:
         type: string
-        description: Route of Administration.
+        description: Route of administration.
       unit_dose_qty:
         type: string
         description: Dose.
       dose_unit_name:
         type: string
-        description: Dose Unit.
+        description: Dose unit.
       frequency:
         type: string
         description: Frequency.
       freq_time:
         type: string
-        description: Frequency Time.
+        description: Frequency time.
       frequency_time:
         type: string
-        description: Frequency Time.
+        description: Frequency time.
       freq_time_unit:
         type: string
-        description: Frequency Unit.
+        description: Frequency unit.
       therapy_duration:
         type: string
-        description: Therapy Duration.
+        description: Therapy duration.
       therapy_duration_unit:
         type: string
-        description: Therapy Duration Unit.
+        description: Therapy duration unit.
       dosage_form:
         type: string
-        description: Dosage Form.
+        description: Dosage form.
       indication_name:
         type: string
         description: Indication.
@@ -489,16 +490,16 @@ definitions:
     properties:
       report_link_id:
         type: string
-        description: Report Link Identifier.
+        description: Report link identifier.
       report_id:
         type: string
-        description: Adverse Reaction Report (AER) Number (6 digits).
+        description: Adverse Reaction Report (AER) number (6 digits).
       record_type:
         type: string
-        description: Record Type.
+        description: Record type.
       report_link_no:
         type: string
-        description: Duplicate or Linked Adverse Reaction Report (AER) Number.
+        description: Duplicate or linked adverse reaction report (AER) number.
     xml:
       name: ReportLink
 
@@ -508,13 +509,13 @@ definitions:
     properties:
       report_type_id:
         type: string
-        description: Report Type Identifier.
+        description: Report type identifier.
       report_type_code:
         type: string
-        description: Report Type Code.
+        description: Report type code.
       report_type:
         type: string
-        description: Report Type.
+        description: Report type.
     xml:
       name: ReportType
 
@@ -524,31 +525,31 @@ definitions:
     properties:
       report_id:
         type: string
-        description: Adverse Reaction Report (AER) Number (6 digits).
+        description: Adverse Reaction Report (AER) number (6 digits).
       report_no:
         type: string
-        description: Adverse Reaction Report (AER) Number (9 digits).
+        description: Adverse Reaction Report (AER) number (9 digits).
       version_no:
         type: string
-        description: Adverse Reaction Report (AER) Version Number.
+        description: Adverse Reaction Report (AER) version number.
       date_received:
         type: string
-        description: Latest Received Date.
+        description: Latest received date.
       date_int_received:
         type: string
-        description: Initial Received Date.
+        description: Initial received date.
       mah_no:
         type: string
         description: Market Authorisation Holder (MAH) Adverse Reaction Report (AER) Number.
       report_type_code:
         type: string
-        description: Type of Report Code.
+        description: Type of report code.
       report_type_name:
         type: string
-        description: Type of Report.
+        description: Type of report.
       gender_code:
         type: string
-        description: Gender Code.
+        description: Gender code.
       gender_name:
         type: string
         description: Gender.
@@ -557,31 +558,31 @@ definitions:
         description: Age.
       age_y:
         type: string
-        description: Age in Years.
+        description: Age in years.
       age_unit:
         type: string
-        description: Age Unit.
+        description: Age unit.
       outcome_code:
         type: string
-        description: Report Outcome Code.
+        description: Report outcome code.
       outcome:
         type: string
-        description: Report Outcome.
+        description: Report outcome.
       weight:
         type: string
         description: Weight.
       weight_unit:
         type: string
-        description: Weight Unit.
+        description: Weight unit.
       height:
         type: string
         description: Height.
       height_unit:
         type: string
-        description: Height Unit.
+        description: Height unit.
       seriousness_code:
         type: string
-        description: Serious Adverse Reaction Code.
+        description: Serious Adverse Reaction code.
       seriousness:
         type: string
         description: Serious Adverse Reaction.
@@ -593,43 +594,43 @@ definitions:
         description: Disability.
       congenital_anomaly:
         type: string
-        description: Congenital Anomaly.
+        description: Congenital anomaly.
       life_threatening:
         type: string
-        description: Life Threatening.
+        description: Life threatening.
       hosp_required:
         type: string
-        description: Hospitalization Required.
+        description: Hospitalization required.
       other_medically_imp_cond:
         type: string
-        description: Other Medically Important Condition.
+        description: Other medically important condition.
       reporter_type_code:
         type: string
-        description: Reporter Type Code.
+        description: Reporter type code.
       reporter_type:
         type: string
-        description: Reporter Type.
+        description: Reporter type.
       source_code:
         type: string
-        description: Report Source Code.
+        description: Report source code.
       source_name:
         type: string
-        description: Report Source.
+        description: Report source.
       pt_name:
         type: string
-        description: Adverse Reaction Term.
+        description: Adverse reaction term.
       soc_name:
         type: string
-        description: System Organ Class.
+        description: System organ class.
       duration:
         type: string
-        description: Reaction Duration.
+        description: Reaction duration.
       duration_unit:
         type: string
-        description: Reaction Duration Unit.
+        description: Reaction duration unit.
       drug_name:
         type: string
-        description: Brand Name.
+        description: Brand name.
     xml:
       name: Report
 
@@ -639,13 +640,13 @@ definitions:
     properties:
       seriousness_id:
         type: string
-        description: Serious Report Identifier.
+        description: Serious report identifier.
       seriousness_code:
         type: string
-        description: Serious Adverse Reaction Code.
+        description: Serious adverse reaction code.
       seriousness:
         type: string
-        description: Serious Adverse Reaction.
+        description: Serious adverse reaction.
     xml:
       name: Seriousness
 
@@ -655,13 +656,13 @@ definitions:
     properties:
       source_id:
         type: string
-        description: Report Source Identifier.
+        description: Report source identifier.
       source_code:
         type: string
-        description: Report Source Code.
+        description: Report source code.
       source:
         type: string
-        description: Report Source.
+        description: Report source.
     xml:
       name: Source
 
