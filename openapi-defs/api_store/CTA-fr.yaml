@@ -1,5 +1,5 @@
 # third
-swagger: "2.0"
+swagger: '2.0'
 x-api-store-tags:
   - medical condition
   - clinical
@@ -12,7 +12,7 @@ info:
   title: Base de données des essais cliniques (BDEC)
   description: |
     La base de données sur les essais cliniques donne à la population une liste de renseignements précis sur les essais cliniques des phases I, II et III chez les patients. Gérée par Santé Canada, la base de données constitue une source d'information sur les essais cliniques effectués au Canada avec les médicaments pharmaceutiques et biologiques à usage humain.
-  version: "0.1"
+  version: '0.1'
 
 schemes:
   - https
@@ -29,27 +29,27 @@ paths:
         - Promoteur
       description: Returns all sponsors.
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
         - name: id
           in: query
           type: string
           description: Affiche le promoteur selon le numéro d'identification du promoteur spécifié dans la requête
       responses:
-        "200":
-          description: Returns a list of all sponsors, or if an ID is provided, the list of all sponsors that correspond to the given sponsor ID
+        '200':
+          description: ''
           schema:
             type: array
             items:
-              $ref: "#/definitions/Sponsor"
+              $ref: '#/definitions/Sponsor'
             xml:
               name: Sponsors
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /medicalcondition:
     get:
@@ -57,27 +57,27 @@ paths:
         - Condition médicale
       description: Returns all medical conditions.
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
         - name: id
           in: query
           type: string
           description: Affiche la condition médicale selon le numéro d'identification de la condition médicale spécifié dans la requête.
       responses:
-        "200":
-          description: Returns a list of all medical conditions, or if an ID is provided, the list of all medical conditions that correspond to the given medical condition ID
+        '200':
+          description: ''
           schema:
             type: array
             items:
-              $ref: "#/definitions/MedicalCondition"
+              $ref: '#/definitions/MedicalCondition'
             xml:
               name: MedicalConditions
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /drugproduct:
     get:
@@ -85,27 +85,27 @@ paths:
         - Produit pharmaceutique
       description: Returns all drug products.
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
         - name: id
           in: query
           type: string
-          description: Limit results to those with matching brand ID
+          description: Affiche le produit pharmaceutique selon le numéro d'identification d'une marque spécifié dans la requête.
       responses:
-        "200":
-          description: Returns a list of all drug products, or if an ID is provided, the list of all protocols that correspond to the given brand ID
+        '200':
+          description: ''
           schema:
             type: array
             items:
-              $ref: "#/definitions/DrugProduct"
+              $ref: '#/definitions/DrugProduct'
             xml:
               name: DrugProducts
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /protocol:
     get:
@@ -113,27 +113,27 @@ paths:
         - Protocole
       description: Returns all protocols.
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
         - name: id
           in: query
           type: string
           description: Affiche le protocole selon le numéro d'identification du protocole spécifié dans la requête
       responses:
-        "200":
-          description: Returns a list of all protocols, or if an ID is provided, the list of all protocols that correspond to the given protocol ID
+        '200':
+          description: ''
           schema:
             type: array
             items:
-              $ref: "#/definitions/Protocol"
+              $ref: '#/definitions/Protocol'
             xml:
               name: Protocols
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /status:
     get:
@@ -141,27 +141,27 @@ paths:
         - Statut de l'essai
       description: Returns all trial statuses.
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
         - name: id
           in: query
           type: string
           description: Affiche le statut selon le numéro d'identification du statut spécifié dans la requête
       responses:
-        "200":
-          description: Returns a list of all statuses, or if an ID is provided, the list of all stasuses that correspond to the given status ID
+        '200':
+          description: ''
           schema:
             type: array
             items:
-              $ref: "#/definitions/TrialStatus"
+              $ref: '#/definitions/TrialStatus'
             xml:
               name: TrialStatuses
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /studypopulation:
     get:
@@ -169,32 +169,32 @@ paths:
         - Population à l'étude
       description: Returns all study populations.
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
         - name: id
           in: query
           type: string
           description: Affiche la population à l'étude selon le numéro d'identification d'une population à l'étude spécifié dans la requête
       responses:
-        "200":
-          description: Returns a list of all study populations, or if an ID is provided, the list of all study populations that correspond to the given study population ID
+        '200':
+          description: ''
           schema:
             type: array
             items:
-              $ref: "#/definitions/StudyPopulation"
+              $ref: '#/definitions/StudyPopulation'
             xml:
               name: StudyPopulations
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
 definitions:
-  "204":
+  '204':
     type: string
-  "404":
+  '404':
     type: string
 
   DrugProduct:
@@ -339,7 +339,7 @@ parameters:
     default: json
     description: Détermine si le résultat est en format JSON ou XML
   UserKeys:
-    name: "user-key"
+    name: 'user-key'
     type: string
     in: header
     required: true

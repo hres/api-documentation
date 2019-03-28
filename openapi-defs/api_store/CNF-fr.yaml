@@ -1,4 +1,4 @@
-swagger: "2.0"
+swagger: '2.0'
 x-api-store-tags:
   - food
   - health
@@ -10,7 +10,7 @@ x-api-store-plans:
 info:
   title: Fichier canadien sur les éléments nutritifs (FCÉN)
   description: Le Fichier canadien sur les éléments nutritifs (FCÉN) est la base de données de référence sur la composition des aliments qui nous informe de la quantité des éléments nutritifs dans les aliments couramment consommés au Canada.
-  version: "0.1"
+  version: '0.1'
 
 schemes:
   - https
@@ -25,230 +25,230 @@ paths:
     get:
       tags:
         - Aliment
-      description: Returns all foods.
+      description: ''
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
         - name: id
           in: query
           type: string
           description: Affiche les détails de l'aliment selon le code de l'aliment spécifié dans la requête.
       responses:
-        "200":
-          description: Returns a list of all foods, or if an ID is provided, the list of all foods that correspond to the given food code
+        '200':
+          description: ''
           schema:
             type: array
             items:
-              $ref: "#/definitions/Food"
+              $ref: '#/definitions/Food'
             xml:
               name: Foods
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
-
-  /nutrientname:
-    get:
-      tags:
-        - Nom des éléments nutritifs
-      description: Returns all nutrient names.
-      parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - name: id
-          in: query
-          type: string
-          description: Affiche l'élément nutritif selon le numéro d'identification de l'élément nutritif spécifié dans la requête.
-      responses:
-        "200":
-          description: Returns a list of all nutrient names, or if an ID is provided, the list of all nutrient names that correspond to the given nutrient name identification number
-          schema:
-            type: array
-            items:
-              $ref: "#/definitions/NutrientName"
-            xml:
-              name: NutrientNames
-              wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
-
-  /nutrientgroup:
-    get:
-      tags:
-        - Groupe d'éléments nutritifs
-      description: Returns all nutrient groups.
-      parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - name: id
-          in: query
-          type: string
-          description: Affiche le groupe d'éléments nutritifs selon le numéro d'identification du groupe d'éléments nutritifs spécifié dans la requête.
-      responses:
-        "200":
-          description: Returns a list of all nutrient groups, or if an ID is provided, the list of all nutrient groups that correspond to the given nutrient group identification number
-          schema:
-            type: array
-            items:
-              $ref: "#/definitions/NutrientGroup"
-            xml:
-              name: NutrientGroups
-              wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
-
-  /nutrientsource:
-    get:
-      tags:
-        - Source d'éléments nutritifs
-      description: Returns all nutrient sources.
-      parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - name: id
-          in: query
-          type: string
-          description: Affiche la source d'éléments nutritifs selon le numéro d'identification de la source d'éléments nutritifs spécifié dans la requête.
-      responses:
-        "200":
-          description: Returns a list of all nutrient sources, or if an ID is provided, the list of all nutrient sources that correspond to the given nutrient source identification number
-          schema:
-            type: array
-            items:
-              $ref: "#/definitions/NutrientSource"
-            xml:
-              name: NutrientSources
-              wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /nutrientamount:
     get:
       tags:
-        - Teneur en élément nutritif
+        - Éléments nutritifs
       description: Returns all nutrient amounts.
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
         - name: id
           in: query
           type: string
           description: Affiche les teneurs en élément nutritif selon le code de l'aliment spécifié dans la requête.
       responses:
-        "200":
+        '200':
           description: Returns a list of all nutrient amounts, or if an ID is provided, the list of all nutrient amounts that correspond to the given food code
           schema:
             type: array
             items:
-              $ref: "#/definitions/NutrientAmount"
+              $ref: '#/definitions/NutrientAmount'
             xml:
               name: NutrientAmounts
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
+
+  /nutrientgroup:
+    get:
+      tags:
+        - Éléments nutritifs
+      description: ''
+      parameters:
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - name: id
+          in: query
+          type: string
+          description: Affiche le groupe d'éléments nutritifs selon le numéro d'identification du groupe d'éléments nutritifs spécifié dans la requête.
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NutrientGroup'
+            xml:
+              name: NutrientGroups
+              wrapped: true
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
+
+  /nutrientname:
+    get:
+      tags:
+        - Éléments nutritifs
+      description: ''
+      parameters:
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - name: id
+          in: query
+          type: string
+          description: Affiche l'élément nutritif selon le numéro d'identification de l'élément nutritif spécifié dans la requête.
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NutrientName'
+            xml:
+              name: NutrientNames
+              wrapped: true
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
+
+  /nutrientsource:
+    get:
+      tags:
+        - Éléments nutritifs
+      description: ''
+      parameters:
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - name: id
+          in: query
+          type: string
+          description: Affiche la source d'éléments nutritifs selon le numéro d'identification de la source d'éléments nutritifs spécifié dans la requête.
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NutrientSource'
+            xml:
+              name: NutrientSources
+              wrapped: true
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /servingsize:
     get:
       tags:
         - Portion comestible
-      description: Returns all measures and conversion factors.
+      description: ''
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
         - name: id
           in: query
           type: string
           description: Affiche les portions comestibles selon le code de l'aliment spécifié dans la requête.
       responses:
-        "200":
-          description: Returns a list of all serving sizes, or if an ID is provided, the list of all serving sizes that correspond to the given food code
+        '200':
+          description: ''
           schema:
             type: array
             items:
-              $ref: "#/definitions/ServingSize"
+              $ref: '#/definitions/ServingSize'
             xml:
               name: ServiceSizes
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /refuseamount:
     get:
       tags:
         - Portion non comestible
-      description: Returns all refuse amounts.
+      description: ''
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
         - name: id
           in: query
           type: string
           description: Affiche la ou les portions non comestibles selon le code de l'aliment spécifié dans la requête.
       responses:
-        "200":
-          description: Returns a list of all refuse amounts, or if an ID is provided, the list of all refuse amounts that correspond to the given food code
+        '200':
+          description: ''
           schema:
             type: array
             items:
-              $ref: "#/definitions/RefuseAmount"
+              $ref: '#/definitions/RefuseAmount'
             xml:
               name: RefuseAmounts
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /yieldamount:
     get:
       tags:
         - Rendement
-      description: Returns all yield amounts.
+      description: ''
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
         - name: id
           in: query
           type: string
           description: Affiche le ou les rendements selon le code de l'aliment spécifié dans la requête.
       responses:
-        "200":
-          description: Returns a list of all yield amounts, or if an ID is provided, the list of all yield amounts that correspond to the given food code
+        '200':
+          description: ''
           schema:
             type: array
             items:
-              $ref: "#/definitions/YieldAmount"
+              $ref: '#/definitions/YieldAmount'
             xml:
               name: YieldAmounts
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
 definitions:
-  "204":
+  '204':
     type: string
-  "404":
+  '404':
     type: string
 
   Food:
@@ -263,6 +263,50 @@ definitions:
         description: Le nom complet de l'aliment.
     xml:
       name: Food
+
+  NutrientAmount:
+    type: object
+    description: Les quantités des éléments nutritifs pour 100 g de portion comestible, pour chaque aliment.
+    properties:
+      food_code:
+        type: string
+        description: Le code attribué à chaque aliment.
+      nutrient_value:
+        type: string
+        description: Valeur moyenne dans une portion de 100g de portion comestible (le nombre de décimale ne reflète pas l'exactitude des données).
+      standard_error:
+        type: string
+        description: L'écart-type de la moyenne.
+      number_observation:
+        type: string
+        description: Le nombre d'échantillons utilisés pour une étude.
+      nutrient_name_id:
+        type: string
+        description: Le numéro d'identification d'un élément nutritif.
+      nutrient_web_name:
+        type: string
+        description: Le nom de l'élément nutritif pour le WEB.
+      nutrient_source_id:
+        type: string
+        description: Le numéro d'identification d'une source d'éléments nutritifs.
+    xml:
+      name: NutrientAmount
+
+  NutrientGroup:
+    type: object
+    description: La liste des groupes d'éléments nutritifs basés sur les similarités des éléments nutritifs.
+    properties:
+      nutrient_group_id:
+        type: string
+        description: Le numéro d'identification attribué à un groupe d'éléments nutritifs.
+      nutrient_group_name:
+        type: string
+        description: Le nom d'un groupe d'éléments nutritifs.
+      nutrient_group_order:
+        type: string
+        description: L'ordre d'affichage des groupes d'éléments nutritifs.
+    xml:
+      name: NutrientGroup
 
   NutrientName:
     type: object
@@ -301,22 +345,6 @@ definitions:
     xml:
       name: NutrientName
 
-  NutrientGroup:
-    type: object
-    description: La liste des groupes d'éléments nutritifs basés sur les similarités des éléments nutritifs.
-    properties:
-      nutrient_group_id:
-        type: string
-        description: Le numéro d'identification attribué à un groupe d'éléments nutritifs.
-      nutrient_group_name:
-        type: string
-        description: Le nom d'un groupe d'éléments nutritifs.
-      nutrient_group_order:
-        type: string
-        description: L'ordre d'affichage des groupes d'éléments nutritifs.
-    xml:
-      name: NutrientGroup
-
   NutrientSource:
     type: object
     description: La liste des sources et/ou types d'éléments nutritifs.
@@ -332,34 +360,6 @@ definitions:
         description: Le code qui identifie une source d'éléments nutritifs au Canada.
     xml:
       name: NutrientSource
-
-  NutrientAmount:
-    type: object
-    description: Les quantités des éléments nutritifs pour 100 g de portion comestible, pour chaque aliment.
-    properties:
-      food_code:
-        type: string
-        description: Le code attribué à chaque aliment.
-      nutrient_value:
-        type: string
-        description: Valeur moyenne dans une portion de 100g de portion comestible (le nombre de décimale ne reflète pas l'exactitude des données).
-      standard_error:
-        type: string
-        description: L'écart-type de la moyenne.
-      number_observation:
-        type: string
-        description: Le nombre d'échantillons utilisés pour une étude.
-      nutrient_name_id:
-        type: string
-        description: Le numéro d'identification d'un élément nutritif.
-      nutrient_web_name:
-        type: string
-        description: Le nom de l'élément nutritif pour le WEB.
-      nutrient_source_id:
-        type: string
-        description: Le numéro d'identification d'une source d'éléments nutritifs.
-    xml:
-      name: NutrientAmount
 
   ServingSize:
     type: object
@@ -444,7 +444,7 @@ parameters:
     type: string
     required: true
   UserKeys:
-    name: "user-key"
+    name: 'user-key'
     type: string
     in: header
     required: true

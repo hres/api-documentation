@@ -262,27 +262,11 @@ definitions:
       medConditionList:
         type: array
         items:
-          type: object
-          description: The consolidated list of medical conditions for a clinical trial protocol
-          properties:
-            med_condition_id:
-              type: string
-              description: The identification number assigned to a medical condition
-            med_condition:
-              type: string
-              description: The medical condition
+          $ref: '#/definitions/StudyPopulation'
       studyPopulationList:
         type: array
         items:
-          type: object
-          description: The consolidated list of study populations for a clinical trial protocol
-          properties:
-            study_population_id:
-              type: string
-              description: The identification number assigned to a study population
-            study_population:
-              type: string
-              description: The study population
+          $ref: '#/definitions/StudyPopulation'
 
   Sponsor:
     type: object

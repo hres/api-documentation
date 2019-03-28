@@ -36,7 +36,7 @@ paths:
           description: Limit results to those with matching food code
       responses:
         '200':
-          description: Returns a list of all foods, or if an ID is provided, the list of all foods that correspond to the given food code
+          description: Returns a list of all foods, or if an ID is provided, the list of all foods that correspond to the given food code.
           schema:
             type: array
             items:
@@ -49,11 +49,11 @@ paths:
         '404':
           $ref: '#/definitions/404'
 
-  /nutrientname:
+  /nutrientamount:
     get:
       tags:
         - Nutrient
-      description: Returns all nutrient names.
+      description: Returns all nutrient amounts.
       parameters:
         - $ref: '#/parameters/UserKeys'
         - $ref: '#/parameters/QueryLang'
@@ -61,16 +61,16 @@ paths:
         - name: id
           in: query
           type: string
-          description: Limit results to those with matching nutrient name identification number
+          description: Limit results to those with matching food code
       responses:
         '200':
-          description: Returns a list of all nutrient names, or if an ID is provided, the list of all nutrient names that correspond to the given nutrient name identification number
+          description: Returns a list of all nutrient amounts, or if an ID is provided, the list of all nutrient amounts that correspond to the given food code
           schema:
             type: array
             items:
-              $ref: '#/definitions/NutrientName'
+              $ref: '#/definitions/NutrientAmount'
             xml:
-              name: NutrientNames
+              name: NutrientAmounts
               wrapped: true
         '204':
           $ref: '#/definitions/204'
@@ -105,6 +105,34 @@ paths:
         '404':
           $ref: '#/definitions/404'
 
+  /nutrientname:
+    get:
+      tags:
+        - Nutrient
+      description: Returns all nutrient names.
+      parameters:
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - name: id
+          in: query
+          type: string
+          description: Limit results to those with matching nutrient name identification number
+      responses:
+        '200':
+          description: Returns a list of all nutrient names, or if an ID is provided, the list of all nutrient names that correspond to the given nutrient name identification number
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/NutrientName'
+            xml:
+              name: NutrientNames
+              wrapped: true
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
+
   /nutrientsource:
     get:
       tags:
@@ -127,34 +155,6 @@ paths:
               $ref: '#/definitions/NutrientSource'
             xml:
               name: NutrientSources
-              wrapped: true
-        '204':
-          $ref: '#/definitions/204'
-        '404':
-          $ref: '#/definitions/404'
-
-  /nutrientamount:
-    get:
-      tags:
-        - Nutrient
-      description: Returns all nutrient amounts.
-      parameters:
-        - $ref: '#/parameters/UserKeys'
-        - $ref: '#/parameters/QueryLang'
-        - $ref: '#/parameters/QueryType'
-        - name: id
-          in: query
-          type: string
-          description: Limit results to those with matching food code
-      responses:
-        '200':
-          description: Returns a list of all nutrient amounts, or if an ID is provided, the list of all nutrient amounts that correspond to the given food code
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/NutrientAmount'
-            xml:
-              name: NutrientAmounts
               wrapped: true
         '204':
           $ref: '#/definitions/204'
@@ -192,7 +192,7 @@ paths:
   /refuseamount:
     get:
       tags:
-        - Serving Size
+        - Refuse Amount
       description: Returns all refuse amounts.
       parameters:
         - $ref: '#/parameters/UserKeys'
@@ -264,6 +264,50 @@ definitions:
     xml:
       name: Food
 
+  NutrientAmount:
+    type: object
+    description: Identify the nutrient amount per 100 grams for a food.
+    properties:
+      food_code:
+        type: string
+        description: The code assigned to each food.
+      nutrient_value:
+        type: string
+        description: The mean value in 100g, edible portion. (The number of decimal places does not reflect the accuracy of the data).
+      standard_error:
+        type: string
+        description: The standard error of the mean.
+      number_observation:
+        type: string
+        description: The number of samples observed for the study.
+      nutrient_name_id:
+        type: string
+        description: The identification number of the nutrient.
+      nutrient_web_name:
+        type: string
+        description: The name of the nutrient for the WEB.
+      nutrient_source_id:
+        type: string
+        description: The identification number of the nutrient source.
+    xml:
+      name: NutrientAmount
+
+  NutrientGroup:
+    type: object
+    description: It contains a list of different nutrient group headings based on similar characteristics of the nutrients.
+    properties:
+      nutrient_group_id:
+        type: string
+        description: The identification number assigned to a nutrient group.
+      nutrient_group_name:
+        type: string
+        description: The name of the nutrient group.
+      nutrient_group_order:
+        type: string
+        description: The order to display the nutrient group.
+    xml:
+      name: NutrientGroup
+
   NutrientName:
     type: object
     description: It contains a list of different nutrients.
@@ -301,22 +345,6 @@ definitions:
     xml:
       name: NutrientName
 
-  NutrientGroup:
-    type: object
-    description: It contains a list of different nutrient group headings based on similar characteristics of the nutrients.
-    properties:
-      nutrient_group_id:
-        type: string
-        description: The identification number assigned to a nutrient group.
-      nutrient_group_name:
-        type: string
-        description: The name of the nutrient group.
-      nutrient_group_order:
-        type: string
-        description: The order to display the nutrient group.
-    xml:
-      name: NutrientGroup
-
   NutrientSource:
     type: object
     description: It contains a list of several sources and/or types of nutrient data.
@@ -332,34 +360,6 @@ definitions:
         description: The code that identifies a nutrient source in Canada.
     xml:
       name: NutrientSource
-
-  NutrientAmount:
-    type: object
-    description: Identify the nutrient amount per 100 grams for a food.
-    properties:
-      food_code:
-        type: string
-        description: The code assigned to each food.
-      nutrient_value:
-        type: string
-        description: The mean value in 100g, edible portion. (The number of decimal places does not reflect the accuracy of the data).
-      standard_error:
-        type: string
-        description: The standard error of the mean.
-      number_observation:
-        type: string
-        description: The number of samples observed for the study.
-      nutrient_name_id:
-        type: string
-        description: The identification number of the nutrient.
-      nutrient_web_name:
-        type: string
-        description: The name of the nutrient for the WEB.
-      nutrient_source_id:
-        type: string
-        description: The identification number of the nutrient source.
-    xml:
-      name: NutrientAmount
 
   ServingSize:
     type: object
@@ -436,7 +436,7 @@ parameters:
       - json
       - xml
     default: json
-    description: Define which media type you would like the content to be in
+    description: Define which media type you would like the response to be in
   PathID:
     name: id
     description: The drug product code identifier
