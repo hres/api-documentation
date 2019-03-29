@@ -23,7 +23,7 @@ info:
     A Notice of Compliance (NOC) is issued to a manufacturer following the satisfactory review of a submission for a new drug, and signifies compliance with the Food and Drug Regulations.
 
     The database is updated nightly and contains NOC information on human drugs from January 1, 1994 to date. It also contains NOC information on Veterinary drugs from September 19, 2000 to date. Through a phased in approach Health Canada will populate the remaining NOCs for Veterinary drugs from January 1, 1994 to September 18, 2000.
-  version: 1
+  version: '1.0.0'
   contact:
     name: Valerie Tweedle
     email: valerie.tweedle@canada.ca
@@ -31,7 +31,7 @@ info:
 schemes:
   - https
 host: noc-hc-sc-apicast-production.api.canada.ca
-basePath: /api/notice-of-compliance/
+basePath: /v1/
 produces:
   - application/json
   - application/xml
