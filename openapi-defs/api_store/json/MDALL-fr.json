@@ -1,0 +1,590 @@
+{
+  "swagger": "2.0",
+  "x-api-store-tags": [
+    "medical",
+    "devices",
+    "services"
+  ],
+  "x-api-store-short-desc": "Le Bureau des matériels médicaux maintient une base de données sur tous les instruments médicaux de classe II, III ou IV vendus au Canada. Les instruments médicaux de classe I ne requiert pas une homologation des intruments médicaux. Ils sont réglementés par la Direction générale des opérations réglementaires et des régions (Conformité et application de la loi) au moyen des licences d'établissement.\n",
+  "x-api-store-long-desc": "Santé Canada est l'organe fédéral de réglementation des produits thérapeutiques, notamment des instruments médicaux. Il ne formule pas de conseils médicaux sur l'utilisation des produits figurant sur cette liste.\n\nLe Bureau des matériels médicaux (Bureau) de la Direction des produits thérapeutiques, Santé Canada, est l'organe fédéral de réglementation responsable de l'homologation des instruments médicaux, conformément à la Loi sur les aliments et drogues et au Réglement sur les instruments médicaux.\n\nLe Bureau maintient une base de données sur tous les instruments médicaux de classe II, III ou IV vendus au Canada. Les instruments médicaux de classe I ne requiert pas une homologation des intruments médicaux. Ils sont réglementés par la Direction générale des opérations réglementaires et des régions (Conformité et application de la loi) au moyen des licences d'établissement.\n\nSeuls les produits figurant sur cette liste électronique peuvent être offerts pour la vente au Canada. Les instruments médicaux de classe 1 ou vendus aux fins d'essais expérimentaux et aux fins d'un accès spécial ne sont pas inclus.\n",
+  "x-api-store-documentation": "Veuillez consulter la documentation OpenAPI",
+  "x-api-store-phone": "613-954-0285",
+  "x-api-store-sensitivity": "Unclassified",
+  "x-api-store-plans": {
+    "public": {
+      "name": "Plan public",
+      "description": "Tous les utilisateurs doivent souscrire au plan public"
+    }
+  },
+  "info": {
+    "title": "Liste des instruments médicaux homologués en vigueur (MDALL)",
+    "description": "Santé Canada est l'organe fédéral de réglementation des produits thérapeutiques, notamment des instruments médicaux. Il ne formule pas de conseils médicaux sur l'utilisation des produits figurant sur cette liste.\n\nLe Bureau des matériels médicaux (Bureau) de la Direction des produits thérapeutiques, Santé Canada, est l'organe fédéral de réglementation responsable de l'homologation des instruments médicaux, conformément à la Loi sur les aliments et drogues et au Réglement sur les instruments médicaux.\n\nLe Bureau maintient une base de données sur tous les instruments médicaux de classe II, III ou IV vendus au Canada. Les instruments médicaux de classe I ne requiert pas une homologation des intruments médicaux. Ils sont réglementés par la Direction générale des opérations réglementaires et des régions (Conformité et application de la loi) au moyen des licences d'établissement.\n\nSeuls les produits figurant sur cette liste électronique peuvent être offerts pour la vente au Canada. Les instruments médicaux de classe 1 ou vendus aux fins d'essais expérimentaux et aux fins d'un accès spécial ne sont pas inclus.\n",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Sarah Chandler",
+      "email": "sarah.chandler@canada.ca"
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "host": "mdall-hc-sc-apicast-production.api.canada.ca",
+  "basePath": "/v1/",
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "paths": {
+    "/licence": {
+      "get": {
+        "tags": [
+          "Homologation"
+        ],
+        "description": "Returns all licences.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche l'homogolation selon le numéro d'homogolation spécifié dans la requête."
+          },
+          {
+            "$ref": "#/parameters/QueryState"
+          },
+          {
+            "name": "licence_name",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche les homogolations qui contiennent flood dans leur nom."
+          },
+          {
+            "name": "company_id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche les homogolations dont le numéro d'identification de l'entreprise."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all licences, or if an ID is provided, the list of all licences that correspond to the given licence number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Licence"
+              },
+              "xml": {
+                "name": "Licences",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/company": {
+      "get": {
+        "tags": [
+          "Entreprise"
+        ],
+        "description": "Returns all companies.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche l'entreprise selon le numéro d'identification de l'entreprise spécifié dans la requête."
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "type": "string",
+            "enum": [
+              "A",
+              "I"
+            ],
+            "description": "Affiche les entreprises selon le statut spécifié dans la requête.\n\n- A=Active\n- I=Inactive\n"
+          },
+          {
+            "name": "company_name",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche les entreprises qui contiennent bayer dans leur nom."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all companies, or if an ID is provided, the list of all companies that correspond to the given company ID",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Company"
+              },
+              "xml": {
+                "name": "Licences",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/device": {
+      "get": {
+        "tags": [
+          "Instrument médical"
+        ],
+        "description": "Returns all devices.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche l'instrument médical selon le numéro d'identification de l'instrument médical spécifié dans la requête."
+          },
+          {
+            "$ref": "#/parameters/QueryState"
+          },
+          {
+            "name": "device_name",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche les instruments médicaux qui contiennent le nom."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all devices, or if an ID is provided, the list of all devices that correspond to the given device identification number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Device"
+              },
+              "xml": {
+                "name": "Devices",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/deviceidentifier": {
+      "get": {
+        "tags": [
+          "Instrument médical"
+        ],
+        "description": "Returns all device identifiers.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche l'identificateur d'instrument selon le numéro d'identification de l'instrument spécifié dans la requête."
+          },
+          {
+            "$ref": "#/parameters/QueryState"
+          },
+          {
+            "name": "device_identifier",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche les instruments qui contiennent le donné dans leur identificateur de l'instrument."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all device identifiers, or if an ID is provided, the list of all device identifiers that correspond to the given device identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DeviceIdentifier"
+              },
+              "xml": {
+                "name": "DeviceIdentifiers",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/licencetype": {
+      "get": {
+        "tags": [
+          "Homologation"
+        ],
+        "description": "Returns all licence types.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche un type de demande d'homologation selon le code d'un type de demande d'homologation spécifié dans la requête."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all licence types, or if a code is provided, the list of all licence types that correspond to the given code",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LicenceType"
+              },
+              "xml": {
+                "name": "LicenceTypes",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/sbdlocation": {
+      "get": {
+        "tags": [
+          "Sommaire des motifs de décision (emplacement)"
+        ],
+        "description": "Returns all summary basis decision locations.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche l'emplacement du Sommaire des motifs de décision selon le numéro d'homogolation spécifié dans la requête."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all locations, or if an ID is provided, the list of all locations that correspond to the given licence number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SummaryBasisDecisionLocation"
+              },
+              "xml": {
+                "name": "SummaryBasisDecisionLocations",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "204": {
+      "type": "string"
+    },
+    "404": {
+      "type": "string"
+    },
+    "DeviceIdentifier": {
+      "type": "string"
+    },
+    "CompanyIdentifier": {
+      "type": "string"
+    },
+    "LicenceNumber": {
+      "type": "string"
+    },
+    "Licence": {
+      "type": "object",
+      "description": "L'homogolation est une certification de conformité d'un instrument médical pour la vente au Canada détenu par un fabricant.",
+      "properties": {
+        "original_licence_no": {
+          "type": "string",
+          "description": "Le numéro de l'homologation."
+        },
+        "licence_status": {
+          "type": "string",
+          "description": "Le statut de l'homologation\n\n- C=Cancelled\n- D=Issued/Conditional\n- I=Issued/Active\n- M=Merge\n- O=Discontinued at Renewal\n- P=Pending signature\n- R=Cancelled Renowal No Response\n- S=Suspended\n- W=Withdrawn\n- Q=Suspended/Invalid QS Certification\n- X=Cancelled QS/2003\n"
+        },
+        "appl_risk_class": {
+          "type": "string",
+          "description": "La classe de la demande d’homologation."
+        },
+        "licence_name": {
+          "type": "string",
+          "description": "Le nom de l'homologation."
+        },
+        "first_licence_status_dt": {
+          "type": "string",
+          "description": "La date où la première homogolation a été émise."
+        },
+        "last_refresh_dt": {
+          "type": "string",
+          "description": "La date où les données de MDALL ont été mises à jour."
+        },
+        "end_date": {
+          "type": "string",
+          "description": "La date où l’homologation a été annulée (si active ce champ est vide)."
+        },
+        "licence_type_cd": {
+          "type": "string",
+          "description": "Le code d'un type de demande d'homologation."
+        },
+        "company_id": {
+          "type": "string",
+          "description": "Le numéro d'identification attribué à une entreprise."
+        },
+        "licence_type_desc": {
+          "type": "string",
+          "description": "La description du code d'un type de demande d'homologation."
+        }
+      }
+    },
+    "Company": {
+      "type": "object",
+      "description": "Contient le nom et l'adresse de l'entreprise.",
+      "properties": {
+        "company_id": {
+          "type": "string",
+          "description": "Le numéro d'identification attribué à une entreprise."
+        },
+        "company_name": {
+          "type": "string",
+          "description": "Le nom de l’entreprise."
+        },
+        "addr_line_1": {
+          "type": "string",
+          "description": "Ligne 1 de l’adresse."
+        },
+        "addr_line_2": {
+          "type": "string",
+          "description": "Ligne 2 de l’adresse."
+        },
+        "addr_line_3": {
+          "type": "string",
+          "description": "Ligne 3 de l’adresse."
+        },
+        "postal_code": {
+          "type": "string",
+          "description": "Le code postal."
+        },
+        "city": {
+          "type": "string",
+          "description": "La ville."
+        },
+        "country_cd": {
+          "type": "string",
+          "description": "Le code du pays (2 chiffres)."
+        },
+        "region_cd": {
+          "type": "string",
+          "description": "Le code de la région (2 chiffres)."
+        },
+        "company_status": {
+          "type": "string",
+          "description": "Le statut de l'entreprise. (A=Active, I=Inactive)"
+        }
+      }
+    },
+    "Device": {
+      "type": "object",
+      "description": "Information sur l'instrument médical.",
+      "properties": {
+        "original_licence_no": {
+          "type": "string",
+          "description": "Le numéro de l'homologation."
+        },
+        "device_id": {
+          "type": "string",
+          "description": "Le numéro d'identification attribué à un instrument médical."
+        },
+        "first_licence_dt": {
+          "type": "string",
+          "description": "La date où l’homologation d’un instrument médical est acceptée."
+        },
+        "end_date": {
+          "type": "string",
+          "description": "La date où l’homologation d’un instrument médical est supprimée (si active ce champ est vide)."
+        },
+        "trade_name": {
+          "type": "string",
+          "description": "Le nom de l’instrument médical."
+        }
+      }
+    },
+    "DeviceIndentifier": {
+      "type": "object",
+      "description": "C’est la liste de tous les identificateurs qui identifient de façon unique un instrument médical (sur l’étiquette).",
+      "properties": {
+        "original_licence_no": {
+          "type": "string",
+          "description": "Le numéro de l'homologation."
+        },
+        "device_id": {
+          "type": "string",
+          "description": "Le numéro d'identification attribué à un instrument médical."
+        },
+        "first_licence_dt": {
+          "type": "string",
+          "description": "La date où l’identificateur de l’instrument médical a été ajouté à une homologation."
+        },
+        "end_date": {
+          "type": "string",
+          "description": "La date où l’identificateur d’un instrument médical a été supprimé d’une homologation."
+        },
+        "device_identifier": {
+          "type": "string",
+          "description": "L’identificateur."
+        }
+      }
+    },
+    "LicenceType": {
+      "type": "object",
+      "description": "La liste des codes et leur définition des types de demande d'homologation.",
+      "properties": {
+        "licence_type_cd": {
+          "type": "string",
+          "description": "Le code d’un type de demande d'homologation."
+        },
+        "licence_type_desc": {
+          "type": "string",
+          "description": "La définition du code d'un type de demande d'homologation."
+        }
+      }
+    },
+    "SummaryBasisDecisionLocation": {
+      "type": "object",
+      "description": "Adresse des sites Web des sommaires des motifs de décision.",
+      "properties": {
+        "original_licence_no": {
+          "type": "string",
+          "description": "Le numéro de l'homologation."
+        },
+        "sbd_notice_web_loc": {
+          "type": "string",
+          "description": "Adresse Web du sommaire des motifs de décision."
+        },
+        "sbd_web_loc": {
+          "type": "string",
+          "description": "Adresse Web du rapport."
+        }
+      }
+    }
+  },
+  "parameters": {
+    "QueryLang": {
+      "name": "lang",
+      "type": "string",
+      "in": "query",
+      "enum": [
+        "en",
+        "fr"
+      ],
+      "default": "en",
+      "description": "Modifie la langue du résultat."
+    },
+    "QueryType": {
+      "name": "type",
+      "type": "string",
+      "in": "query",
+      "enum": [
+        "json",
+        "xml"
+      ],
+      "default": "json",
+      "description": "Modifie le format du résultat."
+    },
+    "QueryState": {
+      "name": "state",
+      "in": "query",
+      "type": "string",
+      "enum": [
+        "active",
+        "archived"
+      ],
+      "description": "Affiche les homogolations selon l'état spécifié dans la requête."
+    },
+    "UserKeys": {
+      "name": "user-key",
+      "type": "string",
+      "in": "header",
+      "required": true,
+      "description": "L'identifiant attribué à votre compte pour accéder à l'API",
+      "x-data-threescale-name": "user_keys"
+    }
+  }
+}

@@ -1,0 +1,542 @@
+{
+  "swagger": "2.0",
+  "x-api-store-tags": [
+    "compliance",
+    "food",
+    "drugs",
+    "veterinary"
+  ],
+  "x-api-store-short-desc": "Avis de conformité (AC) émis au fabricant si la présentation de drogue nouvelle est jugée conforme au Règlement sur les aliments et drogues après un examen complet.\n",
+  "x-api-store-long-desc": "Un Avis de conformité (AC) est émis au fabricant si la présentation de drogue nouvelle est jugée conforme au Règlement sur les aliments et drogues après un examen complet.\n\nLa base de données est mise à jour tous les soirs et elle comprend des renseignements sur les AC concernant les médicaments pour usage humain émis depuis le 1er janvier 1994 jusqu'à ce jour. Elle comprend également les renseignements sur les AC concernant les médicaments vétérinaires émis depuis le 19 septembre 2000 jusqu'à ce jour. Santé Canada ajoutera progressivement les AC concernant les médicaments vétérinaires émis entre le 1er janvier 1994 et le 18 septembre 2000.\n",
+  "x-api-store-documentation": "Veuillez consulter la documentation OpenAPI",
+  "x-api-store-phone": "613-954-2964",
+  "x-api-store-sensitivity": "Unclassified",
+  "x-api-store-plans": {
+    "public": {
+      "name": "Plan public",
+      "description": "Tous les utilisateurs doivent souscrire au plan public"
+    }
+  },
+  "info": {
+    "title": "Avis de conformité (AC)",
+    "description": "Un Avis de conformité (AC) est émis au fabricant si la présentation de drogue nouvelle est jugée conforme au Règlement sur les aliments et drogues après un examen complet.\n\nLa base de données est mise à jour tous les soirs et elle comprend des renseignements sur les AC concernant les médicaments pour usage humain émis depuis le 1er janvier 1994 jusqu'à ce jour. Elle comprend également les renseignements sur les AC concernant les médicaments vétérinaires émis depuis le 19 septembre 2000 jusqu'à ce jour. Santé Canada ajoutera progressivement les AC concernant les médicaments vétérinaires émis entre le 1er janvier 1994 et le 18 septembre 2000.\n",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Valerie Tweedle",
+      "email": "valerie.tweedle@canada.ca"
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "host": "noc-hc-sc-apicast-production.api.canada.ca",
+  "basePath": "/v1/",
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "paths": {
+    "/drugproduct": {
+      "get": {
+        "tags": [
+          "Produit pharmaceutique"
+        ],
+        "description": "Returns all drug products.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "$ref": "#/parameters/QueryNoticeOfComplianceNumber"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all drug products, or if an ID is provided, the list of all drug products that correspond to the given Notice of Compliance number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DrugProduct"
+              },
+              "xml": {
+                "name": "DrugProducts",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/noticeofcompliancemain": {
+      "get": {
+        "tags": [
+          "Avis de conformité"
+        ],
+        "description": "Returns all compliance notifications",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "$ref": "#/parameters/QueryNoticeOfComplianceNumber"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all compliance notices, or if an ID is provided, the list of all notices of compliance that correspond to the given Notice of Compliance number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NoticeOfCompliance"
+              },
+              "xml": {
+                "name": "NoticesOfCompliance",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/dosageform": {
+      "get": {
+        "tags": [
+          "Forme posologique"
+        ],
+        "description": "Returns all dosage forms",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "$ref": "#/parameters/QueryNoticeOfComplianceNumber"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all dosage forms, or if an ID is provided, the list of all dosage forms that correspond to the given Notice of Compliance number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DosageForm"
+              },
+              "xml": {
+                "name": "DosageForms",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/medicinalingredient": {
+      "get": {
+        "tags": [
+          "Ingrédient médicinal"
+        ],
+        "description": "Returns all medicinal ingredients",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "$ref": "#/parameters/QueryNoticeOfComplianceNumber"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all medicinal ingredients, or if an ID is provided, the list of all medicinal ingredients that correspond to the given Notice of Compliance number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MedicinalIngredient"
+              },
+              "xml": {
+                "name": "MedicinalIngredients",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/route": {
+      "get": {
+        "tags": [
+          "Voie d'administration"
+        ],
+        "description": "Returns all administration routes",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "$ref": "#/parameters/QueryNoticeOfComplianceNumber"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all administration routes, or if an ID is provided, the list of all routes that correspond to the given Notice of Compliance number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RouteOfAdministration"
+              },
+              "xml": {
+                "name": "RouteOfAdministration",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/vetspecies": {
+      "get": {
+        "tags": [
+          "Espèces animales"
+        ],
+        "description": "Returns all veterinary species",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "$ref": "#/parameters/QueryNoticeOfComplianceNumber"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all veterinary species, or if an ID is provided, the list of all species that correspond to the given Notice of Compliance number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VeterinarySpecies"
+              },
+              "xml": {
+                "name": "RouteOfAdministration",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "204": {
+      "type": "string"
+    },
+    "404": {
+      "type": "string"
+    },
+    "DosageForm": {
+      "type": "object",
+      "description": "Forme sous laquelle le produit est vendu. Il s'agit de la combinaison de la forme sous laquelle le fabricant présente un produit, p. ex. comprimé, gélule, poudre, et de la forme sous laquelle le produit est administré, p. ex. poudre pour une solution.",
+      "properties": {
+        "noc_number": {
+          "type": "string",
+          "description": "Le numéro attribué à un avis de conformité."
+        },
+        "noc_pf_din_product_id": {
+          "type": "string",
+          "description": "Le numéro d'identification attribué à un produit pharmaceutique."
+        },
+        "noc_pf_form_name": {
+          "type": "string",
+          "description": "La forme posologique."
+        }
+      },
+      "xml": {
+        "name": "DosageForm"
+      }
+    },
+    "DrugProduct": {
+      "type": "object",
+      "description": "Information sur le produit pharmaceutique, telles que le nom commercial et l'identification numérique de drogue. La marque du produit est le nom attribué par le fabricant pour distinguer le produit et sous lequel le produit sera vendu ou publicisé.",
+      "properties": {
+        "noc_number": {
+          "type": "string",
+          "description": "Le numéro attribué à un avis de conformité."
+        },
+        "noc_br_brand_id": {
+          "type": "string",
+          "description": "Le numéro d'identification attribué à une marque."
+        },
+        "noc_br_brandname": {
+          "type": "string",
+          "description": "Le nom commercial du produit pharmaceutique."
+        },
+        "noc_br_product_id": {
+          "type": "string",
+          "description": "Le numéro d'identification attribué à un produit pharmaceutique."
+        },
+        "noc_br_din": {
+          "type": "string",
+          "description": "L'Identification numérique de drogue."
+        }
+      },
+      "xml": {
+        "name": "DrugProduct"
+      }
+    },
+    "MedicinalIngredient": {
+      "type": "object",
+      "description": "Tout composant qui possède des propriétés médicinales, qui provoque une activité pharmacologique ou qui a des répercussions directes sur le diagnostic, la guérison, l'atténuation, le traitement ou la prévention des maladies, ou qui affecte la structure ou toute fonction du corps de l'être humain ou d'autres animaux.",
+      "properties": {
+        "noc_number": {
+          "type": "string",
+          "description": "Le numéro attribué à un avis de conformité."
+        },
+        "noc_pi_din_product_id": {
+          "type": "string",
+          "description": "Le numéro d'identification attribué à un produit pharmaceutique."
+        },
+        "noc_pi_medic_ingr_name": {
+          "type": "string",
+          "description": "Le nom de l'ingrédient médicinal."
+        },
+        "noc_pi_strength": {
+          "type": "string",
+          "description": "Le concentration de l'ingrédient médicinal."
+        },
+        "noc_pi_unit": {
+          "type": "string",
+          "description": "L'unité de l'ingrédient médicinal."
+        },
+        "noc_pi_basic_unit": {
+          "type": "string",
+          "description": "L’unité posologique de l’ingrédient médicinal."
+        }
+      },
+      "xml": {
+        "name": "MedicinalIngredient"
+      }
+    },
+    "NoticeOfCompliance": {
+      "type": "object",
+      "description": "Un Avis de conformité (AC) est une notification délivrée en vertu du paragraphe C.08.004(1)(a), indiquant que le fabricant/promoteur se conforme aux articles C.08.002 ou C.08.003 et C.08.005.1 du Règlement sur les aliments et drogues. Un avis de conformité est émis si la présentation est jugée conforme après un examen complet.\n\nUn AC-C est une autorisation de mettre un médicament sur le marché (c'est-à-dire un avis de conformité), à la condition que le promoteur entreprenne des études supplémentaires pour en vérifier l'avantage clinique. L'avis de conformité, admissible en vertu de la politique sur les AC-C (Avis de conformité avec conditions (AC-C) - Politique révisée), est émis dans le cadre de l'article C.08.004 du Règlement sur les aliments et drogues.\n",
+      "properties": {
+        "noc_number": {
+          "type": "string",
+          "description": "Le numéro attribué à un avis de conformité."
+        },
+        "noc_date": {
+          "type": "string",
+          "description": "La date à laquelle un avis de conformité a été émis."
+        },
+        "noc_manufacturer_name": {
+          "type": "string",
+          "description": "Le nom du fabricant."
+        },
+        "noc_status_with_conditions": {
+          "type": "string",
+          "description": "Si un produit était autorisé sous la politique sur les avis de conformité avec conditions."
+        },
+        "noc_on_submission_type": {
+          "type": "string",
+          "description": "Le catégorie de la présentation."
+        },
+        "noc_is_suppliment": {
+          "type": "string",
+          "description": "Si la présentation est un supplément."
+        },
+        "noc_submission_class": {
+          "type": "string",
+          "description": "La catégorie de présentation ."
+        },
+        "noc_is_admin": {
+          "type": "string",
+          "description": "Si la présentation a été déposée administrativement."
+        },
+        "noc_product_type": {
+          "type": "string",
+          "description": "Le type de produit pharmaceutique."
+        },
+        "noc_crp_product_name": {
+          "type": "string",
+          "description": "Le nom du produit de référence canadien."
+        },
+        "noc_crp_company_name": {
+          "type": "string",
+          "description": "Le nom de l'entreprise pour le produit de référence canadien."
+        },
+        "noc_crp_country_name": {
+          "type": "string",
+          "description": "Le nom du pays pour le produit de référence canadien."
+        },
+        "noc_active_status": {
+          "type": "string",
+          "description": "Si l'avis de conformité est active ou suspendu."
+        },
+        "noc_reason_supplement": {
+          "type": "string",
+          "description": "Si la présentation est un supplément, le motif du supplément."
+        },
+        "noc_reason_submission": {
+          "type": "string",
+          "description": "Le motif de la présentation."
+        },
+        "noc_therapeutic_class": {
+          "type": "string",
+          "description": "La classe thérapeutique attribuée à un produit pharmaceutique."
+        },
+        "noc_last_update_date": {
+          "type": "string",
+          "description": "La dernière date à laquelle l'avis de conformité a été mis à jour."
+        }
+      },
+      "xml": {
+        "name": "NoticeOfCompliance"
+      }
+    },
+    "RouteOfAdministration": {
+      "type": "object",
+      "description": "Détermine la partie du corps sur laquelle, par laquelle ou dans laquelle le produit est administré (orale, topique, intramusculaire, rectale, etc.).\n\nUn produit peut être administré de plusieurs façons (intraveineuse, intramusculaire, intra-articulaire, etc.).\n",
+      "properties": {
+        "noc_number": {
+          "type": "string",
+          "description": "Le numéro attribué à un avis de conformité."
+        },
+        "noc_pr_din_product_id": {
+          "type": "string",
+          "description": "Le numéro d'identification attribué à un produit pharmaceutique."
+        },
+        "noc_pr_route": {
+          "type": "string",
+          "description": "La voie d'administration."
+        }
+      },
+      "xml": {
+        "name": "RouteOfAdministration"
+      }
+    },
+    "VeterinarySpecies": {
+      "type": "object",
+      "description": "Les espèces auxquelles les produits vétérinaires sont destinés (p. ex. mouton, chien, bovin et volaille).",
+      "properties": {
+        "noc_number": {
+          "type": "string",
+          "description": "Le numéro attribué à un avis de conformité."
+        },
+        "vet_species_desc": {
+          "type": "string",
+          "description": "La description de l'espèce animale."
+        }
+      },
+      "xml": {
+        "name": "VeterinarySpecies"
+      }
+    }
+  },
+  "parameters": {
+    "QueryLang": {
+      "name": "lang",
+      "type": "string",
+      "in": "query",
+      "enum": [
+        "en",
+        "fr"
+      ],
+      "default": "en",
+      "description": "Modifie la langue du résultat."
+    },
+    "QueryType": {
+      "name": "type",
+      "type": "string",
+      "in": "query",
+      "enum": [
+        "json",
+        "xml"
+      ],
+      "default": "json",
+      "description": "Modifie le format du résultat."
+    },
+    "QueryNoticeOfComplianceNumber": {
+      "name": "id",
+      "type": "string",
+      "in": "query",
+      "description": "Affiche l'avis de conformité selon le numéro d'un avis de conformité spécifié dans la requête. number"
+    },
+    "UserKeys": {
+      "name": "user-key",
+      "type": "string",
+      "in": "header",
+      "required": true,
+      "description": "L'identifiant attribué à votre compte pour accéder à l'API",
+      "x-data-threescale-name": "user_keys"
+    }
+  }
+}

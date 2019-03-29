@@ -1,0 +1,776 @@
+{
+  "swagger": "2.0",
+  "x-api-store-tags": [
+    "licensing",
+    "health products",
+    "natural products"
+  ],
+  "x-api-store-short-desc": "The Licensed Natural Health Products Database (LNHPD) contains information about natural health products (NHPs) that have been issued a product licence by Health Canada.\n",
+  "x-api-store-long-desc": "The Licensed Natural Health Products Database (LNHPD) contains information about natural health products (NHPs) that have been issued a product licence by Health Canada.\n",
+  "x-api-store-documentation": "<p>The Licensed Natural Health Products Database id (lnhpd_id) is the number that drives many of the interactions with the system.</p><p>We can start by getting the product license to learn more about a product.</p><code>https://lnhpd-hc-sc-apicast-production.api.canada.ca/v1/productlicence?lang=en&type=json</code><br/><h3>Response</h3><code>...<br/>{\"lnhpd_id\":3892200,\"licence_number\":\"02230927\",\"licence_date\":\"2004-12-20\",\"revised_date\":null,\"time_receipt\":\"2004-01-02\",\"date_start\":\"2004-01-05\",\"product_name_id\":4964,\"product_name\":\"Echinacea And Goldenseal\",\"dosage_form\":\"Capsule\",\"company_id\":10152,\"company_name_id\":13812326,\"company_name\":\"Jamieson Laboratories Ltd./ Nutricorp International\",\"sub_submission_type_code\":5,\"sub_submission_type_desc\":\"Transitional DIN\",\"flag_primary_name\":1,\"flag_product_status\":1,\"flag_attested_monograph\":0},<br/>...</code><p>Please note when calling this endpoint with an id, many endpoints ask for the lnhpd_id but the productlicense endpoint expects the license_number.</p><p>Now with this product, we are able to call various endpoints to get more information on it.</p><p>An example of one is the productrisk endpoint:</p><code>https://lnhpd-hc-sc-apicast-production.api.canada.ca/v1/productrisk?lang=en&type=json&page=1&id=3892200</code><br/><h3>Response</h3><code>{<br/>  \"metadata\": {<br/>    \"pagination\": null,<br/>    \"dateReceived\": \"2019-03-22T19:19:02.4740949Z\"<br/>  },<br/>  \"data\": [<br/>    {<br/>      \"lnhpd_id\": 3892200,<br/>      \"risk_id\": 5103,<br/>      \"risk_type_desc\": \"Cautions and Warnings\",<br/>      \"sub_risk_type_desc\": \"\",<br/>      \"risk_text\": \"Consult a health care practitioner if you have kidney disease, high blood pressure, or if symptoms persist.  Consult a health care practitioner prior to use if have an immune-mediated or inflammatory disease such as tuberculosis, leucosis, collagenosis, multiple sclerosis, AIDS, HIV infection, are taking immunosupressants, sedative drugs and/or barbituates.\"<br/>    },<br/>    {<br/>      \"lnhpd_id\": 3892200,<br/>      \"risk_id\": 5105,<br/>      \"risk_type_desc\": \"Contra-Indications\",<br/>      \"sub_risk_type_desc\": \"\",<br/>      \"risk_text\": \"Do not use if pregnant or breastfeeding.  Do not exceed recommended dosage, except on the advice of a physician.  Do not use if you have allergy to Asteraceae/Compositae (daisy) family.\"<br/>    }<br/>  ]<br/>}</code><br/>Note that the response for certain endpoints can be long as there is a lot of text. Some endpoints support pagination. For example, if we try to access the productrisk endpoint without an id:<br/><code>https://lnhpd-hc-sc-apicast-production.api.canada.ca/v1/productrisk?lang=en&type=json</code><br/><h3>Response</h3><code>{<br/>  \"metadata\": {<br/>    \"pagination\": {<br/>      \"limit\": 100,<br/>      \"page\": 1,<br/>      \"total\": 155877,<br/>      \"next\": \"/api/lnhpd/productrisk?page=2&lang=en&type=json\",<br/>      \"previous\": null<br/>    },<br/>    \"dateReceived\": \"2019-03-22T19:23:22.7077055Z\"<br/>  },<br/>  \"data\": [<br/>    {<br/>      \"lnhpd_id\": 4008732,<br/>      \"risk_id\": 168534,<br/>      \"risk_type_desc\": \"Cautions and Warnings\",<br/>      \"sub_risk_type_desc\": \"\",<br/>      \"risk_text\": \"Consult a health care practitioner prior to use if you are taking blood thinners or EPA in fish oils.nConsult a health care practitioner prior to use if you have a blood clotting disorder.nConsult a health care practitioner prior to use if you are taking cholesterol-lowering medication.nConsult a health care practitioner prior to use if you have diabetes.nConsult a health care practitioner if heartburn, flatulence, gastro-intestinal irritation persist.\"<br/>    },<br/>...</code><p>The pagination metadata can be examined to state which page has been returned and next and previous let you know how you need to call the endpoint to retrieve the next and previous pages respectively.</p><p>All endpoints are listed in the OpenAPI specification.</p>\n",
+  "x-api-store-phone": "613-355-0261",
+  "x-api-store-sensitivity": "Unclassified",
+  "x-api-store-plans": {
+    "public": {
+      "name": "Public Plan",
+      "description": "All users should subscribe to the Public Plan."
+    }
+  },
+  "info": {
+    "title": "Licensed Natural Health Products Database (LNHPD)",
+    "description": "The Licensed Natural Health Products Database (LNHPD) contains information about natural health products (NHPs) that have been issued a product licence by Health Canada.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "David Kong",
+      "email": "david.kong@canada.ca"
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "host": "lnhpd-hc-sc-apicast-production.api.canada.ca",
+  "basePath": "/v1/",
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "paths": {
+    "/medicinalingredient": {
+      "get": {
+        "tags": [
+          "Medicinal Ingredient"
+        ],
+        "description": "Returns all medicinal ingredients.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "$ref": "#/parameters/QueryPage"
+          },
+          {
+            "$ref": "#/parameters/QueryProductID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all medicinal ingredients, or if an ID is provided, the list of all medicinal ingredients that correspond to the given product identifier",
+            "schema": {
+              "$ref": "#/definitions/MedicinalIngredientResponse",
+              "xml": {
+                "name": "MedicinalIngredients",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/nonmedicinalingredient": {
+      "get": {
+        "tags": [
+          "Non Medicinal Ingredient"
+        ],
+        "description": "Returns all non-medicinal ingredients.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "$ref": "#/parameters/QueryProductID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all non-medicinal ingredients, or if an ID is provided, the list of all non-medicinal ingredients that correspond to the given product identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NonMedicinalIngredient"
+              },
+              "xml": {
+                "name": "NonMedicinalIngredients",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/productdose": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "description": "Returns all product doses.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "$ref": "#/parameters/QueryProductID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all product doses, or if an ID is provided, the list of all product doses that correspond to the given product identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ProductDose"
+              },
+              "xml": {
+                "name": "ProductDoses",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/productlicence": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "description": "Returns all product licences.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "in": "query",
+            "description": "Limit the results to those with matching licence number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all product licences, or if an ID is provided, the list of all product licences that correspond to the given licence number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ProductLicence"
+              },
+              "xml": {
+                "name": "ProductLicence",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/productpurpose": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "description": "Returns all product purposes.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "$ref": "#/parameters/QueryPage"
+          },
+          {
+            "$ref": "#/parameters/QueryProductID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all product purposes, or if an ID is provided, the list of all product purposes that correspond to the given product identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ProductPurposeResponse"
+              },
+              "xml": {
+                "name": "ProductPurposes",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/productrisk": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "description": "Returns all product risks.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "$ref": "#/parameters/QueryPage"
+          },
+          {
+            "$ref": "#/parameters/QueryProductID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all product risks, or if an ID is provided, the list of all product risks that correspond to the given product identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ProductRiskResponse"
+              },
+              "xml": {
+                "name": "ProductRisk",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/productroute": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "description": "Returns all product routes.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "$ref": "#/parameters/QueryProductID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all product routes, or if an ID is provided, the list of all product routes that correspond to the given product identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ProductRoute"
+              },
+              "xml": {
+                "name": "ProductRoute",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "204": {
+      "type": "string"
+    },
+    "404": {
+      "type": "string"
+    },
+    "MedicinalIngredient": {
+      "type": "object",
+      "description": "Contributes to the therapeutic activity associated with the recommended use or purpose.",
+      "properties": {
+        "lnhpd_id": {
+          "type": "string",
+          "description": "Unique product identifier."
+        },
+        "ingredient_name": {
+          "type": "string",
+          "description": "The name of the Medicinal Ingredient."
+        },
+        "potency_amount": {
+          "type": "string",
+          "description": "The amount per dosage unit of the standardized component that further characterizes the quantity of the ingredient."
+        },
+        "potency_unit of_measure": {
+          "type": "string",
+          "description": "Unit of measurement describing the potency-amount."
+        },
+        "potency_constituent": {
+          "type": "string",
+          "description": "Active component of the Medicinal Ingredient."
+        },
+        "quantity": {
+          "type": "string",
+          "description": "Quantity of Medicinal Ingredient/dosage unit."
+        },
+        "quantity_minimum": {
+          "type": "string",
+          "description": "Minimum quantity if range."
+        },
+        "quantity_maximum": {
+          "type": "string",
+          "description": "Maximum quantity if range."
+        },
+        "quantity_unit_of_measure": {
+          "type": "string",
+          "description": "Unit of measurement describing the quantity."
+        },
+        "ratio_numerator": {
+          "type": "string",
+          "description": "Extract ratio numerator."
+        },
+        "ratio_denominator": {
+          "type": "string",
+          "description": "Extract ratio denominator."
+        },
+        "dried_herb_equivalent": {
+          "type": "string",
+          "description": "The amount of crude ingredient used in an extract, expressed per dosage unit."
+        },
+        "dhe_unit_of_measure": {
+          "type": "string",
+          "description": "Unit of measurement describing quantity."
+        },
+        "extract_type_desc": {
+          "type": "string",
+          "description": "Extract type."
+        },
+        "source_material": {
+          "type": "string",
+          "description": "The substance from which the medicinal ingredient was derived. There may be multiple sources for a medicinal ingredient."
+        }
+      },
+      "xml": {
+        "name": "MedicinalIngredient"
+      }
+    },
+    "MedicinalIngredientResponse": {
+      "type": "object",
+      "properties": {
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MedicinalIngredient"
+          }
+        }
+      }
+    },
+    "Metadata": {
+      "type": "object",
+      "properties": {
+        "dateReceived": {
+          "type": "string"
+        }
+      }
+    },
+    "NonMedicinalIngredient": {
+      "type": "object",
+      "description": "Any substance added to a NHP to confer suitable consistency or form to the medicinal ingredients.",
+      "properties": {
+        "lnhpd_id": {
+          "type": "string",
+          "description": "Unique product identifier."
+        },
+        "ingredient_name": {
+          "type": "string",
+          "description": "The name of the Non-Medicinal Ingredient."
+        }
+      },
+      "xml": {
+        "name": "NonMedicinalIngredient"
+      }
+    },
+    "ProductDose": {
+      "type": "object",
+      "description": "The amount of finished product in dosage form used for the recommended purpose, including any directions of use. The dose is represented as the amount of dosage units, the frequency of use, and directions for use, if any, by a sub-population group.",
+      "properties": {
+        "lnhpd_id": {
+          "type": "string",
+          "description": "Unique product identifier."
+        },
+        "dose_id": {
+          "type": "string",
+          "description": "Unique identifier for Dose."
+        },
+        "population_type_desc": {
+          "type": "string",
+          "description": "Sub-population The group to which the NHP is targeted (may be more than one) that may require different dosing from the standard."
+        },
+        "age": {
+          "type": "string",
+          "description": "Age recommended."
+        },
+        "age_minimum": {
+          "type": "string",
+          "description": "Minimum age if range."
+        },
+        "age_maximum": {
+          "type": "string",
+          "description": "Maximum age if range."
+        },
+        "uom_type_desc_age": {
+          "type": "string",
+          "description": "Unit of measurement for age."
+        },
+        "quantity_dose": {
+          "type": "string",
+          "description": "Quantity of Medicinal Ingredient/dosage unit."
+        },
+        "quantity_dose_minimum": {
+          "type": "string",
+          "description": "Minimum quantity of Medicinal Ingredient/dosage unit if range."
+        },
+        "quantity_dose_maximum": {
+          "type": "string",
+          "description": "Maximum quantity of Medicinal Ingredient/dosage unit if range."
+        },
+        "uom_type_desc_quantity_dose": {
+          "type": "string",
+          "description": "Unit of measurement describing dose."
+        },
+        "frequency": {
+          "type": "string",
+          "description": "How often the product is to be taken in a given time or time interval."
+        },
+        "frequency_minimum": {
+          "type": "string",
+          "description": "Minimum frequency if range."
+        },
+        "frequency_maximum": {
+          "type": "string",
+          "description": "Maximum frequency if range."
+        },
+        "uom_type_desc_frequency": {
+          "type": "string",
+          "description": "Unit of measurement describing frequency."
+        }
+      },
+      "xml": {
+        "name": "ProductDose"
+      }
+    },
+    "ProductLicence": {
+      "type": "object",
+      "description": "An eight (8) digit numerical code assigned to each natural health product approved to be marketed under the Natural Health Product Regulation (NHPR).",
+      "properties": {
+        "nhpd_id": {
+          "type": "string",
+          "description": "Unique product identifier."
+        },
+        "licence_number": {
+          "type": "string",
+          "description": "An eight (8) digit numerical code assigned to each natural health product approved to be marketed under the NHPR."
+        },
+        "licence_date": {
+          "type": "string",
+          "description": "Date of original issuance."
+        },
+        "revised_date": {
+          "type": "string",
+          "description": "Date last revised."
+        },
+        "time_receipt": {
+          "type": "string",
+          "description": "Date submission received at Natural and Non-prescription Health Products Directorate."
+        },
+        "date_start": {
+          "type": "string",
+          "description": "Date processing begins."
+        },
+        "product_name_id": {
+          "type": "string",
+          "description": "Brand Name key value identifier."
+        },
+        "product_name": {
+          "type": "string",
+          "description": "Brand Name."
+        },
+        "dosage_form": {
+          "type": "string",
+          "description": "The final physical form of the natural health product which may be used by the consumer without requiring any further manufacturing."
+        },
+        "company_id": {
+          "type": "string",
+          "description": "Company key value identifier."
+        },
+        "company_name_id": {
+          "type": "string",
+          "description": "Company name key value identifier."
+        },
+        "company_name": {
+          "type": "string",
+          "description": "Licence holder."
+        },
+        "sub_submission_type_code": {
+          "type": "string",
+          "description": "Submission sub type identifier."
+        },
+        "sub_submission_type_desc": {
+          "type": "string",
+          "description": "Text value or the submission sub-type."
+        },
+        "flag_primary_name": {
+          "type": "string",
+          "description": "Flag on - primary brand name."
+        },
+        "flag_product_status": {
+          "type": "string",
+          "description": "Product active/non-active."
+        },
+        "flag_attested_monograph": {
+          "type": "string",
+          "description": "Attested to a monograph Yes/No."
+        }
+      },
+      "xml": {
+        "name": "ProductLicence"
+      }
+    },
+    "ProductPurpose": {
+      "type": "object",
+      "description": "Statement that indicates the intended beneficial effect of a NHP when used according to the recommended dose, duration of use and route of administration.",
+      "properties": {
+        "text_id": {
+          "type": "string",
+          "description": "Unique identifier for purpose."
+        },
+        "lnhpd_id": {
+          "type": "string",
+          "description": "Unique product identifier."
+        },
+        "purpose": {
+          "type": "string",
+          "description": "Purpose statement(s)."
+        }
+      },
+      "xml": {
+        "name": "ProductPurpose"
+      }
+    },
+    "ProductPurposeResponse": {
+      "type": "object",
+      "xml": {
+        "name": "Response"
+      },
+      "properties": {
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductPurpose"
+          },
+          "xml": {
+            "name": "Data",
+            "wrapped": true
+          }
+        }
+      }
+    },
+    "ProductRisk": {
+      "type": "object",
+      "description": "Any cautions and warnings, adverse reactions and contraindications associated with the use of the NHP.",
+      "properties": {
+        "lnhpd_id": {
+          "type": "string",
+          "description": "Unique product identifier."
+        },
+        "risk_id": {
+          "type": "string",
+          "description": "Risk type key value identifier."
+        },
+        "risk_type_desc": {
+          "type": "string",
+          "description": "Cautions and warnings; contraindications; known adverse reactions."
+        },
+        "sub_risk_type_desc": {
+          "type": "string",
+          "description": "Risk sub-types if applicable."
+        },
+        "risk_text": {
+          "type": "string",
+          "description": "Risk label statement."
+        }
+      },
+      "xml": {
+        "name": "ProductRisk"
+      }
+    },
+    "ProductRiskResponse": {
+      "type": "object",
+      "xml": {
+        "name": "Response"
+      },
+      "properties": {
+        "metadata": {
+          "$ref": "#/definitions/Metadata"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProductRisk"
+          },
+          "xml": {
+            "name": "Data",
+            "wrapped": true
+          }
+        }
+      }
+    },
+    "ProductRoute": {
+      "type": "object",
+      "description": "The method by which the NHP is to be delivered to the body.",
+      "properties": {
+        "lnhpd_id": {
+          "type": "string",
+          "description": "Unique product identifier."
+        },
+        "route_id": {
+          "type": "string",
+          "description": "Route type key value identifier."
+        },
+        "route_type_desc": {
+          "type": "string",
+          "description": "The method by which the NHP is to be delivered to the body."
+        }
+      },
+      "xml": {
+        "name": "ProductRoute"
+      }
+    }
+  },
+  "parameters": {
+    "QueryLang": {
+      "name": "lang",
+      "type": "string",
+      "in": "query",
+      "enum": [
+        "en",
+        "fr"
+      ],
+      "default": "en",
+      "description": "Define which language you would like the response to be in"
+    },
+    "QueryType": {
+      "name": "type",
+      "type": "string",
+      "in": "query",
+      "enum": [
+        "json",
+        "xml"
+      ],
+      "default": "json",
+      "description": "Define which media type you would like the content to be in"
+    },
+    "QueryPage": {
+      "name": "page",
+      "type": "string",
+      "in": "query",
+      "default": 1,
+      "description": "Define which page of the paginated results to return"
+    },
+    "QueryProductID": {
+      "name": "id",
+      "type": "string",
+      "in": "query",
+      "description": "Limit results to those with matching product identifier"
+    },
+    "PathID": {
+      "name": "id",
+      "description": "The drug product code identifier",
+      "in": "path",
+      "type": "string",
+      "required": true
+    },
+    "UserKeys": {
+      "name": "user-key",
+      "type": "string",
+      "in": "header",
+      "required": true,
+      "description": "The identifier assigned to your account for accessing the API",
+      "x-data-threescale-name": "user_keys"
+    }
+  }
+}

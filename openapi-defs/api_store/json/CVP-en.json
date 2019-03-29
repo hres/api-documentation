@@ -1,0 +1,1030 @@
+{
+  "swagger": "2.0",
+  "x-api-store-tags": [
+    "medical reactions",
+    "health products"
+  ],
+  "x-api-store-short-desc": "The Canada Vigilance Adverse Reaction Online Database contains information about suspected adverse reactions (also known as side effects) to health products.\n",
+  "x-api-store-long-desc": "The Canada Vigilance Adverse Reaction Online Database contains information about suspected adverse reactions (also known as side effects) to health products.\n",
+  "x-api-store-documentation": "<p>The source of suspected adverse reactions (side effects) to health products are reports. We can use the report endpoint to retrieve a particular report (by id) or to return all reports:</p><br/><code>https://cvp-hc-sc-apicast-production.api.canada.ca/v1/report?lang=en&type=json</code><br/><p>Please note the database is quite large and may timeout. It is not recommended to rely on retrieving all reports through this endpoint. You may us the <a href=\"http://www.hc-sc.gc.ca/dhp-mps/alt_formats/zip/medeff/databasdon/extract_extrait.zip\">extracted dataset</a> to explore the dataset as a whole.</p><br/><p>However, if we grab a particular report of interest:</p><br/><code>https://cvp-hc-sc-apicast-production.api.canada.ca/v1/report?lang=en&type=json&id=50</code><br/><br/><h3>Response</h3><code>{<br/>  \"report_id\": 50,<br/>  \"report_no\": \"000000050\",<br/>  \"version_no\": 0,<br/>  \"date_received\": \"1973-06-01\",<br/>  \"date_int_received\": \"1973-06-01\",<br/>  \"mah_no\": \"\",<br/>  \"report_type_code\": null,<br/>  \"report_type_name\": \"Spontaneous\",<br/>  \"gender_code\": \"2\",<br/>  \"gender_name\": \"Female\",<br/>  \"age\": 19,<br/>  \"age_y\": 19,<br/>  \"age_unit\": \"Years\",<br/>  \"outcome_code\": \"06\",<br/>  \"outcome\": \"Unknown\",<br/>  \"weight\": 50,<br/>  \"weight_unit\": \"Kilograms\",<br/>  \"height\": 168,<br/>  \"height_unit\": \"Centimetres\",<br/>  \"seriousness_code\": \"02\",<br/>  \"seriousness\": \"No\",<br/>  \"death\": \"\",<br/>  \"disability\": \"\",<br/>  \"congenital_anomaly\": \"\",<br/>  \"life_threatening\": \"\",<br/>  \"hosp_required\": \"\",<br/>  \"other_medically_imp_cond\": \"\",<br/>  \"reporter_type_code\": \"\",<br/>  \"reporter_type\": \"\",<br/>  \"source_code\": \"03\",<br/>  \"source_name\": \"Hospital\",<br/>  \"pt_name\": \"Urticaria\",<br/>  \"soc_name\": \"Skin and subcutaneous tissue disorders\",<br/>  \"duration\": 0,<br/>  \"duration_unit\": \"\",<br/>  \"drug_name\": \"FORTICILLIN, PENBRITIN, STREPOLIN\",<br/>  \"cpd_flag\": 0<br/>}</code><br/><p>Though the drugs are mentioned by name, to see more information about them, we need to use the reportdrug endpoint with the report_id to get more information:</p><code>https://cvp-hc-sc-apicast-production.api.canada.ca/v1/reportdrug?lang=en&type=json&id=50</code><br/><br/><h3>Response</h3><code>[<br/>  {<br/>    \"report_drug_id\": 151048,<br/>    \"report_id\": 50,<br/>    \"drug_product_id\": 17647,<br/>    \"drug_name\": \"CODEINE\",<br/>    \"drug_involv_name\": \"Concomitant\",<br/>    \"route_admin_name\": \"\",<br/>    \"unit_dose_qty\": 0,<br/>    \"dose_unit_name\": null,<br/>    \"frequency\": 0,<br/>    \"freq_time\": 0,<br/>    \"frequency_time\": \"\",<br/>    \"freq_time_unit\": \"\",<br/>    \"therapy_duration\": 0,<br/>    \"therapy_duration_unit\": \"\",<br/>    \"dosage_form\": \"NOT SPECIFIED\",<br/>    \"indication_name\": null<br/>  },<br/>...</code><br/><p>With the drug_product_id, we can explore ingredients of the drug. Unfortunately, the drugproductingredient endpoint only allows lookup by drug_product_ingredient_id. You may wish to save the entire dataset onto your server:</p><br/><code>https://cvp-hc-sc-apicast-production.api.canada.ca/v1/drugproductingredient?lang=en&type=json</code><br/><br/><h3>Response</h3><code>...<br/>{\"drug_product_ingredient_id\":1764705010561,\"drug_product_id\":17647,\"drug_name\":\"CODEINE\",<br/>\"active_ingredient_id\":5010561,\"active_ingredient_name\":\"codeine phospathe hemihydrate\"},<br/>...</code><br/><p>You can also take the report and see if there are reports that linked to it. Unfortunately, the reportlink endpoint only allows you to retrieve the entire dataset or one value by report_link_id and not report_id:</p><br/><code>https://cvp-hc-sc-apicast-production.api.canada.ca/v1/reportlink?lang=en&type=json</code><br/><br/><h3>Response</h3><code>...<br/>{\"report_link_id\":1531151,\"report_id\":153115,\"record_type\":\"Linked\",<br/>\"report_link_no\":\"000153114\"},<br/>...</code><br/><p>We can see reports are linked or declared duplicates of other links. Please note that the primary record is listed by report_id but the report_link_no is not the id, but the formatted number (a value up to 6 digits padded with zeroes up to 9 digits).</p>\n",
+  "x-api-store-phone": "613-697-3966",
+  "x-api-store-sensitivity": "Unclassified",
+  "x-api-store-plans": {
+    "public": {
+      "name": "Public Plan",
+      "description": "All users should subscribe to the Public Plan."
+    }
+  },
+  "info": {
+    "title": "Canada Vigilance Product (CVP)",
+    "description": "The Canada Vigilance Adverse Reaction Online Database contains information about suspected adverse reactions (also known as side effects) to health products.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Bill Wilson",
+      "email": "billy.wilson@canada.ca"
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "host": "cvp-hc-sc-apicast-production.api.canada.ca",
+  "basePath": "/v1/",
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "paths": {
+    "/drugproductingredient": {
+      "get": {
+        "tags": [
+          "Drug Product Ingredient"
+        ],
+        "description": "Returns all drug product ingredients.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching active ingredient identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all drug product ingredients, or if an ID is provided, the list of all ingredients that correspond to the given active ingredient identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DrugProductIngredient"
+              },
+              "xml": {
+                "name": "DrugProductIngredients",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/drugproduct": {
+      "get": {
+        "tags": [
+          "Drug Product"
+        ],
+        "description": "Returns all drug products.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching drug product identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all drug products, or if an ID is provided, the list of all drug products that correspond to the given drug product identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DrugProduct"
+              },
+              "xml": {
+                "name": "DrugProducts",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/gender": {
+      "get": {
+        "tags": [
+          "Gender"
+        ],
+        "description": "Returns all genders.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching gender identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all genderes, or if an ID is provided, the list of all genders that correspond to the given gender identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Gender"
+              },
+              "xml": {
+                "name": "Genders",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/outcome": {
+      "get": {
+        "tags": [
+          "Outcome"
+        ],
+        "description": "Returns all outcomes.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching outcome identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all outcomes, or if an ID is provided, the list of all outcomes that correspond to the given outcome identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Outcome"
+              },
+              "xml": {
+                "name": "Outcomes",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/reaction": {
+      "get": {
+        "tags": [
+          "Reaction"
+        ],
+        "description": "Returns all reactions.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching reaction identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all reactions, or if an ID is provided, the list of all reactions that correspond to the given reaction identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Reaction"
+              },
+              "xml": {
+                "name": "Reactions",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/reportdrug": {
+      "get": {
+        "tags": [
+          "Report"
+        ],
+        "description": "Returns all drug reports.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching adverse reaction report number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all drug reports, or if an ID is provided, the list of all drug reports that correspond to the given adverse reaction report number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ReportDrug"
+              },
+              "xml": {
+                "name": "ReportDrugs",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/reportlink": {
+      "get": {
+        "tags": [
+          "Report"
+        ],
+        "description": "Returns all report links.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching report link identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all report links, or if an ID is provided, the list of all reports links that correspond to the given report link identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ReportLink"
+              },
+              "xml": {
+                "name": "ReportLink",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/reporttype": {
+      "get": {
+        "tags": [
+          "Report"
+        ],
+        "description": "Returns all report types.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching report type identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all report types, or if an ID is provided, the list of all report types that correspond to the given report type identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ReportType"
+              },
+              "xml": {
+                "name": "ReportType",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/report": {
+      "get": {
+        "tags": [
+          "Report"
+        ],
+        "description": "Returns all reports.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching adverse reaction report number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all reports, or if an ID is provided, the list of all reports that correspond to the given adverse reaction report number",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Report"
+              },
+              "xml": {
+                "name": "Reports",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/seriousness": {
+      "get": {
+        "tags": [
+          "Seriousness"
+        ],
+        "description": "Returns all seriousness presentation texts.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching serious report identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all seriousness presentation texts, or if an ID is provided, the list of all texts that correspond to the given serious report identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Seriousness"
+              },
+              "xml": {
+                "name": "Seriousness",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/source": {
+      "get": {
+        "tags": [
+          "Source"
+        ],
+        "description": "Returns all sources.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Limit results to those with matching source identifier"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of all sources, or if an ID is provided, the list of all sources that correspond to the given source identifier",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Source"
+              },
+              "xml": {
+                "name": "Sources",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "204": {
+      "type": "string"
+    },
+    "404": {
+      "type": "string"
+    },
+    "DrugProductIngredient": {
+      "type": "object",
+      "description": "Provides the information about the active ingredients associated with all drugs.",
+      "properties": {
+        "drug_product_ingredient_id": {
+          "type": "string",
+          "description": "Drug product - active ingredient identifier."
+        },
+        "drug_product_id": {
+          "type": "string",
+          "description": "Drug product identifier."
+        },
+        "drug_name": {
+          "type": "string",
+          "description": "Brand name."
+        },
+        "active_ingredient_id": {
+          "type": "string",
+          "description": "Active Ingredient identifier."
+        },
+        "active_ingredient_name": {
+          "type": "string",
+          "description": "Active Ingredient name."
+        }
+      },
+      "xml": {
+        "name": "DrugProductIngredient"
+      }
+    },
+    "DrugProduct": {
+      "type": "object",
+      "description": "Provides the information about all drug names and their codes.",
+      "properties": {
+        "drug_product_id": {
+          "type": "string",
+          "description": "Drug product identifier."
+        },
+        "drug_name": {
+          "type": "string",
+          "description": "Brand name."
+        }
+      },
+      "xml": {
+        "name": "DrugProduct"
+      }
+    },
+    "Gender": {
+      "type": "object",
+      "description": "Provides the information about the gender presentation text associated with the gender code.",
+      "properties": {
+        "gender_id": {
+          "type": "string",
+          "description": "Gender identifier."
+        },
+        "gender_code": {
+          "type": "string",
+          "description": "Gender code."
+        },
+        "gender_name": {
+          "type": "string",
+          "description": "Gender."
+        }
+      },
+      "xml": {
+        "name": "Gender"
+      }
+    },
+    "Outcome": {
+      "type": "object",
+      "description": "Provides the information about the outcome presentation text associated with the outcome code.",
+      "properties": {
+        "outcome_id": {
+          "type": "string",
+          "description": "Outcome identifier."
+        },
+        "outcome_code": {
+          "type": "string",
+          "description": "Report outcome code."
+        },
+        "outcome_name": {
+          "type": "string",
+          "description": "Report outcome."
+        }
+      },
+      "xml": {
+        "name": "Outcome"
+      }
+    },
+    "Reaction": {
+      "type": "object",
+      "description": "Provides the information about the reaction terms associated with report.",
+      "properties": {
+        "reaction_id": {
+          "type": "string",
+          "description": "Reaction identifier."
+        },
+        "report_id": {
+          "type": "string",
+          "description": "Adverse Reaction Report (AER) number (6 digits)."
+        },
+        "duration": {
+          "type": "string",
+          "description": "Reaction duration."
+        },
+        "duration_unit": {
+          "type": "string",
+          "description": "Reaction duration unit."
+        },
+        "pt_name": {
+          "type": "string",
+          "description": "Adverse reaction term."
+        },
+        "soc_name": {
+          "type": "string",
+          "description": "System organ class."
+        },
+        "meddra_version": {
+          "type": "string",
+          "description": "MedDRA version."
+        }
+      },
+      "xml": {
+        "name": "Reaction"
+      }
+    },
+    "ReportDrug": {
+      "type": "object",
+      "description": "There are three parameters in the request: id, lang and type.",
+      "properties": {
+        "report_drug_id": {
+          "type": "string",
+          "description": "Report drug identifier."
+        },
+        "report_id": {
+          "type": "string",
+          "description": "Adverse Reaction Report (AER) number (6 digits)."
+        },
+        "drug_product_id": {
+          "type": "string",
+          "description": "Drug product identifier."
+        },
+        "drug_name": {
+          "type": "string",
+          "description": "Brand name."
+        },
+        "drug_involv_name": {
+          "type": "string",
+          "description": "Health product role."
+        },
+        "route_admin_name": {
+          "type": "string",
+          "description": "Route of administration."
+        },
+        "unit_dose_qty": {
+          "type": "string",
+          "description": "Dose."
+        },
+        "dose_unit_name": {
+          "type": "string",
+          "description": "Dose unit."
+        },
+        "frequency": {
+          "type": "string",
+          "description": "Frequency."
+        },
+        "freq_time": {
+          "type": "string",
+          "description": "Frequency time."
+        },
+        "frequency_time": {
+          "type": "string",
+          "description": "Frequency time."
+        },
+        "freq_time_unit": {
+          "type": "string",
+          "description": "Frequency unit."
+        },
+        "therapy_duration": {
+          "type": "string",
+          "description": "Therapy duration."
+        },
+        "therapy_duration_unit": {
+          "type": "string",
+          "description": "Therapy duration unit."
+        },
+        "dosage_form": {
+          "type": "string",
+          "description": "Dosage form."
+        },
+        "indication_name": {
+          "type": "string",
+          "description": "Indication."
+        }
+      },
+      "xml": {
+        "name": "ReportDrug"
+      }
+    },
+    "ReportLink": {
+      "type": "object",
+      "description": "Provides the information about the linked/duplicate reports presentation text associated with the code.",
+      "properties": {
+        "report_link_id": {
+          "type": "string",
+          "description": "Report link identifier."
+        },
+        "report_id": {
+          "type": "string",
+          "description": "Adverse Reaction Report (AER) number (6 digits)."
+        },
+        "record_type": {
+          "type": "string",
+          "description": "Record type."
+        },
+        "report_link_no": {
+          "type": "string",
+          "description": "Duplicate or linked adverse reaction report (AER) number."
+        }
+      },
+      "xml": {
+        "name": "ReportLink"
+      }
+    },
+    "ReportType": {
+      "type": "object",
+      "description": "Provides the information about the report type presentation text associated with the report type code.",
+      "properties": {
+        "report_type_id": {
+          "type": "string",
+          "description": "Report type identifier."
+        },
+        "report_type_code": {
+          "type": "string",
+          "description": "Report type code."
+        },
+        "report_type": {
+          "type": "string",
+          "description": "Report type."
+        }
+      },
+      "xml": {
+        "name": "ReportType"
+      }
+    },
+    "Report": {
+      "type": "object",
+      "description": "Provides the information about reports and patients.",
+      "properties": {
+        "report_id": {
+          "type": "string",
+          "description": "Adverse Reaction Report (AER) number (6 digits)."
+        },
+        "report_no": {
+          "type": "string",
+          "description": "Adverse Reaction Report (AER) number (9 digits)."
+        },
+        "version_no": {
+          "type": "string",
+          "description": "Adverse Reaction Report (AER) version number."
+        },
+        "date_received": {
+          "type": "string",
+          "description": "Latest received date."
+        },
+        "date_int_received": {
+          "type": "string",
+          "description": "Initial received date."
+        },
+        "mah_no": {
+          "type": "string",
+          "description": "Market Authorisation Holder (MAH) Adverse Reaction Report (AER) Number."
+        },
+        "report_type_code": {
+          "type": "string",
+          "description": "Type of report code."
+        },
+        "report_type_name": {
+          "type": "string",
+          "description": "Type of report."
+        },
+        "gender_code": {
+          "type": "string",
+          "description": "Gender code."
+        },
+        "gender_name": {
+          "type": "string",
+          "description": "Gender."
+        },
+        "age": {
+          "type": "string",
+          "description": "Age."
+        },
+        "age_y": {
+          "type": "string",
+          "description": "Age in years."
+        },
+        "age_unit": {
+          "type": "string",
+          "description": "Age unit."
+        },
+        "outcome_code": {
+          "type": "string",
+          "description": "Report outcome code."
+        },
+        "outcome": {
+          "type": "string",
+          "description": "Report outcome."
+        },
+        "weight": {
+          "type": "string",
+          "description": "Weight."
+        },
+        "weight_unit": {
+          "type": "string",
+          "description": "Weight unit."
+        },
+        "height": {
+          "type": "string",
+          "description": "Height."
+        },
+        "height_unit": {
+          "type": "string",
+          "description": "Height unit."
+        },
+        "seriousness_code": {
+          "type": "string",
+          "description": "Serious Adverse Reaction code."
+        },
+        "seriousness": {
+          "type": "string",
+          "description": "Serious Adverse Reaction."
+        },
+        "death": {
+          "type": "string",
+          "description": "Death."
+        },
+        "disability": {
+          "type": "string",
+          "description": "Disability."
+        },
+        "congenital_anomaly": {
+          "type": "string",
+          "description": "Congenital anomaly."
+        },
+        "life_threatening": {
+          "type": "string",
+          "description": "Life threatening."
+        },
+        "hosp_required": {
+          "type": "string",
+          "description": "Hospitalization required."
+        },
+        "other_medically_imp_cond": {
+          "type": "string",
+          "description": "Other medically important condition."
+        },
+        "reporter_type_code": {
+          "type": "string",
+          "description": "Reporter type code."
+        },
+        "reporter_type": {
+          "type": "string",
+          "description": "Reporter type."
+        },
+        "source_code": {
+          "type": "string",
+          "description": "Report source code."
+        },
+        "source_name": {
+          "type": "string",
+          "description": "Report source."
+        },
+        "pt_name": {
+          "type": "string",
+          "description": "Adverse reaction term."
+        },
+        "soc_name": {
+          "type": "string",
+          "description": "System organ class."
+        },
+        "duration": {
+          "type": "string",
+          "description": "Reaction duration."
+        },
+        "duration_unit": {
+          "type": "string",
+          "description": "Reaction duration unit."
+        },
+        "drug_name": {
+          "type": "string",
+          "description": "Brand name."
+        }
+      },
+      "xml": {
+        "name": "Report"
+      }
+    },
+    "Seriousness": {
+      "type": "object",
+      "description": "Provides the information about the report seriousness presentation text associated with the report seriousness code.",
+      "properties": {
+        "seriousness_id": {
+          "type": "string",
+          "description": "Serious report identifier."
+        },
+        "seriousness_code": {
+          "type": "string",
+          "description": "Serious adverse reaction code."
+        },
+        "seriousness": {
+          "type": "string",
+          "description": "Serious adverse reaction."
+        }
+      },
+      "xml": {
+        "name": "Seriousness"
+      }
+    },
+    "Source": {
+      "type": "object",
+      "description": "Provides the information about the report source presentation text associated with the report source code.",
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "description": "Report source identifier."
+        },
+        "source_code": {
+          "type": "string",
+          "description": "Report source code."
+        },
+        "source": {
+          "type": "string",
+          "description": "Report source."
+        }
+      },
+      "xml": {
+        "name": "Source"
+      }
+    }
+  },
+  "parameters": {
+    "QueryLang": {
+      "name": "lang",
+      "type": "string",
+      "in": "query",
+      "enum": [
+        "en",
+        "fr"
+      ],
+      "default": "en",
+      "description": "Define which language you would like the response to be in"
+    },
+    "QueryType": {
+      "name": "type",
+      "type": "string",
+      "in": "query",
+      "enum": [
+        "json",
+        "xml"
+      ],
+      "default": "json",
+      "description": "Define which media type you would like the content to be in"
+    },
+    "PathID": {
+      "name": "id",
+      "description": "The drug product code identifier",
+      "in": "path",
+      "type": "string",
+      "required": true
+    },
+    "UserKeys": {
+      "name": "user-key",
+      "type": "string",
+      "in": "header",
+      "required": true,
+      "description": "The identifier assigned to your account for accessing the API",
+      "x-data-threescale-name": "user_keys"
+    }
+  }
+}

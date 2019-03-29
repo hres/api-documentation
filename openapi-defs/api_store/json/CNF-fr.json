@@ -1,0 +1,674 @@
+{
+  "swagger": "2.0",
+  "x-api-store-tags": [
+    "food",
+    "health",
+    "nutrients"
+  ],
+  "x-api-store-short-desc": "Le Fichier canadien sur les éléments nutritifs (FCÉN) est la base de données de référence sur la composition des aliments qui nous informe de la quantité des éléments nutritifs dans les aliments couramment consommés au Canada.\n",
+  "x-api-store-long-desc": "Le Fichier canadien sur les éléments nutritifs (FCÉN) est la base de données de référence sur la composition des aliments qui nous informe de la quantité des éléments nutritifs dans les aliments couramment consommés au Canada.\n",
+  "x-api-store-documentation": "Veuillez consulter la documentation OpenAPI",
+  "x-api-store-phone": "613-558-7731",
+  "x-api-store-sensitivity": "Unclassified",
+  "x-api-store-plans": {
+    "public": {
+      "name": "Plan public",
+      "description": "Tous les utilisateurs doivent souscrire au plan public"
+    }
+  },
+  "info": {
+    "title": "Fichier canadien sur les éléments nutritifs (FCÉN)",
+    "description": "Le Fichier canadien sur les éléments nutritifs (FCÉN) est la base de données de référence sur la composition des aliments qui nous informe de la quantité des éléments nutritifs dans les aliments couramment consommés au Canada.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Marie-France Verreault",
+      "email": "marie-france.verreault@canada.ca"
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "host": "cta-hc-sc-apicast-production.api.canada.ca",
+  "basePath": "/v1/",
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "paths": {
+    "/food": {
+      "get": {
+        "tags": [
+          "Aliment"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche les détails de l'aliment selon le code de l'aliment spécifié dans la requête."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Food"
+              },
+              "xml": {
+                "name": "Foods",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/nutrientamount": {
+      "get": {
+        "tags": [
+          "Éléments nutritifs"
+        ],
+        "description": "Returns all nutrient amounts.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche les teneurs en élément nutritif selon le code de l'aliment spécifié dans la requête."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NutrientAmount"
+              },
+              "xml": {
+                "name": "NutrientAmounts",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/nutrientgroup": {
+      "get": {
+        "tags": [
+          "Éléments nutritifs"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche le groupe d'éléments nutritifs selon le numéro d'identification du groupe d'éléments nutritifs spécifié dans la requête."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NutrientGroup"
+              },
+              "xml": {
+                "name": "NutrientGroups",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/nutrientname": {
+      "get": {
+        "tags": [
+          "Éléments nutritifs"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche l'élément nutritif selon le numéro d'identification de l'élément nutritif spécifié dans la requête."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NutrientName"
+              },
+              "xml": {
+                "name": "NutrientNames",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/nutrientsource": {
+      "get": {
+        "tags": [
+          "Éléments nutritifs"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche la source d'éléments nutritifs selon le numéro d'identification de la source d'éléments nutritifs spécifié dans la requête."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NutrientSource"
+              },
+              "xml": {
+                "name": "NutrientSources",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/servingsize": {
+      "get": {
+        "tags": [
+          "Portion comestible"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche les portions comestibles selon le code de l'aliment spécifié dans la requête."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ServingSize"
+              },
+              "xml": {
+                "name": "ServiceSizes",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/refuseamount": {
+      "get": {
+        "tags": [
+          "Portion non comestible"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche la ou les portions non comestibles selon le code de l'aliment spécifié dans la requête."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RefuseAmount"
+              },
+              "xml": {
+                "name": "RefuseAmounts",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/yieldamount": {
+      "get": {
+        "tags": [
+          "Rendement"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche le ou les rendements selon le code de l'aliment spécifié dans la requête."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/YieldAmount"
+              },
+              "xml": {
+                "name": "YieldAmounts",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "204": {
+      "type": "string"
+    },
+    "404": {
+      "type": "string"
+    },
+    "Food": {
+      "type": "object",
+      "description": "Contient la description et le code de chaque aliment. Un aliment ne peut être davantage décomposé en ingrédients.",
+      "properties": {
+        "food_code": {
+          "type": "string",
+          "description": "Le code attribué à un aliment."
+        },
+        "food_description": {
+          "type": "string",
+          "description": "Le nom complet de l'aliment."
+        }
+      },
+      "xml": {
+        "name": "Food"
+      }
+    },
+    "NutrientAmount": {
+      "type": "object",
+      "description": "Les quantités des éléments nutritifs pour 100 g de portion comestible, pour chaque aliment.",
+      "properties": {
+        "food_code": {
+          "type": "string",
+          "description": "Le code attribué à chaque aliment."
+        },
+        "nutrient_value": {
+          "type": "string",
+          "description": "Valeur moyenne dans une portion de 100g de portion comestible (le nombre de décimale ne reflète pas l'exactitude des données)."
+        },
+        "standard_error": {
+          "type": "string",
+          "description": "L'écart-type de la moyenne."
+        },
+        "number_observation": {
+          "type": "string",
+          "description": "Le nombre d'échantillons utilisés pour une étude."
+        },
+        "nutrient_name_id": {
+          "type": "string",
+          "description": "Le numéro d'identification d'un élément nutritif."
+        },
+        "nutrient_web_name": {
+          "type": "string",
+          "description": "Le nom de l'élément nutritif pour le WEB."
+        },
+        "nutrient_source_id": {
+          "type": "string",
+          "description": "Le numéro d'identification d'une source d'éléments nutritifs."
+        }
+      },
+      "xml": {
+        "name": "NutrientAmount"
+      }
+    },
+    "NutrientGroup": {
+      "type": "object",
+      "description": "La liste des groupes d'éléments nutritifs basés sur les similarités des éléments nutritifs.",
+      "properties": {
+        "nutrient_group_id": {
+          "type": "string",
+          "description": "Le numéro d'identification attribué à un groupe d'éléments nutritifs."
+        },
+        "nutrient_group_name": {
+          "type": "string",
+          "description": "Le nom d'un groupe d'éléments nutritifs."
+        },
+        "nutrient_group_order": {
+          "type": "string",
+          "description": "L'ordre d'affichage des groupes d'éléments nutritifs."
+        }
+      },
+      "xml": {
+        "name": "NutrientGroup"
+      }
+    },
+    "NutrientName": {
+      "type": "object",
+      "description": "La liste des éléments nutritifs.",
+      "properties": {
+        "nutrient_name_id": {
+          "type": "string",
+          "description": "Le numéro d'identification attribué à un élément nutritif."
+        },
+        "nutrient_code": {
+          "type": "string",
+          "description": "Le code attribué à un élément nutritif."
+        },
+        "nutrient_symbol": {
+          "type": "string",
+          "description": "Le symbole ou l'abréviation des éléments nutritifs. Ces symboles peuvent être différents de la nomenclature internationale."
+        },
+        "unit": {
+          "type": "string",
+          "description": "L'unité de mesure."
+        },
+        "nutrient_name": {
+          "type": "string",
+          "description": "Le nom de l'élément nutritif."
+        },
+        "tagname": {
+          "type": "string",
+          "description": "Un système d'abréviation des constituants alimentaires développé par le réseau international des systèmes de données sur l'alimentation (INFOODS) pour faciliter l'échange d'information au niveau international."
+        },
+        "nutrient_decimals": {
+          "type": "string",
+          "description": "Le nombre de décimales utilisées pour arrondir la valeur des éléments nutritifs."
+        },
+        "nutrient_web_order": {
+          "type": "string",
+          "description": "L'ordre d'affichage des éléments nutritifs."
+        },
+        "nutrient_web_name": {
+          "type": "string",
+          "description": "Le nom de l'élément nutritif pour le WEB."
+        },
+        "nutrient_group_id": {
+          "type": "string",
+          "description": "Le numéro d'identification d'un groupe d'éléments nutritifs."
+        }
+      },
+      "xml": {
+        "name": "NutrientName"
+      }
+    },
+    "NutrientSource": {
+      "type": "object",
+      "description": "La liste des sources et/ou types d'éléments nutritifs.",
+      "properties": {
+        "nutrient_source_id": {
+          "type": "string",
+          "description": "Le numéro d'identification attribué à une source d'éléments nutritifs."
+        },
+        "nutrient_source_description": {
+          "type": "string",
+          "description": "La description d'une source d'éléments nutritifs."
+        },
+        "nutrient_source_code": {
+          "type": "string",
+          "description": "Le code qui identifie une source d'éléments nutritifs au Canada."
+        }
+      },
+      "xml": {
+        "name": "NutrientSource"
+      }
+    },
+    "ServingSize": {
+      "type": "object",
+      "description": "Mesures et facteurs de conversion par aliment. Les facteurs sont utilisés (multiplier avec la valeur pour 100g) pour obtenir la valeur de l'élément nutritif pour la mesure donnée.",
+      "properties": {
+        "food_code": {
+          "type": "string",
+          "description": "Le code attribué à chaque aliment."
+        },
+        "food_description": {
+          "type": "string",
+          "description": "Le nom complet de l'aliment."
+        },
+        "conversion_factor_value": {
+          "type": "string",
+          "description": "Le facteur utilisé (multiplier avec la valeur pour 100g) afin d'obtenir la valeur de l'élément nutritif pour la mesure donnée."
+        },
+        "measure_name": {
+          "type": "string",
+          "description": "La description de la mesure."
+        }
+      },
+      "xml": {
+        "name": "ServingSize"
+      }
+    },
+    "RefuseAmount": {
+      "type": "object",
+      "description": "Désigne la partie non comestible d'une portion, pour chaque aliment.",
+      "properties": {
+        "food_code": {
+          "type": "string",
+          "description": "Le code attribué à chaque aliment."
+        },
+        "food_description": {
+          "type": "string",
+          "description": "Le nom complet de l'aliment."
+        },
+        "refuse_amount": {
+          "type": "string",
+          "description": "Pourcentage des portions non comestibles."
+        },
+        "refuse_name": {
+          "type": "string",
+          "description": "La description de la portion non comestible."
+        }
+      },
+      "xml": {
+        "name": "RefuseAmount"
+      }
+    },
+    "YieldAmount": {
+      "type": "object",
+      "description": "Contient les rendements provenant des portions non comestibles et/ou des pertes de cuisson de certains aliments. Ces rendements sont souvent consultés à des fins d'inventaires alimentaires.",
+      "properties": {
+        "food_code": {
+          "type": "string",
+          "description": "Le code attribué à chaque aliment."
+        },
+        "food_description": {
+          "type": "string",
+          "description": "Le nom complet de l'aliment."
+        },
+        "yield_amount": {
+          "type": "string",
+          "description": "Le rendement provenant des portions non comestibles et pertes de cuisson."
+        },
+        "yield_name": {
+          "type": "string",
+          "description": "La description du rendement."
+        }
+      },
+      "xml": {
+        "name": "YieldAmount"
+      }
+    }
+  },
+  "parameters": {
+    "QueryLang": {
+      "name": "lang",
+      "type": "string",
+      "in": "query",
+      "enum": [
+        "en",
+        "fr"
+      ],
+      "default": "en",
+      "description": "Détermine si le résultat est affiché en anglais ou en français."
+    },
+    "QueryType": {
+      "name": "type",
+      "type": "string",
+      "in": "query",
+      "enum": [
+        "json",
+        "xml"
+      ],
+      "default": "json",
+      "description": "Détermine si le résultat est en format JSON ou XML."
+    },
+    "PathID": {
+      "name": "id",
+      "description": "The drug product code identifier",
+      "in": "path",
+      "type": "string",
+      "required": true
+    },
+    "UserKeys": {
+      "name": "user-key",
+      "type": "string",
+      "in": "header",
+      "required": true,
+      "description": "L'identifiant attribué à votre compte pour accéder à l'API",
+      "x-data-threescale-name": "user_keys"
+    }
+  }
+}

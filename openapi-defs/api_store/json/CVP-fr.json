@@ -1,0 +1,1030 @@
+{
+  "swagger": "2.0",
+  "x-api-store-tags": [
+    "medical reactions",
+    "health products"
+  ],
+  "x-api-store-short-desc": "La base de données en ligne des effets indésirables de Canada Vigilance renferme de l'information au sujet des effets indésirables soupçonnés (ou effets secondaires) associés à des produits de santé.\n",
+  "x-api-store-long-desc": "La base de données en ligne des effets indésirables de Canada Vigilance renferme de l'information au sujet des effets indésirables soupçonnés (ou effets secondaires) associés à des produits de santé.\n",
+  "x-api-store-documentation": "Veuillez consulter la documentation OpenAPI",
+  "x-api-store-phone": "613-697-3966",
+  "x-api-store-sensitivity": "Unclassified",
+  "x-api-store-plans": {
+    "public": {
+      "name": "Plan public",
+      "description": "Tous les utilisateurs doivent souscrire au plan public"
+    }
+  },
+  "info": {
+    "title": "Base de données en ligne des effets indésirables de Canada Vigilance (BDEI)",
+    "description": "La base de données en ligne des effets indésirables de Canada Vigilance renferme de l'information au sujet des effets indésirables soupçonnés (ou effets secondaires) associés à des produits de santé.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Bill Wilson",
+      "email": "billy.wilson@canada.ca"
+    }
+  },
+  "schemes": [
+    "https"
+  ],
+  "host": "cvp-hc-sc-apicast-production.api.canada.ca",
+  "basePath": "/v1/",
+  "produces": [
+    "application/json",
+    "application/xml"
+  ],
+  "paths": {
+    "/drugproductingredient": {
+      "get": {
+        "tags": [
+          "Ingrédient actif et produit pharmaceutique"
+        ],
+        "description": "Fournit des renseignements sur les ingrédients actifs de tous les médicaments.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche l'ingrédient actif du produit selon l'identifiant de l'ingrédient actif d'un produit pharmaceutique spécifié dans la requête.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DrugProductIngredient"
+              },
+              "xml": {
+                "name": "DrugProductIngredients",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/drugproduct": {
+      "get": {
+        "tags": [
+          "Produit pharmaceutique"
+        ],
+        "description": "Fournit le nom de tous les médicaments et leurs codes.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche le produit pharmaceutique selon l'identifiant du produit spécifié dans la requête."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/DrugProduct"
+              },
+              "xml": {
+                "name": "DrugProducts",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/gender": {
+      "get": {
+        "tags": [
+          "Sexe"
+        ],
+        "description": "Fournit des renseignements sur le sexe, accompagnés du code du sexe.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche le sexe selon l'identifiant du sexe spécifié dans la requête."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Gender"
+              },
+              "xml": {
+                "name": "Genders",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/outcome": {
+      "get": {
+        "tags": [
+          "Résultat"
+        ],
+        "description": "Fournit des renseignements sur le résultat, accompagnés du code du résultat.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche le résultat selon l'identifiant du résultat de la déclaration spécifié dans la requête."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Outcome"
+              },
+              "xml": {
+                "name": "Outcomes",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/reaction": {
+      "get": {
+        "tags": [
+          "Réaction"
+        ],
+        "description": "Fournit des renseignements au sujet des réactions associées aux déclarations.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche la réaction selon l'identifiant de la réaction spécifié dans la requête."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Reaction"
+              },
+              "xml": {
+                "name": "Reactions",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/reportdrug": {
+      "get": {
+        "tags": [
+          "Médicaments associés aux déclarations"
+        ],
+        "description": "Fournit des renseignements sur les médicaments associés aux déclarations.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche les médicaments selon l'identifiant de la déclaration d'un produit spécifié dans la requête.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ReportDrug"
+              },
+              "xml": {
+                "name": "ReportDrugs",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/reportlink": {
+      "get": {
+        "tags": [
+          "Déclarations liées"
+        ],
+        "description": "Fournit des renseignements sur les déclarations liées ou en double, accompagnés du code des déclarations.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche la déclaration liée selon l'identifiant d'un numéro de déclaration spécifié dans la requête.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ReportLink"
+              },
+              "xml": {
+                "name": "ReportLink",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/reporttype": {
+      "get": {
+        "tags": [
+          "Type de déclaration"
+        ],
+        "description": "Fournit des renseignements sur le type de déclaration, accompagnés du code du type de déclaration.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche le type de déclaration selon l'identifiant d'un type de déclaration spécifié dans la requête.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ReportType"
+              },
+              "xml": {
+                "name": "ReportType",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/report": {
+      "get": {
+        "tags": [
+          "Déclaration"
+        ],
+        "description": "Fournit des renseignements au sujet des déclarations et des patients.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche la déclaration selon le numéro d'une déclaration d'effet indésirable spécifié dans la requête.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Report"
+              },
+              "xml": {
+                "name": "Reports",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/seriousness": {
+      "get": {
+        "tags": [
+          "Gravité de la réaction indésirable"
+        ],
+        "description": "Fournit des renseignements sur la gravité de la réaction, accompagnés du code de gravité.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche la gravité d'une réaction selon l'identifiant de la gravité de la déclaration spécifié dans la requête.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Seriousness"
+              },
+              "xml": {
+                "name": "Seriousness",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    },
+    "/source": {
+      "get": {
+        "tags": [
+          "Source de déclaration"
+        ],
+        "description": "Fournit des renseignements sur la source de déclaration, accompagnés du code de la source.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/UserKeys"
+          },
+          {
+            "$ref": "#/parameters/QueryLang"
+          },
+          {
+            "$ref": "#/parameters/QueryType"
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "type": "string",
+            "description": "Affiche la source d'une déclaration selon l'identifiant de la source de la déclaration spécifié dans la requête.\n"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Source"
+              },
+              "xml": {
+                "name": "Sources",
+                "wrapped": true
+              }
+            }
+          },
+          "204": {
+            "$ref": "#/definitions/204"
+          },
+          "404": {
+            "$ref": "#/definitions/404"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "204": {
+      "type": "string"
+    },
+    "404": {
+      "type": "string"
+    },
+    "DrugProductIngredient": {
+      "type": "object",
+      "description": "Fournit des renseignements sur les ingrédients actifs de tous les médicaments.",
+      "properties": {
+        "drug_product_ingredient_id": {
+          "type": "string",
+          "description": "Identifiant du produit pharmaceutique – Ingrédient actif."
+        },
+        "drug_product_id": {
+          "type": "string",
+          "description": "Identifiant du produit pharmaceutique."
+        },
+        "drug_name": {
+          "type": "string",
+          "description": "Nom commercial."
+        },
+        "active_ingredient_id": {
+          "type": "string",
+          "description": "Identifiant de l'ingrédient actif."
+        },
+        "active_ingredient_name": {
+          "type": "string",
+          "description": "Nom de l'ingrédient actif."
+        }
+      },
+      "xml": {
+        "name": "DrugProductIngredient"
+      }
+    },
+    "DrugProduct": {
+      "type": "object",
+      "description": "Fournit le nom de tous les médicaments et leurs codes.",
+      "properties": {
+        "drug_product_id": {
+          "type": "string",
+          "description": "Identifiant du produit pharmaceutique."
+        },
+        "drug_name": {
+          "type": "string",
+          "description": "Nom commercial."
+        }
+      },
+      "xml": {
+        "name": "DrugProduct"
+      }
+    },
+    "Gender": {
+      "type": "object",
+      "description": "Fournit des renseignements sur le sexe, accompagnés du code du sexe.",
+      "properties": {
+        "gender_id": {
+          "type": "string",
+          "description": "Identifiant du sexe."
+        },
+        "gender_code": {
+          "type": "string",
+          "description": "Code du sexe."
+        },
+        "gender_name": {
+          "type": "string",
+          "description": "Sexe."
+        }
+      },
+      "xml": {
+        "name": "Gender"
+      }
+    },
+    "Outcome": {
+      "type": "object",
+      "description": "Fournit des renseignements sur le résultat, accompagnés du code du résultat.",
+      "properties": {
+        "outcome_id": {
+          "type": "string",
+          "description": "Identifiant du résultat de la déclaration."
+        },
+        "outcome_code": {
+          "type": "string",
+          "description": "Code du résultat de la déclaration."
+        },
+        "outcome_name": {
+          "type": "string",
+          "description": "Résultat de la déclaration."
+        }
+      },
+      "xml": {
+        "name": "Outcome"
+      }
+    },
+    "Reaction": {
+      "type": "object",
+      "description": "Fournit des renseignements au sujet des réactions associées aux déclarations.",
+      "properties": {
+        "reaction_id": {
+          "type": "string",
+          "description": "Identifiant de la réaction."
+        },
+        "report_id": {
+          "type": "string",
+          "description": "Numéro de la déclaration d'effet indésirable (DEI) (6 chiffres)."
+        },
+        "duration": {
+          "type": "string",
+          "description": "Durée de la réaction."
+        },
+        "duration_unit": {
+          "type": "string",
+          "description": "Unité de durée de la réaction."
+        },
+        "pt_name": {
+          "type": "string",
+          "description": "Terme des effets indésirables."
+        },
+        "soc_name": {
+          "type": "string",
+          "description": "Classe par système et organe."
+        },
+        "meddra_version": {
+          "type": "string",
+          "description": "Version de MedDRA."
+        }
+      },
+      "xml": {
+        "name": "Reaction"
+      }
+    },
+    "ReportDrug": {
+      "type": "object",
+      "description": "Fournit des renseignements sur les médicaments associés aux déclarations.",
+      "properties": {
+        "report_drug_id": {
+          "type": "string",
+          "description": "Identifiant de la déclaration - Produit pharmaceutique."
+        },
+        "report_id": {
+          "type": "string",
+          "description": "Numéro de la déclaration d'effet indésirable (DEI) (6 chiffres)."
+        },
+        "drug_product_id": {
+          "type": "string",
+          "description": "Identifiant du produit pharmaceutique."
+        },
+        "drug_name": {
+          "type": "string",
+          "description": "Nom commercial."
+        },
+        "drug_involv_name": {
+          "type": "string",
+          "description": "Rôle du produit de santé."
+        },
+        "route_admin_name": {
+          "type": "string",
+          "description": "Voie d'administration."
+        },
+        "unit_dose_qty": {
+          "type": "string",
+          "description": "Dose."
+        },
+        "dose_unit_name": {
+          "type": "string",
+          "description": "Unité de dose."
+        },
+        "frequency": {
+          "type": "string",
+          "description": "Fréquence."
+        },
+        "freq_time": {
+          "type": "string",
+          "description": "Temps fréquence."
+        },
+        "frequency_time": {
+          "type": "string",
+          "description": "Temps fréquence."
+        },
+        "freq_time_unit": {
+          "type": "string",
+          "description": "Unité de fréquence."
+        },
+        "therapy_duration": {
+          "type": "string",
+          "description": "Durée de la thérapie."
+        },
+        "therapy_duration_unit": {
+          "type": "string",
+          "description": "Unité de durée de la thérapie."
+        },
+        "dosage_form": {
+          "type": "string",
+          "description": "Forme posologique."
+        },
+        "indication_name": {
+          "type": "string",
+          "description": "Indication."
+        }
+      },
+      "xml": {
+        "name": "ReportDrug"
+      }
+    },
+    "ReportLink": {
+      "type": "object",
+      "description": "Fournit des renseignements sur les déclarations liées ou en double, accompagnés du code des déclarations.",
+      "properties": {
+        "report_link_id": {
+          "type": "string",
+          "description": "Identifiant du numéro de la déclaration."
+        },
+        "report_id": {
+          "type": "string",
+          "description": "Numéro de la déclaration d'effet indésirable (DEI) (6 chiffres)."
+        },
+        "record_type": {
+          "type": "string",
+          "description": "Type d'enregistrement."
+        },
+        "report_link_no": {
+          "type": "string",
+          "description": "Numéro de la déclaration d'effet indésirable (DEI) en double ou de la déclaration liée."
+        }
+      },
+      "xml": {
+        "name": "ReportLink"
+      }
+    },
+    "ReportType": {
+      "type": "object",
+      "description": "Fournit des renseignements sur le type de déclaration, accompagnés du code du type de déclaration.",
+      "properties": {
+        "report_type_id": {
+          "type": "string",
+          "description": "Identifiant du type de déclaration."
+        },
+        "report_type_code": {
+          "type": "string",
+          "description": "Code du type de déclaration."
+        },
+        "report_type": {
+          "type": "string",
+          "description": "Type de déclaration."
+        }
+      },
+      "xml": {
+        "name": "ReportType"
+      }
+    },
+    "Report": {
+      "type": "object",
+      "description": "Fournit des renseignements au sujet des déclarations et des patients.",
+      "properties": {
+        "report_id": {
+          "type": "string",
+          "description": "Numéro de la déclaration d'effet indésirable (DEI) (6 chiffres)."
+        },
+        "report_no": {
+          "type": "string",
+          "description": "Numéro de la déclaration d'effet indésirable (DEI) (9 chiffres)."
+        },
+        "version_no": {
+          "type": "string",
+          "description": "Numéro de version de la déclaration d'effet indésirable (DEI)."
+        },
+        "date_received": {
+          "type": "string",
+          "description": "Date de la dernière réception."
+        },
+        "date_int_received": {
+          "type": "string",
+          "description": "Date de la réception initiale."
+        },
+        "mah_no": {
+          "type": "string",
+          "description": "Numéro de la déclaration d'effet indésirable (DEI) du détenteur d'autorisation de mise en marché.\n"
+        },
+        "report_type_code": {
+          "type": "string",
+          "description": "Code du type de déclaration."
+        },
+        "report_type_name": {
+          "type": "string",
+          "description": "Type de déclaration."
+        },
+        "gender_code": {
+          "type": "string",
+          "description": "Code du sexe."
+        },
+        "gender_name": {
+          "type": "string",
+          "description": "Sexe."
+        },
+        "age": {
+          "type": "string",
+          "description": "Âge."
+        },
+        "age_y": {
+          "type": "string",
+          "description": "Âge en années."
+        },
+        "age_unit": {
+          "type": "string",
+          "description": "Unité de l'âge."
+        },
+        "outcome_code": {
+          "type": "string",
+          "description": "Code du résultat de la déclaration."
+        },
+        "outcome": {
+          "type": "string",
+          "description": "Résultat de la déclaration."
+        },
+        "weight": {
+          "type": "string",
+          "description": "Poids."
+        },
+        "weight_unit": {
+          "type": "string",
+          "description": "Unité de poids."
+        },
+        "height": {
+          "type": "string",
+          "description": "Taille."
+        },
+        "height_unit": {
+          "type": "string",
+          "description": "Unité de taille."
+        },
+        "seriousness_code": {
+          "type": "string",
+          "description": "Code de la gravité de la réaction indésirable."
+        },
+        "seriousness": {
+          "type": "string",
+          "description": "Gravité de la réaction indésirable."
+        },
+        "death": {
+          "type": "string",
+          "description": "Décès."
+        },
+        "disability": {
+          "type": "string",
+          "description": "Invalidité."
+        },
+        "congenital_anomaly": {
+          "type": "string",
+          "description": "Anomalie congénitale."
+        },
+        "life_threatening": {
+          "type": "string",
+          "description": "Vie en danger."
+        },
+        "hosp_required": {
+          "type": "string",
+          "description": "Hospitalisation."
+        },
+        "other_medically_imp_cond": {
+          "type": "string",
+          "description": "Autre affection importante."
+        },
+        "reporter_type_code": {
+          "type": "string",
+          "description": "Code du type de déclarant."
+        },
+        "reporter_type": {
+          "type": "string",
+          "description": "Type de déclarant."
+        },
+        "source_code": {
+          "type": "string",
+          "description": "Code de la source de la déclaration."
+        },
+        "source_name": {
+          "type": "string",
+          "description": "Source de la déclaration."
+        },
+        "pt_name": {
+          "type": "string",
+          "description": "Terme des effets indésirables."
+        },
+        "soc_name": {
+          "type": "string",
+          "description": "Classe par système et organe."
+        },
+        "duration": {
+          "type": "string",
+          "description": "Durée de la réaction."
+        },
+        "duration_unit": {
+          "type": "string",
+          "description": "Unité de durée de la réaction."
+        },
+        "drug_name": {
+          "type": "string",
+          "description": "Nom commercial."
+        }
+      },
+      "xml": {
+        "name": "Report"
+      }
+    },
+    "Seriousness": {
+      "type": "object",
+      "description": "Fournit des renseignements sur la gravité de la réaction, accompagnés du code de gravité.",
+      "properties": {
+        "seriousness_id": {
+          "type": "string",
+          "description": "Identifiant de la gravité de la déclaration."
+        },
+        "seriousness_code": {
+          "type": "string",
+          "description": "Code de la gravité de la réaction indésirable."
+        },
+        "seriousness": {
+          "type": "string",
+          "description": "Gravité de la réaction indésirable."
+        }
+      },
+      "xml": {
+        "name": "Seriousness"
+      }
+    },
+    "Source": {
+      "type": "object",
+      "description": "Fournit des renseignements sur la source de déclaration, accompagnés du code de la source.",
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "description": "Identifiant de la source de la déclaration."
+        },
+        "source_code": {
+          "type": "string",
+          "description": "Code de la source de la déclaration."
+        },
+        "source": {
+          "type": "string",
+          "description": "Source de la déclaration."
+        }
+      },
+      "xml": {
+        "name": "Source"
+      }
+    }
+  },
+  "parameters": {
+    "QueryLang": {
+      "name": "lang",
+      "type": "string",
+      "in": "query",
+      "enum": [
+        "en",
+        "fr"
+      ],
+      "default": "en",
+      "description": "Modifie la langue du résultat."
+    },
+    "QueryType": {
+      "name": "type",
+      "type": "string",
+      "in": "query",
+      "enum": [
+        "json",
+        "xml"
+      ],
+      "default": "json",
+      "description": "Modifie le format du résultat."
+    },
+    "PathID": {
+      "name": "id",
+      "description": "Identifiant du produit pharmaceutique",
+      "in": "path",
+      "type": "string",
+      "required": true
+    },
+    "UserKeys": {
+      "name": "user-key",
+      "type": "string",
+      "in": "header",
+      "required": true,
+      "description": "L'identifiant attribué à votre compte pour accéder à l'API",
+      "x-data-threescale-name": "user_keys"
+    }
+  }
+}
