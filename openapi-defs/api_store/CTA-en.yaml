@@ -4,6 +4,11 @@ x-api-store-tags:
   - medical condition
   - clinical
   - medicine
+x-api-store-short-desc: |
+x-api-store-long-desc: |
+x-api-store-documentation: Veuillez consulter la documentation OpenAPI
+x-api-store-phone: '613-954-2964'
+x-api-store-sensitivity: Unclassified
 x-api-store-plans:
   public:
     name: Public Plan
@@ -12,11 +17,14 @@ info:
   title: Clinical Trial Database (CTA)
   description: |
     The Clinical Trials Database provides to the public a listing of specific information relating to phase I, II and III clinical trials in patients. The database is managed by Health Canada and provides a source of information about Canadian clinical trials involving human pharmaceutical and biological drugs.
-  version: '0.1'
+  version: 1
+  contact:
+    name: Valerie Tweedle
+    email: valerie.tweedle@canada.ca
 
 schemes:
   - https
-host: cta-hc-sc-apicast-staging.beta.api.canada.ca
+host: cta-hc-sc-apicast-production.api.canada.ca
 basePath: /api/clinical-trial/
 produces:
   - application/json

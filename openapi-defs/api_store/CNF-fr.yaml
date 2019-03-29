@@ -3,6 +3,13 @@ x-api-store-tags:
   - food
   - health
   - nutrients
+x-api-store-short-desc: |
+  Le Fichier canadien sur les éléments nutritifs (FCÉN) est la base de données de référence sur la composition des aliments qui nous informe de la quantité des éléments nutritifs dans les aliments couramment consommés au Canada.
+x-api-store-long-desc: |
+  Le Fichier canadien sur les éléments nutritifs (FCÉN) est la base de données de référence sur la composition des aliments qui nous informe de la quantité des éléments nutritifs dans les aliments couramment consommés au Canada.
+x-api-store-documentation: Veuillez consulter la documentation OpenAPI
+x-api-store-phone: '613-558-7731'
+x-api-store-sensitivity: Unclassified
 x-api-store-plans:
   public:
     name: Public Plan
@@ -10,11 +17,14 @@ x-api-store-plans:
 info:
   title: Fichier canadien sur les éléments nutritifs (FCÉN)
   description: Le Fichier canadien sur les éléments nutritifs (FCÉN) est la base de données de référence sur la composition des aliments qui nous informe de la quantité des éléments nutritifs dans les aliments couramment consommés au Canada.
-  version: '0.1'
+  version: '1'
+  contact:
+    name: Marie-France Verreault
+    email: marie-france.verreault@canada.ca
 
 schemes:
   - https
-host: cnf-hc-sc-apicast-staging.beta.api.canada.ca
+host: cta-hc-sc-apicast-production.api.canada.ca
 basePath: /api/canadian-nutrient-file/
 produces:
   - application/json
@@ -64,7 +74,7 @@ paths:
           description: Affiche les teneurs en élément nutritif selon le code de l'aliment spécifié dans la requête.
       responses:
         '200':
-          description: Returns a list of all nutrient amounts, or if an ID is provided, the list of all nutrient amounts that correspond to the given food code
+          description: ''
           schema:
             type: array
             items:

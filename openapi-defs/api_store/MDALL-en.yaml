@@ -1,8 +1,13 @@
-swagger: "2.0"
+swagger: '2.0'
 x-api-store-tags:
   - medical
   - devices
   - services
+x-api-store-short-desc: |
+x-api-store-long-desc: |
+x-api-store-documentation: Veuillez consulter la documentation OpenAPI
+x-api-store-phone: '613-954-0285'
+x-api-store-sensitivity: Unclassified
 x-api-store-plans:
   public:
     name: Public Plan
@@ -17,11 +22,14 @@ info:
     The Bureau maintains a database of all licensed Class II, III, and IV medical devices offered for sale in Canada. Class I medical devices do not require a medical device licence and are monitored by the Regulatory Operations and Regions Branch (Compliance and Enforcement) through Establishment Licensing.
 
     Only products which appear in this database listing may be offered for general marketing purposes in Canada. Class I Devices, or devices which relate to Investigational Testing Authorization or Special Access do not appear in this listing.
-  version: "0.1"
+  version: 1
+  contact:
+    name: Sarah Chandler
+    email: sarah.chandler@canada.ca
 
 schemes:
   - https
-host: mdall-hc-sc-apicast-staging.beta.api.canada.ca
+host: mdall-hc-sc-apicast-production.api.canada.ca
 basePath: /api/medical-devices/
 produces:
   - application/json
@@ -34,14 +42,14 @@ paths:
         - Licence
       description: Returns all licences.
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
         - name: id
           in: query
           type: string
           description: Limit results to those with matching licence number
-        - $ref: "#/parameters/QueryState"
+        - $ref: '#/parameters/QueryState'
         - name: licence_name
           in: query
           type: string
@@ -51,19 +59,19 @@ paths:
           type: string
           description: Limit results to those with a matching company ID
       responses:
-        "200":
+        '200':
           description: Returns a list of all licences, or if an ID is provided, the list of all licences that correspond to the given licence number
           schema:
             type: array
             items:
-              $ref: "#/definitions/Licence"
+              $ref: '#/definitions/Licence'
             xml:
               name: Licences
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /company:
     get:
@@ -71,9 +79,9 @@ paths:
         - Company
       description: Returns all companies.
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
         - name: id
           in: query
           type: string
@@ -90,19 +98,19 @@ paths:
           type: string
           description: Limit results to those with a matching company name
       responses:
-        "200":
+        '200':
           description: Returns a list of all companies, or if an ID is provided, the list of all companies that correspond to the given company ID
           schema:
             type: array
             items:
-              $ref: "#/definitions/Company"
+              $ref: '#/definitions/Company'
             xml:
               name: Licences
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /device:
     get:
@@ -110,32 +118,32 @@ paths:
         - Device
       description: Returns all devices.
       parameters:
-        - $ref: "#/parameters/UserKeys"
+        - $ref: '#/parameters/UserKeys'
         # - $ref: '#/parameters/QueryLang'
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/QueryType'
         - name: id
           in: query
           type: string
           description: Limit results to those with matching device identification number
-        - $ref: "#/parameters/QueryState"
+        - $ref: '#/parameters/QueryState'
         - name: device_name
           in: query
           type: string
           description: Limit results to those with a matching device name
       responses:
-        "200":
+        '200':
           description: Returns a list of all devices, or if an ID is provided, the list of all devices that correspond to the given device identification number
           schema:
             type: array
             items:
-              $ref: "#/definitions/Device"
+              $ref: '#/definitions/Device'
             xml:
               name: Devices
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /deviceidentifier:
     get:
@@ -143,32 +151,32 @@ paths:
         - Device
       description: Returns all device identifiers.
       parameters:
-        - $ref: "#/parameters/UserKeys"
+        - $ref: '#/parameters/UserKeys'
         # - $ref: '#/parameters/QueryLang'
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/QueryType'
         - name: id
           in: query
           type: string
           description: Limit results to those with matching device identification number
-        - $ref: "#/parameters/QueryState"
+        - $ref: '#/parameters/QueryState'
         - name: device_identifier
           in: query
           type: string
           description: Limit results to those with a matching device identifier
       responses:
-        "200":
+        '200':
           description: Returns a list of all device identifiers, or if an ID is provided, the list of all device identifiers that correspond to the given device identifier
           schema:
             type: array
             items:
-              $ref: "#/definitions/DeviceIdentifier"
+              $ref: '#/definitions/DeviceIdentifier'
             xml:
               name: DeviceIdentifiers
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /licencetype:
     get:
@@ -176,27 +184,27 @@ paths:
         - Licence
       description: Returns all licence types.
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
         - name: code
           in: query
           type: string
           description: Limit results to those with matching licence type code
       responses:
-        "200":
+        '200':
           description: Returns a list of all licence types, or if a code is provided, the list of all licence types that correspond to the given code
           schema:
             type: array
             items:
-              $ref: "#/definitions/LicenceType"
+              $ref: '#/definitions/LicenceType'
             xml:
               name: LicenceTypes
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /sbdlocation:
     get:
@@ -204,32 +212,32 @@ paths:
         - Summary Basis Decision Location
       description: Returns all summary basis decision locations.
       parameters:
-        - $ref: "#/parameters/UserKeys"
+        - $ref: '#/parameters/UserKeys'
         # - $ref: '#/parameters/QueryLang'
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/QueryType'
         - name: id
           in: query
           type: string
           description: Limit results to those with matching licence number
       responses:
-        "200":
+        '200':
           description: Returns a list of all locations, or if an ID is provided, the list of all locations that correspond to the given licence number
           schema:
             type: array
             items:
-              $ref: "#/definitions/SummaryBasisDecisionLocation"
+              $ref: '#/definitions/SummaryBasisDecisionLocation'
             xml:
               name: SummaryBasisDecisionLocations
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
 definitions:
-  "204":
+  '204':
     type: string
-  "404":
+  '404':
     type: string
 
   DeviceIdentifier:
@@ -423,7 +431,7 @@ parameters:
     type: string
     required: true
   UserKeys:
-    name: "user-key"
+    name: 'user-key'
     type: string
     in: header
     required: true

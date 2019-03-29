@@ -3,6 +3,14 @@ x-api-store-tags:
   - food
   - health
   - nutrients
+x-api-store-short-desc: |
+  The Canadian Nutrient File (CNF) is the standard reference food composition database reporting the amount of nutrients in foods commonly consumed in Canada.
+x-api-store-long-desc: |
+  The Canadian Nutrient File (CNF) is the standard reference food composition database reporting the amount of nutrients in foods commonly consumed in Canada. This API allows developers to access that information in JSON and XML format for reuse in their own applications.
+x-api-store-documentation: |
+  '<p>To make use of this API, you can start with a particular food, as most of the information is derived from food.</p><p>All endpoints will return the full dataset if an ID is omitted.</p><p>You can start with listing all foods:</p><code>https://cnf-hc-sc-apicast-production.api.canada.ca/api/canadian-nutrient-file/food?lang=en&type=json</code><p>Say we find a food of interest such as mashed potatoes:</p><code>{\"food_code\":2314,\"food_description\":\"Potato, mashed, homemade, prepared with whole milk\"}</code><p>We can now use the nutrient endpoint to find the nutrients associated with this food (per 100g):</p><code>https://cnf-hc-sc-apicast-production.api.canada.ca/api/canadian-nutrient-file/nutrientamount?lang=en&type=json&id=<strong>2314</strong></code><br/><br/><h3>Response</h3><code>[{\"food_code\":2314,\"nutrient_value\":0.0,\"standard_error\":0,\"number_observation\":0,<br/>\"nutrient_name_id\":221,\"nutrient_web_name\":\"Alcohol\",\"nutrient_source_id\":0},<br/>...<br/>{\"food_code\":2314,\"nutrient_value\":0.001,\"standard_error\":0,\"number_observation\":0,<br/>\"nutrient_name_id\":626,\"nutrient_web_name\":\"16:1\",\"nutrient_source_id\":0},]</code><p>We have confirmed mashed potatoes contain no alcohol and some 16:1. We can now call the nutrientname endpoint to learn more about 16:1, as we have the nutrient_name_id:</p><code>https://cnf-hc-sc-apicast-production.api.canada.ca/api/canadian-nutrient-file/nutrientname?lang=en&type=json&id=<strong>626</strong></code><br/><br/><h3>Response</h3><code>{<br/>\"nutrient_name_id\": 626,<br/>\"nutrient_symbol\": \"16:1undiff\",<br/>\"nutrient_name\": \"FATTY ACIDS, MONOUNSATURATED, 16:1undifferentiated, HEXADECENOIC\",<br/>\"unit\": \"g\",<br/>\"nutrient_code\": 626,<br/>\"tagname\": \"F16D1\",<br/>\"nutrient_decimals\": 3,<br/>\"nutrient_web_order\": 100,<br/>\"nutrient_web_name\": \"16:1\",<br/>\"nutrient_group_id\": 6<br/>}</code><br/><p>With the nutrient_group_id, we could use the nutrientgroup endpoint to explore other nutrients in the same group. Or we can take that food and look up serving size conversion factors. These will tell us for each food, what to multiply the nutrient amount by for certain standard serving sizes. The endpoint for servingsize:</p><code>https://cnf-hc-sc-apicast-production.api.canada.ca/api/canadian-nutrient-file/servingsize?lang=en&type=json&id=<strong>2314</strong></code><br/><br/><h3>Response</h3><code>[<br/>{<br/>\"conversion_factor_value\": 0.88757,<br/>    \"food_code\": 2314,<br/>\"food_description\": \"Potato, mashed, homemade, prepared with whole milk\",<br/>\"measure_name\": \"100ml\"<br/>},<br/>{<br/>\"conversion_factor_value\": 1.10947,<br/>\"food_code\": 2314,<br/>\"food_description\": \"Potato, mashed, homemade, prepared with whole milk\",<br/>\"measure_name\": \"125ml\"<br/>},<br/>{<br/>\"conversion_factor_value\": 2.21894,<br/>    \"food_code\": 2314,<br/>\"food_description\": \"Potato, mashed, homemade, prepared with whole milk\",<br/>\"measure_name\": \"250ml\"<br/>},<br/>{<br/>\"conversion_factor_value\": 0,<br/>\"food_code\": 2314,<br/>\"food_description\": \"Potato, mashed, homemade, prepared with whole milk\",<br/>    \"measure_name\": \"no serving specified\"<br/>}<br/>]</code><p>We can see for 250ml of mashed potatoes, we need to multiply by 2.21894 so there is 0.001 * 2.21894 = 0.00221894 grams of 16:1.</p><p>Another endpoint we can access is regarding yield amounts. This is typically useful for food inventory purposes. It returns the yield from refuse and/or cooking losses assigned to certain foods. We can make a call to the yieldamount endpoint:</p><code>https://cnf-hc-sc-apicast-production.api.canada.ca/api/canadian-nutrient-file/yieldamount?lang=en&type=json&id=2314</code><br/><p>For this call, we actually receive an empty response.</p><h3>Response</h3><code>[]</code><p>We can verify there is no refuse by accessing the refuseamount endpoint:</p><code>https://cnf-hc-sc-apicast-production.api.canada.ca/api/canadian-nutrient-file/refuseamount?lang=en&type=json&id=2314</code><br/><br/><h3>Response</h3><code>[<br/>{<br/>\"refuse_amount\": 0,<br/>\"food_code\": 2314,<br/>\"food_description\": \"Potato, mashed, homemade, prepared with whole milk\",<br/>    \"refuse_name\": \"total refuse\"<br/>}<br/>]</code><p>This confirms that there is no refuse amount (the percent of refuse - inedible portion for each food).</p>'
+x-api-store-phone: '613-558-7731'
+x-api-store-sensitivity: Unclassified
 x-api-store-plans:
   public:
     name: Public Plan
@@ -10,11 +18,14 @@ x-api-store-plans:
 info:
   title: Canadian Nutrient File (CNF)
   description: The Canadian Nutrient File (CNF) is the standard reference food composition database reporting the amount of nutrients in foods commonly consumed in Canada.
-  version: '0.1'
+  version: '1'
+  contact:
+    name: Marie-France Verreault
+    email: marie-france.verreault@canada.ca
 
 schemes:
   - https
-host: cnf-hc-sc-apicast-staging.beta.api.canada.ca
+host: cnf-hc-sc-apicast-production.api.canada.ca
 basePath: /api/canadian-nutrient-file/
 produces:
   - application/json

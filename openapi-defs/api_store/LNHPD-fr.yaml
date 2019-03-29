@@ -1,8 +1,13 @@
-swagger: "2.0"
+swagger: '2.0'
 x-api-store-tags:
   - licensing
   - health products
   - natural products
+x-api-store-short-desc: |
+x-api-store-long-desc: |
+x-api-store-documentation: Veuillez consulter la documentation OpenAPI
+x-api-store-phone: '613-355-0261'
+x-api-store-sensitivity: Unclassified
 x-api-store-plans:
   public:
     name: Public Plan
@@ -10,11 +15,14 @@ x-api-store-plans:
 info:
   title: Base de donnée de produits de santé naturels homologués (BDPSNH)
   description: La Base de données des produits de santé naturels homologués (BDPSNH) contient des renseignements sur les produits de santé naturels (PSN) ayant reçu une licence de mise en marché de Santé Canada.
-  version: "0.1"
+  version: 1
+  contact:
+    name: David Kong
+    email: david.kong@canada.ca
 
 schemes:
   - https
-host: lnhpd-hc-sc-apicast-staging.beta.api.canada.ca
+host: lnhpd-hc-sc-apicast-production.api.canada.ca
 basePath: /api/homologation-naturel/
 produces:
   - application/json
@@ -27,20 +35,20 @@ paths:
         - Ingredient médicinal
       description: Returns all medicinal ingredients.
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryPage"
-        - $ref: "#/parameters/QueryProductID"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryPage'
+        - $ref: '#/parameters/QueryProductID'
       responses:
-        "200":
+        '200':
           description: Returns a list of all medicinal ingredients, or if an ID is provided, the list of all medicinal ingredients that correspond to the given product identifier
           schema:
-            $ref: "#/definitions/MedicinalIngredientResponse"
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+            $ref: '#/definitions/MedicinalIngredientResponse'
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /nonmedicinalingredient:
     get:
@@ -48,24 +56,24 @@ paths:
         - Ingrédient non médicinal
       description: Returns all non-medicinal ingredients.
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryProductID"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryProductID'
       responses:
-        "200":
+        '200':
           description: Returns a list of all non-medicinal ingredients, or if an ID is provided, the list of all non-medicinal ingredients that correspond to the given product identifier
           schema:
             type: array
             items:
-              $ref: "#/definitions/NonMedicinalIngredient"
+              $ref: '#/definitions/NonMedicinalIngredient'
             xml:
               name: NonMedicinalIngredients
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /productdose:
     get:
@@ -73,24 +81,24 @@ paths:
         - Produit
       description: Returns all product doses.
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryProductID"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryProductID'
       responses:
-        "200":
+        '200':
           description: Returns a list of all product doses, or if an ID is provided, the list of all product doses that correspond to the given product identifier
           schema:
             type: array
             items:
-              $ref: "#/definitions/ProductDose"
+              $ref: '#/definitions/ProductDose'
             xml:
               name: ProductDoses
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /productlicence:
     get:
@@ -98,27 +106,27 @@ paths:
         - Produit
       description: Returns all product licences.
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
         - name: id
           type: string
           in: query
           description: Affiche l'homologation selon le code numérique du produit spécifié dans la requête.
       responses:
-        "200":
+        '200':
           description: Returns a list of all product licences, or if an ID is provided, the list of all product licences that correspond to the given licence number
           schema:
             type: array
             items:
-              $ref: "#/definitions/ProductLicence"
+              $ref: '#/definitions/ProductLicence'
             xml:
               name: ProductLicence
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /productpurpose:
     get:
@@ -126,20 +134,20 @@ paths:
         - Produit
       description: Returns all product purposes.
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryPage"
-        - $ref: "#/parameters/QueryProductID"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryPage'
+        - $ref: '#/parameters/QueryProductID'
       responses:
-        "200":
+        '200':
           description: Returns a list of all product purposes, or if an ID is provided, the list of all product purposes that correspond to the given product identifier
           schema:
-            $ref: "#/definitions/ProductPurposeResponse"
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+            $ref: '#/definitions/ProductPurposeResponse'
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /productrisk:
     get:
@@ -147,20 +155,20 @@ paths:
         - Produit
       description: Returns all product risks.
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryPage"
-        - $ref: "#/parameters/QueryProductID"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryPage'
+        - $ref: '#/parameters/QueryProductID'
       responses:
-        "200":
+        '200':
           description: Returns a list of all product risks, or if an ID is provided, the list of all product risks that correspond to the given product identifier
           schema:
-            $ref: "#/definitions/ProductRiskResponse"
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+            $ref: '#/definitions/ProductRiskResponse'
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /productroute:
     get:
@@ -168,29 +176,29 @@ paths:
         - Produit
       description: Returns all product routes.
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryProductID"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryProductID'
       responses:
-        "200":
+        '200':
           description: Returns a list of all product routes, or if an ID is provided, the list of all product routes that correspond to the given product identifier
           schema:
             type: array
             items:
-              $ref: "#/definitions/ProductRoute"
+              $ref: '#/definitions/ProductRoute'
             xml:
               name: ProductRoute
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
 definitions:
-  "204":
+  '204':
     type: string
-  "404":
+  '404':
     type: string
 
   MedicinalIngredient:
@@ -267,11 +275,11 @@ definitions:
       name: Response
     properties:
       metadata:
-        $ref: "#/definitions/Metadata"
+        $ref: '#/definitions/Metadata'
       data:
         type: array
         items:
-          $ref: "#/definitions/MedicinalIngredient"
+          $ref: '#/definitions/MedicinalIngredient'
         xml:
           name: Data
           wrapped: true
@@ -469,11 +477,11 @@ definitions:
       name: Response
     properties:
       metadata:
-        $ref: "#/definitions/Metadata"
+        $ref: '#/definitions/Metadata'
       data:
         type: array
         items:
-          $ref: "#/definitions/ProductPurpose"
+          $ref: '#/definitions/ProductPurpose'
         xml:
           name: Data
           wrapped: true
@@ -512,11 +520,11 @@ definitions:
       name: Response
     properties:
       metadata:
-        $ref: "#/definitions/Metadata"
+        $ref: '#/definitions/Metadata'
       data:
         type: array
         items:
-          $ref: "#/definitions/ProductRisk"
+          $ref: '#/definitions/ProductRisk'
         xml:
           name: Data
           wrapped: true
@@ -572,7 +580,7 @@ parameters:
     in: query
     description: Affiche les ingrédients médicinaux selon l'identificateur unique de produit spécifiée dans la requête.
   UserKeys:
-    name: "user-key"
+    name: 'user-key'
     type: string
     in: header
     required: true

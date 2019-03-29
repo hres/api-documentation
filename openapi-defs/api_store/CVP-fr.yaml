@@ -2,6 +2,11 @@ swagger: '2.0'
 x-api-store-tags:
   - medical reactions
   - health products
+x-api-store-short-desc: |
+x-api-store-long-desc: |
+x-api-store-documentation: Veuillez consulter la documentation OpenAPI
+x-api-store-phone: '613-697-3966'
+x-api-store-sensitivity: Unclassified
 x-api-store-plans:
   public:
     name: Public Plan
@@ -9,11 +14,14 @@ x-api-store-plans:
 info:
   title: Base de données en ligne des effets indésirables de Canada Vigilance (BDEI)
   description: La base de données en ligne des effets indésirables de Canada Vigilance renferme de l'information au sujet des effets indésirables soupçonnés (ou effets secondaires) associés à des produits de santé.
-  version: '0.1'
+  version: 1
+  contact:
+    name: Bill Wilson
+    email: billy.wilson@canada.ca
 
 schemes:
   - https
-host: cvp-hc-sc-apicast-staging.beta.api.canada.ca
+host: cvp-hc-sc-apicast-production.api.canada.ca
 basePath: /api/canada-vigilance/
 produces:
   - application/json

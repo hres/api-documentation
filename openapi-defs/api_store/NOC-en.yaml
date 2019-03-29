@@ -1,9 +1,14 @@
-swagger: "2.0"
+swagger: '2.0'
 x-api-store-tags:
   - compliance
   - food
   - drugs
   - veterinary
+x-api-store-short-desc: |
+x-api-store-long-desc: |
+x-api-store-documentation: Veuillez consulter la documentation OpenAPI
+x-api-store-phone: '613-954-2964'
+x-api-store-sensitivity: Unclassified
 x-api-store-plans:
   public:
     name: Public Plan
@@ -14,11 +19,14 @@ info:
     A Notice of Compliance (NOC) is issued to a manufacturer following the satisfactory review of a submission for a new drug, and signifies compliance with the Food and Drug Regulations.
 
     The database is updated nightly and contains NOC information on human drugs from January 1, 1994 to date. It also contains NOC information on Veterinary drugs from September 19, 2000 to date. Through a phased in approach Health Canada will populate the remaining NOCs for Veterinary drugs from January 1, 1994 to September 18, 2000.
-  version: "0.1"
+  version: 1
+  contact:
+    name: Valerie Tweedle
+    email: valerie.tweedle@canada.ca
 
 schemes:
   - https
-host: noc-hc-sc-apicast-staging.beta.api.canada.ca
+host: noc-hc-sc-apicast-production.api.canada.ca
 basePath: /api/notice-of-compliance/
 produces:
   - application/json
@@ -31,24 +39,24 @@ paths:
         - Drug Product
       description: Returns all drug products.
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryNoticeOfComplianceNumber"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryNoticeOfComplianceNumber'
       responses:
-        "200":
+        '200':
           description: Returns a list of all drug products, or if an ID is provided, the list of all drug products that correspond to the given Notice of Compliance number
           schema:
             type: array
             items:
-              $ref: "#/definitions/DrugProduct"
+              $ref: '#/definitions/DrugProduct'
             xml:
               name: DrugProducts
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /noticeofcompliancemain:
     get:
@@ -56,24 +64,24 @@ paths:
         - Notice of Compliance
       description: Returns all compliance notifications
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryNoticeOfComplianceNumber"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryNoticeOfComplianceNumber'
       responses:
-        "200":
+        '200':
           description: Returns a list of all compliance notices, or if an ID is provided, the list of all notices of compliance that correspond to the given Notice of Compliance number
           schema:
             type: array
             items:
-              $ref: "#/definitions/NoticeOfCompliance"
+              $ref: '#/definitions/NoticeOfCompliance'
             xml:
               name: NoticesOfCompliance
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /dosageform:
     get:
@@ -81,24 +89,24 @@ paths:
         - Dosage Form
       description: Returns all dosage forms
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryNoticeOfComplianceNumber"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryNoticeOfComplianceNumber'
       responses:
-        "200":
+        '200':
           description: Returns a list of all dosage forms, or if an ID is provided, the list of all dosage forms that correspond to the given Notice of Compliance number
           schema:
             type: array
             items:
-              $ref: "#/definitions/DosageForm"
+              $ref: '#/definitions/DosageForm'
             xml:
               name: DosageForms
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /medicinalingredient:
     get:
@@ -106,24 +114,24 @@ paths:
         - Medicinal Ingredient
       description: Returns all medicinal ingredients
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryNoticeOfComplianceNumber"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryNoticeOfComplianceNumber'
       responses:
-        "200":
+        '200':
           description: Returns a list of all medicinal ingredients, or if an ID is provided, the list of all medicinal ingredients that correspond to the given Notice of Compliance number
           schema:
             type: array
             items:
-              $ref: "#/definitions/MedicinalIngredient"
+              $ref: '#/definitions/MedicinalIngredient'
             xml:
               name: MedicinalIngredients
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /route:
     get:
@@ -131,24 +139,24 @@ paths:
         - Route of Administration
       description: Returns all administration routes
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryNoticeOfComplianceNumber"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryNoticeOfComplianceNumber'
       responses:
-        "200":
+        '200':
           description: Returns a list of all administration routes, or if an ID is provided, the list of all routes that correspond to the given Notice of Compliance number
           schema:
             type: array
             items:
-              $ref: "#/definitions/RouteOfAdministration"
+              $ref: '#/definitions/RouteOfAdministration'
             xml:
               name: RouteOfAdministration
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
   /vetspecies:
     get:
@@ -156,29 +164,29 @@ paths:
         - Veterinary Species
       description: Returns all veterinary species
       parameters:
-        - $ref: "#/parameters/UserKeys"
-        - $ref: "#/parameters/QueryLang"
-        - $ref: "#/parameters/QueryType"
-        - $ref: "#/parameters/QueryNoticeOfComplianceNumber"
+        - $ref: '#/parameters/UserKeys'
+        - $ref: '#/parameters/QueryLang'
+        - $ref: '#/parameters/QueryType'
+        - $ref: '#/parameters/QueryNoticeOfComplianceNumber'
       responses:
-        "200":
+        '200':
           description: Returns a list of all veterinary species, or if an ID is provided, the list of all species that correspond to the given Notice of Compliance number
           schema:
             type: array
             items:
-              $ref: "#/definitions/VeterinarySpecies"
+              $ref: '#/definitions/VeterinarySpecies'
             xml:
               name: RouteOfAdministration
               wrapped: true
-        "204":
-          $ref: "#/definitions/204"
-        "404":
-          $ref: "#/definitions/404"
+        '204':
+          $ref: '#/definitions/204'
+        '404':
+          $ref: '#/definitions/404'
 
 definitions:
-  "204":
+  '204':
     type: string
-  "404":
+  '404':
     type: string
 
   DosageForm:
@@ -368,7 +376,7 @@ parameters:
     type: string
     required: true
   UserKeys:
-    name: "user-key"
+    name: 'user-key'
     type: string
     in: header
     required: true
