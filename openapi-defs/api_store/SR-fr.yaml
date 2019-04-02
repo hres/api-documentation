@@ -9,7 +9,7 @@ x-api-store-long-desc: |
   Le site internet, Registre des médicaments et des produits de santé, regroupe l’information au sujet des licences de produit, des inspections, de l’achat et de l’utilisation sécuritaire des produits, des effets secondaires, des rappels et des plaintes.
 x-api-store-documentation: <p>Veuillez consulter la documentation OpenAPI</p>
 x-api-store-phone: '613-222-7658'
-x-api-store-sensitivity: Unclassified
+x-api-store-sensitivity: Non classifié
 x-api-store-plans:
   public:
     name: Plan public
@@ -34,7 +34,7 @@ paths:
   /basisdecision:
     get:
       tags:
-        - Summary Basis of Decision
+        - Sommaire des motifs de décision
 
       parameters:
         - $ref: '#/parameters/UserKeys'
@@ -43,13 +43,11 @@ paths:
         - name: id
           in: query
           type: string
-          description: Limit results to those with matching link ID
+          description: Affiche le sommaire des motifs de décision selon la variable utilisée pour créer des liens entre toutes les données du SMD spécifiée dans la requête.
+
       responses:
         '200':
-          description: |
-            Returns a list of all summaries of basis of decisions, or if an ID
-            is provided, the list of all summaries that correspond to the given
-            link ID
+          description: ''
           schema:
             type: array
             items:
@@ -61,11 +59,11 @@ paths:
           $ref: '#/definitions/204'
         '404':
           $ref: '#/definitions/404'
+
   /regulatorydecision:
     get:
       tags:
-        - Regulatory Decision
-
+        - Sommaire des décisions réglementaires
       parameters:
         - $ref: '#/parameters/UserKeys'
         - $ref: '#/parameters/QueryLang'
@@ -73,12 +71,11 @@ paths:
         - name: id
           in: query
           type: string
-          description: Limit results to those with matching link ID
+          description: Affiche le sommaire des décisions réglementaires selon la variable utilisée pour créer des liens entre toutes les données des SDR spécifiée dans la requête.
+
       responses:
         '200':
-          description: |
-            Returns a list of all regulatory decisions, or if an ID is provided,
-            the list of all decisions that correspond to the given link ID
+          description: ''
           schema:
             type: array
             items:
@@ -90,11 +87,11 @@ paths:
           $ref: '#/definitions/204'
         '404':
           $ref: '#/definitions/404'
+
   /safetyreview:
     get:
       tags:
-        - Summary Safety Review (SSR)
-
+        - Résumé de l'examen de l'innocuité (REI)
       parameters:
         - $ref: '#/parameters/UserKeys'
         - $ref: '#/parameters/QueryLang'
@@ -102,13 +99,11 @@ paths:
         - name: id
           in: query
           type: string
-          description: Limit results to those with matching link ID
+          description: Affiche le résumé de l'examen de l'innocuité selon la variable utilisée pour créer des liens entre toutes les données du REI spécifiée dans la requête.
+
       responses:
         '200':
-          description: |
-            Returns a list of all summary safety reviews, or if an ID is
-            provided, the list of all summaries that correspond to the given
-            link ID
+          description: ''
           schema:
             type: array
             items:
@@ -120,6 +115,7 @@ paths:
           $ref: '#/definitions/204'
         '404':
           $ref: '#/definitions/404'
+
 definitions:
   '204':
     type: string
@@ -426,7 +422,7 @@ definitions:
         description: Le texte sommaire 3.
       din:
         type: string
-        description: The product din.
+        description: Le DIN du produit.
       is_md:
         type: string
         description: c
@@ -623,6 +619,11 @@ parameters:
       - xml
     default: json
     description: Détermine si le résultat est en format JSON ou XML.
+  QueryLinkID:
+    name: id
+    in: query
+    type: string
+    description: Affiche selon le numéro d'un avis de conformité spécifié dans la requête
   UserKeys:
     name: user-key
     type: string

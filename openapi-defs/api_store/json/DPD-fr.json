@@ -9,7 +9,7 @@
   "x-api-store-long-desc": "La BDPP contient des informations spécifiques sur les médicaments commercialisés au Canada. Cette base de données, administrée par la Direction des produits thérapeutiques, porte sur les produits à usages humains et vétérinaires, radio pharmaceutiques et désinfectants. Elle renferme environ 47 000 produits qui sont présentement approuvés, commercialisés, dormants ou annulés.\n\nLes produits à usage humain, vétérinaire, désinfectants et ceux faisant partie de l'Annexe C (produits radiopharmaceutiques) seront disponibles dans la BDPP en ligne dès leur approbation, à l'exception des produits appartenant aux trois groupes de monographies listées dans la Partie C, Titre 1, du Règlement sur les Aliments et Drogues. Ces produits sont : les produits solaires (crèmes solaires, baumes à lèvres revendiquant un FPS, produits cosmétiques contenant un agent de protection solaire, etc...), les shampoings antipelliculaires et les désinfectants pour surfaces dures. Pour ces produits, dont les applications ont été soumises après le 15 juin 2015, il peut y avoir un délai de 6 mois, après la date d'approbation, avant qu'ils n'apparaissent dans la BDPP en ligne.\n\nSanté Canada est l'organisme fédéral qui réglemente les produits thérapeutiques et nous ne donnons pas de conseils médicaux sur l'utilisation des produits dans cette base de données. Pour de plus amples informations sur les choix de traitement, les choix de médicament et leurs utilisations, maladies, effets secondaires et interactions médicamenteuses, veuillez contacter votre professionnel de la santé.\n",
   "x-api-store-documentation": "<p>Veuillez consulter la documentation OpenAPI</p>",
   "x-api-store-phone": "613-954-2964",
-  "x-api-store-sensitivity": "Unclassified",
+  "x-api-store-sensitivity": "Non classifié",
   "x-api-store-plans": {
     "public": {
       "name": "Plan public",
@@ -40,7 +40,6 @@
         "tags": [
           "Ingrédient actif"
         ],
-        "description": "Returns all active ingredients.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -63,7 +62,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all active ingredients, or if an ID is provided, the list of all active ingredients that correspond to the given drug product code",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -89,7 +88,6 @@
         "tags": [
           "Entreprise"
         ],
-        "description": "Returns all companies.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -109,7 +107,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all companies, or if an ID is provided, the list of all companies that correspond to the given company code",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -135,7 +133,6 @@
         "tags": [
           "Produit pharmaceutique"
         ],
-        "description": "Returns all drug products.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -179,7 +176,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all drug products, or if an ID is provided, the list of all drug products that correspond to the given drug product code",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -205,7 +202,6 @@
         "tags": [
           "Forme posologique"
         ],
-        "description": "Returns all dosage forms.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -231,7 +227,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all dosage forms, or if an ID is provided, the list of all dosage forms that correspond to the given drug product code",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -257,7 +253,6 @@
         "tags": [
           "Emballage"
         ],
-        "description": "Returns all packaging information for drug products.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -271,7 +266,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all packaging information, or if an ID is provided, the list of all packaging information that corresponds to the given drug product code",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -297,7 +292,6 @@
         "tags": [
           "Norme pharmaceutique"
         ],
-        "description": "Returns all dosage forms.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -311,7 +305,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all pharmaceutical standards, or if an ID is provided, the list of all pharmaceutical standards that correspond to the given drug product code",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -337,7 +331,6 @@
         "tags": [
           "Voie d'administration"
         ],
-        "description": "Returns all routes of administration.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -363,7 +356,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all routes of administration, or if an ID is provided, the list of all routes of administration that correspond to the given drug product code",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -389,7 +382,6 @@
         "tags": [
           "Annexe"
         ],
-        "description": "Returns all schedules.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -415,7 +407,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all schedules, or if an ID is provided, the list of all schedules that correspond to the given drug product code",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -441,7 +433,6 @@
         "tags": [
           "État"
         ],
-        "description": "Returns all product statuses.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -458,7 +449,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all product statuses, or if an ID is provided, the list of all product statuses that correspond to the given drug product code",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -484,7 +475,6 @@
         "tags": [
           "Classe thérapeutique"
         ],
-        "description": "Returns all therapeutic classes.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -501,7 +491,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all therapeutic classes, or if an ID is provided, the list of all therapeutic classes that correspond to the given drug product code",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -527,7 +517,6 @@
         "tags": [
           "Espèces animales"
         ],
-        "description": "Returns all veterinary species.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -544,7 +533,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all veterinary species, or if an ID is provided, the list of all veterinary species that correspond to the given drug product code",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -716,7 +705,7 @@
     },
     "DrugCode": {
       "type": "string",
-      "description": "The code assigned to each drug product"
+      "description": "Le code attribué à chaque produit pharmaceutique."
     },
     "Packaging": {
       "type": "object",

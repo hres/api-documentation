@@ -8,7 +8,7 @@ x-api-store-long-desc: |
   La base de données en ligne des effets indésirables de Canada Vigilance renferme de l'information au sujet des effets indésirables soupçonnés (ou effets secondaires) associés à des produits de santé.
 x-api-store-documentation: <p>Veuillez consulter la documentation OpenAPI</p>
 x-api-store-phone: '613-697-3966'
-x-api-store-sensitivity: Unclassified
+x-api-store-sensitivity: Non classifié
 x-api-store-plans:
   public:
     name: Plan public
@@ -703,12 +703,6 @@ parameters:
       - xml
     default: json
     description: Modifie le format du résultat.
-  PathID:
-    name: id
-    description: Identifiant du produit pharmaceutique
-    in: path
-    type: string
-    required: true
   UserKeys:
     name: 'user-key'
     type: string

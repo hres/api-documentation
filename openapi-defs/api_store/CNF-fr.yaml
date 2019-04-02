@@ -9,7 +9,7 @@ x-api-store-long-desc: |
   Le Fichier canadien sur les éléments nutritifs (FCÉN) est la base de données de référence sur la composition des aliments qui nous informe de la quantité des éléments nutritifs dans les aliments couramment consommés au Canada.
 x-api-store-documentation: <p>Veuillez consulter la documentation OpenAPI</p>
 x-api-store-phone: '613-558-7731'
-x-api-store-sensitivity: Unclassified
+x-api-store-sensitivity: Non classifié
 x-api-store-plans:
   public:
     name: Plan public
@@ -447,12 +447,6 @@ parameters:
       - xml
     default: json
     description: Détermine si le résultat est en format JSON ou XML.
-  PathID:
-    name: id
-    description: The drug product code identifier
-    in: path
-    type: string
-    required: true
   UserKeys:
     name: 'user-key'
     type: string

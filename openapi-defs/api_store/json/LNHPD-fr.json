@@ -9,7 +9,7 @@
   "x-api-store-long-desc": "La Base de données des produits de santé naturels homologués (BDPSNH) contient des renseignements sur les produits de santé naturels (PSN) ayant reçu une licence de mise en marché de Santé Canada.\n",
   "x-api-store-documentation": "<p>Veuillez consulter la documentation OpenAPI</p>",
   "x-api-store-phone": "613-355-0261",
-  "x-api-store-sensitivity": "Unclassified",
+  "x-api-store-sensitivity": "Non classifié",
   "x-api-store-plans": {
     "public": {
       "name": "Plan public",
@@ -40,7 +40,6 @@
         "tags": [
           "Ingredient médicinal"
         ],
-        "description": "Returns all medicinal ingredients.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -60,7 +59,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all medicinal ingredients, or if an ID is provided, the list of all medicinal ingredients that correspond to the given product identifier",
+            "description": "",
             "schema": {
               "$ref": "#/definitions/MedicinalIngredientResponse"
             }
@@ -79,7 +78,6 @@
         "tags": [
           "Ingrédient non médicinal"
         ],
-        "description": "Returns all non-medicinal ingredients.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -96,7 +94,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all non-medicinal ingredients, or if an ID is provided, the list of all non-medicinal ingredients that correspond to the given product identifier",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -122,7 +120,6 @@
         "tags": [
           "Produit"
         ],
-        "description": "Returns all product doses.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -139,7 +136,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all product doses, or if an ID is provided, the list of all product doses that correspond to the given product identifier",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -165,7 +162,6 @@
         "tags": [
           "Produit"
         ],
-        "description": "Returns all product licences.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -185,7 +181,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all product licences, or if an ID is provided, the list of all product licences that correspond to the given licence number",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -211,7 +207,6 @@
         "tags": [
           "Produit"
         ],
-        "description": "Returns all product purposes.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -231,7 +226,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all product purposes, or if an ID is provided, the list of all product purposes that correspond to the given product identifier",
+            "description": "",
             "schema": {
               "$ref": "#/definitions/ProductPurposeResponse"
             }
@@ -250,7 +245,6 @@
         "tags": [
           "Produit"
         ],
-        "description": "Returns all product risks.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -270,7 +264,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all product risks, or if an ID is provided, the list of all product risks that correspond to the given product identifier",
+            "description": "",
             "schema": {
               "$ref": "#/definitions/ProductRiskResponse"
             }
@@ -289,7 +283,6 @@
         "tags": [
           "Produit"
         ],
-        "description": "Returns all product routes.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -306,7 +299,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all product routes, or if an ID is provided, the list of all product routes that correspond to the given product identifier",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {

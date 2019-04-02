@@ -10,7 +10,7 @@
   "x-api-store-long-desc": "Un Avis de conformité (AC) est émis au fabricant si la présentation de drogue nouvelle est jugée conforme au Règlement sur les aliments et drogues après un examen complet.\n\nLa base de données est mise à jour tous les soirs et elle comprend des renseignements sur les AC concernant les médicaments pour usage humain émis depuis le 1er janvier 1994 jusqu'à ce jour. Elle comprend également les renseignements sur les AC concernant les médicaments vétérinaires émis depuis le 19 septembre 2000 jusqu'à ce jour. Santé Canada ajoutera progressivement les AC concernant les médicaments vétérinaires émis entre le 1er janvier 1994 et le 18 septembre 2000.\n",
   "x-api-store-documentation": "<p>Veuillez consulter la documentation OpenAPI</p>",
   "x-api-store-phone": "613-954-2964",
-  "x-api-store-sensitivity": "Unclassified",
+  "x-api-store-sensitivity": "Non classifié",
   "x-api-store-plans": {
     "public": {
       "name": "Plan public",
@@ -41,7 +41,6 @@
         "tags": [
           "Produit pharmaceutique"
         ],
-        "description": "Returns all drug products.",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -58,7 +57,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all drug products, or if an ID is provided, the list of all drug products that correspond to the given Notice of Compliance number",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -84,7 +83,6 @@
         "tags": [
           "Avis de conformité"
         ],
-        "description": "Returns all compliance notifications",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -101,7 +99,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all compliance notices, or if an ID is provided, the list of all notices of compliance that correspond to the given Notice of Compliance number",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -127,7 +125,6 @@
         "tags": [
           "Forme posologique"
         ],
-        "description": "Returns all dosage forms",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -144,7 +141,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all dosage forms, or if an ID is provided, the list of all dosage forms that correspond to the given Notice of Compliance number",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -170,7 +167,6 @@
         "tags": [
           "Ingrédient médicinal"
         ],
-        "description": "Returns all medicinal ingredients",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -187,7 +183,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all medicinal ingredients, or if an ID is provided, the list of all medicinal ingredients that correspond to the given Notice of Compliance number",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -213,7 +209,6 @@
         "tags": [
           "Voie d'administration"
         ],
-        "description": "Returns all administration routes",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -230,7 +225,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all administration routes, or if an ID is provided, the list of all routes that correspond to the given Notice of Compliance number",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -256,7 +251,6 @@
         "tags": [
           "Espèces animales"
         ],
-        "description": "Returns all veterinary species",
         "parameters": [
           {
             "$ref": "#/parameters/UserKeys"
@@ -273,7 +267,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns a list of all veterinary species, or if an ID is provided, the list of all species that correspond to the given Notice of Compliance number",
+            "description": "",
             "schema": {
               "type": "array",
               "items": {
@@ -528,7 +522,7 @@
       "name": "id",
       "type": "string",
       "in": "query",
-      "description": "Affiche l'avis de conformité selon le numéro d'un avis de conformité spécifié dans la requête. number"
+      "description": "Affiche l'avis de conformité selon le numéro d'un avis de conformité spécifié dans la requête"
     },
     "UserKeys": {
       "name": "user-key",
