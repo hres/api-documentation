@@ -44,7 +44,7 @@ paths:
         - $ref: '#/parameters/QueryProductID'
       responses:
         '200':
-          description: Returns a list of all medicinal ingredients, or if an ID is provided, the list of all medicinal ingredients that correspond to the given product identifier
+          description: ''
           schema:
             $ref: '#/definitions/MedicinalIngredientResponse'
         '204':
@@ -64,7 +64,7 @@ paths:
         - $ref: '#/parameters/QueryProductID'
       responses:
         '200':
-          description: Returns a list of all non-medicinal ingredients, or if an ID is provided, the list of all non-medicinal ingredients that correspond to the given product identifier
+          description: ''
           schema:
             type: array
             items:
@@ -89,7 +89,7 @@ paths:
         - $ref: '#/parameters/QueryProductID'
       responses:
         '200':
-          description: Returns a list of all product doses, or if an ID is provided, the list of all product doses that correspond to the given product identifier
+          description: ''
           schema:
             type: array
             items:
@@ -117,7 +117,7 @@ paths:
           description: Affiche l'homologation selon le code numérique du produit spécifié dans la requête.
       responses:
         '200':
-          description: Returns a list of all product licences, or if an ID is provided, the list of all product licences that correspond to the given licence number
+          description: ''
           schema:
             type: array
             items:
@@ -143,7 +143,7 @@ paths:
         - $ref: '#/parameters/QueryProductID'
       responses:
         '200':
-          description: Returns a list of all product purposes, or if an ID is provided, the list of all product purposes that correspond to the given product identifier
+          description: ''
           schema:
             $ref: '#/definitions/ProductPurposeResponse'
         '204':
@@ -164,7 +164,7 @@ paths:
         - $ref: '#/parameters/QueryProductID'
       responses:
         '200':
-          description: Returns a list of all product risks, or if an ID is provided, the list of all product risks that correspond to the given product identifier
+          description: ''
           schema:
             $ref: '#/definitions/ProductRiskResponse'
         '204':
@@ -184,7 +184,7 @@ paths:
         - $ref: '#/parameters/QueryProductID'
       responses:
         '200':
-          description: Returns a list of all product routes, or if an ID is provided, the list of all product routes that correspond to the given product identifier
+          description: ''
           schema:
             type: array
             items:

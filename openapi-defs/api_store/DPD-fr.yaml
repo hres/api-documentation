@@ -57,7 +57,7 @@ paths:
           description: Affiche les ingrédients actifs selon le texte spécifié dans la requête.
       responses:
         '200':
-          description: Returns a list of all active ingredients, or if an ID is provided, the list of all active ingredients that correspond to the given drug product code
+          description: ''
           schema:
             type: array
             items:
@@ -85,7 +85,7 @@ paths:
           description: Affiche les détails de l'entreprise selon le code de l'entreprise spécifié dans la requête.
       responses:
         '200':
-          description: Returns a list of all companies, or if an ID is provided, the list of all companies that correspond to the given company code
+          description: ''
           schema:
             type: array
             items:
@@ -139,7 +139,7 @@ paths:
             - 10
       responses:
         '200':
-          description: Returns a list of all drug products, or if an ID is provided, the list of all drug products that correspond to the given drug product code
+          description: ''
           schema:
             type: array
             items:
@@ -170,7 +170,7 @@ paths:
           description: Affiche les formes posologiques qui sont actives.
       responses:
         '200':
-          description: Returns a list of all dosage forms, or if an ID is provided, the list of all dosage forms that correspond to the given drug product code
+          description: ''
           schema:
             type: array
             items:
@@ -194,7 +194,7 @@ paths:
         - $ref: '#/parameters/QueryDrugProductCode'
       responses:
         '200':
-          description: Returns a list of all packaging information, or if an ID is provided, the list of all packaging information that corresponds to the given drug product code
+          description: ''
           schema:
             type: array
             items:
@@ -218,7 +218,7 @@ paths:
         - $ref: '#/parameters/QueryDrugProductCode'
       responses:
         '200':
-          description: Returns a list of all pharmaceutical standards, or if an ID is provided, the list of all pharmaceutical standards that correspond to the given drug product code
+          description: ''
           schema:
             type: array
             items:
@@ -249,7 +249,7 @@ paths:
           description: Affiche les voies d'administration qui sont actives.
       responses:
         '200':
-          description: Returns a list of all routes of administration, or if an ID is provided, the list of all routes of administration that correspond to the given drug product code
+          description: ''
           schema:
             type: array
             items:
@@ -280,7 +280,7 @@ paths:
           description: Affiche les annexes qui sont actives.
       responses:
         '200':
-          description: Returns a list of all schedules, or if an ID is provided, the list of all schedules that correspond to the given drug product code
+          description: ''
           schema:
             type: array
             items:
@@ -305,7 +305,7 @@ paths:
         - $ref: '#/parameters/QueryDrugProductCode'
       responses:
         '200':
-          description: Returns a list of all product statuses, or if an ID is provided, the list of all product statuses that correspond to the given drug product code
+          description: ''
           schema:
             type: array
             items:
@@ -330,7 +330,7 @@ paths:
         - $ref: '#/parameters/QueryDrugProductCode'
       responses:
         '200':
-          description: Returns a list of all therapeutic classes, or if an ID is provided, the list of all therapeutic classes that correspond to the given drug product code
+          description: ''
           schema:
             type: array
             items:
@@ -355,7 +355,7 @@ paths:
         - $ref: '#/parameters/QueryDrugProductCode'
       responses:
         '200':
-          description: Returns a list of all veterinary species, or if an ID is provided, the list of all veterinary species that correspond to the given drug product code
+          description: ''
           schema:
             type: array
             items:
