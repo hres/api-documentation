@@ -326,7 +326,7 @@
                             <ul>
                                 <li>
                                     <a href='https://health-products.canada.ca/api/natural-licences/medicinalingredient?lang=en&type=json'>https://health-products.hres.ca/api/natural-licences/medicinalingredient?lang=en&type=json</a>
-    <pre class='prettify prettyprint linenums'>{
+                                    <pre class='prettify prettyprint linenums'>{
         "metadata":{
             "pagination":{
                 "limit":100,
@@ -341,10 +341,11 @@
             {
                 "lnhpd_id":3894657,
                 "ingredient_name":"Valeriana officinalis","ingredient_Text":null,
-                "potency_amount":0,
+                "potency_amount":0.0,
                 "potency_constituent":"",
                 "potency_unit_of_measure":"",
-                "quantity":80,"quantity_minimum":0,
+                "quantity":80.0,
+                "quantity_minimum":0,
                 "quantity_maximum":0,
                 "quantity_unit_of_measure":"mg",
                 "ratio_numerator":"5",
@@ -1609,7 +1610,7 @@
                 var defPreFooter = document.getElementById("def-preFooter");
                 defPreFooter.outerHTML = wet.builder.preFooter({
                     cdnEnv: "prod",
-                    dateModified: "2017-02-27",
+                    dateModified: "2020-04-23",
                     showPostContent: true,
                     showShare: true,
                 });
