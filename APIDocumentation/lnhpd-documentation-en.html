@@ -915,9 +915,9 @@
                         </section>
                         <section>
                             <h3 id="a6.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">{"lnhpd_id":3908931,"dose_id":5884617,"population_type_desc":"Adults","age":0,"age_minimum":0,"age_maximum":0,"uom_type_desc_age":"",
-    "quantity_dose":2,"quantity_dose_minimum":0,"quantity_dose_maximum":0,"uom_type_desc_quantity_dose":"tablet","frequency":1,
-    "frequency_minimum":0,"frequency_maximum":0,"uom_type_desc_frequency":"daily"}</pre>
+                            <pre class="prettify prettyprint linenums">{"lnhpd_id":3908931,"dose_id":5884617,"population_type_desc":"Adults","age":0,"age_minimum":0.0,"age_maximum":0.0,"uom_type_desc_age":"",
+    "quantity_dose":2.0,"quantity_dose_minimum":0.0,"quantity_dose_maximum":0.0,"uom_type_desc_quantity_dose":"tablet","frequency":1.0,
+    "frequency_minimum":0.0,"frequency_maximum":0.0,"uom_type_desc_frequency":"daily"}</pre>
                         </section>
                         <section>
                             <h3 id="a6.4">jQuery example</h3>
@@ -1610,7 +1610,7 @@
                 var defPreFooter = document.getElementById("def-preFooter");
                 defPreFooter.outerHTML = wet.builder.preFooter({
                     cdnEnv: "prod",
-                    dateModified: "2020-04-23",
+                    dateModified: "2020-04-30",
                     showPostContent: true,
                     showShare: true,
                 });
