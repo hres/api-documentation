@@ -23,9 +23,10 @@
     <meta name="meta_date" content="" />
 
     <!-- Load closure template scripts -->
-    <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/soyutils.js"></script>
-    <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/wet-fr.js"></script>
-    <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/plugins-fr.js"></script>
+    <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_28/cdts/compiled/soyutils.js"></script>
+    <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_28/cdts/compiled/wet-fr.js"></script>
+    <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_28/cdts/compiled/plugins-fr.js"></script>
+    
     <!-- Load closure template scripts -->
     <noscript>
         <link rel="import" href="./StaticFallbackFiles/gcweb/refTop.html">
@@ -1833,120 +1834,50 @@
               },
       });
       return;
- };</pre>                           
+};          </pre>  
                         </section>
-                    </section><!--Source - section-end -->
+                    </section><!--END of Population à l'étude-->
                 </section><!--END Entire Doc Section-->
             </div>
-
-            <div class="row pagedetails">
-                <div class="col-sm-5 col-xs-12 datemod">
-                    <dl id="wb-dtmd">
-                        <dt>Date modified:&#32;</dt>
-                        <dd><time property="dateModified">2016-10-04</time></dd>
-                    </dl>
-                </div>
-                <div class="clear visible-xs"></div>
-                <div class="col-sm-4 col-xs-6">
-                    <a href="http://www.canada.ca/en/contact/feedback.html" class="btn btn-default"><span class="glyphicon glyphicon-comment mrgn-rght-sm"></span>Feedback<span class="wb-inv"> about this web site</span></a>
-                </div>
-                <div class="col-sm-3 col-xs-6 text-right">
-                    <div class="wb-share" data-wb-share='{"lnkClass": "btn btn-default"}'></div>
-                </div>
-                <div class="clear visible-xs"></div>
+            <!-- prefooter-fr.html-Start-->
+            <div id="def-preFooter">
+                <link rel="import" href="./StaticFallbackFiles/gcweb/prefooter-fr.html">
             </div>
+            <!-- prefooter-fr.html-End-->
+            <!-- Write closure template -->
+            <script type="text/javascript">
+                var defPreFooter = document.getElementById("def-preFooter");
+                defPreFooter.outerHTML = wet.builder.preFooter({
+                    cdnEnv: "prod",
+                    dateModified: "2016-10-04",
+                    showPostContent: true,
+                    showShare: true,
+                });
+            </script>
         </main>
     </div>
 
-    <footer role="contentinfo" id="wb-info">
-        <nav role="navigation" class="container visible-sm visible-md visible-lg wb-navcurr">
-            <h2 class="wb-inv">About this site</h2>
-            <div class="row">
-                <div class="col-sm-3 col-lg-3">
-                    <section>
-                        <h3>Contact information</h3>
-                        <!--Start Healthy Canadians contact info-->
-                        <ul class="list-unstyled">
-                            <li><a href="/report-signalez/index-eng.php">Report a concern</a></li>
-                            <li><a href="/say-exprimez/index-eng.php">Public involvement</a></li>
-                            <li><a href="/contact-contactez/index-eng.php">General enquiries</a></li>
-                            <li><a href="/connect-connectez/index-eng.php">Stay connected</a></li>
-                        </ul>
-                        <!--End Healthy Canadians contact info-->
-                    </section>
-                    <section>
-                        <h3>News</h3>
-                        <ul class="list-unstyled">
-                            <li><a href="http://news.gc.ca/web/index-en.do">Newsroom</a></li>
-                            <li><a href="http://news.gc.ca/web/nwsprdct-en.do?mthd=tp&amp;crtr.tp1D=1">News releases</a></li>
-                            <li><a href="http://news.gc.ca/web/nwsprdct-en.do?mthd=tp&amp;crtr.tp1D=3">Media advisories</a></li>
-                            <li><a href="http://news.gc.ca/web/nwsprdct-en.do?mthd=tp&amp;crtr.tp1D=970">Speeches</a></li>
-                            <li><a href="http://news.gc.ca/web/nwsprdct-en.do?mthd=tp&amp;crtr.tp1D=980">Statements</a></li>
-                        </ul>
-                    </section>
-                </div>
-                <section class="col-sm-3 col-lg-3">
-                    <h3>Government</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="http://www.canada.ca/en/gov/system">How government works</a></li>
-                        <li><a href="http://www.canada.ca/en/gov/dept">Departments and agencies</a></li>
-                        <li><a href="http://pm.gc.ca/eng">Prime Minister</a></li>
-                        <li><a href="http://www.canada.ca/en/gov/ministers">Ministers</a></li>
-                        <li><a href="http://www.canada.ca/en/gov/publicservice">Public service and military</a></li>
-                        <li><a href="http://www.canada.ca/en/government/system/laws.html">Treaties, laws and regulations</a></li>
-                        <li><a href="http://www.canada.ca/en/gov/libraries">Libraries</a></li>
-                        <li><a href="http://www.canada.ca/en/gov/publications">Publications</a></li>
-                        <li><a href="http://www.canada.ca/en/gov/statistics">Statistics and data</a></li>
-                        <li><a href="http://www.canada.ca/en/newsite.html">About Canada.ca</a></li>
-                    </ul>
-                </section>
-                <section class="col-sm-3 col-lg-3 brdr-lft">
-                    <h3>Transparency</h3>
-                    <ul class="list-unstyled">
-                        <li><a href="http://www.canada.ca/en/transparency/reporting.html">Government-wide reporting</a></li>
-                        <li><a href="http://open.canada.ca/en">Open government</a></li>
-                        <li><a href="http://www.canada.ca/en/transparency/disclosure.html">Proactive disclosure</a></li>
-                        <li><a href="http://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></li>
-                        <li><a href="http://www.canada.ca/en/transparency/privacy.html">Privacy</a></li>
-                    </ul>
-                </section>
-                <div class="col-sm-3 col-lg-3 brdr-lft">
-                    <section>
-                        <h3>Feedback</h3>
-                        <p><a href="http://www.canada.ca/en/contact/feedback.html"><img src="./distro/4.0.20/GCWeb/assets/feedback.png" alt="Feedback about this Web site"></a></p>
-                    </section>
-                    <section>
-                        <h3>Social media</h3>
-                        <p><a href="http://www.canada.ca/en/social"><img src="./distro/4.0.20/GCWeb/assets/social.png" alt="Social media"></a></p>
-                    </section>
-                    <section>
-                        <h3>Mobile centre</h3>
-                        <p><a href="http://www.canada.ca/en/mobile"><img src="./distro/4.0.20/GCWeb/assets/mobile.png" alt="Mobile centre"></a></p>
-                    </section>
-                </div>
-            </div>
-        </nav>
-        <div class="brand">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-6 visible-sm visible-xs tofpg">
-                        <a href="#wb-cont">Top of Page <span class="glyphicon glyphicon-chevron-up"></span></a>
-                    </div>
-                    <div class="col-xs-6 col-md-12 text-right">
-                        <object type="image/svg+xml" tabindex="-1" role="img" data="./distro/4.0.20/GCWeb/assets/wmms-blk.svg" aria-label="Symbol of the Government of Canada"></object>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!--[if gte IE 9 | !IE ]><!-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-    <script src="./distro/4.0.20/wet-boew/js/wet-boew.min.js"></script>
+    <!-- footer-fr.html-Start-->
+    <div id="def-footer">
+        <link rel="import" href="./StaticFallbackFiles/gcweb/footer-fr.html">
+    </div>
+    <!-- footer-fr.html-End-->
+    <!-- Write closure template -->
+    <script type="text/javascript">
+        var defFooter = document.getElementById("def-footer");
+        defFooter.outerHTML = wet.builder.footer({
+            cdnEnv: "prod",
+            showFeatures: true,
+        });
+    </script>
+    <!-- Write closure template -->
+    <script type="text/javascript">
+    document.write(wet.builder.refFooter({
+        cdnEnv: "prod"
+    }));
+    </script>
+    <!--[if lt IE 10 | !IE ]><!-->
+    <script src="./js/jquery.xdomainrequest.min.js"></script>
     <!--<![endif]-->
-    <!--[if lt IE 9]>
-    <script src="./distro/4.0.20/wet-boew/js/ie8-wet-boew2.min.js"></script>
-    <![endif]-->
-
 </body>
 </html>
