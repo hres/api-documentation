@@ -326,13 +326,13 @@
                             <ul>
                                 <li>
                                     <a href='https://health-products.canada.ca/api/natural-licences/medicinalingredient?lang=en&type=json'>https://health-products.hres.ca/api/natural-licences/medicinalingredient?lang=en&type=json</a>
-    <pre class='prettify prettyprint linenums'>{
+                                    <pre class='prettify prettyprint linenums'>{
         "metadata":{
             "pagination":{
                 "limit":100,
                 "page":1,
                 "total":467758,
-                "next":"/api/lnhpd/medicinalingredient?page=2&lang=en&type=json",
+                "next":"medicinalingredient?page=2&lang=en&type=json",
                 "previous":null
             },
             "dateReceived":"2018-11-28"
@@ -341,10 +341,11 @@
             {
                 "lnhpd_id":3894657,
                 "ingredient_name":"Valeriana officinalis","ingredient_Text":null,
-                "potency_amount":0,
+                "potency_amount":0.0,
                 "potency_constituent":"",
                 "potency_unit_of_measure":"",
-                "quantity":80,"quantity_minimum":0,
+                "quantity":80.0,
+                "quantity_minimum":0,
                 "quantity_maximum":0,
                 "quantity_unit_of_measure":"mg",
                 "ratio_numerator":"5",
@@ -914,9 +915,9 @@
                         </section>
                         <section>
                             <h3 id="a6.3">Sample response</h3>
-                            <pre class="prettify prettyprint linenums">{"lnhpd_id":3908931,"dose_id":5884617,"population_type_desc":"Adults","age":0,"age_minimum":0,"age_maximum":0,"uom_type_desc_age":"",
-    "quantity_dose":2,"quantity_dose_minimum":0,"quantity_dose_maximum":0,"uom_type_desc_quantity_dose":"tablet","frequency":1,
-    "frequency_minimum":0,"frequency_maximum":0,"uom_type_desc_frequency":"daily"}</pre>
+                            <pre class="prettify prettyprint linenums">{"lnhpd_id":3908931,"dose_id":5884617,"population_type_desc":"Adults","age":0,"age_minimum":0.0,"age_maximum":0.0,"uom_type_desc_age":"",
+    "quantity_dose":2.0,"quantity_dose_minimum":0.0,"quantity_dose_maximum":0.0,"uom_type_desc_quantity_dose":"tablet","frequency":1.0,
+    "frequency_minimum":0.0,"frequency_maximum":0.0,"uom_type_desc_frequency":"daily"}</pre>
                         </section>
                         <section>
                             <h3 id="a6.4">jQuery example</h3>
@@ -1231,7 +1232,7 @@
             "limit": 100,
             "page": 1,
             "total": 84787,
-            "next": "/api/lnhpd/productpurpose?page=2&lang=en&type=json",
+            "next": "productpurpose?page=2&lang=en&type=json",
             "previous": null
         },
         "dateReceived": "2018-12-05T19:10:32.8134292Z"
@@ -1404,7 +1405,7 @@
             "limit": 100,
             "page": 1,
             "total": 130334,
-            "next": "/api/lnhpd/productrisk?page=2&lang=en&type=json",
+            "next": "productrisk?page=2&lang=en&type=json",
             "previous": null
         },
         "dateReceived": "2018-11-28"
@@ -1609,7 +1610,7 @@
                 var defPreFooter = document.getElementById("def-preFooter");
                 defPreFooter.outerHTML = wet.builder.preFooter({
                     cdnEnv: "prod",
-                    dateModified: "2017-02-27",
+                    dateModified: "2020-06-15",
                     showPostContent: true,
                     showShare: true,
                 });

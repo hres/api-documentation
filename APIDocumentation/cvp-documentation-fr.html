@@ -821,7 +821,7 @@
                         </section>
                         <section>
                             <h3 id="a6.3">Exemple de résultat</h3>
-                            <pre class="prettify prettyprint linenums">{"reaction_id":5801,"report_id":58,"duration":0,"duration_unit":"","pt_name":"Conjonctivite","soc_name":"Infections et infestations","meddra_version":"v.18.1"}</pre>
+                            <pre class="prettify prettyprint linenums">{"reaction_id":5801,"report_id":58,"duration":0.0,"duration_unit":"","pt_name":"Conjonctivite","soc_name":"Infections et infestations","meddra_version":"v.18.1"}</pre>
                         </section>
                         <section>
                             <h3 id="a6.4">Exemple de jQuery</h3>
@@ -1008,7 +1008,7 @@
                         </section>
                         <section>
                             <h3 id="a7.3">Exemple de résultat</h3>
-                            <pre class="prettify prettyprint linenums">{"report_drug_id":1106349,"report_id":50,"drug_product_id":16876,"drug_name":"FORTICILLIN","drug_involv_name":"Suspect","route_admin":null,"route_admin_name":"Intramusculaire","unit_dose_qty":0,"dose_unit":"","dose_unit_name":null,"frequency":2,"freq_time":1,"frequency_time":"2 chaque 1 Jour(s)","freq_time_unit":"Jour(s)","therapy_duration":1,"therapy_duration_unit":"Jours","dosage_form":"NON PRÉCISÉE","indication_name":null}</pre>
+                            <pre class="prettify prettyprint linenums">{"report_drug_id":1106349,"report_id":50,"drug_product_id":16876,"drug_name":"FORTICILLIN","drug_involv_name":"Suspect","route_admin":null,"route_admin_name":"Intramusculaire","unit_dose_qty":0.0,"dose_unit":"","dose_unit_name":null,"frequency":2,"freq_time":1.0,"frequency_time":"2 chaque 1 Jour(s)","freq_time_unit":"Jour(s)","therapy_duration":1.0,"therapy_duration_unit":"Jours","dosage_form":"NON PRÉCISÉE","indication_name":null}</pre>
                         </section>
                         <section>
                             <h3 id="a7.4">Exemple de jQuery</h3>
@@ -1556,7 +1556,7 @@
                         </section>
                         <section>
                             <h3 id="a10.3">Exemple de résultat</h3>
-                            <pre class="prettify prettyprint linenums">{"report_id":97,"report_no":"000000097","version_no":0,"date_received":"1973-06-01","date_int_received":"1973-06-01","mah_no":"","report_type_code":null,"report_type_name":"Déclaration spontanée","gender_code":"1","gender_name":"Homme","age":21,"age_y":21,"age_unit_code":"07","age_unit":"Ans","age_group_code":"","age_group_name":"","outcome_code":"11","outcome":"Décès","weight":0,"weight_unit_code":"","weight_unit":"","height":0,"height_unit_code":"","height_unit":"","seriousness_code":"01","seriousness":"Oui","death":"1","disability":"","congenital_anomaly":"","life_threatening":"","hosp_required":"","other_medically_imp_cond":"","reporter_type_code":"9","reporter_type":"Professionnel de la santé","source_code":"","source_name":"","report_link_flg":0,"aer_id":90100078809,"pt_name":"Surdose accidentelle","soc_name":"Lésions, intoxications et complications liées aux procédures","duration":0,"duration_unit":"","drug_name":"ETHANOL, PMA","cpd_flag":0}</pre>
+                            <pre class="prettify prettyprint linenums">{"report_id":97,"report_no":"000000097","version_no":0,"date_received":"1973-06-01","date_int_received":"1973-06-01","mah_no":"","report_type_code":null,"report_type_name":"Déclaration spontanée","gender_code":"1","gender_name":"Homme","age":49.0,"age_y":49.0,"age_unit_code":"07","age_unit":"Ans","age_group_code":"","age_group_name":"","outcome_code":"11","outcome":"Décès","weight":0.0,"weight_unit_code":"","weight_unit":"","height":0.0,"height_unit_code":"","height_unit":"","seriousness_code":"01","seriousness":"Oui","death":"1","disability":"","congenital_anomaly":"","life_threatening":"","hosp_required":"","other_medically_imp_cond":"","reporter_type_code":"9","reporter_type":"Professionnel de la santé","source_code":"","source_name":"","report_link_flg":0,"aer_id":90100078809,"pt_name":"Surdose accidentelle","soc_name":"Lésions, intoxications et complications liées aux procédures","duration":0.0,"duration_unit":"","drug_name":"ETHANOL, PMA","cpd_flag":0}</pre>
                         </section>
                         <section>
                             <h3 id="a10.4">Exemple de jQuery</h3>
@@ -1846,17 +1846,18 @@
             <!-- prefooter-fr.html-End-->
             <!-- Write closure template -->
             <script type="text/javascript">
-                var defPreFooter = document.getElementById("def-preFooter");
-                defPreFooter.outerHTML = wet.builder.preFooter({
-                    cdnEnv: "prod",
-                    dateModified: "2016-10-04",
-                    showPostContent: true,
-                    showShare: true,
-                });
+                            var defPreFooter = document.getElementById("def-preFooter");
+                            defPreFooter.outerHTML = wet.builder.preFooter({
+                                cdnEnv: "prod",
+                                dateModified: "2020-05-14",
+                                showPostContent: true,
+                                showShare: true,
+                            });
             </script>
         </main>
     </div>
-
+    </div>
+    </div>
     <!-- footer-fr.html-Start-->
     <div id="def-footer">
         <link rel="import" href="./StaticFallbackFiles/gcweb/footer-fr.html">
@@ -1864,17 +1865,17 @@
     <!-- footer-fr.html-End-->
     <!-- Write closure template -->
     <script type="text/javascript">
-        var defFooter = document.getElementById("def-footer");
-        defFooter.outerHTML = wet.builder.footer({
-            cdnEnv: "prod",
-            showFeatures: true,
-        });
+            var defFooter = document.getElementById("def-footer");
+            defFooter.outerHTML = wet.builder.footer({
+                cdnEnv: "prod",
+                showFeatures: true,
+            });
     </script>
     <!-- Write closure template -->
     <script type="text/javascript">
-    document.write(wet.builder.refFooter({
-        cdnEnv: "prod"
-    }));
+                document.write(wet.builder.refFooter({
+                    cdnEnv: "prod"
+                }));
     </script>
     <!--[if lt IE 10 | !IE ]><!-->
     <script src="./js/jquery.xdomainrequest.min.js"></script>
