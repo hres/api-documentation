@@ -270,8 +270,8 @@
                             </table>
                             <p>La liste des ingrédients actifs peut être accédée aux adresses URI suivantes&nbsp;:</p>
                             <ul>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/activeingredient/?lang=en&type=json">https://produits-sante.canada.ca/api/medicament/activeingredient/?lang=en&type=json</a></li>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/activeingredient/?lang=fr&type=json">https://produits-sante.canada.ca/api/medicament/activeingredient/?lang=fr&type=json</a></li>
+                                <li><a href="/api/medicament/activeingredient/?lang=en&type=json">https://produits-sante.canada.ca/api/medicament/activeingredient/?lang=en&type=json</a></li>
+                                <li><a href="/api/medicament/activeingredient/?lang=fr&type=json">https://produits-sante.canada.ca/api/medicament/activeingredient/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -428,8 +428,8 @@
                             </table>
                             <p>La liste des entreprises peut être accédée aux adresses URI suivantes :</p>
                             <ul>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/company/?lang=en&type=json">https://produits-sante.canada.ca/api/medicament/company/?lang=en&type=json</a></li>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/company/?lang=fr&type=json">https://produits-sante.canada.ca/api/medicament/company/?lang=fr&type=json</a></li>
+                                <li><a href="/api/medicament/company/?lang=en&type=json">https://produits-sante.canada.ca/api/medicament/company/?lang=en&type=json</a></li>
+                                <li><a href="/api/medicament/company/?lang=fr&type=json">https://produits-sante.canada.ca/api/medicament/company/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -585,7 +585,12 @@
                                             <li><code>4</code>&nbsp;- Annulé après commercialisation</li>
                                             <li><code>6</code>&nbsp;- Dormant</li>
                                             <li><code>9</code>&nbsp;- Annulé (notification annuelle omise)</li> 
-                                            <li><code>10</code>&nbsp;- Annulé (problème d'innocuité)</li>                                             
+                                            <li><code>10</code>&nbsp;- Annulé (problème d'innocuité)</li>
+					                        <li><code>11</code>&nbsp;- Autorisé par arrêté d'urgence</li>
+                                            <li><code>12</code>&nbsp;- Autorisation par arrêté d'urgence révoquée</li>
+                                            <li><code>13</code>&nbsp;- Accès restreint</li>
+                                            <li><code>14</code>&nbsp;- Autorisation par arrêté d'urgence expirée</li>
+											<li><code>15</code>&nbsp;- Annulé (transféré aux biocides)</li>
                                         </ul>
                                     </td>
                                     <td><strong>Non</strong>, mais par défaut tout est affiché.</td>
@@ -618,8 +623,8 @@
                             </table>
                             <p>La liste des produits pharmaceutiques peut être accédée aux adresses URI suivantes :</p>
                             <ul>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/drugproduct/?lang=en&type=json">https://produits-sante.canada.ca/api/medicament/drugproduct/?lang=en&type=json</a></li>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/drugproduct/?lang=fr&type=json">https://produits-sante.canada.ca/api/medicament/drugproduct/?lang=fr&type=json</a></li>
+                                <li><a href="/api/medicament/drugproduct/?lang=en&type=json">https://produits-sante.canada.ca/api/medicament/drugproduct/?lang=en&type=json</a></li>
+                                <li><a href="/api/medicament/drugproduct/?lang=fr&type=json">https://produits-sante.canada.ca/api/medicament/drugproduct/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -779,8 +784,8 @@
                             </table>
                             <p>La liste des formes posologiques peut être accédée aux adresses URI suivantes :</p>
                             <ul>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/form/?lang=en&type=json">https://produits-sante.canada.ca/api/medicament/form/?lang=en&type=json</a></li>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/form/?lang=fr&type=json">https://produits-sante.canada.ca/api/medicament/form/?lang=fr&type=json</a></li>
+                                <li><a href="/api/medicament/form/?lang=en&type=json">https://produits-sante.canada.ca/api/medicament/form/?lang=en&type=json</a></li>
+                                <li><a href="/api/medicament/form/?lang=fr&type=json">https://produits-sante.canada.ca/api/medicament/form/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -891,7 +896,7 @@
                             </table>
                             <p>La liste des emballages par produit peut être accédée à l'adresse URI suivante :</p>
                             <ul>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/packaging/?type=json">https://produits-sante.canada.ca/api/medicament/packaging/?type=json</a></li>                                
+                                <li><a href="/api/medicament/packaging/?type=json">https://produits-sante.canada.ca/api/medicament/packaging/?type=json</a></li>                                
                             </ul>
                         </section>
                         <section>
@@ -1013,7 +1018,7 @@
                             </table>
                             <p>La liste des normes pharmaceutiques peut être accédée à l'adresse URI suivante :</p>
                             <ul>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/pharmaceuticalstd/?type=json">https://produits-sante.canada.ca/api/medicament/pharmaceuticalstd/?type=json</a></li>                                
+                                <li><a href="/api/medicament/pharmaceuticalstd/?type=json">https://produits-sante.canada.ca/api/medicament/pharmaceuticalstd/?type=json</a></li>                                
                             </ul>
                         </section>
                         <section>
@@ -1143,8 +1148,8 @@
                             </table>
                             <p>La liste des voies d'administration peut être accédée aux adresses URI suivantes :</p>
                             <ul>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/route/?lang=en&type=json">https://produits-sante.canada.ca/api/medicament/route/?lang=en&type=json</a></li>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/route/?lang=fr&type=json">https://produits-sante.canada.ca/api/medicament/route/?lang=fr&type=json</a></li>
+                                <li><a href="/api/medicament/route/?lang=en&type=json">https://produits-sante.canada.ca/api/medicament/route/?lang=en&type=json</a></li>
+                                <li><a href="/api/medicament/route/?lang=fr&type=json">https://produits-sante.canada.ca/api/medicament/route/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1299,8 +1304,8 @@
                             </table>
                             <p>La liste des annexes peut être accédée aux adresses URI suivantes :</p>
                             <ul>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/schedule/?lang=en&type=json">https://produits-sante.canada.ca/api/medicament/schedule/?lang=en&type=json</a></li>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/schedule/?lang=fr&type=json">https://produits-sante.canada.ca/api/medicament/schedule/?lang=fr&type=json</a></li>
+                                <li><a href="/api/medicament/schedule/?lang=en&type=json">https://produits-sante.canada.ca/api/medicament/schedule/?lang=en&type=json</a></li>
+                                <li><a href="/api/medicament/schedule/?lang=fr&type=json">https://produits-sante.canada.ca/api/medicament/schedule/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1427,8 +1432,8 @@
                             </table>
                             <p>La liste des états peut être accédée aux adresses URI suivantes :</p>
                             <ul>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/status/?lang=en&type=json">https://produits-sante.canada.ca/api/medicament/status/?lang=en&type=json</a></li>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/status/?lang=fr&type=json">https://produits-sante.canada.ca/api/medicament/status/?lang=fr&type=json</a></li>
+                                <li><a href="/api/medicament/status/?lang=en&type=json">https://produits-sante.canada.ca/api/medicament/status/?lang=en&type=json</a></li>
+                                <li><a href="/api/medicament/status/?lang=fr&type=json">https://produits-sante.canada.ca/api/medicament/status/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1566,7 +1571,7 @@
                             </table>
                             <p>La liste des classes thérapeutiques peut être accédée aux adresses URI suivantes :</p>
                             <ul>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/therapeuticclass/?lang=en&type=json">https://produits-sante.canada.ca/api/medicament/therapeuticclass/?lang=en&type=json</a></li>
+                                <li><a href="/api/medicament/therapeuticclass/?lang=en&type=json">https://produits-sante.canada.ca/api/medicament/therapeuticclass/?lang=en&type=json</a></li>
                                 <li><a href=https://produits-sante.canada.ca/api/medicament/therapeuticclass/?lang=fr&type=json">https://produits-sante.canada.ca/api/medicament/therapeuticclass/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
@@ -1698,8 +1703,8 @@
                             </table>
                             <p>La liste des espèces animales peut être accédée aux adresses URI suivantes :</p>
                             <ul>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/veterinaryspecies/?lang=en&type=json">https://produits-sante.canada.ca/api/medicament/veterinaryspecies/?lang=en&type=json</a></li>
-                                <li><a href="https://produits-sante.canada.ca/api/medicament/veterinaryspecies/?lang=fr&type=json">https://produits-sante.canada.ca/api/medicament/veterinaryspecies/?lang=fr&type=json</a></li>
+                                <li><a href="/api/medicament/veterinaryspecies/?lang=en&type=json">https://produits-sante.canada.ca/api/medicament/veterinaryspecies/?lang=en&type=json</a></li>
+                                <li><a href="/api/medicament/veterinaryspecies/?lang=fr&type=json">https://produits-sante.canada.ca/api/medicament/veterinaryspecies/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
