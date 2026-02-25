@@ -917,39 +917,23 @@
                                 </tr>
                                 <tr>
                                     <td><strong>package_size</strong></td>
-                                    <td>La capacité de l'emballage.
-                                      <span style="color: red;"> À compter du 1er mai 2025, cette information apparaîtra désormais dans le champ product_information.
-                                      </span> 
-                                   </td>
+                                    <td>La capacité de l'emballage. À compter du 1er mai 2025, cette information apparaîtra désormais dans le champ product_information.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>package_size_unit</strong></td>
-                                    <td>L'unité de la capacité de l'emballage.
-                                      <span style="color: red;"> À compter du 1er mai 2025, cette information apparaîtra désormais dans le champ product_information.
-                                      </span>      
-                                    </td>
+                                    <td>L'unité de la capacité de l'emballage. À compter du 1er mai 2025, cette information apparaîtra désormais dans le champ product_information.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>package_type</strong></td>
-                                    <td>Le type d'emballage.
-                                      <span style="color: red;"> À compter du 1er mai 2025, cette information apparaîtra désormais dans le champ product_information.
-                                      </span>  
-                                    </td>
+                                    <td>Le type d'emballage. À compter du 1er mai 2025, cette information apparaîtra désormais dans le champ product_information.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>product_information</strong></td>
-                                    <td>Renseignements supplémentaires sur le produit.
-                                      <span style="color: red;">Toute l'information sur l'emballage apparaîtra désormais dans ce champ, avec le format suivant :
-PRODUCT_INFORMATION1 [PACKAGE_SIZE1 PACKAGE_UNIT1 PACKAGE_TYPE1]/PRODUCT_INFORMATION 2 [ PACKAGE_SIZE2 PACKAGE_UNIT2 PACKAGE_TYPE2]/etc.
-                                     </span>
-                                    </td>
+                                    <td>Renseignements supplémentaires sur le produit.Toute l'information sur l'emballage apparaîtra désormais dans ce champ, avec le format suivant: PRODUCT_INFORMATION1 [PACKAGE_SIZE1 PACKAGE_UNIT1 PACKAGE_TYPE1]/PRODUCT_INFORMATION 2 [ PACKAGE_SIZE2 PACKAGE_UNIT2 PACKAGE_TYPE2]/etc. </td>
                                 </tr>
                                 <tr>
                                     <td><strong>upc</strong></td>
-                                    <td>Le code universel des produits.
-                                      <span style="color: red;"> À compter du 1er mai 2025, cette information apparaîtra désormais dans le champ product_information.
-                                      </span> 
-                                    </td>
+                                    <td>Le code universel des produits. À compter du 1er mai 2025, cette information apparaîtra désormais dans le champ product_information. </td>
                                 </tr>
                             </table>
                         </section>
@@ -1608,6 +1592,14 @@ PRODUCT_INFORMATION1 [PACKAGE_SIZE1 PACKAGE_UNIT1 PACKAGE_TYPE1]/PRODUCT_INFORMA
                                     <td><strong>drug_code</strong></td>
                                     <td>Le code attribué à chaque produit pharmaceutique.</td>
                                 </tr>
+								<tr>
+                                    <td><strong>tc_ahfs</strong></td>
+                                    <td>La description du code American Hospital Formulary Service n'est plus disponible.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>tc_ahfs_number</strong></td>
+                                    <td>Le code American Hospital Formulary Service n'est plus disponible.</td>
+                                </tr>
                                 <tr>
                                     <td><strong>tc_atc</strong></td>
                                     <td>La description du code anatomique, thérapeutique, chimique.</td>
@@ -1620,7 +1612,7 @@ PRODUCT_INFORMATION1 [PACKAGE_SIZE1 PACKAGE_UNIT1 PACKAGE_TYPE1]/PRODUCT_INFORMA
                         </section>                            
                        <section>
                             <h3 id="a11.3">Exemple de résultat</h3>
-                            <pre class="prettify prettyprint linenums">{"drug_code":10564,"tc_atc_number":"V07AV","tc_atc":"TECHNICAL DISINFECTANTS"}</pre>
+                            <pre class="prettify prettyprint linenums">{"drug_code":10564,"tc_atc_number":"V07AV","tc_atc":"TECHNICAL DISINFECTANTS","tc_ahfs_number":"","tc_ahfs":""}</pre>
                        </section>
                        <section>
                             <h3 id="a11.4">Exemple de jQuery</h3>
