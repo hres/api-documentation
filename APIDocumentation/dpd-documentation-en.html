@@ -589,7 +589,7 @@
                                             <li><code>6</code>&nbsp;- Dormant</li>
                                             <li><code>9</code>&nbsp;- Cancelled (Unreturned Annual)</li>
                                             <li><code>10</code>&nbsp;- Cancelled (Safety Issue)</li>
-											<li><code>11</code>&nbsp;- Authorized By Interim Order</li>
+					    <li><code>11</code>&nbsp;- Authorized By Interim Order</li>
                                             <li><code>12</code>&nbsp;- Authorization By Interim Order Revoked</li>
                                             <li><code>13</code>&nbsp;- Restricted Access</li>
                                             <li><code>14</code>&nbsp;- Authorization By Interim Order Expired</li>
@@ -921,29 +921,29 @@
                                 </tr>
                                 <tr>
                                     <td><strong>package_size</strong></td>
-                                    <td>The size of package.</td>
+                                    <td>The size of package. As of May 1, 2025 this information will now appear in the product_information field.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>package_size_unit</strong></td>
-                                    <td>The unit for package size.</td>
+                                    <td>The unit for package size. As of May 1, 2025 this information will now appear in the product_information field.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>package_type</strong></td>
-                                    <td>The type of package.</td>
+                                    <td>The type of package. As of May 1, 2025 this information will now appear in the product_information field.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>product_information</strong></td>
-                                    <td>Additional product information.</td>
+                                    <td>Additional product information.  All packaging information will now appear in this field, with the following format:                                     PRODUCT_INFORMATION1 [PACKAGE_SIZE1 PACKAGE_UNIT1 PACKAGE_TYPE1]/PRODUCT_INFORMATION 2 [ PACKAGE_SIZE2 PACKAGE_UNIT2 PACKAGE_TYPE2]/etc.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>upc</strong></td>
-                                    <td>The Universal Product Code.</td>
+                                    <td>The Universal Product Code. As of May 1, 2025, UPC values have been removed from the packaging file.</td>
                                 </tr>
                             </table>
                         </section>
                         <section>
                              <h3 id="a6.3">Sample response</h3>
-                             <pre class="prettify prettyprint linenums">{"drug_code":11685,"upc":"055599047240","package_size_unit":"24","package_type":"Blister Pack","package_size":"Ea","product_information":""}</pre>
+                             <pre class="prettify prettyprint linenums">{"drug_code":36789,"upc":"","package_size_unit":"","package_type":"","package_size":"","product_information":"Pharmachoice [100 Capsule Bottle]/Rexall [100 Capsule Bottle]"}</pre>
                         </section>
                         <section>
                              <h3 id="a6.4">jQuery example</h3>
@@ -1599,14 +1599,6 @@
                                     <td><strong>drug_code</strong></td>
                                     <td>The code assigned to each drug product.</td>
                                 </tr>
-								<tr>
-                                    <td><strong>tc_ahfs</strong></td>
-                                    <td>The description of the American Hospital Formulary Service is no longer available.</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>tc_ahfs_number</strong></td>
-                                    <td>The American Hospital Formulary Service code is no longer available.</td>
-                                </tr>
                                 <tr>
                                     <td><strong>tc_atc</strong></td>
                                     <td>The description of the Anatomical Therapeutic Chemical Code.</td>
@@ -1620,7 +1612,7 @@
                         </section>
                         <section>
                              <h3 id="a11.3">Sample response</h3>
-                             <pre class="prettify prettyprint linenums">{"drug_code":10564,"tc_atc_number":"V07AV","tc_atc":"TECHNICAL DISINFECTANTS","tc_ahfs_number":"","tc_ahfs":""}</pre>
+                             <pre class="prettify prettyprint linenums">{"drug_code":10564,"tc_atc_number":"V07AV","tc_atc":"TECHNICAL DISINFECTANTS"}</pre>
                         </section>
                         <section>
                              <h3 id="a11.4">jQuery example</h3>
