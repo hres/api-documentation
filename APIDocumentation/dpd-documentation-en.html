@@ -23,9 +23,9 @@
     <meta name="meta_date" content="" />
  
     <!-- Load closure template scripts -->
-    <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/soyutils.js"></script>
-    <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/wet-en.js"></script>
-    <script type="text/javascript" src="https://ssl-templates.services.gc.ca/app/cls/wet/gcweb/v4_0_21/js/compiled/plugins-en.js"></script>
+    <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_28/cdts/compiled/soyutils.js"></script>
+    <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_28/cdts/compiled/wet-en.js"></script>
+    <script type="text/javascript" src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v4_0_28/cdts/compiled/plugins-en.js"></script>
 
     <!-- Load closure template scripts -->
     <noscript>
@@ -199,7 +199,7 @@
                         <p>Human, veterinary, disinfectants and Schedule C drugs (e.g. radiopharmaceutical products) approved products will be available in the DPD online at the time of authorization, with the exception of three monographed product groups under Division 1, Part C of the Food and Drug Regulations: sunscreen (sunscreens, lipstick making a SPF claim, cosmetic-like products with sunscreen claims, etc.), anti-dandruff shampoo, and hard surface disinfectants.  For these products, applications filed after June 15, 2015, there may be a six month delay after approval for the inclusion in the DPD online.</p>
                         <p>Health Canada is the federal regulator of therapeutic products and does not provide medical advice on the use of the products identified in this database. For information related to treatment options, choices of medications and their uses, illnesses, side effects or drug interactions, please contact your health care professional. For information on where these products are sold, please contact the individual company directly.</p>
                         <p>This Application Programming Interface (API) allows developers to access that information in JSON and XML format for reuse in their own applications.
-                            The base URI for the Drug Product Database is&nbsp;<a href="https://health-products.canada.ca/api/drug/">https://health-products.canada.ca/api/drug/</a> and you can add parameters to it. Any requests are made relative to this URI.</p>                        
+                            The base URI for the Drug Product Database is <strong>https://health-products.canada.ca/api/drug/</strong> and you can add parameters to it. Any requests are made relative to this URI.</p>                        
                     </section>
                     <section>
                         <!--Active Ingredient section-start-->
@@ -271,8 +271,8 @@
                             </table>
                             <p>Active Ingredients can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://health-products.canada.ca/api/drug/activeingredient/?lang=en&type=json">https://health-products.canada.ca/api/drug/activeingredient/?lang=en&type=json</a></li>
-                                <li><a href="https://health-products.canada.ca/api/drug/activeingredient/?lang=fr&type=json">https://health-products.canada.ca/api/drug/activeingredient/?lang=fr&type=json</a></li>
+                                <li><a href="/api/drug/activeingredient/?lang=en&type=json">https://health-products.canada.ca/api/drug/activeingredient/?lang=en&type=json</a></li>
+                                <li><a href="/api/drug/activeingredient/?lang=fr&type=json">https://health-products.canada.ca/api/drug/activeingredient/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
 
@@ -429,8 +429,8 @@
                             </table>
                             <p>Companies can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://health-products.canada.ca/api/drug/company/?lang=en&type=json">https://health-products.canada.ca/api/drug/company/?lang=en&type=json</a></li>
-                                <li><a href="https://health-products.canada.ca/api/drug/company/?lang=fr&type=json">https://health-products.canada.ca/api/drug/company/?lang=fr&type=json</a></li>
+                                <li><a href="/api/drug/company/?lang=en&type=json">https://health-products.canada.ca/api/drug/company/?lang=en&type=json</a></li>
+                                <li><a href="/api/drug/company/?lang=fr&type=json">https://health-products.canada.ca/api/drug/company/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
 
@@ -588,7 +588,12 @@
                                             <li><code>4</code>&nbsp;- Cancelled Post Market</li>
                                             <li><code>6</code>&nbsp;- Dormant</li>
                                             <li><code>9</code>&nbsp;- Cancelled (Unreturned Annual)</li>
-                                            <li><code>10</code>&nbsp;- Cancelled (Safety Issue)</li>                                                                                    
+                                            <li><code>10</code>&nbsp;- Cancelled (Safety Issue)</li>
+					    <li><code>11</code>&nbsp;- Authorized By Interim Order</li>
+                                            <li><code>12</code>&nbsp;- Authorization By Interim Order Revoked</li>
+                                            <li><code>13</code>&nbsp;- Restricted Access</li>
+                                            <li><code>14</code>&nbsp;- Authorization By Interim Order Expired</li>
+                                            <li><code>15</code>&nbsp;- Cancelled (Transitioned to Biocides)</li>
                                         </ul>
                                     </td>
                                     <td><strong>No</strong>, but defaults to all if not specified.</td>
@@ -621,8 +626,8 @@
                             </table>
                             <p>Drug Products can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://health-products.canada.ca/api/drug/drugproduct/?lang=en&type=json">https://health-products.canada.ca/api/drug/drugproduct/?lang=en&type=json</a></li>
-                                <li><a href="https://health-products.canada.ca/api/drug/drugproduct/?lang=fr&type=json">https://health-products.canada.ca/api/drug/drugproduct/?lang=fr&type=json</a></li>
+                                <li><a href="/api/drug/drugproduct/?lang=en&type=json">https://health-products.canada.ca/api/drug/drugproduct/?lang=en&type=json</a></li>
+                                <li><a href="/api/drug/drugproduct/?lang=fr&type=json">https://health-products.canada.ca/api/drug/drugproduct/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -781,8 +786,8 @@
                             </table>
                             <p>Dosage Forms can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://health-products.canada.ca/api/drug/form/?lang=en&type=json">https://health-products.canada.ca/api/drug/form/?lang=en&type=json</a></li>
-                                <li><a href="https://health-products.canada.ca/api/drug/form/?lang=fr&type=json">https://health-products.canada.ca/api/drug/form/?lang=fr&type=json</a></li>
+                                <li><a href="/api/drug/form/?lang=en&type=json">https://health-products.canada.ca/api/drug/form/?lang=en&type=json</a></li>
+                                <li><a href="/api/drug/form/?lang=fr&type=json">https://health-products.canada.ca/api/drug/form/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -895,7 +900,7 @@
                             </table>
                             <p>Packaging can be accessed via that URI:</p>
                             <ul>
-                                <li><a href="https://health-products.canada.ca/api/drug/packaging/?type=json">https://health-products.canada.ca/api/drug/packaging/?type=json</a></li>                                
+                                <li><a href="/api/drug/packaging/?type=json">https://health-products.canada.ca/api/drug/packaging/?type=json</a></li>                                
                             </ul>
                         </section>
                         <section>
@@ -916,29 +921,29 @@
                                 </tr>
                                 <tr>
                                     <td><strong>package_size</strong></td>
-                                    <td>The size of package.</td>
+                                    <td>The size of package. As of May 1, 2025 this information will now appear in the product_information field.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>package_size_unit</strong></td>
-                                    <td>The unit for package size.</td>
+                                    <td>The unit for package size. As of May 1, 2025 this information will now appear in the product_information field.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>package_type</strong></td>
-                                    <td>The type of package.</td>
+                                    <td>The type of package. As of May 1, 2025 this information will now appear in the product_information field.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>product_information</strong></td>
-                                    <td>Additional product information.</td>
+                                    <td>Additional product information.  All packaging information will now appear in this field, with the following format:                                     PRODUCT_INFORMATION1 [PACKAGE_SIZE1 PACKAGE_UNIT1 PACKAGE_TYPE1]/PRODUCT_INFORMATION 2 [ PACKAGE_SIZE2 PACKAGE_UNIT2 PACKAGE_TYPE2]/etc.</td>
                                 </tr>
                                 <tr>
                                     <td><strong>upc</strong></td>
-                                    <td>The Universal Product Code.</td>
+                                    <td>The Universal Product Code. As of May 1, 2025, UPC values have been removed from the packaging file.</td>
                                 </tr>
                             </table>
                         </section>
                         <section>
                              <h3 id="a6.3">Sample response</h3>
-                             <pre class="prettify prettyprint linenums">{"drug_code":11685,"upc":"055599047240","package_size_unit":"24","package_type":"Blister Pack","package_size":"Ea","product_information":""}</pre>
+                             <pre class="prettify prettyprint linenums">{"drug_code":36789,"upc":"","package_size_unit":"","package_type":"","package_size":"","product_information":"Pharmachoice [100 Capsule Bottle]/Rexall [100 Capsule Bottle]"}</pre>
                         </section>
                         <section>
                              <h3 id="a6.4">jQuery example</h3>
@@ -1018,7 +1023,7 @@
                             </table>
                             <p>Pharmaceutical Standards can be accessed via that URI:</p>
                             <ul>                                
-                                <li><a href="https://health-products.canada.ca/api/drug/pharmaceuticalstd/?type=json">https://health-products.canada.ca/api/drug/pharmaceuticalstd/?type=json</a></li>
+                                <li><a href="/api/drug/pharmaceuticalstd/?type=json">https://health-products.canada.ca/api/drug/pharmaceuticalstd/?type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1150,8 +1155,8 @@
                             </table>
                             <p>Routes of administration can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://health-products.canada.ca/api/drug/route/?lang=en&type=json">https://health-products.canada.ca/api/drug/route/?lang=en&type=json</a></li>
-                                <li><a href="https://health-products.canada.ca/api/drug/route/?lang=fr&type=json">https://health-products.canada.ca/api/drug/route/?lang=fr&type=json</a></li>
+                                <li><a href="/api/drug/route/?lang=en&type=json">https://health-products.canada.ca/api/drug/route/?lang=en&type=json</a></li>
+                                <li><a href="/api/drug/route/?lang=fr&type=json">https://health-products.canada.ca/api/drug/route/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1305,8 +1310,8 @@
                             </table>
                             <p>Schedules can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://health-products.canada.ca/api/drug/schedule/?lang=en&type=json">https://health-products.canada.ca/api/drug/schedule/?lang=en&type=json</a></li>
-                                <li><a href="https://health-products.canada.ca/api/drug/schedule/?lang=fr&type=json">https://health-products.canada.ca/api/drug/schedule/?lang=fr&type=json</a></li>
+                                <li><a href="/api/drug/schedule/?lang=en&type=json">https://health-products.canada.ca/api/drug/schedule/?lang=en&type=json</a></li>
+                                <li><a href="/api/drug/schedule/?lang=fr&type=json">https://health-products.canada.ca/api/drug/schedule/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1434,8 +1439,8 @@
                             </table>
                             <p>Product Statuses can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://health-products.canada.ca/api/drug/status/?lang=en&type=json">https://health-products.canada.ca/api/drug/status/?lang=en&type=json</a></li>
-                                <li><a href="https://health-products.canada.ca/api/drug/status/?lang=fr&type=json">https://health-products.canada.ca/api/drug/status/?lang=fr&type=json</a></li>
+                                <li><a href="/api/drug/status/?lang=en&type=json">https://health-products.canada.ca/api/drug/status/?lang=en&type=json</a></li>
+                                <li><a href="/api/drug/status/?lang=fr&type=json">https://health-products.canada.ca/api/drug/status/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1574,8 +1579,8 @@
                             </table>
                             <p>Therapeutic Classes can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://health-products.canada.ca/api/drug/therapeuticclass/?lang=en&type=json">https://health-products.canada.ca/api/drug/therapeuticclass/?lang=en&type=json</a></li>
-                                <li><a href="https://health-products.canada.ca/api/drug/therapeuticclass/?lang=fr&type=json">https://health-products.canada.ca/api/drug/therapeuticclass/?lang=fr&type=json</a></li>
+                                <li><a href="/api/drug/therapeuticclass/?lang=en&type=json">https://health-products.canada.ca/api/drug/therapeuticclass/?lang=en&type=json</a></li>
+                                <li><a href="/api/drug/therapeuticclass/?lang=fr&type=json">https://health-products.canada.ca/api/drug/therapeuticclass/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
@@ -1698,8 +1703,8 @@
                             </table>
                             <p>Veterinary Species can be accessed via these URIs:</p>
                             <ul>
-                                <li><a href="https://health-products.canada.ca/api/drug/veterinaryspecies/?lang=en&type=json">https://health-products.canada.ca/api/drug/veterinaryspecies/?lang=en&type=json</a></li>
-                                <li><a href="https://health-products.canada.ca/api/drug/veterinaryspecies/?lang=fr&type=json">https://health-products.canada.ca/api/drug/veterinaryspecies/?lang=fr&type=json</a></li>
+                                <li><a href="/api/drug/veterinaryspecies/?lang=en&type=json">https://health-products.canada.ca/api/drug/veterinaryspecies/?lang=en&type=json</a></li>
+                                <li><a href="/api/drug/veterinaryspecies/?lang=fr&type=json">https://health-products.canada.ca/api/drug/veterinaryspecies/?lang=fr&type=json</a></li>
                             </ul>
                         </section>
                         <section>
